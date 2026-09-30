@@ -1,0 +1,49 @@
+# [个体编号已省略]独立技术修复
+
+2026-09-04。用户明确要求“单独修复”。范围仅[个体编号已省略]，不中断或改写当前24例队列、不恢复时长QC、不放宽数值QC、不重跑科学排除例、不扩至其余108名、不训练。
+
+## 最终结果：技术修复成功，数值通过
+
+- 独立attempt于11:21:18完成，退出码0，`NUMERICAL_PASS_PENDING_VISUAL`。修复worker正常退出，主队列PID18003仍在运行，[个体编号已省略]已进入Stage1。
+- Old Segment于11:15:24正常完成，Stage1、Stage2、AAL90 QC及独立NPZ数组验证全部PASS。时序240×90、FC90×90、全部有限、对称/对角检查通过，最低ROI有限覆盖1.0。
+- 头动最大平移0.610 mm、旋转0.659°；censor8/240（3.33%）。没有放宽原有20% censor或其他QC。
+- 直接比较新旧MAT：Stage1所有字段相同；Stage2仅`Cfg.MaskFile`的绝对路径从旧workdir变为新独立workdir，目标仍为同名Stage2AnalysisMask，其他字段相同。
+- 助手查看了下方2张配准/标准化图，未见明显整体错位；这只是静态辅助检查，不是全部QC图的人工确认。**视觉状态仍PENDING，尚未纳入训练。**
+- 11:22按唯一subject_id纳入独立修复后的当前24例有效状态：11 PASS、5 EXCLUDED、0未解决技术FAILED、1 RUNNING、7 PENDING。原活动账本仍保留旧attempt的1 FAILED，本汇总以修复结果替换，不重复计人。加上此前2名临床代表，临床数值PASS累计13人。
+- 11:22磁盘空闲415,239,229,440字节，约386.7 GiB；本次未删除任何旧文件或原始数据。
+
+[最终修复状态](repair_status.json) · [独立数组验证](independent_aal90_verification.json) · [实际步骤时间](attempt-events.tsv)
+
+[T1与功能配准图](t1_to_mean_functional_edges.png) · [MNI标准化图](mni_normalized_mean_edges.png)
+
+## 已确认的直接故障链
+
+- 旧attempt的完整原始T1是173×203×178、25,005,080字节，有限且非恒定。
+- 旧staging记录实际接受了只有2×2×2、384字节的裁剪结果；随后T1ImgCoreg/T1ImgSegment沿用了该小体积，在SPM Old Segment强度初始化时索引越界。
+- 旧c分支校验检查了3D、体素尺寸及“不大于原图”，但没有发现几乎全部组织被裁掉；共享DS辅助代码和运行中的SRPBS代码本次均未修改。
+- 独立复制原始T1重新运行同一dcm2nii，得到正常173×193×177、23,639,764字节的结果，**没有再次复现2×2×2**。因此确认的是旧分割输入异常；不能声称dcm2nii对该原图必然产生异常，异常发生条件仍未确定。probe目录及result.json完整保留。
+- [SPM官方spm_minmax源代码](https://github.com/spm/spm/blob/25.01.02/spm_minmax.m)用于理解该强度初始化环节；编译版源文件是加密文件，公开源码行号不能直接替代本机堆栈行号。实际根因证据以本地NIfTI尺寸、staging记录和失败日志为准。
+
+## 本次修复实现
+
+- 新attempt路径：`[本机路径已省略]`。旧v8失败目录及原账本完全保留。
+- 复用原始提取的240个BOLD和T1，只向新workdir复制，不再扫描90GB归档。
+- 只在本次staging进程替换T1准备步骤，保留完整原始T1，不裁剪、不插值、不缩放、不翻转。逐体素和affine与原始T1比较，必须完全一致。
+- 为兼容DPARSF既有c文件选择器，完整T1副本使用c前缀；**它不是裁剪图**，manifest明确写`crop_performed=false`、`dcm2nii_executed=false`及`verified_identity_full_t1_legacy_c_prefix`，日志也明确说明。没有伪造dcm2nii成功或crop日志。
+- DPARSF两阶段配置、TR2.5、240时点、3mm MNI、无GSR、无平滑AAL90、0.01–0.10Hz及所有既有科学QC不变；完整T1保留是本次有记录的预处理差异，应保留到后续方法/敏感性记录。
+- 独立X display188及home/run/cache；单例16 workers。服务器32逻辑CPU，主队列继续，未修改共享运行环境。
+- 11:09启动，shell worker PID8934。最终必须按实际Stage1/Stage2/AAL90 QC与独立NPZ验证判定，不凭进程启动宣称修复通过。
+
+该修复已依上述要求跑到终态，见顶部最终结果；不是仅提交后台重试。
+
+## 验证与状态入口
+
+6项测试在远端实际DPABI容器通过：完整拷贝通过；尺寸缩成2×2×2、体素变化、affine位移、非有限值、符号链接均拒绝。两个shell脚本语法检查通过。
+
+- `attempt-01/status.txt` / `events.tsv`：实际步骤。
+- `attempt-01/exit_code.txt`：终态退出码，运行时尚无该文件。
+- `attempt-01/independent_aal90_verification.json`：完整通过后的独立数组验证。
+- `repair_status.json`：本次修复汇总，由`summarize_repair.py`读取真实产物生成。
+- `worker.log`、`attempt-01/runs/stage1/dpabi.log`、stage2日志：执行证据。
+
+原24例账本正在由PID18003写入，本修复不并发修改它。统计时按官方subject_id用本独立修复的最终结果替换[个体编号已省略]旧失败状态，不得把同一人当新增被试重复计数。技术故障解决不保证科学QC通过，QC未通过仍需如实排除，目视确认不自动代签。

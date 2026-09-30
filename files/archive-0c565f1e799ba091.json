@@ -1,0 +1,9 @@
+{
+  "state": "FAILED",
+  "completed_permutations": 0,
+  "requested_permutations": 2,
+  "workers": 2,
+  "updated_at": "2026-09-08T12:32:33.773727+00:00",
+  "elapsed_seconds": 5.875,
+  "error": "AssertionError: \nNot equal to tolerance rtol=1e-10, atol=1e-10\n\nMismatched elements: 493 / 1485 (33.2%)\nFirst 5 mismatches are at indices:\n [0, 0, 2]: 0.34321858030498487 (ACTUAL), 0.3432185909649539 (DESIRED)\n [0, 1, 2]: 0.3152984439795928 (ACTUAL), 0.31529856278334245 (DESIRED)\n [0, 2, 2]: 0.37297679092873864 (ACTUAL), 0.3729767653450137 (DESIRED)\n [0, 3, 2]: 0.20574230317440598 (ACTUAL), 0.20574231722839656 (DESIRED)\n [0, 4, 2]: 0.3358205051824029 (ACTUAL), 0.3358203832885611 (DESIRED)\nMax absolute difference among violations: 2.75124313e-06\nMax relative difference among violations: 9.92831831e-06\n ACTUAL: array([[[5.107005e-01, 1.158698e-02, 3.432186e-01],\n        [4.953013e-01, 4.985735e-02, 3.152984e-01],\n        [4.836100e-01, 1.077463e-02, 3.729768e-01],...\n DESIRED: array([[[5.107005e-01, 1.158698e-02, 3.432186e-01],\n        [4.953013e-01, 4.985735e-02, 3.152986e-01],\n        [4.836100e-01, 1.077463e-02, 3.729768e-01],..."
+}

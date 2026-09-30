@@ -1,0 +1,203 @@
+{
+  "date": "2026-09-25",
+  "evaluation": {
+    "state": "EXTERNAL153_VERIFIED",
+    "results": [
+      {
+        "source": "srpbs",
+        "source_people": 99,
+        "method": "tangent",
+        "target_people": 53,
+        "auc": 0.6452991452991452,
+        "ba": 0.6047008547008548,
+        "sensitivity": 0.5555555555555556,
+        "specificity": 0.6538461538461539,
+        "accuracy": 0.6037735849056604,
+        "brier": 0.2521958324224197
+      },
+      {
+        "source": "srpbs",
+        "source_people": 99,
+        "method": "raw_fc",
+        "target_people": 53,
+        "auc": 0.6068376068376068,
+        "ba": 0.6217948717948718,
+        "sensitivity": 0.6666666666666666,
+        "specificity": 0.5769230769230769,
+        "accuracy": 0.6226415094339622,
+        "brier": 0.29649446285977193
+      },
+      {
+        "source": "srpbs",
+        "source_people": 99,
+        "method": "nuisance",
+        "target_people": 53,
+        "auc": 0.4715099715099714,
+        "ba": 0.4793447293447293,
+        "sensitivity": 0.07407407407407407,
+        "specificity": 0.8846153846153846,
+        "accuracy": 0.4716981132075472,
+        "brier": 0.25008391820481524
+      },
+      {
+        "source": "srpbs",
+        "source_people": 99,
+        "method": "site_only",
+        "target_people": 53,
+        "auc": 0.5,
+        "ba": 0.5,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "accuracy": 0.5094339622641509,
+        "brier": 0.24999352647442416
+      },
+      {
+        "source": "zan",
+        "source_people": 54,
+        "method": "tangent",
+        "target_people": 53,
+        "auc": 0.47720797720797714,
+        "ba": 0.4601139601139601,
+        "sensitivity": 0.07407407407407407,
+        "specificity": 0.8461538461538461,
+        "accuracy": 0.4528301886792453,
+        "brier": 0.2614822196808645
+      },
+      {
+        "source": "zan",
+        "source_people": 54,
+        "method": "raw_fc",
+        "target_people": 53,
+        "auc": 0.5341880341880342,
+        "ba": 0.4665242165242165,
+        "sensitivity": 0.7407407407407407,
+        "specificity": 0.19230769230769232,
+        "accuracy": 0.4716981132075472,
+        "brier": 0.25054824265645004
+      },
+      {
+        "source": "zan",
+        "source_people": 54,
+        "method": "nuisance",
+        "target_people": 53,
+        "auc": 0.5128205128205128,
+        "ba": 0.5,
+        "sensitivity": 0.0,
+        "specificity": 1.0,
+        "accuracy": 0.49056603773584906,
+        "brier": 0.29370291992661934
+      },
+      {
+        "source": "zan",
+        "source_people": 54,
+        "method": "site_only",
+        "target_people": 53,
+        "auc": 0.5,
+        "ba": 0.5,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "accuracy": 0.5094339622641509,
+        "brier": 0.25
+      },
+      {
+        "source": "pooled",
+        "source_people": 153,
+        "method": "tangent",
+        "target_people": 53,
+        "auc": 0.6210826210826211,
+        "ba": 0.5477207977207976,
+        "sensitivity": 0.5185185185185185,
+        "specificity": 0.5769230769230769,
+        "accuracy": 0.5471698113207547,
+        "brier": 0.2725958969419757
+      },
+      {
+        "source": "pooled",
+        "source_people": 153,
+        "method": "raw_fc",
+        "target_people": 53,
+        "auc": 0.5911680911680912,
+        "ba": 0.5277777777777778,
+        "sensitivity": 0.5555555555555556,
+        "specificity": 0.5,
+        "accuracy": 0.5283018867924528,
+        "brier": 0.35418139430112244
+      },
+      {
+        "source": "pooled",
+        "source_people": 153,
+        "method": "nuisance",
+        "target_people": 53,
+        "auc": 0.4686609686609686,
+        "ba": 0.5,
+        "sensitivity": 0.0,
+        "specificity": 1.0,
+        "accuracy": 0.49056603773584906,
+        "brier": 0.2501573853649819
+      },
+      {
+        "source": "pooled",
+        "source_people": 153,
+        "method": "site_only",
+        "target_people": 53,
+        "auc": 0.5,
+        "ba": 0.5,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "accuracy": 0.5094339622641509,
+        "brier": 0.2499973586491983
+      }
+    ],
+    "primary_comparison": {
+      "method": "pooled__tangent",
+      "reference": "srpbs__tangent",
+      "delta_auc": -0.024216524216524093,
+      "conditional95": [
+        -0.1096866096866097,
+        0.06413817663817654
+      ],
+      "bootstrap_draws": 2000,
+      "seed": 20260924
+    },
+    "target_people": 53,
+    "target_used_for_fit": 0,
+    "threshold": 0.5,
+    "source_models_refit_this_round": 0,
+    "scope": "Fixed predeclared models, cohort-heterogeneous exploratory external evaluation; user batch confirmation, not full expert image review; conditional intervals"
+  },
+  "verification": {
+    "state": "EXTERNAL153_VERIFIED",
+    "people": 53,
+    "models_replayed": 12,
+    "target_fit_people": 0,
+    "errors": {
+      "whitening": 1.4356571487184056e-14,
+      "tangent_formula": 3.9190872769268026e-14,
+      "raw_fc": 6.04438810114516e-08,
+      "probability_formula": 5.0259406747521496e-08,
+      "replay": 0.0,
+      "metrics": 1.1102230246251565e-16,
+      "ci": 1.1102230246251565e-16
+    },
+    "bootstrap_draws": 2000,
+    "scope": "Independent source-whitening and matrix-log/vectorization, coefficient probability and rank/confusion/CI calculations; sklearn covariance estimator reused, no source refit, approval is explicit user batch confirmation"
+  },
+  "input_audit": {
+    "state": "TARGET_INPUTS_READY",
+    "people": 53,
+    "patients": 27,
+    "controls": 26,
+    "approved_exact_outputs": 53,
+    "approval_basis": "Explicit user batch confirmation, not full expert visual review",
+    "covariates_complete": 53,
+    "missing_covariates": 0,
+    "sex_male_indicator": 0,
+    "sex_source": "Author Methods Participants: all participants female",
+    "sex_source_url": "https://www.nature.com/articles/s41597-022-01677-9",
+    "raw_fisher_max_error": 6.044388634052211e-08,
+    "target_fit_people": 0
+  },
+  "summary": "同一53名Emo目标上，SRPBS99源切空间AUC0.6453，ZAN54源0.4772，合并153源0.6211；合并相对SRPBS差值−0.0242，条件95%区间[−0.1097,+0.0641]，未显示可靠改善。",
+  "boundary": "53人依据用户授权批量确认，未逐人专家阅片；目标拟合0人。异质Pain/ZAN到FM的跨队列探索，不能称同病种临床确认；既往开发与本次目标已有多轮查看。",
+  "next": "停止把扩大异质来源或当前FMM结构作为默认改进方向。下一轮先审查源侧证据能否支持一个明确的小样本适配假设；若继续使用Emo，应明确转为开发研究，并另找同任务新队列检验。不得用本轮目标成绩重选模型、阈值或来源。"
+}

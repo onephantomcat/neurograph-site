@@ -1,0 +1,134 @@
+{
+  "date": "2026-09-24",
+  "observed_at": "2026-09-24T14:04:39.195052+08:00",
+  "state": "SOURCE_MODELS_VERIFIED_TARGET_PREPROCESSING",
+  "summary": "仅用原153人拟合的12份源模型及720次内层拟合已复核。Emo健康对照33人的66份原始文件已完整读回；其余32人顺序队列已启动，截至本次快照完成1/32（1人删帧比例超标，保留未通过）。目标分类尚未执行。",
+  "boundary": "患者与对照诊断分组不等于扫描当时疼痛。数值通过仍需影像审核和纳入确认；Emo尚未加入训练或产生新AUC，其他研究自动化保持原状态。",
+  "next": "完成Emo对照预处理、同等QC和影像审核后，在同一批获准受试者上比较合并源与单来源模型；Emo在这一步全部留作目标测试。",
+  "source_model_verification": {
+    "status": "SOURCE_MODELS_VERIFIED_TARGET_PENDING",
+    "verified_at": "2026-09-24T13:48:53.347462+08:00",
+    "source_people": 153,
+    "final_models_refitted": 12,
+    "inner_candidates_refitted": 720,
+    "errors": {
+      "reference": 0.0,
+      "inner_score": 0.0,
+      "refit_probability": 0.0,
+      "direct_probability": 7.771561172376096e-16,
+      "scaler_mean": 0.0
+    },
+    "target_people_used_in_fitting": 0,
+    "target_predictions_produced": 0,
+    "choices": [
+      {
+        "source": "srpbs",
+        "method": "tangent",
+        "source_people": 99,
+        "C": 1.0
+      },
+      {
+        "source": "srpbs",
+        "method": "raw_fc",
+        "source_people": 99,
+        "C": 0.1
+      },
+      {
+        "source": "srpbs",
+        "method": "nuisance",
+        "source_people": 99,
+        "C": 0.001
+      },
+      {
+        "source": "srpbs",
+        "method": "site_only",
+        "source_people": 99,
+        "C": 0.001
+      },
+      {
+        "source": "zan",
+        "method": "tangent",
+        "source_people": 54,
+        "C": 0.01
+      },
+      {
+        "source": "zan",
+        "method": "raw_fc",
+        "source_people": 54,
+        "C": 0.001
+      },
+      {
+        "source": "zan",
+        "method": "nuisance",
+        "source_people": 54,
+        "C": 1.0
+      },
+      {
+        "source": "zan",
+        "method": "site_only",
+        "source_people": 54,
+        "C": 0.001
+      },
+      {
+        "source": "pooled",
+        "method": "tangent",
+        "source_people": 153,
+        "C": 1.0
+      },
+      {
+        "source": "pooled",
+        "method": "raw_fc",
+        "source_people": 153,
+        "C": 1.0
+      },
+      {
+        "source": "pooled",
+        "method": "nuisance",
+        "source_people": 153,
+        "C": 0.001
+      },
+      {
+        "source": "pooled",
+        "method": "site_only",
+        "source_people": 153,
+        "C": 0.001
+      }
+    ],
+    "scope": "Source preparation only; source replay scores are not generalization evidence"
+  },
+  "target": {
+    "nominal_people": 66,
+    "FM": 33,
+    "HC": 33,
+    "hc_raw_files_readable": 66,
+    "fm_numeric_pass": 27,
+    "fm_not_passed": 6,
+    "hc_numeric_pass": 1,
+    "hc_batch_total": 32,
+    "hc_batch_completed": 1,
+    "hc_batch_qc_failed": 1,
+    "hc_batch_state": "RUNNING",
+    "new_training_inclusion": 0,
+    "target_predictions": 0,
+    "hc_batch_failed_checks": {
+      "censor_fraction_lte_0p20": 1
+    }
+  },
+  "candidate_feature_recheck": {
+    "people_before_batch": 28,
+    "pearson_max_error": 2.98017266420203e-08,
+    "roi_labels": "1..90",
+    "timepoints": 300,
+    "TR_seconds": 2,
+    "review_scope": "HC pilot three technical images viewed; formal visual review and inclusion remain pending"
+  },
+  "methods": [
+    "原SRPBS99、ZAN54及合并153人分别训练；原AAL90与既有标签、批准依据保留。",
+    "每种来源各做切空间、原始FC、人口学/头动/站点和仅站点四种方法。5次3折源内选参，C为0.001/0.01/0.1/1，同分按列表顺序选择。",
+    "合并来源按队列×类别分层，用两来源内AUC等权选参；切空间参考、标准化和站点编码均只用对应源训练折。最终再用全部相应源拟合，阈值0.5。",
+    "主要目标比较为合并源切空间相对SRPBS源切空间的AUC差；ZAN及其他方法完整报告。待纳入确定后按人配对重采样2000次，不按目标成绩调整排除、参数或阈值。"
+  ],
+  "report_source": "pooled-external-prep-20260924",
+  "summary_source": "pooled-external-prep-20260924-summary",
+  "models_source": "pooled-external-prep-20260924-models"
+}

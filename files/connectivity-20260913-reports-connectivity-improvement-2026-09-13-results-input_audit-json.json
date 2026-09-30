@@ -1,0 +1,19 @@
+{
+  "subjects": 99,
+  "roi_count": 90,
+  "pearson_max_error": 2.980132229879473e-08,
+  "methods": [
+    "lw_fc",
+    "lw_tangent",
+    "node_strength180"
+  ],
+  "C": [
+    0.001,
+    0.01,
+    0.1,
+    1.0
+  ],
+  "node_definition": "positive and negative Pearson edge strength separately, each sum divided by 89; 180 values",
+  "tangent_definition": "Nilearn affine-invariant reference fitted on training subjects only; per-subject sample zscore then LedoitWolf; symmetric vector, diagonal discarded",
+  "scope": "Development comparison on existing 99/96, no new clinical labels or QC changes"
+}

@@ -1,0 +1,13 @@
+{
+  "status": "PARTIAL_READBACK_PASS",
+  "run_state": "VALIDATING_SAVED",
+  "completed_files_checked": 716,
+  "requested": 1000,
+  "oof_arrays_checked": 1432,
+  "max_auc_error": 0.0,
+  "site_counts_preserved": true,
+  "deterministic_labels_reproduced": true,
+  "paired_overlapping_designs": true,
+  "final_pvalues_independently_recomputed": false,
+  "scope": "Saved permutations/OOF arithmetic, not independent clinical validation or proof of exchangeability"
+}

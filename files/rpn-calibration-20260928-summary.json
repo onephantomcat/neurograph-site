@@ -1,0 +1,153 @@
+{
+  "date": "2026-09-28",
+  "summary": "5人支持标签校准后，Szeged的期望MSE由0.4416降至0.2082，Essen却由0.5355升至0.6247；统一偏移校准没有同时改善两个中心，按事前规则停止推广。",
+  "boundary": "这是作者已查阅样例上的传统模型方法开发。MSE为已观察队列随机选支持者后的平均平方误差，越低越好；不是新增独立临床验证，也不是深度学习增益。固定偏移不改变同一中心内的预测排序。",
+  "next": "收束RPN统一偏移校准辅助实验，不根据本轮query结果继续挑中心、校准强度或窗口。下一轮回到疼痛任务与输入匹配：核对同病种、同终点数据及现成模型，明确一个新假设后再做训练内部比较，保留同输入、随机表示、强ML和跨站点证据要求。",
+  "table": [
+    {
+      "center": "Essen",
+      "n": 37,
+      "k": 1,
+      "query_n": 36,
+      "raw": 0.535518595601857,
+      "offset": 1.0411571472084415,
+      "support_mean": 1.2710950430274242,
+      "source_mean": 0.6972877377735407
+    },
+    {
+      "center": "Essen",
+      "n": 37,
+      "k": 5,
+      "query_n": 32,
+      "raw": 0.535518595601857,
+      "offset": 0.6246942883250649,
+      "support_mean": 0.7626570258164544,
+      "source_mean": 0.6972877377735407
+    },
+    {
+      "center": "Essen",
+      "n": 37,
+      "k": 10,
+      "query_n": 27,
+      "raw": 0.535518595601857,
+      "offset": 0.5726364309646429,
+      "support_mean": 0.6991022736650834,
+      "source_mean": 0.6972877377735407
+    },
+    {
+      "center": "Szeged",
+      "n": 19,
+      "k": 1,
+      "query_n": 18,
+      "raw": 0.44158118736030166,
+      "offset": 0.34707510109716344,
+      "support_mean": 0.4182484714677848,
+      "source_mean": 0.3955443820925587
+    },
+    {
+      "center": "Szeged",
+      "n": 19,
+      "k": 5,
+      "query_n": 14,
+      "raw": 0.44158118736030166,
+      "offset": 0.20824506065829806,
+      "support_mean": 0.25094908288067086,
+      "source_mean": 0.3955443820925587
+    },
+    {
+      "center": "Szeged",
+      "n": 19,
+      "k": 10,
+      "query_n": 9,
+      "raw": 0.44158118736030166,
+      "offset": 0.19089130560343992,
+      "support_mean": 0.23003665930728168,
+      "source_mean": 0.3955443820925587
+    }
+  ],
+  "decision": {
+    "primary_k": 5,
+    "advance": false,
+    "rule": "Both centers exact uniform-support K5 risk lower than raw and support mean; finite observed-cohort risk, not population validation",
+    "centers": [
+      {
+        "center": "essen",
+        "offset_minus_raw": 0.08917569272320791,
+        "offset_minus_support_mean": -0.13796273749138954
+      },
+      {
+        "center": "szeged",
+        "offset_minus_raw": -0.2333361267020036,
+        "offset_minus_support_mean": -0.042704022222372795
+      }
+    ]
+  },
+  "verification": {
+    "state": "VERIFIED",
+    "episodes": 3000,
+    "prediction_sets": 12000,
+    "least_squares_parameter_and_prediction_error": 6.661338147750939e-16,
+    "metric_error": 1.7763568394002505e-15,
+    "aggregate_error": 1.1102230246251565e-16,
+    "exact_expectation_error": 2.220446049250313e-16,
+    "exhaustive_checks": [
+      {
+        "scope": "synthetic",
+        "n": 7,
+        "k": 1,
+        "combinations": 7,
+        "formula_error": 8.881784197001252e-16
+      },
+      {
+        "scope": "synthetic",
+        "n": 7,
+        "k": 2,
+        "combinations": 21,
+        "formula_error": 8.881784197001252e-16
+      },
+      {
+        "scope": "synthetic",
+        "n": 7,
+        "k": 3,
+        "combinations": 35,
+        "formula_error": 4.440892098500626e-16
+      },
+      {
+        "scope": "synthetic",
+        "n": 7,
+        "k": 5,
+        "combinations": 21,
+        "formula_error": 6.661338147750939e-16
+      },
+      {
+        "scope": "essen",
+        "n": 37,
+        "k": 1,
+        "combinations": 37,
+        "formula_error": 0.0
+      },
+      {
+        "scope": "szeged",
+        "n": 19,
+        "k": 1,
+        "combinations": 19,
+        "formula_error": 1.1102230246251565e-16
+      },
+      {
+        "scope": "szeged",
+        "n": 19,
+        "k": 5,
+        "combinations": 11628,
+        "formula_error": 8.326672684688674e-17
+      }
+    ],
+    "query_label_perturbations": 3000,
+    "ranking_changes": 0,
+    "advance": false,
+    "seconds": 2.5,
+    "scope": "Observed author cohorts; overlapping episode repetitions not independent people or confidence intervals"
+  },
+  "completed_at": "2026-09-28T18:48:32.769864+08:00",
+  "source_model_fits": 0,
+  "scope": "Previously examined author cohorts; method development; original QST targets"
+}

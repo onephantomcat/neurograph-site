@@ -1,0 +1,11 @@
+# 连接表示改进及同日成果
+
+- [连接表示改进主报告](../../docs/CONNECTIVITY_IMPROVEMENT_RESULTS_2026-09-13.md)：99/96内部切空间AUC 0.753/0.756，两个站点留出方向0.608/0.612；开发改善不等于临床达标。
+- [临床匹配与数据补齐](../../docs/CLINICAL_MATCHING_AND_EXPANSION_2026-09-13.md)：原形成时点的临床字段、病种和访视边界。
+- [ZAN首次QC失败](../../docs/ZAN_PILOT_PREPROCESSING_CHECK_2026-09-13.md)及[独立修复结果](../../docs/ZAN_MASK_REPAIR_PROGRESS_2026-09-13.md)：后者为23:34快照，两例数值通过待阅片，新增训练纳入0。
+- [主结果](results/summary.json)、[站点留出](results/site_transfer/summary.json)、[156模型独立核验](results/verification.json)、[TN覆盖汇总](tn_coverage_summary.json)。
+- [全部指标长表](metrics_long.csv)、[文件清单](inventory.json)、[导出回读](export_verification.json)。本批109份JSON、3,396行指标；包含各折选参，重复汇总不能直接平均。
+
+附近另外三份顺序实验/历史指标复核报告已在66f0ff0提交。原478份训练更新及848份历史归档均保留；本次只补齐新增成果，没有重跑模型或查询远端处理。
+
+原始数据、逐人标签/预测、权重、完整逐例覆盖图和需要私有输入的Notebook留本地。TN汇总由14份原记录计算，不展示逐例行。各文档按原日期解释，不把旧队列或邮件状态称为实时核查。

@@ -1,0 +1,137 @@
+{
+  "date": "2026-09-28",
+  "summary": "新输入核查：原99人临床表没有病历叙述；TN的2.0.2快照有51人真实短文本，但旧影像连接记录仅7人纳入、6人具备开发性回归条件。当前QC中21条对应记录仍待确认，与旧清单尚未对齐。本地未找到所需结构表，远端仍待实查。",
+  "boundary": "本轮核查输入，没有新训练或疼痛指标。51人是另一TN队列；7/6人为9月13日记录，不代表当前新增纳入。远端队列状态未知，原QC、53名用户批量确认、13名失败、TN14停止及定期任务暂停均保持。",
+  "next": "先核对TN旧纳入与当前QC记录的输出身份及审核来源，并核实原批准T1及已有结构产物；可取得影像时，再做单例现成分割模型的可行性试验。TN真实短文本可先研究信息抽取，须与原文和简单规则比较；不把诊断字段输入同一诊断分类，不使用术后信息预测基线。缺少原文或同访视影像时不拼造新模态。",
+  "rows": [
+    {
+      "input": "原99人临床表",
+      "finding": "sup7对应49人、sup8对应50人；44名患者有VAS，字段为数值或类别，无病历叙述。",
+      "action": "保留原字段，不将它们改写成伪病历。"
+    },
+    {
+      "input": "TN真实短文本",
+      "finding": "2.0.2快照51人：用药50人、MRI发现51人、合并症51人；三字段153个值与源表完全相同。",
+      "action": "另一队列；旧记录为7/6人，当前QC目录21条对应记录均待确认、训练纳入为否。记录未对齐，先做文本抽取可行性。"
+    },
+    {
+      "input": "逐人结构量化",
+      "finding": "作者NeuFoM要求45项结构特征；指定本地范围未找到对应逐人表。模板分割不算患者特征。",
+      "action": "远端只读两次连接失败，产物与队列均未核实。原始T1、SPM组织图也不能直接冒充该45项。"
+    },
+    {
+      "input": "Emo临床工作簿",
+      "finding": "66人工作簿包含量表、编码式用药与共病字段，并有字典；本轮抽查字段不是病历叙述。",
+      "action": "不把所有临床字段说成缺失；未核实全部字段与扫描时间的对应，未重训或重评53人。"
+    }
+  ],
+  "verification": {
+    "state": "LOCAL_INPUT_INVENTORY_VERIFIED_REMOTE_UNVERIFIED",
+    "clinical_primary99": [
+      {
+        "table": "sup7",
+        "matched": 49,
+        "patients": 29,
+        "vas_patients": 29,
+        "narrative_fields": 0,
+        "fields": [
+          "site",
+          "diag",
+          "age",
+          "sex",
+          "hand",
+          "VAS",
+          "SF-MPQ2",
+          "Left/Right",
+          "Upper/Lower"
+        ]
+      },
+      {
+        "table": "sup8",
+        "matched": 50,
+        "patients": 17,
+        "vas_patients": 15,
+        "narrative_fields": 0,
+        "fields": [
+          "site",
+          "diag",
+          "age",
+          "sex",
+          "hand",
+          "BDI-II",
+          "Pain Duration",
+          "VAS"
+        ]
+      }
+    ],
+    "local_candidate_tables": 20,
+    "author_required_structural_features": 45,
+    "local_matching_structural_files": 0,
+    "tn_source_groups": [
+      {
+        "scope": "archival_public_snapshot_pending_author_confirmation",
+        "people": 121,
+        "groups": {
+          "control": 53,
+          "patient": 68
+        },
+        "field_nonmissing": {
+          "mri_finding": 121,
+          "pharm_treatment": 68,
+          "comorbid_medical_conditions": 68
+        },
+        "image_included_in_20260913_snapshot": 21,
+        "regression_eligible_in_20260913_snapshot": 8
+      },
+      {
+        "scope": "legacy_public_snapshot_limited_fields",
+        "people": 3,
+        "groups": {
+          "patient": 1,
+          "control": 2
+        },
+        "field_nonmissing": {
+          "mri_finding": 3,
+          "pharm_treatment": 0,
+          "comorbid_medical_conditions": 0
+        },
+        "image_included_in_20260913_snapshot": 1,
+        "regression_eligible_in_20260913_snapshot": 0
+      },
+      {
+        "scope": "observed_current_release",
+        "people": 51,
+        "groups": {
+          "patient": 51
+        },
+        "field_nonmissing": {
+          "mri_finding": 51,
+          "pharm_treatment": 50,
+          "comorbid_medical_conditions": 51
+        },
+        "image_included_in_20260913_snapshot": 7,
+        "regression_eligible_in_20260913_snapshot": 6
+      }
+    ],
+    "tn_source_values_checked": 153,
+    "tn_current_qc": {
+      "matched_people": 21,
+      "matched_attempts": 21,
+      "decisions": {
+        "PENDING": 21
+      },
+      "training_inclusion_true": 0,
+      "interpretation": "Current catalog and exact SQLite keys only; does not revoke older separate approvals. Reconcile output identity and review provenance before training."
+    },
+    "emo_workbook_people": 66,
+    "remote_state": "UNVERIFIED_ACCESS_FAILURE",
+    "remote_queue_state": "UNKNOWN",
+    "new_model_fits": 0,
+    "scope": "Three specified local roots; filename candidates then table content; excludes code dependencies and publication snapshots. TN imaging readiness counts are September13 snapshot, not reapproved current status."
+  },
+  "followup": {
+    "source": "tn-provenance-20260928",
+    "summary": "TN记录已对齐：78例历史审核对应同一处理路径，网页PENDING不否定既有确认。51人临床快照中21人有处理记录，7人满足原FC条件、14人覆盖不足；6名有评分者均属于已停止的TN14，并未形成新队列。",
+    "original_inventory_retained": true
+  }
+}

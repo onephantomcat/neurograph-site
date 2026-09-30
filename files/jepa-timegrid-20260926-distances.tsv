@@ -1,0 +1,17 @@
+representation	input_summary	pearson_distance_correlation
+pretrained	fc450	-0.1062446591413568
+pretrained	log_relative_roi_amplitude	-0.04858137344888835
+pretrained	analysis_coverage	0.06570750405734666
+pretrained	motion_fd_censor	-0.012497153834512945
+random20260925	fc450	0.20901992154269997
+random20260925	log_relative_roi_amplitude	0.06332363533480355
+random20260925	analysis_coverage	-0.0441591858200597
+random20260925	motion_fd_censor	0.02254316920033879
+random20260926	fc450	0.2223964349770068
+random20260926	log_relative_roi_amplitude	0.0731415639183431
+random20260926	analysis_coverage	-0.04129420903421244
+random20260926	motion_fd_censor	0.02315924726122208
+random20260927	fc450	0.22079159396105086
+random20260927	log_relative_roi_amplitude	0.06386082713198364
+random20260927	analysis_coverage	-0.03428212720429847
+random20260927	motion_fd_censor	0.023321071431911266

@@ -1,0 +1,958 @@
+{
+  "records": [
+    {
+      "method": "nuisance_only",
+      "level": "inner",
+      "inner_fold": 1
+    },
+    {
+      "method": "nuisance_only",
+      "level": "inner",
+      "inner_fold": 2
+    },
+    {
+      "method": "nuisance_only",
+      "level": "inner",
+      "inner_fold": 3
+    },
+    {
+      "method": "nuisance_only",
+      "level": "outer",
+      "chosen_k": 0,
+      "chosen_C": 0.1,
+      "inner_auc": 0.5419004072850228,
+      "candidate_scores": [
+        {
+          "mean_inner_auc": 0.5419004072850228,
+          "k": 0,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5162476412476412,
+          "k": 0,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5405513290128674,
+          "k": 0,
+          "C": 10.0
+        }
+      ]
+    },
+    {
+      "method": "raw_fc",
+      "level": "inner",
+      "inner_fold": 1
+    },
+    {
+      "method": "raw_fc",
+      "level": "inner",
+      "inner_fold": 2
+    },
+    {
+      "method": "raw_fc",
+      "level": "inner",
+      "inner_fold": 3
+    },
+    {
+      "method": "raw_fc",
+      "level": "outer",
+      "chosen_k": 128,
+      "chosen_C": 1.0,
+      "inner_auc": 0.589778810932657,
+      "candidate_scores": [
+        {
+          "mean_inner_auc": 0.5376770665232203,
+          "k": 16,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5497739440047132,
+          "k": 16,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5577221923375769,
+          "k": 16,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.5570006916160762,
+          "k": 32,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5664783934014703,
+          "k": 32,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5700506758199065,
+          "k": 32,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.5376183645414415,
+          "k": 64,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5233569848954464,
+          "k": 64,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5290937694783849,
+          "k": 64,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.5773798850721927,
+          "k": 128,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.589778810932657,
+          "k": 128,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5818305625997934,
+          "k": 128,
+          "C": 10.0
+        }
+      ]
+    },
+    {
+      "method": "target_fold_ssl",
+      "epochs": 30,
+      "loss_first": 1.0116467773914337,
+      "loss_last": 0.751573920249939,
+      "level": "inner",
+      "inner_fold": 1
+    },
+    {
+      "method": "target_fold_ssl",
+      "epochs": 30,
+      "loss_first": 1.0279387533664703,
+      "loss_last": 0.7735985219478607,
+      "level": "inner",
+      "inner_fold": 2
+    },
+    {
+      "method": "target_fold_ssl",
+      "epochs": 30,
+      "loss_first": 1.0135703682899475,
+      "loss_last": 0.7549610435962677,
+      "level": "inner",
+      "inner_fold": 3
+    },
+    {
+      "method": "target_fold_ssl",
+      "epochs": 30,
+      "loss_first": 1.009793758392334,
+      "loss_last": 0.7290664116541544,
+      "level": "outer",
+      "chosen_k": 8,
+      "chosen_C": 0.1,
+      "inner_auc": 0.6123566604335835,
+      "candidate_scores": [
+        {
+          "mean_inner_auc": 0.6123566604335835,
+          "k": 8,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.589617647309955,
+          "k": 8,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5773638754407986,
+          "k": 8,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.594017094017094,
+          "k": 16,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5774108370262215,
+          "k": 16,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5541029483337175,
+          "k": 16,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.5970952124798279,
+          "k": 32,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5571223648146725,
+          "k": 32,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5303873476950399,
+          "k": 32,
+          "C": 10.0
+        }
+      ]
+    },
+    {
+      "method": "srpbs_source_fixed",
+      "level": "inner",
+      "inner_fold": 1
+    },
+    {
+      "method": "srpbs_source_fixed",
+      "level": "inner",
+      "inner_fold": 2
+    },
+    {
+      "method": "srpbs_source_fixed",
+      "level": "inner",
+      "inner_fold": 3
+    },
+    {
+      "method": "srpbs_source_fixed",
+      "level": "outer",
+      "chosen_k": 32,
+      "chosen_C": 0.1,
+      "inner_auc": 0.6731825866441251,
+      "candidate_scores": [
+        {
+          "mean_inner_auc": 0.6120193908655448,
+          "k": 8,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.6248964710503171,
+          "k": 8,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.6330368349599119,
+          "k": 8,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.6454869916408378,
+          "k": 16,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.664030414030414,
+          "k": 16,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.672810095887019,
+          "k": 16,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.6731825866441251,
+          "k": 32,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.6549017222094144,
+          "k": 32,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.6589051973667358,
+          "k": 32,
+          "C": 10.0
+        }
+      ]
+    },
+    {
+      "method": "srpbs_source_clinical_adapt",
+      "epochs": 5,
+      "loss_first": 1.7428273558616638,
+      "loss_last": 1.6309033632278442,
+      "level": "inner",
+      "inner_fold": 1
+    },
+    {
+      "method": "srpbs_source_clinical_adapt",
+      "epochs": 5,
+      "loss_first": 1.6756132245063782,
+      "loss_last": 1.5647772550582886,
+      "level": "inner",
+      "inner_fold": 2
+    },
+    {
+      "method": "srpbs_source_clinical_adapt",
+      "epochs": 5,
+      "loss_first": 1.647030532360077,
+      "loss_last": 1.5231372117996216,
+      "level": "inner",
+      "inner_fold": 3
+    },
+    {
+      "method": "srpbs_source_clinical_adapt",
+      "epochs": 5,
+      "loss_first": 1.6730209589004517,
+      "loss_last": 1.5793725649515789,
+      "level": "outer",
+      "chosen_k": 16,
+      "chosen_C": 10.0,
+      "inner_auc": 0.5909389755543601,
+      "candidate_scores": [
+        {
+          "mean_inner_auc": 0.5804377246684939,
+          "k": 8,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5640588044434198,
+          "k": 8,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5767597786828556,
+          "k": 8,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.5735482466251698,
+          "k": 16,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5675958656727887,
+          "k": 16,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5909389755543601,
+          "k": 16,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.580186907109984,
+          "k": 32,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5859706532783456,
+          "k": 32,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5837079587079587,
+          "k": 32,
+          "C": 10.0
+        }
+      ]
+    },
+    {
+      "method": "ds005713_source_fixed",
+      "level": "inner",
+      "inner_fold": 1
+    },
+    {
+      "method": "ds005713_source_fixed",
+      "level": "inner",
+      "inner_fold": 2
+    },
+    {
+      "method": "ds005713_source_fixed",
+      "level": "inner",
+      "inner_fold": 3
+    },
+    {
+      "method": "ds005713_source_fixed",
+      "level": "outer",
+      "chosen_k": 32,
+      "chosen_C": 10.0,
+      "inner_auc": 0.6386796963720041,
+      "candidate_scores": [
+        {
+          "mean_inner_auc": 0.4269576577268885,
+          "k": 8,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.4186838802223418,
+          "k": 8,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.42680076333922484,
+          "k": 8,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.48496802342956197,
+          "k": 16,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.4859520821059283,
+          "k": 16,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.4881912958836036,
+          "k": 16,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.5704071569456185,
+          "k": 32,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.6324017862479401,
+          "k": 32,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.6386796963720041,
+          "k": 32,
+          "C": 10.0
+        }
+      ]
+    },
+    {
+      "method": "ds005713_source_clinical_adapt",
+      "epochs": 5,
+      "loss_first": 1.041895478963852,
+      "loss_last": 0.91807422041893,
+      "level": "inner",
+      "inner_fold": 1
+    },
+    {
+      "method": "ds005713_source_clinical_adapt",
+      "epochs": 5,
+      "loss_first": 0.9676115810871124,
+      "loss_last": 0.843269407749176,
+      "level": "inner",
+      "inner_fold": 2
+    },
+    {
+      "method": "ds005713_source_clinical_adapt",
+      "epochs": 5,
+      "loss_first": 1.0404769778251648,
+      "loss_last": 0.8770295977592468,
+      "level": "inner",
+      "inner_fold": 3
+    },
+    {
+      "method": "ds005713_source_clinical_adapt",
+      "epochs": 5,
+      "loss_first": 0.993038018544515,
+      "loss_last": 0.8230273723602295,
+      "level": "outer",
+      "chosen_k": 16,
+      "chosen_C": 1.0,
+      "inner_auc": 0.5301600109292417,
+      "candidate_scores": [
+        {
+          "mean_inner_auc": 0.4741807337961184,
+          "k": 8,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.4843681959066575,
+          "k": 8,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.471212548135625,
+          "k": 8,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.5130830707753785,
+          "k": 16,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5301600109292417,
+          "k": 16,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5241254472023703,
+          "k": 16,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.5284149611072687,
+          "k": 32,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5182787298171914,
+          "k": 32,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5204080107926262,
+          "k": 32,
+          "C": 10.0
+        }
+      ]
+    },
+    {
+      "method": "abide_source_fixed",
+      "level": "inner",
+      "inner_fold": 1
+    },
+    {
+      "method": "abide_source_fixed",
+      "level": "inner",
+      "inner_fold": 2
+    },
+    {
+      "method": "abide_source_fixed",
+      "level": "inner",
+      "inner_fold": 3
+    },
+    {
+      "method": "abide_source_fixed",
+      "level": "outer",
+      "chosen_k": 16,
+      "chosen_C": 0.1,
+      "inner_auc": 0.5803555418940034,
+      "candidate_scores": [
+        {
+          "mean_inner_auc": 0.5579890195274811,
+          "k": 8,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5416848109155802,
+          "k": 8,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5476137110752495,
+          "k": 8,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.5803555418940034,
+          "k": 16,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.572336851183005,
+          "k": 16,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5622358410819949,
+          "k": 16,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.5687880495572802,
+          "k": 32,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5699567526490602,
+          "k": 32,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5766893363047209,
+          "k": 32,
+          "C": 10.0
+        }
+      ]
+    },
+    {
+      "method": "abide_source_clinical_adapt",
+      "epochs": 5,
+      "loss_first": 1.5976171493530273,
+      "loss_last": 1.0869883298873901,
+      "level": "inner",
+      "inner_fold": 1
+    },
+    {
+      "method": "abide_source_clinical_adapt",
+      "epochs": 5,
+      "loss_first": 1.4162078499794006,
+      "loss_last": 0.9809690713882446,
+      "level": "inner",
+      "inner_fold": 2
+    },
+    {
+      "method": "abide_source_clinical_adapt",
+      "epochs": 5,
+      "loss_first": 1.6212278008460999,
+      "loss_last": 1.0544258952140808,
+      "level": "inner",
+      "inner_fold": 3
+    },
+    {
+      "method": "abide_source_clinical_adapt",
+      "epochs": 5,
+      "loss_first": 1.4898453950881958,
+      "loss_last": 0.9365741809209188,
+      "level": "outer",
+      "chosen_k": 32,
+      "chosen_C": 0.1,
+      "inner_auc": 0.5369790465944312,
+      "candidate_scores": [
+        {
+          "mean_inner_auc": 0.4793529120452198,
+          "k": 8,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5127500704423782,
+          "k": 8,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.4982848348232964,
+          "k": 8,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.5292816158200774,
+          "k": 16,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5152870633639864,
+          "k": 16,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.49881421996806613,
+          "k": 16,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.5369790465944312,
+          "k": 32,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.48878365224519066,
+          "k": 32,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.4914775395544626,
+          "k": 32,
+          "C": 10.0
+        }
+      ]
+    },
+    {
+      "method": "abide_to_srpbs_source_fixed",
+      "level": "inner",
+      "inner_fold": 1
+    },
+    {
+      "method": "abide_to_srpbs_source_fixed",
+      "level": "inner",
+      "inner_fold": 2
+    },
+    {
+      "method": "abide_to_srpbs_source_fixed",
+      "level": "inner",
+      "inner_fold": 3
+    },
+    {
+      "method": "abide_to_srpbs_source_fixed",
+      "level": "outer",
+      "chosen_k": 32,
+      "chosen_C": 10.0,
+      "inner_auc": 0.5757639796101334,
+      "candidate_scores": [
+        {
+          "mean_inner_auc": 0.5302699437314823,
+          "k": 8,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5352382660074968,
+          "k": 8,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5191101633409325,
+          "k": 8,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.5498209055901363,
+          "k": 16,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5671881537266152,
+          "k": 16,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5460607768300076,
+          "k": 16,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.561631744324052,
+          "k": 32,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5442452846299,
+          "k": 32,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5757639796101334,
+          "k": 32,
+          "C": 10.0
+        }
+      ]
+    },
+    {
+      "method": "abide_to_srpbs_source_clinical_adapt",
+      "epochs": 5,
+      "loss_first": 1.323825478553772,
+      "loss_last": 0.9310376942157745,
+      "level": "inner",
+      "inner_fold": 1
+    },
+    {
+      "method": "abide_to_srpbs_source_clinical_adapt",
+      "epochs": 5,
+      "loss_first": 1.1750693321228027,
+      "loss_last": 0.8576699495315552,
+      "level": "inner",
+      "inner_fold": 2
+    },
+    {
+      "method": "abide_to_srpbs_source_clinical_adapt",
+      "epochs": 5,
+      "loss_first": 1.316587746143341,
+      "loss_last": 0.892655998468399,
+      "level": "inner",
+      "inner_fold": 3
+    },
+    {
+      "method": "abide_to_srpbs_source_clinical_adapt",
+      "epochs": 5,
+      "loss_first": 1.2260817686716716,
+      "loss_last": 0.8646541237831116,
+      "level": "outer",
+      "chosen_k": 8,
+      "chosen_C": 0.1,
+      "inner_auc": 0.6147719801565955,
+      "candidate_scores": [
+        {
+          "mean_inner_auc": 0.6147719801565955,
+          "k": 8,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5905899655899657,
+          "k": 8,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5897115704808013,
+          "k": 8,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.6115017461171307,
+          "k": 16,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.6042162965239889,
+          "k": 16,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5956799610645764,
+          "k": 16,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.5925740925740925,
+          "k": 32,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5879707898938668,
+          "k": 32,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5994560994560993,
+          "k": 32,
+          "C": 10.0
+        }
+      ]
+    },
+    {
+      "method": "ds005713_to_srpbs_source_fixed",
+      "level": "inner",
+      "inner_fold": 1
+    },
+    {
+      "method": "ds005713_to_srpbs_source_fixed",
+      "level": "inner",
+      "inner_fold": 2
+    },
+    {
+      "method": "ds005713_to_srpbs_source_fixed",
+      "level": "inner",
+      "inner_fold": 3
+    },
+    {
+      "method": "ds005713_to_srpbs_source_fixed",
+      "level": "outer",
+      "chosen_k": 32,
+      "chosen_C": 10.0,
+      "inner_auc": 0.7048346952193105,
+      "candidate_scores": [
+        {
+          "mean_inner_auc": 0.5128439936132244,
+          "k": 8,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.542970917970918,
+          "k": 8,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5322935611397149,
+          "k": 8,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.5373867585406047,
+          "k": 16,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5169221803837188,
+          "k": 16,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5489467797160105,
+          "k": 16,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.5745088245088245,
+          "k": 32,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.6429969603046527,
+          "k": 32,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.7048346952193105,
+          "k": 32,
+          "C": 10.0
+        }
+      ]
+    },
+    {
+      "method": "ds005713_to_srpbs_source_clinical_adapt",
+      "epochs": 5,
+      "loss_first": 0.9719800651073456,
+      "loss_last": 0.815540611743927,
+      "level": "inner",
+      "inner_fold": 1
+    },
+    {
+      "method": "ds005713_to_srpbs_source_clinical_adapt",
+      "epochs": 5,
+      "loss_first": 0.9061509668827057,
+      "loss_last": 0.7556704580783844,
+      "level": "inner",
+      "inner_fold": 2
+    },
+    {
+      "method": "ds005713_to_srpbs_source_clinical_adapt",
+      "epochs": 5,
+      "loss_first": 0.9631399512290955,
+      "loss_last": 0.772040992975235,
+      "level": "inner",
+      "inner_fold": 3
+    },
+    {
+      "method": "ds005713_to_srpbs_source_clinical_adapt",
+      "epochs": 5,
+      "loss_first": 0.9242000182469686,
+      "loss_last": 0.7478818893432617,
+      "level": "outer",
+      "chosen_k": 32,
+      "chosen_C": 10.0,
+      "inner_auc": 0.5835745451130067,
+      "candidate_scores": [
+        {
+          "mean_inner_auc": 0.4664833030217646,
+          "k": 8,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.46460910883987805,
+          "k": 8,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5233879368494753,
+          "k": 8,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.46624422585961045,
+          "k": 16,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.4609898648360187,
+          "k": 16,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5363514690437767,
+          "k": 16,
+          "C": 10.0
+        },
+        {
+          "mean_inner_auc": 0.4808663558663559,
+          "k": 32,
+          "C": 0.1
+        },
+        {
+          "mean_inner_auc": 0.5143926586234279,
+          "k": 32,
+          "C": 1.0
+        },
+        {
+          "mean_inner_auc": 0.5835745451130067,
+          "k": 32,
+          "C": 10.0
+        }
+      ]
+    }
+  ]
+}

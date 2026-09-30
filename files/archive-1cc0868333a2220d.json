@@ -1,0 +1,73 @@
+{
+  "tn_vs_hc": {
+    "status": "PASS",
+    "n": 28,
+    "feature_count": 4005,
+    "folds": [
+      {
+        "fold": 0,
+        "train_people": 18,
+        "test_people": 10,
+        "person_overlap": 0,
+        "train_only_scaler_samples": 18
+      },
+      {
+        "fold": 1,
+        "train_people": 19,
+        "test_people": 9,
+        "person_overlap": 0,
+        "train_only_scaler_samples": 19
+      },
+      {
+        "fold": 2,
+        "train_people": 19,
+        "test_people": 9,
+        "person_overlap": 0,
+        "train_only_scaler_samples": 19
+      }
+    ],
+    "metrics": {
+      "auc": 0.3435897435897436,
+      "balanced_accuracy_at_0_5": 0.3153846153846154
+    },
+    "purpose": "execution_smoke_only_not_confirmatory_evaluation",
+    "hyperparameter_search": false,
+    "existing_pretrained_encoder_used": false
+  },
+  "tn_pain_regression": {
+    "status": "PASS",
+    "n": 14,
+    "feature_count": 4005,
+    "folds": [
+      {
+        "fold": 0,
+        "train_people": 9,
+        "test_people": 5,
+        "person_overlap": 0,
+        "train_only_scaler_samples": 9
+      },
+      {
+        "fold": 1,
+        "train_people": 9,
+        "test_people": 5,
+        "person_overlap": 0,
+        "train_only_scaler_samples": 9
+      },
+      {
+        "fold": 2,
+        "train_people": 10,
+        "test_people": 4,
+        "person_overlap": 0,
+        "train_only_scaler_samples": 10
+      }
+    ],
+    "metrics": {
+      "mae": 1.7289633410317558,
+      "train_median_dummy_mae": 1.7142857142857142
+    },
+    "purpose": "execution_smoke_only_not_confirmatory_evaluation",
+    "hyperparameter_search": false,
+    "existing_pretrained_encoder_used": false
+  },
+  "interpretation": "Small single-center development sample with archival-label caveat; no clinical validation or v5 target claim."
+}

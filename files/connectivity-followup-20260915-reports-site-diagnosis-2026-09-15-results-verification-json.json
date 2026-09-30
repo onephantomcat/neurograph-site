@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "covariate_models": 120,
+  "site_probe_models": 25,
+  "max_coefficient_replay_error": 0.0,
+  "scope": "Input numeric validity and identity alignment; same outer/inner split assertions; saved control-model coefficient replay and training means; site probe algebra replay; summaries from saved predictions; no independent full inner refit",
+  "training_inclusion_added": 0,
+  "independent_audit": {
+    "status": "PASS",
+    "control_models": 120,
+    "site_models": 25,
+    "max_saved_probability_error": 0.0,
+    "max_metric_error": 1.1102230246251565e-16,
+    "scope": "Independent saved-model coefficient replay, training means and variances, all split identities, selection arithmetic, four-cell weights and pair-count AUC; no inner refit or image reread"
+  }
+}

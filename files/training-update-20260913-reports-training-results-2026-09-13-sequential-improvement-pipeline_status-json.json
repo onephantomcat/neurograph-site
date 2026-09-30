@@ -1,0 +1,9 @@
+{
+  "state": "LOCAL_EXPERIMENTS_COMPLETE_EXTERNAL_PENDING",
+  "updated_at": "2026-09-13T16:30:28.230566+08:00",
+  "pending": [
+    "PHN acquisition",
+    "Historical label author confirmation",
+    "Standardized endpoints and new-center validation"
+  ]
+}

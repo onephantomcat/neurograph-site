@@ -1,0 +1,22 @@
+{
+  "route": "abide_to_srpbs_source",
+  "parent": "abide_source",
+  "checkpoint": "abide_to_srpbs_source_encoder.npz",
+  "clinical_fit_overlap": 0,
+  "epochs_this_stage": 5,
+  "training_losses": [
+    1.516094446182251,
+    1.4591511487960815,
+    1.3928329944610596,
+    1.3305939435958862,
+    1.2469871044158936
+  ],
+  "training_reconstruction_mse_before": 1.5103228092193604,
+  "training_reconstruction_mse_after": 1.1473435163497925,
+  "target_inference_shape": [
+    99,
+    32
+  ],
+  "target_inference_finite": true,
+  "checkpoint_round_trip_equal": true
+}

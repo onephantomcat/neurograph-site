@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "state_models_refit": 460,
+  "final_heads_refit": 205,
+  "inner_heads_refit": 2820,
+  "max_independent_window_error": 4.884981308350689e-15,
+  "max_refit_center_error": 0,
+  "max_refit_prediction_error": 0,
+  "aggregate_rows": 59,
+  "paired_comparisons": 98,
+  "clinical_source_values_rechecked": true,
+  "original_splits_and_reference_predictions_exact": true
+}

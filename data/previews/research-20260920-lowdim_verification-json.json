@@ -1,0 +1,1 @@
+{"content": "{\r\n  \"status\": \"PASS\",\r\n  \"units\": 115,\r\n  \"final_models_replayed_and_independently_refit\": 230,\r\n  \"inner_models_independently_refit\": 2940,\r\n  \"max_replay_error\": 0.0,\r\n  \"max_refit_prediction_error\": 0.0,\r\n  \"rows\": 39,\r\n  \"paired_comparisons\": 210\r\n}\n", "truncated": false}

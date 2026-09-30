@@ -1,0 +1,43 @@
+{
+  "n": 99,
+  "nonempty_fields": {
+    "age": 99,
+    "sex": 99,
+    "protocol": 99,
+    "mean_fd": 99,
+    "censor_fraction": 99,
+    "site": 99,
+    "diagnosis_code": 99,
+    "classification_label": 99
+  },
+  "numeric_validated": [
+    "age",
+    "sex",
+    "mean_fd",
+    "censor_fraction"
+  ],
+  "sex_codes": {
+    "1": 60,
+    "2": 39
+  },
+  "sex_code_semantics": "Original code retained; biological meaning not inferred",
+  "protocol_codes": [
+    "13",
+    "14"
+  ],
+  "protocol_note": "Protocol code available; detailed TR/scanner/sequence fields not verified",
+  "can_run_now": [
+    "site/disease distributions",
+    "saved-prediction error groups",
+    "age-sex and motion-only controls",
+    "tangent site discrimination",
+    "train-side correction feasibility"
+  ],
+  "external_dependencies": [
+    "TN/PHN diagnosis and visit confirmation",
+    "individual disease duration and medications",
+    "rating/MRI timing and missing scores",
+    "new same-disease center"
+  ],
+  "email_checked": false
+}

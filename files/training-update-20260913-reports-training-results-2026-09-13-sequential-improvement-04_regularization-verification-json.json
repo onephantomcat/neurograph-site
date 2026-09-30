@@ -1,0 +1,361 @@
+{
+  "status": "PASS",
+  "verified_prediction_models": 100,
+  "max_prediction_error": 0.0,
+  "max_metric_error": 0.0,
+  "fold_identity_and_selection_checked": true,
+  "source_scaling_checked": true,
+  "folds": [
+    {
+      "design": "primary99",
+      "repeat": 1,
+      "fold": 1,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "primary99",
+      "repeat": 1,
+      "fold": 2,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "primary99",
+      "repeat": 1,
+      "fold": 3,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "primary99",
+      "repeat": 1,
+      "fold": 4,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "primary99",
+      "repeat": 1,
+      "fold": 5,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "primary99",
+      "repeat": 2,
+      "fold": 1,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "primary99",
+      "repeat": 2,
+      "fold": 2,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "primary99",
+      "repeat": 2,
+      "fold": 3,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "primary99",
+      "repeat": 2,
+      "fold": 4,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "primary99",
+      "repeat": 2,
+      "fold": 5,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "primary99",
+      "repeat": 3,
+      "fold": 1,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "primary99",
+      "repeat": 3,
+      "fold": 2,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "primary99",
+      "repeat": 3,
+      "fold": 3,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "primary99",
+      "repeat": 3,
+      "fold": 4,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "primary99",
+      "repeat": 3,
+      "fold": 5,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "primary99",
+      "repeat": 4,
+      "fold": 1,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "primary99",
+      "repeat": 4,
+      "fold": 2,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "primary99",
+      "repeat": 4,
+      "fold": 3,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "primary99",
+      "repeat": 4,
+      "fold": 4,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "primary99",
+      "repeat": 4,
+      "fold": 5,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "primary99",
+      "repeat": 5,
+      "fold": 1,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "primary99",
+      "repeat": 5,
+      "fold": 2,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "primary99",
+      "repeat": 5,
+      "fold": 3,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "primary99",
+      "repeat": 5,
+      "fold": 4,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "primary99",
+      "repeat": 5,
+      "fold": 5,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 1,
+      "fold": 1,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 1,
+      "fold": 2,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 1,
+      "fold": 3,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 1,
+      "fold": 4,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 1,
+      "fold": 5,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 2,
+      "fold": 1,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 2,
+      "fold": 2,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 2,
+      "fold": 3,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 2,
+      "fold": 4,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 2,
+      "fold": 5,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 3,
+      "fold": 1,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 3,
+      "fold": 2,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 3,
+      "fold": 3,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 3,
+      "fold": 4,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 3,
+      "fold": 5,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 4,
+      "fold": 1,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 4,
+      "fold": 2,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 4,
+      "fold": 3,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 4,
+      "fold": 4,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 4,
+      "fold": 5,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 5,
+      "fold": 1,
+      "methods": 2,
+      "prediction_rows": 40
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 5,
+      "fold": 2,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 5,
+      "fold": 3,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 5,
+      "fold": 4,
+      "methods": 2,
+      "prediction_rows": 38
+    },
+    {
+      "design": "sensitivity96",
+      "repeat": 5,
+      "fold": 5,
+      "methods": 2,
+      "prediction_rows": 38
+    }
+  ],
+  "scope": "All final prediction models, saved inner selection arithmetic, calibration crossfit replay; not all inner optimizer trajectories re-trained"
+}

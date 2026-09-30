@@ -1,0 +1,392 @@
+{
+  "date": "2026-09-25",
+  "summary": "原79人训练内部，每类5人时Brain-JEPA平均AUC 0.4517，同输入FC 0.5747，三个随机模型均值0.4363。未达到事先约定的继续条件，停止当前配置的外层评价扩展。",
+  "boundary": "结果来自互有重叠、已反复使用的源训练组，不能作为独立泛化或显著性证据。99人均完成450区输入；18人有分析掩膜零交集细分区，原QC不变。",
+  "next": "下一步重点检查输入域差异、覆盖/头动混杂及表示所保留的信息；只根据无标签诊断与源训练内部证据提出一个新假设，不继续当前配置的外query搜索。",
+  "extraction": {
+    "state": "ALL99_NUMERIC_READY",
+    "participants": 99,
+    "reused_pilot": 1,
+    "new_extractions": 98,
+    "shape": [
+      99,
+      240,
+      450
+    ],
+    "minimum_used_voxels": 10,
+    "minimum_tian_voxels": 10,
+    "minimum_cortical_voxels": 15,
+    "people_with_analysis_empty": 18,
+    "maximum_analysis_empty": 8,
+    "minimum_reference_fraction": 0.6972477064220184,
+    "minimum_analysis_fraction": 0.0,
+    "max_aal_reextraction": 0.0,
+    "max_mean_formula": 1.7398985747263396e-05,
+    "max_pearson_formula": 2.6645352591003757e-15,
+    "max_mapping_difference": 0,
+    "seconds": 342.6124973362312,
+    "labels_used": false,
+    "qc_changed": false
+  },
+  "encoding": {
+    "state": "ALL99_ENCODED_VERIFIED",
+    "participants": 99,
+    "representations": {
+      "pretrained": {
+        "full_formula_max_abs": 4.76837158203125e-06,
+        "full_cosine_error": 1.7881393432617188e-07,
+        "verified_full_inputs": 3,
+        "shape": [
+          99,
+          768
+        ],
+        "peak_gpu_allocated_bytes": 539240448,
+        "pilot_replay_max_abs": 0.0
+      },
+      "random20260925": {
+        "full_formula_max_abs": 1.5497207641601562e-06,
+        "full_cosine_error": 5.960464477539063e-08,
+        "verified_full_inputs": 3,
+        "shape": [
+          99,
+          768
+        ],
+        "peak_gpu_allocated_bytes": 540061696
+      },
+      "random20260926": {
+        "full_formula_max_abs": 1.430511474609375e-06,
+        "full_cosine_error": 5.960464477539063e-08,
+        "verified_full_inputs": 3,
+        "shape": [
+          99,
+          768
+        ],
+        "peak_gpu_allocated_bytes": 540061696
+      },
+      "random20260927": {
+        "full_formula_max_abs": 1.2516975402832031e-06,
+        "full_cosine_error": 5.960464477539063e-08,
+        "verified_full_inputs": 3,
+        "shape": [
+          99,
+          768
+        ],
+        "peak_gpu_allocated_bytes": 540061696
+      }
+    },
+    "normalization_formula_max_abs": 1.297282413048606e-06,
+    "fc_formula_max_abs": 1.9984014443252818e-15,
+    "fc_dimensions": 101025,
+    "frame_indices": [
+      40,
+      200
+    ],
+    "tr_seconds": 2.5,
+    "classification_fits": 0,
+    "seconds": 554.9369999999981
+  },
+  "verification": {
+    "state": "VERIFIED",
+    "all_models_replayed": 810,
+    "final_models_refitted": 450,
+    "metrics_checked": 459,
+    "errors": {
+      "scaling": 5.551115123125783e-17,
+      "direct_score": 1.3322676295501878e-15,
+      "refit": 5.626055177287981e-14,
+      "auc": 2.220446049250313e-16,
+      "ba": 5.551115123125783e-17,
+      "selection": 1.1102230246251565e-16,
+      "aggregate": 1.1102230246251565e-16
+    },
+    "seconds": 52.53100000000268,
+    "advance": false,
+    "scope": "Independent scaling/coefficient formulas, independent pairwise AUC and all final sklearn refits; same estimator library reused"
+  },
+  "decision": {
+    "primary_k": 5,
+    "group_deltas": [
+      {
+        "fold": 0,
+        "pretrained_minus_fc": -0.10833333333333328,
+        "pretrained_minus_random_mean": 0.10915637860082306
+      },
+      {
+        "fold": 1,
+        "pretrained_minus_fc": -0.12700617283950616,
+        "pretrained_minus_random_mean": -0.0251543209876543
+      },
+      {
+        "fold": 2,
+        "pretrained_minus_fc": -0.1337448559670783,
+        "pretrained_minus_random_mean": -0.03778577960676727
+      }
+    ],
+    "full_pretrained_minus_fc": -0.20934499314128951,
+    "advance": false,
+    "scope": "Previously used overlapping source training groups, no external or per-fold outer query scoring; not significance"
+  },
+  "representation_diagnostics": {
+    "state": "LABEL_FREE_DESCRIPTION",
+    "representations": {
+      "pretrained": {
+        "shape": [
+          99,
+          768
+        ],
+        "between_person_centered_rms": 0.1612375371212365,
+        "minimum_feature_std": 0.04085828778324333,
+        "dimensions_for95percent_variance": 35,
+        "first_component_variance": 0.16961173486439576,
+        "pairwise_cosine_min": 0.913731644472683,
+        "pairwise_cosine_mean": 0.9737371103900063,
+        "pairwise_cosine_max": 0.994569456074966
+      },
+      "random20260925": {
+        "shape": [
+          99,
+          768
+        ],
+        "between_person_centered_rms": 0.019190863635631456,
+        "minimum_feature_std": 0.007478723361647529,
+        "dimensions_for95percent_variance": 8,
+        "first_component_variance": 0.22327780505695766,
+        "pairwise_cosine_min": 0.998147681858642,
+        "pairwise_cosine_mean": 0.9996279522201625,
+        "pairwise_cosine_max": 0.999973611771349
+      },
+      "random20260926": {
+        "shape": [
+          99,
+          768
+        ],
+        "between_person_centered_rms": 0.018584769260357202,
+        "minimum_feature_std": 0.007815853315387845,
+        "dimensions_for95percent_variance": 8,
+        "first_component_variance": 0.2362786988077654,
+        "pairwise_cosine_min": 0.998195580712122,
+        "pairwise_cosine_mean": 0.9996510814714997,
+        "pairwise_cosine_max": 0.9999749481890069
+      },
+      "random20260927": {
+        "shape": [
+          99,
+          768
+        ],
+        "between_person_centered_rms": 0.017427068188240476,
+        "minimum_feature_std": 0.005149266736246048,
+        "dimensions_for95percent_variance": 8,
+        "first_component_variance": 0.24372153041225667,
+        "pairwise_cosine_min": 0.9984166851862372,
+        "pairwise_cosine_mean": 0.999693197889987,
+        "pairwise_cosine_max": 0.999978037392903
+      }
+    },
+    "scope": "Full99 unsupervised descriptive statistics only; no transform fitted for downstream models, no participant/model selection, not pain-signal evidence"
+  },
+  "results": [
+    {
+      "regime": "fewshot",
+      "k": 1,
+      "representation": "fc450",
+      "auc": 0.5078132144490168,
+      "ba": 0.5200617283950617
+    },
+    {
+      "regime": "fewshot",
+      "k": 1,
+      "representation": "pretrained",
+      "auc": 0.4769547325102881,
+      "ba": 0.5016460905349794
+    },
+    {
+      "regime": "fewshot",
+      "k": 1,
+      "representation": "random20260925",
+      "auc": 0.4521547782350251,
+      "ba": 0.4949074074074074
+    },
+    {
+      "regime": "fewshot",
+      "k": 1,
+      "representation": "random20260926",
+      "auc": 0.467003886602652,
+      "ba": 0.480298353909465
+    },
+    {
+      "regime": "fewshot",
+      "k": 1,
+      "representation": "random20260927",
+      "auc": 0.4722908093278463,
+      "ba": 0.4947016460905349
+    },
+    {
+      "regime": "fewshot",
+      "k": 5,
+      "representation": "fc450",
+      "auc": 0.5747313671696388,
+      "ba": 0.5271604938271605
+    },
+    {
+      "regime": "fewshot",
+      "k": 5,
+      "representation": "pretrained",
+      "auc": 0.4517032464563328,
+      "ba": 0.4590534979423868
+    },
+    {
+      "regime": "fewshot",
+      "k": 5,
+      "representation": "random20260925",
+      "auc": 0.4336305441243713,
+      "ba": 0.4389917695473251
+    },
+    {
+      "regime": "fewshot",
+      "k": 5,
+      "representation": "random20260926",
+      "auc": 0.4300697302240512,
+      "ba": 0.4504629629629629
+    },
+    {
+      "regime": "fewshot",
+      "k": 5,
+      "representation": "random20260927",
+      "auc": 0.4451931870141746,
+      "ba": 0.4488168724279835
+    },
+    {
+      "regime": "fewshot",
+      "k": 10,
+      "representation": "fc450",
+      "auc": 0.6098651120256059,
+      "ba": 0.5801440329218107
+    },
+    {
+      "regime": "fewshot",
+      "k": 10,
+      "representation": "pretrained",
+      "auc": 0.4450903063557384,
+      "ba": 0.4569444444444444
+    },
+    {
+      "regime": "fewshot",
+      "k": 10,
+      "representation": "random20260925",
+      "auc": 0.491043667123914,
+      "ba": 0.4977880658436214
+    },
+    {
+      "regime": "fewshot",
+      "k": 10,
+      "representation": "random20260926",
+      "auc": 0.4886316872427984,
+      "ba": 0.4973765432098765
+    },
+    {
+      "regime": "fewshot",
+      "k": 10,
+      "representation": "random20260927",
+      "auc": 0.5009487882944673,
+      "ba": 0.5179012345679012
+    },
+    {
+      "regime": "full",
+      "k": -1,
+      "representation": "aal90_historical",
+      "auc": 0.7390089163237312,
+      "ba": 0.6674382716049383
+    },
+    {
+      "regime": "full",
+      "k": -1,
+      "representation": "fc450",
+      "auc": 0.6471364883401921,
+      "ba": 0.5964506172839505
+    },
+    {
+      "regime": "full",
+      "k": -1,
+      "representation": "pretrained",
+      "auc": 0.4377914951989026,
+      "ba": 0.4558641975308642
+    },
+    {
+      "regime": "full",
+      "k": -1,
+      "representation": "random20260925",
+      "auc": 0.5025205761316873,
+      "ba": 0.5067901234567901
+    },
+    {
+      "regime": "full",
+      "k": -1,
+      "representation": "random20260926",
+      "auc": 0.5043895747599452,
+      "ba": 0.5114197530864197
+    },
+    {
+      "regime": "full",
+      "k": -1,
+      "representation": "random20260927",
+      "auc": 0.5277949245541839,
+      "ba": 0.5239197530864197
+    }
+  ],
+  "table": [
+    {
+      "representation": "pretrained",
+      "label": "官方预训练",
+      "full": 0.4377914951989026,
+      "k1": 0.4769547325102881,
+      "k5": 0.4517032464563328,
+      "k10": 0.4450903063557384
+    },
+    {
+      "representation": "fc450",
+      "label": "同输入FC",
+      "full": 0.6471364883401921,
+      "k1": 0.5078132144490168,
+      "k5": 0.5747313671696388,
+      "k10": 0.6098651120256059
+    },
+    {
+      "representation": "random20260925",
+      "label": "随机种子20260925",
+      "full": 0.5025205761316873,
+      "k1": 0.4521547782350251,
+      "k5": 0.4336305441243713,
+      "k10": 0.491043667123914
+    },
+    {
+      "representation": "random20260926",
+      "label": "随机种子20260926",
+      "full": 0.5043895747599452,
+      "k1": 0.467003886602652,
+      "k5": 0.4300697302240512,
+      "k10": 0.4886316872427984
+    },
+    {
+      "representation": "random20260927",
+      "label": "随机种子20260927",
+      "full": 0.5277949245541839,
+      "k1": 0.4722908093278463,
+      "k5": 0.4451931870141746,
+      "k10": 0.5009487882944673
+    },
+    {
+      "representation": "aal90_historical",
+      "label": "原AAL90参照（不同输入）",
+      "full": 0.7390089163237312,
+      "k1": null,
+      "k5": null,
+      "k10": null
+    }
+  ],
+  "study_counts": {
+    "selection_fits": 360,
+    "final_fits": 450,
+    "full_tasks": 9,
+    "fewshot_tasks": 81
+  }
+}

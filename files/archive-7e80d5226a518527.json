@@ -1,0 +1,14 @@
+{
+  "validated_at": "2026-08-24T03:07:41.072714Z",
+  "repository_validator": "passed",
+  "metrics_recomputed_from_oof": true,
+  "prediction_rows": 744,
+  "representation_audit_rows": 45,
+  "external_source_target_overlap_max": 0,
+  "target_adaptation_test_overlap_max": 0,
+  "subject_level_payload_excluded": true,
+  "report_surface": "REPORT.md",
+  "canonical_artifact_validation": "passed",
+  "portable_html_validation": "not_retried_after_equivalent_reader_timeout",
+  "portable_html_published": false
+}

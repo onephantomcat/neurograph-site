@@ -1,0 +1,768 @@
+{
+  "artifact_version": 1,
+  "generated_at": "2026-08-24T05:52:50.566917+00:00",
+  "analysis_role": "post_outcome_exploratory_diagnostic",
+  "evidence_status": "POST_OUTCOME_NO_IMAGE_ALTERNATIVES",
+  "question": "Can label-free OA-envelope clipping or atlas-invariant graph summaries explain or mitigate the failed SRPBS transport before common-atlas FC is available?",
+  "selection_policy": "Both fixed alternatives are reported; there is no success criterion and no post-result threshold or method selection.",
+  "inputs": {
+    "oa_dataset": {
+      "file_name": "oa_aal90_multifeature.npz",
+      "bytes": 1857214,
+      "sha256": "e2a6fa729f6899c86a0829c58677d049c434188754bdf3063f0a4d609bfdf60e"
+    },
+    "checkpoint": {
+      "file_name": "external_source_fc_encoder.npz",
+      "bytes": 2964073,
+      "sha256": "9c88cb271eba739cc2019bd12d4a7f04131f8550c44a6005b9778570692089f4"
+    },
+    "osaka_matrix": {
+      "file_name": "BAL-Osaka_FC_NP_N82.mat",
+      "bytes": 6126290,
+      "sha256": "7595b4b07cda1531dd34efae0a6faa2325062b9b0cda451d12c49c34aa59c48b"
+    },
+    "osaka_metadata": {
+      "file_name": "SUBINFO_OsakaU_N82.tsv",
+      "bytes": 3950,
+      "sha256": "475d32b6222ca14cac3ffdb9593792451df7128843570d5c483d70de52c8fc4e"
+    },
+    "bal_roi_table": {
+      "file_name": "ROITBL_BAL.mat",
+      "bytes": 49703210,
+      "sha256": "d0acf3ce54d8e43f47da85e207c64b0b08d99de4d72f5609f4ecbbac4a3e1835"
+    },
+    "aal_atlas": {
+      "file_name": "AAL_61x73x61_YCG.nii",
+      "bytes": 271985,
+      "sha256": "d5412c7da63f75e0c0a7cd314e948fb655ae6cd6bd2e936b72b7fa81304ccca5"
+    }
+  },
+  "oa_training": {
+    "subjects": 62,
+    "controls": 18,
+    "patients": 44,
+    "subject_ids_sha256": "f0a0ad09f8e63d0acfb528f9dee9f65f749dfccbf655c0797404f4d042404ff6",
+    "external_labels_used_in_fit": false
+  },
+  "external_cohort": {
+    "subjects": 82,
+    "condition_counts": {
+      "1": 43,
+      "0": 29,
+      "2": 10
+    },
+    "site_by_condition": {
+      "site=1|condition=0": 27,
+      "site=1|condition=1": 38,
+      "site=1|condition=2": 9,
+      "site=2|condition=0": 2,
+      "site=2|condition=1": 5,
+      "site=2|condition=2": 1
+    },
+    "left_pain_count": 21,
+    "minimum_reconstructed_eigenvalue": -2.958743416799861e-14,
+    "row_alignment_basis": "Official release README states that FC rows and adjacent metadata rows represent the same ordered 82 participants; the MAT has no embedded IDs.",
+    "external_labels_used_before_probabilities": false
+  },
+  "alternatives": {
+    "ds005713_fixed_encoder": "Previously evaluated fixed DS005713 encoder on projected AAL90 FC.",
+    "ds005713_fixed_encoder_oa_envelope": "Same fixed scaler/encoder and OA latent classifier after clipping each external standardized edge to its OA-observed feature range.",
+    "atlas_invariant_graph_summary": "OA-trained logistic model on 32 node-count-invariant graph distribution and spectral summaries; SRPBS uses BAL ROI 1..137 directly."
+  },
+  "data_quality": {
+    "oa_graph_shape": [
+      62,
+      32
+    ],
+    "srpbs_graph_shape": [
+      82,
+      32
+    ],
+    "graph_feature_names": [
+      "edge_mean",
+      "edge_std",
+      "edge_q05",
+      "edge_q10",
+      "edge_q25",
+      "edge_q50",
+      "edge_q75",
+      "edge_q90",
+      "edge_q95",
+      "edge_positive_fraction",
+      "edge_negative_fraction",
+      "abs_edge_mean",
+      "abs_edge_std",
+      "abs_edge_q50",
+      "abs_edge_q75",
+      "abs_edge_q90",
+      "abs_edge_q95",
+      "node_strength_mean",
+      "node_strength_std",
+      "node_strength_q10",
+      "node_strength_q50",
+      "node_strength_q90",
+      "node_abs_strength_mean",
+      "node_abs_strength_std",
+      "node_abs_strength_q10",
+      "node_abs_strength_q50",
+      "node_abs_strength_q90",
+      "eigen_top1_share",
+      "eigen_top3_share",
+      "eigen_top5_share",
+      "spectral_entropy_normalized",
+      "effective_rank_fraction"
+    ],
+    "graph_features_finite": true,
+    "envelope_clipping": {
+      "reference_rows": 62,
+      "target_rows": 82,
+      "features": 4005,
+      "clipped_values": 17026,
+      "clipped_fraction": 0.05184373192046527,
+      "subjects_with_any_clipping": 82,
+      "maximum_abs_before": 20.944517135620117,
+      "maximum_abs_after": 5.434824466705322,
+      "external_labels_used": false
+    },
+    "base_external_reconstruction_mse": 1.486649990081787,
+    "clipped_external_reconstruction_mse": 1.1711115837097168
+  },
+  "model_fit": {
+    "raw_projected_aal90": {
+      "model__C": 0.1,
+      "select__k": 32
+    },
+    "ds005713_fixed_encoder": {
+      "model__C": 10.0,
+      "select__k": 16
+    },
+    "ds005713_fixed_encoder_oa_envelope": {
+      "model__C": 10.0,
+      "select__k": 16
+    },
+    "atlas_invariant_graph_summary": {
+      "model__C": 10.0,
+      "select__k": 16
+    }
+  },
+  "primary_external_endpoint": {
+    "endpoint": "pain_vs_healthy",
+    "site_filter": null,
+    "subjects": 72,
+    "pain": 43,
+    "no_pain": 29,
+    "models": {
+      "raw_projected_aal90": {
+        "roc_auc": 0.3159582999198075,
+        "average_precision": 0.4862461351941494,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.429831595829992,
+        "sensitivity": 0.7906976744186046,
+        "specificity": 0.06896551724137931,
+        "f1": 0.6538461538461539,
+        "brier_score": 0.3627352418350421,
+        "expected_calibration_error": 0.3398112986776751
+      },
+      "ds005713_fixed_encoder": {
+        "roc_auc": 0.3696872493985565,
+        "average_precision": 0.5594763047862767,
+        "accuracy": 0.4166666666666667,
+        "balanced_accuracy": 0.4611066559743384,
+        "sensitivity": 0.23255813953488372,
+        "specificity": 0.6896551724137931,
+        "f1": 0.3225806451612903,
+        "brier_score": 0.5516751445552014,
+        "expected_calibration_error": 0.5568039482304239
+      },
+      "ds005713_fixed_encoder_oa_envelope": {
+        "roc_auc": 0.37289494787489974,
+        "average_precision": 0.5486986518191457,
+        "accuracy": 0.4166666666666667,
+        "balanced_accuracy": 0.45549318364073776,
+        "sensitivity": 0.2558139534883721,
+        "specificity": 0.6551724137931034,
+        "f1": 0.34375,
+        "brier_score": 0.5428437938547865,
+        "expected_calibration_error": 0.5310248344789517
+      },
+      "atlas_invariant_graph_summary": {
+        "roc_auc": 0.4041700080192462,
+        "average_precision": 0.5933732720727057,
+        "accuracy": 0.4166666666666667,
+        "balanced_accuracy": 0.4891740176423416,
+        "sensitivity": 0.11627906976744186,
+        "specificity": 0.8620689655172413,
+        "f1": 0.19230769230769232,
+        "brier_score": 0.4355751478610581,
+        "expected_calibration_error": 0.42843328352851356
+      }
+    },
+    "auc_delta_vs_raw": {
+      "ds005713_fixed_encoder": 0.05372894947874901,
+      "ds005713_fixed_encoder_oa_envelope": 0.056936647955092234,
+      "atlas_invariant_graph_summary": 0.08821170809943868
+    },
+    "paired_stratified_bootstrap": {
+      "samples": 10000,
+      "auc_95_ci": {
+        "raw_projected_aal90": [
+          0.19727345629510826,
+          0.4450882117080992
+        ],
+        "ds005713_fixed_encoder": [
+          0.243785084202085,
+          0.4979951884522855
+        ],
+        "ds005713_fixed_encoder_oa_envelope": [
+          0.24538893344025664,
+          0.5028067361668003
+        ],
+        "atlas_invariant_graph_summary": [
+          0.27265437048917407,
+          0.5396952686447474
+        ]
+      },
+      "delta_vs_raw_95_ci": {
+        "ds005713_fixed_encoder": [
+          -0.10264635124298316,
+          0.21090617481956692
+        ],
+        "ds005713_fixed_encoder_oa_envelope": [
+          -0.10024057738572567,
+          0.21651964715316763
+        ],
+        "atlas_invariant_graph_summary": [
+          -0.0721732157177225,
+          0.24378508420208495
+        ]
+      }
+    },
+    "paired_label_permutation": {
+      "samples": 10000,
+      "seed": 20260824,
+      "alternative": "greater",
+      "delta_vs_raw_add_one_p": {
+        "ds005713_fixed_encoder": 0.2628737126287371,
+        "ds005713_fixed_encoder_oa_envelope": 0.24717528247175283,
+        "atlas_invariant_graph_summary": 0.1523847615238476
+      }
+    }
+  },
+  "secondary_external_endpoint": {
+    "endpoint": "pain_vs_all_no_pain",
+    "site_filter": null,
+    "subjects": 82,
+    "pain": 43,
+    "no_pain": 39,
+    "models": {
+      "raw_projected_aal90": {
+        "roc_auc": 0.3464519976147883,
+        "average_precision": 0.43123847457564424,
+        "accuracy": 0.45121951219512196,
+        "balanced_accuracy": 0.4338103756708408,
+        "sensitivity": 0.7906976744186046,
+        "specificity": 0.07692307692307693,
+        "f1": 0.6017699115044248,
+        "brier_score": 0.38956269918197745,
+        "expected_calibration_error": 0.35046410068890577
+      },
+      "ds005713_fixed_encoder": {
+        "roc_auc": 0.4084675014907573,
+        "average_precision": 0.5152817300130956,
+        "accuracy": 0.47560975609756095,
+        "balanced_accuracy": 0.48807394156231365,
+        "sensitivity": 0.23255813953488372,
+        "specificity": 0.7435897435897436,
+        "f1": 0.31746031746031744,
+        "brier_score": 0.49302428411169497,
+        "expected_calibration_error": 0.4948967108210367
+      },
+      "ds005713_fixed_encoder_oa_envelope": {
+        "roc_auc": 0.41979725700655934,
+        "average_precision": 0.5079972519022137,
+        "accuracy": 0.47560975609756095,
+        "balanced_accuracy": 0.486881335718545,
+        "sensitivity": 0.2558139534883721,
+        "specificity": 0.717948717948718,
+        "f1": 0.3384615384615385,
+        "brier_score": 0.4865953280172335,
+        "expected_calibration_error": 0.4798968454116489
+      },
+      "atlas_invariant_graph_summary": {
+        "roc_auc": 0.4370900417412046,
+        "average_precision": 0.5321524951893878,
+        "accuracy": 0.4634146341463415,
+        "balanced_accuracy": 0.481216457960644,
+        "sensitivity": 0.11627906976744186,
+        "specificity": 0.8461538461538461,
+        "f1": 0.18518518518518517,
+        "brier_score": 0.3991513848856057,
+        "expected_calibration_error": 0.38016788732368023
+      }
+    },
+    "auc_delta_vs_raw": {
+      "ds005713_fixed_encoder": 0.06201550387596899,
+      "ds005713_fixed_encoder_oa_envelope": 0.07334525939177106,
+      "atlas_invariant_graph_summary": 0.0906380441264163
+    },
+    "paired_stratified_bootstrap": {
+      "samples": 10000,
+      "auc_95_ci": {
+        "raw_projected_aal90": [
+          0.23433214072748956,
+          0.469886702444842
+        ],
+        "ds005713_fixed_encoder": [
+          0.2886106141920096,
+          0.5348837209302326
+        ],
+        "ds005713_fixed_encoder_oa_envelope": [
+          0.29934406678592723,
+          0.5480023852116875
+        ],
+        "atlas_invariant_graph_summary": [
+          0.31425163983303517,
+          0.5629099582587955
+        ]
+      },
+      "delta_vs_raw_95_ci": {
+        "ds005713_fixed_encoder": [
+          -0.09361955873583788,
+          0.21824686940966012
+        ],
+        "ds005713_fixed_encoder_oa_envelope": [
+          -0.08288610614192005,
+          0.2295766249254621
+        ],
+        "atlas_invariant_graph_summary": [
+          -0.06559332140727486,
+          0.24211389385807974
+        ]
+      }
+    }
+  },
+  "sensitivity_analyses": {
+    "site_1_only_pain_vs_healthy": {
+      "endpoint": "pain_vs_healthy",
+      "site_filter": 1,
+      "subjects": 65,
+      "pain": 38,
+      "no_pain": 27,
+      "models": {
+        "raw_projected_aal90": {
+          "roc_auc": 0.3050682261208577,
+          "average_precision": 0.4714601789708509,
+          "accuracy": 0.47692307692307695,
+          "balanced_accuracy": 0.4186159844054581,
+          "sensitivity": 0.7631578947368421,
+          "specificity": 0.07407407407407407,
+          "f1": 0.6304347826086957,
+          "brier_score": 0.37457641376306455,
+          "expected_calibration_error": 0.3523805674408465
+        },
+        "ds005713_fixed_encoder": {
+          "roc_auc": 0.37037037037037035,
+          "average_precision": 0.5521185087281962,
+          "accuracy": 0.4153846153846154,
+          "balanced_accuracy": 0.45175438596491224,
+          "sensitivity": 0.23684210526315788,
+          "specificity": 0.6666666666666666,
+          "f1": 0.32142857142857145,
+          "brier_score": 0.5522720903574729,
+          "expected_calibration_error": 0.5520692833273156
+        },
+        "ds005713_fixed_encoder_oa_envelope": {
+          "roc_auc": 0.37816764132553604,
+          "average_precision": 0.5416572147060513,
+          "accuracy": 0.4153846153846154,
+          "balanced_accuracy": 0.4463937621832359,
+          "sensitivity": 0.2631578947368421,
+          "specificity": 0.6296296296296297,
+          "f1": 0.3448275862068966,
+          "brier_score": 0.5440625700821491,
+          "expected_calibration_error": 0.534222200805482
+        },
+        "atlas_invariant_graph_summary": {
+          "roc_auc": 0.44346978557504874,
+          "average_precision": 0.6037918260127125,
+          "accuracy": 0.4307692307692308,
+          "balanced_accuracy": 0.49171539961013644,
+          "sensitivity": 0.13157894736842105,
+          "specificity": 0.8518518518518519,
+          "f1": 0.2127659574468085,
+          "brier_score": 0.41701466916662855,
+          "expected_calibration_error": 0.4131504764114685
+        }
+      },
+      "auc_delta_vs_raw": {
+        "ds005713_fixed_encoder": 0.06530214424951264,
+        "ds005713_fixed_encoder_oa_envelope": 0.07309941520467833,
+        "atlas_invariant_graph_summary": 0.13840155945419103
+      },
+      "paired_stratified_bootstrap": {
+        "samples": 10000,
+        "auc_95_ci": {
+          "raw_projected_aal90": [
+            0.18031189083820665,
+            0.437646198830409
+          ],
+          "ds005713_fixed_encoder": [
+            0.2339181286549708,
+            0.5097465886939572
+          ],
+          "ds005713_fixed_encoder_oa_envelope": [
+            0.24171539961013647,
+            0.5185428849902531
+          ],
+          "atlas_invariant_graph_summary": [
+            0.3001949317738791,
+            0.5828460038986355
+          ]
+        },
+        "delta_vs_raw_95_ci": {
+          "ds005713_fixed_encoder": [
+            -0.09161793372319688,
+            0.22417153996101363
+          ],
+          "ds005713_fixed_encoder_oa_envelope": [
+            -0.08674463937621832,
+            0.23391812865497075
+          ],
+          "atlas_invariant_graph_summary": [
+            -0.023391812865497075,
+            0.2962962962962963
+          ]
+        }
+      }
+    },
+    "prediction_bias": {
+      "segment_probability_summary": [
+        {
+          "segment": "condition",
+          "value": "healthy",
+          "method": "raw_projected_aal90",
+          "n": 29,
+          "mean_probability": 0.8125861791505502,
+          "std_probability": 0.16124949162798768,
+          "minimum_probability": 0.31580822618781124,
+          "maximum_probability": 0.9883427960551343
+        },
+        {
+          "segment": "condition",
+          "value": "healthy",
+          "method": "ds005713_fixed_encoder",
+          "n": 29,
+          "mean_probability": 0.3667733378907821,
+          "std_probability": 0.4040597227491673,
+          "minimum_probability": 1.181808593238041e-06,
+          "maximum_probability": 0.9977700083285024
+        },
+        {
+          "segment": "condition",
+          "value": "healthy",
+          "method": "ds005713_fixed_encoder_oa_envelope",
+          "n": 29,
+          "mean_probability": 0.40378296836090716,
+          "std_probability": 0.4047298450130962,
+          "minimum_probability": 1.9290838750036405e-06,
+          "maximum_probability": 0.9989784360782444
+        },
+        {
+          "segment": "condition",
+          "value": "healthy",
+          "method": "atlas_invariant_graph_summary",
+          "n": 29,
+          "mean_probability": 0.2421355575112754,
+          "std_probability": 0.20381842976187775,
+          "minimum_probability": 0.03480100546706836,
+          "maximum_probability": 0.8994090224902407
+        },
+        {
+          "segment": "condition",
+          "value": "pain",
+          "method": "raw_projected_aal90",
+          "n": 43,
+          "mean_probability": 0.6884012757144855,
+          "std_probability": 0.2177726733627523,
+          "minimum_probability": 0.026695590985392065,
+          "maximum_probability": 0.9531915747248368
+        },
+        {
+          "segment": "condition",
+          "value": "pain",
+          "method": "ds005713_fixed_encoder",
+          "n": 43,
+          "mean_probability": 0.23349457433393817,
+          "std_probability": 0.36792866836135346,
+          "minimum_probability": 1.4233759965214334e-08,
+          "maximum_probability": 0.9989714147461379
+        },
+        {
+          "segment": "condition",
+          "value": "pain",
+          "method": "ds005713_fixed_encoder_oa_envelope",
+          "n": 43,
+          "mean_probability": 0.2637230096864045,
+          "std_probability": 0.3826385878449064,
+          "minimum_probability": 7.768744821845624e-06,
+          "maximum_probability": 0.9992481340168562
+        },
+        {
+          "segment": "condition",
+          "value": "pain",
+          "method": "atlas_invariant_graph_summary",
+          "n": 43,
+          "mean_probability": 0.22863387730031,
+          "std_probability": 0.2584025125501037,
+          "minimum_probability": 0.023077780795633242,
+          "maximum_probability": 0.9999995660825374
+        },
+        {
+          "segment": "condition",
+          "value": "stroke_no_pain",
+          "method": "raw_projected_aal90",
+          "n": 10,
+          "mean_probability": 0.7473590380237582,
+          "std_probability": 0.15548266901527807,
+          "minimum_probability": 0.4324933714641286,
+          "maximum_probability": 0.9177765585951938
+        },
+        {
+          "segment": "condition",
+          "value": "stroke_no_pain",
+          "method": "ds005713_fixed_encoder",
+          "n": 10,
+          "mean_probability": 0.11222231770966143,
+          "std_probability": 0.24113116830123893,
+          "minimum_probability": 0.0001044583548634755,
+          "maximum_probability": 0.806934595915553
+        },
+        {
+          "segment": "condition",
+          "value": "stroke_no_pain",
+          "method": "ds005713_fixed_encoder_oa_envelope",
+          "n": 10,
+          "mean_probability": 0.13563898221429826,
+          "std_probability": 0.2514128884737617,
+          "minimum_probability": 0.00020339737257690243,
+          "maximum_probability": 0.7732966227240723
+        },
+        {
+          "segment": "condition",
+          "value": "stroke_no_pain",
+          "method": "atlas_invariant_graph_summary",
+          "n": 10,
+          "mean_probability": 0.2548574588010185,
+          "std_probability": 0.26823118229586007,
+          "minimum_probability": 0.039809509844647685,
+          "maximum_probability": 0.8304099109184933
+        },
+        {
+          "segment": "site",
+          "value": "1",
+          "method": "raw_projected_aal90",
+          "n": 74,
+          "mean_probability": 0.7312225754789882,
+          "std_probability": 0.20578870006223668,
+          "minimum_probability": 0.026695590985392065,
+          "maximum_probability": 0.9883427960551343
+        },
+        {
+          "segment": "site",
+          "value": "1",
+          "method": "ds005713_fixed_encoder",
+          "n": 74,
+          "mean_probability": 0.2838041612777859,
+          "std_probability": 0.38948656311578056,
+          "minimum_probability": 1.4233759965214334e-08,
+          "maximum_probability": 0.9989714147461379
+        },
+        {
+          "segment": "site",
+          "value": "1",
+          "method": "ds005713_fixed_encoder_oa_envelope",
+          "n": 74,
+          "mean_probability": 0.31683001215618245,
+          "std_probability": 0.39732477366424934,
+          "minimum_probability": 1.9290838750036405e-06,
+          "maximum_probability": 0.9992481340168562
+        },
+        {
+          "segment": "site",
+          "value": "1",
+          "method": "atlas_invariant_graph_summary",
+          "n": 74,
+          "mean_probability": 0.24470200961194166,
+          "std_probability": 0.25068300390757625,
+          "minimum_probability": 0.023077780795633242,
+          "maximum_probability": 0.9999995660825374
+        },
+        {
+          "segment": "site",
+          "value": "2",
+          "method": "raw_projected_aal90",
+          "n": 8,
+          "mean_probability": 0.816171730735159,
+          "std_probability": 0.12090173626972314,
+          "minimum_probability": 0.5249603330742444,
+          "maximum_probability": 0.9310205591795362
+        },
+        {
+          "segment": "site",
+          "value": "2",
+          "method": "ds005713_fixed_encoder",
+          "n": 8,
+          "mean_probability": 0.09967609221655982,
+          "std_probability": 0.17426374670764874,
+          "minimum_probability": 2.438594818827128e-06,
+          "maximum_probability": 0.5191080053776783
+        },
+        {
+          "segment": "site",
+          "value": "2",
+          "method": "ds005713_fixed_encoder_oa_envelope",
+          "n": 8,
+          "mean_probability": 0.12009555269589749,
+          "std_probability": 0.2107258292272112,
+          "minimum_probability": 7.768744821845624e-06,
+          "maximum_probability": 0.6441360673683838
+        },
+        {
+          "segment": "site",
+          "value": "2",
+          "method": "atlas_invariant_graph_summary",
+          "n": 8,
+          "mean_probability": 0.16172672105835256,
+          "std_probability": 0.11309600194615116,
+          "minimum_probability": 0.029865798314756907,
+          "maximum_probability": 0.309669911974222
+        },
+        {
+          "segment": "sex",
+          "value": "1",
+          "method": "raw_projected_aal90",
+          "n": 54,
+          "mean_probability": 0.7548104543372773,
+          "std_probability": 0.19444839048649115,
+          "minimum_probability": 0.026695590985392065,
+          "maximum_probability": 0.9883427960551343
+        },
+        {
+          "segment": "sex",
+          "value": "1",
+          "method": "ds005713_fixed_encoder",
+          "n": 54,
+          "mean_probability": 0.23154579605302408,
+          "std_probability": 0.35835504688082326,
+          "minimum_probability": 1.4233759965214334e-08,
+          "maximum_probability": 0.9977700083285024
+        },
+        {
+          "segment": "sex",
+          "value": "1",
+          "method": "ds005713_fixed_encoder_oa_envelope",
+          "n": 54,
+          "mean_probability": 0.2615029921395423,
+          "std_probability": 0.36929532277012095,
+          "minimum_probability": 7.768744821845624e-06,
+          "maximum_probability": 0.9989784360782444
+        },
+        {
+          "segment": "sex",
+          "value": "1",
+          "method": "atlas_invariant_graph_summary",
+          "n": 54,
+          "mean_probability": 0.21676549087201735,
+          "std_probability": 0.2145837150516644,
+          "minimum_probability": 0.02953797231251124,
+          "maximum_probability": 0.9999995660825374
+        },
+        {
+          "segment": "sex",
+          "value": "2",
+          "method": "raw_projected_aal90",
+          "n": 28,
+          "mean_probability": 0.7100028534683368,
+          "std_probability": 0.20908744489008452,
+          "minimum_probability": 0.2253498343275571,
+          "maximum_probability": 0.9612922982416238
+        },
+        {
+          "segment": "sex",
+          "value": "2",
+          "method": "ds005713_fixed_encoder",
+          "n": 28,
+          "mean_probability": 0.33198013162233336,
+          "std_probability": 0.4050090442457406,
+          "minimum_probability": 1.181808593238041e-06,
+          "maximum_probability": 0.9989714147461379
+        },
+        {
+          "segment": "sex",
+          "value": "2",
+          "method": "ds005713_fixed_encoder_oa_envelope",
+          "n": 28,
+          "mean_probability": 0.3673222766281926,
+          "std_probability": 0.41169872288381737,
+          "minimum_probability": 1.9290838750036405e-06,
+          "maximum_probability": 0.9992481340168562
+        },
+        {
+          "segment": "sex",
+          "value": "2",
+          "method": "atlas_invariant_graph_summary",
+          "n": 28,
+          "mean_probability": 0.2748723561664845,
+          "std_probability": 0.28369916361277336,
+          "minimum_probability": 0.023077780795633242,
+          "maximum_probability": 0.9710876847253904
+        }
+      ],
+      "continuous": {
+        "age": {
+          "raw_projected_aal90": {
+            "spearman_rho": 0.10339938400048568,
+            "two_sided_p": 0.3552635731021255
+          },
+          "ds005713_fixed_encoder": {
+            "spearman_rho": -0.2535536513284081,
+            "two_sided_p": 0.02153471673354024
+          },
+          "ds005713_fixed_encoder_oa_envelope": {
+            "spearman_rho": -0.23004536577478082,
+            "two_sided_p": 0.03760427069223155
+          },
+          "atlas_invariant_graph_summary": {
+            "spearman_rho": 0.0331253114619293,
+            "two_sided_p": 0.7676588977095692
+          }
+        },
+        "remained_frames_percent": {
+          "raw_projected_aal90": {
+            "spearman_rho": -0.39861638015842604,
+            "two_sided_p": 0.0002079219164016494
+          },
+          "ds005713_fixed_encoder": {
+            "spearman_rho": -0.03717271250736948,
+            "two_sided_p": 0.7402213822674786
+          },
+          "ds005713_fixed_encoder_oa_envelope": {
+            "spearman_rho": -0.059207116448365876,
+            "two_sided_p": 0.5972381843425262
+          },
+          "atlas_invariant_graph_summary": {
+            "spearman_rho": -0.19477883463716045,
+            "two_sided_p": 0.07950649626002435
+          }
+        }
+      }
+    }
+  },
+  "limitations": [
+    "The original external outcome was already known before these alternatives were specified; all results are post-outcome exploratory diagnostics.",
+    "OA-envelope clipping is label-free but was motivated by the observed SRPBS tail shift.",
+    "Graph summaries avoid the crosswalk but discard anatomical identity and remain sensitive to atlas granularity and preprocessing.",
+    "The graph classifier is trained on only 62 OA participants and cannot establish clinical transport.",
+    "Common-atlas AAL90 FC recomputation from downloaded images remains the preferred mechanism check."
+  ]
+}

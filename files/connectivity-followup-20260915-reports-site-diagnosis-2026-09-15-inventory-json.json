@@ -1,0 +1,595 @@
+{
+  "date": "2026-09-15",
+  "exported_at": "2026-09-15T02:14:44.956718+00:00",
+  "artifacts": [
+    {
+      "source": "tmp/site-diagnosis-20260915/CIN-to-OSU/repeat1-fold1/audit.json",
+      "file": "results/CIN-to-OSU/repeat1-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/CIN-to-OSU/repeat2-fold1/audit.json",
+      "file": "results/CIN-to-OSU/repeat2-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/CIN-to-OSU/repeat3-fold1/audit.json",
+      "file": "results/CIN-to-OSU/repeat3-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/CIN-to-OSU/repeat4-fold1/audit.json",
+      "file": "results/CIN-to-OSU/repeat4-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/CIN-to-OSU/repeat5-fold1/audit.json",
+      "file": "results/CIN-to-OSU/repeat5-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/error_groups.json",
+      "file": "results/error_groups.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/group_distributions.json",
+      "file": "results/group_distributions.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/OSU-to-CIN/repeat1-fold1/audit.json",
+      "file": "results/OSU-to-CIN/repeat1-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/OSU-to-CIN/repeat2-fold1/audit.json",
+      "file": "results/OSU-to-CIN/repeat2-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/OSU-to-CIN/repeat3-fold1/audit.json",
+      "file": "results/OSU-to-CIN/repeat3-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/OSU-to-CIN/repeat4-fold1/audit.json",
+      "file": "results/OSU-to-CIN/repeat4-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/OSU-to-CIN/repeat5-fold1/audit.json",
+      "file": "results/OSU-to-CIN/repeat5-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/plan.json",
+      "file": "results/plan.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat1-fold1/audit.json",
+      "file": "results/primary99/repeat1-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat1-fold2/audit.json",
+      "file": "results/primary99/repeat1-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat1-fold3/audit.json",
+      "file": "results/primary99/repeat1-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat1-fold4/audit.json",
+      "file": "results/primary99/repeat1-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat1-fold5/audit.json",
+      "file": "results/primary99/repeat1-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat2-fold1/audit.json",
+      "file": "results/primary99/repeat2-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat2-fold2/audit.json",
+      "file": "results/primary99/repeat2-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat2-fold3/audit.json",
+      "file": "results/primary99/repeat2-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat2-fold4/audit.json",
+      "file": "results/primary99/repeat2-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat2-fold5/audit.json",
+      "file": "results/primary99/repeat2-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat3-fold1/audit.json",
+      "file": "results/primary99/repeat3-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat3-fold2/audit.json",
+      "file": "results/primary99/repeat3-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat3-fold3/audit.json",
+      "file": "results/primary99/repeat3-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat3-fold4/audit.json",
+      "file": "results/primary99/repeat3-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat3-fold5/audit.json",
+      "file": "results/primary99/repeat3-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat4-fold1/audit.json",
+      "file": "results/primary99/repeat4-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat4-fold2/audit.json",
+      "file": "results/primary99/repeat4-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat4-fold3/audit.json",
+      "file": "results/primary99/repeat4-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat4-fold4/audit.json",
+      "file": "results/primary99/repeat4-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat4-fold5/audit.json",
+      "file": "results/primary99/repeat4-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat5-fold1/audit.json",
+      "file": "results/primary99/repeat5-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat5-fold2/audit.json",
+      "file": "results/primary99/repeat5-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat5-fold3/audit.json",
+      "file": "results/primary99/repeat5-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat5-fold4/audit.json",
+      "file": "results/primary99/repeat5-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/primary99/repeat5-fold5/audit.json",
+      "file": "results/primary99/repeat5-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/readiness.json",
+      "file": "results/readiness.json",
+      "removed_fields": {
+        "time_series_lengths": 1
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat1-fold1/audit.json",
+      "file": "results/sensitivity96/repeat1-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat1-fold2/audit.json",
+      "file": "results/sensitivity96/repeat1-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat1-fold3/audit.json",
+      "file": "results/sensitivity96/repeat1-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat1-fold4/audit.json",
+      "file": "results/sensitivity96/repeat1-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat1-fold5/audit.json",
+      "file": "results/sensitivity96/repeat1-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat2-fold1/audit.json",
+      "file": "results/sensitivity96/repeat2-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat2-fold2/audit.json",
+      "file": "results/sensitivity96/repeat2-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat2-fold3/audit.json",
+      "file": "results/sensitivity96/repeat2-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat2-fold4/audit.json",
+      "file": "results/sensitivity96/repeat2-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat2-fold5/audit.json",
+      "file": "results/sensitivity96/repeat2-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat3-fold1/audit.json",
+      "file": "results/sensitivity96/repeat3-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat3-fold2/audit.json",
+      "file": "results/sensitivity96/repeat3-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat3-fold3/audit.json",
+      "file": "results/sensitivity96/repeat3-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat3-fold4/audit.json",
+      "file": "results/sensitivity96/repeat3-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat3-fold5/audit.json",
+      "file": "results/sensitivity96/repeat3-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat4-fold1/audit.json",
+      "file": "results/sensitivity96/repeat4-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat4-fold2/audit.json",
+      "file": "results/sensitivity96/repeat4-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat4-fold3/audit.json",
+      "file": "results/sensitivity96/repeat4-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat4-fold4/audit.json",
+      "file": "results/sensitivity96/repeat4-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat4-fold5/audit.json",
+      "file": "results/sensitivity96/repeat4-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat5-fold1/audit.json",
+      "file": "results/sensitivity96/repeat5-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat5-fold2/audit.json",
+      "file": "results/sensitivity96/repeat5-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat5-fold3/audit.json",
+      "file": "results/sensitivity96/repeat5-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat5-fold4/audit.json",
+      "file": "results/sensitivity96/repeat5-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/sensitivity96/repeat5-fold5/audit.json",
+      "file": "results/sensitivity96/repeat5-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/site_probe_summary.json",
+      "file": "results/site_probe_summary.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/status.json",
+      "file": "results/status.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/summary.json",
+      "file": "results/summary.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/site-diagnosis-20260915/verification.json",
+      "file": "results/verification.json",
+      "removed_fields": {}
+    }
+  ],
+  "private_exclusions": [
+    "subject identifiers",
+    "individual labels/predictions/OOF tables",
+    "model weights",
+    "individual time series and imaging",
+    "raw clinical metadata"
+  ]
+}

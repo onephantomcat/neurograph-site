@@ -1,0 +1,1 @@
+{"content": "{\r\n  \"epochs\": 100,\r\n  \"warmup\": 5,\r\n  \"selection\": \"inner weighted mean BCE\",\r\n  \"methods\": [\r\n    \"source50_100_frozen\",\r\n    \"source50_100_last\"\r\n  ],\r\n  \"seed\": 20260908\r\n}\n", "truncated": false}

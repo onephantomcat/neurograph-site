@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "methods": [
+    "raw_pca_l2",
+    "raw_strong_l2"
+  ],
+  "max_probability_error": 0.0
+}

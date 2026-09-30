@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "units": 115,
+  "state_models_refit": 460,
+  "final_heads_replayed_and_refit": 115,
+  "inner_heads_refit": 1470,
+  "max_independent_window_error": 6.661338147750939e-15,
+  "max_refit_centroid_error": 0.0,
+  "max_refit_prediction_error": 0.0,
+  "rows": 46,
+  "paired_comparisons": 167
+}

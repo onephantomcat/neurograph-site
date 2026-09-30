@@ -1,0 +1,42 @@
+{
+  "classification": {
+    "subjects": 28,
+    "unique_baseline_persons": true,
+    "manifest_labels_match": true,
+    "label_versions": {
+      "2.0.1": 21,
+      "2.0.2": 7
+    },
+    "target_definition": "baseline pure TN=1; clinically normal HC=0",
+    "author_confirmation_pending": true,
+    "development_only": true,
+    "new_label_or_visual_approval": false
+  },
+  "regression": {
+    "subjects": 14,
+    "unique_baseline_persons": true,
+    "manifest_labels_match": true,
+    "label_versions": {
+      "2.0.2": 6,
+      "2.0.1": 8
+    },
+    "target_definition": "baseline admission past-week average pain 0-10; not seven-day daily-worst NRS mean",
+    "author_confirmation_pending": true,
+    "development_only": true,
+    "new_label_or_visual_approval": false
+  },
+  "local_record_date": "2026-09-13T16:30:23.314138+08:00",
+  "phn_local_record": {
+    "phn_data_received": false,
+    "application_approved": false,
+    "recorded_sent_at": "2026-09-11 21:05",
+    "mailbox_checked_this_run": false
+  },
+  "completed": "Local identity, baseline visit and label mapping recheck",
+  "pending_external": [
+    "Author confirmation of DS005713 historical labels",
+    "PHN supervised imaging and matched clinical scores",
+    "Prospective standardized endpoint and new-center cohort"
+  ],
+  "no_external_correspondence_sent": true
+}

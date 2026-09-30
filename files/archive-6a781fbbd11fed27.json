@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "verified_at": "2026-09-09T01:34:28.983287+00:00",
+  "model_readbacks": 600,
+  "new_neural_models": 500,
+  "reused_baselines": 100,
+  "neural_fit_audits": 3500,
+  "max_prediction_replay_error": 0.0,
+  "supervised_refits_with_encoder_updates": 495,
+  "designs": {
+    "primary99": {
+      "subjects": 99,
+      "oof_rows": 5940,
+      "metrics_recomputed": true
+    },
+    "sensitivity96": {
+      "subjects": 96,
+      "oof_rows": 5760,
+      "metrics_recomputed": true
+    }
+  },
+  "scope": "Independent process: saved model replay, epoch selection, split/identity audits and metric arithmetic; not independent clinical validation"
+}

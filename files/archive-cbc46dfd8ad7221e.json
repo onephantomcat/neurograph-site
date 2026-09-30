@@ -1,0 +1,47 @@
+{
+  "prepared": "workspace-local/operations/20260908-classification-preparation/prepared-confirmed99",
+  "snapshot": "workspace-local/operations/20260908-classification-preparation/verified_snapshot.json",
+  "previous": "repository-local/tmp/matched-source-analysis-20260909-v2",
+  "source_paths": {
+    "source50": "repository-local/tmp/source50-transfer-20260911/source50_encoder.npz",
+    "source46": "repository-local/tmp/source50-transfer-20260911/source46_encoder.npz"
+  },
+  "source_counts": {
+    "source50": 50,
+    "source46": 46
+  },
+  "methods": [
+    "source50__none__frozen_encoder",
+    "source50__none__last_layer",
+    "source50__age_site_motion__frozen_encoder",
+    "source50__age_site_motion__last_layer",
+    "source46__none__frozen_encoder",
+    "source46__none__last_layer",
+    "source46__age_site_motion__frozen_encoder",
+    "source46__age_site_motion__last_layer"
+  ],
+  "designs": {
+    "primary99": {
+      "subjects": 99,
+      "splits": "workspace-local/operations/20260908-source-pretraining/selected-splits-private/primary.tsv"
+    },
+    "sensitivity96": {
+      "subjects": 96,
+      "splits": "workspace-local/operations/20260908-source-pretraining/selected-splits-private/sensitivity.tsv"
+    }
+  },
+  "seed": 20260908,
+  "epochs": 30,
+  "warmup_epochs": 5,
+  "encoder_lr_candidates": [
+    1e-05,
+    0.0001
+  ],
+  "adjustment_location": "raw FC before fixed source scaling and encoder; separately refit in every inner/outer train fold",
+  "repeats": 5,
+  "outer": 5,
+  "inner": 3,
+  "threshold": 0.5,
+  "total": 400,
+  "interpretation": "Development sensitivity comparison, not external validation; source composition differs"
+}

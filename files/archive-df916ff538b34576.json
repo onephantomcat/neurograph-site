@@ -1,0 +1,57 @@
+{
+  "status": "NOT_READY_FOR_MATCHED_PIPELINE_TEST",
+  "packages": {
+    "phase1-n62-primary": {
+      "subjects": 62,
+      "controls": 18,
+      "patients": 44,
+      "atlas_order": "1..90",
+      "finite": true,
+      "symmetry_max_error": 0.0,
+      "roi_fc_pipeline_counts": {
+        "dparsf_original": 44,
+        "repair_v3": 18
+      },
+      "label_by_cohort": {
+        "0|HC": 18,
+        "1|Study1": 12,
+        "1|Study2": 32
+      },
+      "source_paths_containing_global": 44,
+      "source_paths_checked": 62,
+      "source_files_available_locally": 0,
+      "qc_policy": "predefined AAL labels 1-90; shared finite support when declared; no non-finite imputation; positive top-20% adjacency"
+    },
+    "phase1-n64-sensitivity": {
+      "subjects": 64,
+      "controls": 18,
+      "patients": 46,
+      "atlas_order": "1..90",
+      "finite": true,
+      "symmetry_max_error": 0.0,
+      "roi_fc_pipeline_counts": {
+        "dparsf_original": 44,
+        "repair_v3": 20
+      },
+      "label_by_cohort": {
+        "0|HC": 18,
+        "1|Study1": 13,
+        "1|Study2": 33
+      },
+      "source_paths_containing_global": 44,
+      "source_paths_checked": 64,
+      "source_files_available_locally": 0,
+      "qc_policy": "predefined AAL labels 1-90; shared finite support when declared; no non-finite imputation; positive top-20% adjacency"
+    }
+  },
+  "n62_n64_shared_people": 62,
+  "srpbs_strategy": "no GSR; Friston24; FD spike regression",
+  "oa_strategy": "GSR derivative paths and DATA_ACCESS.md agree",
+  "blockers": [
+    "GSR mismatch; cannot undo global signal regression from FC matrices",
+    "OA patient-control label is confounded with study/cohort",
+    "Native OA participant and processing provenance requires original input reread before claiming independent eligibility; namespaces alone do not establish identity",
+    "Previously explored OA data is developmental external-domain evaluation, not untouched confirmation"
+  ],
+  "decision": "Do not run a same-policy external test using current OA matrices. Preserve n62/n64 and first locate eligible no-GSR derivatives or reprocess originals in a separately scoped operation."
+}

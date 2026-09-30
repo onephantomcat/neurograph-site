@@ -1,0 +1,299 @@
+{
+  "state": "COMPLETE",
+  "classification_subjects": 99,
+  "pain": 46,
+  "healthy": 53,
+  "original_qc_and_visual_approval_reloaded": true,
+  "label_diagnosis_agreement": true,
+  "unique_identity": true,
+  "groups": [
+    {
+      "field": "site",
+      "value": "CIN",
+      "subjects": 50,
+      "pain": 17,
+      "age_median": 39.5,
+      "mean_fd_median": 0.18933248727095833
+    },
+    {
+      "field": "site",
+      "value": "NKN",
+      "subjects": 3,
+      "pain": 2,
+      "age_median": 72.0,
+      "mean_fd_median": 0.13641321405610002
+    },
+    {
+      "field": "site",
+      "value": "OSU",
+      "subjects": 46,
+      "pain": 27,
+      "age_median": 63.0,
+      "mean_fd_median": 0.18591501942049998
+    },
+    {
+      "field": "clinical_table",
+      "value": "sup7",
+      "subjects": 49,
+      "pain": 29,
+      "age_median": 63.0,
+      "mean_fd_median": 0.18528480615879167
+    },
+    {
+      "field": "clinical_table",
+      "value": "sup8",
+      "subjects": 50,
+      "pain": 17,
+      "age_median": 39.5,
+      "mean_fd_median": 0.18933248727095833
+    },
+    {
+      "field": "sex",
+      "value": "1",
+      "subjects": 60,
+      "pain": 28,
+      "age_median": 49.5,
+      "mean_fd_median": 0.19328009878883334
+    },
+    {
+      "field": "sex",
+      "value": "2",
+      "subjects": 39,
+      "pain": 18,
+      "age_median": 53.0,
+      "mean_fd_median": 0.17327433864120836
+    },
+    {
+      "field": "protocol",
+      "value": "13",
+      "subjects": 49,
+      "pain": 29,
+      "age_median": 63.0,
+      "mean_fd_median": 0.18528480615879167
+    },
+    {
+      "field": "protocol",
+      "value": "14",
+      "subjects": 50,
+      "pain": 17,
+      "age_median": 39.5,
+      "mean_fd_median": 0.18933248727095833
+    },
+    {
+      "field": "preprocessing_policy",
+      "value": "existing_pipeline",
+      "subjects": 91,
+      "pain": 44,
+      "age_median": 51.0,
+      "mean_fd_median": 0.18402872379391663
+    },
+    {
+      "field": "preprocessing_policy",
+      "value": "full_original_t1_no_crop",
+      "subjects": 8,
+      "pain": 2,
+      "age_median": 41.0,
+      "mean_fd_median": 0.20984563122764582
+    }
+  ],
+  "fields": {
+    "vas_raw": {
+      "nonmissing": 96,
+      "available_values": null
+    },
+    "vas_scale_policy": {
+      "nonmissing": 99,
+      "available_values": [
+        "sup7_original_unharmonized",
+        "sup8_original_unharmonized"
+      ]
+    },
+    "sf_mpq2_raw": {
+      "nonmissing": 49,
+      "available_values": null
+    },
+    "clinical_table": {
+      "nonmissing": 99,
+      "available_values": [
+        "sup7",
+        "sup8"
+      ]
+    }
+  },
+  "error_groups": [
+    {
+      "method": "raw",
+      "field": "site",
+      "value": "CIN",
+      "subjects": 50,
+      "always_wrong": 9,
+      "wrong_at_least4": 14
+    },
+    {
+      "method": "raw",
+      "field": "site",
+      "value": "NKN",
+      "subjects": 3,
+      "always_wrong": 0,
+      "wrong_at_least4": 0
+    },
+    {
+      "method": "raw",
+      "field": "site",
+      "value": "OSU",
+      "subjects": 46,
+      "always_wrong": 10,
+      "wrong_at_least4": 15
+    },
+    {
+      "method": "raw",
+      "field": "clinical_table",
+      "value": "sup7",
+      "subjects": 49,
+      "always_wrong": 10,
+      "wrong_at_least4": 15
+    },
+    {
+      "method": "raw",
+      "field": "clinical_table",
+      "value": "sup8",
+      "subjects": 50,
+      "always_wrong": 9,
+      "wrong_at_least4": 14
+    },
+    {
+      "method": "raw",
+      "field": "sex",
+      "value": "1",
+      "subjects": 60,
+      "always_wrong": 12,
+      "wrong_at_least4": 18
+    },
+    {
+      "method": "raw",
+      "field": "sex",
+      "value": "2",
+      "subjects": 39,
+      "always_wrong": 7,
+      "wrong_at_least4": 11
+    },
+    {
+      "method": "old9",
+      "field": "site",
+      "value": "CIN",
+      "subjects": 50,
+      "always_wrong": 9,
+      "wrong_at_least4": 12
+    },
+    {
+      "method": "old9",
+      "field": "site",
+      "value": "NKN",
+      "subjects": 3,
+      "always_wrong": 1,
+      "wrong_at_least4": 1
+    },
+    {
+      "method": "old9",
+      "field": "site",
+      "value": "OSU",
+      "subjects": 46,
+      "always_wrong": 12,
+      "wrong_at_least4": 14
+    },
+    {
+      "method": "old9",
+      "field": "clinical_table",
+      "value": "sup7",
+      "subjects": 49,
+      "always_wrong": 13,
+      "wrong_at_least4": 15
+    },
+    {
+      "method": "old9",
+      "field": "clinical_table",
+      "value": "sup8",
+      "subjects": 50,
+      "always_wrong": 9,
+      "wrong_at_least4": 12
+    },
+    {
+      "method": "old9",
+      "field": "sex",
+      "value": "1",
+      "subjects": 60,
+      "always_wrong": 16,
+      "wrong_at_least4": 21
+    },
+    {
+      "method": "old9",
+      "field": "sex",
+      "value": "2",
+      "subjects": 39,
+      "always_wrong": 6,
+      "wrong_at_least4": 6
+    },
+    {
+      "method": "source50",
+      "field": "site",
+      "value": "CIN",
+      "subjects": 50,
+      "always_wrong": 12,
+      "wrong_at_least4": 18
+    },
+    {
+      "method": "source50",
+      "field": "site",
+      "value": "NKN",
+      "subjects": 3,
+      "always_wrong": 1,
+      "wrong_at_least4": 1
+    },
+    {
+      "method": "source50",
+      "field": "site",
+      "value": "OSU",
+      "subjects": 46,
+      "always_wrong": 10,
+      "wrong_at_least4": 15
+    },
+    {
+      "method": "source50",
+      "field": "clinical_table",
+      "value": "sup7",
+      "subjects": 49,
+      "always_wrong": 11,
+      "wrong_at_least4": 16
+    },
+    {
+      "method": "source50",
+      "field": "clinical_table",
+      "value": "sup8",
+      "subjects": 50,
+      "always_wrong": 12,
+      "wrong_at_least4": 18
+    },
+    {
+      "method": "source50",
+      "field": "sex",
+      "value": "1",
+      "subjects": 60,
+      "always_wrong": 12,
+      "wrong_at_least4": 21
+    },
+    {
+      "method": "source50",
+      "field": "sex",
+      "value": "2",
+      "subjects": 39,
+      "always_wrong": 11,
+      "wrong_at_least4": 13
+    }
+  ],
+  "unresolved": [
+    "No verified PHN/TN subtype for all 46 pain subjects",
+    "No standardized seven-day worst-daily NRS endpoint or aligned scan/assessment dates in ready manifest",
+    "Descriptive errors must not drive subject exclusion"
+  ],
+  "prediction_role": "Descriptive development error audit; no new model or filtering"
+}

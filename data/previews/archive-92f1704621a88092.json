@@ -1,0 +1,1 @@
+{"content": "{\r\n  \"status\": \"PASS\",\r\n  \"scope\": \"Numerical export fidelity and source references only; no model rerun\",\r\n  \"artifacts\": 848,\r\n  \"omitted_fields\": 68525,\r\n  \"numeric_or_boolean_leaves\": 2540903,\r\n  \"json_files\": 818,\r\n  \"jsonl_records\": 1002,\r\n  \"markdown_reports\": 28,\r\n  \"metric_rows\": 83487\r\n}\n", "truncated": false}

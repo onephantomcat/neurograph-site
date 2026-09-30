@@ -1,0 +1,358 @@
+{
+  "design": "primary99",
+  "repeat": 4,
+  "fold": 4,
+  "seed": 20260941,
+  "inner": [
+    {},
+    {},
+    {}
+  ],
+  "models": {
+    "tangent_original": {
+      "candidates": [
+        {
+          "method": "tangent_original",
+          "dim": null,
+          "C": 0.001,
+          "mean_inner_auc": 0.7277777777777779,
+          "fold_auc": [
+            0.6833333333333333,
+            0.75,
+            0.75
+          ]
+        },
+        {
+          "method": "tangent_original",
+          "dim": null,
+          "C": 0.01,
+          "mean_inner_auc": 0.7334656084656084,
+          "fold_auc": [
+            0.6944444444444444,
+            0.75,
+            0.7559523809523809
+          ]
+        },
+        {
+          "method": "tangent_original",
+          "dim": null,
+          "C": 0.1,
+          "mean_inner_auc": 0.7432539682539682,
+          "fold_auc": [
+            0.7,
+            0.7619047619047619,
+            0.7678571428571428
+          ]
+        },
+        {
+          "method": "tangent_original",
+          "dim": null,
+          "C": 1.0,
+          "mean_inner_auc": 0.7452380952380953,
+          "fold_auc": [
+            0.7,
+            0.7678571428571428,
+            0.7678571428571428
+          ]
+        }
+      ],
+      "chosen": {
+        "method": "tangent_original",
+        "dim": null,
+        "C": 1.0,
+        "mean_inner_auc": 0.7452380952380953,
+        "fold_auc": [
+          0.7,
+          0.7678571428571428,
+          0.7678571428571428
+        ]
+      },
+      "threshold": {
+        "min_recall": 0.6666666666666666,
+        "balanced_accuracy": 0.693798449612403,
+        "threshold": 0.45499999999999996
+      }
+    },
+    "tangent_center": {
+      "candidates": [
+        {
+          "method": "tangent_center",
+          "dim": null,
+          "C": 0.001,
+          "mean_inner_auc": 0.739021164021164,
+          "fold_auc": [
+            0.7111111111111111,
+            0.7619047619047619,
+            0.7440476190476191
+          ]
+        },
+        {
+          "method": "tangent_center",
+          "dim": null,
+          "C": 0.01,
+          "mean_inner_auc": 0.7373015873015873,
+          "fold_auc": [
+            0.7,
+            0.7678571428571429,
+            0.744047619047619
+          ]
+        },
+        {
+          "method": "tangent_center",
+          "dim": null,
+          "C": 0.1,
+          "mean_inner_auc": 0.7531746031746032,
+          "fold_auc": [
+            0.7,
+            0.7797619047619047,
+            0.7797619047619047
+          ]
+        },
+        {
+          "method": "tangent_center",
+          "dim": null,
+          "C": 1.0,
+          "mean_inner_auc": 0.7530423280423278,
+          "fold_auc": [
+            0.7055555555555555,
+            0.7738095238095237,
+            0.7797619047619047
+          ]
+        }
+      ],
+      "chosen": {
+        "method": "tangent_center",
+        "dim": null,
+        "C": 0.1,
+        "mean_inner_auc": 0.7531746031746032,
+        "fold_auc": [
+          0.7,
+          0.7797619047619047,
+          0.7797619047619047
+        ]
+      },
+      "threshold": {
+        "min_recall": 0.6976744186046512,
+        "balanced_accuracy": 0.7099483204134367,
+        "threshold": 0.475
+      }
+    },
+    "tangent_pca": {
+      "candidates": [
+        {
+          "method": "tangent_pca",
+          "dim": 10,
+          "C": 0.001,
+          "mean_inner_auc": 0.6828042328042329,
+          "fold_auc": [
+            0.6555555555555557,
+            0.6845238095238095,
+            0.7083333333333334
+          ]
+        },
+        {
+          "method": "tangent_pca",
+          "dim": 10,
+          "C": 0.01,
+          "mean_inner_auc": 0.6982804232804233,
+          "fold_auc": [
+            0.6722222222222223,
+            0.7023809523809523,
+            0.7202380952380952
+          ]
+        },
+        {
+          "method": "tangent_pca",
+          "dim": 10,
+          "C": 0.1,
+          "mean_inner_auc": 0.707936507936508,
+          "fold_auc": [
+            0.6833333333333335,
+            0.7023809523809523,
+            0.7380952380952381
+          ]
+        },
+        {
+          "method": "tangent_pca",
+          "dim": 10,
+          "C": 1.0,
+          "mean_inner_auc": 0.7116402116402116,
+          "fold_auc": [
+            0.6944444444444444,
+            0.7023809523809523,
+            0.7380952380952381
+          ]
+        },
+        {
+          "method": "tangent_pca",
+          "dim": 20,
+          "C": 0.001,
+          "mean_inner_auc": 0.6990740740740741,
+          "fold_auc": [
+            0.6388888888888888,
+            0.7083333333333334,
+            0.7500000000000001
+          ]
+        },
+        {
+          "method": "tangent_pca",
+          "dim": 20,
+          "C": 0.01,
+          "mean_inner_auc": 0.7071428571428572,
+          "fold_auc": [
+            0.6333333333333333,
+            0.7321428571428571,
+            0.755952380952381
+          ]
+        },
+        {
+          "method": "tangent_pca",
+          "dim": 20,
+          "C": 0.1,
+          "mean_inner_auc": 0.7164021164021164,
+          "fold_auc": [
+            0.6611111111111111,
+            0.7202380952380952,
+            0.7678571428571428
+          ]
+        },
+        {
+          "method": "tangent_pca",
+          "dim": 20,
+          "C": 1.0,
+          "mean_inner_auc": 0.7017195767195767,
+          "fold_auc": [
+            0.6111111111111112,
+            0.7440476190476191,
+            0.75
+          ]
+        }
+      ],
+      "chosen": {
+        "method": "tangent_pca",
+        "dim": 20,
+        "C": 0.1,
+        "mean_inner_auc": 0.7164021164021164,
+        "fold_auc": [
+          0.6611111111111111,
+          0.7202380952380952,
+          0.7678571428571428
+        ]
+      },
+      "threshold": {
+        "min_recall": 0.6388888888888888,
+        "balanced_accuracy": 0.66828165374677,
+        "threshold": 0.505
+      }
+    },
+    "tangent_select": {
+      "candidates": [
+        {
+          "method": "tangent_select",
+          "dim": 200,
+          "C": 0.001,
+          "mean_inner_auc": 0.7134920634920635,
+          "fold_auc": [
+            0.7,
+            0.6785714285714286,
+            0.7619047619047619
+          ]
+        },
+        {
+          "method": "tangent_select",
+          "dim": 200,
+          "C": 0.01,
+          "mean_inner_auc": 0.71005291005291,
+          "fold_auc": [
+            0.6777777777777778,
+            0.6785714285714286,
+            0.7738095238095237
+          ]
+        },
+        {
+          "method": "tangent_select",
+          "dim": 200,
+          "C": 0.1,
+          "mean_inner_auc": 0.7119047619047619,
+          "fold_auc": [
+            0.6833333333333333,
+            0.6666666666666667,
+            0.7857142857142856
+          ]
+        },
+        {
+          "method": "tangent_select",
+          "dim": 200,
+          "C": 1.0,
+          "mean_inner_auc": 0.7096560846560847,
+          "fold_auc": [
+            0.6944444444444444,
+            0.6547619047619048,
+            0.7797619047619047
+          ]
+        },
+        {
+          "method": "tangent_select",
+          "dim": 800,
+          "C": 0.001,
+          "mean_inner_auc": 0.694973544973545,
+          "fold_auc": [
+            0.6444444444444445,
+            0.7083333333333334,
+            0.7321428571428571
+          ]
+        },
+        {
+          "method": "tangent_select",
+          "dim": 800,
+          "C": 0.01,
+          "mean_inner_auc": 0.7007936507936509,
+          "fold_auc": [
+            0.65,
+            0.7083333333333334,
+            0.7440476190476191
+          ]
+        },
+        {
+          "method": "tangent_select",
+          "dim": 800,
+          "C": 0.1,
+          "mean_inner_auc": 0.7029100529100529,
+          "fold_auc": [
+            0.6444444444444444,
+            0.7083333333333334,
+            0.7559523809523809
+          ]
+        },
+        {
+          "method": "tangent_select",
+          "dim": 800,
+          "C": 1.0,
+          "mean_inner_auc": 0.7026455026455026,
+          "fold_auc": [
+            0.6555555555555556,
+            0.7023809523809524,
+            0.7499999999999999
+          ]
+        }
+      ],
+      "chosen": {
+        "method": "tangent_select",
+        "dim": 200,
+        "C": 0.001,
+        "mean_inner_auc": 0.7134920634920635,
+        "fold_auc": [
+          0.7,
+          0.6785714285714286,
+          0.7619047619047619
+        ]
+      },
+      "threshold": {
+        "min_recall": 0.6111111111111112,
+        "balanced_accuracy": 0.6543927648578811,
+        "threshold": 0.495
+      }
+    }
+  },
+  "selected": "tangent_center"
+}

@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "model_fold_readbacks": 650,
+  "outer_folds": 50,
+  "fit_audits": 2600,
+  "max_probability_replay_error": 0.0,
+  "designs": {
+    "primary99": {
+      "subjects": 99,
+      "prediction_rows": 6435,
+      "all_methods_covered": true
+    },
+    "sensitivity96": {
+      "subjects": 96,
+      "prediction_rows": 6240,
+      "all_methods_covered": true
+    }
+  },
+  "metrics_independently_recomputed": true,
+  "inner_outer_identity_overlap": 0,
+  "checkpoint_clinical_test_overlap": 0,
+  "scope": "Saved artifacts replay and arithmetic/identity checks; not independent clinical validation"
+}

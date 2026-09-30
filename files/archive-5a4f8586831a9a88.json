@@ -1,0 +1,97 @@
+{
+  "evidence_status": "REAL_DATA_SMOKE_ONLY",
+  "completed_at": "2026-09-04T14:23:13.484201+00:00",
+  "source_subjects": 9,
+  "target_subjects": 20,
+  "controls": 11,
+  "pain": 9,
+  "clinical_ids_excluded_from_source": 145,
+  "input_edges": 4005,
+  "methods": [
+    "raw_fc_logistic",
+    "clinical_train_fold_ssl_logistic",
+    "srpbs_source_fixed_ssl_logistic",
+    "srpbs_source_clinical_train_adapt_logistic"
+  ],
+  "predictions": 80,
+  "representation_audits": [
+    {
+      "fold": 1,
+      "method": "raw_fc_logistic",
+      "source_target_overlap": 0,
+      "adaptation_test_overlap": 0,
+      "test_use": "inference_only; labels absent from reconstruction fit API"
+    },
+    {
+      "fold": 1,
+      "method": "clinical_train_fold_ssl_logistic",
+      "source_target_overlap": 0,
+      "adaptation_test_overlap": 0,
+      "test_use": "inference_only; labels absent from reconstruction fit API"
+    },
+    {
+      "fold": 1,
+      "method": "srpbs_source_fixed_ssl_logistic",
+      "source_target_overlap": 0,
+      "adaptation_test_overlap": 0,
+      "test_use": "inference_only; labels absent from reconstruction fit API"
+    },
+    {
+      "fold": 1,
+      "method": "srpbs_source_clinical_train_adapt_logistic",
+      "source_target_overlap": 0,
+      "adaptation_test_overlap": 0,
+      "test_use": "inference_only; labels absent from reconstruction fit API"
+    },
+    {
+      "fold": 2,
+      "method": "raw_fc_logistic",
+      "source_target_overlap": 0,
+      "adaptation_test_overlap": 0,
+      "test_use": "inference_only; labels absent from reconstruction fit API"
+    },
+    {
+      "fold": 2,
+      "method": "clinical_train_fold_ssl_logistic",
+      "source_target_overlap": 0,
+      "adaptation_test_overlap": 0,
+      "test_use": "inference_only; labels absent from reconstruction fit API"
+    },
+    {
+      "fold": 2,
+      "method": "srpbs_source_fixed_ssl_logistic",
+      "source_target_overlap": 0,
+      "adaptation_test_overlap": 0,
+      "test_use": "inference_only; labels absent from reconstruction fit API"
+    },
+    {
+      "fold": 2,
+      "method": "srpbs_source_clinical_train_adapt_logistic",
+      "source_target_overlap": 0,
+      "adaptation_test_overlap": 0,
+      "test_use": "inference_only; labels absent from reconstruction fit API"
+    }
+  ],
+  "source_reconstruction_mse": 1.0291121006011963,
+  "all_training_losses_finite": true,
+  "training_losses": [
+    0.9225607812404633,
+    1.08124840259552,
+    1.999437391757965,
+    0.9488602876663208,
+    1.568432629108429
+  ],
+  "frozen_source_encoder_unchanged": true,
+  "checkpoint_round_trip_equal": true,
+  "source_target_overlap": 0,
+  "source_clinical_inventory_overlap": 0,
+  "max_adaptation_test_overlap": 0,
+  "metrics_interpretable": false,
+  "regression_run": false,
+  "interpretation": "Execution validation only, not performance improvement, research confirmation, or independent validation",
+  "versions": {
+    "numpy": "2.5.1",
+    "torch": "2.13.0+cu130",
+    "sklearn": "1.9.0"
+  }
+}

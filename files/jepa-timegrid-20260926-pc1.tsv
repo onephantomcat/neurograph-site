@@ -1,0 +1,17 @@
+representation	nuisance	abs_pc1_pearson
+pretrained	mean_fd	0.08598446211713456
+pretrained	censor_fraction	0.08044240980992878
+pretrained	mean_analysis_coverage	0.03787292008050613
+pretrained	analysis_empty_count	0.08731116812656568
+random20260925	mean_fd	0.08044595690681505
+random20260925	censor_fraction	0.06073481624386153
+random20260925	mean_analysis_coverage	0.16442021322870018
+random20260925	analysis_empty_count	0.16421208534193793
+random20260926	mean_fd	0.07230317529198019
+random20260926	censor_fraction	0.0982459774825229
+random20260926	mean_analysis_coverage	0.19425746792917992
+random20260926	analysis_empty_count	0.17725410549606346
+random20260927	mean_fd	0.05169742018530619
+random20260927	censor_fraction	0.09974578585074653
+random20260927	mean_analysis_coverage	0.2295712332737032
+random20260927	analysis_empty_count	0.18640171375681927

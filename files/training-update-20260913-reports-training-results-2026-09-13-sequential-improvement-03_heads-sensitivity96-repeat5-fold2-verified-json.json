@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "methods": [
+    "frozen_plain_bce",
+    "frozen_plain_auc",
+    "frozen_balanced_bce",
+    "frozen_balanced_auc",
+    "latent_logistic_plain",
+    "latent_logistic_balanced",
+    "latent_logistic_balanced_calibrated",
+    "latent_logistic_balanced_threshold"
+  ],
+  "max_probability_error": 0.0
+}

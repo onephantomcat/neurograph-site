@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-24T02:56:28.146162+00:00",
+  "source_file_name": "ROITBL_BAL.mat",
+  "source_file_bytes": 49703210,
+  "source_file_sha256": "d0acf3ce54d8e43f47da85e207c64b0b08d99de4d72f5609f4ecbbac4a3e1835",
+  "contract": {
+    "map_shape": [
+      91,
+      109,
+      91,
+      140
+    ],
+    "map_matlab_class": "double",
+    "roi_count": 140,
+    "roi_ids_contiguous_1_to_140": true,
+    "roi_names_unique": true,
+    "lab_all_matches_roi_names": true,
+    "num_all_matches_roi_ids": true,
+    "bsa_roi_count": 137,
+    "aggregated_cerebellar_roi_count": 3,
+    "last_three_roi_names": [
+      "L.CB",
+      "R.CB",
+      "VERM"
+    ]
+  },
+  "vector_order_usable": true,
+  "bal140_to_aal90_crosswalk_ready": false,
+  "crosswalk_blocker": "BAL/BSA sulcal parcels and AAL90 anatomical parcels require an explicit spatial-overlap rule and reviewed many-to-many mapping; names or dimensions alone are insufficient.",
+  "raw_roi_table_redistributed": false
+}

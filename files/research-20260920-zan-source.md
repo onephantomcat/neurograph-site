@@ -1,0 +1,73 @@
+# ZAN新增预训练来源比较
+
+2026-09-16T19:16:33.264999+08:00
+
+已完成3种来源×3种子共9个自监督模型；60个既有划分×20方法，共1200个分类头、14400次内层候选拟合。
+
+每个来源/种子固定60次Adam更新、每步32条；合并组每步SRPBS与ZAN各16条。来源标签未用于预训练。训练组与随机组使用相同初始权重和来源缩放器。
+
+下表迁移结果为3个模型种子及5次划分重复的指标均值，不挑选最佳种子。原始FC和切空间为5重复均值。
+
+| 任务 | 方法 | AUC | BA | 患者召回 | 健康召回 | 准确率 |
+|---|---|---:|---:|---:|---:|---:|
+| primary99 | raw_fc | 0.6448 | 0.6084 | 0.6130 | 0.6038 | 0.6081 |
+| primary99 | tangent | 0.7525 | 0.6866 | 0.6826 | 0.6906 | 0.6869 |
+| primary99 | srpbs50_trained | 0.6007 | 0.5825 | 0.6116 | 0.5535 | 0.5805 |
+| primary99 | srpbs50_random | 0.5751 | 0.5694 | 0.5652 | 0.5736 | 0.5697 |
+| primary99 | zan54_trained | 0.6300 | 0.6216 | 0.6507 | 0.5925 | 0.6195 |
+| primary99 | zan54_random | 0.5929 | 0.5817 | 0.5710 | 0.5925 | 0.5825 |
+| primary99 | joint104_trained | 0.5807 | 0.5868 | 0.5899 | 0.5836 | 0.5865 |
+| primary99 | joint104_random | 0.5876 | 0.5917 | 0.5797 | 0.6038 | 0.5926 |
+| sensitivity96 | raw_fc | 0.6402 | 0.6009 | 0.5864 | 0.6154 | 0.6021 |
+| sensitivity96 | tangent | 0.7562 | 0.7054 | 0.6955 | 0.7154 | 0.7063 |
+| sensitivity96 | srpbs50_trained | 0.6018 | 0.5939 | 0.6045 | 0.5833 | 0.5931 |
+| sensitivity96 | srpbs50_random | 0.5778 | 0.5782 | 0.5833 | 0.5731 | 0.5778 |
+| sensitivity96 | zan54_trained | 0.6427 | 0.6215 | 0.6545 | 0.5885 | 0.6188 |
+| sensitivity96 | zan54_random | 0.5794 | 0.5861 | 0.5864 | 0.5859 | 0.5861 |
+| sensitivity96 | joint104_trained | 0.5925 | 0.5968 | 0.6000 | 0.5936 | 0.5965 |
+| sensitivity96 | joint104_random | 0.5842 | 0.5956 | 0.6015 | 0.5897 | 0.5951 |
+| OSU-to-CIN | raw_fc | 0.5504 | 0.5371 | 0.3529 | 0.7212 | 0.5960 |
+| OSU-to-CIN | tangent | 0.6078 | 0.5770 | 0.5176 | 0.6364 | 0.5960 |
+| OSU-to-CIN | srpbs50_trained | 0.5803 | 0.5977 | 0.4863 | 0.7091 | 0.6333 |
+| OSU-to-CIN | srpbs50_random | 0.5601 | 0.5588 | 0.5216 | 0.5960 | 0.5707 |
+| OSU-to-CIN | zan54_trained | 0.6175 | 0.6450 | 0.4941 | 0.7960 | 0.6933 |
+| OSU-to-CIN | zan54_random | 0.5832 | 0.5551 | 0.5608 | 0.5495 | 0.5533 |
+| OSU-to-CIN | joint104_trained | 0.5046 | 0.5459 | 0.3686 | 0.7232 | 0.6027 |
+| OSU-to-CIN | joint104_random | 0.5855 | 0.5888 | 0.6078 | 0.5697 | 0.5827 |
+| CIN-to-OSU | raw_fc | 0.5326 | 0.5558 | 0.7852 | 0.3263 | 0.5957 |
+| CIN-to-OSU | tangent | 0.6129 | 0.5760 | 0.8889 | 0.2632 | 0.6304 |
+| CIN-to-OSU | srpbs50_trained | 0.5617 | 0.5274 | 0.6617 | 0.3930 | 0.5507 |
+| CIN-to-OSU | srpbs50_random | 0.5331 | 0.4981 | 0.3926 | 0.6035 | 0.4797 |
+| CIN-to-OSU | zan54_trained | 0.6105 | 0.5548 | 0.7062 | 0.4035 | 0.5812 |
+| CIN-to-OSU | zan54_random | 0.6006 | 0.5469 | 0.4938 | 0.6000 | 0.5377 |
+| CIN-to-OSU | joint104_trained | 0.5253 | 0.4808 | 0.6247 | 0.3368 | 0.5058 |
+| CIN-to-OSU | joint104_random | 0.5695 | 0.5424 | 0.4568 | 0.6281 | 0.5275 |
+
+## 配对AUC差值
+
+| 任务 | 比较 | 差值 | 条件95%区间 |
+|---|---|---:|---|
+| primary99 | joint104_trained − srpbs50_trained | -0.0200 | -0.0641 ～ +0.0237 |
+| primary99 | zan54_trained − srpbs50_trained | +0.0293 | -0.0225 ～ +0.0791 |
+| primary99 | joint104_trained − joint104_random | -0.0069 | -0.0803 ～ +0.0637 |
+| primary99 | joint104_trained − tangent | -0.1718 | -0.2604 ～ -0.0908 |
+| sensitivity96 | joint104_trained − srpbs50_trained | -0.0094 | -0.0568 ～ +0.0386 |
+| sensitivity96 | zan54_trained − srpbs50_trained | +0.0408 | -0.0084 ～ +0.0898 |
+| sensitivity96 | joint104_trained − joint104_random | +0.0083 | -0.0634 ～ +0.0781 |
+| sensitivity96 | joint104_trained − tangent | -0.1637 | -0.2537 ～ -0.0779 |
+| OSU-to-CIN | joint104_trained − srpbs50_trained | -0.0757 | -0.1715 ～ +0.0165 |
+| OSU-to-CIN | zan54_trained − srpbs50_trained | +0.0372 | -0.0503 ～ +0.1240 |
+| OSU-to-CIN | joint104_trained − joint104_random | -0.0809 | -0.2305 ～ +0.0725 |
+| OSU-to-CIN | joint104_trained − tangent | -0.1033 | -0.2475 ～ +0.0437 |
+| CIN-to-OSU | joint104_trained − srpbs50_trained | -0.0364 | -0.1810 ～ +0.1096 |
+| CIN-to-OSU | zan54_trained − srpbs50_trained | +0.0489 | -0.0907 ～ +0.1847 |
+| CIN-to-OSU | joint104_trained − joint104_random | -0.0442 | -0.2009 ～ +0.1195 |
+| CIN-to-OSU | joint104_trained − tangent | -0.0876 | -0.2885 ～ +0.1174 |
+
+区间按人联合抽取同一人的所有重复及种子预测，条件于已有模型；不包含重训不确定性，未做多重比较校正。重复使用的99/96开发队列不能充当新外部验证。
+
+ZAN54包含29HC/25ZAN，在本实验仅作为无标签来源；未将其组别混入原Pain标签。ZAN7T/236帧/TR2s；旧50人中40例240帧/TR2.5、8例177帧/TR2、2例107帧/TR2.7，均逐例对照原处理记录而非强行统一帧数。未纳入失败（个体编号省略），无VAS补值，无新增强、最后层微调或远端队列修改。
+
+核验：9个来源模型同种子重训、18组来源表示重算、1200个分类头手算概率回读、80个代表性头重拟合、全部内层选参得分回算；最大预测误差3.05e-08。未重训所有内层分类头。
+
+详细私有模型/划分/预测及summary.json位于output/zan-source-transfer-20260916；可复跑脚本与聚合CSV位于operations/20260916-zan-source-transfer。

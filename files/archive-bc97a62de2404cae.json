@@ -1,0 +1,51 @@
+{
+  "observed": "tmp/clinical-classification-20260908",
+  "pretraining": "tmp/clinical-source-pretraining-20260908",
+  "permutations": 1000,
+  "workers": 2,
+  "seed": 20260909,
+  "evaluation": {
+    "repeats": 5,
+    "outer": 5,
+    "inner": 3,
+    "internal_epochs": 30,
+    "adaptation_epochs": 5,
+    "latent_dim": 32,
+    "hidden_dim": 64,
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "seed": 20260908,
+    "c_values": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "raw_k": [
+      16,
+      32,
+      64,
+      128
+    ],
+    "latent_k": [
+      8,
+      16,
+      32
+    ],
+    "bootstrap_samples": 2000
+  },
+  "methods": [
+    "nuisance_only",
+    "raw_fc",
+    "ds005713_source_fixed"
+  ],
+  "torch_threads_per_worker": 2,
+  "blas_threads_per_worker": 1,
+  "permutation_unit": "Participant; labels shuffled within site, shared across 99/96",
+  "splitter": "Regenerate original stratified split procedure with same seeds for every label vector",
+  "null": "Labels exchangeable within site; not conditioning on age, sex, motion or protocol",
+  "contrasts": "DS-minus-Raw/nuisance under label null, NOT tests of equal generalization performance",
+  "multiplicity": "Holm across 10 one-sided greater tests: 3 scores + 2 contrasts, 2 designs",
+  "stopping": "Fixed requested budget, no stopping based on significance",
+  "confirmatory": false,
+  "other_10_methods_permutation_tested": false
+}

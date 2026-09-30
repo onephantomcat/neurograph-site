@@ -1,0 +1,11 @@
+{
+  "source_paths": {
+    "source50": "repository-local/tmp/source50-transfer-20260911/source50_encoder.npz",
+    "source46": "repository-local/tmp/source50-transfer-20260911/source46_encoder.npz"
+  },
+  "source_manifest": "repository-local/tmp/source50-transfer-20260911/source_manifest.tsv",
+  "source_counts": {
+    "source50": 50,
+    "source46": 46
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "date": "2026-09-25",
+  "summary": "Brain-JEPA输入检查发现：直接套用作者默认采样器，240/300帧在起点为0时分别只保留81/101个不同帧。保留为待适配候选，尚未运行预训练权重或生成疼痛AUC。",
+  "boundary": "本轮使用合成输入检查作者代码；没有新增患者评分、450区提取或训练纳入。原53人用户批量确认的依据不变，不升级为逐人专家阅片。",
+  "next": "先补齐Brain-JEPA官方权重、450区逐行对应、时间采样与归一化依据，做一例无标签输入核对；具备条件后再作同输入FC、随机编码和固定预训练表示的训练内部比较。",
+  "technical": {
+    "state": "TECHNICAL_AUDIT_EXECUTED",
+    "official_revision": "b1dfa93eb331d1e70476446b06fc8a1ac3c92345",
+    "participant_data_used": false,
+    "checkpoint_loaded": false,
+    "pretrained_inference_completed": false,
+    "flash_attention_tested": false,
+    "gradient_shape": [
+      1,
+      450,
+      30
+    ],
+    "sampling": [
+      {
+        "input_frames": 160,
+        "start": 0.0,
+        "output_frames": 160,
+        "unique_frames": 54,
+        "last_frame_occurrences": 107,
+        "repeated_frames": 106,
+        "independent_index_error": 0.0
+      },
+      {
+        "input_frames": 160,
+        "start": 5.0,
+        "output_frames": 160,
+        "unique_frames": 53,
+        "last_frame_occurrences": 108,
+        "repeated_frames": 107,
+        "independent_index_error": 0.0
+      },
+      {
+        "input_frames": 160,
+        "start": 10.0,
+        "output_frames": 160,
+        "unique_frames": 51,
+        "last_frame_occurrences": 110,
+        "repeated_frames": 109,
+        "independent_index_error": 0.0
+      },
+      {
+        "input_frames": 240,
+        "start": 0.0,
+        "output_frames": 160,
+        "unique_frames": 81,
+        "last_frame_occurrences": 80,
+        "repeated_frames": 79,
+        "independent_index_error": 0.0
+      },
+      {
+        "input_frames": 240,
+        "start": 5.0,
+        "output_frames": 160,
+        "unique_frames": 79,
+        "last_frame_occurrences": 82,
+        "repeated_frames": 81,
+        "independent_index_error": 0.0
+      },
+      {
+        "input_frames": 240,
+        "start": 10.0,
+        "output_frames": 160,
+        "unique_frames": 78,
+        "last_frame_occurrences": 83,
+        "repeated_frames": 82,
+        "independent_index_error": 0.0
+      },
+      {
+        "input_frames": 300,
+        "start": 0.0,
+        "output_frames": 160,
+        "unique_frames": 101,
+        "last_frame_occurrences": 60,
+        "repeated_frames": 59,
+        "independent_index_error": 0.0
+      },
+      {
+        "input_frames": 300,
+        "start": 5.0,
+        "output_frames": 160,
+        "unique_frames": 99,
+        "last_frame_occurrences": 62,
+        "repeated_frames": 61,
+        "independent_index_error": 0.0
+      },
+      {
+        "input_frames": 300,
+        "start": 10.0,
+        "output_frames": 160,
+        "unique_frames": 97,
+        "last_frame_occurrences": 64,
+        "repeated_frames": 63,
+        "independent_index_error": 0.0
+      },
+      {
+        "input_frames": 480,
+        "start": 0.0,
+        "output_frames": 160,
+        "unique_frames": 160,
+        "last_frame_occurrences": 1,
+        "repeated_frames": 0,
+        "independent_index_error": 0.0
+      },
+      {
+        "input_frames": 480,
+        "start": 5.0,
+        "output_frames": 160,
+        "unique_frames": 159,
+        "last_frame_occurrences": 2,
+        "repeated_frames": 1,
+        "independent_index_error": 0.0
+      },
+      {
+        "input_frames": 480,
+        "start": 10.0,
+        "output_frames": 160,
+        "unique_frames": 157,
+        "last_frame_occurrences": 4,
+        "repeated_frames": 3,
+        "independent_index_error": 0.0
+      },
+      {
+        "input_frames": 490,
+        "start": 0.0,
+        "output_frames": 160,
+        "unique_frames": 160,
+        "last_frame_occurrences": 0,
+        "repeated_frames": 0,
+        "independent_index_error": 0.0
+      },
+      {
+        "input_frames": 490,
+        "start": 5.0,
+        "output_frames": 160,
+        "unique_frames": 160,
+        "last_frame_occurrences": 0,
+        "repeated_frames": 0,
+        "independent_index_error": 0.0
+      },
+      {
+        "input_frames": 490,
+        "start": 10.0,
+        "output_frames": 160,
+        "unique_frames": 160,
+        "last_frame_occurrences": 1,
+        "repeated_frames": 0,
+        "independent_index_error": 0.0
+      }
+    ],
+    "patch_output_shape": [
+      1,
+      4500,
+      384
+    ],
+    "position_shape": [
+      1,
+      4500,
+      384
+    ],
+    "errors": {
+      "patch_formula": 5.960464477539062e-07,
+      "position_formula": 2.384185791015625e-07,
+      "normal_attention_vs_sdpa": 8.195638656616211e-08
+    },
+    "incompatible_lengths": [
+      {
+        "input_frames": 128,
+        "error_type": "RuntimeError",
+        "reason": "patch_count_does_not_match_4500_positions"
+      },
+      {
+        "input_frames": 240,
+        "error_type": "RuntimeError",
+        "reason": "patch_count_does_not_match_4500_positions"
+      }
+    ],
+    "synthetic_centered_data": {
+      "subjects": 4,
+      "regions": 450,
+      "frames": 160,
+      "zero_iqr_regions": 450,
+      "interpretation": "Synthetic failure case only; not measured patient or original UKB failure."
+    },
+    "decision": "Candidate retained for input work; no patient performance experiment yet.",
+    "missing": [
+      "official checkpoint access",
+      "checkpoint-specific normalization",
+      "exact ROI row mapping",
+      "TR-aware time sampling choice"
+    ],
+    "official_weights_access": "Google Drive TLS connection failed using direct requests, existing proxy requests and curl; no checkpoint bytes obtained."
+  }
+}

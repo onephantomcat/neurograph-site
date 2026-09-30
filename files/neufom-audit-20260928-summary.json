@@ -1,0 +1,250 @@
+{
+  "date": "2026-09-28",
+  "summary": "NeuFoM公开代码的合成复核发现：20个内层拟合中12个会混入外层测试行，最多16行；结构标准化也会受测试行影响。不能原样运行并把高分当成可靠增益。",
+  "boundary": "本轮患者使用和患者训练均为0；结论针对固定版本公开代码，不推断论文实际实现。NeuFoM仍依赖冻结BrainLM，新增45项结构特征；尚未取得可直接用于本任务的完整疼痛模型。",
+  "next": "下一步先用已有年龄、性别作辅助迁移对照，检查已核验表示能否保留这些信息，区分普遍适配失败与疼痛任务信息不足；只用原79训练内部数据，不计作疼痛成绩。NeuFoM结构分支需先有同人结构表；fMRI-LM待核实真实权重入口，不重复既有TabPFN/FMM实验。",
+  "rows": [
+    {
+      "item": "内层索引",
+      "observed": "12/20拟合与外层测试重叠，最多16行",
+      "effect": "局部索引须映射回外层训练行"
+    },
+    {
+      "item": "结构标准化",
+      "observed": "仅改变测试行，训练输入最大变化0.9689",
+      "effect": "训练折拟合标准化后变化为0"
+    },
+    {
+      "item": "连接输入",
+      "observed": "振幅×3，Gram矩阵×9",
+      "effect": "原实现是未中心化内积，不等同Pearson"
+    },
+    {
+      "item": "AUC口径",
+      "observed": "两logit同加常数后，原口径0.5→1.0",
+      "effect": "logit差的AUC保持1.0"
+    },
+    {
+      "item": "梯度清零",
+      "observed": "逐批清零对照的参数差0.004909",
+      "effect": "原循环会累积之前batch的梯度"
+    },
+    {
+      "item": "内存最佳参数",
+      "observed": "参数后续变化1.0，保存引用也变化1.0",
+      "effect": "state_dict引用不等于独立最佳快照"
+    }
+  ],
+  "audit": {
+    "state": "VERIFIED_SYNTHETIC_AUDIT",
+    "repository": "https://github.com/Shef-AIRE/NeuFoM",
+    "commit": "ede7f620bbe1ee089564c80688876884f1752d44",
+    "patients_used": 0,
+    "patient_fits": 0,
+    "model_weights_loaded": false,
+    "nested_index": {
+      "synthetic_rows": 80,
+      "outer_folds": 5,
+      "inner_folds": 4,
+      "overlapping_training_fits": 12,
+      "max_train_test_overlap": 16,
+      "max_val_test_overlap": 16,
+      "corrected_overlaps": 0,
+      "folds": [
+        {
+          "outer": 0,
+          "inner": 0,
+          "train_test": 0,
+          "val_test": 16,
+          "mapped_train_test": 0,
+          "mapped_val_test": 0
+        },
+        {
+          "outer": 0,
+          "inner": 1,
+          "train_test": 16,
+          "val_test": 0,
+          "mapped_train_test": 0,
+          "mapped_val_test": 0
+        },
+        {
+          "outer": 0,
+          "inner": 2,
+          "train_test": 16,
+          "val_test": 0,
+          "mapped_train_test": 0,
+          "mapped_val_test": 0
+        },
+        {
+          "outer": 0,
+          "inner": 3,
+          "train_test": 16,
+          "val_test": 0,
+          "mapped_train_test": 0,
+          "mapped_val_test": 0
+        },
+        {
+          "outer": 1,
+          "inner": 0,
+          "train_test": 16,
+          "val_test": 0,
+          "mapped_train_test": 0,
+          "mapped_val_test": 0
+        },
+        {
+          "outer": 1,
+          "inner": 1,
+          "train_test": 0,
+          "val_test": 16,
+          "mapped_train_test": 0,
+          "mapped_val_test": 0
+        },
+        {
+          "outer": 1,
+          "inner": 2,
+          "train_test": 16,
+          "val_test": 0,
+          "mapped_train_test": 0,
+          "mapped_val_test": 0
+        },
+        {
+          "outer": 1,
+          "inner": 3,
+          "train_test": 16,
+          "val_test": 0,
+          "mapped_train_test": 0,
+          "mapped_val_test": 0
+        },
+        {
+          "outer": 2,
+          "inner": 0,
+          "train_test": 16,
+          "val_test": 0,
+          "mapped_train_test": 0,
+          "mapped_val_test": 0
+        },
+        {
+          "outer": 2,
+          "inner": 1,
+          "train_test": 16,
+          "val_test": 0,
+          "mapped_train_test": 0,
+          "mapped_val_test": 0
+        },
+        {
+          "outer": 2,
+          "inner": 2,
+          "train_test": 0,
+          "val_test": 16,
+          "mapped_train_test": 0,
+          "mapped_val_test": 0
+        },
+        {
+          "outer": 2,
+          "inner": 3,
+          "train_test": 16,
+          "val_test": 0,
+          "mapped_train_test": 0,
+          "mapped_val_test": 0
+        },
+        {
+          "outer": 3,
+          "inner": 0,
+          "train_test": 16,
+          "val_test": 0,
+          "mapped_train_test": 0,
+          "mapped_val_test": 0
+        },
+        {
+          "outer": 3,
+          "inner": 1,
+          "train_test": 16,
+          "val_test": 0,
+          "mapped_train_test": 0,
+          "mapped_val_test": 0
+        },
+        {
+          "outer": 3,
+          "inner": 2,
+          "train_test": 16,
+          "val_test": 0,
+          "mapped_train_test": 0,
+          "mapped_val_test": 0
+        },
+        {
+          "outer": 3,
+          "inner": 3,
+          "train_test": 0,
+          "val_test": 16,
+          "mapped_train_test": 0,
+          "mapped_val_test": 0
+        },
+        {
+          "outer": 4,
+          "inner": 0,
+          "train_test": 0,
+          "val_test": 0,
+          "mapped_train_test": 0,
+          "mapped_val_test": 0
+        },
+        {
+          "outer": 4,
+          "inner": 1,
+          "train_test": 0,
+          "val_test": 0,
+          "mapped_train_test": 0,
+          "mapped_val_test": 0
+        },
+        {
+          "outer": 4,
+          "inner": 2,
+          "train_test": 0,
+          "val_test": 0,
+          "mapped_train_test": 0,
+          "mapped_val_test": 0
+        },
+        {
+          "outer": 4,
+          "inner": 3,
+          "train_test": 0,
+          "val_test": 0,
+          "mapped_train_test": 0,
+          "mapped_val_test": 0
+        }
+      ]
+    },
+    "structure_scaling": {
+      "synthetic_rows": 6,
+      "features": 45,
+      "training_change_from_query_features": 0.9688523411750793,
+      "train_only_change": 0.0,
+      "subset_mode_restored": true
+    },
+    "fc_definition": {
+      "source": "torch.bmm(signal_vectors, signal_vectors.permute(0,2,1))",
+      "amplitude_multiplier": 3,
+      "gram_multiplier": 9,
+      "gram_scale_formula_error": 0.0,
+      "gram_shift_change": 294.0,
+      "pearson_affine_error": 1.1102230246251565e-16
+    },
+    "auc": {
+      "raw_positive_logit": [
+        0.5,
+        1.0
+      ],
+      "logit_difference": [
+        1.0,
+        1.0
+      ]
+    },
+    "optimizer": {
+      "batch_gradient_parameter_difference": 0.004909425973892212,
+      "checkpoint_in_memory_reference_change": 1.0
+    },
+    "seconds": 4.926081500001601,
+    "scope": "Public code paths on synthetic data only; does not establish implementation used for manuscript results",
+    "torch_version": "2.13.0+cu130",
+    "subset_compatibility_error": "SubsetWithMode overrides __getitem__ but not __getitems__. When subclassing Subset and overriding __getitem__, you must also override __getitems__ to ensure DataLoader works correctly with your custom logic. A simple implementation:\n\ndef __getitems__(self, indices):\n    return [self.__getitem__(idx) for idx in indices]"
+  }
+}

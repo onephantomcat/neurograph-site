@@ -1,0 +1,43 @@
+{
+  "n": 96,
+  "repeats": 5,
+  "per_repeat": [
+    {
+      "repeat": 1,
+      "all": 0.9873913043478262,
+      "0": 0.9968102073365231,
+      "1": 0.9607843137254902
+    },
+    {
+      "repeat": 2,
+      "all": 0.9839130434782609,
+      "0": 0.9984051036682616,
+      "1": 0.9586056644880174
+    },
+    {
+      "repeat": 3,
+      "all": 0.9869565217391305,
+      "0": 0.9984051036682616,
+      "1": 0.9651416122004357
+    },
+    {
+      "repeat": 4,
+      "all": 0.9843478260869566,
+      "0": 0.9968102073365231,
+      "1": 0.9586056644880174
+    },
+    {
+      "repeat": 5,
+      "all": 0.9865217391304348,
+      "0": 0.9968102073365231,
+      "1": 0.9586056644880174
+    }
+  ],
+  "mean_auc": {
+    "all": 0.9858260869565217,
+    "0": 0.9974481658692186,
+    "1": 0.9603485838779957
+  },
+  "interpretation": "CIN vs OSU site prediction, not disease AUC; four-cell balanced training; disease-specific test AUC helps separate class-mixture effects but does not identify scanner causality",
+  "models": 25
+}

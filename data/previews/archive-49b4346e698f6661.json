@@ -1,0 +1,1 @@
+{"content": "{\r\n  \"state\": \"COMPLETE\",\r\n  \"completed_neural_model_folds\": 500,\r\n  \"total_neural_model_folds\": 500,\r\n  \"baseline_readbacks\": 100,\r\n  \"updated_at\": \"2026-09-09T01:08:58.085792+00:00\",\r\n  \"independent_readback\": \"PASS\"\r\n}\n", "truncated": false}

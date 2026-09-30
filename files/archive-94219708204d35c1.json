@@ -1,0 +1,30 @@
+{
+  "primary99": {
+    "source7__none minus source9__none": [
+      -0.09936423297785062,
+      0.04201599671862173
+    ],
+    "source7__age_site_motion minus source9__age_site_motion": [
+      -0.09345159967186205,
+      0.08139663658736641
+    ],
+    "source9__age_site_motion minus source9__none": [
+      -0.12510459392945042,
+      0.011897046759639119
+    ]
+  },
+  "sensitivity96": {
+    "source7__none minus source9__none": [
+      -0.11171547202797205,
+      0.04548076923076916
+    ],
+    "source7__age_site_motion minus source9__age_site_motion": [
+      -0.06767263986014,
+      0.12256993006992996
+    ],
+    "source9__age_site_motion minus source9__none": [
+      -0.11346590909090913,
+      0.0022049825174825185
+    ]
+  }
+}

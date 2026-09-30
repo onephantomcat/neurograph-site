@@ -1,0 +1,54 @@
+> 操作记录按原日期保留；本地私有输入及模型文件不随归档公开。
+
+# 校准与混杂复核
+
+## 总体评估：可分享，但必须附带限制
+
+数据时间：2026-09-08T12:34:00.114470+00:00；来源：`repository-local/tmp/clinical-classification-20260908`。只重算已保存 OOF，未重训或重新校准。
+
+## 计算复核
+
+全部 13 方法 × 99/96 两套结果均检查每人每重复一次 OOF、标签、概率范围，并独立重算 AUC/Brier，与原 summary 一致。
+
+重复均值 Brier 与每人五次概率平均后的 Brier 是不同汇总，不混用。ECE 为五个等宽概率箱的描述指标，小样本下不稳定。
+
+| 人群 | 方法 | 重复均值 Brier | 平均概率 Brier | 平均概率偏差 | 5箱 ECE | 极端概率人数 |
+|---|---|---:|---:|---:|---:|---:|
+| primary99 | nuisance_only | 0.247 | 0.245 | +0.032 | 0.086 | 0 |
+| primary99 | raw_fc | 0.317 | 0.276 | +0.014 | 0.213 | 34 |
+| primary99 | ds005713_source_fixed | 0.292 | 0.272 | -0.002 | 0.102 | 5 |
+| primary99 | srpbs_source_fixed | 0.225 | 0.220 | +0.030 | 0.054 | 1 |
+| sensitivity96 | nuisance_only | 0.245 | 0.243 | +0.042 | 0.042 | 0 |
+| sensitivity96 | raw_fc | 0.330 | 0.283 | +0.025 | 0.203 | 32 |
+| sensitivity96 | ds005713_source_fixed | 0.297 | 0.278 | +0.012 | 0.104 | 2 |
+| sensitivity96 | srpbs_source_fixed | 0.231 | 0.221 | +0.032 | 0.066 | 3 |
+
+## 方法与混杂检查
+
+- 站点、性别及预处理策略分组和年龄/运动相关系数见同目录 JSON；所有分组都保留，不选择性报告优势子组。
+- SRPBS 固定来源仅作为探索性参考，不改为新的主要比较。平均概率不代表一个已验证部署模型。
+- NKN 仅 3 人、完整 T1 无裁剪策略仅 8 人：分组 AUC 极不稳定，不作优劣或因果解释。
+
+| 人群 | 混杂变量 | Healthy均值 | Pain均值 | 标准化差异(Pain-Healthy) |
+|---|---|---:|---:|---:|
+| primary99 | age | 45.2453 | 54.1522 | 0.582 |
+| primary99 | mean_fd | 0.1816 | 0.1863 | 0.085 |
+| primary99 | censor_fraction | 0.0456 | 0.0450 | -0.011 |
+| sensitivity96 | age | 44.9808 | 53.2727 | 0.546 |
+| sensitivity96 | mean_fd | 0.1810 | 0.1889 | 0.142 |
+| sensitivity96 | censor_fraction | 0.0429 | 0.0455 | 0.049 |
+
+## 风险与下一步
+
+1. Raw 概率的 Brier 劣于 nuisance；不能只凭 AUC 宣称可靠临床概率。当前不在同一份测试 OOF 上拟合校准器。
+2. 站点内标签置换仅保留站点病例数；不等于已消除年龄、性别、运动、protocol 或处理策略混杂。
+3. 固定 DS005713 对 Raw/nuisance 的标签零假设差值检验不是一般意义的“两个算法性能相等”检验；不得把它和条件 bootstrap CI 混为独立确认。
+4. 独立临床验证、VAS端点与施测时点仍缺失。此处为开发性评价，不作诊断效用或疼痛特异性声称。
+
+## 呈现与可复现性
+
+本报告为表格/文字，无曲线重绘；所有 26 组数值见 calibration_review.json，脚本为 review_calibration.py。
+小样本分组、概率平均规则、指标定义与未完成事项均保留。
+
+置换方法参考：[scikit-learn permutation_test_score](https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.permutation_test_score.html)；
+[Winkler 等的可交换性讨论](https://pmc.ncbi.nlm.nih.gov/articles/PMC4010955/)。这里采用站点内交换是分析假设，不是该文对本数据有效性的保证。

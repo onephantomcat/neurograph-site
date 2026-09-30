@@ -1,0 +1,291 @@
+{
+  "date": "2026-09-30",
+  "state": "UNIFORM79_NUMERIC18_CONTINUATION_RECOVERED",
+  "title": "18人数值核验完成，接续已恢复",
+  "summary": "原79人统一处理已完成18人的本地数值核验，下一批8人已启动。此前本地处理与训练接续中断，现已恢复；已完成影像未重跑。继续按用户要求免人工视觉审核，全79人输入齐备后执行既定9组训练对照，目前尚无新的疼痛预测成绩。",
+  "boundary": "免人工审核按用户授权记录，未查看者不写成已查看或专家批准；此前实际查看的2人、14张拼图保留。有限值覆盖不等于完整解剖覆盖，原矩阵条件数警告及两人抽样诊断的局限保留。原QC、标签、划分及TN14停止状态不变，缺失或数值不一致的输入仍不能训练。",
+  "next": "自动收取已完成输入并做数值复算，沿原顺序继续剩余批次；全79齐备后比较强FC、传统SPM结构、预训练结构及有限融合，再复核保存模型。依既定主要对比结果推进每类1/5/10人和双向站点评价，不按查询集挑方案；原20不评价。",
+  "pilot_short": "两站点各1例运行完成；当前原79开发池按序提取，复用两例，原20不处理。结构输出不直接等于疼痛诊断。",
+  "pilot": {
+    "cases": 2,
+    "sites": 2,
+    "seconds": [
+      35.89602559999912,
+      36.721032500005094
+    ],
+    "official_cli_exit": [
+      0,
+      0
+    ],
+    "technical_segmentation_slices": 30,
+    "expert_review": "NOT_PERFORMED",
+    "new_inclusion": 0,
+    "pain_fits": 0,
+    "pain_evaluations": 0
+  },
+  "traditional": {
+    "cases": 2,
+    "roi_count": 90,
+    "nonfinite_inside_selected_roi": 0,
+    "nonfinite_outside_roi_preserved": true,
+    "independent_mapping_exact": true,
+    "max_weighted_sum_difference": 3.637978807091713e-12,
+    "technical_overlay_slices": 10,
+    "full_atlas_has_116_labels_only_1_to_90_used": true,
+    "spm_generation_options_not_reaudited": true
+  },
+  "cohort": {
+    "people_planned": 79,
+    "reused_pilots": 2,
+    "reserved20_processed": 0,
+    "observed_live_at": "2026-09-29T13:28:20.695814+08:00",
+    "state": "COMPLETE_WITH_SPM_INPUT_ERRORS",
+    "fastsurfer_dimensions": 32,
+    "spm_dimensions": 91,
+    "fitting_started": false,
+    "automatic_schedule_created": false,
+    "observation_note": "Extraction terminal; no patient fitting and no new expert approval",
+    "processed": 79,
+    "valid_paired": 77,
+    "spm_input_errors": 2,
+    "finished_at": "2026-09-29T13:43:57.895801+08:00"
+  },
+  "compatibility": {
+    "neufom_required": 45,
+    "core_matching": 31,
+    "missing": 14,
+    "extra_modules_run": false,
+    "not_neufom_reproduction": true
+  },
+  "recovery": {
+    "completed_before_stop": 12,
+    "nonzero_inference_exit": true,
+    "cause_confirmed": false,
+    "failed_case_completed_on_same_parameter_retry": true,
+    "retry_count": 1,
+    "existing_completed_reused": 12,
+    "all79_complete": false
+  },
+  "spm_audit": {
+    "paired_completed_before_error": 60,
+    "confirmed_source_errors": 2,
+    "native_gm_all_zero": true,
+    "normalized_gm_all_zero": true,
+    "refetch_identical": true,
+    "segmentation_input_finite_nonconstant": true,
+    "old_segment_completion_logged": true,
+    "cause_confirmed": false,
+    "original_fc_impact": "NOT_RESOLVED",
+    "no_imputation": true,
+    "no_subject_exclusion": true,
+    "processed_at_second_error": 70,
+    "valid_paired_at_second_error": 68,
+    "second_case_inside_roi_nonfinite_voxels": 7,
+    "first_case_only_detailed_config_log_review": true
+  },
+  "training_preparation": {
+    "synthetic_tests": 6,
+    "synthetic_tests_passed": 6,
+    "patient_fits": 0,
+    "patient_evaluations": 0,
+    "complete79_required": true
+  },
+  "numeric_verification": {
+    "state": "COMPLETE_NUMERIC_AUDIT_WITH_SPM_ERRORS",
+    "verified": 79,
+    "planned": 79,
+    "valid_paired": 77,
+    "invalid_spm": 2,
+    "feature_order_checked": true,
+    "independent_atlas_exact": true,
+    "fastsurfer_max_difference": 0.0,
+    "spm_max_difference": 6.938893903907228e-18,
+    "patient_fits": 0,
+    "expert_review": "NOT_PERFORMED"
+  },
+  "spm_replay": {
+    "cases": 1,
+    "exit": 0,
+    "same_segment_input_bytes": true,
+    "same_old_segment_settings": true,
+    "nonsegmentation_steps_disabled": true,
+    "native_gm_nonzero": 0,
+    "modulated_gm_nonzero": 0,
+    "original_outputs_untouched": true,
+    "shared_lock_released": true,
+    "cause_confirmed": false
+  },
+  "geometry_diagnostic": {
+    "cases": 2,
+    "recovered_nonzero_gm": 2,
+    "valid_aal90": 2,
+    "same_cropped_voxels": true,
+    "header_geometry_only_difference": true,
+    "same_old_segment_settings": true,
+    "independent_feature_max_difference": 6.938893903907228e-18,
+    "native_mask_comparisons": 4,
+    "native_mask_dice_range": [
+      0.31894578306017884,
+      0.8496268980707857
+    ],
+    "native_threshold": 0.99,
+    "native_panels_viewed": 32,
+    "mni_slices_viewed": 10,
+    "expert_review": "NOT_PERFORMED",
+    "old_features_replaced": false,
+    "fc_effect_measured": false,
+    "patient_fits": 0,
+    "shared_lock_released": true
+  },
+  "nuisance_diagnostic": {
+    "cases": 2,
+    "original_masks_exact": 4,
+    "mask_comparisons": 4,
+    "mask_dice_range": [
+      0.2182818709874656,
+      0.8529523088569265
+    ],
+    "old_probability_max_error": 5.913898371012749e-08,
+    "restored_volumes_per_case": 240,
+    "old_mean_image_max_error": 0,
+    "old_motion_parameter_max_error": 0,
+    "old_signal_max_relative_error": 6.690332422383437e-07,
+    "signal_correlation_range": [
+      0.919815558000451,
+      0.9956642581675502
+    ],
+    "demeaned_change_rms_over_old_sd_range": [
+      0.11849856622212093,
+      0.48318717445022674
+    ],
+    "functional_panels_viewed": 16,
+    "expert_review": "NOT_PERFORMED",
+    "patient_fits": 0,
+    "fc_recomputed": false,
+    "old_outputs_replaced": false,
+    "standardized_signal_difference_rms_range": [
+      0.09312080146185239,
+      0.40046083953252887
+    ]
+  },
+  "fc_impact_replay_progress": {
+    "cases": 2,
+    "conditions": 2,
+    "stages_planned": 8,
+    "stages_completed": 2,
+    "observed_local": "14:47:34",
+    "first_original_native_max_abs": 0,
+    "first_original_design_max_abs": 0,
+    "first_original_fc_max_abs": 0.0,
+    "first_original_timeseries_max_abs": 0.0,
+    "independent_correlation_max_abs": 2.9567263859497928e-08,
+    "old_warp_fixed": true,
+    "old_input_replaced": false,
+    "full_paired_effect_available": false,
+    "patient_fits": 0,
+    "pain_evaluations": 0
+  },
+  "fc_impact_paired": {
+    "cases": 2,
+    "conditions": 2,
+    "stages_completed": 8,
+    "edges_per_case": 4005,
+    "effect_ranges": {
+      "mean_abs": [
+        0.020506986780765034,
+        0.07882025659316369
+      ],
+      "median_abs": [
+        0.015042701736092567,
+        0.05915898084640503
+      ],
+      "rms": [
+        0.027873594434491486,
+        0.10550039415712496
+      ],
+      "max_abs": [
+        0.13981448113918304,
+        0.4212501049041748
+      ],
+      "vector_correlation": [
+        0.9178796502005105,
+        0.9951979403538622
+      ]
+    },
+    "original_fc_max_abs_difference": 0.0,
+    "original_image_max_abs_difference": 0.0,
+    "independent_pearson_max_abs": 2.977232327339152e-08,
+    "local_independent_verification": true,
+    "old_warp_fixed": true,
+    "old_input_replaced": false,
+    "patient_fits": 0,
+    "pain_evaluations": 0
+  },
+  "normalization_diagnostic": {
+    "cases": 2,
+    "stages_completed": 4,
+    "stage2_pass": 2,
+    "aal90_pass": 2,
+    "minimum_finite_coverage_range": [
+      1.0,
+      1.0
+    ],
+    "minimum_analysis_mask_coverage_range": [
+      0.5416666666666666,
+      0.625
+    ],
+    "warp_only_fc_mean_abs_change_range": [
+      0.03943077694941335,
+      0.05853915719121693
+    ],
+    "independent_pearson_max_abs": 2.9655348288137873e-08,
+    "technical_figures_viewed": 6,
+    "new_mean_slices_viewed": 30,
+    "expert_review": "NOT_PERFORMED",
+    "original_inputs_replaced": false,
+    "uniform79_started": false,
+    "patient_fits": 0,
+    "pain_evaluations": 0
+  },
+  "uniform_processing": {
+    "planned_people": 79,
+    "completed_batch_people": 8,
+    "next_batch_people": 8,
+    "locally_verified_people": 18,
+    "technical_figures_viewed": 14,
+    "technical_panels_viewed": 240,
+    "independent_spm_max_abs": 1.7763568394002505e-15,
+    "independent_pearson_max_abs": 2.978822055688113e-08,
+    "minimum_finite_coverage": 1.0,
+    "expert_review": "NOT_PERFORMED",
+    "original_inputs_replaced": false,
+    "patient_fits": 0,
+    "pain_evaluations": 0,
+    "technical_reviewed_people": 2,
+    "user_visual_waiver_scope_people": 79,
+    "manual_review_policy": "USER_WAIVED_VISUAL_REVIEW"
+  },
+  "regression_numeric_check": {
+    "cases": 2,
+    "voxels_per_case": 32,
+    "timepoints": 240,
+    "max_relative_residual_rms_difference": 2.4906793420259677e-05,
+    "qr_svd_max_abs": 3.1604940886609256e-11,
+    "independent_local_verified": true,
+    "any_over_one_percent": false,
+    "scope": "Sampled voxels only; no full-brain or prediction accuracy claim",
+    "original_regression_changed": false
+  },
+  "training_continuation": {
+    "state": "RECOVERED_WAITING_UNIFORM_INPUTS",
+    "previous_local_exit_reason": "UNKNOWN_NO_TERMINAL_LOG",
+    "completed_images_reprocessed": false,
+    "planned_people": 79,
+    "planned_tasks": 9,
+    "selection_heads": 360,
+    "final_heads": 45,
+    "patient_fits": 0,
+    "original20_scored": 0,
+    "recurring_automations_resumed": false
+  }
+}

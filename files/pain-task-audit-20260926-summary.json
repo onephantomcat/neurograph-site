@@ -1,0 +1,154 @@
+{
+  "date": "2026-09-26",
+  "summary": "RPN作者模型与56个原验证样例的保存预测一致，最大差1.11e−16。19人中心原尺度MSE0.4416，按作者脚本将目标去均值后0.1726；这是评价口径差异，不是模型提升。",
+  "boundary": "RPN是传统机器学习，预测实验QST痛觉敏感性；作者样例复现不是本项目新增独立临床验证。现有419/450区输入不能直接接入，未产生本地患者新预测。",
+  "next": "下一步仅在作者公开任务限定一次1/5/10个支持标签的偏移校准对照，参数只由支持者拟合，评价剩余者；这是已查阅数据上的方法开发。RPN本地接入仍待图谱/灰质流程与真实QST适用性核对。DL主线继续要求同输入、随机表示、强ML与跨站点证据。",
+  "model": {
+    "state": "MODEL_PREDICTION_VERIFIED",
+    "source_commit": "7870554122551af270b3fa4be63592fa2df98e1f",
+    "original_sklearn": "0.19.2",
+    "model_class": "RobustScaler_SelectKBest_ElasticNet",
+    "features": 7503,
+    "selected_features": 25,
+    "nonzero_coefficients": 21,
+    "alpha": 0.005,
+    "l1_ratio": 0.999,
+    "fit_calls": 0,
+    "current_patient_predictions": 0,
+    "errors": [
+      {
+        "center": "bochum",
+        "rows": 35,
+        "pipeline_formula_max_abs": 4.440892098500626e-16,
+        "author_saved_prediction_max_abs": null
+      },
+      {
+        "center": "essen",
+        "rows": 37,
+        "pipeline_formula_max_abs": 2.220446049250313e-16,
+        "author_saved_prediction_max_abs": 1.1102230246251565e-16
+      },
+      {
+        "center": "szeged",
+        "rows": 19,
+        "pipeline_formula_max_abs": 2.220446049250313e-16,
+        "author_saved_prediction_max_abs": 9.020562075079397e-17
+      }
+    ],
+    "results": [
+      {
+        "center": "bochum",
+        "n": 35,
+        "role": "training_fit_not_validation",
+        "target_mode": "stored_target",
+        "mae": 0.08417052815069215,
+        "mse": 0.010954860662990553,
+        "r2": 0.978923981374871,
+        "explained_variance": 0.978923981374871,
+        "pearson_r": 0.9895605060477334,
+        "source_mean_mse": 0.5197784675483742,
+        "target_mean": 0.008551403888578259
+      },
+      {
+        "center": "essen",
+        "n": 37,
+        "role": "author_external_sample_reproduction",
+        "target_mode": "stored_target",
+        "mae": 0.5888595365040812,
+        "mse": 0.535518595601857,
+        "r2": 0.13398433080904082,
+        "explained_variance": 0.1808974844802551,
+        "pearson_r": 0.4298728649941805,
+        "source_mean_mse": 0.6972877377735407,
+        "target_mean": 0.28947341495346396
+      },
+      {
+        "center": "szeged",
+        "n": 19,
+        "role": "author_external_sample_reproduction",
+        "target_mode": "stored_target",
+        "mae": 0.572948940306874,
+        "mse": 0.44158118736030166,
+        "r2": -1.2288831034395638,
+        "explained_variance": 0.17017006690030045,
+        "pearson_r": 0.46725151169289286,
+        "source_mean_mse": 0.3955443820925587,
+        "target_mean": -0.435775823593041
+      },
+      {
+        "center": "szeged",
+        "n": 19,
+        "role": "author_external_sample_reproduction",
+        "target_mode": "author_script_target_centered",
+        "mae": 0.33396867145327275,
+        "mse": 0.17263055404294977,
+        "r2": 0.12864647304417176,
+        "explained_variance": 0.17017006690030045,
+        "pearson_r": 0.46725151169289286,
+        "source_mean_mse": 0.19819082351952158,
+        "target_mean": -8.764918615461762e-18
+      }
+    ],
+    "compatibility": "Explicit module mapping and Python2 latin1 read; fitted arrays copied unchanged into modern estimator constructors; independent NumPy affine formula checked",
+    "source_warnings": [
+      "Trying to unpickle estimator RobustScaler from version 0.19.2 when using version 1.9.0. This might lead to breaking code or invalid results. Use at your own risk.",
+      "Trying to unpickle estimator SelectKBest from version 0.19.2 when using version 1.9.0. This might lead to breaking code or invalid results. Use at your own risk.",
+      "Trying to unpickle estimator ElasticNet from version 0.19.2 when using version 1.9.0. This might lead to breaking code or invalid results. Use at your own risk.",
+      "Trying to unpickle estimator Pipeline from version 0.19.2 when using version 1.9.0. This might lead to breaking code or invalid results. Use at your own risk."
+    ],
+    "limits": "Saved author examples, not new external clinical validation; no QST labels in current target verified; Szeged centered target requires target labels and is not deployable calibration"
+  },
+  "input_verification_aggregate": {
+    "state": "VERIFIED",
+    "cases": 3,
+    "standardization_max_abs": 0.0,
+    "formula_max_abs": 1.176836406102666e-14,
+    "cache_max_abs": 2.478572902475662e-14,
+    "wrong_upper_order_max_abs": 0.5864742036854111,
+    "examples_with_constant_columns": 1,
+    "examples_with_fd_length_mismatch": 1,
+    "raw_image_preprocessing_reproduced": false,
+    "current_target_compatible": false
+  },
+  "metric_verification": {
+    "state": "VERIFIED",
+    "comparisons": 24,
+    "independent_metric_max_abs": 4.440892098500626e-16,
+    "scope": "Explicit NumPy MAE/MSE/R2/explained variance/correlation/source-mean comparator; cached author external examples only"
+  },
+  "table": [
+    {
+      "label": "Essen",
+      "n": 37,
+      "mode": "保存的原始目标",
+      "mae": 0.5888595365040812,
+      "mse": 0.535518595601857,
+      "source_mean_mse": 0.6972877377735407,
+      "r2": 0.13398433080904082,
+      "explained_variance": 0.1808974844802551,
+      "pearson_r": 0.4298728649941805
+    },
+    {
+      "label": "Szeged",
+      "n": 19,
+      "mode": "保存的原始目标",
+      "mae": 0.572948940306874,
+      "mse": 0.44158118736030166,
+      "source_mean_mse": 0.3955443820925587,
+      "r2": -1.2288831034395638,
+      "explained_variance": 0.17017006690030045,
+      "pearson_r": 0.46725151169289286
+    },
+    {
+      "label": "Szeged",
+      "n": 19,
+      "mode": "作者脚本目标去均值",
+      "mae": 0.33396867145327275,
+      "mse": 0.17263055404294977,
+      "source_mean_mse": 0.19819082351952158,
+      "r2": 0.12864647304417176,
+      "explained_variance": 0.17017006690030045,
+      "pearson_r": 0.46725151169289286
+    }
+  ]
+}

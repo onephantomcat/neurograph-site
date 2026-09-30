@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "models": 750,
+  "residualizer_recomputed": 450,
+  "covariate_transform_checks": 600,
+  "fit_records_checked": 3000,
+  "max_prediction_error": 0.0,
+  "verified_at": "2026-09-11T07:31:32.973112+00:00"
+}

@@ -1,0 +1,53 @@
+{
+  "observed_at": "2026-09-09T01:12:17.859568+00:00",
+  "scope": "Aggregate source-role audit; no subject-level records exported; no diagnosis inferred from filenames.",
+  "srpbs_inventory": {
+    "n": 1627,
+    "diagnosis_codes": {
+      "0": 950,
+      "1": 125,
+      "4": 147,
+      "2": 255,
+      "7": 41,
+      "8": 4,
+      "99": 28,
+      "5": 67,
+      "6": 10
+    }
+  },
+  "srpbs_source": {
+    "n": 9,
+    "diagnosis_codes": {
+      "0": 5,
+      "2": 2,
+      "4": 2
+    },
+    "legend": {
+      "0": "Healthy",
+      "2": "MDD",
+      "4": "Schizophrenia"
+    }
+  },
+  "abide_source": {
+    "n": 972,
+    "diagnosis_codes": {
+      "1": 465,
+      "2": 507
+    },
+    "legend": {
+      "1": "ASD",
+      "2": "Typical control"
+    }
+  },
+  "ds_source": {
+    "n_scans": 36,
+    "metadata_url": "https://raw.githubusercontent.com/OpenNeuroDatasets/ds005713/2.0.2/participants.tsv",
+    "metadata_rows": 51,
+    "exact_metadata_matches": 7,
+    "unmatched_scans": 29,
+    "matched_diagnoses": {
+      "TN": 7
+    },
+    "limitation": "Exact IDs after namespace removal only. Missing and follow-up identities not inferred; full selected cohort disease composition unresolved."
+  }
+}

@@ -1,0 +1,1880 @@
+{
+  "date": "2026-09-20",
+  "results": [
+    {
+      "design": "primary99",
+      "task": "classification",
+      "method": "raw_fc",
+      "n": 99,
+      "repeats": 5,
+      "roc_auc": 0.6447908121410992,
+      "balanced_accuracy": 0.6084085315832649,
+      "sensitivity": 0.6130434782608696,
+      "specificity": 0.6037735849056604,
+      "brier": 0.26688028692312143
+    },
+    {
+      "design": "primary99",
+      "task": "classification",
+      "method": "tangent",
+      "n": 99,
+      "repeats": 5,
+      "roc_auc": 0.7525020508613617,
+      "balanced_accuracy": 0.6865873666940114,
+      "sensitivity": 0.682608695652174,
+      "specificity": 0.690566037735849,
+      "brier": 0.20346082843453223
+    },
+    {
+      "design": "primary99",
+      "task": "classification",
+      "method": "random_srpbs50",
+      "n": 99,
+      "repeats": 5,
+      "roc_auc": 0.5422477440525021,
+      "balanced_accuracy": 0.5360541427399508,
+      "sensitivity": 0.517391304347826,
+      "specificity": 0.5547169811320753,
+      "brier": 0.2540873137945442
+    },
+    {
+      "design": "primary99",
+      "task": "classification",
+      "method": "anatomical45",
+      "n": 99,
+      "repeats": 5,
+      "roc_auc": 0.6294503691550452,
+      "balanced_accuracy": 0.6127563576702215,
+      "sensitivity": 0.6217391304347826,
+      "specificity": 0.6037735849056604,
+      "brier": 0.2509791092518193
+    },
+    {
+      "design": "primary99",
+      "task": "classification",
+      "method": "cpm_p01",
+      "n": 99,
+      "repeats": 5,
+      "roc_auc": 0.6955701394585727,
+      "balanced_accuracy": 0.6503281378178836,
+      "sensitivity": 0.6478260869565217,
+      "specificity": 0.6528301886792452,
+      "brier": 0.2333102563108696
+    },
+    {
+      "design": "primary99",
+      "task": "classification",
+      "method": "state_occupancy4",
+      "n": 99,
+      "repeats": 5,
+      "roc_auc": 0.6305988515176375,
+      "balanced_accuracy": 0.6448318293683346,
+      "sensitivity": 0.6217391304347826,
+      "specificity": 0.6679245283018868,
+      "brier": 0.2510153259155114
+    },
+    {
+      "design": "primary99",
+      "task": "classification",
+      "method": "motion_screened_state4",
+      "n": 99,
+      "repeats": 5,
+      "roc_auc": 0.6337981952420015,
+      "balanced_accuracy": 0.6265791632485644,
+      "sensitivity": 0.5739130434782609,
+      "specificity": 0.679245283018868,
+      "brier": 0.24736196264240967
+    },
+    {
+      "design": "sensitivity96",
+      "task": "classification",
+      "method": "raw_fc",
+      "n": 96,
+      "repeats": 5,
+      "roc_auc": 0.6402097902097902,
+      "balanced_accuracy": 0.6008741258741259,
+      "sensitivity": 0.5863636363636364,
+      "specificity": 0.6153846153846155,
+      "brier": 0.2638513540474316
+    },
+    {
+      "design": "sensitivity96",
+      "task": "classification",
+      "method": "tangent",
+      "n": 96,
+      "repeats": 5,
+      "roc_auc": 0.7562062937062937,
+      "balanced_accuracy": 0.7054195804195804,
+      "sensitivity": 0.6954545454545454,
+      "specificity": 0.7153846153846153,
+      "brier": 0.2044259115280775
+    },
+    {
+      "design": "sensitivity96",
+      "task": "classification",
+      "method": "random_srpbs50",
+      "n": 96,
+      "repeats": 5,
+      "roc_auc": 0.5939685314685315,
+      "balanced_accuracy": 0.5996503496503497,
+      "sensitivity": 0.5954545454545455,
+      "specificity": 0.6038461538461538,
+      "brier": 0.25280649674150246
+    },
+    {
+      "design": "sensitivity96",
+      "task": "classification",
+      "method": "anatomical45",
+      "n": 96,
+      "repeats": 5,
+      "roc_auc": 0.6224650349650349,
+      "balanced_accuracy": 0.625,
+      "sensitivity": 0.65,
+      "specificity": 0.6,
+      "brier": 0.2531555479031405
+    },
+    {
+      "design": "sensitivity96",
+      "task": "classification",
+      "method": "cpm_p01",
+      "n": 96,
+      "repeats": 5,
+      "roc_auc": 0.6573426573426573,
+      "balanced_accuracy": 0.6293706293706294,
+      "sensitivity": 0.6318181818181818,
+      "specificity": 0.6269230769230768,
+      "brier": 0.24164219591077057
+    },
+    {
+      "design": "sensitivity96",
+      "task": "classification",
+      "method": "state_occupancy4",
+      "n": 96,
+      "repeats": 5,
+      "roc_auc": 0.6228583916083916,
+      "balanced_accuracy": 0.6326923076923078,
+      "sensitivity": 0.6,
+      "specificity": 0.6653846153846155,
+      "brier": 0.2460766765786694
+    },
+    {
+      "design": "sensitivity96",
+      "task": "classification",
+      "method": "motion_screened_state4",
+      "n": 96,
+      "repeats": 5,
+      "roc_auc": 0.6196678321678322,
+      "balanced_accuracy": 0.6164335664335664,
+      "sensitivity": 0.5636363636363637,
+      "specificity": 0.6692307692307693,
+      "brier": 0.24743800083230544
+    },
+    {
+      "design": "OSU-to-CIN",
+      "task": "classification",
+      "method": "raw_fc",
+      "n": 50,
+      "repeats": 5,
+      "roc_auc": 0.550445632798574,
+      "balanced_accuracy": 0.5370766488413548,
+      "sensitivity": 0.35294117647058826,
+      "specificity": 0.7212121212121213,
+      "brier": 0.256293252329285
+    },
+    {
+      "design": "OSU-to-CIN",
+      "task": "classification",
+      "method": "tangent",
+      "n": 50,
+      "repeats": 5,
+      "roc_auc": 0.607843137254902,
+      "balanced_accuracy": 0.5770053475935829,
+      "sensitivity": 0.5176470588235293,
+      "specificity": 0.6363636363636364,
+      "brier": 0.24263368451162873
+    },
+    {
+      "design": "OSU-to-CIN",
+      "task": "classification",
+      "method": "random_srpbs50",
+      "n": 50,
+      "repeats": 5,
+      "roc_auc": 0.5283422459893049,
+      "balanced_accuracy": 0.5575757575757576,
+      "sensitivity": 0.6,
+      "specificity": 0.5151515151515151,
+      "brier": 0.33584510065119805
+    },
+    {
+      "design": "OSU-to-CIN",
+      "task": "classification",
+      "method": "anatomical45",
+      "n": 50,
+      "repeats": 5,
+      "roc_auc": 0.5925133689839572,
+      "balanced_accuracy": 0.5793226381461676,
+      "sensitivity": 0.36470588235294116,
+      "specificity": 0.793939393939394,
+      "brier": 0.23800539926884126
+    },
+    {
+      "design": "OSU-to-CIN",
+      "task": "classification",
+      "method": "cpm_p01",
+      "n": 50,
+      "repeats": 5,
+      "roc_auc": 0.5340463458110516,
+      "balanced_accuracy": 0.5429590017825312,
+      "sensitivity": 0.5647058823529412,
+      "specificity": 0.5212121212121212,
+      "brier": 0.30532793686845616
+    },
+    {
+      "design": "OSU-to-CIN",
+      "task": "classification",
+      "method": "state_occupancy4",
+      "n": 50,
+      "repeats": 5,
+      "roc_auc": 0.6142602495543672,
+      "balanced_accuracy": 0.6231729055258466,
+      "sensitivity": 0.47058823529411764,
+      "specificity": 0.7757575757575758,
+      "brier": 0.2416388468929162
+    },
+    {
+      "design": "OSU-to-CIN",
+      "task": "classification",
+      "method": "motion_screened_state4",
+      "n": 50,
+      "repeats": 5,
+      "roc_auc": 0.6639928698752228,
+      "balanced_accuracy": 0.6595365418894831,
+      "sensitivity": 0.47058823529411764,
+      "specificity": 0.8484848484848484,
+      "brier": 0.24864365319677378
+    },
+    {
+      "design": "CIN-to-OSU",
+      "task": "classification",
+      "method": "raw_fc",
+      "n": 46,
+      "repeats": 5,
+      "roc_auc": 0.5325536062378168,
+      "balanced_accuracy": 0.5557504873294347,
+      "sensitivity": 0.7851851851851851,
+      "specificity": 0.3263157894736842,
+      "brier": 0.2680077342969863
+    },
+    {
+      "design": "CIN-to-OSU",
+      "task": "classification",
+      "method": "tangent",
+      "n": 46,
+      "repeats": 5,
+      "roc_auc": 0.6128654970760234,
+      "balanced_accuracy": 0.5760233918128654,
+      "sensitivity": 0.888888888888889,
+      "specificity": 0.2631578947368421,
+      "brier": 0.24101515055818182
+    },
+    {
+      "design": "CIN-to-OSU",
+      "task": "classification",
+      "method": "random_srpbs50",
+      "n": 46,
+      "repeats": 5,
+      "roc_auc": 0.516569200779727,
+      "balanced_accuracy": 0.4814814814814814,
+      "sensitivity": 0.36296296296296293,
+      "specificity": 0.6,
+      "brier": 0.2867363772829374
+    },
+    {
+      "design": "CIN-to-OSU",
+      "task": "classification",
+      "method": "anatomical45",
+      "n": 46,
+      "repeats": 5,
+      "roc_auc": 0.6920077972709552,
+      "balanced_accuracy": 0.6306042884990253,
+      "sensitivity": 0.6296296296296297,
+      "specificity": 0.631578947368421,
+      "brier": 0.2261744838280874
+    },
+    {
+      "design": "CIN-to-OSU",
+      "task": "classification",
+      "method": "cpm_p01",
+      "n": 46,
+      "repeats": 5,
+      "roc_auc": 0.5200779727095517,
+      "balanced_accuracy": 0.4799220272904483,
+      "sensitivity": 0.5703703703703703,
+      "specificity": 0.38947368421052636,
+      "brier": 0.2640460840159051
+    },
+    {
+      "design": "CIN-to-OSU",
+      "task": "classification",
+      "method": "state_occupancy4",
+      "n": 46,
+      "repeats": 5,
+      "roc_auc": 0.6639376218323587,
+      "balanced_accuracy": 0.6091617933723198,
+      "sensitivity": 0.6814814814814814,
+      "specificity": 0.5368421052631579,
+      "brier": 0.22861505229931978
+    },
+    {
+      "design": "CIN-to-OSU",
+      "task": "classification",
+      "method": "motion_screened_state4",
+      "n": 46,
+      "repeats": 5,
+      "roc_auc": 0.657504873294347,
+      "balanced_accuracy": 0.6380116959064328,
+      "sensitivity": 0.6444444444444444,
+      "specificity": 0.631578947368421,
+      "brier": 0.23277494103344387
+    },
+    {
+      "design": "zan54",
+      "task": "classification",
+      "method": "raw_fc",
+      "n": 54,
+      "repeats": 5,
+      "roc_auc": 0.41627586206896555,
+      "balanced_accuracy": 0.43682758620689655,
+      "sensitivity": 0.384,
+      "specificity": 0.4896551724137931,
+      "brier": 0.32878421933471164
+    },
+    {
+      "design": "zan54",
+      "task": "classification",
+      "method": "tangent",
+      "n": 54,
+      "repeats": 5,
+      "roc_auc": 0.37351724137931036,
+      "balanced_accuracy": 0.4379310344827586,
+      "sensitivity": 0.4,
+      "specificity": 0.47586206896551725,
+      "brier": 0.28636397187424467
+    },
+    {
+      "design": "zan54",
+      "task": "classification",
+      "method": "random_srpbs50",
+      "n": 54,
+      "repeats": 5,
+      "roc_auc": 0.5964137931034482,
+      "balanced_accuracy": 0.5644137931034483,
+      "sensitivity": 0.5840000000000001,
+      "specificity": 0.5448275862068965,
+      "brier": 0.27447483105184667
+    },
+    {
+      "design": "zan54",
+      "task": "classification",
+      "method": "anatomical45",
+      "n": 54,
+      "repeats": 5,
+      "roc_auc": 0.43917241379310346,
+      "balanced_accuracy": 0.44482758620689655,
+      "sensitivity": 0.4,
+      "specificity": 0.4896551724137931,
+      "brier": 0.34491889565813877
+    },
+    {
+      "design": "zan54",
+      "task": "classification",
+      "method": "cpm_p01",
+      "n": 54,
+      "repeats": 5,
+      "roc_auc": 0.4855172413793104,
+      "balanced_accuracy": 0.4946206896551725,
+      "sensitivity": 0.4720000000000001,
+      "specificity": 0.5172413793103449,
+      "brier": 0.28201104226280616
+    },
+    {
+      "design": "zan54",
+      "task": "classification",
+      "method": "state_occupancy4",
+      "n": 54,
+      "repeats": 5,
+      "roc_auc": 0.5155862068965518,
+      "balanced_accuracy": 0.48675862068965525,
+      "sensitivity": 0.40800000000000003,
+      "specificity": 0.5655172413793104,
+      "brier": 0.2458571732574085
+    },
+    {
+      "design": "zan54",
+      "task": "classification",
+      "method": "motion_screened_state4",
+      "n": 54,
+      "repeats": 5,
+      "roc_auc": 0.47572413793103446,
+      "balanced_accuracy": 0.47641379310344834,
+      "sensitivity": 0.40800000000000003,
+      "specificity": 0.5448275862068965,
+      "brier": 0.2572703382285232
+    },
+    {
+      "design": "severity_sup7",
+      "task": "regression",
+      "method": "raw_fc",
+      "n": 29,
+      "repeats": 5,
+      "mae": 19.3723397378846,
+      "rmse": 23.877516029508875,
+      "r2": -0.128944640817499,
+      "spearman": -0.21067430496780476
+    },
+    {
+      "design": "severity_sup7",
+      "task": "regression",
+      "method": "tangent",
+      "n": 29,
+      "repeats": 5,
+      "mae": 18.67554081389131,
+      "rmse": 23.44873897964591,
+      "r2": -0.08991462846764975,
+      "spearman": -0.28729210742976796
+    },
+    {
+      "design": "severity_sup7",
+      "task": "regression",
+      "method": "train_mean",
+      "n": 29,
+      "repeats": 5,
+      "mae": 18.268656987295827,
+      "rmse": 23.181663974238525,
+      "r2": -0.06525018133404506,
+      "spearman": -0.16925082419945606
+    },
+    {
+      "design": "severity_sup7",
+      "task": "regression",
+      "method": "train_median",
+      "n": 29,
+      "repeats": 5,
+      "mae": 18.851724137931033,
+      "rmse": 23.638631133012673,
+      "r2": -0.10892331702815813,
+      "spearman": -0.17442717007395286
+    },
+    {
+      "design": "severity_sup7",
+      "task": "regression",
+      "method": "random_srpbs50",
+      "n": 29,
+      "repeats": 5,
+      "mae": 19.502556840273527,
+      "rmse": 23.68542025363436,
+      "r2": -0.11872658270280287,
+      "spearman": -0.05872059377876328
+    },
+    {
+      "design": "severity_sup7",
+      "task": "regression",
+      "method": "anatomical45",
+      "n": 29,
+      "repeats": 5,
+      "mae": 21.79677060883621,
+      "rmse": 27.65384096687672,
+      "r2": -0.5384431372007217,
+      "spearman": -0.07474426546482378
+    },
+    {
+      "design": "severity_sup7",
+      "task": "regression",
+      "method": "cpm_p01",
+      "n": 29,
+      "repeats": 5,
+      "mae": 19.25684559263032,
+      "rmse": 23.69473153427125,
+      "r2": -0.11314523680529728,
+      "spearman": -0.20337737139999876
+    },
+    {
+      "design": "severity_sup7",
+      "task": "regression",
+      "method": "state_occupancy4",
+      "n": 29,
+      "repeats": 5,
+      "mae": 19.184795246612833,
+      "rmse": 24.236412802055536,
+      "r2": -0.16619173440880894,
+      "spearman": -0.14074117530077157
+    },
+    {
+      "design": "severity_sup7",
+      "task": "regression",
+      "method": "motion_screened_state4",
+      "n": 29,
+      "repeats": 5,
+      "mae": 19.696145524487083,
+      "rmse": 25.003699299865747,
+      "r2": -0.24216914099935374,
+      "spearman": -0.14943666974268693
+    },
+    {
+      "design": "severity_sup7",
+      "task": "regression",
+      "method": "demographic_motion",
+      "n": 29,
+      "repeats": 5,
+      "mae": 18.788437325114483,
+      "rmse": 23.724272907935806,
+      "r2": -0.1162406269206803,
+      "spearman": -0.1173425803471508
+    },
+    {
+      "design": "severity_sup7",
+      "task": "regression",
+      "method": "clinical",
+      "n": 29,
+      "repeats": 5,
+      "mae": 16.182726629663698,
+      "rmse": 21.617581905602467,
+      "r2": 0.06862644550618693,
+      "spearman": 0.4262789704543975
+    },
+    {
+      "design": "severity_sup7",
+      "task": "regression",
+      "method": "clinical_plus_states",
+      "n": 29,
+      "repeats": 5,
+      "mae": 17.63804396812985,
+      "rmse": 22.56619978824805,
+      "r2": -0.009771596755998835,
+      "spearman": 0.35464083211640995
+    },
+    {
+      "design": "severity_sup8",
+      "task": "regression",
+      "method": "raw_fc",
+      "n": 15,
+      "repeats": 5,
+      "mae": 2.2876339433680117,
+      "rmse": 2.615701953869781,
+      "r2": -0.004822696823342199,
+      "spearman": 0.1658879896199044
+    },
+    {
+      "design": "severity_sup8",
+      "task": "regression",
+      "method": "tangent",
+      "n": 15,
+      "repeats": 5,
+      "mae": 2.366257052083033,
+      "rmse": 2.654003107744681,
+      "r2": -0.032246470313974804,
+      "spearman": -0.008038625047660567
+    },
+    {
+      "design": "severity_sup8",
+      "task": "regression",
+      "method": "train_mean",
+      "n": 15,
+      "repeats": 5,
+      "mae": 2.3573333333333335,
+      "rmse": 2.6856233793066115,
+      "r2": -0.05664062500000022,
+      "spearman": -0.17293922704844628
+    },
+    {
+      "design": "severity_sup8",
+      "task": "regression",
+      "method": "train_median",
+      "n": 15,
+      "repeats": 5,
+      "mae": 2.3400000000000003,
+      "rmse": 2.94862439247086,
+      "r2": -0.2739257812500002,
+      "spearman": -0.1431414256256563
+    },
+    {
+      "design": "severity_sup8",
+      "task": "regression",
+      "method": "random_srpbs50",
+      "n": 15,
+      "repeats": 5,
+      "mae": 2.3464551317100666,
+      "rmse": 2.7049329924436996,
+      "r2": -0.07716878457479645,
+      "spearman": 0.25431286514417056
+    },
+    {
+      "design": "severity_sup8",
+      "task": "regression",
+      "method": "anatomical45",
+      "n": 15,
+      "repeats": 5,
+      "mae": 2.4755557123819987,
+      "rmse": 2.789090543084776,
+      "r2": -0.140313300000365,
+      "spearman": -0.12386790414349688
+    },
+    {
+      "design": "severity_sup8",
+      "task": "regression",
+      "method": "cpm_p01",
+      "n": 15,
+      "repeats": 5,
+      "mae": 2.405960227648417,
+      "rmse": 2.68611847795927,
+      "r2": -0.06017713225889152,
+      "spearman": 0.16296485323893692
+    },
+    {
+      "design": "severity_sup8",
+      "task": "regression",
+      "method": "state_occupancy4",
+      "n": 15,
+      "repeats": 5,
+      "mae": 2.2024751306358668,
+      "rmse": 2.6113280658735585,
+      "r2": -0.0015339647520138389,
+      "spearman": 0.15863895115448529
+    },
+    {
+      "design": "severity_sup8",
+      "task": "regression",
+      "method": "motion_screened_state4",
+      "n": 15,
+      "repeats": 5,
+      "mae": 2.204046515289576,
+      "rmse": 2.623742312059235,
+      "r2": -0.011064841634426625,
+      "spearman": 0.14658166694396113
+    },
+    {
+      "design": "severity_sup8",
+      "task": "regression",
+      "method": "demographic_motion",
+      "n": 15,
+      "repeats": 5,
+      "mae": 2.6248404939608143,
+      "rmse": 3.069972867227473,
+      "r2": -0.4148643180973119,
+      "spearman": -0.41508536609738195
+    },
+    {
+      "design": "severity_sup8",
+      "task": "regression",
+      "method": "clinical",
+      "n": 15,
+      "repeats": 5,
+      "mae": 2.3113596875908704,
+      "rmse": 2.9517939378723113,
+      "r2": -0.27798663913457394,
+      "spearman": 0.15346466000079262
+    },
+    {
+      "design": "severity_sup8",
+      "task": "regression",
+      "method": "clinical_plus_states",
+      "n": 15,
+      "repeats": 5,
+      "mae": 2.2252298928458067,
+      "rmse": 2.66132698196001,
+      "r2": -0.0418614525554291,
+      "spearman": 0.2122927796677631
+    }
+  ],
+  "comparisons": [
+    {
+      "design": "primary99",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "roc_auc",
+      "delta": 0.0031993437243640344,
+      "ci_low": -0.02165709598031174,
+      "ci_high": 0.026989335520918756,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "primary99",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "balanced_accuracy",
+      "delta": -0.018252666119770167,
+      "ci_low": -0.04565217391304344,
+      "ci_high": 0.005824446267432393,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "primary99",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "sensitivity",
+      "delta": -0.047826086956521685,
+      "ci_low": -0.09576086956521744,
+      "ci_high": -0.008695652173913104,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "primary99",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "specificity",
+      "delta": 0.01132075471698124,
+      "ci_low": -0.01886792452830177,
+      "ci_high": 0.04150943396226403,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "primary99",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "brier",
+      "delta": -0.0036533632731017285,
+      "ci_low": -0.011316644844198497,
+      "ci_high": 0.00330971896114206,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "primary99",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "roc_auc",
+      "delta": -0.11870385561936014,
+      "ci_low": -0.2207178014766203,
+      "ci_high": -0.020703445447087784,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "primary99",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "balanced_accuracy",
+      "delta": -0.060008203445446995,
+      "ci_low": -0.1654645200984413,
+      "ci_high": 0.0403773584905661,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "primary99",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "sensitivity",
+      "delta": -0.10869565217391308,
+      "ci_low": -0.26086956521739135,
+      "ci_high": 0.0391304347826088,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "primary99",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "specificity",
+      "delta": -0.011320754716981019,
+      "ci_low": -0.15471698113207533,
+      "ci_high": 0.12452830188679254,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "primary99",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "brier",
+      "delta": 0.043901134207877446,
+      "ci_low": 0.014060758251515655,
+      "ci_high": 0.07404398487639388,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "sensitivity96",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "roc_auc",
+      "delta": -0.0031905594405594595,
+      "ci_low": -0.03990384615384612,
+      "ci_high": 0.03553540209790205,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "sensitivity96",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "balanced_accuracy",
+      "delta": -0.016258741258741383,
+      "ci_low": -0.039340034965034895,
+      "ci_high": 0.007172202797202946,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "sensitivity96",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "sensitivity",
+      "delta": -0.036363636363636265,
+      "ci_low": -0.06818181818181823,
+      "ci_high": -0.009090909090909038,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "sensitivity96",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "specificity",
+      "delta": 0.0038461538461538325,
+      "ci_low": -0.03076923076923077,
+      "ci_high": 0.03846153846153855,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "sensitivity96",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "brier",
+      "delta": 0.001361324253636026,
+      "ci_low": -0.004501337725426895,
+      "ci_high": 0.007435645462846798,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "sensitivity96",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "roc_auc",
+      "delta": -0.1365384615384615,
+      "ci_low": -0.24134615384615365,
+      "ci_high": -0.04142154720279727,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "sensitivity96",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "balanced_accuracy",
+      "delta": -0.08898601398601402,
+      "ci_low": -0.1896853146853147,
+      "ci_high": 0.004724650349650376,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "sensitivity96",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "sensitivity",
+      "delta": -0.13181818181818172,
+      "ci_low": -0.2864772727272728,
+      "ci_high": 0.009090909090909038,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "sensitivity96",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "specificity",
+      "delta": -0.04615384615384599,
+      "ci_low": -0.16932692307692324,
+      "ci_high": 0.07307692307692315,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "sensitivity96",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "brier",
+      "delta": 0.04301208930422795,
+      "ci_low": 0.009158770139261627,
+      "ci_high": 0.07603000456349086,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "OSU-to-CIN",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "roc_auc",
+      "delta": 0.04973262032085557,
+      "ci_low": -0.030307486631016126,
+      "ci_high": 0.13297682709447411,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "OSU-to-CIN",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "balanced_accuracy",
+      "delta": 0.03636363636363649,
+      "ci_low": -0.08823529411764708,
+      "ci_high": 0.1600713012477718,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "OSU-to-CIN",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "sensitivity",
+      "delta": 0.0,
+      "ci_low": -0.23529411764705882,
+      "ci_high": 0.23529411764705882,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "OSU-to-CIN",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "specificity",
+      "delta": 0.07272727272727264,
+      "ci_low": 0.0,
+      "ci_high": 0.163787878787878,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "OSU-to-CIN",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "brier",
+      "delta": 0.00700480630385758,
+      "ci_low": -0.0035119831419946944,
+      "ci_high": 0.01691768077029479,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "OSU-to-CIN",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "roc_auc",
+      "delta": 0.05614973262032075,
+      "ci_low": -0.11018716577540112,
+      "ci_high": 0.23959893048128333,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "OSU-to-CIN",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "balanced_accuracy",
+      "delta": 0.08253119429590017,
+      "ci_low": -0.05278520499108732,
+      "ci_high": 0.22715686274509778,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "OSU-to-CIN",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "sensitivity",
+      "delta": -0.04705882352941171,
+      "ci_low": -0.2941176470588235,
+      "ci_high": 0.18823529411764717,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "OSU-to-CIN",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "specificity",
+      "delta": 0.21212121212121204,
+      "ci_low": 0.09090909090909083,
+      "ci_high": 0.36363636363636354,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "OSU-to-CIN",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "brier",
+      "delta": 0.006009968685145056,
+      "ci_low": -0.035272281704982866,
+      "ci_high": 0.04567748738851112,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "CIN-to-OSU",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "roc_auc",
+      "delta": -0.006432748538011679,
+      "ci_low": -0.056145224171540026,
+      "ci_high": 0.05224658869395715,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "CIN-to-OSU",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "balanced_accuracy",
+      "delta": 0.028849902534113014,
+      "ci_low": -0.033333333333333326,
+      "ci_high": 0.09376218323586749,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "CIN-to-OSU",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "sensitivity",
+      "delta": -0.03703703703703698,
+      "ci_low": -0.11851851851851858,
+      "ci_high": 0.03703703703703709,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "CIN-to-OSU",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "specificity",
+      "delta": 0.09473684210526312,
+      "ci_low": 0.0,
+      "ci_high": 0.1894736842105264,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "CIN-to-OSU",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "brier",
+      "delta": 0.004159888734124095,
+      "ci_low": -0.0028234341345461005,
+      "ci_high": 0.011239260804839248,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "CIN-to-OSU",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "roc_auc",
+      "delta": 0.04463937621832359,
+      "ci_low": -0.16842105263157892,
+      "ci_high": 0.24835769980506806,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "CIN-to-OSU",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "balanced_accuracy",
+      "delta": 0.06198830409356737,
+      "ci_low": -0.07993177387914234,
+      "ci_high": 0.20760233918128657,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "CIN-to-OSU",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "sensitivity",
+      "delta": -0.24444444444444458,
+      "ci_low": -0.4222222222222223,
+      "ci_high": -0.059259259259259345,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "CIN-to-OSU",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "specificity",
+      "delta": 0.3684210526315789,
+      "ci_low": 0.15789473684210525,
+      "ci_high": 0.5789473684210527,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "CIN-to-OSU",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "brier",
+      "delta": -0.008240209524737946,
+      "ci_low": -0.03982638691545529,
+      "ci_high": 0.025422918058353634,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "zan54",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "roc_auc",
+      "delta": -0.039862068965517305,
+      "ci_low": -0.07599999999999996,
+      "ci_high": -0.003441379310344764,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "zan54",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "balanced_accuracy",
+      "delta": -0.010344827586206917,
+      "ci_low": -0.03668965517241368,
+      "ci_high": 0.015999999999999907,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "zan54",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "sensitivity",
+      "delta": 0.0,
+      "ci_low": -0.03999999999999998,
+      "ci_high": 0.03999999999999998,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "zan54",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "specificity",
+      "delta": -0.020689655172413834,
+      "ci_low": -0.05517241379310345,
+      "ci_high": 0.01379310344827589,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "zan54",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "brier",
+      "delta": 0.011413164971114692,
+      "ci_low": 0.0031584252238244237,
+      "ci_high": 0.020723735739498914,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "zan54",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "roc_auc",
+      "delta": 0.1022068965517241,
+      "ci_low": -0.05602068965517246,
+      "ci_high": 0.26043103448275856,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "zan54",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "balanced_accuracy",
+      "delta": 0.03848275862068973,
+      "ci_low": -0.09352413793103448,
+      "ci_high": 0.17655517241379323,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "zan54",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "sensitivity",
+      "delta": 0.008000000000000007,
+      "ci_low": -0.176,
+      "ci_high": 0.21599999999999991,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "zan54",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "specificity",
+      "delta": 0.06896551724137928,
+      "ci_low": -0.13103448275862067,
+      "ci_high": 0.26896551724137935,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "zan54",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "brier",
+      "delta": -0.029093633645721484,
+      "ci_low": -0.05673133164203194,
+      "ci_high": -0.0026613906721893,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "mae",
+      "delta": 0.51135027787425,
+      "ci_low": -0.274225293988661,
+      "ci_high": 1.757910942609361,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "rmse",
+      "delta": 0.7672864978102112,
+      "ci_low": -0.7026326420302647,
+      "ci_high": 3.0241766987126155,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "r2",
+      "delta": -0.0759774065905448,
+      "ci_low": -0.4316995630076924,
+      "ci_high": 0.06205313863161508,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "mae",
+      "delta": 1.020604710595773,
+      "ci_low": -0.42294964143897607,
+      "ci_high": 3.3267909586444406,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "rmse",
+      "delta": 1.5549603202198377,
+      "ci_low": -0.6123032237067804,
+      "ci_high": 5.401461907167468,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "r2",
+      "delta": -0.152254512531704,
+      "ci_low": -0.7497738302077255,
+      "ci_high": 0.056996464210884557,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "motion_screened_state4",
+      "reference": "train_mean",
+      "metric": "mae",
+      "delta": 1.4274885371912553,
+      "ci_low": -0.08073574008151078,
+      "ci_high": 3.86555955878975,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "motion_screened_state4",
+      "reference": "train_mean",
+      "metric": "rmse",
+      "delta": 1.8220353256272226,
+      "ci_low": -0.4636231219192499,
+      "ci_high": 5.789389866614634,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "motion_screened_state4",
+      "reference": "train_mean",
+      "metric": "r2",
+      "delta": -0.17691895966530868,
+      "ci_low": -0.8075054981915335,
+      "ci_high": 0.04080643575212068,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "motion_screened_state4",
+      "reference": "train_median",
+      "metric": "mae",
+      "delta": 0.8444213865560499,
+      "ci_low": -1.1851104243875485,
+      "ci_high": 3.807141758084828,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "motion_screened_state4",
+      "reference": "train_median",
+      "metric": "rmse",
+      "delta": 1.3650681668530744,
+      "ci_low": -1.2548129340936582,
+      "ci_high": 5.561467862105955,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "motion_screened_state4",
+      "reference": "train_median",
+      "metric": "r2",
+      "delta": -0.1332458239711956,
+      "ci_low": -0.7850869376360504,
+      "ci_high": 0.12407299435544901,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "clinical",
+      "reference": "demographic_motion",
+      "metric": "mae",
+      "delta": -2.605710695450785,
+      "ci_low": -6.193017973442783,
+      "ci_high": 0.8718935273586459,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "clinical",
+      "reference": "demographic_motion",
+      "metric": "rmse",
+      "delta": -2.1066910023333385,
+      "ci_low": -5.453626025752681,
+      "ci_high": 1.368414660185835,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "clinical",
+      "reference": "demographic_motion",
+      "metric": "r2",
+      "delta": 0.18486707242686723,
+      "ci_low": -0.1889599261787669,
+      "ci_high": 0.47572548093047823,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "clinical_plus_states",
+      "reference": "clinical",
+      "metric": "mae",
+      "delta": 1.455317338466152,
+      "ci_low": 0.20509007370023435,
+      "ci_high": 2.981907346698177,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "clinical_plus_states",
+      "reference": "clinical",
+      "metric": "rmse",
+      "delta": 0.948617882645582,
+      "ci_low": -0.18575236158819167,
+      "ci_high": 2.657769387584024,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "clinical_plus_states",
+      "reference": "clinical",
+      "metric": "r2",
+      "delta": -0.07839804226218577,
+      "ci_low": -0.27862209576589836,
+      "ci_high": 0.02257989015344098,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "clinical_plus_states",
+      "reference": "train_mean",
+      "metric": "mae",
+      "delta": -0.6306130191659776,
+      "ci_low": -3.847369609830777,
+      "ci_high": 2.665378979255249,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "clinical_plus_states",
+      "reference": "train_mean",
+      "metric": "rmse",
+      "delta": -0.6154641859904757,
+      "ci_low": -3.3845584248394136,
+      "ci_high": 2.582849739214455,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "clinical_plus_states",
+      "reference": "train_mean",
+      "metric": "r2",
+      "delta": 0.055478584578046226,
+      "ci_low": -0.3533585749670896,
+      "ci_high": 0.2829117283962967,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "clinical_plus_states",
+      "reference": "train_median",
+      "metric": "mae",
+      "delta": -1.213680169801183,
+      "ci_low": -4.560579220158136,
+      "ci_high": 2.2650360662685167,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "clinical_plus_states",
+      "reference": "train_median",
+      "metric": "rmse",
+      "delta": -1.0724313447646239,
+      "ci_low": -3.755917635069214,
+      "ci_high": 2.3448173730996973,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "clinical_plus_states",
+      "reference": "train_median",
+      "metric": "r2",
+      "delta": 0.0991517202721593,
+      "ci_low": -0.30645477038111996,
+      "ci_high": 0.31832919907592344,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "mae",
+      "delta": 0.0015713846537090959,
+      "ci_low": -0.060044845786358714,
+      "ci_high": 0.06329438909770774,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "rmse",
+      "delta": 0.012414246185676436,
+      "ci_low": -0.05631113519666977,
+      "ci_high": 0.07648656841399658,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "motion_screened_state4",
+      "reference": "state_occupancy4",
+      "metric": "r2",
+      "delta": -0.009530876882412786,
+      "ci_low": -0.056321567187687514,
+      "ci_high": 0.07096265167634548,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "mae",
+      "delta": -0.1622105367934572,
+      "ci_low": -0.4177232661550309,
+      "ci_high": 0.08912047183271389,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "rmse",
+      "delta": -0.03026079568544615,
+      "ci_low": -0.2536531581301889,
+      "ci_high": 0.18215231459500042,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "motion_screened_state4",
+      "reference": "tangent",
+      "metric": "r2",
+      "delta": 0.02118162867954818,
+      "ci_low": -0.1998030895491474,
+      "ci_high": 0.20089037350932046,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "motion_screened_state4",
+      "reference": "train_mean",
+      "metric": "mae",
+      "delta": -0.15328681804375766,
+      "ci_low": -0.44174966536779203,
+      "ci_high": 0.13564962789218202,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "motion_screened_state4",
+      "reference": "train_mean",
+      "metric": "rmse",
+      "delta": -0.06188106724737663,
+      "ci_low": -0.314857458731655,
+      "ci_high": 0.2017482209852709,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "motion_screened_state4",
+      "reference": "train_mean",
+      "metric": "r2",
+      "delta": 0.045575783365573594,
+      "ci_low": -0.2434931766539258,
+      "ci_high": 0.24820405812195184,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "motion_screened_state4",
+      "reference": "train_median",
+      "metric": "mae",
+      "delta": -0.13595348471042445,
+      "ci_low": -0.7478474649616701,
+      "ci_high": 0.5386891963761489,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "motion_screened_state4",
+      "reference": "train_median",
+      "metric": "rmse",
+      "delta": -0.32488208041162503,
+      "ci_low": -0.8155343345178876,
+      "ci_high": 0.38119345856569964,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "motion_screened_state4",
+      "reference": "train_median",
+      "metric": "r2",
+      "delta": 0.2628609396155736,
+      "ci_low": -0.44663795873770556,
+      "ci_high": 0.7697887539136289,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "clinical",
+      "reference": "demographic_motion",
+      "metric": "mae",
+      "delta": -0.3134808063699439,
+      "ci_low": -0.701881984361,
+      "ci_high": 0.11412560460537154,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "clinical",
+      "reference": "demographic_motion",
+      "metric": "rmse",
+      "delta": -0.11817892935516161,
+      "ci_low": -0.6647729605245009,
+      "ci_high": 0.46358249193153955,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "clinical",
+      "reference": "demographic_motion",
+      "metric": "r2",
+      "delta": 0.13687767896273795,
+      "ci_low": -0.42955635478853466,
+      "ci_high": 0.736047815731113,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "clinical_plus_states",
+      "reference": "clinical",
+      "metric": "mae",
+      "delta": -0.08612979474506366,
+      "ci_low": -0.4284586341567055,
+      "ci_high": 0.18684171612263065,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "clinical_plus_states",
+      "reference": "clinical",
+      "metric": "rmse",
+      "delta": -0.2904669559123012,
+      "ci_low": -0.7547320514056955,
+      "ci_high": 0.1343925227356144,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "clinical_plus_states",
+      "reference": "clinical",
+      "metric": "r2",
+      "delta": 0.23612518657914483,
+      "ci_low": -0.15432524852536783,
+      "ci_high": 0.847803078784491,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "clinical_plus_states",
+      "reference": "train_mean",
+      "metric": "mae",
+      "delta": -0.13210344048752676,
+      "ci_low": -0.438892466336802,
+      "ci_high": 0.2385389112458031,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "clinical_plus_states",
+      "reference": "train_mean",
+      "metric": "rmse",
+      "delta": -0.024296397346601495,
+      "ci_low": -0.4825353337496777,
+      "ci_high": 0.49672595027685834,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "clinical_plus_states",
+      "reference": "train_mean",
+      "metric": "r2",
+      "delta": 0.014779172444571123,
+      "ci_low": -0.537280486804017,
+      "ci_high": 0.334966404620361,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "clinical_plus_states",
+      "reference": "train_median",
+      "metric": "mae",
+      "delta": -0.11477010715419356,
+      "ci_low": -0.6764492400802726,
+      "ci_high": 0.4008134242771973,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "clinical_plus_states",
+      "reference": "train_median",
+      "metric": "rmse",
+      "delta": -0.2872974105108499,
+      "ci_low": -0.8744893695091585,
+      "ci_high": 0.33954884625594045,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "clinical_plus_states",
+      "reference": "train_median",
+      "metric": "r2",
+      "delta": 0.2320643286945711,
+      "ci_low": -0.4383619399006286,
+      "ci_high": 0.7436454099165403,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "clinical",
+      "reference": "train_mean",
+      "metric": "mae",
+      "delta": -2.0859303576321295,
+      "ci_low": -5.775125777928468,
+      "ci_high": 1.577464676008663,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "clinical",
+      "reference": "train_mean",
+      "metric": "rmse",
+      "delta": -1.5640820686360577,
+      "ci_low": -5.004594762622853,
+      "ci_high": 1.7680511308595608,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "clinical",
+      "reference": "train_mean",
+      "metric": "r2",
+      "delta": 0.133876626840232,
+      "ci_low": -0.2467530409709399,
+      "ci_high": 0.42193282984983144,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "clinical",
+      "reference": "train_median",
+      "metric": "mae",
+      "delta": -2.668997508267335,
+      "ci_low": -6.150823714616624,
+      "ci_high": 0.914448208281769,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "clinical",
+      "reference": "train_median",
+      "metric": "rmse",
+      "delta": -2.021049227410206,
+      "ci_low": -5.204853319357685,
+      "ci_high": 1.2622260627769981,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup7",
+      "method": "clinical",
+      "reference": "train_median",
+      "metric": "r2",
+      "delta": 0.17754976253434507,
+      "ci_low": -0.19806287299808426,
+      "ci_high": 0.44758378152242484,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "clinical",
+      "reference": "train_mean",
+      "metric": "mae",
+      "delta": -0.0459736457424631,
+      "ci_low": -0.4946746771956697,
+      "ci_high": 0.6001082184718616,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "clinical",
+      "reference": "train_mean",
+      "metric": "rmse",
+      "delta": 0.2661705585656997,
+      "ci_low": -0.41124281652757216,
+      "ci_high": 1.2411628175029665,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "clinical",
+      "reference": "train_mean",
+      "metric": "r2",
+      "delta": -0.22134601413457372,
+      "ci_low": -1.3549004727500025,
+      "ci_high": 0.3567962179258709,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "clinical",
+      "reference": "train_median",
+      "metric": "mae",
+      "delta": -0.028640312409129898,
+      "ci_low": -0.5613492765251384,
+      "ci_high": 0.5778890927073164,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "clinical",
+      "reference": "train_median",
+      "metric": "rmse",
+      "delta": 0.0031695454014513125,
+      "ci_low": -0.7064187040802327,
+      "ci_high": 0.8765280257367212,
+      "bootstrap_n": 2000
+    },
+    {
+      "design": "severity_sup8",
+      "method": "clinical",
+      "reference": "train_median",
+      "metric": "r2",
+      "delta": -0.004060857884573721,
+      "ci_low": -1.039571244371096,
+      "ci_high": 0.5762316297010425,
+      "bootstrap_n": 2000
+    }
+  ],
+  "report_sources": [
+    {
+      "id": "research-20260920-zan-readiness",
+      "label": "ZAN处理终态与人工确认记录",
+      "date": "2026-09-16"
+    },
+    {
+      "id": "research-20260920-multisource",
+      "label": "多来源迁移与时序增强",
+      "date": "2026-09-16"
+    },
+    {
+      "id": "research-20260920-severity",
+      "label": "现有队列疼痛评分回归",
+      "date": "2026-09-16"
+    },
+    {
+      "id": "research-20260920-zan",
+      "label": "ZAN54分类",
+      "date": "2026-09-16"
+    },
+    {
+      "id": "research-20260920-zan-source",
+      "label": "ZAN作为来源的迁移比较",
+      "date": "2026-09-16"
+    },
+    {
+      "id": "research-20260920-augmentation",
+      "label": "时序增强与两视图对比学习",
+      "date": "2026-09-17"
+    },
+    {
+      "id": "research-20260920-literature",
+      "label": "近期疼痛fMRI研究梳理",
+      "date": "2026-09-20"
+    },
+    {
+      "id": "research-20260920-lowdim",
+      "label": "连接稳定性、解剖汇总与CPM",
+      "date": "2026-09-20"
+    },
+    {
+      "id": "research-20260920-dynamic",
+      "label": "动态连接状态占比",
+      "date": "2026-09-20"
+    },
+    {
+      "id": "research-20260920-motion",
+      "label": "头动记录、临床字段与增量实验",
+      "date": "2026-09-20"
+    }
+  ],
+  "motion": {
+    "srpbs": {
+      "people": 99,
+      "frames": 23760,
+      "censored_frames": 1077,
+      "all_windows": 2574,
+      "contaminated_windows": 738,
+      "retained_windows": 2418,
+      "min_retained_windows": 15,
+      "max_retained_windows": 26,
+      "marker_vs_snapshot_differences": 92,
+      "mask_count_exact": true,
+      "fd_summary_exact": true
+    },
+    "zan": {
+      "people": 54,
+      "frames": 12744,
+      "censored_frames": 90,
+      "all_windows": 1026,
+      "contaminated_windows": 70,
+      "retained_windows": 1026,
+      "min_retained_windows": 19,
+      "max_retained_windows": 19,
+      "marker_vs_snapshot_differences": 0,
+      "mask_count_exact": true,
+      "fd_summary_exact": true
+    }
+  },
+  "verification": {
+    "status": "PASS",
+    "state_models_refit": 460,
+    "final_heads_refit": 205,
+    "inner_heads_refit": 2820,
+    "max_independent_window_error": 4.884981308350689e-15,
+    "max_refit_prediction_error": 0
+  },
+  "limitations": "同一批开发数据反复比较；按人固定预测区间不含重训、新中心或多重比较校正。不同VAS表独立，不发布临床分级。"
+}

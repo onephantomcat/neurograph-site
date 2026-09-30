@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "models": 200,
+  "ssl_models": 200,
+  "inner_classifier_refits": 5400,
+  "max_prediction_error": 0.0,
+  "control_max_probability_difference": 0.0,
+  "ssl_heldout_overlap": 0,
+  "verified_at": "2026-09-11T10:52:06.614537+00:00"
+}

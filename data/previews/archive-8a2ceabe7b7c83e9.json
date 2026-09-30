@@ -1,0 +1,1 @@
+{"content": "{\r\n  \"status\": \"PASS\",\r\n  \"aggregate_rows\": 134,\r\n  \"sections\": 6,\r\n  \"metrics_recomputed\": 5,\r\n  \"bootstrap_samples\": 2000,\r\n  \"source_and_control_predictions_checked\": true\r\n}\n", "truncated": false}

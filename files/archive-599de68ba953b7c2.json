@@ -1,0 +1,115 @@
+{
+  "prepared": "workspace-local/operations/20260908-classification-preparation/prepared-confirmed99",
+  "snapshot": "workspace-local/operations/20260908-classification-preparation/verified_snapshot.json",
+  "previous": "repository-local/tmp/matched-source-analysis-20260909-v2",
+  "source_paths": {
+    "source9": "repository-local/tmp/clinical-source-pretraining-20260908/srpbs_source_encoder.npz",
+    "source7": "repository-local/tmp/matched-source-analysis-20260909-v2/source7_encoder.npz"
+  },
+  "source_audit": {
+    "source9": {
+      "OSU": {
+        "SWA": 1,
+        "HKH": 1,
+        "COI": 2,
+        "KUT": 1,
+        "KTT": 1,
+        "ATT": 2,
+        "ATV": 1
+      },
+      "CIN": {
+        "SWA": 1,
+        "HKH": 1,
+        "COI": 2,
+        "KUT": 1,
+        "KTT": 1,
+        "ATT": 2,
+        "ATV": 1
+      }
+    },
+    "source7": {
+      "OSU": {
+        "SWA": 1,
+        "HKH": 1,
+        "KUT": 1,
+        "KTT": 1,
+        "ATT": 2,
+        "ATV": 1
+      },
+      "CIN": {
+        "SWA": 1,
+        "HKH": 1,
+        "KUT": 1,
+        "KTT": 1,
+        "ATT": 2,
+        "ATV": 1
+      }
+    }
+  },
+  "methods": [
+    "training_prior",
+    "raw_fc",
+    "raw_fc__age_motion",
+    "source9__none",
+    "source9__age_motion",
+    "source7__none",
+    "source7__age_motion",
+    "nuisance_only",
+    "source9__none__frozen_encoder",
+    "source9__none__last_layer",
+    "source9__age_motion__frozen_encoder",
+    "source9__age_motion__last_layer",
+    "source7__none__frozen_encoder",
+    "source7__none__last_layer",
+    "source7__age_motion__frozen_encoder",
+    "source7__age_motion__last_layer"
+  ],
+  "adjustments": {
+    "none": [],
+    "age_motion": [
+      "age",
+      "mean_fd",
+      "censor_fraction"
+    ]
+  },
+  "seed": 20260909,
+  "repeats": 5,
+  "inner": 3,
+  "total": 160,
+  "directions": {
+    "OSU_to_CIN": {
+      "train_site": "OSU",
+      "test_site": "CIN"
+    },
+    "CIN_to_OSU": {
+      "train_site": "CIN",
+      "test_site": "OSU"
+    }
+  },
+  "threshold": 0.5,
+  "epochs": 30,
+  "warmup_epochs": 5,
+  "raw_k": [
+    16,
+    32,
+    64,
+    128
+  ],
+  "latent_k": [
+    8,
+    16,
+    32
+  ],
+  "c_values": [
+    0.1,
+    1.0,
+    10.0
+  ],
+  "neural_learning_rates": [
+    1e-05,
+    0.0001
+  ],
+  "site_adjustment": "Not identifiable from a single training site; not estimated",
+  "scope": "Bidirectional held-out-site development evaluation. Previously explored subjects; not pristine external confirmation",
+  "repeat_meaning": "Same held-out people, five inner split/model seeds; not five independent test cohorts"
+}

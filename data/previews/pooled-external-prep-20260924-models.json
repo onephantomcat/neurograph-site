@@ -1,0 +1,1 @@
+{"content": "source,method,source_people,C\r\nsrpbs,tangent,99,1.0\r\nsrpbs,raw_fc,99,0.1\r\nsrpbs,nuisance,99,0.001\r\nsrpbs,site_only,99,0.001\r\nzan,tangent,54,0.01\r\nzan,raw_fc,54,0.001\r\nzan,nuisance,54,1.0\r\nzan,site_only,54,0.001\r\npooled,tangent,153,1.0\r\npooled,raw_fc,153,1.0\r\npooled,nuisance,153,0.001\r\npooled,site_only,153,0.001\n", "truncated": false}

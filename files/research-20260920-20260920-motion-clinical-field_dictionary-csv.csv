@@ -1,0 +1,15 @@
+table,field,meaning,unit,coding,evidence_status,use_limit
+sup7/sup8,age,年龄,年,原始表数值,已提供,人口学变量
+sup7/sup8,sex,性别,代码,1=Male;2=Female,README已说明,模型编码sex==2
+sup7/sup8,VAS,疼痛VAS,原始表单位,两表独立保留,量程端点及施测时间待确认,只作目标;不以健康人原始0值构造程度样本
+sup7,SF-MPQ2,短版McGill疼痛问卷2,原始表单位,保留汇总值,问卷名称已说明;具体计分版本待确认,与VAS同属疼痛构念;不得归因于影像
+sup7,Left/Right,疼痛侧别,类别,1=左;2=右;3=双侧,README已说明,患者回归固定类别one-hot;健康人0不作患者类别
+sup7,Upper/Lower,疼痛部位,类别,1=上肢;2=下肢;3=腰背;4=面部,README已说明,无该类别时列为0;不按整数大小建模
+sup8,BDI-II,Beck抑郁量表II,原始分数,保留原值,名称已说明;施测时点待确认,用于表内回归;非疼痛量表换算
+sup8,Pain Duration,疼痛病程,年,保留小数年,README明确in year,3/15缺失;每个训练折中位数填补+缺失指示
+all,fd_power_mm,逐帧Power FD,mm,6参数差分;旋转乘50mm,与保存FD一致,"FD>0.5标记,扩前1后2帧"
+all,processed_frame_zero_based,处理后帧号,帧,从0开始,长度与已训练时序逐一相等,不是原始采集帧号;不猜测初始移除帧数
+all,expanded_censor,既有异常帧扩展标记,bool,保存的spike回归标记,索引逐项复核,原时序仍有这些行;本轮在窗口内另行排除
+all,score_timing,评分日期和回顾窗,未知,不填造,现有目标表未明确,需要来源方确认;本轮未联系作者
+all,medication,用药,未知,不填造,当前对应表未提供,其他病种表有药物列不等于本队列有数据
+ds007181,nrs/vas,逐人疼痛评分,缺失,不赋组均值,当前54人均无可配对值,仅分类;不生成程度标签

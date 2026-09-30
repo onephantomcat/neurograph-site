@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "aggregate_rows": 134,
+  "sections": 6,
+  "metrics_recomputed": 5,
+  "bootstrap_samples": 2000,
+  "source_and_control_predictions_checked": true
+}

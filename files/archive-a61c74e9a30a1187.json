@@ -1,0 +1,80 @@
+{
+  "mode": "frozen_encoder",
+  "objective": "binary_cross_entropy_with_logits",
+  "selection": "minimum validation BCE; no test data accepted by fit API",
+  "selected_epoch": 10,
+  "selected_validation_bce": 0.7011496424674988,
+  "encoder_updated_during_training": false,
+  "selected_encoder_changed": false,
+  "source_parent_unchanged": true,
+  "source_scaler_refitted": false,
+  "history": [
+    {
+      "epoch": 1,
+      "train_bce": 0.6927406925421494,
+      "validation_bce": 0.7188796997070312,
+      "encoder_trainable": false
+    },
+    {
+      "epoch": 2,
+      "train_bce": 0.6899786362281213,
+      "validation_bce": 0.7167944312095642,
+      "encoder_trainable": false
+    },
+    {
+      "epoch": 3,
+      "train_bce": 0.6884385943412781,
+      "validation_bce": 0.7148720026016235,
+      "encoder_trainable": false
+    },
+    {
+      "epoch": 4,
+      "train_bce": 0.6874298957677988,
+      "validation_bce": 0.7131957411766052,
+      "encoder_trainable": false
+    },
+    {
+      "epoch": 5,
+      "train_bce": 0.6855148168710562,
+      "validation_bce": 0.7112203240394592,
+      "encoder_trainable": false
+    },
+    {
+      "epoch": 6,
+      "train_bce": 0.6839256378320547,
+      "validation_bce": 0.709209680557251,
+      "encoder_trainable": false
+    },
+    {
+      "epoch": 7,
+      "train_bce": 0.6828171610832214,
+      "validation_bce": 0.707166314125061,
+      "encoder_trainable": false
+    },
+    {
+      "epoch": 8,
+      "train_bce": 0.6813503274550805,
+      "validation_bce": 0.705080509185791,
+      "encoder_trainable": false
+    },
+    {
+      "epoch": 9,
+      "train_bce": 0.6800799003014197,
+      "validation_bce": 0.7031002640724182,
+      "encoder_trainable": false
+    },
+    {
+      "epoch": 10,
+      "train_bce": 0.6786788839560288,
+      "validation_bce": 0.7011496424674988,
+      "encoder_trainable": false
+    }
+  ],
+  "partitions": {
+    "source": 981,
+    "train": 52,
+    "validation": 27,
+    "test": 20,
+    "exact_overlap": 0
+  }
+}

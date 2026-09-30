@@ -1,0 +1,188 @@
+{
+  "date": "2026-09-25",
+  "cohort": {
+    "state": "COHORT_LABELS_QC_AND_AAL_ARRAYS_VERIFIED",
+    "candidates": 66,
+    "numeric_pass": 53,
+    "groups": {
+      "FM": {
+        "candidates": 33,
+        "numeric_pass": 27,
+        "numeric_not_pass": 6,
+        "mean_fd_median": 0.1564055222461,
+        "censor_fraction_median": 0.023333333333333334,
+        "minimum_finite_coverage": 0.925000011920929,
+        "minimum_analysis_mask_coverage": 0.2917127013206482,
+        "minimum_used_voxels": 62
+      },
+      "HC": {
+        "candidates": 33,
+        "numeric_pass": 26,
+        "numeric_not_pass": 7,
+        "mean_fd_median": 0.14379641171323665,
+        "censor_fraction_median": 0.04,
+        "minimum_finite_coverage": 0.9375,
+        "minimum_analysis_mask_coverage": 0.24770642817020416,
+        "minimum_used_voxels": 62
+      }
+    },
+    "aal_fc_max_error": 2.98017266420203e-08,
+    "qc_figures_present": 159,
+    "new_visual_approvals": 0,
+    "new_training_inclusion": 0,
+    "target_classification_predictions": 0,
+    "failed_checks": [
+      {
+        "group": "FM",
+        "check": "aal90_coverage_or_signal",
+        "count": 1
+      },
+      {
+        "group": "FM",
+        "check": "censor_fraction_lte_0p20",
+        "count": 4
+      },
+      {
+        "group": "FM",
+        "check": "native_handoff_tr",
+        "count": 5
+      },
+      {
+        "group": "FM",
+        "check": "normalized_handoff_tr",
+        "count": 5
+      },
+      {
+        "group": "FM",
+        "check": "normalized_mask_dice_gt_0p75",
+        "count": 1
+      },
+      {
+        "group": "HC",
+        "check": "aal90_coverage_or_signal",
+        "count": 1
+      },
+      {
+        "group": "HC",
+        "check": "censor_fraction_lte_0p20",
+        "count": 6
+      },
+      {
+        "group": "HC",
+        "check": "motion_rotation_lt_3deg",
+        "count": 2
+      }
+    ],
+    "scope": "All66 workbook keys/groups and all53 numeric-pass AAL arrays independently checked; figures present but not full visual review; original QC exclusions preserved",
+    "stage_scope": "Input-only snapshot before user confirmation and external scoring; later stages below supersede its zero prediction count"
+  },
+  "representation419": {
+    "state": "ALL419_AND_AUTHOR67_VERIFIED",
+    "people": 53,
+    "new_extractions": 52,
+    "reused_pilot": 1,
+    "timepoints": 300,
+    "regions": 419,
+    "encoded_dimensions": 67,
+    "fc_formula_max_error": 1.2212453270876722e-15,
+    "aal_reextraction_max_error": 0.0,
+    "author_numpy_formula_max_error": 1.557370910365563e-05,
+    "minimum_used_voxels": 15,
+    "minimum_atlas_fraction": 0.26821068360104594,
+    "people_with_analysis_empty_regions": 4,
+    "maximum_analysis_empty_regions": 4,
+    "target_disease_predictions": 0,
+    "new_training_inclusion": 0,
+    "new_visual_approvals": 0,
+    "scope": "Label-free representation and independent inference algebra; not target diagnosis evaluation; coverage limitations retained",
+    "stage_scope": "Representation-only snapshot before external scoring; later external79 section reports final evaluation"
+  },
+  "visual": {
+    "qc_figures_available": 159,
+    "extreme_cases_viewed": 2,
+    "existing_figures_viewed": 6,
+    "residual_coverage_plots_viewed": 2,
+    "expert_review_completed": false
+  },
+  "user_batch_confirmation": {
+    "people": 53,
+    "decision": "ACCEPTED_BY_USER",
+    "basis": "Explicit user instruction to confirm automatically",
+    "numeric_failures_excluded": 13
+  },
+  "external79": {
+    "results": [
+      {
+        "method": "aal90_tangent",
+        "people": 53,
+        "roc_auc": 0.6923076923076923,
+        "sensitivity": 0.7037037037037037,
+        "specificity": 0.5769230769230769,
+        "balanced_accuracy": 0.6403133903133903,
+        "brier": 0.2245738160709212,
+        "threshold": 0.5
+      },
+      {
+        "method": "pretrained_dnn67",
+        "people": 53,
+        "roc_auc": 0.4943019943019943,
+        "sensitivity": 0.07407407407407407,
+        "specificity": 1.0,
+        "balanced_accuracy": 0.537037037037037,
+        "brier": 0.2952594868721933,
+        "threshold": 0.5
+      },
+      {
+        "method": "aal90_plus_pretrained_dnn67",
+        "people": 53,
+        "roc_auc": 0.6054131054131054,
+        "sensitivity": 0.2222222222222222,
+        "specificity": 0.9615384615384616,
+        "balanced_accuracy": 0.5918803418803419,
+        "brier": 0.24718538819939553,
+        "threshold": 0.5
+      }
+    ],
+    "primary_comparison": {
+      "method": "aal90_plus_pretrained_dnn67",
+      "reference": "aal90_tangent",
+      "delta_auc": -0.08689458689458684,
+      "conditional95": [
+        -0.18522079772079778,
+        0.0
+      ],
+      "draws": 2000,
+      "seed": 20260923
+    },
+    "interval_scope": "Participant-paired class-stratified bootstrap, conditional on fitted models; no refitting or multiplicity correction",
+    "class_counts": {
+      "control": 26,
+      "patient": 27
+    },
+    "state": "EXTERNAL79_VERIFIED",
+    "source_people": 79,
+    "target_people": 53,
+    "target_people_used_for_fit": 0,
+    "approval_basis": "Explicit user batch confirmation; no complete expert visual review",
+    "scope": "Fixed79-source Pain/Healthy to53-target FM/HC exploratory evaluation; not new clinical confirmation or same-disease validation",
+    "initial_scoring_state": "SCORED_PENDING_INDEPENDENT_VERIFICATION"
+  },
+  "external_verification": {
+    "state": "EXTERNAL79_VERIFIED",
+    "people": 53,
+    "source_people": 79,
+    "target_fit_count": 0,
+    "errors": {
+      "probability_formula": 4.439290435254151e-09,
+      "probability_replay": 0.0,
+      "metrics": 0.0,
+      "auc_independent": 0.0,
+      "paired_ci": 0.0
+    },
+    "models_replayed": 3,
+    "bootstrap_replicates": 2000,
+    "scope": "Independent coefficients/probabilities/metrics/paired CI; source tangent transform reused, no target fitting; user batch confirmation, not complete expert visual review"
+  },
+  "next": "保留本次固定外推的阴性结果，不在Emo重新挑结构、参数、种子或阈值。另一153人合并源方案仍按独立预登记比较；后续新方法需新的输入或来源训练内证据支持。",
+  "scope": "用户授权批量确认已登记，未逐人专家阅片；13名原QC失败者保持排除，覆盖缺口保留。目标53人用于评价、用于训练0人；异质Pain到FM的探索不等于临床确认。"
+}

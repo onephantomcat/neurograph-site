@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "methods": [
+    "lw_fc",
+    "lw_tangent",
+    "node_strength180"
+  ]
+}

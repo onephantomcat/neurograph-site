@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "prediction_models": 160,
+  "fitted_models": 150,
+  "training_prior_controls": 10,
+  "neural_inner_fits": 360,
+  "recomputed_residualizers": 70,
+  "last_layer_models": 40,
+  "last_layer_updated": 39,
+  "last_layer_warmup_only": 1,
+  "max_prediction_error": 0.0,
+  "pretraining_test_site_overlap": 0,
+  "supervised_test_site_overlap": 0,
+  "verified_at": "2026-09-11T07:49:17.675492+00:00"
+}

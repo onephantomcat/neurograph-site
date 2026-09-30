@@ -1,0 +1,881 @@
+{
+  "artifact_version": 1,
+  "analysis_role": "exploratory",
+  "evidence_status": "EXPLORATORY_EXTERNAL_SOURCE_INTERNAL_OA_EVALUATION",
+  "generated_at": "2026-08-24T03:07:41.072714Z",
+  "source": {
+    "source_dataset": "OpenNeuro ds005713 v2.0.2",
+    "namespace": "DS005713",
+    "cohort_version": "ds005713-dparsf-no-gsr-fc-coverage0p92-humanqc-n36-v1",
+    "subjects": 36,
+    "sites": 1,
+    "sha256": "f9dfc5b2bcbb5139889a5a638f40877cf46edd2e7bb665ca3e93c079054ac4d5",
+    "subject_ids_sha256": "15715fbe39ede56ca6ce4fa663f1c3da293635fa33782311fa02b3c601714aba",
+    "diagnosis_keys_forbidden_and_absent": true
+  },
+  "target": {
+    "sha256": "e2a6fa729f6899c86a0829c58677d049c434188754bdf3063f0a4d609bfdf60e",
+    "cohort_version": "phase1-n62-primary",
+    "subjects": 62,
+    "controls": 18,
+    "patients": 44
+  },
+  "fold_contract": {
+    "sha256": "7b66c6eaad306348a149ab22978cea2ee0f2aea364e92a95b386cda0d24b4ca5",
+    "outer_splits": 5,
+    "repeats": 3,
+    "subject_level_coverage_verified": true
+  },
+  "protocol": {
+    "outer_test_use": "one inference call after all fold fitting",
+    "external_scaler_fit": "DS005713 source only; fixed for external-source methods",
+    "internal_scaler_fit": "current OA outer-training fold only",
+    "external_source_pretraining": "fixed-epoch FC reconstruction; diagnosis keys forbidden",
+    "target_finetuning": "fixed-epoch reconstruction on current OA outer-training fold only",
+    "classifier": "balanced L2 logistic regression",
+    "classifier_selection": "3-fold target-train StratifiedKFold grid search by ROC AUC; classifier scaling and SelectKBest stay inside the pipeline",
+    "classifier_c_values": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "raw_candidate_k": [
+      16,
+      32,
+      64,
+      128
+    ],
+    "representation_candidate_k_policy": "8, 16, and all available latent features",
+    "inner_splits": 3,
+    "decision_threshold": 0.5,
+    "source_epochs": 30,
+    "internal_epochs": 30,
+    "target_finetune_epochs": 5,
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "latent_dim": 32,
+    "hidden_dim": 64,
+    "seed": 20260810,
+    "early_stopping": "not used; epochs are prespecified",
+    "smoke_only": false,
+    "source_checkpoint_reused": false
+  },
+  "method_definitions": {
+    "raw_fc_logistic": "raw target AAL90 upper-triangle Fisher-Z FC",
+    "oa_internal_fc_ssl_logistic": "FC reconstruction encoder fitted only on current OA outer-training samples",
+    "abide_external_fc_ssl_logistic": "fixed DS005713-source FC reconstruction encoder; no OA adaptation",
+    "abide_external_fc_ssl_oa_finetune_logistic": "same DS005713 source encoder, reconstruction-finetuned only on current OA outer-training samples"
+  },
+  "method_summary": [
+    {
+      "rank": 1,
+      "method_id": "raw_fc_logistic",
+      "method_label": "Raw OA FC",
+      "roc_auc_mean": 0.5702861952861952,
+      "roc_auc_std": 0.07757020598646956,
+      "delta_vs_raw_auc": 0.0,
+      "balanced_accuracy_mean": 0.5328282828282829,
+      "balanced_accuracy_std": 0.10626333438716318,
+      "brier_score_mean": 0.28409769400670337,
+      "brier_score_std": 0.04216382183908253
+    },
+    {
+      "rank": 2,
+      "method_id": "oa_internal_fc_ssl_logistic",
+      "method_label": "OA-fold SSL",
+      "roc_auc_mean": 0.5715488215488215,
+      "roc_auc_std": 0.04248757698281892,
+      "delta_vs_raw_auc": 0.0012626262626262985,
+      "balanced_accuracy_mean": 0.5462962962962964,
+      "balanced_accuracy_std": 0.03627350408487415,
+      "brier_score_mean": 0.2538540500905593,
+      "brier_score_std": 0.009963039542752183
+    },
+    {
+      "rank": 3,
+      "method_id": "abide_external_fc_ssl_logistic",
+      "method_label": "Fixed DS005713 SSL",
+      "roc_auc_mean": 0.7508417508417509,
+      "roc_auc_std": 0.08987143961763579,
+      "delta_vs_raw_auc": 0.1805555555555557,
+      "balanced_accuracy_mean": 0.672979797979798,
+      "balanced_accuracy_std": 0.11256509640415487,
+      "brier_score_mean": 0.21001244255168947,
+      "brier_score_std": 0.047264226916478795
+    },
+    {
+      "rank": 4,
+      "method_id": "abide_external_fc_ssl_oa_finetune_logistic",
+      "method_label": "DS005713 + OA-fold fine-tune",
+      "roc_auc_mean": 0.6473063973063974,
+      "roc_auc_std": 0.034952937200327536,
+      "delta_vs_raw_auc": 0.07702020202020221,
+      "balanced_accuracy_mean": 0.5635521885521886,
+      "balanced_accuracy_std": 0.04867802251389233,
+      "brier_score_mean": 0.22728349390750635,
+      "brier_score_std": 0.019157249095724676
+    }
+  ],
+  "repeat_metrics": [
+    {
+      "method_id": "raw_fc_logistic",
+      "method_label": "Raw OA FC",
+      "repeat": 1,
+      "roc_auc": 0.6578282828282828,
+      "delta_vs_raw_auc": 0.0,
+      "balanced_accuracy": 0.6351010101010102,
+      "brier_score": 0.23817592303507346,
+      "average_precision": 0.8262785820065757
+    },
+    {
+      "method_id": "raw_fc_logistic",
+      "method_label": "Raw OA FC",
+      "repeat": 2,
+      "roc_auc": 0.51010101010101,
+      "delta_vs_raw_auc": 0.0,
+      "balanced_accuracy": 0.422979797979798,
+      "brier_score": 0.32106504532797336,
+      "average_precision": 0.7612014931717073
+    },
+    {
+      "method_id": "raw_fc_logistic",
+      "method_label": "Raw OA FC",
+      "repeat": 3,
+      "roc_auc": 0.5429292929292929,
+      "delta_vs_raw_auc": 0.0,
+      "balanced_accuracy": 0.5404040404040404,
+      "brier_score": 0.2930521136570633,
+      "average_precision": 0.7840299475457572
+    },
+    {
+      "method_id": "oa_internal_fc_ssl_logistic",
+      "method_label": "OA-fold SSL",
+      "repeat": 1,
+      "roc_auc": 0.6161616161616161,
+      "delta_vs_raw_auc": -0.04166666666666663,
+      "balanced_accuracy": 0.5606060606060606,
+      "brier_score": 0.24468765350314464,
+      "average_precision": 0.8313249493184759
+    },
+    {
+      "method_id": "oa_internal_fc_ssl_logistic",
+      "method_label": "OA-fold SSL",
+      "repeat": 2,
+      "roc_auc": 0.5315656565656566,
+      "delta_vs_raw_auc": 0.02146464646464652,
+      "balanced_accuracy": 0.5050505050505051,
+      "brier_score": 0.2644576335158108,
+      "average_precision": 0.7891695081491801
+    },
+    {
+      "method_id": "oa_internal_fc_ssl_logistic",
+      "method_label": "OA-fold SSL",
+      "repeat": 3,
+      "roc_auc": 0.5669191919191918,
+      "delta_vs_raw_auc": 0.023989898989898895,
+      "balanced_accuracy": 0.5732323232323233,
+      "brier_score": 0.2524168632527224,
+      "average_precision": 0.7896976587511861
+    },
+    {
+      "method_id": "abide_external_fc_ssl_logistic",
+      "method_label": "Fixed DS005713 SSL",
+      "repeat": 1,
+      "roc_auc": 0.8232323232323232,
+      "delta_vs_raw_auc": 0.16540404040404044,
+      "balanced_accuracy": 0.7815656565656566,
+      "brier_score": 0.17092755021757325,
+      "average_precision": 0.9243587233891974
+    },
+    {
+      "method_id": "abide_external_fc_ssl_logistic",
+      "method_label": "Fixed DS005713 SSL",
+      "repeat": 2,
+      "roc_auc": 0.6502525252525253,
+      "delta_vs_raw_auc": 0.14015151515151525,
+      "balanced_accuracy": 0.5568181818181819,
+      "brier_score": 0.2625425460989755,
+      "average_precision": 0.8289982928245512
+    },
+    {
+      "method_id": "abide_external_fc_ssl_logistic",
+      "method_label": "Fixed DS005713 SSL",
+      "repeat": 3,
+      "roc_auc": 0.779040404040404,
+      "delta_vs_raw_auc": 0.23611111111111105,
+      "balanced_accuracy": 0.6805555555555556,
+      "brier_score": 0.19656723133851955,
+      "average_precision": 0.9040939675827967
+    },
+    {
+      "method_id": "abide_external_fc_ssl_oa_finetune_logistic",
+      "method_label": "DS005713 + OA-fold fine-tune",
+      "repeat": 1,
+      "roc_auc": 0.6843434343434344,
+      "delta_vs_raw_auc": 0.026515151515151603,
+      "balanced_accuracy": 0.6174242424242424,
+      "brier_score": 0.2123688382210627,
+      "average_precision": 0.8392051039117712
+    },
+    {
+      "method_id": "abide_external_fc_ssl_oa_finetune_logistic",
+      "method_label": "DS005713 + OA-fold fine-tune",
+      "repeat": 2,
+      "roc_auc": 0.61489898989899,
+      "delta_vs_raw_auc": 0.10479797979797989,
+      "balanced_accuracy": 0.5227272727272727,
+      "brier_score": 0.2488887889980669,
+      "average_precision": 0.8248984210343424
+    },
+    {
+      "method_id": "abide_external_fc_ssl_oa_finetune_logistic",
+      "method_label": "DS005713 + OA-fold fine-tune",
+      "repeat": 3,
+      "roc_auc": 0.6426767676767677,
+      "delta_vs_raw_auc": 0.0997474747474748,
+      "balanced_accuracy": 0.5505050505050505,
+      "brier_score": 0.22059285450338945,
+      "average_precision": 0.833803802906284
+    }
+  ],
+  "outer_fold_metrics": [
+    {
+      "method_id": "raw_fc_logistic",
+      "method_label": "Raw OA FC",
+      "repeat": 1,
+      "outer_fold": 1,
+      "roc_auc": 0.3888888888888889,
+      "balanced_accuracy": 0.5138888888888888,
+      "brier_score": 0.32488746112945355,
+      "average_precision": 0.7246743996743996
+    },
+    {
+      "method_id": "raw_fc_logistic",
+      "method_label": "Raw OA FC",
+      "repeat": 1,
+      "outer_fold": 2,
+      "roc_auc": 0.7777777777777777,
+      "balanced_accuracy": 0.7777777777777778,
+      "brier_score": 0.21332795057878357,
+      "average_precision": 0.9188983855650523
+    },
+    {
+      "method_id": "raw_fc_logistic",
+      "method_label": "Raw OA FC",
+      "repeat": 1,
+      "outer_fold": 3,
+      "roc_auc": 0.65625,
+      "balanced_accuracy": 0.5,
+      "brier_score": 0.2291027456604975,
+      "average_precision": 0.7823412698412698
+    },
+    {
+      "method_id": "raw_fc_logistic",
+      "method_label": "Raw OA FC",
+      "repeat": 1,
+      "outer_fold": 4,
+      "roc_auc": 0.7407407407407407,
+      "balanced_accuracy": 0.7777777777777777,
+      "brier_score": 0.1798426051445879,
+      "average_precision": 0.8969496552829888
+    },
+    {
+      "method_id": "raw_fc_logistic",
+      "method_label": "Raw OA FC",
+      "repeat": 1,
+      "outer_fold": 5,
+      "roc_auc": 0.7037037037037037,
+      "balanced_accuracy": 0.6111111111111112,
+      "brier_score": 0.2385635555255374,
+      "average_precision": 0.9094356261022929
+    },
+    {
+      "method_id": "raw_fc_logistic",
+      "method_label": "Raw OA FC",
+      "repeat": 2,
+      "outer_fold": 1,
+      "roc_auc": 0.6388888888888888,
+      "balanced_accuracy": 0.4444444444444444,
+      "brier_score": 0.28742282758826926,
+      "average_precision": 0.8264260430927097
+    },
+    {
+      "method_id": "raw_fc_logistic",
+      "method_label": "Raw OA FC",
+      "repeat": 2,
+      "outer_fold": 2,
+      "roc_auc": 0.5277777777777778,
+      "balanced_accuracy": 0.4027777777777778,
+      "brier_score": 0.28386865364757924,
+      "average_precision": 0.7527657527657527
+    },
+    {
+      "method_id": "raw_fc_logistic",
+      "method_label": "Raw OA FC",
+      "repeat": 2,
+      "outer_fold": 3,
+      "roc_auc": 0.71875,
+      "balanced_accuracy": 0.75,
+      "brier_score": 0.2635226017839529,
+      "average_precision": 0.8784722222222222
+    },
+    {
+      "method_id": "raw_fc_logistic",
+      "method_label": "Raw OA FC",
+      "repeat": 2,
+      "outer_fold": 4,
+      "roc_auc": 0.2962962962962963,
+      "balanced_accuracy": 0.2222222222222222,
+      "brier_score": 0.3439226465640206,
+      "average_precision": 0.7544853294853295
+    },
+    {
+      "method_id": "raw_fc_logistic",
+      "method_label": "Raw OA FC",
+      "repeat": 2,
+      "outer_fold": 5,
+      "roc_auc": 0.22222222222222224,
+      "balanced_accuracy": 0.2222222222222222,
+      "brier_score": 0.43249171450771945,
+      "average_precision": 0.6928451178451178
+    },
+    {
+      "method_id": "raw_fc_logistic",
+      "method_label": "Raw OA FC",
+      "repeat": 3,
+      "outer_fold": 1,
+      "roc_auc": 0.7222222222222222,
+      "balanced_accuracy": 0.6944444444444444,
+      "brier_score": 0.19500204912113242,
+      "average_precision": 0.8551858635191969
+    },
+    {
+      "method_id": "raw_fc_logistic",
+      "method_label": "Raw OA FC",
+      "repeat": 3,
+      "outer_fold": 2,
+      "roc_auc": 0.4722222222222222,
+      "balanced_accuracy": 0.4722222222222222,
+      "brier_score": 0.3218060660299914,
+      "average_precision": 0.761843711843712
+    },
+    {
+      "method_id": "raw_fc_logistic",
+      "method_label": "Raw OA FC",
+      "repeat": 3,
+      "outer_fold": 3,
+      "roc_auc": 0.4375,
+      "balanced_accuracy": 0.5,
+      "brier_score": 0.3597112992499647,
+      "average_precision": 0.7430871212121212
+    },
+    {
+      "method_id": "raw_fc_logistic",
+      "method_label": "Raw OA FC",
+      "repeat": 3,
+      "outer_fold": 4,
+      "roc_auc": 0.7777777777777778,
+      "balanced_accuracy": 0.7222222222222222,
+      "brier_score": 0.20519937790927992,
+      "average_precision": 0.9361111111111113
+    },
+    {
+      "method_id": "raw_fc_logistic",
+      "method_label": "Raw OA FC",
+      "repeat": 3,
+      "outer_fold": 5,
+      "roc_auc": 0.1851851851851852,
+      "balanced_accuracy": 0.2777777777777778,
+      "brier_score": 0.389316451988532,
+      "average_precision": 0.6896705146705147
+    },
+    {
+      "method_id": "oa_internal_fc_ssl_logistic",
+      "method_label": "OA-fold SSL",
+      "repeat": 1,
+      "outer_fold": 1,
+      "roc_auc": 0.5833333333333333,
+      "balanced_accuracy": 0.3333333333333333,
+      "brier_score": 0.25401230609237146,
+      "average_precision": 0.8420745920745922
+    },
+    {
+      "method_id": "oa_internal_fc_ssl_logistic",
+      "method_label": "OA-fold SSL",
+      "repeat": 1,
+      "outer_fold": 2,
+      "roc_auc": 0.41666666666666663,
+      "balanced_accuracy": 0.5416666666666666,
+      "brier_score": 0.26376738805835637,
+      "average_precision": 0.7522597772597774
+    },
+    {
+      "method_id": "oa_internal_fc_ssl_logistic",
+      "method_label": "OA-fold SSL",
+      "repeat": 1,
+      "outer_fold": 3,
+      "roc_auc": 0.59375,
+      "balanced_accuracy": 0.625,
+      "brier_score": 0.2791869362620483,
+      "average_precision": 0.8020833333333333
+    },
+    {
+      "method_id": "oa_internal_fc_ssl_logistic",
+      "method_label": "OA-fold SSL",
+      "repeat": 1,
+      "outer_fold": 4,
+      "roc_auc": 0.888888888888889,
+      "balanced_accuracy": 0.8333333333333333,
+      "brier_score": 0.14639693816256832,
+      "average_precision": 0.9626543209876546
+    },
+    {
+      "method_id": "oa_internal_fc_ssl_logistic",
+      "method_label": "OA-fold SSL",
+      "repeat": 1,
+      "outer_fold": 5,
+      "roc_auc": 0.7037037037037037,
+      "balanced_accuracy": 0.5555555555555556,
+      "brier_score": 0.277707666678342,
+      "average_precision": 0.8870731120731121
+    },
+    {
+      "method_id": "oa_internal_fc_ssl_logistic",
+      "method_label": "OA-fold SSL",
+      "repeat": 2,
+      "outer_fold": 1,
+      "roc_auc": 0.49999999999999994,
+      "balanced_accuracy": 0.5277777777777778,
+      "brier_score": 0.2554049045592227,
+      "average_precision": 0.7611703111703112
+    },
+    {
+      "method_id": "oa_internal_fc_ssl_logistic",
+      "method_label": "OA-fold SSL",
+      "repeat": 2,
+      "outer_fold": 2,
+      "roc_auc": 0.4722222222222222,
+      "balanced_accuracy": 0.4027777777777778,
+      "brier_score": 0.25475621920470815,
+      "average_precision": 0.7758528508528508
+    },
+    {
+      "method_id": "oa_internal_fc_ssl_logistic",
+      "method_label": "OA-fold SSL",
+      "repeat": 2,
+      "outer_fold": 3,
+      "roc_auc": 0.53125,
+      "balanced_accuracy": 0.6875,
+      "brier_score": 0.2677324988231474,
+      "average_precision": 0.8021645021645021
+    },
+    {
+      "method_id": "oa_internal_fc_ssl_logistic",
+      "method_label": "OA-fold SSL",
+      "repeat": 2,
+      "outer_fold": 4,
+      "roc_auc": 0.925925925925926,
+      "balanced_accuracy": 0.6666666666666666,
+      "brier_score": 0.2186414976500907,
+      "average_precision": 0.9765432098765434
+    },
+    {
+      "method_id": "oa_internal_fc_ssl_logistic",
+      "method_label": "OA-fold SSL",
+      "repeat": 2,
+      "outer_fold": 5,
+      "roc_auc": 0.37037037037037035,
+      "balanced_accuracy": 0.2222222222222222,
+      "brier_score": 0.32731589261419275,
+      "average_precision": 0.7928451178451179
+    },
+    {
+      "method_id": "oa_internal_fc_ssl_logistic",
+      "method_label": "OA-fold SSL",
+      "repeat": 3,
+      "outer_fold": 1,
+      "roc_auc": 0.5833333333333334,
+      "balanced_accuracy": 0.7222222222222222,
+      "brier_score": 0.2336741252608489,
+      "average_precision": 0.8513338513338515
+    },
+    {
+      "method_id": "oa_internal_fc_ssl_logistic",
+      "method_label": "OA-fold SSL",
+      "repeat": 3,
+      "outer_fold": 2,
+      "roc_auc": 0.5833333333333333,
+      "balanced_accuracy": 0.5972222222222222,
+      "brier_score": 0.26057288668107337,
+      "average_precision": 0.7752525252525253
+    },
+    {
+      "method_id": "oa_internal_fc_ssl_logistic",
+      "method_label": "OA-fold SSL",
+      "repeat": 3,
+      "outer_fold": 3,
+      "roc_auc": 0.625,
+      "balanced_accuracy": 0.625,
+      "brier_score": 0.21602741126307692,
+      "average_precision": 0.8051948051948052
+    },
+    {
+      "method_id": "oa_internal_fc_ssl_logistic",
+      "method_label": "OA-fold SSL",
+      "repeat": 3,
+      "outer_fold": 4,
+      "roc_auc": 0.6296296296296297,
+      "balanced_accuracy": 0.5,
+      "brier_score": 0.19403363493007345,
+      "average_precision": 0.8790123456790124
+    },
+    {
+      "method_id": "oa_internal_fc_ssl_logistic",
+      "method_label": "OA-fold SSL",
+      "repeat": 3,
+      "outer_fold": 5,
+      "roc_auc": 0.2962962962962963,
+      "balanced_accuracy": 0.3333333333333333,
+      "brier_score": 0.35865848434216624,
+      "average_precision": 0.7544853294853295
+    },
+    {
+      "method_id": "abide_external_fc_ssl_logistic",
+      "method_label": "Fixed DS005713 SSL",
+      "repeat": 1,
+      "outer_fold": 1,
+      "roc_auc": 0.8333333333333333,
+      "balanced_accuracy": 0.8194444444444444,
+      "brier_score": 0.16284080911427415,
+      "average_precision": 0.9395773979107314
+    },
+    {
+      "method_id": "abide_external_fc_ssl_logistic",
+      "method_label": "Fixed DS005713 SSL",
+      "repeat": 1,
+      "outer_fold": 2,
+      "roc_auc": 1.0,
+      "balanced_accuracy": 0.875,
+      "brier_score": 0.12128303568097555,
+      "average_precision": 1.0000000000000002
+    },
+    {
+      "method_id": "abide_external_fc_ssl_logistic",
+      "method_label": "Fixed DS005713 SSL",
+      "repeat": 1,
+      "outer_fold": 3,
+      "roc_auc": 0.78125,
+      "balanced_accuracy": 0.625,
+      "brier_score": 0.1846126481334466,
+      "average_precision": 0.8951388888888889
+    },
+    {
+      "method_id": "abide_external_fc_ssl_logistic",
+      "method_label": "Fixed DS005713 SSL",
+      "repeat": 1,
+      "outer_fold": 4,
+      "roc_auc": 0.7407407407407408,
+      "balanced_accuracy": 0.6666666666666666,
+      "brier_score": 0.24269081763488928,
+      "average_precision": 0.9115961199294533
+    },
+    {
+      "method_id": "abide_external_fc_ssl_logistic",
+      "method_label": "Fixed DS005713 SSL",
+      "repeat": 1,
+      "outer_fold": 5,
+      "roc_auc": 0.9259259259259259,
+      "balanced_accuracy": 0.9444444444444444,
+      "brier_score": 0.14802137849427197,
+      "average_precision": 0.9797979797979799
+    },
+    {
+      "method_id": "abide_external_fc_ssl_logistic",
+      "method_label": "Fixed DS005713 SSL",
+      "repeat": 2,
+      "outer_fold": 1,
+      "roc_auc": 0.8055555555555556,
+      "balanced_accuracy": 0.5833333333333333,
+      "brier_score": 0.17640211414654197,
+      "average_precision": 0.9170113836780505
+    },
+    {
+      "method_id": "abide_external_fc_ssl_logistic",
+      "method_label": "Fixed DS005713 SSL",
+      "repeat": 2,
+      "outer_fold": 2,
+      "roc_auc": 0.8611111111111112,
+      "balanced_accuracy": 0.7638888888888888,
+      "brier_score": 0.17110951181408188,
+      "average_precision": 0.9500000000000002
+    },
+    {
+      "method_id": "abide_external_fc_ssl_logistic",
+      "method_label": "Fixed DS005713 SSL",
+      "repeat": 2,
+      "outer_fold": 3,
+      "roc_auc": 0.375,
+      "balanced_accuracy": 0.375,
+      "brier_score": 0.4215601110264406,
+      "average_precision": 0.6701704545454545
+    },
+    {
+      "method_id": "abide_external_fc_ssl_logistic",
+      "method_label": "Fixed DS005713 SSL",
+      "repeat": 2,
+      "outer_fold": 4,
+      "roc_auc": 0.6296296296296298,
+      "balanced_accuracy": 0.6666666666666666,
+      "brier_score": 0.21779908564880368,
+      "average_precision": 0.8714165464165466
+    },
+    {
+      "method_id": "abide_external_fc_ssl_logistic",
+      "method_label": "Fixed DS005713 SSL",
+      "repeat": 2,
+      "outer_fold": 5,
+      "roc_auc": 0.4814814814814815,
+      "balanced_accuracy": 0.38888888888888884,
+      "brier_score": 0.3406396967121203,
+      "average_precision": 0.83980278980279
+    },
+    {
+      "method_id": "abide_external_fc_ssl_logistic",
+      "method_label": "Fixed DS005713 SSL",
+      "repeat": 3,
+      "outer_fold": 1,
+      "roc_auc": 0.8055555555555556,
+      "balanced_accuracy": 0.7083333333333333,
+      "brier_score": 0.2011836796105835,
+      "average_precision": 0.9280303030303032
+    },
+    {
+      "method_id": "abide_external_fc_ssl_logistic",
+      "method_label": "Fixed DS005713 SSL",
+      "repeat": 3,
+      "outer_fold": 2,
+      "roc_auc": 0.8055555555555555,
+      "balanced_accuracy": 0.6388888888888888,
+      "brier_score": 0.19803884898740554,
+      "average_precision": 0.929700854700855
+    },
+    {
+      "method_id": "abide_external_fc_ssl_logistic",
+      "method_label": "Fixed DS005713 SSL",
+      "repeat": 3,
+      "outer_fold": 3,
+      "roc_auc": 0.65625,
+      "balanced_accuracy": 0.625,
+      "brier_score": 0.29808194344580546,
+      "average_precision": 0.8385912698412699
+    },
+    {
+      "method_id": "abide_external_fc_ssl_logistic",
+      "method_label": "Fixed DS005713 SSL",
+      "repeat": 3,
+      "outer_fold": 4,
+      "roc_auc": 0.8518518518518519,
+      "balanced_accuracy": 0.611111111111111,
+      "brier_score": 0.16732623309020986,
+      "average_precision": 0.9598765432098768
+    },
+    {
+      "method_id": "abide_external_fc_ssl_logistic",
+      "method_label": "Fixed DS005713 SSL",
+      "repeat": 3,
+      "outer_fold": 5,
+      "roc_auc": 0.888888888888889,
+      "balanced_accuracy": 0.7777777777777777,
+      "brier_score": 0.11769811273184753,
+      "average_precision": 0.9674523007856344
+    },
+    {
+      "method_id": "abide_external_fc_ssl_oa_finetune_logistic",
+      "method_label": "DS005713 + OA-fold fine-tune",
+      "repeat": 1,
+      "outer_fold": 1,
+      "roc_auc": 0.6666666666666666,
+      "balanced_accuracy": 0.4583333333333333,
+      "brier_score": 0.2368918019893676,
+      "average_precision": 0.8883708883708885
+    },
+    {
+      "method_id": "abide_external_fc_ssl_oa_finetune_logistic",
+      "method_label": "DS005713 + OA-fold fine-tune",
+      "repeat": 1,
+      "outer_fold": 2,
+      "roc_auc": 0.9166666666666666,
+      "balanced_accuracy": 0.6666666666666666,
+      "brier_score": 0.20452780023486522,
+      "average_precision": 0.9626543209876546
+    },
+    {
+      "method_id": "abide_external_fc_ssl_oa_finetune_logistic",
+      "method_label": "DS005713 + OA-fold fine-tune",
+      "repeat": 1,
+      "outer_fold": 3,
+      "roc_auc": 0.6875,
+      "balanced_accuracy": 0.5625,
+      "brier_score": 0.19986237035672363,
+      "average_precision": 0.8334686147186148
+    },
+    {
+      "method_id": "abide_external_fc_ssl_oa_finetune_logistic",
+      "method_label": "DS005713 + OA-fold fine-tune",
+      "repeat": 1,
+      "outer_fold": 4,
+      "roc_auc": 0.8148148148148149,
+      "balanced_accuracy": 0.8333333333333333,
+      "brier_score": 0.18248945158619115,
+      "average_precision": 0.9436868686868689
+    },
+    {
+      "method_id": "abide_external_fc_ssl_oa_finetune_logistic",
+      "method_label": "DS005713 + OA-fold fine-tune",
+      "repeat": 1,
+      "outer_fold": 5,
+      "roc_auc": 0.7407407407407408,
+      "balanced_accuracy": 0.6666666666666666,
+      "brier_score": 0.2366826064563237,
+      "average_precision": 0.9115961199294533
+    },
+    {
+      "method_id": "abide_external_fc_ssl_oa_finetune_logistic",
+      "method_label": "DS005713 + OA-fold fine-tune",
+      "repeat": 2,
+      "outer_fold": 1,
+      "roc_auc": 0.7777777777777778,
+      "balanced_accuracy": 0.5277777777777778,
+      "brier_score": 0.22465555042139804,
+      "average_precision": 0.9051066217732886
+    },
+    {
+      "method_id": "abide_external_fc_ssl_oa_finetune_logistic",
+      "method_label": "DS005713 + OA-fold fine-tune",
+      "repeat": 2,
+      "outer_fold": 2,
+      "roc_auc": 0.75,
+      "balanced_accuracy": 0.7083333333333333,
+      "brier_score": 0.21776567041133743,
+      "average_precision": 0.9013548180214848
+    },
+    {
+      "method_id": "abide_external_fc_ssl_oa_finetune_logistic",
+      "method_label": "DS005713 + OA-fold fine-tune",
+      "repeat": 2,
+      "outer_fold": 3,
+      "roc_auc": 0.71875,
+      "balanced_accuracy": 0.75,
+      "brier_score": 0.21487211488271465,
+      "average_precision": 0.8477678571428572
+    },
+    {
+      "method_id": "abide_external_fc_ssl_oa_finetune_logistic",
+      "method_label": "DS005713 + OA-fold fine-tune",
+      "repeat": 2,
+      "outer_fold": 4,
+      "roc_auc": 0.5185185185185186,
+      "balanced_accuracy": 0.3333333333333333,
+      "brier_score": 0.25569604889176056,
+      "average_precision": 0.8287477954144622
+    },
+    {
+      "method_id": "abide_external_fc_ssl_oa_finetune_logistic",
+      "method_label": "DS005713 + OA-fold fine-tune",
+      "repeat": 2,
+      "outer_fold": 5,
+      "roc_auc": 0.4444444444444444,
+      "balanced_accuracy": 0.2222222222222222,
+      "brier_score": 0.3360675901467405,
+      "average_precision": 0.8298821548821549
+    },
+    {
+      "method_id": "abide_external_fc_ssl_oa_finetune_logistic",
+      "method_label": "DS005713 + OA-fold fine-tune",
+      "repeat": 3,
+      "outer_fold": 1,
+      "roc_auc": 0.7222222222222222,
+      "balanced_accuracy": 0.6527777777777778,
+      "brier_score": 0.20893445851537165,
+      "average_precision": 0.8790123456790124
+    },
+    {
+      "method_id": "abide_external_fc_ssl_oa_finetune_logistic",
+      "method_label": "DS005713 + OA-fold fine-tune",
+      "repeat": 3,
+      "outer_fold": 2,
+      "roc_auc": 0.75,
+      "balanced_accuracy": 0.6527777777777778,
+      "brier_score": 0.21716916933016905,
+      "average_precision": 0.8794973544973546
+    },
+    {
+      "method_id": "abide_external_fc_ssl_oa_finetune_logistic",
+      "method_label": "DS005713 + OA-fold fine-tune",
+      "repeat": 3,
+      "outer_fold": 3,
+      "roc_auc": 0.625,
+      "balanced_accuracy": 0.5,
+      "brier_score": 0.24892673631392073,
+      "average_precision": 0.7885912698412698
+    },
+    {
+      "method_id": "abide_external_fc_ssl_oa_finetune_logistic",
+      "method_label": "DS005713 + OA-fold fine-tune",
+      "repeat": 3,
+      "outer_fold": 4,
+      "roc_auc": 0.6296296296296297,
+      "balanced_accuracy": 0.5,
+      "brier_score": 0.21189335582847846,
+      "average_precision": 0.8790123456790124
+    },
+    {
+      "method_id": "abide_external_fc_ssl_oa_finetune_logistic",
+      "method_label": "DS005713 + OA-fold fine-tune",
+      "repeat": 3,
+      "outer_fold": 5,
+      "roc_auc": 0.4444444444444444,
+      "balanced_accuracy": 0.3333333333333333,
+      "brier_score": 0.2172973926257772,
+      "average_precision": 0.8298821548821549
+    }
+  ],
+  "audit_summary": {
+    "prediction_rows": 744,
+    "representation_audit_rows": 45,
+    "expected_prediction_rows": 744,
+    "expected_representation_audit_rows": 45,
+    "max_external_source_target_overlap": 0,
+    "max_target_adaptation_test_overlap": 0,
+    "metrics_recomputed_from_oof": 1,
+    "subject_level_payload_excluded": 1
+  },
+  "external_source_model": {
+    "state_sha256": "4abcb9679d1533e0453db5c18fcedc33f998282003dc8698251abda480a6e26b",
+    "scaler_sha256": "14669fbcb273083cd18c50b3276e73fe5340ddcc4105b68a2622b6991fbc0248",
+    "source_reconstruction_mse": 0.856292188167572,
+    "input_edges": 4005
+  },
+  "software": {
+    "python": "3.12.13",
+    "numpy": "2.5.1",
+    "scikit_learn": "1.9.0",
+    "torch": "2.13.0+cu130",
+    "external_transfer_sha256": "b5fc878d24a8a19aca888cfe00c77131772d05f5e16aa363fd3cea5b03df6b6d"
+  },
+  "interpretation_limits": [
+    "OpenNeuro ds005713 v2.0.2 is an independent self-supervised source, not an external OA or pain validation cohort.",
+    "The OA endpoint is patient versus control and remains confounded with study/cohort.",
+    "This FC-only experiment does not use four-node metrics; their source-specific feature-readiness contract must be established separately.",
+    "No diagnosis, pain, or outcome field enters the source NPZ or reconstruction objective.",
+    "Results are internal OA repeated cross-validation and cannot establish neuropathic-pain diagnosis or severity validity.",
+    "The encoder is a reconstruction feasibility model, not MeTSK, SCDA, contrastive learning, or a foundation model."
+  ],
+  "publication_exclusions": [
+    "subject identifiers",
+    "subject-level OOF probabilities",
+    "raw source and target datasets",
+    "source encoder weights",
+    "machine-local filesystem paths"
+  ]
+}

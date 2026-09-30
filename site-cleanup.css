@@ -1,0 +1,30 @@
+/* Keep the existing blue/white workspace, with one clear level per section. */
+.current-focus{padding:24px 28px;margin-bottom:18px;border-left:3px solid var(--teal)}
+.current-focus h2{font-size:23px;margin:8px 0 12px}
+.current-focus>p{max-width:1000px;color:var(--muted);line-height:1.85}
+.current-focus details{margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+.current-focus summary{cursor:pointer;color:var(--muted);font-size:12px}
+.current-focus .ds-foot{gap:10px;flex-wrap:wrap}
+.overview-date{font-size:12px;color:var(--muted);white-space:nowrap}
+.priority-grid,.overview-results{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:24px}
+.priority-grid .panel,.overview-results .panel{padding:20px;min-width:0}
+.priority-grid h3,.overview-results h3{margin:5px 0 8px}
+.priority-grid p,.overview-results p{font-size:12px;color:var(--muted);line-height:1.85;margin:0}
+.priority-number{font-family:var(--mono);font-size:12px;color:var(--teal)}
+.research-disclosure{margin-bottom:14px}
+.research-disclosure>summary{display:flex;flex-wrap:wrap;gap:5px 20px;padding:18px 22px;cursor:pointer;align-items:center}
+.research-disclosure>summary::before{content:'▸';color:var(--teal)}
+.research-disclosure[open]>summary::before{content:'▾'}
+.research-disclosure>summary strong{font-size:15px}
+.research-disclosure>summary span{font-size:12px;color:var(--muted)}
+.research-disclosure[open]>summary{border-bottom:1px solid var(--line)}
+.research-disclosure-body{padding:18px 22px}
+.research-disclosure-body>.panel:last-child{margin-bottom:0}
+.research-disclosure-body>.recent-research{box-shadow:none;border:0;padding:0}
+.research-workspace>.research-disclosure{background:white}
+.overview-results .panel{border-top:2px solid #d9e7f6}
+.compact-metrics .metric strong{font-size:32px}
+.next-grid{margin-bottom:24px}
+[hidden]{display:none!important}
+@media(max-width:1000px){.priority-grid,.overview-results{grid-template-columns:1fr}.priority-grid{gap:10px}.priority-grid .panel{padding:15px 18px}}
+@media(max-width:600px){.current-focus{padding:20px}.current-focus h2{font-size:20px}.page-heading{align-items:flex-start;flex-wrap:wrap}.overview-date{font-size:11px}.research-disclosure>summary{padding:16px}.research-disclosure-body{padding:14px}.overview-results{gap:10px}}

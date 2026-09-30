@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "methods": [
+    "source50_100_frozen",
+    "source50_100_last"
+  ],
+  "max_probability_error": 0.0
+}

@@ -1,0 +1,89 @@
+{
+  "evidence_status": "REAL_SOURCE_PRETRAINING_COMPLETED",
+  "started_at": "2026-09-08T08:09:00.138882+00:00",
+  "completed_at": "2026-09-08T08:09:12.330944+00:00",
+  "routes": [
+    {
+      "route": "srpbs_source",
+      "parent": null,
+      "checkpoint": "srpbs_source_encoder.npz",
+      "clinical_fit_overlap": 0,
+      "epochs_this_stage": 30,
+      "training_reconstruction_mse_before": 1.014106273651123,
+      "training_reconstruction_mse_after": 0.6893680691719055,
+      "target_inference_shape": [
+        99,
+        32
+      ],
+      "target_inference_finite": true,
+      "checkpoint_round_trip_equal": true
+    },
+    {
+      "route": "ds005713_source",
+      "parent": null,
+      "checkpoint": "ds005713_source_encoder.npz",
+      "clinical_fit_overlap": 0,
+      "epochs_this_stage": 30,
+      "training_reconstruction_mse_before": 1.0158462524414062,
+      "training_reconstruction_mse_after": 0.8670079112052917,
+      "target_inference_shape": [
+        99,
+        32
+      ],
+      "target_inference_finite": true,
+      "checkpoint_round_trip_equal": true
+    },
+    {
+      "route": "abide_source",
+      "parent": null,
+      "checkpoint": "abide_source_encoder.npz",
+      "clinical_fit_overlap": 0,
+      "epochs_this_stage": 30,
+      "training_reconstruction_mse_before": 1.0173479318618774,
+      "training_reconstruction_mse_after": 0.7496249675750732,
+      "target_inference_shape": [
+        99,
+        32
+      ],
+      "target_inference_finite": true,
+      "checkpoint_round_trip_equal": true
+    },
+    {
+      "route": "abide_to_srpbs_source",
+      "parent": "abide_source",
+      "checkpoint": "abide_to_srpbs_source_encoder.npz",
+      "clinical_fit_overlap": 0,
+      "epochs_this_stage": 5,
+      "training_reconstruction_mse_before": 1.5103228092193604,
+      "training_reconstruction_mse_after": 1.1473435163497925,
+      "target_inference_shape": [
+        99,
+        32
+      ],
+      "target_inference_finite": true,
+      "checkpoint_round_trip_equal": true
+    },
+    {
+      "route": "ds005713_to_srpbs_source",
+      "parent": "ds005713_source",
+      "checkpoint": "ds005713_to_srpbs_source_encoder.npz",
+      "clinical_fit_overlap": 0,
+      "epochs_this_stage": 5,
+      "training_reconstruction_mse_before": 0.9785195589065552,
+      "training_reconstruction_mse_after": 0.8893235325813293,
+      "target_inference_shape": [
+        99,
+        32
+      ],
+      "target_inference_finite": true,
+      "checkpoint_round_trip_equal": true
+    }
+  ],
+  "clinical_inventory_excluded": 145,
+  "target_inference_subjects": 99,
+  "clinical_subjects_used_for_reconstruction": 0,
+  "supervised_models_fitted": 0,
+  "clinical_metrics_computed": false,
+  "source_target_identity_check": "Exact documented namespaces; no inferred N82 crosswalk",
+  "interpretation": "Source reconstruction only; target inference is not clinical performance or target-fold adaptation"
+}

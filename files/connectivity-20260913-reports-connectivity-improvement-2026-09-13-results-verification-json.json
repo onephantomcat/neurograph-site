@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "models": 156,
+  "max_prediction_error": 1.3433698597964394e-14,
+  "max_reference_fit_error": 0.0,
+  "max_metric_error": 2.220446049250313e-16,
+  "comparisons": [
+    {
+      "design": "primary99",
+      "method": "lw_fc",
+      "reference": "raw_strong_l2",
+      "delta_auc": 0.0088597210828548,
+      "conditional_95_ci": [
+        -0.00279122231337162,
+        0.020590648072190333
+      ],
+      "bootstrap": 2000,
+      "scope": "paired subject resampling of fixed predictions, no model refit or multiple-comparison correction"
+    },
+    {
+      "design": "primary99",
+      "method": "lw_tangent",
+      "reference": "raw_strong_l2",
+      "delta_auc": 0.10771123872026252,
+      "conditional_95_ci": [
+        0.029450369155045165,
+        0.18605824446267416
+      ],
+      "bootstrap": 2000,
+      "scope": "paired subject resampling of fixed predictions, no model refit or multiple-comparison correction"
+    },
+    {
+      "design": "primary99",
+      "method": "node_strength180",
+      "reference": "raw_strong_l2",
+      "delta_auc": -0.04856439704675963,
+      "conditional_95_ci": [
+        -0.11633921246923713,
+        0.015014356029532381
+      ],
+      "bootstrap": 2000,
+      "scope": "paired subject resampling of fixed predictions, no model refit or multiple-comparison correction"
+    },
+    {
+      "design": "sensitivity96",
+      "method": "lw_fc",
+      "reference": "raw_strong_l2",
+      "delta_auc": 0.0012237762237762232,
+      "conditional_95_ci": [
+        -0.0074300699300699265,
+        0.009615384615384616
+      ],
+      "bootstrap": 2000,
+      "scope": "paired subject resampling of fixed predictions, no model refit or multiple-comparison correction"
+    },
+    {
+      "design": "sensitivity96",
+      "method": "lw_tangent",
+      "reference": "raw_strong_l2",
+      "delta_auc": 0.11599650349650349,
+      "conditional_95_ci": [
+        0.034261363636363694,
+        0.19905375874125883
+      ],
+      "bootstrap": 2000,
+      "scope": "paired subject resampling of fixed predictions, no model refit or multiple-comparison correction"
+    },
+    {
+      "design": "sensitivity96",
+      "method": "node_strength180",
+      "reference": "raw_strong_l2",
+      "delta_auc": -0.016346153846153847,
+      "conditional_95_ci": [
+        -0.0869777097902098,
+        0.05437718531468531
+      ],
+      "bootstrap": 2000,
+      "scope": "paired subject resampling of fixed predictions, no model refit or multiple-comparison correction"
+    }
+  ],
+  "validation_scope": "156 final models, refit all 52 train-only tangent references; explicit test covariance eigendecomposition and logistic coefficients; outer/inner ID checks; no full inner model retraining"
+}

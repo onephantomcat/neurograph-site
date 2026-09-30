@@ -1,0 +1,22 @@
+{
+  "route": "ds005713_to_srpbs_source",
+  "parent": "ds005713_source",
+  "checkpoint": "ds005713_to_srpbs_source_encoder.npz",
+  "clinical_fit_overlap": 0,
+  "epochs_this_stage": 5,
+  "training_losses": [
+    0.9787015318870544,
+    0.9746233820915222,
+    0.9501838088035583,
+    0.9322028160095215,
+    0.9148929715156555
+  ],
+  "training_reconstruction_mse_before": 0.9785195589065552,
+  "training_reconstruction_mse_after": 0.8893235325813293,
+  "target_inference_shape": [
+    99,
+    32
+  ],
+  "target_inference_finite": true,
+  "checkpoint_round_trip_equal": true
+}

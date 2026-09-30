@@ -1,0 +1,13 @@
+source,method,source_people,C
+srpbs,tangent,99,1.0
+srpbs,raw_fc,99,0.1
+srpbs,nuisance,99,0.001
+srpbs,site_only,99,0.001
+zan,tangent,54,0.01
+zan,raw_fc,54,0.001
+zan,nuisance,54,1.0
+zan,site_only,54,0.001
+pooled,tangent,153,1.0
+pooled,raw_fc,153,1.0
+pooled,nuisance,153,0.001
+pooled,site_only,153,0.001

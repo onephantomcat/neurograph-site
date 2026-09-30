@@ -1,0 +1,421 @@
+{
+  "artifact_version": 1,
+  "evidence_status": "OBSERVED",
+  "cohort_version": "phase1-n62-primary",
+  "dataset_path": "[本机路径已省略]",
+  "dataset_sha256": "e2a6fa729f6899c86a0829c58677d049c434188754bdf3063f0a4d609bfdf60e",
+  "fold_assignments_path": "[本机路径已省略]",
+  "fold_assignments_sha256": "ce9e1d5db7b62f669d723cd1ff12cf353110be04517b2ec1ff01ea1261cb3792",
+  "contract_sha256": "4e852cec00ee99ba27b4ac5970436919261230790502ab2bb14911673e3dfe51",
+  "training_protocol_sha256": "0ba36e346092b8a10ebe1b1de72729946b088b56d6ff308d930f29ddb00d6cf8",
+  "upstream_commit": "4f411fab1163e24f0b54e9cb398fbfe5928ce833",
+  "upstream_core_files_verified": [
+    "source/__init__.py",
+    "source/models/__init__.py",
+    "source/models/BrainHGT/__init__.py",
+    "source/models/BrainHGT/model.py",
+    "source/models/BrainHGT/utils.py",
+    "source/models/BrainHGT/components/attention.py",
+    "source/models/BrainHGT/components/clustering.py"
+  ],
+  "dice_prior_path": "[本机路径已省略]",
+  "dice_prior_sha256": "72d8585be0b7b1ece367bacc80fed672e203e8bbe6ce08632b21f570ccca3272",
+  "device": "cpu",
+  "runtime": {
+    "python": "3.12.13",
+    "platform": "macOS-26.2-arm64-arm-64bit",
+    "torch": "2.13.0",
+    "torch_threads": 4,
+    "torch_interop_threads": 1,
+    "deterministic_algorithms": true
+  },
+  "feature_sets": [
+    "combined",
+    "corr"
+  ],
+  "subjects": 62,
+  "controls": 18,
+  "patients": 44,
+  "settings": {
+    "hidden_dim": 32,
+    "heads": 4,
+    "layers": 1,
+    "dropout": 0.2,
+    "feedforward_dim": 64,
+    "encoder_hidden_dim": 16,
+    "communities": 8,
+    "batch_size": 16,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "max_epochs": 60,
+    "minimum_epochs": 10,
+    "early_stopping_patience": 10,
+    "validation_fraction": 0.2
+  },
+  "protocol": {
+    "outer_test_policy": "Each outer-test fold is evaluated exactly once after training-epoch selection and full outer-train refit.",
+    "epoch_selection": "Stratified validation split inside outer-train; selection by validation ROC AUC with validation loss tie-break.",
+    "preprocessing": "Per-channel standardization fitted inside selection-train or full outer-train, then applied to validation/test.",
+    "decision_threshold": 0.5,
+    "hyperparameter_search": false,
+    "cached_shortest_paths": true,
+    "deterministic_algorithms": true
+  },
+  "models": {
+    "combined": {
+      "primary_repeat_oof_metrics": [
+        {
+          "repeat": 1,
+          "roc_auc": 0.7702020202020202,
+          "average_precision": 0.8901230720347422,
+          "accuracy": 0.7580645161290323,
+          "balanced_accuracy": 0.6818181818181819,
+          "sensitivity": 0.8636363636363636,
+          "specificity": 0.5,
+          "f1": 0.8351648351648352,
+          "brier_score": 0.18490390724043115,
+          "expected_calibration_error": 0.11626045309790327
+        },
+        {
+          "repeat": 2,
+          "roc_auc": 0.6414141414141414,
+          "average_precision": 0.8155297200514932,
+          "accuracy": 0.6774193548387096,
+          "balanced_accuracy": 0.5429292929292929,
+          "sensitivity": 0.8636363636363636,
+          "specificity": 0.2222222222222222,
+          "f1": 0.7916666666666666,
+          "brier_score": 0.2777025058108274,
+          "expected_calibration_error": 0.27996522428322596
+        },
+        {
+          "repeat": 3,
+          "roc_auc": 0.6590909090909091,
+          "average_precision": 0.818622068353617,
+          "accuracy": 0.6935483870967742,
+          "balanced_accuracy": 0.6035353535353536,
+          "sensitivity": 0.8181818181818182,
+          "specificity": 0.3888888888888889,
+          "f1": 0.7912087912087912,
+          "brier_score": 0.24432181675211945,
+          "expected_calibration_error": 0.2506848773325806
+        }
+      ],
+      "primary_repeat_oof_mean_std": {
+        "roc_auc": {
+          "mean": 0.6902356902356903,
+          "std": 0.06981459356816151
+        },
+        "average_precision": {
+          "mean": 0.8414249534799508,
+          "std": 0.04220214114932798
+        },
+        "accuracy": {
+          "mean": 0.7096774193548386,
+          "std": 0.042673408242977266
+        },
+        "balanced_accuracy": {
+          "mean": 0.6094276094276095,
+          "std": 0.06963167292132513
+        },
+        "sensitivity": {
+          "mean": 0.8484848484848485,
+          "std": 0.026243194054073875
+        },
+        "specificity": {
+          "mean": 0.3703703703703704,
+          "std": 0.13981174880131017
+        },
+        "f1": {
+          "mean": 0.8060134310134309,
+          "std": 0.025246894571067754
+        },
+        "brier_score": {
+          "mean": 0.23564274326779266,
+          "std": 0.047004145684898316
+        },
+        "expected_calibration_error": {
+          "mean": 0.2156368515712366,
+          "std": 0.08729883223466159
+        }
+      },
+      "crossfit_ensemble_metrics": {
+        "roc_auc": 0.7108585858585859,
+        "average_precision": 0.8555742934956356,
+        "accuracy": 0.7580645161290323,
+        "balanced_accuracy": 0.648989898989899,
+        "sensitivity": 0.9090909090909091,
+        "specificity": 0.3888888888888889,
+        "f1": 0.8421052631578947,
+        "brier_score": 0.18856942909052893,
+        "expected_calibration_error": 0.18879176897198927
+      },
+      "crossfit_ensemble_conditional_bootstrap_95_interval": {
+        "roc_auc": [
+          0.5555555555555556,
+          0.8459595959595959
+        ],
+        "average_precision": [
+          0.7755580315158195,
+          0.9331210846478762
+        ],
+        "accuracy": [
+          0.6774193548387096,
+          0.8387096774193549
+        ],
+        "balanced_accuracy": [
+          0.5265151515151515,
+          0.7714646464646464
+        ],
+        "sensitivity": [
+          0.8181818181818182,
+          0.9772727272727273
+        ],
+        "specificity": [
+          0.16666666666666666,
+          0.6111111111111112
+        ],
+        "f1": [
+          0.7871408203553412,
+          0.8941605392156863
+        ],
+        "brier_score": [
+          0.14129106293421256,
+          0.23982938948045202
+        ],
+        "expected_calibration_error": [
+          0.14148243375019892,
+          0.2833575646979261
+        ]
+      },
+      "outer_fold_metrics": {
+        "roc_auc": {
+          "mean": 0.7314043209876543,
+          "std": 0.15812638927651948
+        },
+        "average_precision": {
+          "mean": 0.8752773589579146,
+          "std": 0.09076669280372149
+        },
+        "accuracy": {
+          "mean": 0.708974358974359,
+          "std": 0.11020102536011106
+        },
+        "balanced_accuracy": {
+          "mean": 0.6129629629629629,
+          "std": 0.1417966127750372
+        },
+        "sensitivity": {
+          "mean": 0.8481481481481482,
+          "std": 0.141295290793679
+        },
+        "specificity": {
+          "mean": 0.3777777777777778,
+          "std": 0.30024240647433975
+        },
+        "f1": {
+          "mean": 0.8019919078742607,
+          "std": 0.08305443982976866
+        },
+        "brier_score": {
+          "mean": 0.23588778633248608,
+          "std": 0.07645118894253743
+        },
+        "expected_calibration_error": {
+          "mean": 0.25557348640183764,
+          "std": 0.08047422454934025
+        }
+      },
+      "selected_epochs": {
+        "min": 10,
+        "median": 11.0,
+        "max": 16
+      },
+      "parameter_count": 124230,
+      "experiment_id": "45a02a026c13af9df9f9"
+    },
+    "corr": {
+      "primary_repeat_oof_metrics": [
+        {
+          "repeat": 1,
+          "roc_auc": 0.5883838383838385,
+          "average_precision": 0.7980891968796033,
+          "accuracy": 0.7258064516129032,
+          "balanced_accuracy": 0.6098484848484849,
+          "sensitivity": 0.8863636363636364,
+          "specificity": 0.3333333333333333,
+          "f1": 0.8210526315789474,
+          "brier_score": 0.2520798909453324,
+          "expected_calibration_error": 0.27776924956338717
+        },
+        {
+          "repeat": 2,
+          "roc_auc": 0.6262626262626263,
+          "average_precision": 0.7972883996504951,
+          "accuracy": 0.7258064516129032,
+          "balanced_accuracy": 0.6098484848484849,
+          "sensitivity": 0.8863636363636364,
+          "specificity": 0.3333333333333333,
+          "f1": 0.8210526315789474,
+          "brier_score": 0.22592343302761875,
+          "expected_calibration_error": 0.18925862468487098
+        },
+        {
+          "repeat": 3,
+          "roc_auc": 0.6313131313131313,
+          "average_precision": 0.8159242670888608,
+          "accuracy": 0.6612903225806451,
+          "balanced_accuracy": 0.5643939393939393,
+          "sensitivity": 0.7954545454545454,
+          "specificity": 0.3333333333333333,
+          "f1": 0.7692307692307693,
+          "brier_score": 0.2685726141960096,
+          "expected_calibration_error": 0.2381434211733548
+        }
+      ],
+      "primary_repeat_oof_mean_std": {
+        "roc_auc": {
+          "mean": 0.6153198653198654,
+          "std": 0.023463568795902907
+        },
+        "average_precision": {
+          "mean": 0.8037672878729865,
+          "std": 0.010535863837006335
+        },
+        "accuracy": {
+          "mean": 0.7043010752688171,
+          "std": 0.037248404463846856
+        },
+        "balanced_accuracy": {
+          "mean": 0.5946969696969697,
+          "std": 0.02624319405407394
+        },
+        "sensitivity": {
+          "mean": 0.8560606060606061,
+          "std": 0.05248638810814781
+        },
+        "specificity": {
+          "mean": 0.3333333333333333,
+          "std": 0.0
+        },
+        "f1": {
+          "mean": 0.803778677462888,
+          "std": 0.029919366176628354
+        },
+        "brier_score": {
+          "mean": 0.24885864605632024,
+          "std": 0.021506289255931534
+        },
+        "expected_calibration_error": {
+          "mean": 0.235057098473871,
+          "std": 0.04433595290450363
+        }
+      },
+      "crossfit_ensemble_metrics": {
+        "roc_auc": 0.6186868686868687,
+        "average_precision": 0.8170776637576629,
+        "accuracy": 0.7258064516129032,
+        "balanced_accuracy": 0.6098484848484849,
+        "sensitivity": 0.8863636363636364,
+        "specificity": 0.3333333333333333,
+        "f1": 0.8210526315789474,
+        "brier_score": 0.21477319527742098,
+        "expected_calibration_error": 0.21290068413520424
+      },
+      "crossfit_ensemble_conditional_bootstrap_95_interval": {
+        "roc_auc": [
+          0.4619633838383838,
+          0.7765782828282829
+        ],
+        "average_precision": [
+          0.7408369584082368,
+          0.8943721789547454
+        ],
+        "accuracy": [
+          0.6290322580645161,
+          0.8225806451612904
+        ],
+        "balanced_accuracy": [
+          0.49870580808080806,
+          0.7386363636363636
+        ],
+        "sensitivity": [
+          0.7954545454545454,
+          0.9772727272727273
+        ],
+        "specificity": [
+          0.1111111111111111,
+          0.5555555555555556
+        ],
+        "f1": [
+          0.7526881720430108,
+          0.8817826825127334
+        ],
+        "brier_score": [
+          0.15212697808054546,
+          0.27380000428504997
+        ],
+        "expected_calibration_error": [
+          0.15462274878724036,
+          0.3056265268383825
+        ]
+      },
+      "outer_fold_metrics": {
+        "roc_auc": {
+          "mean": 0.7290895061728395,
+          "std": 0.14840206070975417
+        },
+        "average_precision": {
+          "mean": 0.8875173232117677,
+          "std": 0.0803497224252565
+        },
+        "accuracy": {
+          "mean": 0.7047008547008546,
+          "std": 0.1143745643320942
+        },
+        "balanced_accuracy": {
+          "mean": 0.5921296296296297,
+          "std": 0.13730412000294268
+        },
+        "sensitivity": {
+          "mean": 0.8564814814814814,
+          "std": 0.11616324998328183
+        },
+        "specificity": {
+          "mean": 0.3277777777777778,
+          "std": 0.24693893167914202
+        },
+        "f1": {
+          "mean": 0.8024266548724752,
+          "std": 0.08124546188601645
+        },
+        "brier_score": {
+          "mean": 0.24813710499975725,
+          "std": 0.08642424732843475
+        },
+        "expected_calibration_error": {
+          "mean": 0.26180987462667865,
+          "std": 0.08538402336133061
+        }
+      },
+      "selected_epochs": {
+        "min": 10,
+        "median": 12.0,
+        "max": 28
+      },
+      "parameter_count": 124102,
+      "experiment_id": "c51699ffb7aed7afa9b5"
+    }
+  },
+  "formal_complete": true,
+  "outer_test_evaluations_per_feature": 15,
+  "readiness": "INTERNAL_VALIDATION_PENDING_ROBUSTNESS",
+  "interpretation_limits": [
+    "Internal repeated cross-validation only; no external or prospective validation.",
+    "Control status is the HC cohort while patient status is Study1/Study2; disease and study/cohort effects cannot be separated.",
+    "Architecture and fixed hyperparameters are a methods-development experiment, not a clinical model.",
+    "Attention and community assignments are not causal mechanisms or validated biomarkers.",
+    "The shared mask harmonizes the four voxelwise node metrics; FC retains validated original/repair ROI-signal pipelines and was not re-extracted under that mask."
+  ],
+  "research_notice": "Research use only - clinician review required"
+}

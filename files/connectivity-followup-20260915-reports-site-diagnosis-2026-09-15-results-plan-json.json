@@ -1,0 +1,15 @@
+{
+  "methods": [
+    "age_sex",
+    "age_sex_motion"
+  ],
+  "C": [
+    0.001,
+    0.01,
+    0.1,
+    1.0
+  ],
+  "site_probe": "fixed C=0.001, original train-only tangent representation, training weights balance four site-by-disease cells",
+  "cohort": "existing 99/96; original nested folds; two existing site transfers with 5 inner seeds; no new subjects or clinical validation",
+  "scope": "diagnosis only; no covariate-corrected image model or clinical joint model in this run"
+}

@@ -1,0 +1,61 @@
+{
+  "epochs": 30,
+  "warmup_epochs": 5,
+  "head_lr": 0.001,
+  "encoder_lr": 0.0001,
+  "batch_size": 32,
+  "seed": 20260908,
+  "l2sp_strength": 0.0,
+  "repeats": 5,
+  "outer": 5,
+  "inner": 3,
+  "methods": [
+    "nuisance_only",
+    "raw_fc",
+    "srpbs_source_last_layer",
+    "srpbs_source_l2sp",
+    "ds005713_source_last_layer",
+    "ds005713_source_l2sp",
+    "abide_source_last_layer",
+    "abide_source_l2sp",
+    "abide_to_srpbs_source_last_layer",
+    "abide_to_srpbs_source_l2sp",
+    "ds005713_to_srpbs_source_last_layer",
+    "ds005713_to_srpbs_source_l2sp"
+  ],
+  "started_at": "2026-09-09T01:23:19.049845+00:00",
+  "prepared": "workspace-local/operations/20260908-classification-preparation/prepared-confirmed99",
+  "snapshot": "workspace-local/operations/20260908-classification-preparation/verified_snapshot.json",
+  "baseline": "repository-local/tmp/clinical-classification-20260908",
+  "designs": {
+    "primary99": {
+      "subjects": 99,
+      "split_file": "workspace-local/operations/20260908-source-pretraining/selected-splits-private/primary.tsv",
+      "policy": "label"
+    },
+    "sensitivity96": {
+      "subjects": 96,
+      "split_file": "workspace-local/operations/20260908-source-pretraining/selected-splits-private/sensitivity.tsv",
+      "policy": "site_label"
+    }
+  },
+  "purpose": "Existing target cohort supervised transfer classification; not a new cohort",
+  "source_routes": [
+    "srpbs_source",
+    "ds005713_source",
+    "abide_source",
+    "abide_to_srpbs_source",
+    "ds005713_to_srpbs_source"
+  ],
+  "threshold": 0.5,
+  "encoder_loss": "BCE with labels, not reconstruction",
+  "selection": "Minimum sample-weighted inner validation BCE over candidate settings and epochs; refit all outer training subjects",
+  "candidate_search": "last_layer encoder_lr=[1e-5,1e-4]; l2sp sum-square strengths=[.01,.1] at encoder_lr=1e-4",
+  "controls": "Reuse and replay original same-split Raw/nuisance; prior frozen Logistic and full fine-tuning compared separately",
+  "primary_metrics": [
+    "accuracy",
+    "balanced_accuracy",
+    "roc_auc"
+  ],
+  "scope": "DEVELOPMENTAL_REPEATED_NESTED_CV"
+}

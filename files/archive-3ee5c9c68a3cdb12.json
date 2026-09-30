@@ -1,0 +1,332 @@
+{
+  "as_of": "2026-09-09T01:51:27.327001+00:00",
+  "conclusion": "低头动子集未显示一致优势；年龄与站点调整后成绩变化明显。先核对人群与处理差异，再扩大来源。",
+  "roles": [
+    {
+      "name": "SRPBS来源9人 / 低头动7人",
+      "role": "本轮保留",
+      "reason": "同一no-GSR和科学QC规则；7人额外满足平均FD≤0.2毫米。来源不含145名临床受试者。"
+    },
+    {
+      "name": "ABIDE 972 / 834及其域适配路线",
+      "role": "本轮排除",
+      "reason": "GSR与头动纳入规则不同；低头动834人仍使用GSR。保留历史一般表征预训练角色。"
+    },
+    {
+      "name": "DS005713及其域适配路线",
+      "role": "本轮暂不纳入",
+      "reason": "核心no-GSR/回归策略接近，但另要求至少5分钟且1份原配置追溯未完整；疾病/访视连接不足以开展当前PTN监督测试。"
+    },
+    {
+      "name": "OA与BAL140旧N82",
+      "role": "保留历史开发角色",
+      "reason": "OA已用于内部研究；旧N82图谱不同且外部检验已使用。均不充当本轮同规则来源或全新独立测试。"
+    },
+    {
+      "name": "SRPBS未来库存 / 新医院",
+      "role": "尚无新增就绪样本",
+      "reason": "1482是排除临床后的QC前上限，医院数据当前未取得；不计入本轮训练人数。"
+    },
+    {
+      "name": "当前仍可执行",
+      "role": "现有99/96开发分析",
+      "reason": "冻结表示/部分微调、折内混杂敏感性、按站点或临床表迁移研究可继续；严重度合并回归须先明确量表端点和MRI时点。"
+    }
+  ],
+  "sites": [
+    {
+      "code": "OSU",
+      "name": "大阪大学",
+      "healthy": 19,
+      "pain": 27
+    },
+    {
+      "code": "CIN",
+      "name": "CiNet",
+      "healthy": 33,
+      "pain": 17
+    },
+    {
+      "code": "NKN",
+      "name": "西宫协立医院",
+      "healthy": 1,
+      "pain": 2
+    }
+  ],
+  "designs": {
+    "primary99": [
+      {
+        "source": "Raw FC",
+        "adjustment": "none",
+        "accuracy": 0.597979797979798,
+        "balanced_accuracy": 0.5966776045939295,
+        "auc": 0.6390484003281378,
+        "sensitivity": 0.5782608695652174,
+        "specificity": 0.6150943396226415
+      },
+      {
+        "source": "Raw FC",
+        "adjustment": "age",
+        "accuracy": 0.5656565656565656,
+        "balanced_accuracy": 0.56447908121411,
+        "auc": 0.5863822805578344,
+        "sensitivity": 0.5478260869565217,
+        "specificity": 0.5811320754716981
+      },
+      {
+        "source": "Raw FC",
+        "adjustment": "age_site",
+        "accuracy": 0.5777777777777778,
+        "balanced_accuracy": 0.5775225594749795,
+        "auc": 0.6202625102543069,
+        "sensitivity": 0.5739130434782609,
+        "specificity": 0.5811320754716981
+      },
+      {
+        "source": "Raw FC",
+        "adjustment": "age_site_motion",
+        "accuracy": 0.5595959595959596,
+        "balanced_accuracy": 0.5591058244462674,
+        "auc": 0.6216570959803118,
+        "sensitivity": 0.5521739130434782,
+        "specificity": 0.5660377358490566
+      },
+      {
+        "source": "SRPBS来源9人",
+        "adjustment": "none",
+        "accuracy": 0.6626262626262627,
+        "balanced_accuracy": 0.6599261689909761,
+        "auc": 0.6937653814602134,
+        "sensitivity": 0.6217391304347826,
+        "specificity": 0.6981132075471698
+      },
+      {
+        "source": "SRPBS来源9人",
+        "adjustment": "age",
+        "accuracy": 0.608080808080808,
+        "balanced_accuracy": 0.6086956521739131,
+        "auc": 0.6426579163248565,
+        "sensitivity": 0.6173913043478261,
+        "specificity": 0.5999999999999999
+      },
+      {
+        "source": "SRPBS来源9人",
+        "adjustment": "age_site",
+        "accuracy": 0.5919191919191918,
+        "balanced_accuracy": 0.591591468416735,
+        "auc": 0.6168990976210008,
+        "sensitivity": 0.5869565217391304,
+        "specificity": 0.5962264150943396
+      },
+      {
+        "source": "SRPBS来源9人",
+        "adjustment": "age_site_motion",
+        "accuracy": 0.6282828282828282,
+        "balanced_accuracy": 0.6295734208367515,
+        "auc": 0.636259228876128,
+        "sensitivity": 0.6478260869565218,
+        "specificity": 0.6113207547169811
+      },
+      {
+        "source": "SRPBS低头动7人",
+        "adjustment": "none",
+        "accuracy": 0.6464646464646465,
+        "balanced_accuracy": 0.642247744052502,
+        "auc": 0.6682526661197703,
+        "sensitivity": 0.5826086956521739,
+        "specificity": 0.7018867924528303
+      },
+      {
+        "source": "SRPBS低头动7人",
+        "adjustment": "age",
+        "accuracy": 0.5797979797979799,
+        "balanced_accuracy": 0.5802707136997538,
+        "auc": 0.6298605414273994,
+        "sensitivity": 0.5869565217391305,
+        "specificity": 0.5735849056603773
+      },
+      {
+        "source": "SRPBS低头动7人",
+        "adjustment": "age_site",
+        "accuracy": 0.597979797979798,
+        "balanced_accuracy": 0.5981132075471699,
+        "auc": 0.6292042657916325,
+        "sensitivity": 0.6,
+        "specificity": 0.5962264150943397
+      },
+      {
+        "source": "SRPBS低头动7人",
+        "adjustment": "age_site_motion",
+        "accuracy": 0.6222222222222221,
+        "balanced_accuracy": 0.6213289581624283,
+        "auc": 0.6319934372436423,
+        "sensitivity": 0.6086956521739131,
+        "specificity": 0.6339622641509434
+      },
+      {
+        "source": "仅混杂信息",
+        "adjustment": "age",
+        "accuracy": 0.6323232323232323,
+        "balanced_accuracy": 0.6347826086956521,
+        "auc": 0.6326497128794093,
+        "sensitivity": 0.6695652173913043,
+        "specificity": 0.6
+      },
+      {
+        "source": "仅混杂信息",
+        "adjustment": "age_site",
+        "accuracy": 0.6121212121212121,
+        "balanced_accuracy": 0.6121821164889253,
+        "auc": 0.619524200164069,
+        "sensitivity": 0.6130434782608696,
+        "specificity": 0.6113207547169811
+      },
+      {
+        "source": "仅混杂信息",
+        "adjustment": "age_site_motion",
+        "accuracy": 0.6121212121212121,
+        "balanced_accuracy": 0.6124692370795735,
+        "auc": 0.5911402789171453,
+        "sensitivity": 0.6173913043478262,
+        "specificity": 0.6075471698113207
+      }
+    ],
+    "sensitivity96": [
+      {
+        "source": "Raw FC",
+        "adjustment": "none",
+        "accuracy": 0.58125,
+        "balanced_accuracy": 0.5791958041958043,
+        "auc": 0.6203671328671329,
+        "sensitivity": 0.5545454545454547,
+        "specificity": 0.6038461538461538
+      },
+      {
+        "source": "Raw FC",
+        "adjustment": "age",
+        "accuracy": 0.5166666666666666,
+        "balanced_accuracy": 0.5171328671328672,
+        "auc": 0.5596153846153846,
+        "sensitivity": 0.5227272727272727,
+        "specificity": 0.5115384615384615
+      },
+      {
+        "source": "Raw FC",
+        "adjustment": "age_site",
+        "accuracy": 0.5291666666666666,
+        "balanced_accuracy": 0.529020979020979,
+        "auc": 0.5664335664335665,
+        "sensitivity": 0.5272727272727271,
+        "specificity": 0.5307692307692307
+      },
+      {
+        "source": "Raw FC",
+        "adjustment": "age_site_motion",
+        "accuracy": 0.5354166666666667,
+        "balanced_accuracy": 0.5323426573426573,
+        "auc": 0.5704545454545455,
+        "sensitivity": 0.4954545454545455,
+        "specificity": 0.5692307692307692
+      },
+      {
+        "source": "SRPBS来源9人",
+        "adjustment": "none",
+        "accuracy": 0.6624999999999999,
+        "balanced_accuracy": 0.6587412587412588,
+        "auc": 0.6853146853146853,
+        "sensitivity": 0.6136363636363635,
+        "specificity": 0.7038461538461538
+      },
+      {
+        "source": "SRPBS来源9人",
+        "adjustment": "age",
+        "accuracy": 0.6125,
+        "balanced_accuracy": 0.6111888111888112,
+        "auc": 0.6284090909090908,
+        "sensitivity": 0.5954545454545455,
+        "specificity": 0.6269230769230768
+      },
+      {
+        "source": "SRPBS来源9人",
+        "adjustment": "age_site",
+        "accuracy": 0.5875,
+        "balanced_accuracy": 0.5863636363636363,
+        "auc": 0.6142482517482517,
+        "sensitivity": 0.5727272727272728,
+        "specificity": 0.6
+      },
+      {
+        "source": "SRPBS来源9人",
+        "adjustment": "age_site_motion",
+        "accuracy": 0.6166666666666667,
+        "balanced_accuracy": 0.6167832167832168,
+        "auc": 0.6310314685314685,
+        "sensitivity": 0.6181818181818182,
+        "specificity": 0.6153846153846153
+      },
+      {
+        "source": "SRPBS低头动7人",
+        "adjustment": "none",
+        "accuracy": 0.6291666666666667,
+        "balanced_accuracy": 0.6234265734265735,
+        "auc": 0.6562062937062937,
+        "sensitivity": 0.5545454545454546,
+        "specificity": 0.6923076923076924
+      },
+      {
+        "source": "SRPBS低头动7人",
+        "adjustment": "age",
+        "accuracy": 0.5875,
+        "balanced_accuracy": 0.5828671328671329,
+        "auc": 0.6177447552447553,
+        "sensitivity": 0.5272727272727272,
+        "specificity": 0.6384615384615385
+      },
+      {
+        "source": "SRPBS低头动7人",
+        "adjustment": "age_site",
+        "accuracy": 0.5833333333333334,
+        "balanced_accuracy": 0.5821678321678322,
+        "auc": 0.6158216783216783,
+        "sensitivity": 0.5681818181818181,
+        "specificity": 0.596153846153846
+      },
+      {
+        "source": "SRPBS低头动7人",
+        "adjustment": "age_site_motion",
+        "accuracy": 0.6229166666666667,
+        "balanced_accuracy": 0.6218531468531469,
+        "auc": 0.6604895104895105,
+        "sensitivity": 0.6090909090909091,
+        "specificity": 0.6346153846153846
+      },
+      {
+        "source": "仅混杂信息",
+        "adjustment": "age",
+        "accuracy": 0.6395833333333333,
+        "balanced_accuracy": 0.6421328671328672,
+        "auc": 0.6364073426573427,
+        "sensitivity": 0.6727272727272727,
+        "specificity": 0.6115384615384616
+      },
+      {
+        "source": "仅混杂信息",
+        "adjustment": "age_site",
+        "accuracy": 0.6124999999999999,
+        "balanced_accuracy": 0.6118881118881119,
+        "auc": 0.6430944055944054,
+        "sensitivity": 0.6045454545454546,
+        "specificity": 0.6192307692307693
+      },
+      {
+        "source": "仅混杂信息",
+        "adjustment": "age_site_motion",
+        "accuracy": 0.6125,
+        "balanced_accuracy": 0.6122377622377622,
+        "auc": 0.6038461538461538,
+        "sensitivity": 0.6090909090909091,
+        "specificity": 0.6153846153846153
+      }
+    ]
+  }
+}

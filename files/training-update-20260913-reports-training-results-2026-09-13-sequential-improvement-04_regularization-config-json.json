@@ -1,0 +1,24 @@
+{
+  "methods": [
+    "raw_pca_l2",
+    "raw_strong_l2"
+  ],
+  "pca_components": [
+    8,
+    16,
+    32
+  ],
+  "pca_C": [
+    0.01,
+    0.1,
+    1
+  ],
+  "raw_C": [
+    0.001,
+    0.01,
+    0.1,
+    1
+  ],
+  "selection": "inner AUC",
+  "class_weight": "balanced"
+}

@@ -1,0 +1,103 @@
+{
+  "prepared": "workspace-local/operations/20260908-classification-preparation/prepared-confirmed99",
+  "snapshot": "workspace-local/operations/20260908-classification-preparation/verified_snapshot.json",
+  "previous_pretraining": "repository-local/tmp/clinical-source-pretraining-20260908",
+  "methods": [
+    "raw_fc__none",
+    "raw_fc__age",
+    "raw_fc__age_site",
+    "raw_fc__age_site_motion",
+    "source50__none",
+    "source50__age",
+    "source50__age_site",
+    "source50__age_site_motion",
+    "source46__none",
+    "source46__age",
+    "source46__age_site",
+    "source46__age_site_motion",
+    "nuisance__age",
+    "nuisance__age_site",
+    "nuisance__age_site_motion"
+  ],
+  "adjustments": {
+    "none": [],
+    "age": [
+      "age"
+    ],
+    "age_site": [
+      "age",
+      "site"
+    ],
+    "age_site_motion": [
+      "age",
+      "site",
+      "mean_fd",
+      "censor_fraction"
+    ]
+  },
+  "repeats": 5,
+  "outer": 5,
+  "inner": 3,
+  "seed": 20260908,
+  "epochs": 30,
+  "threshold": 0.5,
+  "source_selection": {
+    "retained": [
+      "SRPBS source9",
+      "SRPBS low-motion7"
+    ],
+    "source9_mean_fd": 0.1489257414116135,
+    "source7_mean_fd": 0.127635647341949,
+    "threshold_mean_fd_mm": 0.2,
+    "excluded_from_current_comparison": {
+      "ABIDE972_and834": "GSR and different motion inclusion; excludes derived ABIDE-to-SRPBS route",
+      "DS00571336": "different minimum-duration inclusion, one original configuration not read back; excludes DS-to-SRPBS route",
+      "OA62_64": "previous development target, not same-policy source in this experiment",
+      "BAL140_N82": "different atlas and already-used historical test",
+      "hospital_and_unprocessed_inventory": "no ready samples"
+    },
+    "target_unchanged": 99,
+    "source_identity_overlap": 0,
+    "old_data_deleted": false
+  },
+  "raw_k": [
+    16,
+    32,
+    64,
+    128
+  ],
+  "latent_k": [
+    8,
+    16,
+    32
+  ],
+  "c_values": [
+    0.1,
+    1.0,
+    10.0
+  ],
+  "interpretation": "Developmental fixed-source classification; residualization is sensitivity analysis, not causal removal",
+  "preprocessing": "Covariate imputation/encoding, OLS, feature scaling/selection and classifier fitted only within each training fold",
+  "designs": {
+    "primary99": {
+      "subjects": 99,
+      "splits": "workspace-local/operations/20260908-source-pretraining/selected-splits-private/primary.tsv"
+    },
+    "sensitivity96": {
+      "subjects": 96,
+      "splits": "workspace-local/operations/20260908-source-pretraining/selected-splits-private/sensitivity.tsv"
+    }
+  },
+  "source_paths": {
+    "source50": "repository-local/tmp/source50-transfer-20260911/source50_encoder.npz",
+    "source46": "repository-local/tmp/source50-transfer-20260911/source46_encoder.npz"
+  },
+  "source_manifest": "repository-local/tmp/source50-transfer-20260911/source_manifest.tsv",
+  "source_counts": {
+    "source50": 50,
+    "source46": 46
+  },
+  "previous": "repository-local/tmp/matched-source-analysis-20260909-v2",
+  "total": 750,
+  "scope": "Expanded sources; identical original 99/96 splits and nested protocol; not new external validation"
+}

@@ -1,0 +1,128 @@
+{
+  "evidence_status": "PERMUTATION_RUNTIME_SMOKE_ONLY",
+  "permutations": 2,
+  "tests": {
+    "primary99": {
+      "nuisance_only": {
+        "observed": 0.5856439704675964,
+        "exceedances": 2,
+        "p_greater": 1.0,
+        "null_mean": 0.6094339622641509,
+        "null_95range": [
+          0.6001599671862181,
+          0.6187079573420837
+        ],
+        "p_holm_all10": 1.0
+      },
+      "raw_fc": {
+        "observed": 0.6390484003281378,
+        "exceedances": 0,
+        "p_greater": 0.3333333333333333,
+        "null_mean": 0.5795734208367513,
+        "null_95range": [
+          0.5586095159967186,
+          0.6005373256767842
+        ],
+        "p_holm_all10": 1.0
+      },
+      "ds005713_source_fixed": {
+        "observed": 0.5621000820344544,
+        "exceedances": 1,
+        "p_greater": 0.6666666666666666,
+        "null_mean": 0.5639458572600491,
+        "null_95range": [
+          0.5457485643970467,
+          0.5821431501230515
+        ],
+        "p_holm_all10": 1.0
+      },
+      "delta_ds_vs_raw": {
+        "observed": -0.07694831829368343,
+        "exceedances": 2,
+        "p_greater": 1.0,
+        "null_mean": -0.015627563576702308,
+        "null_95range": [
+          -0.05478876127973753,
+          0.023533634126332914
+        ],
+        "p_holm_all10": 1.0
+      },
+      "delta_ds_vs_nuisance": {
+        "observed": -0.023543888433142035,
+        "exceedances": 0,
+        "p_greater": 0.3333333333333333,
+        "null_mean": -0.04548810500410183,
+        "null_95range": [
+          -0.05441140278917152,
+          -0.036564807219032144
+        ],
+        "p_holm_all10": 1.0
+      }
+    },
+    "sensitivity96": {
+      "nuisance_only": {
+        "observed": 0.5904720279720279,
+        "exceedances": 2,
+        "p_greater": 1.0,
+        "null_mean": 0.6318618881118881,
+        "null_95range": [
+          0.6012609265734266,
+          0.6624628496503496
+        ],
+        "p_holm_all10": 1.0
+      },
+      "raw_fc": {
+        "observed": 0.6203671328671329,
+        "exceedances": 0,
+        "p_greater": 0.3333333333333333,
+        "null_mean": 0.5694055944055945,
+        "null_95range": [
+          0.5270541958041959,
+          0.611756993006993
+        ],
+        "p_holm_all10": 1.0
+      },
+      "ds005713_source_fixed": {
+        "observed": 0.5210664335664335,
+        "exceedances": 2,
+        "p_greater": 1.0,
+        "null_mean": 0.590603146853147,
+        "null_95range": [
+          0.5807626748251749,
+          0.600443618881119
+        ],
+        "p_holm_all10": 1.0
+      },
+      "delta_ds_vs_raw": {
+        "observed": -0.0993006993006994,
+        "exceedances": 2,
+        "p_greater": 1.0,
+        "null_mean": 0.021197552447552448,
+        "null_95range": [
+          -0.030994318181818213,
+          0.0733894230769231
+        ],
+        "p_holm_all10": 1.0
+      },
+      "delta_ds_vs_nuisance": {
+        "observed": -0.06940559440559446,
+        "exceedances": 2,
+        "p_greater": 1.0,
+        "null_mean": -0.04125874125874124,
+        "null_95range": [
+          -0.062019230769230715,
+          -0.02049825174825176
+        ],
+        "p_holm_all10": 1.0
+      }
+    }
+  },
+  "average_permutation_seconds": 13.8904999999977,
+  "confirmatory": false,
+  "independent_validation": false,
+  "caveats": [
+    "Within-site exchangeability assumption; other confounding not removed",
+    "Contrasts are label-null diagnostics, not generic equality-of-model tests",
+    "Other 10 exploratory methods were not permutation tested"
+  ]
+}

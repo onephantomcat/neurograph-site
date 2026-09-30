@@ -1,0 +1,59 @@
+{
+  "epochs": 30,
+  "warmup_epochs": 5,
+  "head_lr": 0.001,
+  "encoder_lr": 0.0001,
+  "batch_size": 32,
+  "seed": 20260908,
+  "repeats": 5,
+  "outer": 5,
+  "inner": 3,
+  "methods": [
+    "nuisance_only",
+    "raw_fc",
+    "srpbs_source_frozen_encoder",
+    "srpbs_source_supervised_finetune",
+    "ds005713_source_frozen_encoder",
+    "ds005713_source_supervised_finetune",
+    "abide_source_frozen_encoder",
+    "abide_source_supervised_finetune",
+    "abide_to_srpbs_source_frozen_encoder",
+    "abide_to_srpbs_source_supervised_finetune",
+    "ds005713_to_srpbs_source_frozen_encoder",
+    "ds005713_to_srpbs_source_supervised_finetune"
+  ],
+  "started_at": "2026-09-09T01:03:16.972710+00:00",
+  "prepared": "workspace-local/operations/20260908-classification-preparation/prepared-confirmed99",
+  "snapshot": "workspace-local/operations/20260908-classification-preparation/verified_snapshot.json",
+  "baseline": "repository-local/tmp/clinical-classification-20260908",
+  "designs": {
+    "primary99": {
+      "subjects": 99,
+      "split_file": "workspace-local/operations/20260908-source-pretraining/selected-splits-private/primary.tsv",
+      "policy": "label"
+    },
+    "sensitivity96": {
+      "subjects": 96,
+      "split_file": "workspace-local/operations/20260908-source-pretraining/selected-splits-private/sensitivity.tsv",
+      "policy": "site_label"
+    }
+  },
+  "purpose": "Existing target cohort supervised transfer classification; not a new cohort",
+  "source_routes": [
+    "srpbs_source",
+    "ds005713_source",
+    "abide_source",
+    "abide_to_srpbs_source",
+    "ds005713_to_srpbs_source"
+  ],
+  "threshold": 0.5,
+  "encoder_loss": "BCE with labels, not reconstruction",
+  "selection": "Minimum sample-weighted inner validation BCE across epochs 1..30, then refit all outer train subjects",
+  "controls": "Reuse and replay original same-split Raw/nuisance; fixed neural head is trained with identical budget",
+  "primary_metrics": [
+    "accuracy",
+    "balanced_accuracy",
+    "roc_auc"
+  ],
+  "scope": "DEVELOPMENTAL_REPEATED_NESTED_CV"
+}

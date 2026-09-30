@@ -1,0 +1,627 @@
+{
+  "as_of": "2026-09-09T02:41:30.543190+00:00",
+  "verification": {
+    "status": "PASS",
+    "prediction_models": 160,
+    "fitted_models": 150,
+    "training_prior_controls": 10,
+    "neural_inner_fits": 360,
+    "recomputed_residualizers": 70,
+    "last_layer_models": 40,
+    "last_layer_updated": 40,
+    "last_layer_warmup_only": 0,
+    "max_prediction_error": 0.0,
+    "pretraining_test_site_overlap": 0,
+    "supervised_test_site_overlap": 0,
+    "verified_at": "2026-09-09T02:41:30.543190+00:00"
+  },
+  "source_sites": {
+    "source9": {
+      "OSU": {
+        "SWA": 1,
+        "HKH": 1,
+        "COI": 2,
+        "KUT": 1,
+        "KTT": 1,
+        "ATT": 2,
+        "ATV": 1
+      },
+      "CIN": {
+        "SWA": 1,
+        "HKH": 1,
+        "COI": 2,
+        "KUT": 1,
+        "KTT": 1,
+        "ATT": 2,
+        "ATV": 1
+      }
+    },
+    "source7": {
+      "OSU": {
+        "SWA": 1,
+        "HKH": 1,
+        "KUT": 1,
+        "KTT": 1,
+        "ATT": 2,
+        "ATV": 1
+      },
+      "CIN": {
+        "SWA": 1,
+        "HKH": 1,
+        "KUT": 1,
+        "KTT": 1,
+        "ATT": 2,
+        "ATV": 1
+      }
+    }
+  },
+  "directions": {
+    "OSU_to_CIN": {
+      "title": "大阪大学→CiNet",
+      "training_subjects": 46,
+      "test_subjects": 50,
+      "rows": [
+        {
+          "method": "training_prior",
+          "label": "训练集患病比例",
+          "accuracy": 0.34,
+          "balanced_accuracy": 0.5,
+          "auc": 0.5,
+          "sensitivity": 1.0,
+          "specificity": 0.0,
+          "auc_ci": [
+            0.5,
+            0.5
+          ],
+          "delta_raw_ci": [
+            -0.24549019607843128,
+            0.058030303030302544
+          ]
+        },
+        {
+          "method": "raw_fc",
+          "label": "Raw FC · 未调整",
+          "accuracy": 0.56,
+          "balanced_accuracy": 0.5468805704099822,
+          "auc": 0.5967914438502675,
+          "sensitivity": 0.5058823529411764,
+          "specificity": 0.5878787878787878,
+          "auc_ci": [
+            0.44196969696969696,
+            0.7454901960784311
+          ],
+          "delta_raw_ci": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "method": "raw_fc__age_motion",
+          "label": "Raw FC · Logistic · 年龄/头动调整",
+          "accuracy": 0.612,
+          "balanced_accuracy": 0.5891265597147951,
+          "auc": 0.6245989304812835,
+          "sensitivity": 0.5176470588235295,
+          "specificity": 0.6606060606060606,
+          "auc_ci": [
+            0.4744385026737968,
+            0.7682887700534758
+          ],
+          "delta_raw_ci": [
+            -0.05525846702317272,
+            0.11836007130124782
+          ]
+        },
+        {
+          "method": "source9__none",
+          "label": "9人来源 · Logistic · 未调整",
+          "accuracy": 0.64,
+          "balanced_accuracy": 0.5846702317290553,
+          "auc": 0.6342245989304813,
+          "sensitivity": 0.4117647058823529,
+          "specificity": 0.7575757575757576,
+          "auc_ci": [
+            0.48376114081996435,
+            0.7786363636363635
+          ],
+          "delta_raw_ci": [
+            -0.11125668449197865,
+            0.17077540106951866
+          ]
+        },
+        {
+          "method": "source9__age_motion",
+          "label": "9人来源 · Logistic · 年龄/头动调整",
+          "accuracy": 0.612,
+          "balanced_accuracy": 0.5919786096256685,
+          "auc": 0.6171122994652406,
+          "sensitivity": 0.5294117647058824,
+          "specificity": 0.6545454545454545,
+          "auc_ci": [
+            0.46449197860962566,
+            0.7675579322638146
+          ],
+          "delta_raw_ci": [
+            -0.13905525846702319,
+            0.1754367201426023
+          ]
+        },
+        {
+          "method": "source7__none",
+          "label": "低头动7人 · Logistic · 未调整",
+          "accuracy": 0.664,
+          "balanced_accuracy": 0.5771836007130126,
+          "auc": 0.6409982174688056,
+          "sensitivity": 0.3058823529411765,
+          "specificity": 0.8484848484848484,
+          "auc_ci": [
+            0.5208199643493762,
+            0.7550980392156862
+          ],
+          "delta_raw_ci": [
+            -0.15295900178253108,
+            0.23427807486630983
+          ]
+        },
+        {
+          "method": "source7__age_motion",
+          "label": "低头动7人 · Logistic · 年龄/头动调整",
+          "accuracy": 0.6040000000000001,
+          "balanced_accuracy": 0.6001782531194296,
+          "auc": 0.5818181818181818,
+          "sensitivity": 0.588235294117647,
+          "specificity": 0.6121212121212121,
+          "auc_ci": [
+            0.4531016042780749,
+            0.7041176470588234
+          ],
+          "delta_raw_ci": [
+            -0.22713012477718345,
+            0.1982263814616755
+          ]
+        },
+        {
+          "method": "nuisance_only",
+          "label": "仅年龄/头动",
+          "accuracy": 0.528,
+          "balanced_accuracy": 0.471301247771836,
+          "auc": 0.48912655971479496,
+          "sensitivity": 0.29411764705882354,
+          "specificity": 0.6484848484848484,
+          "auc_ci": [
+            0.3383155080213903,
+            0.6541978609625668
+          ],
+          "delta_raw_ci": [
+            -0.2941176470588235,
+            0.09984848484848467
+          ]
+        },
+        {
+          "method": "source9__none__frozen_encoder",
+          "label": "9人来源 · 冻结+BCE头 · 未调整",
+          "accuracy": 0.62,
+          "balanced_accuracy": 0.6065953654188949,
+          "auc": 0.5736185383244207,
+          "sensitivity": 0.5647058823529412,
+          "specificity": 0.6484848484848484,
+          "auc_ci": [
+            0.41850267379679146,
+            0.7219518716577539
+          ],
+          "delta_raw_ci": [
+            -0.15508912655971474,
+            0.10376114081996438
+          ]
+        },
+        {
+          "method": "source9__none__last_layer",
+          "label": "9人来源 · 最后层+BCE头 · 未调整",
+          "accuracy": 0.6159999999999999,
+          "balanced_accuracy": 0.597860962566845,
+          "auc": 0.5914438502673797,
+          "sensitivity": 0.5411764705882353,
+          "specificity": 0.6545454545454545,
+          "auc_ci": [
+            0.4324331550802139,
+            0.7397682709447413
+          ],
+          "delta_raw_ci": [
+            -0.14011586452762925,
+            0.12406417112299473
+          ]
+        },
+        {
+          "method": "source9__age_motion__frozen_encoder",
+          "label": "9人来源 · 冻结+BCE头 · 年龄/头动调整",
+          "accuracy": 0.592,
+          "balanced_accuracy": 0.6167557932263814,
+          "auc": 0.5821746880570411,
+          "sensitivity": 0.6941176470588235,
+          "specificity": 0.5393939393939393,
+          "auc_ci": [
+            0.440632798573975,
+            0.7247950089126559
+          ],
+          "delta_raw_ci": [
+            -0.16579322638146157,
+            0.12517825311942934
+          ]
+        },
+        {
+          "method": "source9__age_motion__last_layer",
+          "label": "9人来源 · 最后层+BCE头 · 年龄/头动调整",
+          "accuracy": 0.5920000000000001,
+          "balanced_accuracy": 0.613903743315508,
+          "auc": 0.596078431372549,
+          "sensitivity": 0.6823529411764706,
+          "specificity": 0.5454545454545454,
+          "auc_ci": [
+            0.44989304812834224,
+            0.7383244206773618
+          ],
+          "delta_raw_ci": [
+            -0.15188057040998226,
+            0.13796791443850265
+          ]
+        },
+        {
+          "method": "source7__none__frozen_encoder",
+          "label": "低头动7人 · 冻结+BCE头 · 未调整",
+          "accuracy": 0.5519999999999999,
+          "balanced_accuracy": 0.5550802139037434,
+          "auc": 0.5433155080213903,
+          "sensitivity": 0.5647058823529412,
+          "specificity": 0.5454545454545454,
+          "auc_ci": [
+            0.46379679144385033,
+            0.6235472370766486
+          ],
+          "delta_raw_ci": [
+            -0.19928698752228158,
+            0.08522281639928689
+          ]
+        },
+        {
+          "method": "source7__none__last_layer",
+          "label": "低头动7人 · 最后层+BCE头 · 未调整",
+          "accuracy": 0.54,
+          "balanced_accuracy": 0.5516934046345812,
+          "auc": 0.5768270944741534,
+          "sensitivity": 0.5882352941176471,
+          "specificity": 0.5151515151515151,
+          "auc_ci": [
+            0.4659447415329768,
+            0.6877005347593583
+          ],
+          "delta_raw_ci": [
+            -0.165089126559715,
+            0.12303030303030288
+          ]
+        },
+        {
+          "method": "source7__age_motion__frozen_encoder",
+          "label": "低头动7人 · 冻结+BCE头 · 年龄/头动调整",
+          "accuracy": 0.528,
+          "balanced_accuracy": 0.5454545454545455,
+          "auc": 0.5443850267379678,
+          "sensitivity": 0.6,
+          "specificity": 0.49090909090909085,
+          "auc_ci": [
+            0.46237967914438494,
+            0.6235383244206774
+          ],
+          "delta_raw_ci": [
+            -0.20321746880570402,
+            0.09198752228163994
+          ]
+        },
+        {
+          "method": "source7__age_motion__last_layer",
+          "label": "低头动7人 · 最后层+BCE头 · 年龄/头动调整",
+          "accuracy": 0.496,
+          "balanced_accuracy": 0.5440285204991089,
+          "auc": 0.5661319073083779,
+          "sensitivity": 0.6941176470588235,
+          "specificity": 0.3939393939393939,
+          "auc_ci": [
+            0.4548573975044563,
+            0.6752495543672012
+          ],
+          "delta_raw_ci": [
+            -0.18183600713012474,
+            0.11410873440285195
+          ]
+        }
+      ]
+    },
+    "CIN_to_OSU": {
+      "title": "CiNet→大阪大学",
+      "training_subjects": 50,
+      "test_subjects": 46,
+      "rows": [
+        {
+          "method": "training_prior",
+          "label": "训练集患病比例",
+          "accuracy": 0.4130434782608695,
+          "balanced_accuracy": 0.5,
+          "auc": 0.5,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "auc_ci": [
+            0.5,
+            0.5
+          ],
+          "delta_raw_ci": [
+            -0.21346003898635485,
+            0.1081968810916179
+          ]
+        },
+        {
+          "method": "raw_fc",
+          "label": "Raw FC · 未调整",
+          "accuracy": 0.5173913043478262,
+          "balanced_accuracy": 0.5327485380116959,
+          "auc": 0.5606237816764132,
+          "sensitivity": 0.4444444444444445,
+          "specificity": 0.6210526315789473,
+          "auc_ci": [
+            0.39180311890838204,
+            0.7134600389863548
+          ],
+          "delta_raw_ci": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "method": "raw_fc__age_motion",
+          "label": "Raw FC · Logistic · 年龄/头动调整",
+          "accuracy": 0.5304347826086956,
+          "balanced_accuracy": 0.5126705653021444,
+          "auc": 0.5543859649122808,
+          "sensitivity": 0.6148148148148149,
+          "specificity": 0.41052631578947363,
+          "auc_ci": [
+            0.37972709551656914,
+            0.7200974658869395
+          ],
+          "delta_raw_ci": [
+            -0.07954191033138397,
+            0.06667641325536056
+          ]
+        },
+        {
+          "method": "source9__none",
+          "label": "9人来源 · Logistic · 未调整",
+          "accuracy": 0.6478260869565218,
+          "balanced_accuracy": 0.6267056530214425,
+          "auc": 0.6003898635477583,
+          "sensitivity": 0.7481481481481481,
+          "specificity": 0.5052631578947369,
+          "auc_ci": [
+            0.4253411306042885,
+            0.7602631578947368
+          ],
+          "delta_raw_ci": [
+            -0.1680409356725146,
+            0.2503118908382066
+          ]
+        },
+        {
+          "method": "source9__age_motion",
+          "label": "9人来源 · Logistic · 年龄/头动调整",
+          "accuracy": 0.5913043478260869,
+          "balanced_accuracy": 0.5707602339181287,
+          "auc": 0.5855750487329435,
+          "sensitivity": 0.6888888888888889,
+          "specificity": 0.4526315789473684,
+          "auc_ci": [
+            0.4151949317738791,
+            0.7461988304093566
+          ],
+          "delta_raw_ci": [
+            -0.180896686159844,
+            0.23354775828460028
+          ]
+        },
+        {
+          "method": "source7__none",
+          "label": "低头动7人 · Logistic · 未调整",
+          "accuracy": 0.5869565217391305,
+          "balanced_accuracy": 0.5389863547758285,
+          "auc": 0.6588693957115008,
+          "sensitivity": 0.8148148148148149,
+          "specificity": 0.26315789473684215,
+          "auc_ci": [
+            0.49585769980506816,
+            0.8007797270955166
+          ],
+          "delta_raw_ci": [
+            -0.09045808966861596,
+            0.28421052631578947
+          ]
+        },
+        {
+          "method": "source7__age_motion",
+          "label": "低头动7人 · Logistic · 年龄/头动调整",
+          "accuracy": 0.5565217391304348,
+          "balanced_accuracy": 0.4927875243664717,
+          "auc": 0.6171539961013645,
+          "sensitivity": 0.8592592592592594,
+          "specificity": 0.12631578947368421,
+          "auc_ci": [
+            0.4600292397660818,
+            0.7602631578947368
+          ],
+          "delta_raw_ci": [
+            -0.1306140350877194,
+            0.24020467836257275
+          ]
+        },
+        {
+          "method": "nuisance_only",
+          "label": "仅年龄/头动",
+          "accuracy": 0.6304347826086957,
+          "balanced_accuracy": 0.560428849902534,
+          "auc": 0.43040935672514624,
+          "sensitivity": 0.962962962962963,
+          "specificity": 0.15789473684210525,
+          "auc_ci": [
+            0.26353801169590635,
+            0.6074171539961013
+          ],
+          "delta_raw_ci": [
+            -0.3556042884990254,
+            0.10380116959064278
+          ]
+        },
+        {
+          "method": "source9__none__frozen_encoder",
+          "label": "9人来源 · 冻结+BCE头 · 未调整",
+          "accuracy": 0.5956521739130436,
+          "balanced_accuracy": 0.5900584795321637,
+          "auc": 0.6152046783625731,
+          "sensitivity": 0.6222222222222221,
+          "specificity": 0.5578947368421052,
+          "auc_ci": [
+            0.48341130604288496,
+            0.73724171539961
+          ],
+          "delta_raw_ci": [
+            -0.1204775828460039,
+            0.22067251461988302
+          ]
+        },
+        {
+          "method": "source9__none__last_layer",
+          "label": "9人来源 · 最后层+BCE头 · 未调整",
+          "accuracy": 0.5826086956521739,
+          "balanced_accuracy": 0.5898635477582845,
+          "auc": 0.6175438596491228,
+          "sensitivity": 0.5481481481481482,
+          "specificity": 0.631578947368421,
+          "auc_ci": [
+            0.4791423001949317,
+            0.7446686159844054
+          ],
+          "delta_raw_ci": [
+            -0.11695906432748548,
+            0.2265302144249512
+          ]
+        },
+        {
+          "method": "source9__age_motion__frozen_encoder",
+          "label": "9人来源 · 冻结+BCE头 · 年龄/头动调整",
+          "accuracy": 0.4695652173913043,
+          "balanced_accuracy": 0.5387914230019494,
+          "auc": 0.5575048732943471,
+          "sensitivity": 0.14074074074074075,
+          "specificity": 0.9368421052631579,
+          "auc_ci": [
+            0.4366276803118908,
+            0.67135477582846
+          ],
+          "delta_raw_ci": [
+            -0.18947368421052624,
+            0.18362573099415203
+          ]
+        },
+        {
+          "method": "source9__age_motion__last_layer",
+          "label": "9人来源 · 最后层+BCE头 · 年龄/头动调整",
+          "accuracy": 0.4304347826086956,
+          "balanced_accuracy": 0.5116959064327485,
+          "auc": 0.582066276803119,
+          "sensitivity": 0.04444444444444444,
+          "specificity": 0.9789473684210526,
+          "auc_ci": [
+            0.4642884990253411,
+            0.6842202729044834
+          ],
+          "delta_raw_ci": [
+            -0.15400584795321642,
+            0.2035185185185185
+          ]
+        },
+        {
+          "method": "source7__none__frozen_encoder",
+          "label": "低头动7人 · 冻结+BCE头 · 未调整",
+          "accuracy": 0.5652173913043479,
+          "balanced_accuracy": 0.5937621832358675,
+          "auc": 0.6015594541910332,
+          "sensitivity": 0.4296296296296296,
+          "specificity": 0.7578947368421052,
+          "auc_ci": [
+            0.5017446393762184,
+            0.690448343079922
+          ],
+          "delta_raw_ci": [
+            -0.1279337231968811,
+            0.21601364522417144
+          ]
+        },
+        {
+          "method": "source7__none__last_layer",
+          "label": "低头动7人 · 最后层+BCE头 · 未调整",
+          "accuracy": 0.5695652173913044,
+          "balanced_accuracy": 0.6161793372319687,
+          "auc": 0.6140350877192982,
+          "sensitivity": 0.3481481481481481,
+          "specificity": 0.8842105263157893,
+          "auc_ci": [
+            0.48459064327485374,
+            0.7290740740740739
+          ],
+          "delta_raw_ci": [
+            -0.12087719298245625,
+            0.23898635477582847
+          ]
+        },
+        {
+          "method": "source7__age_motion__frozen_encoder",
+          "label": "低头动7人 · 冻结+BCE头 · 年龄/头动调整",
+          "accuracy": 0.45652173913043476,
+          "balanced_accuracy": 0.5198830409356725,
+          "auc": 0.5664717348927876,
+          "sensitivity": 0.15555555555555553,
+          "specificity": 0.8842105263157896,
+          "auc_ci": [
+            0.5001949317738792,
+            0.6249610136452242
+          ],
+          "delta_raw_ci": [
+            -0.14389863547758294,
+            0.1719298245614035
+          ]
+        },
+        {
+          "method": "source7__age_motion__last_layer",
+          "label": "低头动7人 · 最后层+BCE头 · 年龄/头动调整",
+          "accuracy": 0.43478260869565216,
+          "balanced_accuracy": 0.5169590643274853,
+          "auc": 0.5871345029239766,
+          "sensitivity": 0.04444444444444444,
+          "specificity": 0.9894736842105264,
+          "auc_ci": [
+            0.5001754385964912,
+            0.6651072124756335
+          ],
+          "delta_raw_ci": [
+            -0.12441520467836269,
+            0.1949317738791423
+          ]
+        }
+      ]
+    }
+  },
+  "conclusion": "完成双向站点留出，预训练与监督拟合均未接触测试站点；当前增益不稳定，仍是已探索队列的开发性验证。",
+  "highlights": [
+    "training_prior",
+    "raw_fc",
+    "source9__none",
+    "source7__none",
+    "source9__none__last_layer",
+    "source7__none__last_layer"
+  ]
+}

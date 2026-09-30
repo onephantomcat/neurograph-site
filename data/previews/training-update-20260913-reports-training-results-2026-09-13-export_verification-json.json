@@ -1,0 +1,1 @@
+{"content": "{\r\n  \"status\": \"PASS\",\r\n  \"scope\": \"Export fidelity only; original model verification records retained, no training rerun\",\r\n  \"artifacts\": 478,\r\n  \"metric_rows\": 174389,\r\n  \"omitted_fields\": 11623,\r\n  \"numeric_or_boolean_leaves\": 479893\r\n}\n", "truncated": false}

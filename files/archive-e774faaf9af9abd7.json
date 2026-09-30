@@ -1,0 +1,20 @@
+{
+  "epochs": 10,
+  "warmup_epochs": 5,
+  "head_lr": 0.001,
+  "encoder_lr": 0.0001,
+  "batch_size": 32,
+  "seed": 20260908,
+  "evidence_status": "REAL_SUPERVISED_TRANSFER_TECHNICAL_REHEARSAL_ONLY",
+  "source": "All five existing source checkpoints; none selected by observed AUC",
+  "split": "Existing primary repeat 1 / outer fold 1 / inner fold 1",
+  "train_n": 52,
+  "validation_n": 27,
+  "test_n": 20,
+  "purpose": "Verify binary-label encoder updates, frozen control and held-out inference",
+  "prior_analysis": "All 99 subjects already appeared in developmental CV; not a new cohort",
+  "head_objective": "Unweighted binary cross entropy; validation minimum selects epoch",
+  "raw_control": "Existing Raw FC logistic implementation; fixed C=1, k=32; technical control only",
+  "external_generalization_evaluated": false,
+  "new_cohort_path": null
+}

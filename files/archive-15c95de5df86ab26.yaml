@@ -1,0 +1,57 @@
+dataset:
+  name: abide
+  batch_size: 16
+  test_batch_size: 16
+  val_batch_size: 16
+  train_set: 0.7
+  val_set: 0.1
+  path: [本机路径已省略]
+  stratified: true
+  drop_last: false
+  num_class: 2
+model:
+  name: BrainHGT
+  dim_hidden: 256
+  num_heads: 8
+  num_layers: 1
+  dropout: 0.1
+  dim_feedforward: 1024
+  encoder_hidden_dim: 32
+  num_communities: 8
+  dice_path: [本机路径已省略]
+  orthogonal: true
+  freeze_center: true
+  project: BrainHGT
+optimizer:
+  name: Adam
+  lr: 0.0001
+  match_rule: None
+  except_rule: None
+  no_weight_decay: false
+  weight_decay: 0.0001
+  lr_scheduler:
+    mode: cos
+    base_lr: 0.0001
+    target_lr: 1.0e-05
+    decay_factor: 0.1
+    milestones:
+    - 0.3
+    - 0.6
+    - 0.9
+    poly_power: 2.0
+    lr_decay: 0.98
+    warm_up_from: 0.0
+    warm_up_steps: 0
+training:
+  name: Train
+  epochs: 1
+datasz:
+  percentage: 1.0
+preprocess:
+  name: non_mixup
+  continus: false
+repeat_time: 1
+log_path: [本机路径已省略]
+best_model_path: [本机路径已省略]
+save_model: false
+wandb_entity: BrainGraphTransformer

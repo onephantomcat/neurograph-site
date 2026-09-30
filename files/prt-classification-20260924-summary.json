@@ -1,0 +1,378 @@
+{
+  "state": "EXPLORATORY_NESTED_CV_COMPLETE",
+  "completed_at": "2026-09-24T19:28:53.040321+08:00",
+  "audit": {
+    "people": 192,
+    "CBP": 141,
+    "HC": 51,
+    "neural_rows": 11520,
+    "features": {
+      "demographics": 2,
+      "roi": 44,
+      "roi_demographics": 46,
+      "patterns": 16
+    },
+    "finite": true,
+    "duplicate_subject_condition_measure_keys": 0,
+    "identical_feature_rows": 0,
+    "label_conflicts": 0,
+    "demographic_complete_matched_people": 192,
+    "excluded_behavior_only_people": 1,
+    "all_baseline_conditions_kept_with_person": true,
+    "table_origin": "Author baseline table, exported before group-specific outlier-cleaning call in supplied code; raw-image QC not independently repeated.",
+    "roi_names": [
+      "A1",
+      "IC",
+      "MGN",
+      "PCC",
+      "S1_L",
+      "S1_R",
+      "mPFC",
+      "m_dorsal_insula",
+      "m_posterior_insula",
+      "m_ventral_insula",
+      "precuneus"
+    ],
+    "pattern_names": [
+      "FM_PAIN",
+      "FM_MSS",
+      "general",
+      "sound"
+    ]
+  },
+  "target": "Author baseline chronic-back-pain patient versus pain-free control group",
+  "design": {
+    "outer": "5 repeats x 5 person-stratified folds",
+    "inner": "3 person-stratified folds",
+    "C": [
+      0.001,
+      0.01,
+      0.1,
+      1.0
+    ],
+    "seeds": [
+      20260924,
+      20260925,
+      20260926,
+      20260927,
+      20260928
+    ],
+    "selection": "mean inner-fold AUC; ties first C",
+    "model": "training-only StandardScaler + balanced L2 LogisticRegression/liblinear",
+    "threshold": 0.5,
+    "outer_models": 100,
+    "inner_models": 1200,
+    "primary": "ROI plus demographics minus demographics",
+    "bootstrap": "2000 class-stratified person resamples jointly across methods/repeats; fixed OOF predictions; no training refit"
+  },
+  "metrics": [
+    {
+      "method": "demographics",
+      "features": 2,
+      "auc": 0.37538589904046726,
+      "balanced_accuracy": 0.4028368794326241,
+      "sensitivity": 0.47234042553191485,
+      "specificity": 0.3333333333333333,
+      "brier": 0.2531256970741572,
+      "auc_repeat_sd": 0.023298421734815028,
+      "auc_conditional_ci95": [
+        0.32904533444583506,
+        0.4205061882909192
+      ],
+      "repeat_metrics": [
+        {
+          "auc": 0.34278959810874704,
+          "balanced_accuracy": 0.3660826032540676,
+          "sensitivity": 0.41843971631205673,
+          "specificity": 0.3137254901960784,
+          "brier": 0.25780144533293137
+        },
+        {
+          "auc": 0.37727715199555,
+          "balanced_accuracy": 0.4042553191489362,
+          "sensitivity": 0.475177304964539,
+          "specificity": 0.3333333333333333,
+          "brier": 0.2521866607852219
+        },
+        {
+          "auc": 0.36573494646085386,
+          "balanced_accuracy": 0.3756779307467668,
+          "sensitivity": 0.49645390070921985,
+          "specificity": 0.2549019607843137,
+          "brier": 0.25159095705561546
+        },
+        {
+          "auc": 0.38562091503267976,
+          "balanced_accuracy": 0.4211514392991239,
+          "sensitivity": 0.48936170212765956,
+          "specificity": 0.35294117647058826,
+          "brier": 0.25249209854754473
+        },
+        {
+          "auc": 0.40550688360450565,
+          "balanced_accuracy": 0.44701710471422607,
+          "sensitivity": 0.48226950354609927,
+          "specificity": 0.4117647058823529,
+          "brier": 0.2515573236494728
+        }
+      ]
+    },
+    {
+      "method": "roi",
+      "features": 44,
+      "auc": 0.6334306772354331,
+      "balanced_accuracy": 0.6096787651230705,
+      "sensitivity": 0.6468085106382979,
+      "specificity": 0.5725490196078431,
+      "brier": 0.238133253368501,
+      "auc_repeat_sd": 0.013327186353744894,
+      "auc_conditional_ci95": [
+        0.5494785148101794,
+        0.7073056598525934
+      ],
+      "repeat_metrics": [
+        {
+          "auc": 0.6523432067862606,
+          "balanced_accuracy": 0.5980392156862745,
+          "sensitivity": 0.6666666666666666,
+          "specificity": 0.5294117647058824,
+          "brier": 0.23998150703681728
+        },
+        {
+          "auc": 0.6381588096231401,
+          "balanced_accuracy": 0.6328744263662912,
+          "sensitivity": 0.6382978723404256,
+          "specificity": 0.6274509803921569,
+          "brier": 0.24085715224702064
+        },
+        {
+          "auc": 0.6159087748574608,
+          "balanced_accuracy": 0.6186900292031706,
+          "sensitivity": 0.6099290780141844,
+          "specificity": 0.6274509803921569,
+          "brier": 0.2428161461206506
+        },
+        {
+          "auc": 0.6319009873452928,
+          "balanced_accuracy": 0.5874009178139341,
+          "sensitivity": 0.6453900709219859,
+          "specificity": 0.5294117647058824,
+          "brier": 0.22995188792453133
+        },
+        {
+          "auc": 0.6288416075650118,
+          "balanced_accuracy": 0.6113892365456821,
+          "sensitivity": 0.6737588652482269,
+          "specificity": 0.5490196078431373,
+          "brier": 0.23705957351348503
+        }
+      ]
+    },
+    {
+      "method": "roi_demographics",
+      "features": 46,
+      "auc": 0.6089278264497289,
+      "balanced_accuracy": 0.5993742177722152,
+      "sensitivity": 0.6340425531914893,
+      "specificity": 0.5647058823529412,
+      "brier": 0.24253636882749086,
+      "auc_repeat_sd": 0.02180035971398588,
+      "auc_conditional_ci95": [
+        0.5258232512863302,
+        0.6839111389236545
+      ],
+      "repeat_metrics": [
+        {
+          "auc": 0.6292587957168683,
+          "balanced_accuracy": 0.5901126408010013,
+          "sensitivity": 0.6312056737588653,
+          "specificity": 0.5490196078431373,
+          "brier": 0.24613802183611375
+        },
+        {
+          "auc": 0.6167431511611737,
+          "balanced_accuracy": 0.6105548602419691,
+          "sensitivity": 0.6524822695035462,
+          "specificity": 0.5686274509803921,
+          "brier": 0.2421106674950566
+        },
+        {
+          "auc": 0.6057571964956195,
+          "balanced_accuracy": 0.6080517313308302,
+          "sensitivity": 0.5886524822695035,
+          "specificity": 0.6274509803921569,
+          "brier": 0.24481798160259352
+        },
+        {
+          "auc": 0.5729383952162426,
+          "balanced_accuracy": 0.5446391322486441,
+          "sensitivity": 0.6382978723404256,
+          "specificity": 0.45098039215686275,
+          "brier": 0.23938985009026525
+        },
+        {
+          "auc": 0.6199415936587401,
+          "balanced_accuracy": 0.6435127242386316,
+          "sensitivity": 0.6595744680851063,
+          "specificity": 0.6274509803921569,
+          "brier": 0.24022532311342515
+        }
+      ]
+    },
+    {
+      "method": "patterns",
+      "features": 16,
+      "auc": 0.6024753163676818,
+      "balanced_accuracy": 0.6058823529411764,
+      "sensitivity": 0.6,
+      "specificity": 0.6117647058823529,
+      "brier": 0.2510675166466556,
+      "auc_repeat_sd": 0.030277789192555568,
+      "auc_conditional_ci95": [
+        0.5133555833680989,
+        0.6910095953274925
+      ],
+      "repeat_metrics": [
+        {
+          "auc": 0.6104853288833264,
+          "balanced_accuracy": 0.6195244055068836,
+          "sensitivity": 0.6312056737588653,
+          "specificity": 0.6078431372549019,
+          "brier": 0.25064563925132105
+        },
+        {
+          "auc": 0.6467806980948407,
+          "balanced_accuracy": 0.6115978306216103,
+          "sensitivity": 0.5957446808510638,
+          "specificity": 0.6274509803921569,
+          "brier": 0.24373695307479273
+        },
+        {
+          "auc": 0.5807259073842302,
+          "balanced_accuracy": 0.582186065915728,
+          "sensitivity": 0.5957446808510638,
+          "specificity": 0.5686274509803921,
+          "brier": 0.25306472108197436
+        },
+        {
+          "auc": 0.5684883882631067,
+          "balanced_accuracy": 0.5876095118898623,
+          "sensitivity": 0.5673758865248227,
+          "specificity": 0.6078431372549019,
+          "brier": 0.25951272272063314
+        },
+        {
+          "auc": 0.605896259212905,
+          "balanced_accuracy": 0.6284939507717981,
+          "sensitivity": 0.6099290780141844,
+          "specificity": 0.6470588235294118,
+          "brier": 0.24837754710455676
+        }
+      ]
+    }
+  ],
+  "comparisons": [
+    {
+      "comparison": "roi_demographics - demographics",
+      "role": "primary",
+      "delta_auc": 0.2335419274092616,
+      "conditional_ci95": [
+        0.13672090112640803,
+        0.3217271589486857
+      ]
+    },
+    {
+      "comparison": "roi - demographics",
+      "role": "secondary",
+      "delta_auc": 0.25804477819496585,
+      "conditional_ci95": [
+        0.16486719510499245,
+        0.34410721735502714
+      ]
+    },
+    {
+      "comparison": "patterns - demographics",
+      "role": "secondary",
+      "delta_auc": 0.22708941732721455,
+      "conditional_ci95": [
+        0.11254415241273817,
+        0.3350069531358639
+      ]
+    }
+  ],
+  "limitations": [
+    "Patient/control group is not momentary pain presence. Healthy volunteers also receive task stimuli.",
+    "Task-evoked ROI/signature responses cannot be concatenated with resting-state AAL90 FC.",
+    "Single published cohort; internal exploratory validation, not independent clinical validation.",
+    "Author-derived features and original raw-image QC not independently reconstructed; motion/stimulus calibration residual confounding remains.",
+    "Author ROI/design choices may reflect cohort-level knowledge; nested fitting does not erase this.",
+    "Pattern training-sample independence not fully re-audited; signature model remains secondary.",
+    "Conditional bootstrap intervals omit model-training and feature-design uncertainty; repeat SD is not a confidence interval.",
+    "Clinical baseline pain_avg still unavailable; no pain-severity regression performed."
+  ],
+  "verification": {
+    "state": "VERIFIED",
+    "verified_at": "2026-09-24T19:29:22.155147+08:00",
+    "refit_outer_models": 100,
+    "refit_inner_models": 1200,
+    "prediction_max_error": 0.0,
+    "inner_auc_max_error": 0.0,
+    "manual_probability_max_error": 0.0,
+    "identical_person_memberships": true,
+    "raw_image_QC_reperformed": false,
+    "sklearn_auc_max_error": 5.551115123125783e-17,
+    "null_shape_and_pvalues_recomputed": true
+  },
+  "null_diagnostic": {
+    "status": "COMPLETE",
+    "permutations": 99,
+    "nested_fits_per_permutation": 975,
+    "total_fits": 96525,
+    "reason": "Added after observing demographic AUC below chance; diagnostic, not preregistered confirmation.",
+    "label_null": "Unrestricted person-label permutation; refits scaling and inner selection; regenerates identical-design stratified folds for each permuted label vector.",
+    "boundary": "Unconditional global association test, not a conditional neural increment test. Three unadjusted exploratory p-values, resolution 0.01. Exchangeability assumes independent people; group-informed feature design and unmeasured confounds are not removed.",
+    "rows": [
+      {
+        "method": "demographics",
+        "observed_mean_repeat_oof_auc": 0.37538589904046726,
+        "mean_within_fold_auc": 0.3787147335423197,
+        "null_mean": 0.4966151572743146,
+        "null_95_percentile_range": [
+          0.39555346961479626,
+          0.5853212348769294
+        ],
+        "permutation_p_upper_unadjusted": 0.99,
+        "permutation_p_lower_diagnostic": 0.02
+      },
+      {
+        "method": "roi_demographics",
+        "observed_mean_repeat_oof_auc": 0.6089278264497289,
+        "mean_within_fold_auc": 0.6198549037169727,
+        "null_mean": 0.4987468904031274,
+        "null_95_percentile_range": [
+          0.3950771798080934,
+          0.6082895285773884
+        ],
+        "permutation_p_upper_unadjusted": 0.04,
+        "permutation_p_lower_diagnostic": 0.97
+      },
+      {
+        "method": "roi",
+        "observed_mean_repeat_oof_auc": 0.6334306772354331,
+        "mean_within_fold_auc": 0.6416690550828481,
+        "null_mean": 0.4981670410122643,
+        "null_95_percentile_range": [
+          0.3904380475594493,
+          0.6020080656376026
+        ],
+        "permutation_p_upper_unadjusted": 0.01,
+        "permutation_p_lower_diagnostic": 1.0
+      }
+    ],
+    "reference": {
+      "majority_accuracy": 0.734375,
+      "majority_balanced_accuracy": 0.5,
+      "train_prevalence_oof_brier": 0.19511177883305145
+    }
+  }
+}

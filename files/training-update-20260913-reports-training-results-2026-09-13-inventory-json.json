@@ -1,0 +1,3701 @@
+{
+  "exported_at": "2026-09-13T11:34:53.117163+00:00",
+  "state": "LOCAL_EXPERIMENTS_COMPLETE_EXTERNAL_PENDING",
+  "artifacts": [
+    {
+      "source": "tmp/sequential-improvement-20260913/01_labels/status.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/01_labels/status.json",
+      "removed_fields": {
+        "pid": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/01_labels/summary.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/01_labels/summary.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/01_labels/verification.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/01_labels/verification.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/config.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/config.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat1-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat1-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat1-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat1-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat1-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat1-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat1-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat1-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat1-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat1-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat1-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat1-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat1-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat1-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat1-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat1-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat1-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat1-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat1-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat1-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat2-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat2-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat2-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat2-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat2-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat2-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat2-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat2-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat2-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat2-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat2-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat2-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat2-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat2-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat2-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat2-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat2-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat2-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat2-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat2-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat3-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat3-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat3-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat3-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat3-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat3-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat3-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat3-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat3-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat3-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat3-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat3-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat3-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat3-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat3-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat3-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat3-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat3-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat3-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat3-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat4-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat4-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat4-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat4-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat4-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat4-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat4-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat4-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat4-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat4-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat4-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat4-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat4-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat4-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat4-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat4-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat4-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat4-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat4-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat4-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat5-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat5-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat5-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat5-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat5-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat5-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat5-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat5-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat5-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat5-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat5-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat5-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat5-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat5-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat5-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat5-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat5-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat5-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/primary99/repeat5-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/primary99/repeat5-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/report.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/report.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat1-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat1-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat1-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat1-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat1-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat1-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat1-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat1-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat1-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat1-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat1-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat1-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat1-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat1-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat1-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat1-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat1-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat1-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat1-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat1-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat2-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat2-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat2-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat2-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat2-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat2-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat2-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat2-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat2-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat2-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat2-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat2-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat2-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat2-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat2-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat2-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat2-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat2-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat2-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat2-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat3-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat3-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat3-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat3-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat3-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat3-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat3-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat3-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat3-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat3-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat3-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat3-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat3-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat3-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat3-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat3-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat3-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat3-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat3-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat3-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat4-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat4-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat4-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat4-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat4-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat4-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat4-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat4-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat4-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat4-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat4-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat4-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat4-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat4-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat4-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat4-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat4-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat4-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat4-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat4-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat5-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat5-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat5-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat5-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat5-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat5-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat5-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat5-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat5-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat5-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat5-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat5-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat5-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat5-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat5-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat5-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat5-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat5-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 6,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/sensitivity96/repeat5-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/sensitivity96/repeat5-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/status.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/status.json",
+      "removed_fields": {
+        "pid": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/summary.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/summary.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/verification.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/verification.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/config.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/config.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat1-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat1-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat1-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat1-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat1-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat1-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat1-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat1-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat1-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat1-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat1-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat1-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat1-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat1-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat1-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat1-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat1-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat1-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat1-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat1-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat2-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat2-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat2-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat2-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat2-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat2-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat2-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat2-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat2-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat2-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat2-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat2-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat2-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat2-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat2-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat2-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat2-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat2-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat2-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat2-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat3-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat3-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat3-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat3-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat3-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat3-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat3-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat3-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat3-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat3-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat3-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat3-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat3-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat3-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat3-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat3-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat3-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat3-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat3-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat3-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat4-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat4-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat4-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat4-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat4-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat4-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat4-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat4-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat4-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat4-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat4-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat4-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat4-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat4-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat4-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat4-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat4-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat4-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat4-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat4-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat5-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat5-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat5-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat5-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat5-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat5-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat5-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat5-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat5-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat5-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat5-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat5-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat5-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat5-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat5-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat5-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat5-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat5-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/primary99/repeat5-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/primary99/repeat5-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/report.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/report.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat1-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat1-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat1-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat1-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat1-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat1-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat1-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat1-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat1-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat1-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat1-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat1-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat1-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat1-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat1-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat1-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat1-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat1-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat1-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat1-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat2-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat2-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat2-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat2-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat2-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat2-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat2-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat2-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat2-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat2-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat2-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat2-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat2-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat2-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat2-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat2-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat2-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat2-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat2-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat2-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat3-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat3-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat3-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat3-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat3-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat3-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat3-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat3-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat3-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat3-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat3-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat3-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat3-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat3-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat3-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat3-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat3-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat3-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat3-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat3-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat4-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat4-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat4-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat4-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat4-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat4-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat4-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat4-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat4-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat4-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat4-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat4-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat4-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat4-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat4-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat4-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat4-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat4-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat4-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat4-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat5-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat5-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat5-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat5-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat5-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat5-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat5-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat5-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat5-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat5-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat5-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat5-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat5-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat5-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat5-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat5-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat5-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat5-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 17,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 15,
+        "training_oof_probabilities": 1,
+        "calibrator_coef": 1,
+        "calibrator_intercept": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/sensitivity96/repeat5-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/sensitivity96/repeat5-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/status.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/status.json",
+      "removed_fields": {
+        "pid": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/summary.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/summary.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/verification.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/verification.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/config.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/config.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat1-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat1-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat1-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat1-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat1-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat1-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat1-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat1-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat1-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat1-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat1-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat1-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat1-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat1-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat1-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat1-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat1-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat1-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat1-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat1-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat2-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat2-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat2-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat2-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat2-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat2-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat2-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat2-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat2-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat2-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat2-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat2-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat2-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat2-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat2-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat2-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat2-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat2-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat2-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat2-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat3-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat3-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat3-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat3-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat3-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat3-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat3-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat3-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat3-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat3-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat3-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat3-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat3-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat3-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat3-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat3-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat3-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat3-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat3-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat3-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat4-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat4-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat4-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat4-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat4-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat4-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat4-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat4-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat4-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat4-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat4-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat4-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat4-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat4-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat4-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat4-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat4-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat4-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat4-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat4-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat5-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat5-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat5-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat5-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat5-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat5-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat5-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat5-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat5-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat5-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat5-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat5-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat5-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat5-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat5-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat5-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat5-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat5-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/primary99/repeat5-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/primary99/repeat5-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/report.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/report.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat1-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat1-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat1-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat1-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat1-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat1-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat1-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat1-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat1-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat1-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat1-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat1-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat1-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat1-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat1-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat1-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat1-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat1-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat1-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat1-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat2-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat2-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat2-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat2-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat2-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat2-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat2-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat2-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat2-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat2-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat2-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat2-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat2-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat2-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat2-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat2-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat2-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat2-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat2-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat2-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat3-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat3-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat3-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat3-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat3-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat3-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat3-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat3-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat3-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat3-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat3-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat3-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat3-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat3-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat3-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat3-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat3-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat3-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat3-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat3-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat4-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat4-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat4-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat4-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat4-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat4-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat4-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat4-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat4-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat4-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat4-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat4-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat4-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat4-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat4-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat4-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat4-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat4-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat4-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat4-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat5-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat5-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat5-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat5-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat5-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat5-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat5-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat5-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat5-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat5-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat5-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat5-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat5-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat5-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat5-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat5-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat5-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat5-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/sensitivity96/repeat5-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/sensitivity96/repeat5-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/status.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/status.json",
+      "removed_fields": {
+        "pid": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/summary.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/summary.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/verification.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/verification.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/config.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/config.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat1-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat1-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat1-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat1-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat1-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat1-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat1-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat1-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat1-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat1-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat1-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat1-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat1-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat1-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat1-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat1-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat1-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat1-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat1-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat1-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat2-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat2-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat2-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat2-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat2-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat2-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat2-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat2-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat2-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat2-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat2-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat2-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat2-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat2-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat2-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat2-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat2-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat2-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat2-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat2-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat3-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat3-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat3-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat3-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat3-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat3-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat3-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat3-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat3-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat3-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat3-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat3-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat3-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat3-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat3-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat3-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat3-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat3-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat3-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat3-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat4-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat4-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat4-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat4-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat4-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat4-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat4-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat4-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat4-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat4-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat4-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat4-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat4-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat4-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat4-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat4-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat4-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat4-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat4-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat4-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat5-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat5-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat5-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat5-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat5-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat5-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat5-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat5-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat5-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat5-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat5-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat5-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat5-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat5-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat5-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat5-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat5-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat5-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/primary99/repeat5-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/primary99/repeat5-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/report.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/report.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat1-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat1-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat1-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat1-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat1-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat1-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat1-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat1-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat1-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat1-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat1-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat1-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat1-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat1-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat1-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat1-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat1-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat1-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat1-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat1-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat2-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat2-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat2-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat2-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat2-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat2-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat2-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat2-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat2-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat2-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat2-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat2-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat2-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat2-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat2-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat2-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat2-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat2-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat2-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat2-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat3-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat3-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat3-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat3-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat3-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat3-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat3-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat3-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat3-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat3-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat3-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat3-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat3-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat3-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat3-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat3-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat3-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat3-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat3-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat3-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat4-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat4-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat4-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat4-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat4-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat4-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat4-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat4-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat4-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat4-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat4-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat4-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat4-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat4-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat4-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat4-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat4-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat4-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat4-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat4-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat5-fold1/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat5-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat5-fold1/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat5-fold1/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat5-fold2/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat5-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat5-fold2/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat5-fold2/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat5-fold3/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat5-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat5-fold3/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat5-fold3/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat5-fold4/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat5-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat5-fold4/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat5-fold4/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat5-fold5/audit.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat5-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 64,
+        "test_ids": 1,
+        "source_fit_ids": 1,
+        "validation_ids": 48,
+        "covariate_fit_ids": 60,
+        "source_identity_detail": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sensitivity96/repeat5-fold5/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sensitivity96/repeat5-fold5/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source10_s20260908_epochs30/training.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source10_s20260908_epochs30/training.json",
+      "removed_fields": {
+        "source_fit_ids": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source10_s20260908_epochs30/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source10_s20260908_epochs30/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source10_s20260908_steps60/training.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source10_s20260908_steps60/training.json",
+      "removed_fields": {
+        "source_fit_ids": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source10_s20260908_steps60/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source10_s20260908_steps60/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source10_s20260909_epochs30/training.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source10_s20260909_epochs30/training.json",
+      "removed_fields": {
+        "source_fit_ids": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source10_s20260909_epochs30/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source10_s20260909_epochs30/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source10_s20260909_steps60/training.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source10_s20260909_steps60/training.json",
+      "removed_fields": {
+        "source_fit_ids": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source10_s20260909_steps60/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source10_s20260909_steps60/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source10_s20260910_epochs30/training.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source10_s20260910_epochs30/training.json",
+      "removed_fields": {
+        "source_fit_ids": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source10_s20260910_epochs30/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source10_s20260910_epochs30/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source10_s20260910_steps60/training.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source10_s20260910_steps60/training.json",
+      "removed_fields": {
+        "source_fit_ids": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source10_s20260910_steps60/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source10_s20260910_steps60/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source25_s20260908_epochs30/training.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source25_s20260908_epochs30/training.json",
+      "removed_fields": {
+        "source_fit_ids": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source25_s20260908_epochs30/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source25_s20260908_epochs30/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source25_s20260908_steps60/training.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source25_s20260908_steps60/training.json",
+      "removed_fields": {
+        "source_fit_ids": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source25_s20260908_steps60/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source25_s20260908_steps60/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source25_s20260909_epochs30/training.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source25_s20260909_epochs30/training.json",
+      "removed_fields": {
+        "source_fit_ids": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source25_s20260909_epochs30/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source25_s20260909_epochs30/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source25_s20260909_steps60/training.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source25_s20260909_steps60/training.json",
+      "removed_fields": {
+        "source_fit_ids": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source25_s20260909_steps60/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source25_s20260909_steps60/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source25_s20260910_epochs30/training.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source25_s20260910_epochs30/training.json",
+      "removed_fields": {
+        "source_fit_ids": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source25_s20260910_epochs30/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source25_s20260910_epochs30/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source25_s20260910_steps60/training.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source25_s20260910_steps60/training.json",
+      "removed_fields": {
+        "source_fit_ids": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source25_s20260910_steps60/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source25_s20260910_steps60/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source50_s20260908_epochs30_steps60/training.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source50_s20260908_epochs30_steps60/training.json",
+      "removed_fields": {
+        "source_fit_ids": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source50_s20260908_epochs30_steps60/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source50_s20260908_epochs30_steps60/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source50_s20260909_epochs30_steps60/training.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source50_s20260909_epochs30_steps60/training.json",
+      "removed_fields": {
+        "source_fit_ids": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source50_s20260909_epochs30_steps60/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source50_s20260909_epochs30_steps60/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source50_s20260910_epochs30_steps60/training.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source50_s20260910_epochs30_steps60/training.json",
+      "removed_fields": {
+        "source_fit_ids": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/sources/source50_s20260910_epochs30_steps60/verified.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/sources/source50_s20260910_epochs30_steps60/verified.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/status.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/status.json",
+      "removed_fields": {
+        "pid": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/summary.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/summary.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/verification.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/verification.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/06_clinical_readiness/status.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/06_clinical_readiness/status.json",
+      "removed_fields": {
+        "pid": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/06_clinical_readiness/summary.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/06_clinical_readiness/summary.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/06_clinical_readiness/verification.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/06_clinical_readiness/verification.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/final_review.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/final_review.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/helper_verification.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/helper_verification.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/pipeline_status.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/pipeline_status.json",
+      "removed_fields": {
+        "pid": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/startup_failure_psutil.json",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/startup_failure_psutil.json",
+      "removed_fields": {
+        "pid": 1
+      }
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/01_labels/REPORT.md",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/01_labels/REPORT.md",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/REPORT.md",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/REPORT.md",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/02_budget/aggregate_metrics.tsv",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/02_budget/aggregate_metrics.tsv",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/REPORT.md",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/REPORT.md",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/03_heads/aggregate_metrics.tsv",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/03_heads/aggregate_metrics.tsv",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/REPORT.md",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/REPORT.md",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/04_regularization/aggregate_metrics.tsv",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/04_regularization/aggregate_metrics.tsv",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/REPORT.md",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/REPORT.md",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/sequential-improvement-20260913/05_learning_curve/aggregate_metrics.tsv",
+      "file": "reports/training-results-2026-09-13/sequential-improvement/05_learning_curve/aggregate_metrics.tsv",
+      "removed_fields": {}
+    },
+    {
+      "source": "workspace-local/operations/20260913-training-review/audit_summary.json",
+      "file": "reports/training-results-2026-09-13/training-review/audit_summary.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "workspace-local/operations/20260913-training-review/site_pair_decomposition.json",
+      "file": "reports/training-results-2026-09-13/training-review/site_pair_decomposition.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "workspace-local/operations/20260913-training-review/recomputed_metrics.csv",
+      "file": "reports/training-results-2026-09-13/training-review/recomputed_metrics.csv",
+      "removed_fields": {}
+    },
+    {
+      "source": "workspace-local/operations/20260913-training-review/audit_metrics.py",
+      "file": "reports/training-results-2026-09-13/training-review/audit_metrics.py",
+      "removed_fields": {}
+    },
+    {
+      "source": "workspace-local/operations/20260913-training-review/decompose_site_pairs.py",
+      "file": "reports/training-results-2026-09-13/training-review/decompose_site_pairs.py",
+      "removed_fields": {}
+    },
+    {
+      "source": "workspace-local/operations/20260913-sequential-improvement/PLAN.md",
+      "file": "reports/training-results-2026-09-13/PLAN.md",
+      "removed_fields": {}
+    },
+    {
+      "source": "workspace-local/docs/SEQUENTIAL_IMPROVEMENT_2026-09-13.md",
+      "file": "docs/SEQUENTIAL_IMPROVEMENT_2026-09-13.md",
+      "removed_fields": {}
+    },
+    {
+      "source": "workspace-local/docs/SEQUENTIAL_IMPROVEMENT_CONCLUSIONS_2026-09-13.md",
+      "file": "docs/SEQUENTIAL_IMPROVEMENT_CONCLUSIONS_2026-09-13.md",
+      "removed_fields": {}
+    },
+    {
+      "source": "workspace-local/docs/TRAINING_METRICS_REVIEW_2026-09-13.md",
+      "file": "docs/TRAINING_METRICS_REVIEW_2026-09-13.md",
+      "removed_fields": {}
+    }
+  ],
+  "metric_rows": 174389,
+  "stages": [
+    "01_labels",
+    "02_budget",
+    "03_heads",
+    "04_regularization",
+    "05_learning_curve",
+    "06_clinical_readiness"
+  ]
+}

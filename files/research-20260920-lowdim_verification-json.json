@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "units": 115,
+  "final_models_replayed_and_independently_refit": 230,
+  "inner_models_independently_refit": 2940,
+  "max_replay_error": 0.0,
+  "max_refit_prediction_error": 0.0,
+  "rows": 39,
+  "paired_comparisons": 210
+}

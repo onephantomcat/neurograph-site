@@ -1,0 +1,445 @@
+{
+  "artifact_version": 1,
+  "generated_at": "2026-08-24T03:46:48.957986+00:00",
+  "analysis_role": "preregistered_external_validation",
+  "evidence_status": "PREREGISTERED_APPROXIMATE_CROSS_ATLAS_EXTERNAL_VALIDATION",
+  "question": "Does an OA-trained classifier using the fixed DS005713 FC encoder outperform the prespecified raw-FC comparator on independent SRPBS Osaka pain versus healthy participants?",
+  "success_criterion": {
+    "primary_contrast": "AUC(ds005713 fixed encoder) - AUC(raw FC)",
+    "alternative": "greater",
+    "threshold": "observed delta > 0 and one-sided paired label-permutation p < 0.05",
+    "met": false
+  },
+  "inputs": {
+    "oa_dataset": {
+      "file_name": "oa_aal90_multifeature.npz",
+      "bytes": 1857214,
+      "sha256": "e2a6fa729f6899c86a0829c58677d049c434188754bdf3063f0a4d609bfdf60e"
+    },
+    "checkpoint": {
+      "file_name": "external_source_fc_encoder.npz",
+      "bytes": 2964073,
+      "sha256": "9c88cb271eba739cc2019bd12d4a7f04131f8550c44a6005b9778570692089f4"
+    },
+    "osaka_matrix": {
+      "file_name": "BAL-Osaka_FC_NP_N82.mat",
+      "bytes": 6126290,
+      "sha256": "7595b4b07cda1531dd34efae0a6faa2325062b9b0cda451d12c49c34aa59c48b"
+    },
+    "osaka_metadata": {
+      "file_name": "SUBINFO_OsakaU_N82.tsv",
+      "bytes": 3950,
+      "sha256": "475d32b6222ca14cac3ffdb9593792451df7128843570d5c483d70de52c8fc4e"
+    },
+    "bal_roi_table": {
+      "file_name": "ROITBL_BAL.mat",
+      "bytes": 49703210,
+      "sha256": "d0acf3ce54d8e43f47da85e207c64b0b08d99de4d72f5609f4ecbbac4a3e1835"
+    },
+    "aal_atlas": {
+      "file_name": "AAL_61x73x61_YCG.nii",
+      "bytes": 271985,
+      "sha256": "d5412c7da63f75e0c0a7cd314e948fb655ae6cd6bd2e936b72b7fa81304ccca5"
+    }
+  },
+  "oa_training": {
+    "cohort_version": "phase1-n62-primary",
+    "subjects": 62,
+    "controls": 18,
+    "patients": 44,
+    "subject_ids_sha256": "f0a0ad09f8e63d0acfb528f9dee9f65f749dfccbf655c0797404f4d042404ff6",
+    "external_labels_used_in_fit": false,
+    "classifier": "balanced L2 logistic regression",
+    "inner_selection": "3-fold stratified OA-only CV by ROC AUC; StandardScaler and SelectKBest remain inside the fitted pipeline"
+  },
+  "external_cohort": {
+    "subjects": 82,
+    "condition_counts": {
+      "1": 43,
+      "0": 29,
+      "2": 10
+    },
+    "site_by_condition": {
+      "site=1|condition=0": 27,
+      "site=1|condition=1": 38,
+      "site=1|condition=2": 9,
+      "site=2|condition=0": 2,
+      "site=2|condition=1": 5,
+      "site=2|condition=2": 1
+    },
+    "left_pain_count": 21,
+    "minimum_reconstructed_eigenvalue": -2.958743416799861e-14,
+    "row_alignment_basis": "Official release README states that FC rows and adjacent metadata rows represent the same ordered 82 participants; the MAT has no embedded IDs.",
+    "subject_ids_sha256": "b69e8cea0bd528cfa26684888a7fdbc024ec50e9cfb0233addab21698ec5d0d1",
+    "oa_subject_overlap_count": 0
+  },
+  "crosswalk": {
+    "source_map_shape": [
+      91,
+      109,
+      91,
+      137
+    ],
+    "source_roi_count": 137,
+    "target_roi_count": 90,
+    "target_voxels_min": 195,
+    "target_voxels_max": 5107,
+    "row_weight_sum_max_abs_error": 2.220446049250313e-16,
+    "mean_total_probability_quantiles": {
+      "0.0": 0.19155068953557464,
+      "0.05": 0.2501167527502407,
+      "0.25": 0.4233583489153606,
+      "0.5": 0.5167319009239129,
+      "0.75": 0.5987321990445708,
+      "0.95": 0.7803992590901317,
+      "1.0": 0.8524231418070101
+    },
+    "effective_source_count_quantiles": {
+      "0.0": 1.0289267695073019,
+      "0.05": 1.3011148825334058,
+      "0.25": 2.4977435985600502,
+      "0.5": 3.5856922287647124,
+      "0.75": 4.774199014307267,
+      "0.95": 5.942253046240028,
+      "1.0": 7.065627495945538
+    },
+    "largest_source_weight_quantiles": {
+      "0.0": 0.2175151555683949,
+      "0.05": 0.25498104277778655,
+      "0.25": 0.320642071568738,
+      "0.5": 0.40798725910660294,
+      "0.75": 0.5744424860795647,
+      "0.95": 0.8685937303570879,
+      "1.0": 0.9858108772634175
+    },
+    "minimum_supported_target_label": 22,
+    "minimum_mean_total_probability": 0.19155068953557464,
+    "source_roi_policy": "BAL/BSA ROI 1..137; L.CB/R.CB/VERM excluded",
+    "weight_definition": "Integrated BAL probability mass within each resampled AAL90 label, row-normalized across BAL sources",
+    "correlation_projection": "R_AAL = standardize(W R_BAL W.T), treating BAL ROI signals as standardized",
+    "bal_affine": [
+      [
+        -2.0,
+        0.0,
+        0.0,
+        90.0
+      ],
+      [
+        0.0,
+        2.0,
+        0.0,
+        -126.0
+      ],
+      [
+        0.0,
+        0.0,
+        2.0,
+        -72.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "hemisphere_centroid_audit": {
+      "left_named": 69,
+      "left_with_negative_x": 69,
+      "right_named": 68,
+      "right_with_positive_x": 68,
+      "all_named_hemispheres_match": true,
+      "left_centroid_x_range": [
+        -61.02966626450353,
+        -3.221966759589648
+      ],
+      "right_centroid_x_range": [
+        4.011422770408899,
+        61.14109464749404
+      ]
+    },
+    "official_orientation_minimum_eigenvalue": -1.2278746590581801e-14,
+    "native_orientation_minimum_eigenvalue": -1.2278746590581801e-14
+  },
+  "orientation": {
+    "official_left_pain_flips": 21,
+    "native_orientation_correction": "Swap consecutive AAL90 L/R node pairs after projection for the 21 documented left-pain rows",
+    "sensitivity_orientation": "Official pain-side-flipped orientation retained"
+  },
+  "fixed_encoder": {
+    "checkpoint_sha256": "9c88cb271eba739cc2019bd12d4a7f04131f8550c44a6005b9778570692089f4",
+    "state_sha256": "4abcb9679d1533e0453db5c18fcedc33f998282003dc8698251abda480a6e26b",
+    "scaler_sha256": "14669fbcb273083cd18c50b3276e73fe5340ddcc4105b68a2622b6991fbc0248",
+    "protocol": {
+      "batch_size": 32,
+      "hidden_dim": 64,
+      "input_dim": 4005,
+      "latent_dim": 32,
+      "learning_rate": 0.001,
+      "seed": 20260810,
+      "source_epochs": 30
+    },
+    "oa_scaled_distribution": {
+      "absolute_z_quantiles": {
+        "0.0": 2.6395130703349423e-07,
+        "0.5": 0.7525942325592041,
+        "0.9": 1.9724998712539672,
+        "0.95": 2.404769349098205,
+        "0.99": 3.29172959804535,
+        "1.0": 6.766645908355713
+      },
+      "fraction_abs_z_gt_3": 0.017449961741371672,
+      "fraction_abs_z_gt_5": 0.00018525230558575975,
+      "fraction_abs_z_gt_10": 0.0
+    },
+    "srpbs_native_scaled_distribution": {
+      "absolute_z_quantiles": {
+        "0.0": 4.484653800318483e-06,
+        "0.5": 0.7010669112205505,
+        "0.9": 1.849844574928284,
+        "0.95": 2.3136815428733826,
+        "0.99": 3.629821128845203,
+        "1.0": 20.944517135620117
+      },
+      "fraction_abs_z_gt_3": 0.019579184555890503,
+      "fraction_abs_z_gt_5": 0.004016321062087025,
+      "fraction_abs_z_gt_10": 0.00041716147498553635
+    },
+    "oa_reconstruction_mse": 1.3672395944595337,
+    "srpbs_native_reconstruction_mse": 1.486649990081787
+  },
+  "model_fit": {
+    "raw_fc_logistic": {
+      "best_params": {
+        "model__C": 0.1,
+        "select__k": 32
+      }
+    },
+    "ds005713_fixed_fc_ssl_logistic": {
+      "best_params": {
+        "model__C": 10.0,
+        "select__k": 16
+      }
+    }
+  },
+  "primary_external_endpoint": {
+    "endpoint": "pain_vs_healthy",
+    "site_filter": null,
+    "subjects": 72,
+    "pain": 43,
+    "no_pain": 29,
+    "models": {
+      "raw_fc_logistic": {
+        "roc_auc": 0.3159582999198075,
+        "average_precision": 0.4862461351941494,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.429831595829992,
+        "sensitivity": 0.7906976744186046,
+        "specificity": 0.06896551724137931,
+        "f1": 0.6538461538461539,
+        "brier_score": 0.3627352418350421,
+        "expected_calibration_error": 0.3398112986776751
+      },
+      "ds005713_fixed_fc_ssl_logistic": {
+        "roc_auc": 0.3696872493985565,
+        "average_precision": 0.5594763047862767,
+        "accuracy": 0.4166666666666667,
+        "balanced_accuracy": 0.4611066559743384,
+        "sensitivity": 0.23255813953488372,
+        "specificity": 0.6896551724137931,
+        "f1": 0.3225806451612903,
+        "brier_score": 0.5516751445552014,
+        "expected_calibration_error": 0.5568039482304239
+      }
+    },
+    "contrast": {
+      "metric": "roc_auc",
+      "direction": "ds005713_fixed_minus_raw",
+      "observed": 0.05372894947874901
+    },
+    "paired_stratified_bootstrap": {
+      "samples": 10000,
+      "raw_auc_95_ci": [
+        0.19727345629510826,
+        0.4450882117080992
+      ],
+      "encoder_auc_95_ci": [
+        0.243785084202085,
+        0.4979951884522855
+      ],
+      "delta_auc_95_ci": [
+        -0.10264635124298316,
+        0.21090617481956692
+      ]
+    },
+    "paired_label_permutation": {
+      "samples": 10000,
+      "seed": 20260824,
+      "alternative": "greater",
+      "delta_auc_add_one_p": 0.2628737126287371,
+      "encoder_auc_add_one_p": 0.9693030696930307
+    }
+  },
+  "secondary_external_endpoint": {
+    "endpoint": "pain_vs_all_no_pain",
+    "site_filter": null,
+    "subjects": 82,
+    "pain": 43,
+    "no_pain": 39,
+    "models": {
+      "raw_fc_logistic": {
+        "roc_auc": 0.3464519976147883,
+        "average_precision": 0.43123847457564424,
+        "accuracy": 0.45121951219512196,
+        "balanced_accuracy": 0.4338103756708408,
+        "sensitivity": 0.7906976744186046,
+        "specificity": 0.07692307692307693,
+        "f1": 0.6017699115044248,
+        "brier_score": 0.38956269918197745,
+        "expected_calibration_error": 0.35046410068890577
+      },
+      "ds005713_fixed_fc_ssl_logistic": {
+        "roc_auc": 0.4084675014907573,
+        "average_precision": 0.5152817300130956,
+        "accuracy": 0.47560975609756095,
+        "balanced_accuracy": 0.48807394156231365,
+        "sensitivity": 0.23255813953488372,
+        "specificity": 0.7435897435897436,
+        "f1": 0.31746031746031744,
+        "brier_score": 0.49302428411169497,
+        "expected_calibration_error": 0.4948967108210367
+      }
+    },
+    "contrast": {
+      "metric": "roc_auc",
+      "direction": "ds005713_fixed_minus_raw",
+      "observed": 0.06201550387596899
+    },
+    "paired_stratified_bootstrap": {
+      "samples": 10000,
+      "raw_auc_95_ci": [
+        0.23433214072748956,
+        0.469886702444842
+      ],
+      "encoder_auc_95_ci": [
+        0.2886106141920096,
+        0.5348837209302326
+      ],
+      "delta_auc_95_ci": [
+        -0.09361955873583788,
+        0.21824686940966012
+      ]
+    }
+  },
+  "sensitivity_analyses": {
+    "site_1_only_pain_vs_healthy": {
+      "endpoint": "pain_vs_healthy",
+      "site_filter": 1,
+      "subjects": 65,
+      "pain": 38,
+      "no_pain": 27,
+      "models": {
+        "raw_fc_logistic": {
+          "roc_auc": 0.3050682261208577,
+          "average_precision": 0.4714601789708509,
+          "accuracy": 0.47692307692307695,
+          "balanced_accuracy": 0.4186159844054581,
+          "sensitivity": 0.7631578947368421,
+          "specificity": 0.07407407407407407,
+          "f1": 0.6304347826086957,
+          "brier_score": 0.37457641376306455,
+          "expected_calibration_error": 0.3523805674408465
+        },
+        "ds005713_fixed_fc_ssl_logistic": {
+          "roc_auc": 0.37037037037037035,
+          "average_precision": 0.5521185087281962,
+          "accuracy": 0.4153846153846154,
+          "balanced_accuracy": 0.45175438596491224,
+          "sensitivity": 0.23684210526315788,
+          "specificity": 0.6666666666666666,
+          "f1": 0.32142857142857145,
+          "brier_score": 0.5522720903574729,
+          "expected_calibration_error": 0.5520692833273156
+        }
+      },
+      "contrast": {
+        "metric": "roc_auc",
+        "direction": "ds005713_fixed_minus_raw",
+        "observed": 0.06530214424951264
+      },
+      "paired_stratified_bootstrap": {
+        "samples": 10000,
+        "raw_auc_95_ci": [
+          0.18031189083820665,
+          0.437646198830409
+        ],
+        "encoder_auc_95_ci": [
+          0.2339181286549708,
+          0.5097465886939572
+        ],
+        "delta_auc_95_ci": [
+          -0.09161793372319688,
+          0.22417153996101363
+        ]
+      }
+    },
+    "official_pain_side_orientation_pain_vs_healthy": {
+      "endpoint": "pain_vs_healthy",
+      "site_filter": null,
+      "subjects": 72,
+      "pain": 43,
+      "no_pain": 29,
+      "models": {
+        "raw_fc_logistic": {
+          "roc_auc": 0.36246992782678433,
+          "average_precision": 0.5010062461659972,
+          "accuracy": 0.5972222222222222,
+          "balanced_accuracy": 0.5112269446672013,
+          "sensitivity": 0.9534883720930233,
+          "specificity": 0.06896551724137931,
+          "f1": 0.7387387387387387,
+          "brier_score": 0.3319410766103453,
+          "expected_calibration_error": 0.3069397583177382
+        },
+        "ds005713_fixed_fc_ssl_logistic": {
+          "roc_auc": 0.3809141940657578,
+          "average_precision": 0.5834196737449155,
+          "accuracy": 0.4305555555555556,
+          "balanced_accuracy": 0.4727345629510826,
+          "sensitivity": 0.2558139534883721,
+          "specificity": 0.6896551724137931,
+          "f1": 0.3492063492063492,
+          "brier_score": 0.5437403650080019,
+          "expected_calibration_error": 0.5705391853894402
+        }
+      },
+      "contrast": {
+        "metric": "roc_auc",
+        "direction": "ds005713_fixed_minus_raw",
+        "observed": 0.018444266238973495
+      },
+      "paired_stratified_bootstrap": {
+        "samples": 10000,
+        "raw_auc_95_ci": [
+          0.23654771451483558,
+          0.5004009623095429
+        ],
+        "encoder_auc_95_ci": [
+          0.25180433039294303,
+          0.5140336808340016
+        ],
+        "delta_auc_95_ci": [
+          -0.14995990376904572,
+          0.18604651162790697
+        ]
+      }
+    }
+  },
+  "limitations": [
+    "BAL140 ROI time series were unavailable; AAL90 FC is a deterministic but lossy projection of official BAL correlations.",
+    "The official left-pain image flip is approximately undone after AAL90 projection; atlas asymmetry prevents exact inversion.",
+    "OA patient/control status is confounded with OA acquisition cohort and preprocessing provenance.",
+    "SRPBS probabilities are not recalibrated on external labels; threshold metrics and Brier score therefore test transport as-is.",
+    "This validates research discrimination only, not pain severity, diagnosis, or clinical utility."
+  ]
+}

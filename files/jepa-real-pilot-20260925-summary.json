@@ -1,0 +1,70 @@
+{
+  "date": "2026-09-25",
+  "summary": "Brain-JEPA已接入1例真实开发数据：450区均有有效时序，得到768维表示；完整网络独立公式误差3.16e-06。本轮没有分类拟合或新AUC。",
+  "boundary": "一例技术接入不能代表全99人或精度改善。部分颞极区域分析掩膜交集偏低，最低17.4%；原QC与审核意见不变。",
+  "next": "下一步复用首例，完成原99人450区无标签覆盖核对；在原79的训练内部，用相同中心160帧比较FC、随机编码器与官方预训练表示，再按内部证据决定是否进入后续评价。",
+  "extraction": {
+    "state": "ONE_REAL_INPUT_NUMERIC_READY",
+    "shape": [
+      240,
+      450
+    ],
+    "source_qc": "PASS",
+    "tr_seconds": 2.5,
+    "missing_regions": 0,
+    "constant_regions": 0,
+    "minimum_used_voxels": 10,
+    "minimum_tian_voxels": 10,
+    "minimum_cortical_voxels": 15,
+    "regions_under5": 0,
+    "regions_under10": 0,
+    "analysis_empty_regions": 0,
+    "minimum_reference_fraction": 0.6972477064220184,
+    "minimum_analysis_fraction": 0.17391304347826086,
+    "overlap_voxels": 15,
+    "mapping_different_voxels": [
+      0,
+      0
+    ],
+    "roi_mean_formula_max_abs": 6.92741131125274e-06,
+    "aal_reextraction_max_abs": 0.0,
+    "pearson_formula_max_abs": 1.887379141862766e-15,
+    "elapsed_seconds": 4.860576625913382,
+    "labels_used": false,
+    "training_inclusion_changed": false
+  },
+  "inference": {
+    "state": "ONE_REAL_INPUT_ENCODER_VERIFIED",
+    "participants": 1,
+    "input_shape": [
+      1,
+      1,
+      450,
+      160
+    ],
+    "feature_shape": [
+      1,
+      768
+    ],
+    "strict_load": true,
+    "checkpoint_key": "target_encoder",
+    "normalization": "whole participant 450x240 scalar mean and sample std before crop",
+    "normalization_numpy_max_abs": 4.065566541200383e-07,
+    "frame_start_zero_based": 40,
+    "frame_stop_exclusive": 200,
+    "unique_frames": 160,
+    "tr_seconds": 2.5,
+    "window_duration_seconds": 400,
+    "first_last_time_difference_seconds": 397.5,
+    "full_formula_max_abs": 3.159046173095703e-06,
+    "full_cosine_error": 1.7881393432617188e-07,
+    "repeat_max_abs": 0.0,
+    "elapsed_seconds": 9.405999999995402,
+    "peak_gpu_allocated_bytes": 539240448,
+    "labels_used": false,
+    "classification_fits": 0,
+    "pain_auc": null,
+    "scope": "One existing development participant, downstream adaptation; no performance or whole-cohort coverage claim"
+  },
+  "visual_scope": "8 axial levels, ROI coverage plot and 3 orthogonal views of lowest-overlap ROI; technical residual-BOLD preview only"
+}

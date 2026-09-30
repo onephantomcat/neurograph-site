@@ -1,0 +1,130 @@
+{
+  "artifact_version": 1,
+  "evidence_status": "FORMAL_LABEL_PERMUTATION_TEST",
+  "scope": {
+    "source_run_directory": "[本机路径已省略]",
+    "source_result_sha256": "a175adc36d7a5a53afe49d76c5b87301e4e23d2aaa43e4ceadeadcf43d37fe32",
+    "source_predictions_sha256": "56c3b1d0c69ca4021994650b5ec6a8bb7cf29b247577d7f2e200f9aa2c586674",
+    "source_checkpoint_sha256": "f78a7401f26b82c2a1c116877ecf4b35acc2f1ff037c4b8fab2abb026ae73d14",
+    "target_dataset_sha256": "e2a6fa729f6899c86a0829c58677d049c434188754bdf3063f0a4d609bfdf60e",
+    "fold_sha256": "7b66c6eaad306348a149ab22978cea2ee0f2aea364e92a95b386cda0d24b4ca5",
+    "target_cohort": "phase1-n62-primary",
+    "target_subjects": 62,
+    "external_source_cohort": "abide1-dparsf-filt_global-fc-primary-n972-v1",
+    "permutation_runs": 1000,
+    "base_seed": 20260811,
+    "execution_workers": 8,
+    "methods": [
+      "raw_fc_logistic",
+      "oa_internal_fc_ssl_logistic",
+      "abide_external_fc_ssl_logistic"
+    ],
+    "prespecified_primary_contrast": "fixed_vs_internal_auc_delta",
+    "secondary_contrasts": [
+      "fixed_vs_raw_auc_delta",
+      "fixed_vs_raw_brier_improvement",
+      "fixed_vs_internal_brier_improvement"
+    ]
+  },
+  "permutation_contract": {
+    "unit": "one target-subject label vector shared across all repeats",
+    "label_counts_preserved": true,
+    "outer_folds": "frozen from the source run",
+    "representations": "label-free fold representations rebuilt once and verified by model/scaler hashes",
+    "classifier": "refitted for every permutation; inner stratified CV, scaling, SelectKBest, and C selection repeated",
+    "invalid_draw_policy": "reject only draws lacking the prespecified minority count in an outer-train fold",
+    "test_direction": "one-sided add-one empirical p; larger transfer advantage is stronger",
+    "multiplicity": "Only fixed_vs_internal_auc_delta is primary; secondary p-values are descriptive and unadjusted"
+  },
+  "observed": {
+    "method_metrics": {
+      "raw_fc_logistic": {
+        "roc_auc": 0.5702861952861952,
+        "brier_score": 0.28409769400670337
+      },
+      "oa_internal_fc_ssl_logistic": {
+        "roc_auc": 0.5715488215488215,
+        "brier_score": 0.2538540500905593
+      },
+      "abide_external_fc_ssl_logistic": {
+        "roc_auc": 0.6043771043771043,
+        "brier_score": 0.27061458724802623
+      }
+    },
+    "contrasts": {
+      "fixed_vs_raw_auc_delta": 0.03409090909090917,
+      "fixed_vs_internal_auc_delta": 0.03282828282828287,
+      "fixed_vs_raw_brier_improvement": 0.013483106758677144,
+      "fixed_vs_internal_brier_improvement": -0.016760537157466948
+    }
+  },
+  "empirical_tests": {
+    "fixed_vs_raw_auc_delta": {
+      "alternative": "observed transfer advantage is greater than the permuted-label null",
+      "observed": 0.03409090909090917,
+      "permutations_at_least_observed": 312,
+      "permutation_runs": 1000,
+      "add_one_empirical_p": 0.3126873126873127,
+      "minimum_attainable_p": 0.000999000999000999,
+      "null_mean": -0.010569023569023572,
+      "null_std": 0.09718116398339384,
+      "null_min": -0.3055555555555557,
+      "null_max": 0.31186868686868685
+    },
+    "fixed_vs_internal_auc_delta": {
+      "alternative": "observed transfer advantage is greater than the permuted-label null",
+      "observed": 0.03282828282828287,
+      "permutations_at_least_observed": 357,
+      "permutation_runs": 1000,
+      "add_one_empirical_p": 0.35764235764235763,
+      "minimum_attainable_p": 0.000999000999000999,
+      "null_mean": 0.00302104377104377,
+      "null_std": 0.09064011078175385,
+      "null_min": -0.23779461279461273,
+      "null_max": 0.27483164983164976
+    },
+    "fixed_vs_raw_brier_improvement": {
+      "alternative": "observed transfer advantage is greater than the permuted-label null",
+      "observed": 0.013483106758677144,
+      "permutations_at_least_observed": 670,
+      "permutation_runs": 1000,
+      "add_one_empirical_p": 0.6703296703296703,
+      "minimum_attainable_p": 0.000999000999000999,
+      "null_mean": 0.033708190962457876,
+      "null_std": 0.04468955892261516,
+      "null_min": -0.11546463048126718,
+      "null_max": 0.16825783443781278
+    },
+    "fixed_vs_internal_brier_improvement": {
+      "alternative": "observed transfer advantage is greater than the permuted-label null",
+      "observed": -0.016760537157466948,
+      "permutations_at_least_observed": 184,
+      "permutation_runs": 1000,
+      "add_one_empirical_p": 0.1848151848151848,
+      "minimum_attainable_p": 0.000999000999000999,
+      "null_mean": -0.04390615801855296,
+      "null_std": 0.029584003042207208,
+      "null_min": -0.13492037267519325,
+      "null_max": 0.04939127165684612
+    }
+  },
+  "audit": {
+    "fold_representation_count": 45,
+    "unique_permuted_label_vectors": 1000,
+    "all_source_run_artifacts_verified": true,
+    "all_representation_hashes_reproduced": true,
+    "total_rejected_draws": 0
+  },
+  "software": {
+    "external_transfer_sha256": "64a8842af8f3162a0a1eecb9b51b744c0c084825d1adb2231847f036d4724b55",
+    "external_transfer_permutation_sha256": "49e220f887296a0f812137b75675cc3e558d50166b6cad833bbbca52265f9ea4",
+    "numpy": "2.5.1"
+  },
+  "interpretation_limits": [
+    "A low-resolution run is an implementation sanity check, not a significance result.",
+    "The test addresses association inside the frozen OA repeated-CV design, not external clinical validity.",
+    "ABIDE remains a diagnosis-free self-supervised source and is not a pain validation cohort.",
+    "The OA endpoint remains patient versus control and is confounded with the originating study/cohort."
+  ],
+  "research_notice": "Research use only - clinician review required"
+}

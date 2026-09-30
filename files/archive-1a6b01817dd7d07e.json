@@ -1,0 +1,22 @@
+{
+  "evidence_status": "REAL_DATA_SMOKE_ONLY",
+  "source_epochs": 1,
+  "internal_epochs": 1,
+  "adaptation_epochs": 1,
+  "latent_dim": 8,
+  "hidden_dim": 16,
+  "learning_rate": 0.001,
+  "batch_size": 8,
+  "seed": 20260904,
+  "outer_splits": 2,
+  "inner_splits": 2,
+  "classifier_c": [
+    1.0
+  ],
+  "selected_features": 4,
+  "split_policy": "subject-ID-level label-stratified technical folds, not independent site validation",
+  "clinical_interpretation": "Pain vs Healthy code only; disease subtype and VAS definitions unresolved",
+  "prepared_directory": "workspace-local/operations/20260904-training-preparation/prepared-confirmed",
+  "snapshot_path": "workspace-local/operations/20260904-training-preparation/confirmed_snapshot.json",
+  "started_at": "2026-09-04T14:24:53.158459+00:00"
+}

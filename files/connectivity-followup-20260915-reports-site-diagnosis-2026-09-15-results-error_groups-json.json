@@ -1,0 +1,184 @@
+{
+  "groups": [
+    {
+      "design": "primary99",
+      "site": "OSU",
+      "label": 0,
+      "n": 19,
+      "mean_probability": 0.5254526122746765,
+      "error_rate": 0.5263157894736841,
+      "always_wrong": 7,
+      "correlation_scope": "descriptive Spearman; repeated predictions averaged within person; no causal claim or confirmatory p value",
+      "error_correlations": {
+        "age": 0.42826863647382707,
+        "mean_fd": 0.3833481687981598,
+        "censor_fraction": 0.4304508510326806
+      }
+    },
+    {
+      "design": "primary99",
+      "site": "OSU",
+      "label": 1,
+      "n": 27,
+      "mean_probability": 0.6729887164317858,
+      "error_rate": 0.15555555555555556,
+      "always_wrong": 1,
+      "correlation_scope": "descriptive Spearman; repeated predictions averaged within person; no causal claim or confirmatory p value",
+      "error_correlations": {
+        "age": 0.0015271596797383489,
+        "mean_fd": 0.292421797067582,
+        "censor_fraction": 0.36540769592668476
+      }
+    },
+    {
+      "design": "primary99",
+      "site": "CIN",
+      "label": 0,
+      "n": 33,
+      "mean_probability": 0.30831009873563053,
+      "error_rate": 0.16363636363636364,
+      "always_wrong": 4,
+      "correlation_scope": "descriptive Spearman; repeated predictions averaged within person; no causal claim or confirmatory p value",
+      "error_correlations": {
+        "age": 0.3168446473722267,
+        "mean_fd": -0.07634668015470714,
+        "censor_fraction": -0.1774769928440388
+      }
+    },
+    {
+      "design": "primary99",
+      "site": "CIN",
+      "label": 1,
+      "n": 17,
+      "mean_probability": 0.4734923537347896,
+      "error_rate": 0.6117647058823529,
+      "always_wrong": 8,
+      "correlation_scope": "descriptive Spearman; repeated predictions averaged within person; no causal claim or confirmatory p value",
+      "error_correlations": {
+        "age": -0.5188795041768124,
+        "mean_fd": 0.27658239522927436,
+        "censor_fraction": 0.26451031444385664
+      }
+    },
+    {
+      "design": "sensitivity96",
+      "site": "OSU",
+      "label": 0,
+      "n": 19,
+      "mean_probability": 0.5463819120677663,
+      "error_rate": 0.5263157894736842,
+      "always_wrong": 7,
+      "correlation_scope": "descriptive Spearman; repeated predictions averaged within person; no causal claim or confirmatory p value",
+      "error_correlations": {
+        "age": 0.3488155482784997,
+        "mean_fd": 0.3121472367904246,
+        "censor_fraction": 0.3625973203932933
+      }
+    },
+    {
+      "design": "sensitivity96",
+      "site": "OSU",
+      "label": 1,
+      "n": 27,
+      "mean_probability": 0.6938809663079397,
+      "error_rate": 0.13333333333333333,
+      "always_wrong": 0,
+      "correlation_scope": "descriptive Spearman; repeated predictions averaged within person; no causal claim or confirmatory p value",
+      "error_correlations": {
+        "age": -0.10018367524454441,
+        "mean_fd": 0.29185310904281964,
+        "censor_fraction": 0.3236620888978318
+      }
+    },
+    {
+      "design": "sensitivity96",
+      "site": "CIN",
+      "label": 0,
+      "n": 33,
+      "mean_probability": 0.31223361748620226,
+      "error_rate": 0.14545454545454545,
+      "always_wrong": 2,
+      "correlation_scope": "descriptive Spearman; repeated predictions averaged within person; no causal claim or confirmatory p value",
+      "error_correlations": {
+        "age": 0.44766604775360685,
+        "mean_fd": 0.08911148364078336,
+        "censor_fraction": -0.20643018840299102
+      }
+    },
+    {
+      "design": "sensitivity96",
+      "site": "CIN",
+      "label": 1,
+      "n": 17,
+      "mean_probability": 0.47498883608170855,
+      "error_rate": 0.5764705882352942,
+      "always_wrong": 7,
+      "correlation_scope": "descriptive Spearman; repeated predictions averaged within person; no causal claim or confirmatory p value",
+      "error_correlations": {
+        "age": -0.6051693844414879,
+        "mean_fd": 0.16225692698867047,
+        "censor_fraction": 0.27530549180405217
+      }
+    },
+    {
+      "design": "OSU-to-CIN",
+      "site": "CIN",
+      "label": 0,
+      "n": 33,
+      "mean_probability": 0.45211833576753957,
+      "error_rate": 0.36363636363636365,
+      "always_wrong": 12,
+      "correlation_scope": "descriptive Spearman; repeated predictions averaged within person; no causal claim or confirmatory p value",
+      "error_correlations": {
+        "age": 0.2585530181114695,
+        "mean_fd": 0.01323140310062408,
+        "censor_fraction": -0.17841394760258497
+      }
+    },
+    {
+      "design": "OSU-to-CIN",
+      "site": "CIN",
+      "label": 1,
+      "n": 17,
+      "mean_probability": 0.5158931031840082,
+      "error_rate": 0.48235294117647054,
+      "always_wrong": 8,
+      "correlation_scope": "descriptive Spearman; repeated predictions averaged within person; no causal claim or confirmatory p value",
+      "error_correlations": {
+        "age": -0.2607137126249369,
+        "mean_fd": 0.22278319716975173,
+        "censor_fraction": 0.2608745973749754
+      }
+    },
+    {
+      "design": "CIN-to-OSU",
+      "site": "OSU",
+      "label": 0,
+      "n": 19,
+      "mean_probability": 0.5764336069913724,
+      "error_rate": 0.7368421052631579,
+      "always_wrong": 14,
+      "correlation_scope": "descriptive Spearman; repeated predictions averaged within person; no causal claim or confirmatory p value",
+      "error_correlations": {
+        "age": 0.470615561186052,
+        "mean_fd": 0.30550504633038933,
+        "censor_fraction": 0.40374258663297874
+      }
+    },
+    {
+      "design": "CIN-to-OSU",
+      "site": "OSU",
+      "label": 1,
+      "n": 27,
+      "mean_probability": 0.6203129671929238,
+      "error_rate": 0.1111111111111111,
+      "always_wrong": 3,
+      "correlation_scope": "descriptive Spearman; repeated predictions averaged within person; no causal claim or confirmatory p value",
+      "error_correlations": {
+        "age": -0.2970040631839714,
+        "mean_fd": 0.16643757148392066,
+        "censor_fraction": 0.10884482237494651
+      }
+    }
+  ]
+}

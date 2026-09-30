@@ -1,0 +1,41 @@
+# OA AAL90 leakage-safe nested-CV baseline
+
+## Outcome
+
+- Dataset: 64 subjects (18 controls, 46 patients).
+- Outer validation: RepeatedStratifiedKFold(5 folds x 3 repeats).
+- Inner selection: StratifiedKFold(3 folds) grid search by ROC AUC.
+- All preprocessing and feature selection occur inside training folds.
+- Decision threshold is fixed at 0.5; held-out labels are never used to optimize it.
+
+## Primary repeated nested-CV results
+
+Primary values are the mean and sample SD across repeat-level OOF metrics. The final column is a secondary cross-fitted ensemble estimate with a conditional descriptive bootstrap interval.
+
+| Feature set | Features | Repeat OOF ROC AUC | Repeat OOF balanced accuracy | Sensitivity | Specificity | Brier | Cross-fit ensemble AUC (conditional 95% interval) |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| demographics | 2 | 0.401 +/- 0.033 | 0.426 +/- 0.017 | 0.536 | 0.315 | 0.258 | 0.353 [0.208, 0.494] |
+| timepoints (nuisance) | 1 | 0.606 +/- 0.032 | 0.684 +/- 0.000 | 0.978 | 0.389 | 0.241 | 0.568 [0.386, 0.751] |
+| source pipeline (nuisance) | 1 | 0.346 +/- 0.042 | 0.395 +/- 0.043 | 0.420 | 0.370 | 0.251 | 0.324 [0.187, 0.473] |
+| combined nuisance | 4 | 0.517 +/- 0.043 | 0.582 +/- 0.033 | 0.775 | 0.389 | 0.244 | 0.495 [0.297, 0.691] |
+| fc | 4005 | 0.589 +/- 0.097 | 0.551 +/- 0.119 | 0.601 | 0.500 | 0.262 | 0.628 [0.478, 0.766] |
+| nodes | 360 | 0.682 +/- 0.025 | 0.630 +/- 0.028 | 0.594 | 0.667 | 0.250 | 0.711 [0.530, 0.864] |
+| combined | 4365 | 0.673 +/- 0.030 | 0.617 +/- 0.021 | 0.659 | 0.574 | 0.235 | 0.691 [0.534, 0.826] |
+
+## Interpretation limits
+
+- This is a classical leakage-safety baseline, not the final GAT/BrainHGT comparison.
+- This OA cohort is a methods-development sample and not an external neuropathic-pain validation cohort.
+- Control status is the HC cohort while patient status is Study1/Study2, so the endpoint is perfectly confounded with study/cohort membership; imaging performance cannot be attributed specifically to disease.
+- Scan length and QC attrition are also entangled with the endpoint.
+- The shared mask harmonizes the four voxelwise node metrics; FC retains validated original/repair ROI-signal pipelines and was not re-extracted under that mask.
+- The primary estimate is the mean and SD of repeat-level OOF metrics; the repeat-averaged cross-fit ensemble is secondary.
+- The conditional subject bootstrap does not include split, model-refit, feature-family-selection, or external-cohort uncertainty.
+- Feature families are reported in parallel; choosing the best observed family after evaluation would be optimistic.
+- Class-balanced logistic probabilities are not calibrated clinical risks; 0.5 is only a fixed benchmark threshold.
+- The fixed 0.5 threshold avoids the legacy optimistic threshold selection on held-out labels.
+- The timepoints-only row is a nuisance diagnostic, not a candidate diagnostic model.
+
+## Next model gate
+
+Migrate GCN/GAT/BrainHGT only after this leakage-safe baseline and the AAL90 data contract pass independent review. The graph-model comparison must reuse the same subject IDs and outer folds, and any threshold or hyperparameter selection must remain inside training data.

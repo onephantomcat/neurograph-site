@@ -1,0 +1,12 @@
+{
+  "state": "COMPLETE",
+  "completed_permutations": 1000,
+  "requested_permutations": 1000,
+  "workers": 2,
+  "attempt": "repository-local/tmp/clinical-permutation-20260908/resume_attempts/20260908T161140867798Z",
+  "resumed_from": 716,
+  "updated_at": "2026-09-08T16:45:09.537756+00:00",
+  "elapsed_seconds": 9551.812000000005,
+  "resume_elapsed_seconds": 2008.6719999999987,
+  "independent_readback": "PASS"
+}

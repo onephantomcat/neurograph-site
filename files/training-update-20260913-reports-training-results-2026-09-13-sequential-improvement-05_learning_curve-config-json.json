@@ -1,0 +1,129 @@
+{
+  "sources": [
+    {
+      "method": "source10_s20260908_epochs30",
+      "subjects": 10,
+      "seed": 20260908,
+      "regime": "epochs30",
+      "epochs": 30,
+      "optimizer_steps": 30
+    },
+    {
+      "method": "source10_s20260908_steps60",
+      "subjects": 10,
+      "seed": 20260908,
+      "regime": "steps60",
+      "epochs": 60,
+      "optimizer_steps": 60
+    },
+    {
+      "method": "source25_s20260908_epochs30",
+      "subjects": 25,
+      "seed": 20260908,
+      "regime": "epochs30",
+      "epochs": 30,
+      "optimizer_steps": 30
+    },
+    {
+      "method": "source25_s20260908_steps60",
+      "subjects": 25,
+      "seed": 20260908,
+      "regime": "steps60",
+      "epochs": 60,
+      "optimizer_steps": 60
+    },
+    {
+      "method": "source50_s20260908_epochs30_steps60",
+      "subjects": 50,
+      "seed": 20260908,
+      "regime": "epochs30_steps60",
+      "epochs": 30,
+      "optimizer_steps": 60
+    },
+    {
+      "method": "source10_s20260909_epochs30",
+      "subjects": 10,
+      "seed": 20260909,
+      "regime": "epochs30",
+      "epochs": 30,
+      "optimizer_steps": 30
+    },
+    {
+      "method": "source10_s20260909_steps60",
+      "subjects": 10,
+      "seed": 20260909,
+      "regime": "steps60",
+      "epochs": 60,
+      "optimizer_steps": 60
+    },
+    {
+      "method": "source25_s20260909_epochs30",
+      "subjects": 25,
+      "seed": 20260909,
+      "regime": "epochs30",
+      "epochs": 30,
+      "optimizer_steps": 30
+    },
+    {
+      "method": "source25_s20260909_steps60",
+      "subjects": 25,
+      "seed": 20260909,
+      "regime": "steps60",
+      "epochs": 60,
+      "optimizer_steps": 60
+    },
+    {
+      "method": "source50_s20260909_epochs30_steps60",
+      "subjects": 50,
+      "seed": 20260909,
+      "regime": "epochs30_steps60",
+      "epochs": 30,
+      "optimizer_steps": 60
+    },
+    {
+      "method": "source10_s20260910_epochs30",
+      "subjects": 10,
+      "seed": 20260910,
+      "regime": "epochs30",
+      "epochs": 30,
+      "optimizer_steps": 30
+    },
+    {
+      "method": "source10_s20260910_steps60",
+      "subjects": 10,
+      "seed": 20260910,
+      "regime": "steps60",
+      "epochs": 60,
+      "optimizer_steps": 60
+    },
+    {
+      "method": "source25_s20260910_epochs30",
+      "subjects": 25,
+      "seed": 20260910,
+      "regime": "epochs30",
+      "epochs": 30,
+      "optimizer_steps": 30
+    },
+    {
+      "method": "source25_s20260910_steps60",
+      "subjects": 25,
+      "seed": 20260910,
+      "regime": "steps60",
+      "epochs": 60,
+      "optimizer_steps": 60
+    },
+    {
+      "method": "source50_s20260910_epochs30_steps60",
+      "subjects": 50,
+      "seed": 20260910,
+      "regime": "epochs30_steps60",
+      "epochs": 30,
+      "optimizer_steps": 60
+    }
+  ],
+  "nested_sampling": "One random permutation per seed, prefixes 10/25/50",
+  "pool_subjects": 50,
+  "sampling_does_not_use_target_labels_or_scores": true,
+  "reference": "30epoch and 60 optimizer updates; 50-person regimes coincide",
+  "interpretation": "Fixed steps do not mean equal sample exposure or equal batch composition"
+}

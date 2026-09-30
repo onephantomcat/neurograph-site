@@ -1,0 +1,1 @@
+{"content": "- dataset.path=[本机路径已省略]\r\n- dataset.batch_size=16\r\n- dataset.test_batch_size=16\r\n- dataset.val_batch_size=16\r\n- model.dice_path=[本机路径已省略]\r\n- training.epochs=1\r\n- repeat_time=1\r\n- log_path=[本机路径已省略]\r\n- best_model_path=[本机路径已省略]\r\n- save_model=false\n", "truncated": false}

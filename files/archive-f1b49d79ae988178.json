@@ -1,0 +1,394 @@
+{
+  "artifact_version": 1,
+  "evidence_status": "SYNTHETIC_SMOKE_ONLY",
+  "dataset": {
+    "path": "repository-local/tmp/transfer-smoke-tupz94dm/synthetic_aal90.npz",
+    "sha256": "c9f7652f9c6c238ab95c01258b1fc33dabd0447cd5cdce65f742e3f85e6b0f98",
+    "cohort_version": "synthetic-transfer-smoke",
+    "subjects": 16,
+    "controls": 8,
+    "patients": 8
+  },
+  "fold_contract": {
+    "path": "repository-local/tmp/transfer-smoke-tupz94dm/synthetic_folds.tsv",
+    "sha256": "5d8aad8775a2319367c19e4f1954e643c30551646048318b75324b7928aeb5ca",
+    "outer_splits": 2,
+    "repeats": 1,
+    "subject_level_coverage_verified": true
+  },
+  "protocol": {
+    "outer_test_use": "one inference call after all fold fitting",
+    "self_supervised_source": "current outer-training fold only",
+    "representation_scaling": "per-edge/per-node, fitted on outer training only",
+    "classifier": "balanced L2 logistic regression",
+    "classifier_selection": "2-fold StratifiedKFold grid search by ROC AUC; scaling and SelectKBest are inside the pipeline",
+    "decision_threshold": 0.5,
+    "epochs": 1,
+    "learning_rate": 0.001,
+    "batch_size": 32,
+    "latent_dim": 8,
+    "hidden_dim": 16,
+    "seed": 19,
+    "method_policy": "parallel prespecified ablation; no observed winner selection"
+  },
+  "method_definitions": {
+    "raw_combined_logistic": "upper-triangle FC plus flattened AAL90 node features",
+    "ssl_reconstruction_logistic": "outer-train-only reconstruction encoder, no pain prior",
+    "pain_prior_ssl_logistic": "same encoder with 24-ROI initialization and pain-subgraph reconstruction emphasis"
+  },
+  "models": {
+    "raw_combined_logistic": {
+      "repeat_oof_metrics": [
+        {
+          "repeat": 1,
+          "roc_auc": 0.53125,
+          "average_precision": 0.5860771173271173,
+          "accuracy": 0.4375,
+          "balanced_accuracy": 0.4375,
+          "sensitivity": 0.125,
+          "specificity": 0.75,
+          "f1": 0.18181818181818182,
+          "brier_score": 0.28642401616891533,
+          "expected_calibration_error": 0.334938750485
+        }
+      ],
+      "repeat_oof_mean_std": {
+        "roc_auc": {
+          "mean": 0.53125,
+          "std": 0.0
+        },
+        "average_precision": {
+          "mean": 0.5860771173271173,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.4375,
+          "std": 0.0
+        },
+        "balanced_accuracy": {
+          "mean": 0.4375,
+          "std": 0.0
+        },
+        "sensitivity": {
+          "mean": 0.125,
+          "std": 0.0
+        },
+        "specificity": {
+          "mean": 0.75,
+          "std": 0.0
+        },
+        "f1": {
+          "mean": 0.18181818181818182,
+          "std": 0.0
+        },
+        "brier_score": {
+          "mean": 0.28642401616891533,
+          "std": 0.0
+        },
+        "expected_calibration_error": {
+          "mean": 0.334938750485,
+          "std": 0.0
+        }
+      },
+      "repeat_averaged_oof_metrics": {
+        "roc_auc": 0.53125,
+        "average_precision": 0.5860771173271173,
+        "accuracy": 0.4375,
+        "balanced_accuracy": 0.4375,
+        "sensitivity": 0.125,
+        "specificity": 0.75,
+        "f1": 0.18181818181818182,
+        "brier_score": 0.28642401616891533,
+        "expected_calibration_error": 0.334938750485
+      }
+    },
+    "ssl_reconstruction_logistic": {
+      "repeat_oof_metrics": [
+        {
+          "repeat": 1,
+          "roc_auc": 0.375,
+          "average_precision": 0.46037087912087915,
+          "accuracy": 0.4375,
+          "balanced_accuracy": 0.4375,
+          "sensitivity": 0.5,
+          "specificity": 0.375,
+          "f1": 0.47058823529411764,
+          "brier_score": 0.38069196070156086,
+          "expected_calibration_error": 0.44441191639375
+        }
+      ],
+      "repeat_oof_mean_std": {
+        "roc_auc": {
+          "mean": 0.375,
+          "std": 0.0
+        },
+        "average_precision": {
+          "mean": 0.46037087912087915,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.4375,
+          "std": 0.0
+        },
+        "balanced_accuracy": {
+          "mean": 0.4375,
+          "std": 0.0
+        },
+        "sensitivity": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "specificity": {
+          "mean": 0.375,
+          "std": 0.0
+        },
+        "f1": {
+          "mean": 0.47058823529411764,
+          "std": 0.0
+        },
+        "brier_score": {
+          "mean": 0.38069196070156086,
+          "std": 0.0
+        },
+        "expected_calibration_error": {
+          "mean": 0.44441191639375,
+          "std": 0.0
+        }
+      },
+      "repeat_averaged_oof_metrics": {
+        "roc_auc": 0.375,
+        "average_precision": 0.46037087912087915,
+        "accuracy": 0.4375,
+        "balanced_accuracy": 0.4375,
+        "sensitivity": 0.5,
+        "specificity": 0.375,
+        "f1": 0.47058823529411764,
+        "brier_score": 0.38069196070156086,
+        "expected_calibration_error": 0.44441191639375
+      }
+    },
+    "pain_prior_ssl_logistic": {
+      "repeat_oof_metrics": [
+        {
+          "repeat": 1,
+          "roc_auc": 0.40625,
+          "average_precision": 0.4806089743589743,
+          "accuracy": 0.5,
+          "balanced_accuracy": 0.5,
+          "sensitivity": 0.5,
+          "specificity": 0.5,
+          "f1": 0.5,
+          "brier_score": 0.3764906961857809,
+          "expected_calibration_error": 0.42530220773750005
+        }
+      ],
+      "repeat_oof_mean_std": {
+        "roc_auc": {
+          "mean": 0.40625,
+          "std": 0.0
+        },
+        "average_precision": {
+          "mean": 0.4806089743589743,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "balanced_accuracy": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "sensitivity": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "specificity": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "f1": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "brier_score": {
+          "mean": 0.3764906961857809,
+          "std": 0.0
+        },
+        "expected_calibration_error": {
+          "mean": 0.42530220773750005,
+          "std": 0.0
+        }
+      },
+      "repeat_averaged_oof_metrics": {
+        "roc_auc": 0.40625,
+        "average_precision": 0.4806089743589743,
+        "accuracy": 0.5,
+        "balanced_accuracy": 0.5,
+        "sensitivity": 0.5,
+        "specificity": 0.5,
+        "f1": 0.5,
+        "brier_score": 0.3764906961857809,
+        "expected_calibration_error": 0.42530220773750005
+      }
+    }
+  },
+  "outer_fold_metrics": [
+    {
+      "method": "raw_combined_logistic",
+      "repeat": 1,
+      "outer_fold": 1,
+      "roc_auc": 0.875,
+      "average_precision": 0.8875,
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "f1": 0.0,
+      "brier_score": 0.21528103929784598,
+      "expected_calibration_error": 0.2738017947334213
+    },
+    {
+      "method": "ssl_reconstruction_logistic",
+      "repeat": 1,
+      "outer_fold": 1,
+      "roc_auc": 0.5,
+      "average_precision": 0.5249999999999999,
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "sensitivity": 1.0,
+      "specificity": 0.0,
+      "f1": 0.6666666666666666,
+      "brier_score": 0.309106827104277,
+      "expected_calibration_error": 0.508832008347554
+    },
+    {
+      "method": "pain_prior_ssl_logistic",
+      "repeat": 1,
+      "outer_fold": 1,
+      "roc_auc": 0.4375,
+      "average_precision": 0.5011904761904762,
+      "accuracy": 0.625,
+      "balanced_accuracy": 0.625,
+      "sensitivity": 1.0,
+      "specificity": 0.25,
+      "f1": 0.7272727272727273,
+      "brier_score": 0.32673548866983515,
+      "expected_calibration_error": 0.3483541644438299
+    },
+    {
+      "method": "raw_combined_logistic",
+      "repeat": 1,
+      "outer_fold": 2,
+      "roc_auc": 0.25,
+      "average_precision": 0.5654761904761905,
+      "accuracy": 0.375,
+      "balanced_accuracy": 0.375,
+      "sensitivity": 0.25,
+      "specificity": 0.5,
+      "f1": 0.2857142857142857,
+      "brier_score": 0.3575669930101165,
+      "expected_calibration_error": 0.5658351736495799
+    },
+    {
+      "method": "ssl_reconstruction_logistic",
+      "repeat": 1,
+      "outer_fold": 2,
+      "roc_auc": 0.1875,
+      "average_precision": 0.4125,
+      "accuracy": 0.375,
+      "balanced_accuracy": 0.375,
+      "sensitivity": 0.0,
+      "specificity": 0.75,
+      "f1": 0.0,
+      "brier_score": 0.45227709430347235,
+      "expected_calibration_error": 0.5114516677425476
+    },
+    {
+      "method": "pain_prior_ssl_logistic",
+      "repeat": 1,
+      "outer_fold": 2,
+      "roc_auc": 0.25,
+      "average_precision": 0.4303571428571429,
+      "accuracy": 0.375,
+      "balanced_accuracy": 0.375,
+      "sensitivity": 0.0,
+      "specificity": 0.75,
+      "f1": 0.0,
+      "brier_score": 0.426245903713119,
+      "expected_calibration_error": 0.5664445210652586
+    }
+  ],
+  "pretraining_audit": [
+    {
+      "method": "ssl_reconstruction_logistic",
+      "repeat": 1,
+      "outer_fold": 1,
+      "source": "current_outer_training_fold_only",
+      "pretraining_subject_count": 8,
+      "pretraining_subjects_sha256": "7f76baf29d99491ef8672a829d471dff6c716e9a6c9651fed7b07bbb4e6d8073",
+      "outer_test_subject_count": 8,
+      "outer_test_subjects_sha256": "1b4b91046d49ff2c53aa226c7acf0c50d88548c77854a541fd471112cb3d5152",
+      "pretraining_test_overlap_count": 0,
+      "pretraining_test_overlap_subjects": [],
+      "final_reconstruction_loss": 2.0519890785217285
+    },
+    {
+      "method": "pain_prior_ssl_logistic",
+      "repeat": 1,
+      "outer_fold": 1,
+      "source": "current_outer_training_fold_only",
+      "pretraining_subject_count": 8,
+      "pretraining_subjects_sha256": "7f76baf29d99491ef8672a829d471dff6c716e9a6c9651fed7b07bbb4e6d8073",
+      "outer_test_subject_count": 8,
+      "outer_test_subjects_sha256": "1b4b91046d49ff2c53aa226c7acf0c50d88548c77854a541fd471112cb3d5152",
+      "pretraining_test_overlap_count": 0,
+      "pretraining_test_overlap_subjects": [],
+      "final_reconstruction_loss": 2.5492146015167236
+    },
+    {
+      "method": "ssl_reconstruction_logistic",
+      "repeat": 1,
+      "outer_fold": 2,
+      "source": "current_outer_training_fold_only",
+      "pretraining_subject_count": 8,
+      "pretraining_subjects_sha256": "1b4b91046d49ff2c53aa226c7acf0c50d88548c77854a541fd471112cb3d5152",
+      "outer_test_subject_count": 8,
+      "outer_test_subjects_sha256": "7f76baf29d99491ef8672a829d471dff6c716e9a6c9651fed7b07bbb4e6d8073",
+      "pretraining_test_overlap_count": 0,
+      "pretraining_test_overlap_subjects": [],
+      "final_reconstruction_loss": 2.079984426498413
+    },
+    {
+      "method": "pain_prior_ssl_logistic",
+      "repeat": 1,
+      "outer_fold": 2,
+      "source": "current_outer_training_fold_only",
+      "pretraining_subject_count": 8,
+      "pretraining_subjects_sha256": "1b4b91046d49ff2c53aa226c7acf0c50d88548c77854a541fd471112cb3d5152",
+      "outer_test_subject_count": 8,
+      "outer_test_subjects_sha256": "7f76baf29d99491ef8672a829d471dff6c716e9a6c9651fed7b07bbb4e6d8073",
+      "pretraining_test_overlap_count": 0,
+      "pretraining_test_overlap_subjects": [],
+      "final_reconstruction_loss": 2.577789068222046
+    }
+  ],
+  "software": {
+    "python": "3.12.13",
+    "numpy": "2.5.1",
+    "scikit_learn": "1.9.0",
+    "torch": "2.13.0+cu130",
+    "transfer_experiment_sha256": "d96d5b62a3ef3b2e6dd8d21e9b38c7bd8bb4e6bad8688a93077092eba0cc5b81",
+    "transfer_module_sha256": "83fc8a3d0e845102a261029c9d58a8eebfd7afcac795b4fe10abebf83987849a"
+  },
+  "interpretation_limits": [
+    "The current OA endpoint is patient versus control, not neuropathic-pain severity or treatment trajectory.",
+    "Patient/control status is perfectly confounded with study/cohort in this dataset.",
+    "This is internal cross-validation, not independent disease/site/scanner validation.",
+    "The pain-related ROI set is a hypothesis prior and must be interpreted only through the prespecified ablation.",
+    "The reconstruction encoder is not MeTSK, contrastive learning, SCDA, or a clinical foundation model.",
+    "Repeat-averaged OOF metrics are descriptive and do not quantify external-cohort uncertainty.",
+    "No method may be selected post hoc from these parallel results without an untouched validation cohort."
+  ],
+  "research_notice": "Research use only - clinician review required"
+}

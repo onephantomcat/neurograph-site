@@ -1,0 +1,105 @@
+{
+  "completed_at": "2026-09-25T13:31:55.542355+00:00",
+  "archive_entries": 5601,
+  "nii_suffix_entries": 4508,
+  "excluded_macos_nii_entries": 2254,
+  "real_images": 2254,
+  "unique_subject_ids": 202,
+  "subject_visits": 322,
+  "baseline_subjects": 193,
+  "followup_subjects": 129,
+  "contrasts": {
+    "con_0001.nii": 322,
+    "con_0002.nii": 322,
+    "con_0003.nii": 322,
+    "con_0004.nii": 322,
+    "con_0005.nii": 322,
+    "con_0006.nii": 322,
+    "con_0007.nii": 322
+  },
+  "readable_images": 2254,
+  "images_with_nan": 2254,
+  "images_with_inf": 0,
+  "primary_four_complete_visits": 322,
+  "primary_four_readable_visits": 322,
+  "primary_four_same_grid_visits": 322,
+  "existing_baseline_people": 192,
+  "matched_baseline_people": 192,
+  "matched_baseline_groups": {
+    "CBP": 141,
+    "HC": 51
+  },
+  "extra_baseline_image_ids": 1,
+  "missing_baseline_images": 0,
+  "new_training_inclusion": 0,
+  "motion_qc": "UNAVAILABLE",
+  "clinical_pain_labels": "UNAVAILABLE",
+  "unresolved_contrasts": [
+    "con_0005",
+    "con_0006",
+    "con_0007"
+  ],
+  "coverage": {
+    "images": 2254,
+    "finite_voxels_min": 345180,
+    "finite_voxels_max": 439565,
+    "nan_voxels_min": 18729,
+    "nan_voxels_max": 113114,
+    "within_visit_mask_difference_images": 0,
+    "paired_visits_people": 120,
+    "baseline_only_people": 73,
+    "followup_only_people": 9,
+    "baseline_coverage": [
+      {
+        "contrast": "con_0001.nii",
+        "people": 192,
+        "union_finite_voxels": 458080,
+        "all_people_finite_voxels": 285045,
+        "partially_covered_voxels": 173035
+      },
+      {
+        "contrast": "con_0002.nii",
+        "people": 192,
+        "union_finite_voxels": 458080,
+        "all_people_finite_voxels": 285045,
+        "partially_covered_voxels": 173035
+      },
+      {
+        "contrast": "con_0003.nii",
+        "people": 192,
+        "union_finite_voxels": 458080,
+        "all_people_finite_voxels": 285045,
+        "partially_covered_voxels": 173035
+      },
+      {
+        "contrast": "con_0004.nii",
+        "people": 192,
+        "union_finite_voxels": 458080,
+        "all_people_finite_voxels": 285045,
+        "partially_covered_voxels": 173035
+      }
+    ],
+    "nan_handling": "Preserved as missing; no zero imputation, smoothing, resampling or model mask selection.",
+    "note": "Finite coverage is not anatomical validity or motion QC; any predictive data-derived mask must be learned inside training folds."
+  },
+  "grid_shape": [
+    73,
+    86,
+    73
+  ],
+  "voxel_size_mm": [
+    2.683,
+    2.683,
+    2.7
+  ],
+  "technical_preview": "Two representative participants, four conditions, three center slices inspected; no anatomical overlay or formal per-subject review.",
+  "formal_visual_review": "PENDING",
+  "verification": {
+    "status": "PASS",
+    "original_zip_nifti_headers_checked": 2254,
+    "appledouble_magic_confirmed": 2254,
+    "baseline_integer_id_linkage_checked": true,
+    "scope": "Header and count/linkage cross-check; full voxel read and diagnostics performed on server; no clinical or visual approval."
+  },
+  "classification_retrained": false
+}

@@ -1,0 +1,28 @@
+{
+  "cases": 14,
+  "roi_counts_reproduced": 14,
+  "atlas_grid_match": 14,
+  "minimum_coverage_range": [
+    0.37,
+    0.9008498583569405
+  ],
+  "recovered": 0,
+  "failed_roi_case_counts": {
+    "Supp_Motor_Area_L": 12,
+    "Supp_Motor_Area_R": 13,
+    "Precentral_L": 2,
+    "Precentral_R": 3,
+    "Frontal_Sup_R": 5,
+    "Postcentral_L": 1,
+    "Postcentral_R": 2,
+    "Parietal_Sup_L": 1,
+    "Parietal_Sup_R": 2,
+    "Precuneus_L": 1,
+    "Precuneus_R": 1,
+    "Paracentral_Lobule_L": 10,
+    "Paracentral_Lobule_R": 9,
+    "Frontal_Sup_L": 4,
+    "Frontal_Sup_Medial_R": 1
+  },
+  "scope": "Aggregate of the original 14-case audit; no subject records or images published; no new MRI analysis"
+}

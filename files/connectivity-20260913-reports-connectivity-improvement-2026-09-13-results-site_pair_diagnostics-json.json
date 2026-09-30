@@ -1,0 +1,77 @@
+{
+  "results": [
+    {
+      "design": "primary99",
+      "method": "lw_fc",
+      "within_auc": 0.6146840148698884,
+      "cross_pair_auc": 0.6844346549192364,
+      "within_pairs": 1076,
+      "cross_pairs": 1362,
+      "mixed_cv_site_auc": {
+        "OSU": 0.5801169590643276,
+        "CIN": 0.6463458110516933
+      }
+    },
+    {
+      "design": "primary99",
+      "method": "lw_tangent",
+      "within_auc": 0.720446096654275,
+      "cross_pair_auc": 0.777826725403818,
+      "within_pairs": 1076,
+      "cross_pairs": 1362,
+      "mixed_cv_site_auc": {
+        "OSU": 0.7150097465886939,
+        "CIN": 0.7254901960784312
+      }
+    },
+    {
+      "design": "primary99",
+      "method": "node_strength180",
+      "within_auc": 0.54182156133829,
+      "cross_pair_auc": 0.6392070484581497,
+      "within_pairs": 1076,
+      "cross_pairs": 1362,
+      "mixed_cv_site_auc": {
+        "OSU": 0.49902534113060426,
+        "CIN": 0.5814616755793226
+      }
+    },
+    {
+      "design": "sensitivity96",
+      "method": "lw_fc",
+      "within_auc": 0.6093109869646183,
+      "cross_pair_auc": 0.6698517298187809,
+      "within_pairs": 1074,
+      "cross_pairs": 1214,
+      "mixed_cv_site_auc": {
+        "OSU": 0.56140350877193,
+        "CIN": 0.6531194295900178
+      }
+    },
+    {
+      "design": "sensitivity96",
+      "method": "lw_tangent",
+      "within_auc": 0.715828677839851,
+      "cross_pair_auc": 0.7919275123558485,
+      "within_pairs": 1074,
+      "cross_pairs": 1214,
+      "mixed_cv_site_auc": {
+        "OSU": 0.7165692007797271,
+        "CIN": 0.7151515151515152
+      }
+    },
+    {
+      "design": "sensitivity96",
+      "method": "node_strength180",
+      "within_auc": 0.5759776536312848,
+      "cross_pair_auc": 0.6662273476112027,
+      "within_pairs": 1074,
+      "cross_pairs": 1214,
+      "mixed_cv_site_auc": {
+        "OSU": 0.5754385964912281,
+        "CIN": 0.5764705882352942
+      }
+    }
+  ],
+  "interpretation": "same mixed-site OOF predictions decomposed; not site-held-out evaluation or causal adjustment"
+}

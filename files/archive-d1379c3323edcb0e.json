@@ -1,0 +1,248 @@
+{
+  "artifact_version": 1,
+  "evidence_status": "OBSERVED",
+  "cohort_version": "phase1-n62-primary-label-permutation-02",
+  "dataset_path": "[本机路径已省略]",
+  "dataset_sha256": "e91ba79ac2bb1f0a2003f1543af26649fef4ccf16c05feb4a4c27e465481ccee",
+  "fold_assignments_path": "[本机路径已省略]",
+  "fold_assignments_sha256": "460f3527797f5a856fc17f93aa17beb280640ab878a7683d55c18679d8f50bb0",
+  "contract_sha256": "4e852cec00ee99ba27b4ac5970436919261230790502ab2bb14911673e3dfe51",
+  "training_protocol_sha256": "0ba36e346092b8a10ebe1b1de72729946b088b56d6ff308d930f29ddb00d6cf8",
+  "upstream_commit": "4f411fab1163e24f0b54e9cb398fbfe5928ce833",
+  "upstream_core_files_verified": [
+    "source/__init__.py",
+    "source/models/__init__.py",
+    "source/models/BrainHGT/__init__.py",
+    "source/models/BrainHGT/model.py",
+    "source/models/BrainHGT/utils.py",
+    "source/models/BrainHGT/components/attention.py",
+    "source/models/BrainHGT/components/clustering.py"
+  ],
+  "dice_prior_path": "[本机路径已省略]",
+  "dice_prior_sha256": "72d8585be0b7b1ece367bacc80fed672e203e8bbe6ce08632b21f570ccca3272",
+  "device": "cpu",
+  "runtime": {
+    "python": "3.12.13",
+    "platform": "macOS-26.2-arm64-arm-64bit",
+    "torch": "2.13.0",
+    "torch_threads": 4,
+    "torch_interop_threads": 1,
+    "deterministic_algorithms": true
+  },
+  "feature_sets": [
+    "combined"
+  ],
+  "subjects": 62,
+  "controls": 18,
+  "patients": 44,
+  "settings": {
+    "hidden_dim": 32,
+    "heads": 4,
+    "layers": 1,
+    "dropout": 0.2,
+    "feedforward_dim": 64,
+    "encoder_hidden_dim": 16,
+    "communities": 8,
+    "batch_size": 16,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "max_epochs": 60,
+    "minimum_epochs": 10,
+    "early_stopping_patience": 10,
+    "validation_fraction": 0.2
+  },
+  "protocol": {
+    "outer_test_policy": "Each outer-test fold is evaluated exactly once after training-epoch selection and full outer-train refit.",
+    "epoch_selection": "Stratified validation split inside outer-train; selection by validation ROC AUC with validation loss tie-break.",
+    "preprocessing": "Per-channel standardization fitted inside selection-train or full outer-train, then applied to validation/test.",
+    "decision_threshold": 0.5,
+    "hyperparameter_search": false,
+    "cached_shortest_paths": true,
+    "deterministic_algorithms": true
+  },
+  "models": {
+    "combined": {
+      "primary_repeat_oof_metrics": [
+        {
+          "repeat": 1,
+          "roc_auc": 0.5227272727272727,
+          "average_precision": 0.7055578960649261,
+          "accuracy": 0.6129032258064516,
+          "balanced_accuracy": 0.49747474747474746,
+          "sensitivity": 0.7727272727272727,
+          "specificity": 0.2222222222222222,
+          "f1": 0.7391304347826086,
+          "brier_score": 0.2908469427337487,
+          "expected_calibration_error": 0.2624130897272581
+        },
+        {
+          "repeat": 2,
+          "roc_auc": 0.36742424242424243,
+          "average_precision": 0.6428576250952175,
+          "accuracy": 0.532258064516129,
+          "balanced_accuracy": 0.375,
+          "sensitivity": 0.75,
+          "specificity": 0.0,
+          "f1": 0.6947368421052632,
+          "brier_score": 0.36805161561399113,
+          "expected_calibration_error": 0.3546312021701613
+        },
+        {
+          "repeat": 3,
+          "roc_auc": 0.4255050505050505,
+          "average_precision": 0.6843885317254345,
+          "accuracy": 0.5806451612903226,
+          "balanced_accuracy": 0.4583333333333333,
+          "sensitivity": 0.75,
+          "specificity": 0.16666666666666666,
+          "f1": 0.717391304347826,
+          "brier_score": 0.33863222506758967,
+          "expected_calibration_error": 0.3286350094713548
+        }
+      ],
+      "primary_repeat_oof_mean_std": {
+        "roc_auc": {
+          "mean": 0.4385521885521886,
+          "std": 0.07846928484280835
+        },
+        "average_precision": {
+          "mean": 0.6776013509618594,
+          "std": 0.03189640045454667
+        },
+        "accuracy": {
+          "mean": 0.575268817204301,
+          "std": 0.040590507716509426
+        },
+        "balanced_accuracy": {
+          "mean": 0.44360269360269355,
+          "std": 0.06255205634034916
+        },
+        "sensitivity": {
+          "mean": 0.7575757575757575,
+          "std": 0.013121597027036937
+        },
+        "specificity": {
+          "mean": 0.12962962962962962,
+          "std": 0.11564811108145182
+        },
+        "f1": {
+          "mean": 0.7170861937452327,
+          "std": 0.022198369018024182
+        },
+        "brier_score": {
+          "mean": 0.3325102611384432,
+          "std": 0.038964717506978504
+        },
+        "expected_calibration_error": {
+          "mean": 0.3152264337895914,
+          "std": 0.04754879064700982
+        }
+      },
+      "crossfit_ensemble_metrics": {
+        "roc_auc": 0.41414141414141414,
+        "average_precision": 0.676779675764149,
+        "accuracy": 0.6129032258064516,
+        "balanced_accuracy": 0.46464646464646464,
+        "sensitivity": 0.8181818181818182,
+        "specificity": 0.1111111111111111,
+        "f1": 0.75,
+        "brier_score": 0.28811631955895733,
+        "expected_calibration_error": 0.28145871260572036
+      },
+      "crossfit_ensemble_conditional_bootstrap_95_interval": {
+        "roc_auc": [
+          0.2638573232323233,
+          0.5732638888888888
+        ],
+        "average_precision": [
+          0.6001535189678778,
+          0.7945594674422698
+        ],
+        "accuracy": [
+          0.5161290322580645,
+          0.6935483870967742
+        ],
+        "balanced_accuracy": [
+          0.375,
+          0.559375
+        ],
+        "sensitivity": [
+          0.7045454545454546,
+          0.9318181818181818
+        ],
+        "specificity": [
+          0.0,
+          0.2777777777777778
+        ],
+        "f1": [
+          0.6739130434782609,
+          0.8118811881188119
+        ],
+        "brier_score": [
+          0.2335469297693057,
+          0.34133128407184105
+        ],
+        "expected_calibration_error": [
+          0.20022837638741778,
+          0.3938860540903322
+        ]
+      },
+      "outer_fold_metrics": {
+        "roc_auc": {
+          "mean": 0.4449845679012346,
+          "std": 0.1725678900641733
+        },
+        "average_precision": {
+          "mean": 0.7453334140139697,
+          "std": 0.10735852988001243
+        },
+        "accuracy": {
+          "mean": 0.5743589743589744,
+          "std": 0.13212416637924618
+        },
+        "balanced_accuracy": {
+          "mean": 0.44583333333333336,
+          "std": 0.1192805261362638
+        },
+        "sensitivity": {
+          "mean": 0.7583333333333333,
+          "std": 0.1780813380536067
+        },
+        "specificity": {
+          "mean": 0.13333333333333333,
+          "std": 0.1776164943005549
+        },
+        "f1": {
+          "mean": 0.7087031527124404,
+          "std": 0.11122006997134753
+        },
+        "brier_score": {
+          "mean": 0.3334702240735295,
+          "std": 0.10986565863097297
+        },
+        "expected_calibration_error": {
+          "mean": 0.3461772786230479,
+          "std": 0.12877910438474763
+        }
+      },
+      "selected_epochs": {
+        "min": 10,
+        "median": 12.0,
+        "max": 20
+      },
+      "parameter_count": 124230,
+      "experiment_id": "cb9a05c1d861cc983ce4"
+    }
+  },
+  "formal_complete": true,
+  "outer_test_evaluations_per_feature": 15,
+  "readiness": "INTERNAL_VALIDATION_PENDING_ROBUSTNESS",
+  "interpretation_limits": [
+    "Internal repeated cross-validation only; no external or prospective validation.",
+    "Control status is the HC cohort while patient status is Study1/Study2; disease and study/cohort effects cannot be separated.",
+    "Architecture and fixed hyperparameters are a methods-development experiment, not a clinical model.",
+    "Attention and community assignments are not causal mechanisms or validated biomarkers.",
+    "The shared mask harmonizes the four voxelwise node metrics; FC retains validated original/repair ROI-signal pipelines and was not re-extracted under that mask."
+  ],
+  "research_notice": "Research use only - clinician review required"
+}

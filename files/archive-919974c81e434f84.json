@@ -1,0 +1,443 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "DS005713 → OA 探索性 FC 迁移分析",
+    "description": "技术报告：无监督 DS005713 AAL90 FC 表征进入 OA 内部重复交叉验证后的探索性结果。",
+    "generatedAt": "2026-08-24T03:07:41.072714Z",
+    "sources": [
+      {
+        "id": "method-metrics-source",
+        "label": "Aggregate method metrics",
+        "path": "exploratory_summary.sqlite",
+        "query": {
+          "engine": "SQLite",
+          "language": "sql",
+          "sql": "SELECT\n  rank,\n  method_id,\n  method_label,\n  roc_auc_mean,\n  roc_auc_std,\n  delta_vs_raw_auc,\n  balanced_accuracy_mean,\n  balanced_accuracy_std,\n  brier_score_mean,\n  brier_score_std\nFROM method_summary\nORDER BY rank\n",
+          "description": "Reads the repeat-mean OOF method metrics used by the chart and table.",
+          "executed_at": "2026-08-24T03:07:41.072714Z",
+          "tables_used": [
+            "method_summary"
+          ],
+          "filters": [
+            "analysis role is exploratory",
+            "target cohort is phase1-n62-primary",
+            "source is the label-free DS005713 FC package",
+            "subject-level prediction rows are excluded from the published package"
+          ],
+          "metric_definitions": [
+            "ROC AUC mean and sample SD are calculated across three complete repeat-level OOF predictions.",
+            "Balanced accuracy is the mean of sensitivity and specificity at probability threshold 0.5.",
+            "Brier score is the mean squared probability error; lower is better.",
+            "Delta versus raw AUC equals method repeat-mean AUC minus raw-FC repeat-mean AUC."
+          ]
+        }
+      },
+      {
+        "id": "headline-source",
+        "label": "Exploratory run headline",
+        "path": "exploratory_summary.sqlite",
+        "query": {
+          "engine": "SQLite",
+          "language": "sql",
+          "sql": "SELECT\n  source_dataset,\n  source_scans,\n  target_cohort,\n  target_subjects,\n  outer_splits,\n  repeats,\n  prediction_rows,\n  representation_audit_rows,\n  max_external_source_target_overlap,\n  max_target_adaptation_test_overlap,\n  fixed_source_auc,\n  raw_auc,\n  fixed_minus_raw_auc,\n  positive_fixed_minus_raw_repeats,\n  source_reconstruction_mse\nFROM headline\n",
+          "description": "Reads aggregate run counts, the primary descriptive comparison, and separation checks.",
+          "executed_at": "2026-08-24T03:07:41.072714Z",
+          "tables_used": [
+            "headline"
+          ],
+          "filters": [
+            "analysis role is exploratory",
+            "target cohort is phase1-n62-primary",
+            "source is the label-free DS005713 FC package",
+            "subject-level prediction rows are excluded from the published package"
+          ],
+          "metric_definitions": [
+            "Fixed-minus-raw AUC equals fixed DS005713 repeat-mean OOF ROC AUC minus raw-FC repeat-mean OOF ROC AUC.",
+            "Positive repeats counts repeats where the paired fixed-source AUC minus raw-FC AUC is greater than zero.",
+            "Overlap maxima are taken across all persisted representation-audit records."
+          ]
+        }
+      },
+      {
+        "id": "audit-source",
+        "label": "Published audit summary",
+        "path": "exploratory_summary.sqlite",
+        "query": {
+          "engine": "SQLite",
+          "language": "sql",
+          "sql": "SELECT\n  prediction_rows,\n  representation_audit_rows,\n  expected_prediction_rows,\n  expected_representation_audit_rows,\n  max_external_source_target_overlap,\n  max_target_adaptation_test_overlap,\n  metrics_recomputed_from_oof,\n  subject_level_payload_excluded\nFROM audit_summary\n",
+          "description": "Reads coverage, leakage-audit, recomputation, and publication-exclusion checks.",
+          "executed_at": "2026-08-24T03:07:41.072714Z",
+          "tables_used": [
+            "audit_summary"
+          ],
+          "filters": [
+            "analysis role is exploratory",
+            "target cohort is phase1-n62-primary",
+            "source is the label-free DS005713 FC package",
+            "subject-level prediction rows are excluded from the published package"
+          ],
+          "metric_definitions": [
+            "Expected predictions equal target subjects x repeats x four methods.",
+            "Expected representation audits equal repeats x outer folds x three learned-representation methods.",
+            "Metrics-recomputed is one only after the repository validator exactly reproduces result metrics from OOF predictions."
+          ]
+        }
+      },
+      {
+        "id": "protocol-source",
+        "label": "Frozen exploratory protocol",
+        "path": "DS005713_OA_EXPLORATORY_PROTOCOL_2026-08-24.md"
+      }
+    ],
+    "cards": [],
+    "charts": [
+      {
+        "id": "auc-by-method",
+        "title": "各方法的重复均值 OOF ROC AUC",
+        "subtitle": "固定 DS005713 表征在三个重复中均高于 raw FC；这是探索性描述，不是确认性推断。",
+        "headerMarkdown": "### 固定 DS005713 表征的描述性 AUC 最高",
+        "intent": "comparison",
+        "question": "四种固定方法在相同 OA 外层折上的重复均值 OOF ROC AUC 如何比较？",
+        "rationale": "四个离散方法共享一个同尺度指标，柱状图最直接；精确值和重复波动在后续表格中保留。",
+        "comparisonContext": {
+          "baseline_method": "raw_fc_logistic",
+          "analysis_role": "exploratory",
+          "outer_folds": 5,
+          "repeats": 3
+        },
+        "type": "bar",
+        "dataset": "method_metrics",
+        "sourceId": "method-metrics-source",
+        "encodings": {
+          "x": {
+            "field": "method_label",
+            "type": "nominal",
+            "label": "方法"
+          },
+          "y": {
+            "field": "roc_auc_mean",
+            "type": "quantitative",
+            "format": "number",
+            "label": "重复均值 OOF ROC AUC"
+          },
+          "tooltip": [
+            {
+              "field": "method_id",
+              "type": "text",
+              "label": "方法 ID"
+            },
+            {
+              "field": "roc_auc_mean",
+              "type": "quantitative",
+              "label": "AUC 均值"
+            },
+            {
+              "field": "roc_auc_std",
+              "type": "quantitative",
+              "label": "AUC SD"
+            },
+            {
+              "field": "delta_vs_raw_auc",
+              "type": "quantitative",
+              "label": "相对 raw AUC"
+            }
+          ]
+        },
+        "xAxisTitle": "方法",
+        "yAxisTitle": "重复均值 OOF ROC AUC",
+        "valueFormat": "number",
+        "referenceLines": [
+          {
+            "axis": "y",
+            "value": 0.5,
+            "label": "AUC 0.5"
+          }
+        ],
+        "maxRows": 4
+      }
+    ],
+    "tables": [
+      {
+        "id": "method-metrics-table",
+        "title": "四种方法的聚合指标",
+        "subtitle": "均值 ± SD 均基于三个完整重复的 OOF 结果。",
+        "headerMarkdown": "### 精确指标与波动",
+        "dataset": "method_metrics",
+        "sourceId": "method-metrics-source",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "roc_auc_mean",
+          "direction": "desc"
+        },
+        "columns": [
+          {
+            "field": "method_label",
+            "label": "方法",
+            "type": "text"
+          },
+          {
+            "field": "roc_auc_mean",
+            "label": "ROC AUC 均值",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "roc_auc_std",
+            "label": "ROC AUC SD",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "delta_vs_raw_auc",
+            "label": "相对 raw AUC",
+            "type": "number",
+            "format": "number",
+            "movement": true
+          },
+          {
+            "field": "balanced_accuracy_mean",
+            "label": "平衡准确率均值",
+            "type": "number",
+            "format": "number"
+          },
+          {
+            "field": "brier_score_mean",
+            "label": "Brier 均值",
+            "type": "number",
+            "format": "number"
+          }
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# DS005713 → OA 探索性 FC 迁移分析"
+      },
+      {
+        "id": "executive-summary",
+        "type": "markdown",
+        "sourceId": "headline-source",
+        "body": "## 结论\n\n**可以参与训练，但当前只应作为无监督外部 FC 表征来源。** DS005713 的 36 个扫描已经完整进入来源自编码器训练，并在 OA `phase1-n62-primary` 的 62 人、5 折 × 3 重复框架中完成评估。固定 DS005713 表征的重复均值 OOF ROC AUC 为 **0.751**，raw FC 为 **0.570**，描述性差值 **+0.181**；三个重复中有 3/3 个差值为正。这些数字支持继续研究，但由于分析是事后探索、来源样本小且 OA 仍是内部交叉验证，不能把它表述为外部验证、确证性增益或临床有效性。"
+      },
+      {
+        "id": "auc-chart-block",
+        "type": "chart",
+        "chartId": "auc-by-method"
+      },
+      {
+        "id": "findings",
+        "type": "markdown",
+        "sourceId": "method-metrics-source",
+        "body": "## 主要发现\n\n固定 DS005713 encoder 是四条路线中描述性结果最好的：AUC 0.751、平衡准确率 0.673、Brier 0.210。在 OA 外层训练折上再做 5 个 epoch 的重建微调后，AUC 为 0.647，低于固定来源 encoder，说明本次设定下微调并没有保留全部描述性优势。"
+      },
+      {
+        "id": "metrics-table-block",
+        "type": "table",
+        "tableId": "method-metrics-table"
+      },
+      {
+        "id": "validation",
+        "type": "markdown",
+        "sourceId": "audit-source",
+        "body": "## 数据质量与泄漏审计\n\n完整结果含 744 条 OOF 预测和 45 条表征审计记录；聚合指标已从 OOF 行独立精确重算。外部来源与 OA 目标的最大 ID 重叠为 0，OA 适配训练折与对应外层测试折的最大重叠也为 0。发布包不包含受试者 ID、逐人概率、原始数据或模型权重。"
+      },
+      {
+        "id": "methods",
+        "type": "markdown",
+        "sourceId": "protocol-source",
+        "body": "## 固定方法\n\n协议在本次结果运行前固定：来源/目标内部自编码器各 30 epoch，OA-fold 微调 5 epoch，latent 32、hidden 64、batch 32、学习率 0.001、seed 20260810；分类器仅在 OA 外层训练折内做 3 折嵌套选择。历史方法 ID 中的 `abide` 只是兼容字段，来源身份以 `DS005713` 元数据为准。"
+      },
+      {
+        "id": "limitations",
+        "type": "markdown",
+        "body": "## 限制与下一步\n\nDS005713 只有 36 个扫描（33 人，含随访），且来源重建使用全部扫描；随访相关性会降低有效独立样本量。OA 终点仍混杂研究队列，三个重复共享受试者且并非独立实验。因此当前建议是：允许它进入后续无监督表示学习和预先规定的复现实验；若要声称性能增益，应另立确认性协议并使用真正独立的 OA/疼痛验证队列。"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-08-24T03:07:41.072714Z",
+    "status": "ready",
+    "datasets": {
+      "method_metrics": [
+        {
+          "rank": 1,
+          "method_id": "raw_fc_logistic",
+          "method_label": "Raw OA FC",
+          "roc_auc_mean": 0.5702861952861952,
+          "roc_auc_std": 0.07757020598646956,
+          "delta_vs_raw_auc": 0.0,
+          "balanced_accuracy_mean": 0.5328282828282829,
+          "balanced_accuracy_std": 0.10626333438716318,
+          "brier_score_mean": 0.28409769400670337,
+          "brier_score_std": 0.04216382183908253
+        },
+        {
+          "rank": 2,
+          "method_id": "oa_internal_fc_ssl_logistic",
+          "method_label": "OA-fold SSL",
+          "roc_auc_mean": 0.5715488215488215,
+          "roc_auc_std": 0.04248757698281892,
+          "delta_vs_raw_auc": 0.0012626262626262985,
+          "balanced_accuracy_mean": 0.5462962962962964,
+          "balanced_accuracy_std": 0.03627350408487415,
+          "brier_score_mean": 0.2538540500905593,
+          "brier_score_std": 0.009963039542752183
+        },
+        {
+          "rank": 3,
+          "method_id": "abide_external_fc_ssl_logistic",
+          "method_label": "Fixed DS005713 SSL",
+          "roc_auc_mean": 0.7508417508417509,
+          "roc_auc_std": 0.08987143961763579,
+          "delta_vs_raw_auc": 0.1805555555555557,
+          "balanced_accuracy_mean": 0.672979797979798,
+          "balanced_accuracy_std": 0.11256509640415487,
+          "brier_score_mean": 0.21001244255168947,
+          "brier_score_std": 0.047264226916478795
+        },
+        {
+          "rank": 4,
+          "method_id": "abide_external_fc_ssl_oa_finetune_logistic",
+          "method_label": "DS005713 + OA-fold fine-tune",
+          "roc_auc_mean": 0.6473063973063974,
+          "roc_auc_std": 0.034952937200327536,
+          "delta_vs_raw_auc": 0.07702020202020221,
+          "balanced_accuracy_mean": 0.5635521885521886,
+          "balanced_accuracy_std": 0.04867802251389233,
+          "brier_score_mean": 0.22728349390750635,
+          "brier_score_std": 0.019157249095724676
+        }
+      ],
+      "headline": [
+        {
+          "source_dataset": "OpenNeuro ds005713 v2.0.2",
+          "source_scans": 36,
+          "target_cohort": "phase1-n62-primary",
+          "target_subjects": 62,
+          "outer_splits": 5,
+          "repeats": 3,
+          "prediction_rows": 744,
+          "representation_audit_rows": 45,
+          "max_external_source_target_overlap": 0,
+          "max_target_adaptation_test_overlap": 0,
+          "fixed_source_auc": 0.7508417508417509,
+          "raw_auc": 0.5702861952861952,
+          "fixed_minus_raw_auc": 0.1805555555555557,
+          "positive_fixed_minus_raw_repeats": 3,
+          "source_reconstruction_mse": 0.856292188167572
+        }
+      ],
+      "audit_summary": [
+        {
+          "prediction_rows": 744,
+          "representation_audit_rows": 45,
+          "expected_prediction_rows": 744,
+          "expected_representation_audit_rows": 45,
+          "max_external_source_target_overlap": 0,
+          "max_target_adaptation_test_overlap": 0,
+          "metrics_recomputed_from_oof": 1,
+          "subject_level_payload_excluded": 1
+        }
+      ]
+    },
+    "accessIssues": []
+  },
+  "sources": [
+    {
+      "id": "method-metrics-source",
+      "label": "Aggregate method metrics",
+      "path": "exploratory_summary.sqlite",
+      "query": {
+        "engine": "SQLite",
+        "language": "sql",
+        "sql": "SELECT\n  rank,\n  method_id,\n  method_label,\n  roc_auc_mean,\n  roc_auc_std,\n  delta_vs_raw_auc,\n  balanced_accuracy_mean,\n  balanced_accuracy_std,\n  brier_score_mean,\n  brier_score_std\nFROM method_summary\nORDER BY rank\n",
+        "description": "Reads the repeat-mean OOF method metrics used by the chart and table.",
+        "executed_at": "2026-08-24T03:07:41.072714Z",
+        "tables_used": [
+          "method_summary"
+        ],
+        "filters": [
+          "analysis role is exploratory",
+          "target cohort is phase1-n62-primary",
+          "source is the label-free DS005713 FC package",
+          "subject-level prediction rows are excluded from the published package"
+        ],
+        "metric_definitions": [
+          "ROC AUC mean and sample SD are calculated across three complete repeat-level OOF predictions.",
+          "Balanced accuracy is the mean of sensitivity and specificity at probability threshold 0.5.",
+          "Brier score is the mean squared probability error; lower is better.",
+          "Delta versus raw AUC equals method repeat-mean AUC minus raw-FC repeat-mean AUC."
+        ]
+      }
+    },
+    {
+      "id": "headline-source",
+      "label": "Exploratory run headline",
+      "path": "exploratory_summary.sqlite",
+      "query": {
+        "engine": "SQLite",
+        "language": "sql",
+        "sql": "SELECT\n  source_dataset,\n  source_scans,\n  target_cohort,\n  target_subjects,\n  outer_splits,\n  repeats,\n  prediction_rows,\n  representation_audit_rows,\n  max_external_source_target_overlap,\n  max_target_adaptation_test_overlap,\n  fixed_source_auc,\n  raw_auc,\n  fixed_minus_raw_auc,\n  positive_fixed_minus_raw_repeats,\n  source_reconstruction_mse\nFROM headline\n",
+        "description": "Reads aggregate run counts, the primary descriptive comparison, and separation checks.",
+        "executed_at": "2026-08-24T03:07:41.072714Z",
+        "tables_used": [
+          "headline"
+        ],
+        "filters": [
+          "analysis role is exploratory",
+          "target cohort is phase1-n62-primary",
+          "source is the label-free DS005713 FC package",
+          "subject-level prediction rows are excluded from the published package"
+        ],
+        "metric_definitions": [
+          "Fixed-minus-raw AUC equals fixed DS005713 repeat-mean OOF ROC AUC minus raw-FC repeat-mean OOF ROC AUC.",
+          "Positive repeats counts repeats where the paired fixed-source AUC minus raw-FC AUC is greater than zero.",
+          "Overlap maxima are taken across all persisted representation-audit records."
+        ]
+      }
+    },
+    {
+      "id": "audit-source",
+      "label": "Published audit summary",
+      "path": "exploratory_summary.sqlite",
+      "query": {
+        "engine": "SQLite",
+        "language": "sql",
+        "sql": "SELECT\n  prediction_rows,\n  representation_audit_rows,\n  expected_prediction_rows,\n  expected_representation_audit_rows,\n  max_external_source_target_overlap,\n  max_target_adaptation_test_overlap,\n  metrics_recomputed_from_oof,\n  subject_level_payload_excluded\nFROM audit_summary\n",
+        "description": "Reads coverage, leakage-audit, recomputation, and publication-exclusion checks.",
+        "executed_at": "2026-08-24T03:07:41.072714Z",
+        "tables_used": [
+          "audit_summary"
+        ],
+        "filters": [
+          "analysis role is exploratory",
+          "target cohort is phase1-n62-primary",
+          "source is the label-free DS005713 FC package",
+          "subject-level prediction rows are excluded from the published package"
+        ],
+        "metric_definitions": [
+          "Expected predictions equal target subjects x repeats x four methods.",
+          "Expected representation audits equal repeats x outer folds x three learned-representation methods.",
+          "Metrics-recomputed is one only after the repository validator exactly reproduces result metrics from OOF predictions."
+        ]
+      }
+    },
+    {
+      "id": "protocol-source",
+      "label": "Frozen exploratory protocol",
+      "path": "DS005713_OA_EXPLORATORY_PROTOCOL_2026-08-24.md"
+    }
+  ],
+  "package_info": {
+    "analysis_role": "exploratory",
+    "evidence_status": "EXPLORATORY_EXTERNAL_SOURCE_INTERNAL_OA_EVALUATION",
+    "contains_subject_level_data": false,
+    "contains_model_weights": false
+  }
+}

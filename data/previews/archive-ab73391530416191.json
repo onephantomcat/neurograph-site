@@ -1,0 +1,1 @@
+{"content": "{\r\n  \"status\": \"PASS\",\r\n  \"source_counts\": {\r\n    \"source50\": 50,\r\n    \"source46\": 46\r\n  },\r\n  \"upstream_fc_rechecked\": 50,\r\n  \"clinical_overlap\": 0,\r\n  \"old_source_overlap\": 0,\r\n  \"test_site_overlap\": 0,\r\n  \"exact_user_approvals\": 50\r\n}\n", "truncated": false}

@@ -1,0 +1,44 @@
+{
+  "as_of": "2026-09-13T17:43:46.850912+08:00",
+  "tn": {
+    "baseline_people": 175,
+    "followup_scans": 65,
+    "latest_clinical_rows": 51,
+    "latest_pure_tn": 50,
+    "latest_clinical_image_matches": 7,
+    "latest_pure_tn_regression_ready": 6,
+    "development_classification": 28,
+    "development_regression": 14,
+    "label_release_counts": {
+      "2.0.2": 51,
+      "2.0.1_archival": 121,
+      "MISSING": 3
+    },
+    "score_dates_available": 0
+  },
+  "zan": {
+    "all_participants": 66,
+    "bold_subjects": 56,
+    "t1_subjects": 55,
+    "matched_pairs": 55,
+    "bold_group_counts": {
+      "HC": 29,
+      "ZAN": 27
+    },
+    "paired_group_counts": {
+      "HC": 29,
+      "ZAN": 26
+    },
+    "individual_scores_available": 0,
+    "individual_durations_available": 0
+  },
+  "original_qc_modified": false,
+  "unknown_scores_imputed": false,
+  "author_requests_status": "AUTHORIZED_PENDING_MAIL_LOGIN",
+  "endpoint_boundary": "TN retrospective BPI-facial weekly average != proposed daily worst NRS diary; ZAN group label != individually confirmed PHN",
+  "files": [
+    "tn_baseline_clinical_imaging.tsv",
+    "tn_followup_unmatched_scores.tsv",
+    "zan_clinical_imaging_matching.tsv"
+  ]
+}

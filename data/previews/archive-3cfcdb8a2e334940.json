@@ -1,0 +1,1 @@
+{"content": "{\r\n  \"status\": \"PASS\",\r\n  \"models\": 400,\r\n  \"inner_fits\": 1800,\r\n  \"recomputed_transforms\": 200,\r\n  \"last_layer_models\": 200,\r\n  \"last_layer_selected_encoder_changed\": 178,\r\n  \"last_layer_selected_warmup_only\": 22,\r\n  \"max_prediction_error\": 0.0,\r\n  \"verified_at\": \"2026-09-11T07:45:26.403200+00:00\"\r\n}\n", "truncated": false}

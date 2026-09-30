@@ -1,0 +1,236 @@
+{
+  "evidence_status": "REAL_SUPERVISED_TRANSFER_TECHNICAL_REHEARSAL_COMPLETED",
+  "completed_at": "2026-09-08T12:36:10.771743+00:00",
+  "runs": [
+    {
+      "mode": "frozen_encoder",
+      "objective": "binary_cross_entropy_with_logits",
+      "selection": "minimum validation BCE; no test data accepted by fit API",
+      "selected_epoch": 10,
+      "selected_validation_bce": 0.6911841034889221,
+      "encoder_updated_during_training": false,
+      "selected_encoder_changed": false,
+      "source_parent_unchanged": true,
+      "source_scaler_refitted": false,
+      "name": "srpbs_source_frozen_encoder",
+      "partitions": {
+        "source": 9,
+        "train": 52,
+        "validation": 27,
+        "test": 20,
+        "exact_overlap": 0
+      },
+      "prediction_count": 20,
+      "predictions_finite": true,
+      "checkpoint_replay_max_error": 0.0
+    },
+    {
+      "mode": "supervised_finetune",
+      "objective": "binary_cross_entropy_with_logits",
+      "selection": "minimum validation BCE; no test data accepted by fit API",
+      "selected_epoch": 7,
+      "selected_validation_bce": 0.694875955581665,
+      "encoder_updated_during_training": true,
+      "selected_encoder_changed": true,
+      "source_parent_unchanged": true,
+      "source_scaler_refitted": false,
+      "name": "srpbs_source_supervised_finetune",
+      "partitions": {
+        "source": 9,
+        "train": 52,
+        "validation": 27,
+        "test": 20,
+        "exact_overlap": 0
+      },
+      "prediction_count": 20,
+      "predictions_finite": true,
+      "checkpoint_replay_max_error": 0.0
+    },
+    {
+      "mode": "frozen_encoder",
+      "objective": "binary_cross_entropy_with_logits",
+      "selection": "minimum validation BCE; no test data accepted by fit API",
+      "selected_epoch": 10,
+      "selected_validation_bce": 0.6811885833740234,
+      "encoder_updated_during_training": false,
+      "selected_encoder_changed": false,
+      "source_parent_unchanged": true,
+      "source_scaler_refitted": false,
+      "name": "ds005713_source_frozen_encoder",
+      "partitions": {
+        "source": 36,
+        "train": 52,
+        "validation": 27,
+        "test": 20,
+        "exact_overlap": 0
+      },
+      "prediction_count": 20,
+      "predictions_finite": true,
+      "checkpoint_replay_max_error": 0.0
+    },
+    {
+      "mode": "supervised_finetune",
+      "objective": "binary_cross_entropy_with_logits",
+      "selection": "minimum validation BCE; no test data accepted by fit API",
+      "selected_epoch": 10,
+      "selected_validation_bce": 0.6663272380828857,
+      "encoder_updated_during_training": true,
+      "selected_encoder_changed": true,
+      "source_parent_unchanged": true,
+      "source_scaler_refitted": false,
+      "name": "ds005713_source_supervised_finetune",
+      "partitions": {
+        "source": 36,
+        "train": 52,
+        "validation": 27,
+        "test": 20,
+        "exact_overlap": 0
+      },
+      "prediction_count": 20,
+      "predictions_finite": true,
+      "checkpoint_replay_max_error": 0.0
+    },
+    {
+      "mode": "frozen_encoder",
+      "objective": "binary_cross_entropy_with_logits",
+      "selection": "minimum validation BCE; no test data accepted by fit API",
+      "selected_epoch": 10,
+      "selected_validation_bce": 0.7040892839431763,
+      "encoder_updated_during_training": false,
+      "selected_encoder_changed": false,
+      "source_parent_unchanged": true,
+      "source_scaler_refitted": false,
+      "name": "abide_source_frozen_encoder",
+      "partitions": {
+        "source": 972,
+        "train": 52,
+        "validation": 27,
+        "test": 20,
+        "exact_overlap": 0
+      },
+      "prediction_count": 20,
+      "predictions_finite": true,
+      "checkpoint_replay_max_error": 0.0
+    },
+    {
+      "mode": "supervised_finetune",
+      "objective": "binary_cross_entropy_with_logits",
+      "selection": "minimum validation BCE; no test data accepted by fit API",
+      "selected_epoch": 10,
+      "selected_validation_bce": 0.7033985257148743,
+      "encoder_updated_during_training": true,
+      "selected_encoder_changed": true,
+      "source_parent_unchanged": true,
+      "source_scaler_refitted": false,
+      "name": "abide_source_supervised_finetune",
+      "partitions": {
+        "source": 972,
+        "train": 52,
+        "validation": 27,
+        "test": 20,
+        "exact_overlap": 0
+      },
+      "prediction_count": 20,
+      "predictions_finite": true,
+      "checkpoint_replay_max_error": 0.0
+    },
+    {
+      "mode": "frozen_encoder",
+      "objective": "binary_cross_entropy_with_logits",
+      "selection": "minimum validation BCE; no test data accepted by fit API",
+      "selected_epoch": 10,
+      "selected_validation_bce": 0.7011496424674988,
+      "encoder_updated_during_training": false,
+      "selected_encoder_changed": false,
+      "source_parent_unchanged": true,
+      "source_scaler_refitted": false,
+      "name": "abide_to_srpbs_source_frozen_encoder",
+      "partitions": {
+        "source": 981,
+        "train": 52,
+        "validation": 27,
+        "test": 20,
+        "exact_overlap": 0
+      },
+      "prediction_count": 20,
+      "predictions_finite": true,
+      "checkpoint_replay_max_error": 0.0
+    },
+    {
+      "mode": "supervised_finetune",
+      "objective": "binary_cross_entropy_with_logits",
+      "selection": "minimum validation BCE; no test data accepted by fit API",
+      "selected_epoch": 10,
+      "selected_validation_bce": 0.6933870911598206,
+      "encoder_updated_during_training": true,
+      "selected_encoder_changed": true,
+      "source_parent_unchanged": true,
+      "source_scaler_refitted": false,
+      "name": "abide_to_srpbs_source_supervised_finetune",
+      "partitions": {
+        "source": 981,
+        "train": 52,
+        "validation": 27,
+        "test": 20,
+        "exact_overlap": 0
+      },
+      "prediction_count": 20,
+      "predictions_finite": true,
+      "checkpoint_replay_max_error": 0.0
+    },
+    {
+      "mode": "frozen_encoder",
+      "objective": "binary_cross_entropy_with_logits",
+      "selection": "minimum validation BCE; no test data accepted by fit API",
+      "selected_epoch": 10,
+      "selected_validation_bce": 0.6882895231246948,
+      "encoder_updated_during_training": false,
+      "selected_encoder_changed": false,
+      "source_parent_unchanged": true,
+      "source_scaler_refitted": false,
+      "name": "ds005713_to_srpbs_source_frozen_encoder",
+      "partitions": {
+        "source": 45,
+        "train": 52,
+        "validation": 27,
+        "test": 20,
+        "exact_overlap": 0
+      },
+      "prediction_count": 20,
+      "predictions_finite": true,
+      "checkpoint_replay_max_error": 0.0
+    },
+    {
+      "mode": "supervised_finetune",
+      "objective": "binary_cross_entropy_with_logits",
+      "selection": "minimum validation BCE; no test data accepted by fit API",
+      "selected_epoch": 10,
+      "selected_validation_bce": 0.6771999597549438,
+      "encoder_updated_during_training": true,
+      "selected_encoder_changed": true,
+      "source_parent_unchanged": true,
+      "source_scaler_refitted": false,
+      "name": "ds005713_to_srpbs_source_supervised_finetune",
+      "partitions": {
+        "source": 45,
+        "train": 52,
+        "validation": 27,
+        "test": 20,
+        "exact_overlap": 0
+      },
+      "prediction_count": 20,
+      "predictions_finite": true,
+      "checkpoint_replay_max_error": 0.0
+    },
+    {
+      "name": "raw_fc",
+      "prediction_count": 20,
+      "predictions_finite": true,
+      "checkpoint_replay_max_error": 0.0
+    }
+  ],
+  "predictions_total": 220,
+  "external_evaluation": "NOT_RUN_NEW_COHORT_NOT_PROVIDED",
+  "clinical_effectiveness_claim": false,
+  "interpretation": "Existing data and one split; verifies execution only. Do not compare sources or report generalization from this rehearsal."
+}

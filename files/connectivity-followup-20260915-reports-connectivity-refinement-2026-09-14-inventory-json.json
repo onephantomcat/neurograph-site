@@ -1,0 +1,580 @@
+{
+  "date": "2026-09-14",
+  "exported_at": "2026-09-15T02:14:44.666190+00:00",
+  "artifacts": [
+    {
+      "source": "tmp/connectivity-refinement-20260914/CIN-to-OSU/repeat1-fold1/audit.json",
+      "file": "results/CIN-to-OSU/repeat1-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/CIN-to-OSU/repeat2-fold1/audit.json",
+      "file": "results/CIN-to-OSU/repeat2-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/CIN-to-OSU/repeat3-fold1/audit.json",
+      "file": "results/CIN-to-OSU/repeat3-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/CIN-to-OSU/repeat4-fold1/audit.json",
+      "file": "results/CIN-to-OSU/repeat4-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/CIN-to-OSU/repeat5-fold1/audit.json",
+      "file": "results/CIN-to-OSU/repeat5-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/input_audit.json",
+      "file": "results/input_audit.json",
+      "removed_fields": {
+        "timepoints": 1
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/OSU-to-CIN/repeat1-fold1/audit.json",
+      "file": "results/OSU-to-CIN/repeat1-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/OSU-to-CIN/repeat2-fold1/audit.json",
+      "file": "results/OSU-to-CIN/repeat2-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/OSU-to-CIN/repeat3-fold1/audit.json",
+      "file": "results/OSU-to-CIN/repeat3-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/OSU-to-CIN/repeat4-fold1/audit.json",
+      "file": "results/OSU-to-CIN/repeat4-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/OSU-to-CIN/repeat5-fold1/audit.json",
+      "file": "results/OSU-to-CIN/repeat5-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/plan.json",
+      "file": "results/plan.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat1-fold1/audit.json",
+      "file": "results/primary99/repeat1-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat1-fold2/audit.json",
+      "file": "results/primary99/repeat1-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat1-fold3/audit.json",
+      "file": "results/primary99/repeat1-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat1-fold4/audit.json",
+      "file": "results/primary99/repeat1-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat1-fold5/audit.json",
+      "file": "results/primary99/repeat1-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat2-fold1/audit.json",
+      "file": "results/primary99/repeat2-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat2-fold2/audit.json",
+      "file": "results/primary99/repeat2-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat2-fold3/audit.json",
+      "file": "results/primary99/repeat2-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat2-fold4/audit.json",
+      "file": "results/primary99/repeat2-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat2-fold5/audit.json",
+      "file": "results/primary99/repeat2-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat3-fold1/audit.json",
+      "file": "results/primary99/repeat3-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat3-fold2/audit.json",
+      "file": "results/primary99/repeat3-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat3-fold3/audit.json",
+      "file": "results/primary99/repeat3-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat3-fold4/audit.json",
+      "file": "results/primary99/repeat3-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat3-fold5/audit.json",
+      "file": "results/primary99/repeat3-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat4-fold1/audit.json",
+      "file": "results/primary99/repeat4-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat4-fold2/audit.json",
+      "file": "results/primary99/repeat4-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat4-fold3/audit.json",
+      "file": "results/primary99/repeat4-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat4-fold4/audit.json",
+      "file": "results/primary99/repeat4-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat4-fold5/audit.json",
+      "file": "results/primary99/repeat4-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat5-fold1/audit.json",
+      "file": "results/primary99/repeat5-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat5-fold2/audit.json",
+      "file": "results/primary99/repeat5-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat5-fold3/audit.json",
+      "file": "results/primary99/repeat5-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat5-fold4/audit.json",
+      "file": "results/primary99/repeat5-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/primary99/repeat5-fold5/audit.json",
+      "file": "results/primary99/repeat5-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat1-fold1/audit.json",
+      "file": "results/sensitivity96/repeat1-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat1-fold2/audit.json",
+      "file": "results/sensitivity96/repeat1-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat1-fold3/audit.json",
+      "file": "results/sensitivity96/repeat1-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat1-fold4/audit.json",
+      "file": "results/sensitivity96/repeat1-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat1-fold5/audit.json",
+      "file": "results/sensitivity96/repeat1-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat2-fold1/audit.json",
+      "file": "results/sensitivity96/repeat2-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat2-fold2/audit.json",
+      "file": "results/sensitivity96/repeat2-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat2-fold3/audit.json",
+      "file": "results/sensitivity96/repeat2-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat2-fold4/audit.json",
+      "file": "results/sensitivity96/repeat2-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat2-fold5/audit.json",
+      "file": "results/sensitivity96/repeat2-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat3-fold1/audit.json",
+      "file": "results/sensitivity96/repeat3-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat3-fold2/audit.json",
+      "file": "results/sensitivity96/repeat3-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat3-fold3/audit.json",
+      "file": "results/sensitivity96/repeat3-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat3-fold4/audit.json",
+      "file": "results/sensitivity96/repeat3-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat3-fold5/audit.json",
+      "file": "results/sensitivity96/repeat3-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat4-fold1/audit.json",
+      "file": "results/sensitivity96/repeat4-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat4-fold2/audit.json",
+      "file": "results/sensitivity96/repeat4-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat4-fold3/audit.json",
+      "file": "results/sensitivity96/repeat4-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat4-fold4/audit.json",
+      "file": "results/sensitivity96/repeat4-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat4-fold5/audit.json",
+      "file": "results/sensitivity96/repeat4-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat5-fold1/audit.json",
+      "file": "results/sensitivity96/repeat5-fold1/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat5-fold2/audit.json",
+      "file": "results/sensitivity96/repeat5-fold2/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat5-fold3/audit.json",
+      "file": "results/sensitivity96/repeat5-fold3/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat5-fold4/audit.json",
+      "file": "results/sensitivity96/repeat5-fold4/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/sensitivity96/repeat5-fold5/audit.json",
+      "file": "results/sensitivity96/repeat5-fold5/audit.json",
+      "removed_fields": {
+        "training_ids": 4,
+        "test_ids": 1,
+        "validation_ids": 3
+      }
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/status.json",
+      "file": "results/status.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/summary.json",
+      "file": "results/summary.json",
+      "removed_fields": {}
+    },
+    {
+      "source": "tmp/connectivity-refinement-20260914/verification.json",
+      "file": "results/verification.json",
+      "removed_fields": {}
+    }
+  ],
+  "private_exclusions": [
+    "subject identifiers",
+    "individual labels/predictions/OOF tables",
+    "model weights",
+    "individual time series and imaging",
+    "raw clinical metadata"
+  ]
+}

@@ -1,0 +1,1 @@
+{"content": "{\r\n  \"status\": \"PASS\",\r\n  \"models\": 750,\r\n  \"residualizer_recomputed\": 450,\r\n  \"covariate_transform_checks\": 600,\r\n  \"fit_records_checked\": 3000,\r\n  \"max_prediction_error\": 0.0,\r\n  \"verified_at\": \"2026-09-09T01:46:49.621067+00:00\"\r\n}\n", "truncated": false}

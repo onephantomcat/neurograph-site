@@ -1,0 +1,14 @@
+{
+  "state": "COMPLETE",
+  "route": null,
+  "completed_routes": [
+    "srpbs_source",
+    "ds005713_source",
+    "abide_source",
+    "abide_to_srpbs_source",
+    "ds005713_to_srpbs_source"
+  ],
+  "total_routes": 5,
+  "updated_at": "2026-09-08T08:09:12.331945+00:00",
+  "error": null
+}

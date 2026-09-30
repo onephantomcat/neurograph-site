@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "real30epoch_frozen_reimplementation_max_probability_difference": 5.960464477539063e-08,
+  "validation_labels_do_not_affect_training_or_class_weights": true,
+  "train_only_pca_and_l2_executed": true,
+  "nested_calibration_executed": true,
+  "scope": "Real first outer fold technical verification only; no method chosen from its test performance"
+}

@@ -1,0 +1,69 @@
+{
+  "date": "2026-09-28",
+  "state": "SINGLE_CASE_SEGMENTATION_COMPLETED_TECHNICALLY_CHECKED",
+  "title": "原99人T1核查完成，预训练结构分割单例跑通",
+  "summary": "已找回并核对原99人的T1：99份影像头、文件大小及原来源路径均对应。FastSurfer官方三方向权重已加载，开发集单例分割约36秒完成，空间和体积计算复核通过。核心标签仅与NeuFoM45项中的31项同名，仍缺14项；尚无新的疼痛预测成绩。",
+  "boundary": "本轮仅完成1例结构分割与15张切片的技术查看，不是全队列分割或专家审核；疼痛模型拟合和评价均为0。原99人仍属开发数据，不新增审核或纳入，不恢复TN14或定期任务。",
+  "next": "先按原清单顺序核查另一站点的一例，确认结构提取能在两种采集上运行；再预先规定实际可用结构特征、传统组织体积和FC的训练内部对照。缺失14项不补零、不宣称NeuFoM原模型复现，未核查完前不批量启动全队列。",
+  "pilot_short": "官方三方向推理约36秒完成1例，空间与体积计算复核通过，已查看15张技术叠加切片；不等于专家审核或疼痛精度提升。",
+  "pilot_detail": "三份VINN权重均与作者发布的既有校验值一致。官方run_prediction三方向完整执行并退出0，耗时35.90秒；开跑前固定batch=1、线程=4、GPU推理及三方向汇总、1毫米体素。分割与作者输出的标准化T1在同一网格，空间变换完全相同，标签是有限整数且均见于官方标签表。逐标签直接计数与独立唯一值计数一致；体素体积按仿射行列式和体素尺寸两条公式复算差为0。已实际查看三方向共15张叠加切片，没有观察到整体空间错位；这只是有限的模型辅助技术查看，不能替代逐例专家审核或有标注的分割精度评价。实际结构体积与影像均留在私有区。",
+  "input_inventory": {
+    "approved_roots": 99,
+    "t1_existing": 99,
+    "shape_matches": 99,
+    "size_matches": 99,
+    "raw_source_existing": 99,
+    "scope": "Headers and existing provenance only; not whole-cohort new structural quality review"
+  },
+  "compatibility": {
+    "required_fields": 45,
+    "core_lut_exact_name_matches": 31,
+    "missing": [
+      "Left-vessel",
+      "Right-vessel",
+      "5th-Ventricle",
+      "Left-WM-hypointensities",
+      "Right-WM-hypointensities",
+      "non-WM-hypointensities",
+      "Left-non-WM-hypointensities",
+      "Right-non-WM-hypointensities",
+      "Optic-Chiasm",
+      "CC_Posterior",
+      "CC_Mid_Posterior",
+      "CC_Central",
+      "CC_Mid_Anterior",
+      "CC_Anterior"
+    ],
+    "extra_modules_run": false,
+    "name_match_does_not_prove_volume_equivalence": true
+  },
+  "pilot": {
+    "input_read_count": 1,
+    "complete_segmentations": 1,
+    "elapsed_seconds": 35.89602559999912,
+    "pain_fits": 0,
+    "pain_evaluations": 0,
+    "weights_completed": 3,
+    "weights_expected": 3,
+    "author_existing_digests_matched": 3,
+    "official_cli_exit": 0,
+    "code_version": "v2.5.4",
+    "code_commit": "cdfccea89e6c2bdbd6a2abb3f033f2e618a54538",
+    "weights_version": "VINN v2.0.0",
+    "environment": "Windows Python3.12/PyTorch2.13.0+cu130/torchvision0.28.0; author PyTorch2.7 differs",
+    "affine_match": true,
+    "integer_finite_labels": true,
+    "labels_in_official_lookup": true,
+    "independent_count_match": true,
+    "voxel_volume_formula_difference_mm3": 0,
+    "technical_overlay_slices": 15,
+    "expert_review": "NOT_PERFORMED",
+    "new_inclusion": 0
+  },
+  "queue_observation": {
+    "emo_oa": "COMPLETE_PENDING_REVIEW; original process absent",
+    "meta_matching419": "COMPLETE_DERIVED_FEATURES",
+    "remote_jobs_started": 0,
+    "remote_jobs_interrupted": 0
+  }
+}

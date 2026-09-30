@@ -1,0 +1,577 @@
+{
+  "status": "PASS",
+  "final_models": 240,
+  "reference_refits": 60,
+  "original_folds_reproduced": 52,
+  "max_probability_error": 2.4646951146678475e-14,
+  "max_reference_error": 0.0,
+  "max_original_probability_error": 0.0,
+  "max_metric_error": 2.220446049250313e-16,
+  "selected_inner_models_refit": 144,
+  "max_inner_probability_error": 3.613220833642572e-13,
+  "selection_counts": {
+    "primary99": {
+      "tangent_center": 16,
+      "tangent_original": 4,
+      "tangent_select": 3,
+      "tangent_pca": 2
+    },
+    "sensitivity96": {
+      "tangent_original": 8,
+      "tangent_select": 6,
+      "tangent_pca": 2,
+      "tangent_center": 9
+    },
+    "OSU-to-CIN": {
+      "tangent_center": 4,
+      "tangent_select": 1
+    },
+    "CIN-to-OSU": {
+      "tangent_center": 5
+    }
+  },
+  "comparisons": [
+    {
+      "design": "primary99",
+      "method": "tangent_original_threshold",
+      "reference": "tangent_original",
+      "delta_auc": 0.0,
+      "conditional_95_ci": [
+        0.0,
+        0.0
+      ],
+      "delta_ba": 0.00406070549630845,
+      "ba_conditional_95_ci": [
+        -0.012182116488925351,
+        0.021903199343724363
+      ]
+    },
+    {
+      "design": "primary99",
+      "method": "tangent_center",
+      "reference": "tangent_original",
+      "delta_auc": -0.014191960623461852,
+      "conditional_95_ci": [
+        -0.038310090237899906,
+        0.010258408531583251
+      ],
+      "delta_ba": 0.014232977850697291,
+      "ba_conditional_95_ci": [
+        -0.013046554552912225,
+        0.04528609515996717
+      ]
+    },
+    {
+      "design": "primary99",
+      "method": "tangent_center_threshold",
+      "reference": "tangent_original",
+      "delta_auc": -0.014191960623461852,
+      "conditional_95_ci": [
+        -0.038310090237899906,
+        0.010258408531583251
+      ],
+      "delta_ba": 0.011607875307629207,
+      "ba_conditional_95_ci": [
+        -0.012756357670221494,
+        0.039171452009844135
+      ]
+    },
+    {
+      "design": "primary99",
+      "method": "tangent_pca",
+      "reference": "tangent_original",
+      "delta_auc": -0.03888433141919607,
+      "conditional_95_ci": [
+        -0.08457957342083681,
+        0.0029593929450368902
+      ],
+      "delta_ba": -0.0037735849056603774,
+      "ba_conditional_95_ci": [
+        -0.045409146841673506,
+        0.038433141919606235
+      ]
+    },
+    {
+      "design": "primary99",
+      "method": "tangent_pca_threshold",
+      "reference": "tangent_original",
+      "delta_auc": -0.03888433141919607,
+      "conditional_95_ci": [
+        -0.08457957342083681,
+        0.0029593929450368902
+      ],
+      "delta_ba": -0.001312551271534043,
+      "ba_conditional_95_ci": [
+        -0.042660992616899096,
+        0.03958982772764557
+      ]
+    },
+    {
+      "design": "primary99",
+      "method": "tangent_select",
+      "reference": "tangent_original",
+      "delta_auc": -0.04126333059885152,
+      "conditional_95_ci": [
+        -0.07284659557013944,
+        -0.010006152584085319
+      ],
+      "delta_ba": -0.017555373256767842,
+      "ba_conditional_95_ci": [
+        -0.054104799015586555,
+        0.017111361771944177
+      ]
+    },
+    {
+      "design": "primary99",
+      "method": "tangent_select_threshold",
+      "reference": "tangent_original",
+      "delta_auc": -0.04126333059885152,
+      "conditional_95_ci": [
+        -0.07284659557013944,
+        -0.010006152584085319
+      ],
+      "delta_ba": -0.02030352748154225,
+      "ba_conditional_95_ci": [
+        -0.05410172272354389,
+        0.012593314191960614
+      ]
+    },
+    {
+      "design": "primary99",
+      "method": "inner_selected",
+      "reference": "tangent_original",
+      "delta_auc": -0.010336341263330598,
+      "conditional_95_ci": [
+        -0.0301086956521739,
+        0.008615668580803933
+      ],
+      "delta_ba": 0.008572600492206726,
+      "ba_conditional_95_ci": [
+        -0.016667350287120592,
+        0.034660582444626734
+      ]
+    },
+    {
+      "design": "primary99",
+      "method": "inner_selected_threshold",
+      "reference": "tangent_original",
+      "delta_auc": -0.010336341263330598,
+      "conditional_95_ci": [
+        -0.0301086956521739,
+        0.008615668580803933
+      ],
+      "delta_ba": 0.0002871205906480724,
+      "ba_conditional_95_ci": [
+        -0.026251025430680888,
+        0.027853773584905647
+      ]
+    },
+    {
+      "design": "sensitivity96",
+      "method": "tangent_original_threshold",
+      "reference": "tangent_original",
+      "delta_auc": 0.0,
+      "conditional_95_ci": [
+        0.0,
+        0.0
+      ],
+      "delta_ba": -0.008391608391608393,
+      "ba_conditional_95_ci": [
+        -0.023605769230769232,
+        0.007521853146853123
+      ]
+    },
+    {
+      "design": "sensitivity96",
+      "method": "tangent_center",
+      "reference": "tangent_original",
+      "delta_auc": -0.007342657342657343,
+      "conditional_95_ci": [
+        -0.028583916083916094,
+        0.01364073426573425
+      ],
+      "delta_ba": -0.008566433566433568,
+      "ba_conditional_95_ci": [
+        -0.032867132867132866,
+        0.01451048951048951
+      ]
+    },
+    {
+      "design": "sensitivity96",
+      "method": "tangent_center_threshold",
+      "reference": "tangent_original",
+      "delta_auc": -0.007342657342657343,
+      "conditional_95_ci": [
+        -0.028583916083916094,
+        0.01364073426573425
+      ],
+      "delta_ba": -0.00611888111888112,
+      "ba_conditional_95_ci": [
+        -0.03304632867132868,
+        0.01888111888111888
+      ]
+    },
+    {
+      "design": "sensitivity96",
+      "method": "tangent_pca",
+      "reference": "tangent_original",
+      "delta_auc": -0.043006993006993004,
+      "conditional_95_ci": [
+        -0.08628059440559444,
+        0.00036057692307686845
+      ],
+      "delta_ba": -0.01765734265734266,
+      "ba_conditional_95_ci": [
+        -0.0599694055944056,
+        0.02465909090909087
+      ]
+    },
+    {
+      "design": "sensitivity96",
+      "method": "tangent_pca_threshold",
+      "reference": "tangent_original",
+      "delta_auc": -0.043006993006993004,
+      "conditional_95_ci": [
+        -0.08628059440559444,
+        0.00036057692307686845
+      ],
+      "delta_ba": -0.01573426573426574,
+      "ba_conditional_95_ci": [
+        -0.05822115384615385,
+        0.029195804195804195
+      ]
+    },
+    {
+      "design": "sensitivity96",
+      "method": "tangent_select",
+      "reference": "tangent_original",
+      "delta_auc": -0.03802447552447552,
+      "conditional_95_ci": [
+        -0.07885052447552461,
+        -0.0020979020979021135
+      ],
+      "delta_ba": -0.021853146853146856,
+      "ba_conditional_95_ci": [
+        -0.05961538461538462,
+        0.013465909090909067
+      ]
+    },
+    {
+      "design": "sensitivity96",
+      "method": "tangent_select_threshold",
+      "reference": "tangent_original",
+      "delta_auc": -0.03802447552447552,
+      "conditional_95_ci": [
+        -0.07885052447552461,
+        -0.0020979020979021135
+      ],
+      "delta_ba": -0.03286713286713287,
+      "ba_conditional_95_ci": [
+        -0.0687062937062937,
+        0.001048951048951051
+      ]
+    },
+    {
+      "design": "sensitivity96",
+      "method": "inner_selected",
+      "reference": "tangent_original",
+      "delta_auc": -0.02106643356643357,
+      "conditional_95_ci": [
+        -0.039774912587412586,
+        -0.0034943181818181904
+      ],
+      "delta_ba": -0.011363636363636364,
+      "ba_conditional_95_ci": [
+        -0.03602272727272727,
+        0.011022727272727226
+      ]
+    },
+    {
+      "design": "sensitivity96",
+      "method": "inner_selected_threshold",
+      "reference": "tangent_original",
+      "delta_auc": -0.02106643356643357,
+      "conditional_95_ci": [
+        -0.039774912587412586,
+        -0.0034943181818181904
+      ],
+      "delta_ba": -0.010314685314685317,
+      "ba_conditional_95_ci": [
+        -0.03391608391608392,
+        0.012062937062937061
+      ]
+    },
+    {
+      "design": "OSU-to-CIN",
+      "method": "tangent_original_threshold",
+      "reference": "tangent_original",
+      "delta_auc": 0.0,
+      "conditional_95_ci": [
+        0.0,
+        0.0
+      ],
+      "delta_ba": -0.009269162210338681,
+      "ba_conditional_95_ci": [
+        -0.030303030303030304,
+        0.00873440285204991
+      ]
+    },
+    {
+      "design": "OSU-to-CIN",
+      "method": "tangent_center",
+      "reference": "tangent_original",
+      "delta_auc": -0.017112299465240646,
+      "conditional_95_ci": [
+        -0.060614973262032086,
+        0.020356506238858985
+      ],
+      "delta_ba": -0.033155080213903745,
+      "ba_conditional_95_ci": [
+        -0.0989349376114082,
+        0.020677361853832444
+      ]
+    },
+    {
+      "design": "OSU-to-CIN",
+      "method": "tangent_center_threshold",
+      "reference": "tangent_original",
+      "delta_auc": -0.017112299465240646,
+      "conditional_95_ci": [
+        -0.060614973262032086,
+        0.020356506238858985
+      ],
+      "delta_ba": -0.04777183600713013,
+      "ba_conditional_95_ci": [
+        -0.11746880570409983,
+        0.006060606060606059
+      ]
+    },
+    {
+      "design": "OSU-to-CIN",
+      "method": "tangent_pca",
+      "reference": "tangent_original",
+      "delta_auc": -0.03493761140819965,
+      "conditional_95_ci": [
+        -0.11303921568627451,
+        0.045989304812834225
+      ],
+      "delta_ba": -0.0730837789661319,
+      "ba_conditional_95_ci": [
+        -0.15722370766488414,
+        0.014447415329768228
+      ]
+    },
+    {
+      "design": "OSU-to-CIN",
+      "method": "tangent_pca_threshold",
+      "reference": "tangent_original",
+      "delta_auc": -0.03493761140819965,
+      "conditional_95_ci": [
+        -0.11303921568627451,
+        0.045989304812834225
+      ],
+      "delta_ba": -0.07076648841354725,
+      "ba_conditional_95_ci": [
+        -0.1645320855614973,
+        0.02763368983957217
+      ]
+    },
+    {
+      "design": "OSU-to-CIN",
+      "method": "tangent_select",
+      "reference": "tangent_original",
+      "delta_auc": -0.0142602495543672,
+      "conditional_95_ci": [
+        -0.08520499108734399,
+        0.050623885918003556
+      ],
+      "delta_ba": -0.002317290552584665,
+      "ba_conditional_95_ci": [
+        -0.05846702317290554,
+        0.043137254901960784
+      ]
+    },
+    {
+      "design": "OSU-to-CIN",
+      "method": "tangent_select_threshold",
+      "reference": "tangent_original",
+      "delta_auc": -0.0142602495543672,
+      "conditional_95_ci": [
+        -0.08520499108734399,
+        0.050623885918003556
+      ],
+      "delta_ba": -0.020499108734402853,
+      "ba_conditional_95_ci": [
+        -0.07664884135472372,
+        0.018181818181818184
+      ]
+    },
+    {
+      "design": "OSU-to-CIN",
+      "method": "inner_selected",
+      "reference": "tangent_original",
+      "delta_auc": -0.01639928698752228,
+      "conditional_95_ci": [
+        -0.05811051693404635,
+        0.022825311942958955
+      ],
+      "delta_ba": -0.021033868092691622,
+      "ba_conditional_95_ci": [
+        -0.08092691622103387,
+        0.029946524064171125
+      ]
+    },
+    {
+      "design": "OSU-to-CIN",
+      "method": "inner_selected_threshold",
+      "reference": "tangent_original",
+      "delta_auc": -0.01639928698752228,
+      "conditional_95_ci": [
+        -0.05811051693404635,
+        0.022825311942958955
+      ],
+      "delta_ba": -0.04171122994652407,
+      "ba_conditional_95_ci": [
+        -0.10998217468805706,
+        0.00909090909090909
+      ]
+    },
+    {
+      "design": "CIN-to-OSU",
+      "method": "tangent_original_threshold",
+      "reference": "tangent_original",
+      "delta_auc": 0.0,
+      "conditional_95_ci": [
+        0.0,
+        0.0
+      ],
+      "delta_ba": 0.003703703703703704,
+      "ba_conditional_95_ci": [
+        0.0,
+        0.011111111111111113
+      ]
+    },
+    {
+      "design": "CIN-to-OSU",
+      "method": "tangent_center",
+      "reference": "tangent_original",
+      "delta_auc": -0.009356725146198829,
+      "conditional_95_ci": [
+        -0.06746588693957117,
+        0.053040935672514514
+      ],
+      "delta_ba": 0.005653021442495125,
+      "ba_conditional_95_ci": [
+        -0.03450292397660819,
+        0.05048732943469785
+      ]
+    },
+    {
+      "design": "CIN-to-OSU",
+      "method": "tangent_center_threshold",
+      "reference": "tangent_original",
+      "delta_auc": -0.009356725146198829,
+      "conditional_95_ci": [
+        -0.06746588693957117,
+        0.053040935672514514
+      ],
+      "delta_ba": 0.003703703703703703,
+      "ba_conditional_95_ci": [
+        -0.022222222222222227,
+        0.03333333333333333
+      ]
+    },
+    {
+      "design": "CIN-to-OSU",
+      "method": "tangent_pca",
+      "reference": "tangent_original",
+      "delta_auc": -0.13723196881091618,
+      "conditional_95_ci": [
+        -0.2546003898635478,
+        -0.02883040935672525
+      ],
+      "delta_ba": -0.011111111111111112,
+      "ba_conditional_95_ci": [
+        -0.03333333333333333,
+        0.0
+      ]
+    },
+    {
+      "design": "CIN-to-OSU",
+      "method": "tangent_pca_threshold",
+      "reference": "tangent_original",
+      "delta_auc": -0.13723196881091618,
+      "conditional_95_ci": [
+        -0.2546003898635478,
+        -0.02883040935672525
+      ],
+      "delta_ba": -0.016959064327485382,
+      "ba_conditional_95_ci": [
+        -0.05243664717348929,
+        0.008382066276803123
+      ]
+    },
+    {
+      "design": "CIN-to-OSU",
+      "method": "tangent_select",
+      "reference": "tangent_original",
+      "delta_auc": -0.06939571150097466,
+      "conditional_95_ci": [
+        -0.16141325536062381,
+        0.015233918128654813
+      ],
+      "delta_ba": -0.0009746588693957114,
+      "ba_conditional_95_ci": [
+        -0.047368421052631574,
+        0.04444444444444445
+      ]
+    },
+    {
+      "design": "CIN-to-OSU",
+      "method": "tangent_select_threshold",
+      "reference": "tangent_original",
+      "delta_auc": -0.06939571150097466,
+      "conditional_95_ci": [
+        -0.16141325536062381,
+        0.015233918128654813
+      ],
+      "delta_ba": 0.007407407407407407,
+      "ba_conditional_95_ci": [
+        -0.011111111111111113,
+        0.03333333333333333
+      ]
+    },
+    {
+      "design": "CIN-to-OSU",
+      "method": "inner_selected",
+      "reference": "tangent_original",
+      "delta_auc": -0.009356725146198829,
+      "conditional_95_ci": [
+        -0.06746588693957117,
+        0.053040935672514514
+      ],
+      "delta_ba": 0.005653021442495125,
+      "ba_conditional_95_ci": [
+        -0.03450292397660819,
+        0.05048732943469785
+      ]
+    },
+    {
+      "design": "CIN-to-OSU",
+      "method": "inner_selected_threshold",
+      "reference": "tangent_original",
+      "delta_auc": -0.009356725146198829,
+      "conditional_95_ci": [
+        -0.06746588693957117,
+        0.053040935672514514
+      ],
+      "delta_ba": 0.003703703703703703,
+      "ba_conditional_95_ci": [
+        -0.022222222222222227,
+        0.03333333333333333
+      ]
+    }
+  ],
+  "bootstrap_scope": "2000 paired subject-stratified resamples; preserve all five repeats/seeds; fixed predictions only, no retraining or multiple-comparison correction; source seed repetitions are not new test subjects",
+  "scope": "All 240 final models and 60 references; all split identities, selected OOF AUC and thresholds; 144 selected inner models independently refit in first repeat; other inner candidates not retrained"
+}

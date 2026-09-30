@@ -1,0 +1,10 @@
+- dataset.path=[本机路径已省略]
+- dataset.batch_size=16
+- dataset.test_batch_size=16
+- dataset.val_batch_size=16
+- model.dice_path=[本机路径已省略]
+- training.epochs=1
+- repeat_time=1
+- log_path=[本机路径已省略]
+- best_model_path=[本机路径已省略]
+- save_model=false

@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "source_counts": {
+    "source50": 50,
+    "source46": 46
+  },
+  "upstream_fc_rechecked": 50,
+  "clinical_overlap": 0,
+  "old_source_overlap": 0,
+  "test_site_overlap": 0,
+  "exact_user_approvals": 50
+}

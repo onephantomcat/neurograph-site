@@ -1,0 +1,46 @@
+[
+  {
+    "method": "raw_fc__none",
+    "within_site_pairs": 0.5944237918215614,
+    "between_site_pairs": 0.674302496328928,
+    "global_auc": 0.6390484003281378,
+    "pair_counts": {
+      "within_site_pairs": 1076,
+      "between_site_pairs": 1362
+    },
+    "between_site_weight": 0.5586546349466776
+  },
+  {
+    "method": "source9__none",
+    "within_site_pairs": 0.6423791821561338,
+    "between_site_pairs": 0.7343612334801761,
+    "global_auc": 0.6937653814602133,
+    "pair_counts": {
+      "within_site_pairs": 1076,
+      "between_site_pairs": 1362
+    },
+    "between_site_weight": 0.5586546349466776
+  },
+  {
+    "method": "source9__age_site_motion",
+    "within_site_pairs": 0.6444237918215613,
+    "between_site_pairs": 0.6298091042584435,
+    "global_auc": 0.636259228876128,
+    "pair_counts": {
+      "within_site_pairs": 1076,
+      "between_site_pairs": 1362
+    },
+    "between_site_weight": 0.5586546349466776
+  },
+  {
+    "method": "nuisance__age",
+    "within_site_pairs": 0.5408921933085502,
+    "between_site_pairs": 0.7051395007342145,
+    "global_auc": 0.6326497128794093,
+    "pair_counts": {
+      "within_site_pairs": 1076,
+      "between_site_pairs": 1362
+    },
+    "between_site_weight": 0.5586546349466776
+  }
+]

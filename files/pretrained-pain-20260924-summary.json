@@ -1,0 +1,110 @@
+{
+  "status": "COMPLETE_RECEIPTS_AND_PILOT_ENCODING_VERIFIED",
+  "healthy_raw_people": 33,
+  "healthy_raw_files": 66,
+  "patient_candidates": 33,
+  "patient_numeric_pass": 27,
+  "patient_other_source_qc_not_retried": 5,
+  "patient_new_aal_coverage_failure": 1,
+  "recovered_receipts_checked": 26,
+  "patient_fc_receipt_max_error": 2.98017266420203e-08,
+  "healthy_pilot_numeric_pass": 1,
+  "healthy_pilot_fc_recalculation_error": 2.9650318866814018e-08,
+  "pilot419_fc_error": 8.881784197001252e-16,
+  "pilot419_aal_reextraction_error": 0.0,
+  "author_dnn67_numpy_formula_max_error": 5.258227423476924e-07,
+  "target_disease_predictions_generated": false,
+  "new_training_inclusion": 0,
+  "visual_review": "PENDING",
+  "scope": "Patient batch verification receipts and QC re-read; local pilot arrays and frozen encoder independently calculated; no cohort classifier evaluation",
+  "development_results": [
+    {
+      "method": "aal90_plus_meta458",
+      "roc_auc": "0.6866151866151866",
+      "accuracy": "0.6075949367088608",
+      "balanced_accuracy": "0.6068211068211069",
+      "sensitivity": "0.5945945945945946",
+      "specificity": "0.6190476190476191",
+      "brier": "0.23024271055047588",
+      "average_precision": "0.6505732910194855",
+      "log_loss": "0.6535256875163059",
+      "predicted_positive": "0.4810126582278481"
+    },
+    {
+      "method": "aal90_plus_pretrained_dnn67",
+      "roc_auc": "0.7149292149292149",
+      "accuracy": "0.6455696202531646",
+      "balanced_accuracy": "0.6457528957528957",
+      "sensitivity": "0.6486486486486487",
+      "specificity": "0.6428571428571429",
+      "brier": "0.22295553745707827",
+      "average_precision": "0.690234185856498",
+      "log_loss": "0.6395200505239578",
+      "predicted_positive": "0.4936708860759494"
+    },
+    {
+      "method": "aal90_tangent",
+      "roc_auc": "0.7175032175032175",
+      "accuracy": "0.620253164556962",
+      "balanced_accuracy": "0.6235521235521235",
+      "sensitivity": "0.6756756756756757",
+      "specificity": "0.5714285714285714",
+      "brier": "0.21919928232883776",
+      "average_precision": "0.7168749430274313",
+      "log_loss": "0.6323575551302252",
+      "predicted_positive": "0.5443037974683544"
+    },
+    {
+      "method": "fc419",
+      "roc_auc": "0.6788931788931789",
+      "accuracy": "0.6455696202531646",
+      "balanced_accuracy": "0.6457528957528957",
+      "sensitivity": "0.6486486486486487",
+      "specificity": "0.6428571428571429",
+      "brier": "0.24481437217170954",
+      "average_precision": "0.6546936914179371",
+      "log_loss": "0.8083912228056941",
+      "predicted_positive": "0.4936708860759494"
+    },
+    {
+      "method": "meta458",
+      "roc_auc": "0.6557271557271557",
+      "accuracy": "0.620253164556962",
+      "balanced_accuracy": "0.621943371943372",
+      "sensitivity": "0.6486486486486487",
+      "specificity": "0.5952380952380952",
+      "brier": "0.24269819719735905",
+      "average_precision": "0.5890279438833663",
+      "log_loss": "0.6862422429848593",
+      "predicted_positive": "0.5189873417721519"
+    },
+    {
+      "method": "pretrained_dnn67",
+      "roc_auc": "0.5978120978120978",
+      "accuracy": "0.6075949367088608",
+      "balanced_accuracy": "0.6068211068211069",
+      "sensitivity": "0.5945945945945946",
+      "specificity": "0.6190476190476191",
+      "brier": "0.24336308553917146",
+      "average_precision": "0.5808016501735427",
+      "log_loss": "0.6787557690429068",
+      "predicted_positive": "0.4810126582278481"
+    },
+    {
+      "method": "random_dnn67",
+      "roc_auc": "0.37516087516087515",
+      "accuracy": "0.45569620253164556",
+      "balanced_accuracy": "0.45270270270270274",
+      "sensitivity": "0.40540540540540543",
+      "specificity": "0.5",
+      "brier": "0.32804548348784573",
+      "average_precision": "0.40572755453788284",
+      "log_loss": "0.8991424536085",
+      "predicted_positive": "0.45569620253164556"
+    }
+  ],
+  "result_dates": [
+    "2026-09-23",
+    "2026-09-24"
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "source_scans": 36,
+  "source_people": 33,
+  "prior_processing_total": 229,
+  "prior_processing_dispositions": {
+    "excluded_automatic_qc": 150,
+    "fc_only_ssl_candidate": 36,
+    "excluded_feature_contract": 42,
+    "excluded_recovery_qc": 1
+  },
+  "classification_people": 28,
+  "class_counts": {
+    "normal": 13,
+    "TN": 15
+  },
+  "regression_people": 14,
+  "regression_current_release_people": 6,
+  "regression_min": 3.0,
+  "regression_max": 10.0,
+  "clinical_source_counts": {
+    "2.0.1": 21,
+    "2.0.2": 7
+  },
+  "deferred_scan_count": 8,
+  "fc_reconstruction_max_abs_error": 1.1920928955078125e-07,
+  "roi_shape": [
+    28,
+    190,
+    90
+  ],
+  "dynamic_shape": [
+    28,
+    35,
+    90,
+    90
+  ],
+  "dynamic_window_seconds": 60,
+  "dynamic_step_seconds": 15,
+  "outer_folds": 3,
+  "new_visual_approvals": 0,
+  "formal_validation": false,
+  "archived_labels_pending_author_confirmation": true,
+  "existing_ssl_encoders_fitted_on_DS005713_not_allowed_for_clean_held_out_evaluation": true
+}

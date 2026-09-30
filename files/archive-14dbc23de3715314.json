@@ -1,0 +1,122 @@
+{
+  "prepared": "workspace-local/operations/20260908-classification-preparation/prepared-confirmed99",
+  "snapshot": "workspace-local/operations/20260908-classification-preparation/verified_snapshot.json",
+  "previous": "repository-local/tmp/matched-source-analysis-20260909-v2",
+  "source_paths": {
+    "source50": "repository-local/tmp/source50-transfer-20260911/source50_encoder.npz",
+    "source46": "repository-local/tmp/source50-transfer-20260911/source46_encoder.npz"
+  },
+  "source_manifest": "repository-local/tmp/source50-transfer-20260911/source_manifest.tsv",
+  "source_audit": {
+    "source50": {
+      "OSU": {
+        "UTO": 7,
+        "HKH": 2,
+        "KTT": 8,
+        "ATV": 11,
+        "ATT": 10,
+        "KUT": 5,
+        "SWA": 5,
+        "COI": 2
+      },
+      "CIN": {
+        "UTO": 7,
+        "HKH": 2,
+        "KTT": 8,
+        "ATV": 11,
+        "ATT": 10,
+        "KUT": 5,
+        "SWA": 5,
+        "COI": 2
+      }
+    },
+    "source46": {
+      "OSU": {
+        "UTO": 7,
+        "HKH": 2,
+        "KTT": 8,
+        "ATV": 10,
+        "ATT": 9,
+        "KUT": 5,
+        "SWA": 4,
+        "COI": 1
+      },
+      "CIN": {
+        "UTO": 7,
+        "HKH": 2,
+        "KTT": 8,
+        "ATV": 10,
+        "ATT": 9,
+        "KUT": 5,
+        "SWA": 4,
+        "COI": 1
+      }
+    }
+  },
+  "methods": [
+    "training_prior",
+    "raw_fc",
+    "raw_fc__age_motion",
+    "source50__none",
+    "source50__age_motion",
+    "source46__none",
+    "source46__age_motion",
+    "nuisance_only",
+    "source50__none__frozen_encoder",
+    "source50__none__last_layer",
+    "source50__age_motion__frozen_encoder",
+    "source50__age_motion__last_layer",
+    "source46__none__frozen_encoder",
+    "source46__none__last_layer",
+    "source46__age_motion__frozen_encoder",
+    "source46__age_motion__last_layer"
+  ],
+  "adjustments": {
+    "none": [],
+    "age_motion": [
+      "age",
+      "mean_fd",
+      "censor_fraction"
+    ]
+  },
+  "seed": 20260909,
+  "repeats": 5,
+  "inner": 3,
+  "total": 160,
+  "directions": {
+    "OSU_to_CIN": {
+      "train_site": "OSU",
+      "test_site": "CIN"
+    },
+    "CIN_to_OSU": {
+      "train_site": "CIN",
+      "test_site": "OSU"
+    }
+  },
+  "threshold": 0.5,
+  "epochs": 30,
+  "warmup_epochs": 5,
+  "raw_k": [
+    16,
+    32,
+    64,
+    128
+  ],
+  "latent_k": [
+    8,
+    16,
+    32
+  ],
+  "c_values": [
+    0.1,
+    1.0,
+    10.0
+  ],
+  "neural_learning_rates": [
+    1e-05,
+    0.0001
+  ],
+  "site_adjustment": "Not identifiable from a single training site; not estimated",
+  "scope": "Bidirectional held-out-site development evaluation. Previously explored subjects; not pristine external confirmation",
+  "repeat_meaning": "Same held-out people, five inner split/model seeds; not five independent test cohorts"
+}

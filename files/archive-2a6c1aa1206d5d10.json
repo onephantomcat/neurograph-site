@@ -1,0 +1,589 @@
+{
+  "artifact_version": 1,
+  "evidence_status": "SYNTHETIC_SMOKE_ONLY",
+  "method_order": [
+    "raw_fc_logistic",
+    "oa_internal_fc_ssl_logistic",
+    "abide_external_fc_ssl_logistic",
+    "abide_external_fc_ssl_oa_finetune_logistic"
+  ],
+  "target_dataset": {
+    "path": "repository-local/tmp/external-transfer-smoke-fyfu6x6v/target/synthetic_aal90.npz",
+    "sha256": "443db5883c5239df790eb0fe521e7595623d120866a7ba9ed4c1592517755c96",
+    "cohort_version": "synthetic-transfer-smoke",
+    "subjects": 12,
+    "controls": 6,
+    "patients": 6
+  },
+  "external_source": {
+    "path": "repository-local/tmp/external-transfer-smoke-fyfu6x6v/source/synthetic_external_fc_source.npz",
+    "sha256": "13a31cab7c44e405557fbf96ef0c25d20e47818b8e2d62be8cc33c653c6f970f",
+    "cohort_version": "synthetic-abide-fc-source-v1",
+    "subjects": 16,
+    "sites": 1,
+    "subject_ids_sha256": "c3d4d47ee5c65fb2cc69a553315a3d6765275c6e159d07031bfc734625f225d7",
+    "source_target_overlap_count": 0,
+    "source_target_overlap_subjects": [],
+    "diagnosis_keys_forbidden_and_absent": true
+  },
+  "external_source_model": {
+    "state_sha256": "ce8cf92424044feae153311d03d674325f2f8a2ed89626c9d0221120c8be2d32",
+    "scaler_sha256": "4784a4a1bb698a8386c5337d0c7fa190f89bb1d8b394f4d6d74c0a1f7cb20764",
+    "final_reconstruction_loss": 1.0782453417778015,
+    "input_edges": 4005,
+    "checkpoint_file": "abide_source_fc_encoder.npz",
+    "checkpoint_sha256": "cec94145b60405a26109fd31eafcbe45e1c2a2c402de3750d8802cc128829cf7"
+  },
+  "fold_contract": {
+    "path": "repository-local/tmp/external-transfer-smoke-fyfu6x6v/target/synthetic_folds.tsv",
+    "sha256": "d6aa6ff081d56c9e428353758ec1b3b99e0d00f3bcaa1dbc1336dd2a048661c0",
+    "outer_splits": 2,
+    "repeats": 1,
+    "subject_level_coverage_verified": true
+  },
+  "protocol": {
+    "outer_test_use": "one inference call after all fold fitting",
+    "external_scaler_fit": "ABIDE source only; fixed for external-source methods",
+    "internal_scaler_fit": "current OA outer-training fold only",
+    "external_source_pretraining": "fixed-epoch FC reconstruction; diagnosis keys forbidden",
+    "target_finetuning": "fixed-epoch reconstruction on current OA outer-training fold only",
+    "classifier": "balanced L2 logistic regression",
+    "classifier_selection": "2-fold target-train StratifiedKFold grid search by ROC AUC; classifier scaling and SelectKBest stay inside the pipeline",
+    "decision_threshold": 0.5,
+    "source_epochs": 1,
+    "internal_epochs": 1,
+    "target_finetune_epochs": 1,
+    "learning_rate": 0.001,
+    "batch_size": 8,
+    "latent_dim": 4,
+    "hidden_dim": 8,
+    "seed": 20260810,
+    "early_stopping": "not used; epochs are prespecified"
+  },
+  "method_definitions": {
+    "raw_fc_logistic": "raw target AAL90 upper-triangle Fisher-Z FC",
+    "oa_internal_fc_ssl_logistic": "FC reconstruction encoder fitted only on current OA outer-training samples",
+    "abide_external_fc_ssl_logistic": "fixed ABIDE-source FC reconstruction encoder; no OA adaptation",
+    "abide_external_fc_ssl_oa_finetune_logistic": "same ABIDE source encoder, reconstruction-finetuned only on current OA outer-training samples"
+  },
+  "models": {
+    "raw_fc_logistic": {
+      "repeat_oof_metrics": [
+        {
+          "repeat": 1,
+          "roc_auc": 0.2777777777777778,
+          "average_precision": 0.42546296296296293,
+          "accuracy": 0.4166666666666667,
+          "balanced_accuracy": 0.41666666666666663,
+          "sensitivity": 0.3333333333333333,
+          "specificity": 0.5,
+          "f1": 0.36363636363636365,
+          "brier_score": 0.45172390077344016,
+          "expected_calibration_error": 0.45940287535
+        }
+      ],
+      "repeat_oof_mean_std": {
+        "roc_auc": {
+          "mean": 0.2777777777777778,
+          "std": 0.0
+        },
+        "average_precision": {
+          "mean": 0.42546296296296293,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.4166666666666667,
+          "std": 0.0
+        },
+        "balanced_accuracy": {
+          "mean": 0.41666666666666663,
+          "std": 0.0
+        },
+        "sensitivity": {
+          "mean": 0.3333333333333333,
+          "std": 0.0
+        },
+        "specificity": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "f1": {
+          "mean": 0.36363636363636365,
+          "std": 0.0
+        },
+        "brier_score": {
+          "mean": 0.45172390077344016,
+          "std": 0.0
+        },
+        "expected_calibration_error": {
+          "mean": 0.45940287535,
+          "std": 0.0
+        }
+      },
+      "repeat_averaged_oof_metrics": {
+        "roc_auc": 0.2777777777777778,
+        "average_precision": 0.42546296296296293,
+        "accuracy": 0.4166666666666667,
+        "balanced_accuracy": 0.41666666666666663,
+        "sensitivity": 0.3333333333333333,
+        "specificity": 0.5,
+        "f1": 0.36363636363636365,
+        "brier_score": 0.45172390077344016,
+        "expected_calibration_error": 0.45940287535
+      }
+    },
+    "oa_internal_fc_ssl_logistic": {
+      "repeat_oof_metrics": [
+        {
+          "repeat": 1,
+          "roc_auc": 0.6111111111111112,
+          "average_precision": 0.6438492063492063,
+          "accuracy": 0.4166666666666667,
+          "balanced_accuracy": 0.41666666666666663,
+          "sensitivity": 0.3333333333333333,
+          "specificity": 0.5,
+          "f1": 0.36363636363636365,
+          "brier_score": 0.27232704447475037,
+          "expected_calibration_error": 0.3130925173666667
+        }
+      ],
+      "repeat_oof_mean_std": {
+        "roc_auc": {
+          "mean": 0.6111111111111112,
+          "std": 0.0
+        },
+        "average_precision": {
+          "mean": 0.6438492063492063,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.4166666666666667,
+          "std": 0.0
+        },
+        "balanced_accuracy": {
+          "mean": 0.41666666666666663,
+          "std": 0.0
+        },
+        "sensitivity": {
+          "mean": 0.3333333333333333,
+          "std": 0.0
+        },
+        "specificity": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "f1": {
+          "mean": 0.36363636363636365,
+          "std": 0.0
+        },
+        "brier_score": {
+          "mean": 0.27232704447475037,
+          "std": 0.0
+        },
+        "expected_calibration_error": {
+          "mean": 0.3130925173666667,
+          "std": 0.0
+        }
+      },
+      "repeat_averaged_oof_metrics": {
+        "roc_auc": 0.6111111111111112,
+        "average_precision": 0.6438492063492063,
+        "accuracy": 0.4166666666666667,
+        "balanced_accuracy": 0.41666666666666663,
+        "sensitivity": 0.3333333333333333,
+        "specificity": 0.5,
+        "f1": 0.36363636363636365,
+        "brier_score": 0.27232704447475037,
+        "expected_calibration_error": 0.3130925173666667
+      }
+    },
+    "abide_external_fc_ssl_logistic": {
+      "repeat_oof_metrics": [
+        {
+          "repeat": 1,
+          "roc_auc": 0.1388888888888889,
+          "average_precision": 0.3771464646464646,
+          "accuracy": 0.25,
+          "balanced_accuracy": 0.25,
+          "sensitivity": 0.0,
+          "specificity": 0.5,
+          "f1": 0.0,
+          "brier_score": 0.5258561241656902,
+          "expected_calibration_error": 0.5701876015974999
+        }
+      ],
+      "repeat_oof_mean_std": {
+        "roc_auc": {
+          "mean": 0.1388888888888889,
+          "std": 0.0
+        },
+        "average_precision": {
+          "mean": 0.3771464646464646,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.25,
+          "std": 0.0
+        },
+        "balanced_accuracy": {
+          "mean": 0.25,
+          "std": 0.0
+        },
+        "sensitivity": {
+          "mean": 0.0,
+          "std": 0.0
+        },
+        "specificity": {
+          "mean": 0.5,
+          "std": 0.0
+        },
+        "f1": {
+          "mean": 0.0,
+          "std": 0.0
+        },
+        "brier_score": {
+          "mean": 0.5258561241656902,
+          "std": 0.0
+        },
+        "expected_calibration_error": {
+          "mean": 0.5701876015974999,
+          "std": 0.0
+        }
+      },
+      "repeat_averaged_oof_metrics": {
+        "roc_auc": 0.1388888888888889,
+        "average_precision": 0.3771464646464646,
+        "accuracy": 0.25,
+        "balanced_accuracy": 0.25,
+        "sensitivity": 0.0,
+        "specificity": 0.5,
+        "f1": 0.0,
+        "brier_score": 0.5258561241656902,
+        "expected_calibration_error": 0.5701876015974999
+      }
+    },
+    "abide_external_fc_ssl_oa_finetune_logistic": {
+      "repeat_oof_metrics": [
+        {
+          "repeat": 1,
+          "roc_auc": 0.38888888888888884,
+          "average_precision": 0.5608164983164983,
+          "accuracy": 0.4166666666666667,
+          "balanced_accuracy": 0.41666666666666663,
+          "sensitivity": 0.6666666666666666,
+          "specificity": 0.16666666666666666,
+          "f1": 0.5333333333333333,
+          "brier_score": 0.271261656162116,
+          "expected_calibration_error": 0.17491762331666666
+        }
+      ],
+      "repeat_oof_mean_std": {
+        "roc_auc": {
+          "mean": 0.38888888888888884,
+          "std": 0.0
+        },
+        "average_precision": {
+          "mean": 0.5608164983164983,
+          "std": 0.0
+        },
+        "accuracy": {
+          "mean": 0.4166666666666667,
+          "std": 0.0
+        },
+        "balanced_accuracy": {
+          "mean": 0.41666666666666663,
+          "std": 0.0
+        },
+        "sensitivity": {
+          "mean": 0.6666666666666666,
+          "std": 0.0
+        },
+        "specificity": {
+          "mean": 0.16666666666666666,
+          "std": 0.0
+        },
+        "f1": {
+          "mean": 0.5333333333333333,
+          "std": 0.0
+        },
+        "brier_score": {
+          "mean": 0.271261656162116,
+          "std": 0.0
+        },
+        "expected_calibration_error": {
+          "mean": 0.17491762331666666,
+          "std": 0.0
+        }
+      },
+      "repeat_averaged_oof_metrics": {
+        "roc_auc": 0.38888888888888884,
+        "average_precision": 0.5608164983164983,
+        "accuracy": 0.4166666666666667,
+        "balanced_accuracy": 0.41666666666666663,
+        "sensitivity": 0.6666666666666666,
+        "specificity": 0.16666666666666666,
+        "f1": 0.5333333333333333,
+        "brier_score": 0.271261656162116,
+        "expected_calibration_error": 0.17491762331666666
+      }
+    }
+  },
+  "outer_fold_metrics": [
+    {
+      "method": "raw_fc_logistic",
+      "repeat": 1,
+      "outer_fold": 1,
+      "roc_auc": 0.33333333333333337,
+      "average_precision": 0.5,
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "sensitivity": 0.6666666666666666,
+      "specificity": 0.3333333333333333,
+      "f1": 0.5714285714285714,
+      "brier_score": 0.41588539842497424,
+      "expected_calibration_error": 0.41220958656666656
+    },
+    {
+      "method": "raw_fc_logistic",
+      "repeat": 1,
+      "outer_fold": 2,
+      "roc_auc": 0.22222222222222224,
+      "average_precision": 0.4444444444444445,
+      "accuracy": 0.3333333333333333,
+      "balanced_accuracy": 0.3333333333333333,
+      "sensitivity": 0.0,
+      "specificity": 0.6666666666666666,
+      "f1": 0.0,
+      "brier_score": 0.48756240312190613,
+      "expected_calibration_error": 0.5065961641333333
+    },
+    {
+      "method": "oa_internal_fc_ssl_logistic",
+      "repeat": 1,
+      "outer_fold": 1,
+      "roc_auc": 1.0,
+      "average_precision": 1.0,
+      "accuracy": 0.6666666666666666,
+      "balanced_accuracy": 0.6666666666666666,
+      "sensitivity": 0.3333333333333333,
+      "specificity": 1.0,
+      "f1": 0.5,
+      "brier_score": 0.20540325949084984,
+      "expected_calibration_error": 0.19235455103333335
+    },
+    {
+      "method": "oa_internal_fc_ssl_logistic",
+      "repeat": 1,
+      "outer_fold": 2,
+      "roc_auc": 0.11111111111111112,
+      "average_precision": 0.41111111111111115,
+      "accuracy": 0.16666666666666666,
+      "balanced_accuracy": 0.16666666666666666,
+      "sensitivity": 0.3333333333333333,
+      "specificity": 0.0,
+      "f1": 0.2857142857142857,
+      "brier_score": 0.33925082945865087,
+      "expected_calibration_error": 0.4338304837
+    },
+    {
+      "method": "abide_external_fc_ssl_logistic",
+      "repeat": 1,
+      "outer_fold": 1,
+      "roc_auc": 0.11111111111111112,
+      "average_precision": 0.41111111111111115,
+      "accuracy": 0.3333333333333333,
+      "balanced_accuracy": 0.3333333333333333,
+      "sensitivity": 0.0,
+      "specificity": 0.6666666666666666,
+      "f1": 0.0,
+      "brier_score": 0.4817615857889197,
+      "expected_calibration_error": 0.47401690706166666
+    },
+    {
+      "method": "abide_external_fc_ssl_logistic",
+      "repeat": 1,
+      "outer_fold": 2,
+      "roc_auc": 0.11111111111111112,
+      "average_precision": 0.41111111111111115,
+      "accuracy": 0.16666666666666666,
+      "balanced_accuracy": 0.16666666666666666,
+      "sensitivity": 0.0,
+      "specificity": 0.3333333333333333,
+      "f1": 0.0,
+      "brier_score": 0.5699506625424606,
+      "expected_calibration_error": 0.6663582961333332
+    },
+    {
+      "method": "abide_external_fc_ssl_oa_finetune_logistic",
+      "repeat": 1,
+      "outer_fold": 1,
+      "roc_auc": 0.3333333333333333,
+      "average_precision": 0.6333333333333333,
+      "accuracy": 0.5,
+      "balanced_accuracy": 0.5,
+      "sensitivity": 1.0,
+      "specificity": 0.0,
+      "f1": 0.6666666666666666,
+      "brier_score": 0.25608445420063153,
+      "expected_calibration_error": 0.044576191350000016
+    },
+    {
+      "method": "abide_external_fc_ssl_oa_finetune_logistic",
+      "repeat": 1,
+      "outer_fold": 2,
+      "roc_auc": 0.5555555555555556,
+      "average_precision": 0.7,
+      "accuracy": 0.3333333333333333,
+      "balanced_accuracy": 0.3333333333333333,
+      "sensitivity": 0.3333333333333333,
+      "specificity": 0.3333333333333333,
+      "f1": 0.3333333333333333,
+      "brier_score": 0.2864388581236004,
+      "expected_calibration_error": 0.3052590552833333
+    }
+  ],
+  "representation_audit": [
+    {
+      "method": "oa_internal_fc_ssl_logistic",
+      "repeat": 1,
+      "outer_fold": 1,
+      "representation_source": "current_oa_outer_training_fold_only",
+      "external_source_subject_count": 0,
+      "external_source_subjects_sha256": "",
+      "external_source_dataset_sha256": "",
+      "target_adaptation_subject_count": 6,
+      "target_adaptation_subjects_sha256": "27d5b3ca4c43979bd1ea3384334c8acde07000bd212f7218c3c51e60c6d6a615",
+      "outer_test_subject_count": 6,
+      "outer_test_subjects_sha256": "aacfa2486ce4e6d8e137c912875aa905a3e25f934cc1d1f0f52c28ec11848eb2",
+      "external_source_target_overlap_count": 0,
+      "external_source_target_overlap_subjects": [],
+      "target_adaptation_test_overlap_count": 0,
+      "target_adaptation_test_overlap_subjects": [],
+      "scaler_sha256": "96634cb048b7ae648d7992bc3bce70503702f39fb29012a962ad4f61bca91eac",
+      "source_model_sha256": "",
+      "final_model_sha256": "f7f686add648e7ecabbe244862ce1f350b2438befd29b4a08d9af355038e806b",
+      "final_reconstruction_loss": 1.07266104221344
+    },
+    {
+      "method": "abide_external_fc_ssl_logistic",
+      "repeat": 1,
+      "outer_fold": 1,
+      "representation_source": "fixed_abide_external_source_only",
+      "external_source_subject_count": 16,
+      "external_source_subjects_sha256": "c3d4d47ee5c65fb2cc69a553315a3d6765275c6e159d07031bfc734625f225d7",
+      "external_source_dataset_sha256": "13a31cab7c44e405557fbf96ef0c25d20e47818b8e2d62be8cc33c653c6f970f",
+      "target_adaptation_subject_count": 0,
+      "target_adaptation_subjects_sha256": "",
+      "outer_test_subject_count": 6,
+      "outer_test_subjects_sha256": "aacfa2486ce4e6d8e137c912875aa905a3e25f934cc1d1f0f52c28ec11848eb2",
+      "external_source_target_overlap_count": 0,
+      "external_source_target_overlap_subjects": [],
+      "target_adaptation_test_overlap_count": 0,
+      "target_adaptation_test_overlap_subjects": [],
+      "scaler_sha256": "4784a4a1bb698a8386c5337d0c7fa190f89bb1d8b394f4d6d74c0a1f7cb20764",
+      "source_model_sha256": "ce8cf92424044feae153311d03d674325f2f8a2ed89626c9d0221120c8be2d32",
+      "final_model_sha256": "ce8cf92424044feae153311d03d674325f2f8a2ed89626c9d0221120c8be2d32",
+      "final_reconstruction_loss": 1.0782453417778015
+    },
+    {
+      "method": "abide_external_fc_ssl_oa_finetune_logistic",
+      "repeat": 1,
+      "outer_fold": 1,
+      "representation_source": "fixed_abide_source_then_current_oa_outer_training_fold",
+      "external_source_subject_count": 16,
+      "external_source_subjects_sha256": "c3d4d47ee5c65fb2cc69a553315a3d6765275c6e159d07031bfc734625f225d7",
+      "external_source_dataset_sha256": "13a31cab7c44e405557fbf96ef0c25d20e47818b8e2d62be8cc33c653c6f970f",
+      "target_adaptation_subject_count": 6,
+      "target_adaptation_subjects_sha256": "27d5b3ca4c43979bd1ea3384334c8acde07000bd212f7218c3c51e60c6d6a615",
+      "outer_test_subject_count": 6,
+      "outer_test_subjects_sha256": "aacfa2486ce4e6d8e137c912875aa905a3e25f934cc1d1f0f52c28ec11848eb2",
+      "external_source_target_overlap_count": 0,
+      "external_source_target_overlap_subjects": [],
+      "target_adaptation_test_overlap_count": 0,
+      "target_adaptation_test_overlap_subjects": [],
+      "scaler_sha256": "4784a4a1bb698a8386c5337d0c7fa190f89bb1d8b394f4d6d74c0a1f7cb20764",
+      "source_model_sha256": "ce8cf92424044feae153311d03d674325f2f8a2ed89626c9d0221120c8be2d32",
+      "final_model_sha256": "089751ed1cd92b253d9ce7874d23ebbc31e88f330b880da945c5251b2eee9dad",
+      "final_reconstruction_loss": 1.3641958236694336
+    },
+    {
+      "method": "oa_internal_fc_ssl_logistic",
+      "repeat": 1,
+      "outer_fold": 2,
+      "representation_source": "current_oa_outer_training_fold_only",
+      "external_source_subject_count": 0,
+      "external_source_subjects_sha256": "",
+      "external_source_dataset_sha256": "",
+      "target_adaptation_subject_count": 6,
+      "target_adaptation_subjects_sha256": "aacfa2486ce4e6d8e137c912875aa905a3e25f934cc1d1f0f52c28ec11848eb2",
+      "outer_test_subject_count": 6,
+      "outer_test_subjects_sha256": "27d5b3ca4c43979bd1ea3384334c8acde07000bd212f7218c3c51e60c6d6a615",
+      "external_source_target_overlap_count": 0,
+      "external_source_target_overlap_subjects": [],
+      "target_adaptation_test_overlap_count": 0,
+      "target_adaptation_test_overlap_subjects": [],
+      "scaler_sha256": "c4a40ff60aa368bfe1cec993ae773276c6ee9cfea8b78c20a40dca47ec13f20c",
+      "source_model_sha256": "",
+      "final_model_sha256": "e07963cdfc80516706aa06b2614c0a1edd9db27c8f061b5ec563f902f00ab96c",
+      "final_reconstruction_loss": 1.0732487440109253
+    },
+    {
+      "method": "abide_external_fc_ssl_logistic",
+      "repeat": 1,
+      "outer_fold": 2,
+      "representation_source": "fixed_abide_external_source_only",
+      "external_source_subject_count": 16,
+      "external_source_subjects_sha256": "c3d4d47ee5c65fb2cc69a553315a3d6765275c6e159d07031bfc734625f225d7",
+      "external_source_dataset_sha256": "13a31cab7c44e405557fbf96ef0c25d20e47818b8e2d62be8cc33c653c6f970f",
+      "target_adaptation_subject_count": 0,
+      "target_adaptation_subjects_sha256": "",
+      "outer_test_subject_count": 6,
+      "outer_test_subjects_sha256": "27d5b3ca4c43979bd1ea3384334c8acde07000bd212f7218c3c51e60c6d6a615",
+      "external_source_target_overlap_count": 0,
+      "external_source_target_overlap_subjects": [],
+      "target_adaptation_test_overlap_count": 0,
+      "target_adaptation_test_overlap_subjects": [],
+      "scaler_sha256": "4784a4a1bb698a8386c5337d0c7fa190f89bb1d8b394f4d6d74c0a1f7cb20764",
+      "source_model_sha256": "ce8cf92424044feae153311d03d674325f2f8a2ed89626c9d0221120c8be2d32",
+      "final_model_sha256": "ce8cf92424044feae153311d03d674325f2f8a2ed89626c9d0221120c8be2d32",
+      "final_reconstruction_loss": 1.0782453417778015
+    },
+    {
+      "method": "abide_external_fc_ssl_oa_finetune_logistic",
+      "repeat": 1,
+      "outer_fold": 2,
+      "representation_source": "fixed_abide_source_then_current_oa_outer_training_fold",
+      "external_source_subject_count": 16,
+      "external_source_subjects_sha256": "c3d4d47ee5c65fb2cc69a553315a3d6765275c6e159d07031bfc734625f225d7",
+      "external_source_dataset_sha256": "13a31cab7c44e405557fbf96ef0c25d20e47818b8e2d62be8cc33c653c6f970f",
+      "target_adaptation_subject_count": 6,
+      "target_adaptation_subjects_sha256": "aacfa2486ce4e6d8e137c912875aa905a3e25f934cc1d1f0f52c28ec11848eb2",
+      "outer_test_subject_count": 6,
+      "outer_test_subjects_sha256": "27d5b3ca4c43979bd1ea3384334c8acde07000bd212f7218c3c51e60c6d6a615",
+      "external_source_target_overlap_count": 0,
+      "external_source_target_overlap_subjects": [],
+      "target_adaptation_test_overlap_count": 0,
+      "target_adaptation_test_overlap_subjects": [],
+      "scaler_sha256": "4784a4a1bb698a8386c5337d0c7fa190f89bb1d8b394f4d6d74c0a1f7cb20764",
+      "source_model_sha256": "ce8cf92424044feae153311d03d674325f2f8a2ed89626c9d0221120c8be2d32",
+      "final_model_sha256": "9d6576476a177b56e45968ad88f4e99c0eb8579233d67e70d7da0c600df6fe9e",
+      "final_reconstruction_loss": 1.3574179410934448
+    }
+  ],
+  "software": {
+    "python": "3.12.13",
+    "numpy": "2.5.1",
+    "scikit_learn": "1.9.0",
+    "torch": "2.13.0+cu130",
+    "external_transfer_sha256": "6ce544caaa9e4b2cac29a1ce0c001d05e5ee24f88432006754797ed57143f7ab"
+  },
+  "interpretation_limits": [
+    "ABIDE is an independent self-supervised source, not an external OA or pain validation cohort.",
+    "The OA endpoint is patient versus control and remains confounded with study/cohort.",
+    "This FC-only experiment does not use the four node metrics because ABIDE per-ROI functional-mask coverage failed the frozen node-feature gate.",
+    "No ASD/control diagnosis field enters the source NPZ or reconstruction objective.",
+    "Results are internal OA repeated cross-validation and cannot establish neuropathic-pain diagnosis or severity validity.",
+    "The encoder is a reconstruction feasibility model, not MeTSK, SCDA, contrastive learning, or a foundation model."
+  ],
+  "research_notice": "Research use only - clinician review required"
+}

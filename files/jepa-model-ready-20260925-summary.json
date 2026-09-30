@@ -1,0 +1,94 @@
+{
+  "date": "2026-09-25",
+  "summary": "Brain-JEPA官方权重已取得并严格加载，完整450×160合成输入得到768维表示，与独立注意力公式复算最大差3.58e-06。模型技术接入完成，尚无患者预测或新AUC。",
+  "boundary": "本轮只用合成信号验证完整编码器。450区名称顺序已核对；固定MNI图谱、时间采样和本地预处理差异仍须在一例真实输入上检查。",
+  "next": "下一步分别提取Tian50与Schaefer400的一例无标签时序，核对覆盖与旧AAL重提；采用事先明确的时间与整段标准化策略，再进入源训练内同输入FC、随机和预训练比较。",
+  "inference": {
+    "state": "OFFICIAL_ENCODER_TECHNICALLY_VERIFIED",
+    "model": "vit_base",
+    "epoch": 299,
+    "checkpoint_bytes": 1513861285,
+    "checkpoint_zip_crc": "PASS",
+    "strict_load": true,
+    "checkpoint_key": "target_encoder",
+    "parameters": 86808960,
+    "synthetic_input_shape": [
+      1,
+      1,
+      450,
+      160
+    ],
+    "feature_shape": [
+      1,
+      768
+    ],
+    "errors": {
+      "original_vs_sdpa_64_tokens": 4.470348358154297e-06,
+      "full_formula_max_abs": 3.5762786865234375e-06,
+      "full_cosine_error": 0.0,
+      "repeated_full": 0.0
+    },
+    "peak_gpu_allocated_bytes": 539634176,
+    "elapsed_seconds": 12.06300000000192,
+    "first_full_finished_seconds": 7.281999999999243,
+    "patient_data_used": false,
+    "classification_fits": 0,
+    "pain_auc": null,
+    "implementation": "Original encoder and weights; SDPA attention compared to original 64-token path and full independent explicit chunked attention. No external flash_attn package.",
+    "pooling": "Mean all 4500 tokens then unit/zero LayerNorm eps1e-6, as initialized and frozen in author linear probe; no classification head.",
+    "preprocessing_validated": false,
+    "remaining": [
+      "patient atlas coverage",
+      "time sampling for local TR",
+      "normalization/preprocessing transfer assumptions"
+    ]
+  },
+  "atlas": {
+    "state": "ORDER_FROM_AUTHOR_SOURCE_CODE",
+    "ukb_source_revision": "ec73ab75c868060e3ecacd19735b7a347ad226a5",
+    "rows": 450,
+    "subcortical": 50,
+    "cortical": 400,
+    "cortical_names_match_current_schaefer": true,
+    "tian_shape": [
+      91,
+      109,
+      91
+    ],
+    "tian_affine": [
+      [
+        -2.0,
+        0.0,
+        0.0,
+        90.0
+      ],
+      [
+        0.0,
+        2.0,
+        0.0,
+        -126.0
+      ],
+      [
+        0.0,
+        0.0,
+        2.0,
+        -72.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "tian_nonzero_labels": 50,
+    "spatial_caveat": "UKB source uses individual native-space cortical parcellation. Current fixed MNI group atlas is a local adaptation, not identical source preprocessing.",
+    "normalization_caveat": "Source uses ICA-clean BOLD regional means; local confound regression, filtering and centering differ.",
+    "gradient_row_validation": "450 rows match declared ordering; no independent reconstruction of source gradients performed.",
+    "patient_extraction_started": false,
+    "atlas_grids_identical": true,
+    "atlas_overlap_voxels": 74,
+    "tian_min_voxels": 42,
+    "schaefer_min_voxels": 56
+  }
+}

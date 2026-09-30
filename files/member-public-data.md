@@ -1,0 +1,134 @@
+# 疼痛多模态项目：公开数据可复用性调研
+
+核查日期：2026-09-08。目标：神经病理性疼痛 fMRI/T1w＋临床表型或文本＋瞳孔，用于疾病分类和同期疼痛回归。
+
+本报告依据本次联网读取的固定版本 GitHub 元数据、官方数据记录及原始研究。只读取公开网页、JSON、TSV和文件目录，没有下载全量MRI，没有注册账号、接受协议或联系作者。文件存在数是目录审计结果，不是影像质量检查后样本量。未确认事项明确保留。
+
+## 1. 可以立即采用的结论
+
+1. **公开数据足以启动影像分类、影像与临床表型融合，以及瞳孔—fMRI对齐的独立方法验证；尚未确认能够直接完成目标疾病三模态验证的公开队列。**下面的资源不能跨患者拼接为真实三模态样本。
+2. **ds005713最贴近神经病理性疼痛，但不同版本用途不同。**1.0.1版有159条临床记录，153人匹配基线fMRI；2.0.2版只有51条临床记录，其中50人有数值疼痛评分且均有fMRI/T1w。新版影像目录数量与README也不同，应依据纳入清单计数。[1.0.1临床表](https://github.com/OpenNeuroDatasets/ds005713/blob/1.0.1/participants.tsv)、[2.0.2临床表](https://github.com/OpenNeuroDatasets/ds005713/blob/2.0.2/participants.tsv)
+3. **ds007181可启动带状疱疹相关神经痛分类。**固定1.0.1版66人名单中，56人有fMRI，只有55人同时有T1w；公开顶层临床表无疼痛评分，暂不能据此开展疼痛回归。[固定目录](https://github.com/OpenNeuroDatasets/ds007181/tree/1.0.1)、[临床表](https://github.com/OpenNeuroDatasets/ds007181/blob/1.0.1/participants.tsv)
+4. **瞳孔并非完全没有可复用资源。**ds003673提供27名健康成人同步静息态fMRI和瞳孔；ds004926提供40名健康成人两次访视的热痛、脊髓fMRI和瞳孔。前者适合静息态融合调试，后者适合疼痛诱发瞳孔处理；均不能代替神经病理性疼痛病例。[ds003673](https://github.com/OpenNeuroDatasets/ds003673/tree/2.0.1)、[ds004926](https://github.com/OpenNeuroDatasets/ds004926/tree/1.3.1)
+5. **新增ds006815对同期疼痛回归很有用，但只有3名纤维肌痛患者。**其63个扫描session、252个BOLD文件不能当成252名患者。公开连续VAS与访视问卷可以用于个体内回归和防泄漏验证。[固定版本](https://github.com/OpenNeuroDatasets/ds006815/tree/1.0.0)
+6. **OpenPain确有实际研究目录，但目前访问路径存在障碍。**使用协议和注册页面可读取；旧下载页面及多个旧研究路径返回404，当前Nextcloud入口返回503。不能承诺立即取得原始数据，也不能把OpenPain等同于CC0无条件下载。[使用协议](https://www.openpain.org/html/agreement.html)、[当前首页](https://www.openpain.org/)
+
+## 2. 优先候选与实际配对边界
+
+### A. ds005713：原发性三叉神经痛，第一优先级
+
+**入口及版本。**[OpenNeuro 2.0.2](https://openneuro.org/datasets/ds005713/versions/2.0.2)、[OpenNeuro 1.0.1](https://openneuro.org/datasets/ds005713/versions/1.0.1)。本次从GitHub tag读取固定快照：2.0.2提交为`af6bd21edf6fe8349cd79ec8d48c1fa8371bb28f`；1.0.1为`1ac0e834f6df7e72a1330ab468027a667beed0e3`。两版dataset_description均为CC0。[版本列表](https://api.github.com/repos/OpenNeuroDatasets/ds005713/tags)、[2.0.2许可](https://github.com/OpenNeuroDatasets/ds005713/blob/2.0.2/dataset_description.json)
+
+**人群和计数不能混用。**
+
+| 证据层级 | 独立受试者口径 | 随访或扫描口径 | 临床与影像交集 |
+|---|---|---|---|
+| 原始论文、1.0.1 README | 声称112患者＋48对照 | 声称58患者有随访MRI | 不能由文字推出所有标签完整 |
+| 1.0.1实际目录和表 | 111个三位数患者基线目录＋48个两位数对照目录；临床表159个唯一ID | 58个`fu`目录，总217个目录；211个BOLD文件 | 临床表匹配基线fMRI/T1w：108患者＋45对照＝153人；表无疼痛强度列 |
+| 2.0.2 README | 声称119患者＋53对照 | 声称64人随访MRI，93人电话随访 | 文字还提及84患者＋47对照心理测量，但本次未审计该表有效行数 |
+| 2.0.2实际目录和表 | 按命名规则有120个患者基线目录、55个对照基线目录；不能把命名直接当最终诊断 | 65个`fu`目录，总240个T1w目录；234个BOLD，其中基线患者117、基线对照52、随访65 | 临床表51唯一ID，均匹配T1w/BOLD；50有数值平均疼痛，46有第二次电话随访NRS |
+
+以上为本次程序对固定快照非截断递归树、TSV唯一ID和文件后缀交集的计算。`fu`被放在新的`sub-*`目录下，实质为重复访视，不能按目录直接计算独立患者。1.0.1简单去除`fu`后出现160个根ID而基线目录只有159个，提示至少有随访ID没有对应基线目录，需要显式映射。[1.0.1完整文件树](https://api.github.com/repos/OpenNeuroDatasets/ds005713/git/trees/1.0.1?recursive=1)、[2.0.2完整文件树](https://api.github.com/repos/OpenNeuroDatasets/ds005713/git/trees/2.0.2?recursive=1)、[1.0.1 README](https://github.com/OpenNeuroDatasets/ds005713/blob/1.0.1/README)、[2.0.2 README](https://github.com/OpenNeuroDatasets/ds005713/blob/2.0.2/README)
+
+**模态和格式。**T1w、T2w、DTI和rs-fMRI，NIfTI及JSON；临床TSV含年龄、性别、疼痛侧别与类型、病程、药物、压迫分级、手术等。部分单元格为英文短语，如MRI发现、药物剂量、合并疾病。这属于表格和简短描述，不是完整原始病历。[临床字段说明](https://github.com/OpenNeuroDatasets/ds005713/blob/2.0.2/participants.json)
+
+**疼痛标签与时间。**2.0.2实际列`Pain_severity (average score)`有50个可解析数值；官方字典定义为0–10平均疼痛。原始论文描述BPI-facial询问过去一周最轻、最重和平均疼痛，故“过去一周平均”是有论文依据的解释，不能把它写成扫描瞬间疼痛；新版逐行评估与扫描间隔仍未确认。`Second follow-up pain NRS (0-10)`属于术后电话随访，不能作为基线同期标签。[原始论文](https://www.nature.com/articles/s41597-025-06311-y)、[2.0.2实际临床表](https://github.com/OpenNeuroDatasets/ds005713/blob/2.0.2/participants.tsv)
+
+**可做与缺口。**优先以1.0.1建立患者级影像分类；以2.0.2那50名可配对患者建立平均疼痛回归与表型融合可行性实验。新版51条诊断为50条TN、1条“TN, Left-sided SUNA”，应由临床负责人确定是否纳入后一例。尚未发现瞳孔文件或瞳孔采集说明；没有真实三模态。回归输入必须排除目标评分和未来术后信息；分类输入排除诊断字段。跨版本仅能在核对同一ID、影像身份及字段含义后关联，不能盲目追加样本。
+
+**关于8月3日会议的115患者＋52对照、167人229次扫描。**会议未给ID和版本，本次不能确认它对应ds005713。已读取的原论文112＋48、1.0.1实际目录、2.0.2 README与实际目录均不完全等于会议口径；可能存在不同版本或筛选口径，但这只是可能解释。保留会议数字为“待确认来源”，不纳入可用样本承诺。
+
+### B. ds007181：带状疱疹相关神经痛，分类优先
+
+**版本和权限。**[OpenNeuro 1.0.1](https://openneuro.org/datasets/ds007181/versions/1.0.1)，提交`2499c3d0f3dca9b3e84b8faf01e7838374dcc621`，CC0。[许可与引用要求](https://github.com/OpenNeuroDatasets/ds007181/blob/1.0.1/dataset_description.json)
+
+**人数。**实际participants.tsv有66个唯一ID：32 ZAN＋34 HC。按实际`.nii`文件而非仅`.nii.gz`统计：56人有BOLD＝27 ZAN＋29 HC；55人有T1w并与BOLD配对＝26 ZAN＋29 HC。`[个体编号已省略]`有BOLD而缺T1w。另有59人的EEG/PSG；这些分母不能相加。没有`ses-*`重复访视结构，MRI按每人一次扫描记录理解，仍须后续核对完整扫描元数据。[实际目录](https://api.github.com/repos/OpenNeuroDatasets/ds007181/git/trees/1.0.1?recursive=1)、[临床名单](https://github.com/OpenNeuroDatasets/ds007181/blob/1.0.1/participants.tsv)、[README](https://github.com/OpenNeuroDatasets/ds007181/blob/1.0.1/README.md)
+
+**模态、标签和文本。**T1w、静息态BOLD、PSG/EEG部分重叠；名单只有ID、组别、年龄、性别，没有VAS/NRS、病程、完整临床文本或瞳孔。ZAN不能在没有病程字段时自动重命名为所有病例均属“带状疱疹后神经痛”。本次未确认作者代码仓库是否另有可复用个体级评分，列为待核查。[数据字典](https://github.com/OpenNeuroDatasets/ds007181/blob/1.0.1/participants.json)、[作者项目](https://github.com/ellebai/zan-neuro)
+
+**用途和注意。**可做ZAN/HC影像分类、55人完整MRI管线测试；目前不能承诺疼痛回归及影像—症状文本融合。README称multi-echo，但顶层JSON只给一个EchoTime，实际文件也没有echo实体；本次没有读取影像头，回波组织待确认，不预先启用多回波处理。[BOLD元数据](https://github.com/OpenNeuroDatasets/ds007181/blob/1.0.1/task-rest_bold.json)
+
+### C. ds004144＋Zenodo 6554870：纤维肌痛与临床表型
+
+**版本、人群、许可。**[OpenNeuro 1.0.2](https://openneuro.org/datasets/ds004144/versions/1.0.2)，提交`b6e525adf7b861d5dab7e539bff19f90ce482032`；33女性纤维肌痛患者＋33女性健康对照。实际66个受试者目录均有T1w及rs-fMRI；还含T2w、情绪调节任务fMRI。无多次MRI访视目录，临床评估与扫描为两次活动。影像CC0，临床配套Zenodo记录为**CC BY 4.0**，不可统一写成全部CC0。[影像许可](https://github.com/OpenNeuroDatasets/ds004144/blob/1.0.2/dataset_description.json)、[临床记录及许可](https://zenodo.org/records/6554870)、[固定文件树](https://api.github.com/repos/OpenNeuroDatasets/ds004144/git/trees/1.0.2?recursive=1)
+
+**实际公开附件。**Zenodo页面确认`Clinical_fm_66.xlsx`（179.5kB）和`emoreg_task_fmri-behavioral_txt.rar`（799.3kB）。本次读取了记录和附件清单，未读取工作簿单元格或解包行为日志，因此不声称所有66人的每个量表都完整。OpenNeuro顶层没有participants.tsv，临床交集应从Excel建立。[Zenodo固定记录](https://zenodo.org/records/6554870)
+
+**疼痛及时间。**原研究明确：临床评估在MRI前不超过两周，包括McGill疼痛问卷、纤维肌痛影响问卷、WPI/SSS、情绪及用药等。任务中每个区块后还有0–10“此刻身体疼痛”VAS，同时记录情绪强度和唤醒度。这是值得进一步提取的同期疼痛标签，不能把所有VAS列都当疼痛，也不能把两周前临床分数当扫描瞬时评分。[原始研究方法](https://www.nature.com/articles/s41597-022-01677-9)
+
+**用途和缺口。**适合影像＋表型融合原型、慢性疼痛方法验证；任务疼痛回归需先核对行为日志ID、字段及时间轴。临床访谈被整理为表格，未确认原始临床叙事文本；未发现瞳孔数据。纤维肌痛不能直接作为已确诊神经病理性疼痛正例，不能与三叉神经痛简单拼为同一机制标签。
+
+### D. ds003673：真实同步静息态fMRI＋瞳孔
+
+**版本与样本。**[OpenNeuro 2.0.1](https://openneuro.org/datasets/ds003673/versions/2.0.1)，提交`778e0947a17198c23d0db2f4021e801ff9fbbe6e`，CC0。27名健康成人，每人1份T1w和2个静息态BOLD run，共54个BOLD文件；两run不能算54独立人或两次独立临床访视。[许可](https://github.com/OpenNeuroDatasets/ds003673/blob/2.0.1/dataset_description.json)、[实际文件树](https://api.github.com/repos/OpenNeuroDatasets/ds003673/git/trees/2.0.1?recursive=1)
+
+**真实配对和格式。**README明确扫描时同步EyeLink 1000 Plus记录；`derivatives/sub-*/..._et.tsv`存瞳孔面积数据。公开信号已做眨眼插值、0.5Hz低通、去除首10秒并降采样至1Hz。影像原始每run410帧，瞳孔处理后时间轴不能不加检查直接与410帧拼接。公开的是最小预处理瞳孔面积，不能冒称原始双眼毫米直径或PLR光刺激曲线。[采集和预处理说明](https://github.com/OpenNeuroDatasets/ds003673/blob/2.0.1/README)、[示例瞳孔文件](https://github.com/OpenNeuroDatasets/ds003673/blob/2.0.1/derivatives/[个体编号已省略]/[个体编号已省略]-rest_run-01_et.tsv)
+
+**用途与缺口。**这是本项目无需医院配对数据就能测试静息态fMRI—瞳孔对齐、表征和融合的优先材料。没有临床疼痛人群、疼痛评分或病历文本，不能验证疼痛分类/回归性能，也不能借其瞳孔补到ds005713患者名下。
+
+### E. ds004926：热痛＋瞳孔＋脊髓fMRI
+
+**版本与计数。**[OpenNeuro 1.3.1](https://openneuro.org/datasets/ds004926/versions/1.3.1)，提交`bffa92b11d6c5c1edb50fc251911f3f12e61ff68`，CC0。40健康成人，连续两天两次session；实际320个BOLD文件，属于重复run，不是320人。采集的是**脊髓**fMRI与T2w结构像，本次目录未发现T1w。[README](https://github.com/OpenNeuroDatasets/ds004926/blob/1.3.1/README)、[许可](https://github.com/OpenNeuroDatasets/ds004926/blob/1.3.1/dataset_description.json)、[固定文件树](https://api.github.com/repos/OpenNeuroDatasets/ds004926/git/trees/1.3.1?recursive=1)
+
+**标签与配对。**48℃、1秒热刺激，事件表有onset、duration、温度、trial_id、patch、TE、rating。已读取的一个run中20行rating全部为53，不能假设每行都是独立逐试次评分；具体评分时点及量表范围仍待作者方法/事件字典进一步确认。实际存在对应run瞳孔文件，示例JSON说明右眼、100Hz、眨眼处理、插值和4Hz低通，含pupil_size、blinks、artifacts_manual。[实际事件表示例](https://github.com/OpenNeuroDatasets/ds004926/blob/1.3.1/[个体编号已省略]/ses-01/func/[个体编号已省略]-01_task-heat_acq-te40ReliabilityRun_run-01_events.tsv)、[瞳孔字典](https://github.com/OpenNeuroDatasets/ds004926/blob/1.3.1/derivatives/[个体编号已省略]/ses-01/physio/[个体编号已省略]-01_task-heat_acq-te40ReliabilityRun_run-01_eyetrack.json)
+
+**用途与缺口。**适合热痛诱发瞳孔响应、事件分段、质量控制、重测可靠性和缺失处理。没有神经病理性疼痛患者、临床文本或脑T1w/全脑静息态fMRI，不能直接训练本项目脑区图分类器。逐人逐run三方有效信号交集尚未完成质量审计。
+
+### F. ds006815 DEIPP：同期自发疼痛回归方法数据
+
+**版本与人数。**[OpenNeuro 1.0.0](https://openneuro.org/datasets/ds006815/versions/1.0.0)，提交`7d87bb05569d370d744686579f3ba877bd2af0fd`，CC0。实际3名女性纤维肌痛患者；各有23、28、12个session，共63个；252个BOLD文件，189个`_resp.tsv`。3人均有T1w，但不是每访视都应假定有T1w。无健康对照。[人群字典](https://github.com/OpenNeuroDatasets/ds006815/blob/1.0.0/participants.json)、[名单](https://github.com/OpenNeuroDatasets/ds006815/blob/1.0.0/participants.tsv)、[文件树](https://api.github.com/repos/OpenNeuroDatasets/ds006815/git/trees/1.0.0?recursive=1)、[许可](https://github.com/OpenNeuroDatasets/ds006815/blob/1.0.0/dataset_description.json)
+
+**标签、时间和格式。**既有静息态run，也有持续疼痛评分run。实际`task-rating..._resp.json`给出60Hz、StartTime=-0.12、Time与VAS列，Time是相对评分显示开始的秒数；必须与扫描时间基准核对。每访视问卷明确区分当天疼痛VAS_D（0–100）、过去一周平均VAS_WA（0–100）、过去一周最重VAS_WW（0–100），并有SF-MPQ、PainDETECT、WPI/SSS、HADS和当日用药；顶层基线VAS则为0–10，不能混用量纲。[连续评分字典](https://github.com/OpenNeuroDatasets/ds006815/blob/1.0.0/[个体编号已省略]/ses-01/func/[个体编号已省略]-01_task-rating_run-1_resp.json)、[访视问卷字典](https://github.com/OpenNeuroDatasets/ds006815/blob/1.0.0/phenotype/survey_V1.json)
+
+**用途与缺口。**很适合个体内同期自发疼痛回归、按时间留出验证，以及比较影像单模态与表型融合。不能声称有足够独立患者支持人群泛化，也不能拿相邻时窗随机切分得到的结果宣称新患者性能。公开临床材料为问卷表格，未见原始病历或瞳孔文件。[原始研究](https://www.nature.com/articles/s41593-026-02221-3)、[作者代码](https://github.com/cocoanlab/DEIPP)
+
+## 3. OpenPain：实际目录、访问协议及当前障碍
+
+### 已确认的访问路径
+
+官方首页现在包含Data Portal，指向[Nextcloud登录入口](https://nextcloud.openpain.fsm.northwestern.edu/index.php/login)。[使用协议](https://www.openpain.org/html/agreement.html)可读取，[注册页面](https://www.openpain.org/html/submit_userinfo.html)要求邮箱等资料并确认协议。本次只读页面，未提交表单、勾选协议或注册。表单HTML中带有通用成功提示文案，不代表已经发生提交。
+
+协议允许科学研究、教学、临床研究规划用途；要求不识别或联系参与者、限制约定用途以外披露、团队成员共同遵守、遵循机构审查要求、落实数据保护、发现非授权披露15天内报告，并在成果和方法中按要求致谢OPP及资助方。协议并非CC0。[官方协议全文](https://www.openpain.org/html/agreement.html)
+
+本次浏览工具多次返回网页错误；直接读取公开网页时还遇到证书链验证失败，但随后读取到了官方首页、协议和注册页。旧`html/download.html`返回404；`cbp_resting/`、`BrainNetworkChange_Mano/`、`subacute_longitudinal_study/`、`placebo_1/`旧路径均404；Nextcloud返回503。因此：**目录存在有外部官方目录及研究支持，但本次没有进入文件下载区，没有确认现存文件清单、固定发布版本、完整人数和标签有效交集。**
+
+### 具体候选，不以平台名称代替数据核查
+
+NeuroHub当前实际列出六个OpenPain研究名：[官方目录](https://neurohub.ca/services/datasets/)。下表“未确认”不表示不存在，而表示本次无法读取当前研究文件验证。
+
+| 研究目录/ID | 人群和计数证据 | 模态、疼痛时间及临床格式 | 可用于本项目哪一步与缺口 |
+|---|---|---|---|
+| BrainNetworkChange_Mano | 原始研究使用日本63人＝24慢性背痛＋39对照；英国34人＝17＋17；为研究样本，当前目录总数与访视数未核实 | rs-fMRI；相关研究报告扫描当日SF-MPQ中VAS。个体临床文件格式、T1w交集未核实；无已确认瞳孔/病历 | 多站点影像分类外部方法验证；不能自动标为神经病理性疼痛，不能承诺完整多模态 |
+| cbp_resting | 官方镜像目录确认存在；当前独立人数、访视数未核实 | 慢性背痛静息态研究，实际文件及同期评分交集待核查；瞳孔/病历未确认 | 疼痛影像基线与跨数据集测试候选 |
+| subacute_longitudinal_study | 官方目录确认存在；研究利用过基线与1年随访，但不同模态论文样本数不同，不能相加 | 亚急性背痛持续/恢复纵向研究；MRI及VAS相关研究存在；当前逐访视表格、缺失和T1w/BOLD交集未读取 | 慢性化预测、纵向数据治理；未来恢复标签不能当同期疼痛分值 |
+| placebo_1 | 官方目录确认存在；独立人数、访视总数未核实 | 慢性疼痛安慰剂/重复扫描研究；当前标签字典及文本、瞳孔均未确认 | 重测与治疗反应方法候选，暂不作为即得训练数据 |
+| placebo_predict_tetreault | 官方目录确认存在；已发表研究中的队列分母不代表当前可下载人数 | 安慰剂预测方向；逐访视评分、影像交集及格式待核查；瞳孔未确认 | 疗效预测辅助研究，需先明确具体队列与映射 |
+| thermal | 官方目录确认存在；人数、访视数未核实 | 实验热痛；现存模态和评分文件未读到；瞳孔未确认 | 可列方法预训练候选，暂不优先 |
+
+BrainNetworkChange_Mano的63/34人来自使用该公开队列的原始研究：[ToPS研究](https://pmc.ncbi.nlm.nih.gov/articles/PMC8447264/)；扫描当日VAS证据来自[具体研究方法](https://pmc.ncbi.nlm.nih.gov/articles/PMC6527473/)。纵向队列的不同模态样本见[多站点白质研究](https://elifesciences.org/articles/96312)。这些文章用于证实研究内容，不能替代当前数据文件验收。
+
+上述OpenPain候选均受平台协议约束，具体包级许可或额外条件及不可变版本本次未确认。NeuroHub标记Generally open不等于本次已取得访问权，也不消除源平台协议。建议把OpenPain放在第二批，先用已核实CC0快照启动工作。
+
+## 4. 交给主项目的可执行数据选择
+
+| 要交付的结果 | 首选公开数据 | 现在能承诺什么 | 仍需医院或后续补齐什么 |
+|---|---|---|---|
+| 神经病理性疼痛影像分类基线 | ds005713 1.0.1；ds007181 1.0.1 | 明确固定快照和可配对上限，进入影像质量检查 | 本院同病种外部验证、可靠临床标签 |
+| 影像＋临床表型疼痛回归 | ds005713 2.0.2的50个数值标签交集 | 小样本平均疼痛回归可行性 | 同期时间、更多真实配对患者、完整临床文本 |
+| 丰富表型融合和任务疼痛探索 | ds004144＋Zenodo 6554870 | 已确认影像与临床附件存在 | 工作簿逐字段验收、行为日志时间对齐 |
+| 静息态脑—瞳孔融合管线 | ds003673 2.0.1 | 真实同步非疼痛数据可用 | 目标患者、疼痛标签、与医院仪器单位对应 |
+| 疼痛诱发瞳孔处理 | ds004926 1.3.1 | 真正热痛事件与瞳孔配对可验证 | 明确评分时点；目标疾病临床有效性 |
+| 个体内同期自发疼痛回归 | ds006815 1.0.0 | 时间序列与问卷口径明确，可研究个体内预测 | 更多独立患者、疾病外推、瞳孔 |
+| 完整三模态增益验证 | 本次未确认现成数据 | 不能承诺公开数据已覆盖 | 医院真实同患者、同访视三模态队列 |
+
+工程验收时应分别保留`dataset_id`、`version/commit`、原始受试者ID、统一患者ID、visit/run、诊断、评分名称/范围/时间窗、模态存在标记、许可和源链接。独立人数以统一患者ID去重；模型纳入人数以影像质控后与有效标签的交集计数。公开影像、表型和瞳孔即使来自相同病种，也不能跨患者凑配对；重复run、随访和由表格生成的文字均不增加独立患者数。
+
+## 5. 本次核查的限制
+
+- 固定OpenNeuro镜像快照已读取，但没有下载MRI或验证NIfTI头、图像完整性、头动及配准。目录交集是可用上限，不能写成最终训练样本数。
+- Zenodo附件清单及许可已确认，Excel和RAR的内部完整性未验证。
+- 瞳孔示例和官方说明已核实，尚未对所有run执行质量检查。
+- OpenPain使用协议和注册入口已确认，实际下载服务本次受阻。未确认的研究规模、版本、许可细则和模态交集保持待核查。
+- 没有确认到目标疾病MRI＋临床文本＋瞳孔＋同期疼痛标签全部真实配对的公开数据；这是本次有限核查结论，不是对全部互联网资源的不存在证明。
+
+本次按用户要求停止拓展检索，保留以上已验证证据。无需真实数据的前期工作由主代理另行整理，本报告不重复该项。

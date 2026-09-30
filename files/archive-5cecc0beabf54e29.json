@@ -1,0 +1,1197 @@
+{
+  "surface": "report",
+  "manifest": {
+    "version": 1,
+    "surface": "report",
+    "title": "骨关节炎 fMRI 重建数据质量技术报告",
+    "description": "对 ds000208 OA fMRI 重建数据的完整性、有效性、混杂风险、模型可解释边界和整改优先级进行技术审计。",
+    "generatedAt": "2026-07-14T11:24:49.969Z",
+    "sources": [
+      {
+        "id": "quality_json",
+        "label": "Phase 1 数据质量汇总",
+        "path": "reports/quality_report.json"
+      },
+      {
+        "id": "baseline_json",
+        "label": "嵌套交叉验证基线结果",
+        "path": "reports/baseline_nested_cv.json"
+      },
+      {
+        "id": "manifest_tsv",
+        "label": "76 人受试者质量清单",
+        "path": "data/generated/subject_manifest.tsv"
+      },
+      {
+        "id": "provenance_tsv",
+        "label": "AAL90 源文件溯源表",
+        "path": "data/generated/aal90_source_provenance.tsv"
+      },
+      {
+        "id": "proposal_pdf",
+        "label": "原项目书",
+        "path": "documents/project_proposal.pdf"
+      },
+      {
+        "id": "independent_review",
+        "label": "Phase 1 独立复核记录",
+        "path": "reports/PHASE1_INDEPENDENT_REVIEW.md"
+      },
+      {
+        "id": "headline_sql",
+        "label": "总体 QC 汇总重现查询",
+        "path": "reports/quality_report.json",
+        "query": {
+          "engine": "sqlite",
+          "language": "sql",
+          "sql": "SELECT 76 AS total_subjects, 44 AS passed, CAST(44 AS REAL)/76 AS pass_rate, 32 AS failed, CAST(32 AS REAL)/76 AS fail_rate;",
+          "description": "把质量 JSON 中的总体人数和 AAL90 通过/失败人数整形成指标卡数据。",
+          "executed_at": "2026-07-14T11:24:49.969Z",
+          "tables_used": [
+            "reports/quality_report.json"
+          ],
+          "filters": [
+            "报告使用经审阅的聚合行，不包含受试者级记录"
+          ],
+          "metric_definitions": [
+            "通过率 = 44/76",
+            "失败率 = 32/76"
+          ]
+        }
+      },
+      {
+        "id": "provenance_sql",
+        "label": "溯源记录汇总重现查询",
+        "path": "data/generated/aal90_source_provenance.tsv",
+        "query": {
+          "engine": "sqlite",
+          "language": "sql",
+          "sql": "SELECT 44 AS accepted_subjects, 6 AS source_roles_per_subject, 264 AS provenance_records;",
+          "description": "重现 44 名通过者、每人 6 类源文件和 264 条溯源记录。",
+          "executed_at": "2026-07-14T11:24:49.969Z",
+          "tables_used": [
+            "data/generated/aal90_source_provenance.tsv"
+          ],
+          "filters": [
+            "报告使用经审阅的聚合行，不包含受试者级记录"
+          ],
+          "metric_definitions": [
+            "溯源记录数 = 44 x 6 = 264"
+          ]
+        }
+      },
+      {
+        "id": "qc_attrition_sql",
+        "label": "QC 留存分层重现查询",
+        "path": "reports/quality_report.json",
+        "query": {
+          "engine": "sqlite",
+          "language": "sql",
+          "sql": "SELECT '全体' AS \"group\", '全部受试者' AS scope, 76 AS total, 44 AS passed, 32 AS failed, CAST(44 AS REAL)/76 AS pass_rate, CAST(32 AS REAL)/76 AS fail_rate UNION ALL SELECT '对照组','诊断分组',20,13,7,CAST(13 AS REAL)/20,CAST(7 AS REAL)/20 UNION ALL SELECT '患者组','诊断分组',56,31,25,CAST(31 AS REAL)/56,CAST(25 AS REAL)/56 UNION ALL SELECT 'Study1 患者','患者研究分层',17,5,12,CAST(5 AS REAL)/17,CAST(12 AS REAL)/17 UNION ALL SELECT 'Study2 患者','患者研究分层',39,26,13,CAST(26 AS REAL)/39,CAST(13 AS REAL)/39;",
+          "description": "从质量汇总重现全体、诊断分组和患者 Study 分层的 QC 留存率。",
+          "executed_at": "2026-07-14T11:24:49.969Z",
+          "tables_used": [
+            "reports/quality_report.json"
+          ],
+          "filters": [
+            "报告使用经审阅的聚合行，不包含受试者级记录"
+          ],
+          "metric_definitions": [
+            "通过率 = passed / total",
+            "失败率 = failed / total"
+          ]
+        }
+      },
+      {
+        "id": "scan_length_sql",
+        "label": "扫描时间点分布重现查询",
+        "path": "reports/quality_report.json",
+        "query": {
+          "engine": "sqlite",
+          "language": "sql",
+          "sql": "SELECT '对照组' AS diagnosis,272 AS timepoints,0 AS subjects,13 AS accepted_total,0.0 AS share_within_diagnosis UNION ALL SELECT '对照组',275,6,13,CAST(6 AS REAL)/13 UNION ALL SELECT '对照组',280,7,13,CAST(7 AS REAL)/13 UNION ALL SELECT '患者组',272,1,31,CAST(1 AS REAL)/31 UNION ALL SELECT '患者组',275,0,31,0.0 UNION ALL SELECT '患者组',280,30,31,CAST(30 AS REAL)/31;",
+          "description": "重现 44 名 AAL90 通过者按诊断组和扫描时间点的分布。",
+          "executed_at": "2026-07-14T11:24:49.969Z",
+          "tables_used": [
+            "reports/quality_report.json"
+          ],
+          "filters": [
+            "报告使用经审阅的聚合行，不包含受试者级记录"
+          ],
+          "metric_definitions": [
+            "组内占比 = subjects / accepted_total"
+          ]
+        }
+      },
+      {
+        "id": "model_performance_sql",
+        "label": "模型性能重现查询",
+        "path": "reports/baseline_nested_cv.json",
+        "query": {
+          "engine": "sqlite",
+          "language": "sql",
+          "sql": "SELECT '年龄+性别' AS feature_set,'混杂对照' AS role,2 AS n_features,0.41770057899090157 AS auc_mean,0.057826671004163444 AS auc_sd,0.4855252274607113 AS balanced_accuracy,0.4838709677419355 AS sensitivity,0.4871794871794872 AS specificity,0.4069478908188585 AS ensemble_auc UNION ALL SELECT '扫描时间点','采集混杂诊断',1,0.6368899917287014,0.032880362630770814,0.7146401985111663,0.967741935483871,0.4615384615384615,0.5732009925558312 UNION ALL SELECT '功能连接 FC','影像探索',4005,0.7468982630272952,0.02367094792597879,0.7510339123242349,0.6559139784946236,0.8461538461538463,0.7568238213399504 UNION ALL SELECT '四类节点特征','影像探索',360,0.8155500413564929,0.01795081423838772,0.7671629445822994,0.6881720430107526,0.8461538461538461,0.8610421836228288 UNION ALL SELECT 'FC+节点特征','影像探索',4365,0.7427626137303557,0.04198855300743441,0.7307692307692308,0.6666666666666666,0.7948717948717948,0.7518610421836228;",
+          "description": "从基线 JSON 重现五个特征组的 repeat-level OOF 主指标和次级集成 AUC。",
+          "executed_at": "2026-07-14T11:24:49.969Z",
+          "tables_used": [
+            "reports/baseline_nested_cv.json"
+          ],
+          "filters": [
+            "报告使用经审阅的聚合行，不包含受试者级记录"
+          ],
+          "metric_definitions": [
+            "主 AUC = 3 次完整 OOF ROC AUC 的均值",
+            "AUC SD = 3 次 OOF ROC AUC 的样本标准差",
+            "平衡准确率 = (敏感度 + 特异度)/2"
+          ]
+        }
+      },
+      {
+        "id": "quality_findings_sql",
+        "label": "质量发现重现查询",
+        "path": "reports/quality_report.json",
+        "query": {
+          "engine": "sqlite",
+          "language": "sql",
+          "sql": "SELECT 'P1' AS priority,'高' AS severity,'AAL90 覆盖/预处理失败' AS finding,'32/76 人失败（42.1%）；失败者 AAL116 零方差 ROI 为 32–80 个，中位数 53' AS evidence,'FC 非有限，静默补零会制造人工图结构' AS risk,'隔离输出中逐例检查配准、脑覆盖、掩膜并重跑失败者' AS action UNION ALL SELECT 'P1','高','Study 与 QC 留存相关','Study1 5/17 通过；Study2 26/39 通过','完整案例选择不是随机缺失，模型可能学习批次','补齐研究/扫描协议映射并做同协议或匹配敏感性分析' UNION ALL SELECT 'P1','高','采集长度与诊断纠缠','30/31 患者为 280 时间点；扫描时间点单特征 AUC 0.637±0.033','影像 AUC 不能归因于 OA 病理','加入运动、站点、协议等 nuisance；外部匹配验证' UNION ALL SELECT 'P1','高','缺少目标严重度标签','现有字段是治疗反应/VAS/WOMAC 改善，非神经病理性疼痛严重度','不能完成项目书中的疼痛智能分级结论','按项目书另建包含严重度金标准的前瞻性队列' UNION ALL SELECT 'P2','中','样本小且类别不平衡','最终 44 人：13 对照、31 患者','模型选择方差大，结果易乐观','固定外层 folds、预注册模型族，并扩大独立样本' UNION ALL SELECT 'P2','中','AAL116 小脑缺失需显式处理','12 名 AAL90 通过者仍有小脑零方差 ROI','AAL116 直接补零会改变边结构','AAL90 作为主分析；AAL116 仅作有记录的敏感性分析';",
+          "description": "把已审阅的质量问题、证据、下游风险和整改动作整形成报告表。",
+          "executed_at": "2026-07-14T11:24:49.969Z",
+          "tables_used": [
+            "reports/quality_report.json"
+          ],
+          "filters": [
+            "报告使用经审阅的聚合行，不包含受试者级记录"
+          ],
+          "metric_definitions": [
+            "优先级 P1 = 在疾病特异性建模前必须处理",
+            "优先级 P2 = Phase 1 可继续但必须记录和控制"
+          ]
+        }
+      },
+      {
+        "id": "integrity_checks_sql",
+        "label": "完整性检查重现查询",
+        "path": "reports/PHASE1_INDEPENDENT_REVIEW.md",
+        "query": {
+          "engine": "sqlite",
+          "language": "sql",
+          "sql": "SELECT '受试者 ID 唯一性' AS \"check\",'通过' AS result,'76/76 唯一' AS value,'每次构建强制唯一键' AS automation UNION ALL SELECT '元数据一致性','通过','0 个不一致','标签、年龄、性别跨源核对' UNION ALL SELECT '四类特征图完整性','通过','0 组缺失','fALFF/ALFF/ReHo/DC 文件与形状检查' UNION ALL SELECT 'FC 与 ROI 信号一致性','通过','0 个不一致','重算 AAL90 Fisher-Z FC，最大误差阈值 1e-8' UNION ALL SELECT '非有限值处理','通过','AAL90 数据全有限','禁止 NaN/Inf 静默插补' UNION ALL SELECT '输入溯源','通过','264 条 SHA-256 记录','路径、大小、mtime、SHA-256 固化' UNION ALL SELECT '自动测试','通过','19/19','真实数据只读契约测试';",
+          "description": "重现独立复核中确认通过的工程完整性检查。",
+          "executed_at": "2026-07-14T11:24:49.969Z",
+          "tables_used": [
+            "reports/PHASE1_INDEPENDENT_REVIEW.md"
+          ],
+          "filters": [
+            "报告使用经审阅的聚合行，不包含受试者级记录"
+          ],
+          "metric_definitions": [
+            "每项结果均来自当前 Phase 1 产物与 19 项自动测试"
+          ]
+        }
+      }
+    ],
+    "cards": [
+      {
+        "id": "subjects_card",
+        "dataset": "headline",
+        "sourceId": "headline_sql",
+        "description": "纳入逐受试者质量审计的 ds000208 全体样本。",
+        "metrics": [
+          {
+            "label": "审计受试者",
+            "field": "total_subjects",
+            "format": "number"
+          }
+        ]
+      },
+      {
+        "id": "passed_card",
+        "dataset": "headline",
+        "sourceId": "headline_sql",
+        "description": "满足 AAL90 无插补数据契约的完整案例。",
+        "metrics": [
+          {
+            "label": "AAL90 通过",
+            "field": "passed",
+            "format": "number"
+          },
+          {
+            "label": "通过率",
+            "field": "pass_rate",
+            "format": "percent"
+          }
+        ]
+      },
+      {
+        "id": "failed_card",
+        "dataset": "headline",
+        "sourceId": "headline_sql",
+        "description": "标签 1–90 内存在覆盖、方差或 FC 完整性失败的受试者。",
+        "metrics": [
+          {
+            "label": "AAL90 失败",
+            "field": "failed",
+            "format": "number"
+          },
+          {
+            "label": "失败率",
+            "field": "fail_rate",
+            "format": "percent"
+          }
+        ]
+      },
+      {
+        "id": "provenance_card",
+        "dataset": "provenance_summary",
+        "sourceId": "provenance_sql",
+        "description": "44 名通过者的 ROI、FC 和四类特征图源文件记录。",
+        "metrics": [
+          {
+            "label": "溯源记录",
+            "field": "provenance_records",
+            "format": "number"
+          },
+          {
+            "label": "每人源文件",
+            "field": "source_roles_per_subject",
+            "format": "number"
+          }
+        ]
+      }
+    ],
+    "charts": [
+      {
+        "id": "qc_pass_chart",
+        "title": "AAL90 QC 通过率",
+        "subtitle": "Study1 患者留存率明显低于 Study2，提示完整案例选择与研究批次相关",
+        "type": "horizontalBar",
+        "dataset": "qc_attrition",
+        "sourceId": "qc_attrition_sql",
+        "encodings": {
+          "x": {
+            "field": "group",
+            "type": "nominal",
+            "label": "分组"
+          },
+          "y": {
+            "field": "pass_rate",
+            "type": "quantitative",
+            "format": "percent",
+            "label": "通过率"
+          },
+          "tooltip": [
+            {
+              "field": "total",
+              "type": "quantitative",
+              "label": "总人数"
+            },
+            {
+              "field": "passed",
+              "type": "quantitative",
+              "label": "通过"
+            },
+            {
+              "field": "failed",
+              "type": "quantitative",
+              "label": "失败"
+            },
+            {
+              "field": "fail_rate",
+              "type": "quantitative",
+              "format": "percent",
+              "label": "失败率"
+            }
+          ]
+        },
+        "xAxisTitle": "分组",
+        "yAxisTitle": "AAL90 QC 通过率",
+        "valueFormat": "percent",
+        "layout": "full",
+        "compatibleTypes": [
+          "bar",
+          "horizontalBar"
+        ]
+      },
+      {
+        "id": "model_auc_chart",
+        "title": "重复嵌套交叉验证主 ROC AUC",
+        "subtitle": "四类节点特征最高，但扫描时间点单特征已有可观区分度，影像结果仍受采集混杂限制",
+        "type": "bar",
+        "dataset": "model_performance",
+        "sourceId": "model_performance_sql",
+        "encodings": {
+          "x": {
+            "field": "feature_set",
+            "type": "nominal",
+            "label": "特征组"
+          },
+          "y": {
+            "field": "auc_mean",
+            "type": "quantitative",
+            "format": "number",
+            "label": "主 ROC AUC"
+          },
+          "tooltip": [
+            {
+              "field": "auc_sd",
+              "type": "quantitative",
+              "label": "重复间标准差"
+            },
+            {
+              "field": "balanced_accuracy",
+              "type": "quantitative",
+              "label": "平衡准确率"
+            },
+            {
+              "field": "n_features",
+              "type": "quantitative",
+              "label": "特征数"
+            },
+            {
+              "field": "role",
+              "type": "nominal",
+              "label": "用途"
+            },
+            {
+              "field": "ensemble_auc",
+              "type": "quantitative",
+              "label": "次级集成 AUC"
+            }
+          ]
+        },
+        "xAxisTitle": "特征组",
+        "yAxisTitle": "ROC AUC",
+        "valueFormat": "number",
+        "referenceLines": [
+          {
+            "axis": "y",
+            "value": 0.5,
+            "label": "随机水平 0.5"
+          }
+        ],
+        "layout": "full",
+        "compatibleTypes": [
+          "bar",
+          "horizontalBar"
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "id": "qc_attrition_table",
+        "title": "QC 留存分层明细",
+        "subtitle": "全体、诊断分组及患者 Study 分层",
+        "dataset": "qc_attrition",
+        "sourceId": "qc_attrition_sql",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "pass_rate",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "group",
+            "label": "分组",
+            "type": "text"
+          },
+          {
+            "field": "total",
+            "label": "总人数",
+            "type": "number",
+            "align": "right"
+          },
+          {
+            "field": "passed",
+            "label": "通过",
+            "type": "number",
+            "align": "right"
+          },
+          {
+            "field": "failed",
+            "label": "失败",
+            "type": "number",
+            "align": "right"
+          },
+          {
+            "field": "pass_rate",
+            "label": "通过率",
+            "type": "percent",
+            "format": "percent",
+            "align": "right"
+          }
+        ]
+      },
+      {
+        "id": "scan_length_table",
+        "title": "通过者扫描时间点分布",
+        "subtitle": "44 名 AAL90 通过者；零计数保留以显示诊断组间结构差异",
+        "dataset": "scan_length",
+        "sourceId": "scan_length_sql",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "timepoints",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "diagnosis",
+            "label": "诊断组",
+            "type": "text"
+          },
+          {
+            "field": "timepoints",
+            "label": "时间点",
+            "type": "number",
+            "align": "right"
+          },
+          {
+            "field": "subjects",
+            "label": "人数",
+            "type": "number",
+            "align": "right"
+          },
+          {
+            "field": "share_within_diagnosis",
+            "label": "组内占比",
+            "type": "percent",
+            "format": "percent",
+            "align": "right"
+          }
+        ]
+      },
+      {
+        "id": "model_table",
+        "title": "模型主指标与次级集成指标",
+        "subtitle": "主指标为 3 次完整 OOF ROC AUC 的均值与样本标准差",
+        "dataset": "model_performance",
+        "sourceId": "model_performance_sql",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "auc_mean",
+          "direction": "desc"
+        },
+        "columns": [
+          {
+            "field": "feature_set",
+            "label": "特征组",
+            "type": "text"
+          },
+          {
+            "field": "role",
+            "label": "用途",
+            "type": "text"
+          },
+          {
+            "field": "n_features",
+            "label": "特征数",
+            "type": "number",
+            "align": "right"
+          },
+          {
+            "field": "auc_mean",
+            "label": "主 AUC",
+            "type": "number",
+            "align": "right"
+          },
+          {
+            "field": "auc_sd",
+            "label": "AUC 标准差",
+            "type": "number",
+            "align": "right"
+          },
+          {
+            "field": "balanced_accuracy",
+            "label": "平衡准确率",
+            "type": "number",
+            "align": "right"
+          },
+          {
+            "field": "ensemble_auc",
+            "label": "次级集成 AUC",
+            "type": "number",
+            "align": "right"
+          }
+        ]
+      },
+      {
+        "id": "findings_table",
+        "title": "质量问题、风险与整改动作",
+        "subtitle": "按对当前建模与项目目标的影响优先级排序",
+        "dataset": "quality_findings",
+        "sourceId": "quality_findings_sql",
+        "density": "spacious",
+        "defaultSort": {
+          "field": "priority",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "priority",
+            "label": "优先级",
+            "type": "text"
+          },
+          {
+            "field": "severity",
+            "label": "严重度",
+            "type": "text"
+          },
+          {
+            "field": "finding",
+            "label": "问题",
+            "type": "text"
+          },
+          {
+            "field": "evidence",
+            "label": "证据",
+            "type": "text"
+          },
+          {
+            "field": "risk",
+            "label": "下游风险",
+            "type": "text"
+          },
+          {
+            "field": "action",
+            "label": "建议动作",
+            "type": "text"
+          }
+        ]
+      },
+      {
+        "id": "integrity_table",
+        "title": "已通过的完整性与自动化检查",
+        "subtitle": "当前重建产物的工程质量控制状态",
+        "dataset": "integrity_checks",
+        "sourceId": "integrity_checks_sql",
+        "density": "comfortable",
+        "defaultSort": {
+          "field": "check",
+          "direction": "asc"
+        },
+        "columns": [
+          {
+            "field": "check",
+            "label": "检查项",
+            "type": "text"
+          },
+          {
+            "field": "result",
+            "label": "结果",
+            "type": "text"
+          },
+          {
+            "field": "value",
+            "label": "证据",
+            "type": "text"
+          },
+          {
+            "field": "automation",
+            "label": "自动化规则",
+            "type": "text"
+          }
+        ]
+      }
+    ],
+    "blocks": [
+      {
+        "id": "title",
+        "type": "markdown",
+        "body": "# 骨关节炎 fMRI 重建数据质量技术报告"
+      },
+      {
+        "id": "technical_summary",
+        "type": "markdown",
+        "body": "## 技术摘要\n\n**总体判断：数据在限定条件下可用于 Phase 1 方法学探索，但不具备临床诊断或疾病特异性验证资格。** 76 名受试者中仅 44 名满足预定义 AAL90 无插补数据契约，32 名因严重脑区覆盖或预处理问题失败。最大的科学风险是诊断标签与 Study、扫描长度及 QC 留存相互纠缠：Study1 患者通过率仅 29.4%，Study2 为 66.7%；扫描时间点单特征也达到 AUC 0.637±0.033。四类节点特征的主 AUC 为 0.816±0.018，只能说明样本内存在可预测信号，不能证明该信号来自 OA 病理。\n\n当前公开数据提供 OA 诊断和治疗反应信息，但没有项目书要求的神经病理性疼痛严重度金标准，因此不能据此完成“智能分级”的结论。"
+      },
+      {
+        "id": "metric_strip",
+        "type": "metric-strip",
+        "cardIds": [
+          "subjects_card",
+          "passed_card",
+          "failed_card",
+          "provenance_card"
+        ]
+      },
+      {
+        "id": "qc_section",
+        "type": "markdown",
+        "sourceId": "quality_json",
+        "body": "## 44 人可进入 AAL90 探索，32 人必须先修复\n\nAAL90 QC 总通过率为 57.9%。失败者在 AAL116 中有 32–80 个零方差 ROI，中位数为 53，表明这不是少量边缘脑区缺失，而是大范围覆盖、配准、掩膜或预处理异常。直接把非有限 FC 补成 0 会人为改变图结构，因此本报告将这 32 人排除在自动建模之外，并要求在隔离 DPABI/SPM 输出中逐例重处理。\n\n通过者中仍有 12 人存在仅限 AAL90 之外的小脑零方差 ROI；因此 AAL90 可作为当前主分析，AAL116 只能作为明确记录处理策略的敏感性分析。"
+      },
+      {
+        "id": "qc_chart_block",
+        "type": "chart",
+        "chartId": "qc_pass_chart"
+      },
+      {
+        "id": "qc_table_block",
+        "type": "table",
+        "tableId": "qc_attrition_table"
+      },
+      {
+        "id": "confounding_section",
+        "type": "markdown",
+        "body": "## Study 与扫描长度混杂使疾病信号不可辨识\n\n患者 Study1 与 Study2 的 QC 留存率分别为 29.4% 和 66.7%，而所有对照组的 study 字段均为空。44 名通过者中，30/31 名患者有 280 个时间点；对照组则由 275 和 280 个时间点混合构成。扫描时间点这一单一 nuisance 特征已经产生 AUC 0.637±0.033，说明采集协议或批次结构本身携带诊断信息。\n\n这不是代码级标签泄漏，但会导致**科学不可辨识性**：随机受试者级交叉验证无法区分模型学到的是 OA 病理、研究批次、扫描长度，还是与 QC 留存相关的其他采集差异。"
+      },
+      {
+        "id": "scan_table_block",
+        "type": "table",
+        "tableId": "scan_length_table"
+      },
+      {
+        "id": "findings_table_block",
+        "type": "table",
+        "tableId": "findings_table"
+      },
+      {
+        "id": "model_section",
+        "type": "markdown",
+        "sourceId": "baseline_json",
+        "body": "## 模型结果支持“有信号”，不支持“已识别疾病特异性”\n\n主结果采用每次完整 OOF 预测的 ROC AUC，再对 3 次重复取均值与样本标准差。所有标准化、单变量特征选择和超参数搜索均在训练折内完成，决策阈值固定为 0.5，没有使用留出标签做事后阈值优化。\n\n四类节点特征主 AUC 最高，为 0.816±0.018；FC 为 0.747±0.024；FC 与节点特征直接合并没有带来增益。此前的 0.861 是每名受试者 3 次 OOF 概率平均后的交叉拟合集成 AUC，仅保留为次级探索值，其 bootstrap 区间不覆盖数据切分、模型重训、模型族选择或外部队列不确定性。"
+      },
+      {
+        "id": "model_chart_block",
+        "type": "chart",
+        "chartId": "model_auc_chart"
+      },
+      {
+        "id": "model_table_block",
+        "type": "table",
+        "tableId": "model_table"
+      },
+      {
+        "id": "scope_section",
+        "type": "markdown",
+        "body": "## 范围、粒度与指标定义\n\n- **数据粒度：** 一行一名 ds000208 受试者，候选键为规范化 subject_id。\n- **总体队列：** 76 人，包括 20 名对照和 56 名患者；AAL90 完整案例为 13 名对照和 31 名患者。\n- **AAL90 数据契约：** 仅使用 AAL 标签 1–90；ROI 时间序列必须为非零方差，Fisher-Z FC 必须有限且与时间序列重算一致，四类 z-fALFF、z-ALFF、z-ReHo、z-DC 图必须完整；禁止 NaN/Inf 静默插补。\n- **图构造：** 节点为 90 个 AAL 脑区；边为每名受试者正相关 FC 中最强 20% 的加权对称边。\n- **模型主指标：** 5 折×3 次重复外层 OOF ROC AUC 的逐重复均值与样本标准差；内层 3 折按 ROC AUC 选超参数。\n- **任务边界：** 当前标签支持 OA/对照探索和治疗反应方法原型，不支持神经病理性疼痛严重度分级。"
+      },
+      {
+        "id": "method_section",
+        "type": "markdown",
+        "body": "## 审计与验证方法\n\n质量审计覆盖完整性、唯一性、有效性、一致性、跨源完整性和 ML 泄漏风险。具体包括：76 人键覆盖与唯一性；本地标签和官方 participants 元数据的标签、年龄、性别一致性；116/90 ROI 零方差计数；FC 形状和非有限值；FC 从 ROI 时间序列重算；四类特征图存在性、形状、仿射和有限性；AAL90 通过集合与 legacy44 的独立一致性。\n\n生成数据保存 subject_id、诊断、治疗反应元数据、扫描时间点、90×4 节点特征、90×90 FC 与邻接矩阵，同时固化 264 条源文件 SHA-256/大小/mtime 记录和 atlas、标签、participants、配置、锁文件及生成器代码哈希。当前自动测试为 19/19 通过。"
+      },
+      {
+        "id": "robustness_section",
+        "type": "markdown",
+        "body": "## 已验证部分与仍未消除的不确定性\n\n**工程完整性较强：** 76 个 subject_id 全部唯一；标签、年龄、性别跨源不一致为 0；四类特征图缺失为 0；FC 与 ROI 信号重算不一致为 0；AAL90 节点特征和 FC 与 legacy 前 90 ROI 数值一致；生成矩阵全部有限。\n\n**科学解释仍受阻：** nuisance 基线只能暴露混杂，不能消除混杂。对照组缺少 study 映射，没有头动参数和完整协议变量，也没有同协议匹配外部队列。样本仅 44 人且类别不平衡，模型族又是并列探索，因此任何“最佳模型”选择都可能乐观。当前类别平衡逻辑回归的概率也不是校准后的临床风险。"
+      },
+      {
+        "id": "integrity_table_block",
+        "type": "table",
+        "tableId": "integrity_table"
+      },
+      {
+        "id": "recommendations_section",
+        "type": "markdown",
+        "body": "## 建议按三道门推进\n\n1. **数据修复门（立即）：** 在新建隔离输出中对 32 名失败者逐例检查标准化、脑覆盖、配准、掩膜和 atlas 对齐；保留失败原因与修复前后 QC 对照，禁止覆盖协作者原目录。\n2. **混杂控制门（建模前）：** 补齐 controls 的 study/协议映射，导出头动、扫描长度、设备和预处理批次；开展同协议子集、匹配/加权和 fold-local nuisance 敏感性分析。若不能形成标签与批次可分离的设计，停止疾病特异性性能声明。\n3. **模型验证门（数据门通过后）：** 固定当前 subject_id 与外层 folds，比较 GCN/GAT/BrainHGT；模型族选择和阈值选择必须留在训练数据内；最终以独立匹配队列验证。\n4. **项目目标门（临床分级前）：** 另建含神经病理性疼痛严重度金标准、临床文本及瞳孔指标的前瞻性队列。治疗反应字段只能作为方法学辅助任务，不能改称严重度标签。"
+      },
+      {
+        "id": "questions_section",
+        "type": "markdown",
+        "body": "## 需要项目组进一步确认的问题\n\n- Study1、Study2 与对照组是否使用完全一致的扫描仪、序列参数和时间点设计？\n- 32 名失败者是否集中于某一批次、协议、扫描日期或预处理版本？\n- 是否能取得逐受试者头动指标、站点/设备信息及原始 DICOM/NIfTI 覆盖截图？\n- 项目书中的疼痛严重度标签将采用何种金标准、时间窗和分级阈值？\n- 外部验证队列能否按年龄、性别、扫描协议和疼痛类型进行匹配？"
+      }
+    ]
+  },
+  "snapshot": {
+    "version": 1,
+    "generatedAt": "2026-07-14T11:24:49.969Z",
+    "status": "ready",
+    "datasets": {
+      "headline": [
+        {
+          "total_subjects": 76,
+          "passed": 44,
+          "pass_rate": 0.5789473684210527,
+          "failed": 32,
+          "fail_rate": 0.42105263157894735
+        }
+      ],
+      "provenance_summary": [
+        {
+          "accepted_subjects": 44,
+          "source_roles_per_subject": 6,
+          "provenance_records": 264
+        }
+      ],
+      "qc_attrition": [
+        {
+          "group": "全体",
+          "scope": "全部受试者",
+          "total": 76,
+          "passed": 44,
+          "failed": 32,
+          "pass_rate": 0.5789473684210527,
+          "fail_rate": 0.42105263157894735
+        },
+        {
+          "group": "对照组",
+          "scope": "诊断分组",
+          "total": 20,
+          "passed": 13,
+          "failed": 7,
+          "pass_rate": 0.65,
+          "fail_rate": 0.35
+        },
+        {
+          "group": "患者组",
+          "scope": "诊断分组",
+          "total": 56,
+          "passed": 31,
+          "failed": 25,
+          "pass_rate": 0.5535714285714286,
+          "fail_rate": 0.44642857142857145
+        },
+        {
+          "group": "Study1 患者",
+          "scope": "患者研究分层",
+          "total": 17,
+          "passed": 5,
+          "failed": 12,
+          "pass_rate": 0.29411764705882354,
+          "fail_rate": 0.7058823529411765
+        },
+        {
+          "group": "Study2 患者",
+          "scope": "患者研究分层",
+          "total": 39,
+          "passed": 26,
+          "failed": 13,
+          "pass_rate": 0.6666666666666666,
+          "fail_rate": 0.3333333333333333
+        }
+      ],
+      "scan_length": [
+        {
+          "diagnosis": "对照组",
+          "timepoints": 272,
+          "subjects": 0,
+          "accepted_total": 13,
+          "share_within_diagnosis": 0
+        },
+        {
+          "diagnosis": "对照组",
+          "timepoints": 275,
+          "subjects": 6,
+          "accepted_total": 13,
+          "share_within_diagnosis": 0.46153846153846156
+        },
+        {
+          "diagnosis": "对照组",
+          "timepoints": 280,
+          "subjects": 7,
+          "accepted_total": 13,
+          "share_within_diagnosis": 0.5384615384615384
+        },
+        {
+          "diagnosis": "患者组",
+          "timepoints": 272,
+          "subjects": 1,
+          "accepted_total": 31,
+          "share_within_diagnosis": 0.03225806451612903
+        },
+        {
+          "diagnosis": "患者组",
+          "timepoints": 275,
+          "subjects": 0,
+          "accepted_total": 31,
+          "share_within_diagnosis": 0
+        },
+        {
+          "diagnosis": "患者组",
+          "timepoints": 280,
+          "subjects": 30,
+          "accepted_total": 31,
+          "share_within_diagnosis": 0.967741935483871
+        }
+      ],
+      "model_performance": [
+        {
+          "feature_set": "年龄+性别",
+          "role": "混杂对照",
+          "n_features": 2,
+          "auc_mean": 0.41770057899090157,
+          "auc_sd": 0.057826671004163444,
+          "balanced_accuracy": 0.4855252274607113,
+          "sensitivity": 0.4838709677419355,
+          "specificity": 0.4871794871794872,
+          "ensemble_auc": 0.4069478908188585
+        },
+        {
+          "feature_set": "扫描时间点",
+          "role": "采集混杂诊断",
+          "n_features": 1,
+          "auc_mean": 0.6368899917287014,
+          "auc_sd": 0.032880362630770814,
+          "balanced_accuracy": 0.7146401985111663,
+          "sensitivity": 0.967741935483871,
+          "specificity": 0.4615384615384615,
+          "ensemble_auc": 0.5732009925558312
+        },
+        {
+          "feature_set": "功能连接 FC",
+          "role": "影像探索",
+          "n_features": 4005,
+          "auc_mean": 0.7468982630272952,
+          "auc_sd": 0.02367094792597879,
+          "balanced_accuracy": 0.7510339123242349,
+          "sensitivity": 0.6559139784946236,
+          "specificity": 0.8461538461538463,
+          "ensemble_auc": 0.7568238213399504
+        },
+        {
+          "feature_set": "四类节点特征",
+          "role": "影像探索",
+          "n_features": 360,
+          "auc_mean": 0.8155500413564929,
+          "auc_sd": 0.01795081423838772,
+          "balanced_accuracy": 0.7671629445822994,
+          "sensitivity": 0.6881720430107526,
+          "specificity": 0.8461538461538461,
+          "ensemble_auc": 0.8610421836228288
+        },
+        {
+          "feature_set": "FC+节点特征",
+          "role": "影像探索",
+          "n_features": 4365,
+          "auc_mean": 0.7427626137303557,
+          "auc_sd": 0.04198855300743441,
+          "balanced_accuracy": 0.7307692307692308,
+          "sensitivity": 0.6666666666666666,
+          "specificity": 0.7948717948717948,
+          "ensemble_auc": 0.7518610421836228
+        }
+      ],
+      "quality_findings": [
+        {
+          "priority": "P1",
+          "severity": "高",
+          "finding": "AAL90 覆盖/预处理失败",
+          "evidence": "32/76 人失败（42.1%）；失败者 AAL116 零方差 ROI 为 32–80 个，中位数 53",
+          "risk": "FC 非有限，静默补零会制造人工图结构",
+          "action": "隔离输出中逐例检查配准、脑覆盖、掩膜并重跑失败者"
+        },
+        {
+          "priority": "P1",
+          "severity": "高",
+          "finding": "Study 与 QC 留存相关",
+          "evidence": "Study1 5/17 通过；Study2 26/39 通过",
+          "risk": "完整案例选择不是随机缺失，模型可能学习批次",
+          "action": "补齐研究/扫描协议映射并做同协议或匹配敏感性分析"
+        },
+        {
+          "priority": "P1",
+          "severity": "高",
+          "finding": "采集长度与诊断纠缠",
+          "evidence": "30/31 患者为 280 时间点；扫描时间点单特征 AUC 0.637±0.033",
+          "risk": "影像 AUC 不能归因于 OA 病理",
+          "action": "加入运动、站点、协议等 nuisance；外部匹配验证"
+        },
+        {
+          "priority": "P1",
+          "severity": "高",
+          "finding": "缺少目标严重度标签",
+          "evidence": "现有字段是治疗反应/VAS/WOMAC 改善，非神经病理性疼痛严重度",
+          "risk": "不能完成项目书中的疼痛智能分级结论",
+          "action": "按项目书另建包含严重度金标准的前瞻性队列"
+        },
+        {
+          "priority": "P2",
+          "severity": "中",
+          "finding": "样本小且类别不平衡",
+          "evidence": "最终 44 人：13 对照、31 患者",
+          "risk": "模型选择方差大，结果易乐观",
+          "action": "固定外层 folds、预注册模型族，并扩大独立样本"
+        },
+        {
+          "priority": "P2",
+          "severity": "中",
+          "finding": "AAL116 小脑缺失需显式处理",
+          "evidence": "12 名 AAL90 通过者仍有小脑零方差 ROI",
+          "risk": "AAL116 直接补零会改变边结构",
+          "action": "AAL90 作为主分析；AAL116 仅作有记录的敏感性分析"
+        }
+      ],
+      "integrity_checks": [
+        {
+          "check": "受试者 ID 唯一性",
+          "result": "通过",
+          "value": "76/76 唯一",
+          "automation": "每次构建强制唯一键"
+        },
+        {
+          "check": "元数据一致性",
+          "result": "通过",
+          "value": "0 个不一致",
+          "automation": "标签、年龄、性别跨源核对"
+        },
+        {
+          "check": "四类特征图完整性",
+          "result": "通过",
+          "value": "0 组缺失",
+          "automation": "fALFF/ALFF/ReHo/DC 文件与形状检查"
+        },
+        {
+          "check": "FC 与 ROI 信号一致性",
+          "result": "通过",
+          "value": "0 个不一致",
+          "automation": "重算 AAL90 Fisher-Z FC，最大误差阈值 1e-8"
+        },
+        {
+          "check": "非有限值处理",
+          "result": "通过",
+          "value": "AAL90 数据全有限",
+          "automation": "禁止 NaN/Inf 静默插补"
+        },
+        {
+          "check": "输入溯源",
+          "result": "通过",
+          "value": "264 条 SHA-256 记录",
+          "automation": "路径、大小、mtime、SHA-256 固化"
+        },
+        {
+          "check": "自动测试",
+          "result": "通过",
+          "value": "19/19",
+          "automation": "真实数据只读契约测试"
+        }
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": "quality_json",
+      "label": "Phase 1 数据质量汇总",
+      "path": "reports/quality_report.json"
+    },
+    {
+      "id": "baseline_json",
+      "label": "嵌套交叉验证基线结果",
+      "path": "reports/baseline_nested_cv.json"
+    },
+    {
+      "id": "manifest_tsv",
+      "label": "76 人受试者质量清单",
+      "path": "data/generated/subject_manifest.tsv"
+    },
+    {
+      "id": "provenance_tsv",
+      "label": "AAL90 源文件溯源表",
+      "path": "data/generated/aal90_source_provenance.tsv"
+    },
+    {
+      "id": "proposal_pdf",
+      "label": "原项目书",
+      "path": "documents/project_proposal.pdf"
+    },
+    {
+      "id": "independent_review",
+      "label": "Phase 1 独立复核记录",
+      "path": "reports/PHASE1_INDEPENDENT_REVIEW.md"
+    },
+    {
+      "id": "headline_sql",
+      "label": "总体 QC 汇总重现查询",
+      "path": "reports/quality_report.json",
+      "query": {
+        "engine": "sqlite",
+        "language": "sql",
+        "sql": "SELECT 76 AS total_subjects, 44 AS passed, CAST(44 AS REAL)/76 AS pass_rate, 32 AS failed, CAST(32 AS REAL)/76 AS fail_rate;",
+        "description": "把质量 JSON 中的总体人数和 AAL90 通过/失败人数整形成指标卡数据。",
+        "executed_at": "2026-07-14T11:24:49.969Z",
+        "tables_used": [
+          "reports/quality_report.json"
+        ],
+        "filters": [
+          "报告使用经审阅的聚合行，不包含受试者级记录"
+        ],
+        "metric_definitions": [
+          "通过率 = 44/76",
+          "失败率 = 32/76"
+        ]
+      }
+    },
+    {
+      "id": "provenance_sql",
+      "label": "溯源记录汇总重现查询",
+      "path": "data/generated/aal90_source_provenance.tsv",
+      "query": {
+        "engine": "sqlite",
+        "language": "sql",
+        "sql": "SELECT 44 AS accepted_subjects, 6 AS source_roles_per_subject, 264 AS provenance_records;",
+        "description": "重现 44 名通过者、每人 6 类源文件和 264 条溯源记录。",
+        "executed_at": "2026-07-14T11:24:49.969Z",
+        "tables_used": [
+          "data/generated/aal90_source_provenance.tsv"
+        ],
+        "filters": [
+          "报告使用经审阅的聚合行，不包含受试者级记录"
+        ],
+        "metric_definitions": [
+          "溯源记录数 = 44 x 6 = 264"
+        ]
+      }
+    },
+    {
+      "id": "qc_attrition_sql",
+      "label": "QC 留存分层重现查询",
+      "path": "reports/quality_report.json",
+      "query": {
+        "engine": "sqlite",
+        "language": "sql",
+        "sql": "SELECT '全体' AS \"group\", '全部受试者' AS scope, 76 AS total, 44 AS passed, 32 AS failed, CAST(44 AS REAL)/76 AS pass_rate, CAST(32 AS REAL)/76 AS fail_rate UNION ALL SELECT '对照组','诊断分组',20,13,7,CAST(13 AS REAL)/20,CAST(7 AS REAL)/20 UNION ALL SELECT '患者组','诊断分组',56,31,25,CAST(31 AS REAL)/56,CAST(25 AS REAL)/56 UNION ALL SELECT 'Study1 患者','患者研究分层',17,5,12,CAST(5 AS REAL)/17,CAST(12 AS REAL)/17 UNION ALL SELECT 'Study2 患者','患者研究分层',39,26,13,CAST(26 AS REAL)/39,CAST(13 AS REAL)/39;",
+        "description": "从质量汇总重现全体、诊断分组和患者 Study 分层的 QC 留存率。",
+        "executed_at": "2026-07-14T11:24:49.969Z",
+        "tables_used": [
+          "reports/quality_report.json"
+        ],
+        "filters": [
+          "报告使用经审阅的聚合行，不包含受试者级记录"
+        ],
+        "metric_definitions": [
+          "通过率 = passed / total",
+          "失败率 = failed / total"
+        ]
+      }
+    },
+    {
+      "id": "scan_length_sql",
+      "label": "扫描时间点分布重现查询",
+      "path": "reports/quality_report.json",
+      "query": {
+        "engine": "sqlite",
+        "language": "sql",
+        "sql": "SELECT '对照组' AS diagnosis,272 AS timepoints,0 AS subjects,13 AS accepted_total,0.0 AS share_within_diagnosis UNION ALL SELECT '对照组',275,6,13,CAST(6 AS REAL)/13 UNION ALL SELECT '对照组',280,7,13,CAST(7 AS REAL)/13 UNION ALL SELECT '患者组',272,1,31,CAST(1 AS REAL)/31 UNION ALL SELECT '患者组',275,0,31,0.0 UNION ALL SELECT '患者组',280,30,31,CAST(30 AS REAL)/31;",
+        "description": "重现 44 名 AAL90 通过者按诊断组和扫描时间点的分布。",
+        "executed_at": "2026-07-14T11:24:49.969Z",
+        "tables_used": [
+          "reports/quality_report.json"
+        ],
+        "filters": [
+          "报告使用经审阅的聚合行，不包含受试者级记录"
+        ],
+        "metric_definitions": [
+          "组内占比 = subjects / accepted_total"
+        ]
+      }
+    },
+    {
+      "id": "model_performance_sql",
+      "label": "模型性能重现查询",
+      "path": "reports/baseline_nested_cv.json",
+      "query": {
+        "engine": "sqlite",
+        "language": "sql",
+        "sql": "SELECT '年龄+性别' AS feature_set,'混杂对照' AS role,2 AS n_features,0.41770057899090157 AS auc_mean,0.057826671004163444 AS auc_sd,0.4855252274607113 AS balanced_accuracy,0.4838709677419355 AS sensitivity,0.4871794871794872 AS specificity,0.4069478908188585 AS ensemble_auc UNION ALL SELECT '扫描时间点','采集混杂诊断',1,0.6368899917287014,0.032880362630770814,0.7146401985111663,0.967741935483871,0.4615384615384615,0.5732009925558312 UNION ALL SELECT '功能连接 FC','影像探索',4005,0.7468982630272952,0.02367094792597879,0.7510339123242349,0.6559139784946236,0.8461538461538463,0.7568238213399504 UNION ALL SELECT '四类节点特征','影像探索',360,0.8155500413564929,0.01795081423838772,0.7671629445822994,0.6881720430107526,0.8461538461538461,0.8610421836228288 UNION ALL SELECT 'FC+节点特征','影像探索',4365,0.7427626137303557,0.04198855300743441,0.7307692307692308,0.6666666666666666,0.7948717948717948,0.7518610421836228;",
+        "description": "从基线 JSON 重现五个特征组的 repeat-level OOF 主指标和次级集成 AUC。",
+        "executed_at": "2026-07-14T11:24:49.969Z",
+        "tables_used": [
+          "reports/baseline_nested_cv.json"
+        ],
+        "filters": [
+          "报告使用经审阅的聚合行，不包含受试者级记录"
+        ],
+        "metric_definitions": [
+          "主 AUC = 3 次完整 OOF ROC AUC 的均值",
+          "AUC SD = 3 次 OOF ROC AUC 的样本标准差",
+          "平衡准确率 = (敏感度 + 特异度)/2"
+        ]
+      }
+    },
+    {
+      "id": "quality_findings_sql",
+      "label": "质量发现重现查询",
+      "path": "reports/quality_report.json",
+      "query": {
+        "engine": "sqlite",
+        "language": "sql",
+        "sql": "SELECT 'P1' AS priority,'高' AS severity,'AAL90 覆盖/预处理失败' AS finding,'32/76 人失败（42.1%）；失败者 AAL116 零方差 ROI 为 32–80 个，中位数 53' AS evidence,'FC 非有限，静默补零会制造人工图结构' AS risk,'隔离输出中逐例检查配准、脑覆盖、掩膜并重跑失败者' AS action UNION ALL SELECT 'P1','高','Study 与 QC 留存相关','Study1 5/17 通过；Study2 26/39 通过','完整案例选择不是随机缺失，模型可能学习批次','补齐研究/扫描协议映射并做同协议或匹配敏感性分析' UNION ALL SELECT 'P1','高','采集长度与诊断纠缠','30/31 患者为 280 时间点；扫描时间点单特征 AUC 0.637±0.033','影像 AUC 不能归因于 OA 病理','加入运动、站点、协议等 nuisance；外部匹配验证' UNION ALL SELECT 'P1','高','缺少目标严重度标签','现有字段是治疗反应/VAS/WOMAC 改善，非神经病理性疼痛严重度','不能完成项目书中的疼痛智能分级结论','按项目书另建包含严重度金标准的前瞻性队列' UNION ALL SELECT 'P2','中','样本小且类别不平衡','最终 44 人：13 对照、31 患者','模型选择方差大，结果易乐观','固定外层 folds、预注册模型族，并扩大独立样本' UNION ALL SELECT 'P2','中','AAL116 小脑缺失需显式处理','12 名 AAL90 通过者仍有小脑零方差 ROI','AAL116 直接补零会改变边结构','AAL90 作为主分析；AAL116 仅作有记录的敏感性分析';",
+        "description": "把已审阅的质量问题、证据、下游风险和整改动作整形成报告表。",
+        "executed_at": "2026-07-14T11:24:49.969Z",
+        "tables_used": [
+          "reports/quality_report.json"
+        ],
+        "filters": [
+          "报告使用经审阅的聚合行，不包含受试者级记录"
+        ],
+        "metric_definitions": [
+          "优先级 P1 = 在疾病特异性建模前必须处理",
+          "优先级 P2 = Phase 1 可继续但必须记录和控制"
+        ]
+      }
+    },
+    {
+      "id": "integrity_checks_sql",
+      "label": "完整性检查重现查询",
+      "path": "reports/PHASE1_INDEPENDENT_REVIEW.md",
+      "query": {
+        "engine": "sqlite",
+        "language": "sql",
+        "sql": "SELECT '受试者 ID 唯一性' AS \"check\",'通过' AS result,'76/76 唯一' AS value,'每次构建强制唯一键' AS automation UNION ALL SELECT '元数据一致性','通过','0 个不一致','标签、年龄、性别跨源核对' UNION ALL SELECT '四类特征图完整性','通过','0 组缺失','fALFF/ALFF/ReHo/DC 文件与形状检查' UNION ALL SELECT 'FC 与 ROI 信号一致性','通过','0 个不一致','重算 AAL90 Fisher-Z FC，最大误差阈值 1e-8' UNION ALL SELECT '非有限值处理','通过','AAL90 数据全有限','禁止 NaN/Inf 静默插补' UNION ALL SELECT '输入溯源','通过','264 条 SHA-256 记录','路径、大小、mtime、SHA-256 固化' UNION ALL SELECT '自动测试','通过','19/19','真实数据只读契约测试';",
+        "description": "重现独立复核中确认通过的工程完整性检查。",
+        "executed_at": "2026-07-14T11:24:49.969Z",
+        "tables_used": [
+          "reports/PHASE1_INDEPENDENT_REVIEW.md"
+        ],
+        "filters": [
+          "报告使用经审阅的聚合行，不包含受试者级记录"
+        ],
+        "metric_definitions": [
+          "每项结果均来自当前 Phase 1 产物与 19 项自动测试"
+        ]
+      }
+    }
+  ],
+  "package_info": {
+    "audience": "technical",
+    "report_language": "zh-CN",
+    "chart_map": [
+      {
+        "section": "QC 留存",
+        "question": "不同分组的 AAL90 通过率是否一致",
+        "family": "Comparison & Ranking",
+        "type": "horizontalBar",
+        "fields": [
+          "group",
+          "pass_rate",
+          "total",
+          "passed",
+          "failed"
+        ],
+        "takeaway": "Study1 患者留存率最低",
+        "palette_policy": "single-root preferred"
+      },
+      {
+        "section": "模型表现",
+        "question": "不同特征组的主 ROC AUC 如何比较",
+        "family": "Uncertainty & Benchmark",
+        "type": "bar with 0.5 reference",
+        "fields": [
+          "feature_set",
+          "auc_mean",
+          "auc_sd",
+          "balanced_accuracy",
+          "ensemble_auc"
+        ],
+        "takeaway": "节点特征最高，但采集 nuisance 已含诊断信号",
+        "palette_policy": "single-root preferred"
+      }
+    ],
+    "omitted_visuals": [
+      "扫描时间点仅有 3 个离散取值，使用精确表格比低信息量图形更诚实。"
+    ],
+    "required_structure_mapping": {
+      "title": "title",
+      "technical_summary": "technical_summary",
+      "key_findings_with_visual_evidence": [
+        "qc_section",
+        "confounding_section",
+        "model_section"
+      ],
+      "scope_data_metric_definitions": "scope_section",
+      "methodology": "method_section",
+      "limitations_uncertainty_robustness": "robustness_section",
+      "recommended_next_steps": "recommendations_section",
+      "further_questions": "questions_section"
+    }
+  }
+}

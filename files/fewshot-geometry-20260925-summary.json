@@ -1,0 +1,568 @@
+{
+  "date": "2026-09-25",
+  "state": "VERIFIED",
+  "decision": {
+    "primary_k": 5,
+    "pretrained_cl2_minus_lr_by_training_group": [
+      0.0037037037037036535,
+      -0.004382716049382673,
+      -0.049609053497942424
+    ],
+    "pretrained_cl2_auc": 0.6185459533607681,
+    "fc419_cl2_auc": 0.579951989026063,
+    "random5_cl2_mean_auc": 0.49850685871056244,
+    "advance_to_outer": false,
+    "scope": "Overlapping previously used training groups, not independent performance or significance; original outer query and external cohorts not scored"
+  },
+  "verification": {
+    "state": "VERIFIED",
+    "episodes": 135,
+    "lr_independently_refitted": 945,
+    "prototypes_independently_recomputed": 1890,
+    "errors": {
+      "center": 0.0,
+      "scale": 1.1102230246251565e-16,
+      "prototype": 8.881784197001252e-16,
+      "direct_score": 1.7462298274040222e-10,
+      "refit_score": 1.2434497875801753e-14,
+      "auc": 2.220446049250313e-16,
+      "ba": 5.551115123125783e-17,
+      "aggregate": 1.1102230246251565e-16,
+      "one_shot_auc_difference": 0.0,
+      "one_shot_direction_residual": 1.8848902501269207e-15
+    },
+    "one_shot_plain_prototype_equivalent": true,
+    "scope": "Training-internal evidence only; existing input encoders reused; overlapping groups not independent cohorts; no corresponding outer-fold query predictions"
+  },
+  "episodes": 135,
+  "people_in_development_pool": 79,
+  "results": [
+    {
+      "representation": "fc419",
+      "head": "cl2_proto",
+      "k": 1,
+      "auc": 0.5391529492455418,
+      "ba": 0.5350617283950617
+    },
+    {
+      "representation": "fc419",
+      "head": "cl2_proto",
+      "k": 5,
+      "auc": 0.579951989026063,
+      "ba": 0.5311111111111111
+    },
+    {
+      "representation": "fc419",
+      "head": "cl2_proto",
+      "k": 10,
+      "auc": 0.6068655692729767,
+      "ba": 0.5745061728395062
+    },
+    {
+      "representation": "fc419",
+      "head": "euclidean_proto",
+      "k": 1,
+      "auc": 0.5361351165980796,
+      "ba": 0.5350617283950617
+    },
+    {
+      "representation": "fc419",
+      "head": "euclidean_proto",
+      "k": 5,
+      "auc": 0.5683744855967079,
+      "ba": 0.5342901234567901
+    },
+    {
+      "representation": "fc419",
+      "head": "euclidean_proto",
+      "k": 10,
+      "auc": 0.5956069958847736,
+      "ba": 0.5670987654320988
+    },
+    {
+      "representation": "fc419",
+      "head": "lr",
+      "k": 1,
+      "auc": 0.5361351165980796,
+      "ba": 0.5350617283950617
+    },
+    {
+      "representation": "fc419",
+      "head": "lr",
+      "k": 5,
+      "auc": 0.5737688614540467,
+      "ba": 0.5253395061728394
+    },
+    {
+      "representation": "fc419",
+      "head": "lr",
+      "k": 10,
+      "auc": 0.5957064471879286,
+      "ba": 0.546820987654321
+    },
+    {
+      "representation": "pretrained_dnn67",
+      "head": "cl2_proto",
+      "k": 1,
+      "auc": 0.6171604938271605,
+      "ba": 0.5835802469135802
+    },
+    {
+      "representation": "pretrained_dnn67",
+      "head": "cl2_proto",
+      "k": 5,
+      "auc": 0.6185459533607681,
+      "ba": 0.5841049382716049
+    },
+    {
+      "representation": "pretrained_dnn67",
+      "head": "cl2_proto",
+      "k": 10,
+      "auc": 0.6756344307270233,
+      "ba": 0.6385185185185185
+    },
+    {
+      "representation": "pretrained_dnn67",
+      "head": "euclidean_proto",
+      "k": 1,
+      "auc": 0.6042489711934156,
+      "ba": 0.5835802469135802
+    },
+    {
+      "representation": "pretrained_dnn67",
+      "head": "euclidean_proto",
+      "k": 5,
+      "auc": 0.6336316872427984,
+      "ba": 0.5863271604938272
+    },
+    {
+      "representation": "pretrained_dnn67",
+      "head": "euclidean_proto",
+      "k": 10,
+      "auc": 0.6846090534979423,
+      "ba": 0.6393518518518518
+    },
+    {
+      "representation": "pretrained_dnn67",
+      "head": "lr",
+      "k": 1,
+      "auc": 0.6042489711934156,
+      "ba": 0.5835802469135802
+    },
+    {
+      "representation": "pretrained_dnn67",
+      "head": "lr",
+      "k": 5,
+      "auc": 0.6353086419753087,
+      "ba": 0.5868827160493827
+    },
+    {
+      "representation": "pretrained_dnn67",
+      "head": "lr",
+      "k": 10,
+      "auc": 0.6831378600823045,
+      "ba": 0.6454012345679012
+    },
+    {
+      "representation": "seed20260923",
+      "head": "cl2_proto",
+      "k": 1,
+      "auc": 0.49612139917695475,
+      "ba": 0.5026851851851852
+    },
+    {
+      "representation": "seed20260923",
+      "head": "cl2_proto",
+      "k": 5,
+      "auc": 0.5029286694101509,
+      "ba": 0.4968518518518519
+    },
+    {
+      "representation": "seed20260923",
+      "head": "cl2_proto",
+      "k": 10,
+      "auc": 0.48457475994513033,
+      "ba": 0.4885185185185185
+    },
+    {
+      "representation": "seed20260923",
+      "head": "euclidean_proto",
+      "k": 1,
+      "auc": 0.48803497942386836,
+      "ba": 0.5026851851851852
+    },
+    {
+      "representation": "seed20260923",
+      "head": "euclidean_proto",
+      "k": 5,
+      "auc": 0.4973696844993142,
+      "ba": 0.49944444444444447
+    },
+    {
+      "representation": "seed20260923",
+      "head": "euclidean_proto",
+      "k": 10,
+      "auc": 0.4814026063100137,
+      "ba": 0.4849382716049383
+    },
+    {
+      "representation": "seed20260923",
+      "head": "lr",
+      "k": 1,
+      "auc": 0.48803497942386836,
+      "ba": 0.5026851851851852
+    },
+    {
+      "representation": "seed20260923",
+      "head": "lr",
+      "k": 5,
+      "auc": 0.4979938271604938,
+      "ba": 0.49018518518518517
+    },
+    {
+      "representation": "seed20260923",
+      "head": "lr",
+      "k": 10,
+      "auc": 0.4785288065843621,
+      "ba": 0.49126543209876544
+    },
+    {
+      "representation": "seed20260924",
+      "head": "cl2_proto",
+      "k": 1,
+      "auc": 0.44431755829903974,
+      "ba": 0.4750308641975309
+    },
+    {
+      "representation": "seed20260924",
+      "head": "cl2_proto",
+      "k": 5,
+      "auc": 0.4203017832647462,
+      "ba": 0.4521604938271605
+    },
+    {
+      "representation": "seed20260924",
+      "head": "cl2_proto",
+      "k": 10,
+      "auc": 0.40190329218106996,
+      "ba": 0.43651234567901237
+    },
+    {
+      "representation": "seed20260924",
+      "head": "euclidean_proto",
+      "k": 1,
+      "auc": 0.4395987654320988,
+      "ba": 0.4750308641975309
+    },
+    {
+      "representation": "seed20260924",
+      "head": "euclidean_proto",
+      "k": 5,
+      "auc": 0.41459190672153634,
+      "ba": 0.45771604938271604
+    },
+    {
+      "representation": "seed20260924",
+      "head": "euclidean_proto",
+      "k": 10,
+      "auc": 0.39320987654320994,
+      "ba": 0.42398148148148146
+    },
+    {
+      "representation": "seed20260924",
+      "head": "lr",
+      "k": 1,
+      "auc": 0.4395987654320988,
+      "ba": 0.4750308641975309
+    },
+    {
+      "representation": "seed20260924",
+      "head": "lr",
+      "k": 5,
+      "auc": 0.41565843621399173,
+      "ba": 0.461574074074074
+    },
+    {
+      "representation": "seed20260924",
+      "head": "lr",
+      "k": 10,
+      "auc": 0.38790123456790127,
+      "ba": 0.42870370370370375
+    },
+    {
+      "representation": "seed20260925",
+      "head": "cl2_proto",
+      "k": 1,
+      "auc": 0.5305761316872428,
+      "ba": 0.5207098765432099
+    },
+    {
+      "representation": "seed20260925",
+      "head": "cl2_proto",
+      "k": 5,
+      "auc": 0.5248936899862826,
+      "ba": 0.500925925925926
+    },
+    {
+      "representation": "seed20260925",
+      "head": "cl2_proto",
+      "k": 10,
+      "auc": 0.5342043895747599,
+      "ba": 0.537253086419753
+    },
+    {
+      "representation": "seed20260925",
+      "head": "euclidean_proto",
+      "k": 1,
+      "auc": 0.5253257887517147,
+      "ba": 0.5207098765432099
+    },
+    {
+      "representation": "seed20260925",
+      "head": "euclidean_proto",
+      "k": 5,
+      "auc": 0.5269170096021948,
+      "ba": 0.5144753086419753
+    },
+    {
+      "representation": "seed20260925",
+      "head": "euclidean_proto",
+      "k": 10,
+      "auc": 0.5426508916323731,
+      "ba": 0.5382716049382716
+    },
+    {
+      "representation": "seed20260925",
+      "head": "lr",
+      "k": 1,
+      "auc": 0.5253257887517147,
+      "ba": 0.5207098765432099
+    },
+    {
+      "representation": "seed20260925",
+      "head": "lr",
+      "k": 5,
+      "auc": 0.5222599451303155,
+      "ba": 0.5176543209876543
+    },
+    {
+      "representation": "seed20260925",
+      "head": "lr",
+      "k": 10,
+      "auc": 0.5385562414266117,
+      "ba": 0.5343827160493827
+    },
+    {
+      "representation": "seed20260926",
+      "head": "cl2_proto",
+      "k": 1,
+      "auc": 0.473261316872428,
+      "ba": 0.49111111111111116
+    },
+    {
+      "representation": "seed20260926",
+      "head": "cl2_proto",
+      "k": 5,
+      "auc": 0.5369410150891633,
+      "ba": 0.5355864197530864
+    },
+    {
+      "representation": "seed20260926",
+      "head": "cl2_proto",
+      "k": 10,
+      "auc": 0.5487517146776406,
+      "ba": 0.5356790123456789
+    },
+    {
+      "representation": "seed20260926",
+      "head": "euclidean_proto",
+      "k": 1,
+      "auc": 0.47177983539094653,
+      "ba": 0.49111111111111116
+    },
+    {
+      "representation": "seed20260926",
+      "head": "euclidean_proto",
+      "k": 5,
+      "auc": 0.5371844993141289,
+      "ba": 0.533858024691358
+    },
+    {
+      "representation": "seed20260926",
+      "head": "euclidean_proto",
+      "k": 10,
+      "auc": 0.5421433470507544,
+      "ba": 0.5257716049382716
+    },
+    {
+      "representation": "seed20260926",
+      "head": "lr",
+      "k": 1,
+      "auc": 0.47177983539094653,
+      "ba": 0.49111111111111116
+    },
+    {
+      "representation": "seed20260926",
+      "head": "lr",
+      "k": 5,
+      "auc": 0.5387482853223594,
+      "ba": 0.5324382716049383
+    },
+    {
+      "representation": "seed20260926",
+      "head": "lr",
+      "k": 10,
+      "auc": 0.5478532235939644,
+      "ba": 0.5356790123456789
+    },
+    {
+      "representation": "seed20260927",
+      "head": "cl2_proto",
+      "k": 1,
+      "auc": 0.5225445816186557,
+      "ba": 0.481358024691358
+    },
+    {
+      "representation": "seed20260927",
+      "head": "cl2_proto",
+      "k": 5,
+      "auc": 0.5074691358024691,
+      "ba": 0.49956790123456785
+    },
+    {
+      "representation": "seed20260927",
+      "head": "cl2_proto",
+      "k": 10,
+      "auc": 0.5305658436213991,
+      "ba": 0.5463580246913581
+    },
+    {
+      "representation": "seed20260927",
+      "head": "euclidean_proto",
+      "k": 1,
+      "auc": 0.5151200274348423,
+      "ba": 0.481358024691358
+    },
+    {
+      "representation": "seed20260927",
+      "head": "euclidean_proto",
+      "k": 5,
+      "auc": 0.5109499314128944,
+      "ba": 0.5044135802469135
+    },
+    {
+      "representation": "seed20260927",
+      "head": "euclidean_proto",
+      "k": 10,
+      "auc": 0.5372599451303155,
+      "ba": 0.5500925925925926
+    },
+    {
+      "representation": "seed20260927",
+      "head": "lr",
+      "k": 1,
+      "auc": 0.5151200274348423,
+      "ba": 0.481358024691358
+    },
+    {
+      "representation": "seed20260927",
+      "head": "lr",
+      "k": 5,
+      "auc": 0.5110150891632373,
+      "ba": 0.5084567901234568
+    },
+    {
+      "representation": "seed20260927",
+      "head": "lr",
+      "k": 10,
+      "auc": 0.5347427983539095,
+      "ba": 0.5418827160493828
+    }
+  ],
+  "compact_results": [
+    {
+      "representation": "预训练DNN67",
+      "head": "共同尺度LR",
+      "auc_by_k": [
+        0.6042489711934156,
+        0.6353086419753087,
+        0.6831378600823045
+      ]
+    },
+    {
+      "representation": "预训练DNN67",
+      "head": "欧氏原型",
+      "auc_by_k": [
+        0.6042489711934156,
+        0.6336316872427984,
+        0.6846090534979423
+      ]
+    },
+    {
+      "representation": "预训练DNN67",
+      "head": "中心化L2原型",
+      "auc_by_k": [
+        0.6171604938271605,
+        0.6185459533607681,
+        0.6756344307270233
+      ]
+    },
+    {
+      "representation": "同419区FC",
+      "head": "共同尺度LR",
+      "auc_by_k": [
+        0.5361351165980796,
+        0.5737688614540467,
+        0.5957064471879286
+      ]
+    },
+    {
+      "representation": "同419区FC",
+      "head": "欧氏原型",
+      "auc_by_k": [
+        0.5361351165980796,
+        0.5683744855967079,
+        0.5956069958847736
+      ]
+    },
+    {
+      "representation": "同419区FC",
+      "head": "中心化L2原型",
+      "auc_by_k": [
+        0.5391529492455418,
+        0.579951989026063,
+        0.6068655692729767
+      ]
+    },
+    {
+      "representation": "五随机编码均值",
+      "head": "共同尺度LR",
+      "auc_by_k": [
+        0.48797187928669417,
+        0.4971351165980796,
+        0.4975164609053498
+      ]
+    },
+    {
+      "representation": "五随机编码均值",
+      "head": "欧氏原型",
+      "auc_by_k": [
+        0.48797187928669417,
+        0.4974026063100137,
+        0.4993333333333333
+      ]
+    },
+    {
+      "representation": "五随机编码均值",
+      "head": "中心化L2原型",
+      "auc_by_k": [
+        0.49336419753086425,
+        0.49850685871056244,
+        0.5
+      ]
+    }
+  ],
+  "summary": "源训练内部135个任务中，每类5人时DNN共同尺度LR平均AUC0.6353，中心化L2原型0.6185；三个训练组的差值有两组为负，按事先约定停止扩展该分类头。",
+  "boundary": "仅原79人开发数据的训练内部比较，训练组互有重叠；不是新外部或临床验证。每个外折的query未用于该折此次比较，原20人和Emo未新增评分；不把任务数当人数。",
+  "next": "收束当前67维表示上的分类头扩展。下一轮核对可复用模型的预训练目标、输入与疼痛任务匹配程度，再决定是否引入一个有依据的新表示或优先补同任务数据；不在旧query继续挑头、种子或阈值。"
+}

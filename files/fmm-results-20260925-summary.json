@@ -1,0 +1,330 @@
+{
+  "date": "2026-09-25",
+  "people": 79,
+  "labels": {
+    "Healthy": 42,
+    "Pain": 37
+  },
+  "scope": "Repeatedly used development dataset; FMM-inspired512-d adaptation, not exact paper reproduction",
+  "results": {
+    "fc_only": {
+      "auc": 0.536036036036036,
+      "accuracy": 0.4936708860759494,
+      "balanced_accuracy": 0.5012870012870012,
+      "sensitivity": 0.6216216216216216,
+      "specificity": 0.38095238095238093,
+      "brier": 0.33838894489782695,
+      "mcc": 0.0026465238779844213
+    },
+    "fc_pretrained": {
+      "auc": 0.5012870012870013,
+      "accuracy": 0.4936708860759494,
+      "balanced_accuracy": 0.4916344916344917,
+      "sensitivity": 0.4594594594594595,
+      "specificity": 0.5238095238095238,
+      "brier": 0.3885523029647505,
+      "mcc": -0.01673101673101673
+    },
+    "fc_random": {
+      "auc": 0.5173745173745173,
+      "accuracy": 0.5189873417721519,
+      "balanced_accuracy": 0.5106177606177607,
+      "sensitivity": 0.3783783783783784,
+      "specificity": 0.6428571428571429,
+      "brier": 0.33951962666679336,
+      "mcc": 0.021983884391670764
+    },
+    "aal90_reference": {
+      "auc": 0.7175032175032175,
+      "accuracy": 0.620253164556962,
+      "balanced_accuracy": 0.6235521235521235,
+      "sensitivity": 0.6756756756756757,
+      "specificity": 0.5714285714285714,
+      "brier": 0.21919928232883779,
+      "mcc": 0.24758266816610436
+    }
+  },
+  "comparisons": [
+    {
+      "method": "fc_pretrained",
+      "reference": "fc_only",
+      "auc_difference": -0.03474903474903468,
+      "conditional_ci95": [
+        -0.16666666666666663,
+        0.09909909909909909
+      ]
+    },
+    {
+      "method": "fc_pretrained",
+      "reference": "aal90_reference",
+      "auc_difference": -0.21621621621621623,
+      "conditional_ci95": [
+        -0.35587194337194333,
+        -0.07586872586872626
+      ]
+    },
+    {
+      "method": "fc_pretrained",
+      "reference": "fc_random",
+      "auc_difference": -0.01608751608751602,
+      "conditional_ci95": [
+        -0.18019626769626773,
+        0.15514800514800478
+      ]
+    },
+    {
+      "method": "fc_only",
+      "reference": "aal90_reference",
+      "auc_difference": -0.18146718146718155,
+      "conditional_ci95": [
+        -0.3217664092664093,
+        -0.047602960102960244
+      ]
+    }
+  ],
+  "plan": {
+    "date": "2026-09-25",
+    "seed": 20260924,
+    "methods": [
+      "fc_only",
+      "fc_pretrained",
+      "fc_random"
+    ],
+    "epoch_candidates": [
+      20,
+      50
+    ],
+    "inner_fits": 27,
+    "final_fits": 9,
+    "optimizer": "AdamW lr=5e-4 weight_decay=.01 batch=4",
+    "selection": "Mean AUC over three training-inner folds; ties choose20; outer query evaluated once after selection",
+    "people": 79,
+    "original_outer20_scored": false,
+    "target_Emo_used": false,
+    "scope": "Repeatedly used development dataset; FMM-inspired512-d adaptation, not exact paper reproduction"
+  },
+  "selections": [
+    {
+      "fold": 0,
+      "method": "fc_only",
+      "inner_auc": {
+        "20": [
+          0.6375,
+          0.4722222222222222,
+          0.4861111111111111
+        ],
+        "50": [
+          0.575,
+          0.5277777777777778,
+          0.625
+        ]
+      },
+      "selected_epochs": 50
+    },
+    {
+      "fold": 0,
+      "method": "fc_pretrained",
+      "inner_auc": {
+        "20": [
+          0.4625,
+          0.22222222222222224,
+          0.26388888888888895
+        ],
+        "50": [
+          0.4625,
+          0.3472222222222222,
+          0.3055555555555556
+        ]
+      },
+      "selected_epochs": 50
+    },
+    {
+      "fold": 0,
+      "method": "fc_random",
+      "inner_auc": {
+        "20": [
+          0.5125,
+          0.3194444444444445,
+          0.5833333333333334
+        ],
+        "50": [
+          0.42500000000000004,
+          0.36111111111111116,
+          0.5833333333333334
+        ]
+      },
+      "selected_epochs": 20
+    },
+    {
+      "fold": 1,
+      "method": "fc_only",
+      "inner_auc": {
+        "20": [
+          0.7,
+          0.654320987654321,
+          0.7083333333333333
+        ],
+        "50": [
+          0.5125,
+          0.8148148148148149,
+          0.6944444444444445
+        ]
+      },
+      "selected_epochs": 20
+    },
+    {
+      "fold": 1,
+      "method": "fc_pretrained",
+      "inner_auc": {
+        "20": [
+          0.675,
+          0.5802469135802469,
+          0.7083333333333333
+        ],
+        "50": [
+          0.625,
+          0.6419753086419753,
+          0.6666666666666667
+        ]
+      },
+      "selected_epochs": 20
+    },
+    {
+      "fold": 1,
+      "method": "fc_random",
+      "inner_auc": {
+        "20": [
+          0.5125,
+          0.4320987654320988,
+          0.5277777777777778
+        ],
+        "50": [
+          0.5125,
+          0.4691358024691358,
+          0.4722222222222222
+        ]
+      },
+      "selected_epochs": 20
+    },
+    {
+      "fold": 2,
+      "method": "fc_only",
+      "inner_auc": {
+        "20": [
+          0.5308641975308641,
+          0.6625000000000001,
+          0.4027777777777778
+        ],
+        "50": [
+          0.3950617283950617,
+          0.6125,
+          0.5277777777777777
+        ]
+      },
+      "selected_epochs": 20
+    },
+    {
+      "fold": 2,
+      "method": "fc_pretrained",
+      "inner_auc": {
+        "20": [
+          0.3703703703703704,
+          0.6,
+          0.4444444444444445
+        ],
+        "50": [
+          0.5555555555555556,
+          0.7374999999999999,
+          0.5
+        ]
+      },
+      "selected_epochs": 50
+    },
+    {
+      "fold": 2,
+      "method": "fc_random",
+      "inner_auc": {
+        "20": [
+          0.6666666666666667,
+          0.475,
+          0.5694444444444444
+        ],
+        "50": [
+          0.6049382716049383,
+          0.6375,
+          0.5972222222222222
+        ]
+      },
+      "selected_epochs": 50
+    }
+  ],
+  "verification": {
+    "state": "VERIFIED",
+    "people": 79,
+    "inner_receipts_audited": 27,
+    "final_fits_independently_retrained": 9,
+    "errors": {
+      "selection_auc": 1.1102230246251565e-16,
+      "scaler": 0.0,
+      "checkpoint_probability": 0.0,
+      "logit_formula": 5.960464477539063e-08,
+      "replay_probability": 0.0,
+      "replay_state": 0.0,
+      "aggregate_metrics": 0.0
+    },
+    "elapsed_seconds": 206.5978388786316,
+    "paired": [
+      {
+        "method": "fc_pretrained",
+        "reference": "fc_only",
+        "auc_difference": -0.03474903474903468,
+        "conditional_ci95": [
+          -0.16666666666666663,
+          0.09909909909909909
+        ]
+      },
+      {
+        "method": "fc_pretrained",
+        "reference": "aal90_reference",
+        "auc_difference": -0.21621621621621623,
+        "conditional_ci95": [
+          -0.35587194337194333,
+          -0.07586872586872626
+        ]
+      },
+      {
+        "method": "fc_pretrained",
+        "reference": "fc_random",
+        "auc_difference": -0.01608751608751602,
+        "conditional_ci95": [
+          -0.18019626769626773,
+          0.15514800514800478
+        ]
+      },
+      {
+        "method": "fc_only",
+        "reference": "aal90_reference",
+        "auc_difference": -0.18146718146718155,
+        "conditional_ci95": [
+          -0.3217664092664093,
+          -0.047602960102960244
+        ]
+      }
+    ],
+    "bootstrap_replicates": 2000,
+    "interval_scope": "Paired stratified-by-class resampling of fixed development OOF predictions; excludes training randomness, design selection and new-site uncertainty",
+    "limits": [
+      "One training seed",
+      "Repeatedly reused development data",
+      "Inner fits audited but not independently retrained",
+      "FMM-inspired 512-d adaptation, not exact paper reproduction"
+    ]
+  },
+  "decision": {
+    "finding": "本次适配没有改善开发表现，预训练组合接近随机排序。",
+    "reason": "主要问题是预训练表示能否给相同连接分支带来增量。当前预训练组合的AUC和概率误差均未优于FC单分支，也未超过随机表示组合；与原AAL参照仍有明显差距。依据开跑前的取舍规则，停止当前结构的扩参和新的few-shot搜索，保留全部阴性结果。这个结论限于本地公开权重、输入与有限训练设置；尚不能分辨任务不匹配、输入覆盖或结构容量等因素各自的作用。不能为提高旧query分数继续挑epoch、阈值或种子。",
+    "next": "暂不扩大当前FMM结构或在旧query上搜索。下一轮先收取并核对已结束的Emo批次产物、覆盖及标签，保留正式影像审核要求；满足原纳入条件后，按已登记的固定源模型方案检验外推。只有新的输入或训练内证据支持预训练增量，才启动新的1/5/10-shot结构比较。",
+    "retain": "保留现成预训练模型与小样本研究目标、全部结果和现有原79人/153人各自外推方案；不把阴性实验当成论文目标已经完成。",
+    "stop": "当前FMM适配的扩参、基于本轮外层query挑结构、阈值、种子及新的few-shot搜索。"
+  }
+}

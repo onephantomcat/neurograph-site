@@ -1,0 +1,145 @@
+{
+  "date": "2026-09-28",
+  "summary": "原79人训练内部辅助比较：Brain-JEPA年龄误差13.45岁，同窗口FC为9.79岁、训练均值为13.54岁；性别AUC为0.5933，同窗口FC为0.6454。官方表示优于三个随机表示的均值，但两个任务均未超过FC。",
+  "boundary": "这是年龄和性别辅助任务，不是新增疼痛AUC。九个训练内部评价组互相重叠，来自已反复使用的开发数据；不能作为独立临床验证或证明差异的因果来源。",
+  "next": "停止扩展当前冻结Brain-JEPA配置。下一轮先核查现有资料中是否有同人结构量化表或真实临床叙述，为结构分支或医疗模型提供新输入；如没有则明确数据缺口，不生成伪特征，不继续扫描旧表示。疼痛主线仍需同终点、训练内部选择和独立队列证据。",
+  "rows": [
+    {
+      "representation": "fc450",
+      "label": "同窗口FC450",
+      "age_mae": 9.792450134293924,
+      "age_mse": 137.05704771277763,
+      "sex_auc": 0.6454243287576621,
+      "sex_ba": 0.5946891071891072,
+      "sex_brier": 0.2717443014842112
+    },
+    {
+      "representation": "pretrained",
+      "label": "官方Brain-JEPA",
+      "age_mae": 13.452593565468057,
+      "age_mse": 253.24728754809837,
+      "sex_auc": 0.5933432308432308,
+      "sex_ba": 0.5826668701668702,
+      "sex_brier": 0.2705517974859923
+    },
+    {
+      "representation": "random20260925",
+      "label": "随机表示20260925",
+      "age_mae": 14.275056596877045,
+      "age_mse": 280.2432302535998,
+      "sex_auc": 0.5470927220927221,
+      "sex_ba": 0.5348161098161097,
+      "sex_brier": 0.3114062282554639
+    },
+    {
+      "representation": "random20260926",
+      "label": "随机表示20260926",
+      "age_mae": 14.35860016080924,
+      "age_mse": 282.01975582696974,
+      "sex_auc": 0.5391002516002517,
+      "sex_ba": 0.5199331532664866,
+      "sex_brier": 0.3145349258065477
+    },
+    {
+      "representation": "random20260927",
+      "label": "随机表示20260927",
+      "age_mae": 14.541389973109274,
+      "age_mse": 298.85479760039624,
+      "sex_auc": 0.5526464276464277,
+      "sex_ba": 0.5214322714322714,
+      "sex_brier": 0.3196521453283716
+    },
+    {
+      "representation": "training_constant",
+      "label": "训练均值／比例常数",
+      "age_mae": 13.540305010893247,
+      "age_mse": 250.15978269061196,
+      "sex_auc": 0.5,
+      "sex_ba": 0.5,
+      "sex_brier": 0.2459530788834536
+    }
+  ],
+  "comparisons": {
+    "age": {
+      "pretrained": 13.452593565468057,
+      "fc": 9.792450134293924,
+      "random_mean": 14.391682243598519,
+      "constant": 13.540305010893247,
+      "group_differences": [
+        {
+          "fold": 0,
+          "pretrained_minus_fc": 3.2378438430917544,
+          "pretrained_minus_random_mean": -0.10239698541024289,
+          "pretrained_minus_constant": -0.21332389751263037
+        },
+        {
+          "fold": 1,
+          "pretrained_minus_fc": 4.0691046459804365,
+          "pretrained_minus_random_mean": -0.886771196543334,
+          "pretrained_minus_constant": -0.25388429654961087
+        },
+        {
+          "fold": 2,
+          "pretrained_minus_fc": 3.6734818044502013,
+          "pretrained_minus_random_mean": -1.8280978524378124,
+          "pretrained_minus_constant": 0.2040738577866712
+        }
+      ]
+    },
+    "sex": {
+      "pretrained": 0.5933432308432308,
+      "fc": 0.6454243287576621,
+      "random_mean": 0.5462798004464672,
+      "constant": 0.5,
+      "group_differences": [
+        {
+          "fold": 0,
+          "pretrained_minus_fc": -0.07806267806267808,
+          "pretrained_minus_random_mean": 0.03609168609168617,
+          "pretrained_minus_constant": -0.002143227143227122
+        },
+        {
+          "fold": 1,
+          "pretrained_minus_fc": -0.06858465608465614,
+          "pretrained_minus_random_mean": 0.08917548500881822,
+          "pretrained_minus_constant": 0.14530423280423277
+        },
+        {
+          "fold": 2,
+          "pretrained_minus_fc": -0.009595959595959602,
+          "pretrained_minus_random_mean": 0.015923120089786802,
+          "pretrained_minus_constant": 0.13686868686868692
+        }
+      ]
+    }
+  },
+  "verification": {
+    "state": "VERIFIED",
+    "heads_replayed": 810,
+    "final_heads_checked": 90,
+    "age_heads_dual_formula": 45,
+    "sex_heads_refitted": 45,
+    "metric_rows": 108,
+    "errors": {
+      "scale": 0.0,
+      "prediction": 0.0,
+      "ridge_dual": 1.3500311979441904e-12,
+      "logistic_refit": 0.0,
+      "selection": 2.220446049250313e-16,
+      "metrics": 5.684341886080802e-14,
+      "aggregate": 2.842170943040401e-14
+    },
+    "seconds": 39.84400000000096,
+    "scope": "Auxiliary age/sex tasks within overlapping original79 training groups; not pain or clinical validation"
+  },
+  "run": {
+    "completed_at": "2026-09-28T19:19:52.889747+08:00",
+    "fits": 810,
+    "selection_heads": 720,
+    "final_heads": 90,
+    "metric_rows": 108,
+    "development_participants": 79,
+    "skips": [],
+    "auxiliary_only": true
+  }
+}

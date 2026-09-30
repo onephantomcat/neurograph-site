@@ -1,0 +1,133 @@
+{
+  "generated_at_utc": "2026-07-14T09:54:25.926934+00:00",
+  "grain": "one row per ds000208 participant",
+  "subjects": 76,
+  "metadata": {
+    "unique_subject_ids": 76,
+    "metadata_disagreements": 0,
+    "missing_feature_map_sets": 0,
+    "patients_with_response_labels": 56,
+    "patients_total": 56,
+    "fc_roi_signal_disagreements": 0
+  },
+  "aal90": {
+    "passed": 44,
+    "failed": 32,
+    "passed_label_distribution": {
+      "control": 13,
+      "patient": 31
+    },
+    "selected_patients_with_response_labels": 31,
+    "pass_matches_legacy_44": true,
+    "only_in_pass": [],
+    "only_in_legacy": []
+  },
+  "aal116_roi_variance": {
+    "zero_variance_free": 32,
+    "cerebellar_only_gap_but_aal90_pass": 12,
+    "aal90_failures": 32,
+    "all_subject_zero_roi_count_min_median_max": [
+      0,
+      1.0,
+      80
+    ],
+    "failed_subject_zero_roi_count_min_median_max": [
+      32,
+      53.0,
+      80
+    ],
+    "zero_variance_roi_union_among_aal90_pass": [
+      93,
+      94,
+      101,
+      102,
+      103,
+      104,
+      105,
+      106,
+      107,
+      108,
+      114,
+      115,
+      116
+    ]
+  },
+  "selection_and_confounding": {
+    "by_diagnosis": {
+      "control": {
+        "total": 20,
+        "passed": 13,
+        "failed": 7,
+        "pass_rate": 0.65
+      },
+      "patient": {
+        "total": 56,
+        "passed": 31,
+        "failed": 25,
+        "pass_rate": 0.5535714285714286
+      }
+    },
+    "patients_by_study": {
+      "1": {
+        "total": 17,
+        "passed": 5,
+        "failed": 12,
+        "pass_rate": 0.29411764705882354
+      },
+      "2": {
+        "total": 39,
+        "passed": 26,
+        "failed": 13,
+        "pass_rate": 0.6666666666666666
+      }
+    },
+    "study_present": {
+      "controls": 0,
+      "patients": 56
+    },
+    "passed_roi_timepoints_by_diagnosis": {
+      "control": {
+        "275": 6,
+        "280": 7
+      },
+      "patient": {
+        "272": 1,
+        "280": 30
+      }
+    }
+  },
+  "failed_subject_ids": [
+    "05",
+    "06",
+    "09",
+    "10",
+    "11",
+    "15",
+    "20",
+    "21",
+    "23",
+    "24",
+    "26",
+    "28",
+    "29",
+    "30",
+    "31",
+    "32",
+    "33",
+    "34",
+    "36",
+    "40",
+    "42",
+    "43",
+    "44",
+    "47",
+    "48",
+    "52",
+    "54",
+    "64",
+    "66",
+    "70",
+    "73",
+    "76"
+  ]
+}

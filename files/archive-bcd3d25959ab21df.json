@@ -1,0 +1,129 @@
+{
+  "evidence_status": "SITE_BLOCKED_NESTED_LABEL_PERMUTATION_COMPLETED",
+  "permutations": 1000,
+  "tests": {
+    "primary99": {
+      "nuisance_only": {
+        "observed": 0.5856439704675964,
+        "exceedances": 533,
+        "p_greater": 0.5334665334665335,
+        "null_mean": 0.5899968006562756,
+        "null_95range": [
+          0.5255086136177195,
+          0.6690935192780969
+        ],
+        "p_holm_all10": 1.0
+      },
+      "raw_fc": {
+        "observed": 0.6390484003281378,
+        "exceedances": 49,
+        "p_greater": 0.04995004995004995,
+        "null_mean": 0.5355705496308448,
+        "null_95range": [
+          0.42034044298605416,
+          0.6598913043478261
+        ],
+        "p_holm_all10": 0.4995004995004995
+      },
+      "ds005713_source_fixed": {
+        "observed": 0.5621000820344544,
+        "exceedances": 225,
+        "p_greater": 0.22577422577422576,
+        "null_mean": 0.5110560295324036,
+        "null_95range": [
+          0.39145611156685806,
+          0.6365709598031173
+        ],
+        "p_holm_all10": 1.0
+      },
+      "delta_ds_vs_raw": {
+        "observed": -0.07694831829368343,
+        "exceedances": 767,
+        "p_greater": 0.7672327672327672,
+        "null_mean": -0.024514520098441343,
+        "null_95range": [
+          -0.17280352748154212,
+          0.12767022149302695
+        ],
+        "p_holm_all10": 1.0
+      },
+      "delta_ds_vs_nuisance": {
+        "observed": -0.023543888433142035,
+        "exceedances": 225,
+        "p_greater": 0.22577422577422576,
+        "null_mean": -0.07894077112387203,
+        "null_95range": [
+          -0.21839007383100892,
+          0.06158326497128794
+        ],
+        "p_holm_all10": 1.0
+      }
+    },
+    "sensitivity96": {
+      "nuisance_only": {
+        "observed": 0.5904720279720279,
+        "exceedances": 610,
+        "p_greater": 0.6103896103896104,
+        "null_mean": 0.6027453671328672,
+        "null_95range": [
+          0.5360118006993007,
+          0.6811319930069931
+        ],
+        "p_holm_all10": 1.0
+      },
+      "raw_fc": {
+        "observed": 0.6203671328671329,
+        "exceedances": 96,
+        "p_greater": 0.0969030969030969,
+        "null_mean": 0.5386027972027972,
+        "null_95range": [
+          0.4138986013986014,
+          0.668715034965035
+        ],
+        "p_holm_all10": 0.872127872127872
+      },
+      "ds005713_source_fixed": {
+        "observed": 0.5210664335664335,
+        "exceedances": 418,
+        "p_greater": 0.41858141858141856,
+        "null_mean": 0.5095437937062938,
+        "null_95range": [
+          0.3859156468531469,
+          0.6450677447552446
+        ],
+        "p_holm_all10": 1.0
+      },
+      "delta_ds_vs_raw": {
+        "observed": -0.0993006993006994,
+        "exceedances": 822,
+        "p_greater": 0.8221778221778222,
+        "null_mean": -0.029059003496503494,
+        "null_95range": [
+          -0.1823011363636364,
+          0.12570585664335662
+        ],
+        "p_holm_all10": 1.0
+      },
+      "delta_ds_vs_nuisance": {
+        "observed": -0.06940559440559446,
+        "exceedances": 369,
+        "p_greater": 0.3696303696303696,
+        "null_mean": -0.09320157342657341,
+        "null_95range": [
+          -0.23621284965034958,
+          0.047591783216783104
+        ],
+        "p_holm_all10": 1.0
+      }
+    }
+  },
+  "average_permutation_seconds": 18.77353699999991,
+  "confirmatory": false,
+  "independent_validation": false,
+  "resumed_from": 716,
+  "caveats": [
+    "Within-site exchangeability; other confounding not removed",
+    "Label-null contrasts are not generic equality-of-model tests",
+    "Other 10 methods not permutation tested"
+  ]
+}

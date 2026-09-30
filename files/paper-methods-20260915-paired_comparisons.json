@@ -1,0 +1,522 @@
+[
+  {
+    "design": "primary99",
+    "method": "stagin128",
+    "delta_auc": -0.21812961443806397,
+    "auc_ci": [
+      -0.30074446267432325,
+      -0.13478158326497086
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "primary99",
+    "method": "stagin128_threshold",
+    "delta_auc": -0.21812961443806397,
+    "auc_ci": [
+      -0.30074446267432325,
+      -0.13478158326497086
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "primary99",
+    "method": "stagin32",
+    "delta_auc": -0.23092698933552092,
+    "auc_ci": [
+      -0.31435602953240377,
+      -0.14683552091878593
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "primary99",
+    "method": "stagin32_threshold",
+    "delta_auc": -0.23092698933552092,
+    "auc_ci": [
+      -0.31435602953240377,
+      -0.14683552091878593
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "primary99",
+    "method": "stagin_selected",
+    "delta_auc": -0.2045529122231337,
+    "auc_ci": [
+      -0.2918396226415096,
+      -0.11346800656275625
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "primary99",
+    "method": "stagin_selected_threshold",
+    "delta_auc": -0.2045529122231337,
+    "auc_ci": [
+      -0.2918396226415096,
+      -0.11346800656275625
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "primary99",
+    "method": "tangent_original_threshold",
+    "delta_auc": 0.0,
+    "auc_ci": [
+      0.0,
+      0.0
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "sensitivity96",
+    "method": "stagin128",
+    "delta_auc": -0.2130244755244755,
+    "auc_ci": [
+      -0.3028420017482514,
+      -0.11995847902097864
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "sensitivity96",
+    "method": "stagin128_threshold",
+    "delta_auc": -0.2130244755244755,
+    "auc_ci": [
+      -0.3028420017482514,
+      -0.11995847902097864
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "sensitivity96",
+    "method": "stagin32",
+    "delta_auc": -0.258479020979021,
+    "auc_ci": [
+      -0.3511472902097908,
+      -0.16266171328671314
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "sensitivity96",
+    "method": "stagin32_threshold",
+    "delta_auc": -0.258479020979021,
+    "auc_ci": [
+      -0.3511472902097908,
+      -0.16266171328671314
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "sensitivity96",
+    "method": "stagin_selected",
+    "delta_auc": -0.24252622377622382,
+    "auc_ci": [
+      -0.3230845716783219,
+      -0.15921765734265722
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "sensitivity96",
+    "method": "stagin_selected_threshold",
+    "delta_auc": -0.24252622377622382,
+    "auc_ci": [
+      -0.3230845716783219,
+      -0.15921765734265722
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "sensitivity96",
+    "method": "tangent_original_threshold",
+    "delta_auc": 0.0,
+    "auc_ci": [
+      0.0,
+      0.0
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "OSU-to-CIN",
+    "method": "stagin128",
+    "delta_auc": -0.12032085561497326,
+    "auc_ci": [
+      -0.29680481283422444,
+      0.07097147950089117
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "OSU-to-CIN",
+    "method": "stagin128_threshold",
+    "delta_auc": -0.12032085561497326,
+    "auc_ci": [
+      -0.29680481283422444,
+      0.07097147950089117
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "OSU-to-CIN",
+    "method": "stagin32",
+    "delta_auc": -0.1251336898395722,
+    "auc_ci": [
+      -0.3141176470588237,
+      0.07237967914438498
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "OSU-to-CIN",
+    "method": "stagin32_threshold",
+    "delta_auc": -0.1251336898395722,
+    "auc_ci": [
+      -0.3141176470588237,
+      0.07237967914438498
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "OSU-to-CIN",
+    "method": "stagin_selected",
+    "delta_auc": -0.1272727272727273,
+    "auc_ci": [
+      -0.3019741532976829,
+      0.0670320855614973
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "OSU-to-CIN",
+    "method": "stagin_selected_threshold",
+    "delta_auc": -0.1272727272727273,
+    "auc_ci": [
+      -0.3019741532976829,
+      0.0670320855614973
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "OSU-to-CIN",
+    "method": "tangent_original_threshold",
+    "delta_auc": 0.0,
+    "auc_ci": [
+      0.0,
+      0.0
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "CIN-to-OSU",
+    "method": "stagin128",
+    "delta_auc": -0.11423001949317738,
+    "auc_ci": [
+      -0.2699853801169591,
+      0.045808966861598424
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "CIN-to-OSU",
+    "method": "stagin128_threshold",
+    "delta_auc": -0.11423001949317738,
+    "auc_ci": [
+      -0.2699853801169591,
+      0.045808966861598424
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "CIN-to-OSU",
+    "method": "stagin32",
+    "delta_auc": -0.07836257309941522,
+    "auc_ci": [
+      -0.24211500974658876,
+      0.09279727095516563
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "CIN-to-OSU",
+    "method": "stagin32_threshold",
+    "delta_auc": -0.07836257309941522,
+    "auc_ci": [
+      -0.24211500974658876,
+      0.09279727095516563
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "CIN-to-OSU",
+    "method": "stagin_selected",
+    "delta_auc": -0.10526315789473684,
+    "auc_ci": [
+      -0.2768226120857701,
+      0.06378167641325512
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "CIN-to-OSU",
+    "method": "stagin_selected_threshold",
+    "delta_auc": -0.10526315789473684,
+    "auc_ci": [
+      -0.2768226120857701,
+      0.06378167641325512
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "CIN-to-OSU",
+    "method": "tangent_original_threshold",
+    "delta_auc": 0.0,
+    "auc_ci": [
+      0.0,
+      0.0
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "primary99",
+    "method": "brainlm_frozen",
+    "delta_auc": -0.2774405250205086,
+    "auc_ci": [
+      -0.3719462674323213,
+      -0.17817063166529934
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "primary99",
+    "method": "random_frozen",
+    "delta_auc": -0.25619360131255126,
+    "auc_ci": [
+      -0.39204675963904795,
+      -0.11360336341263334
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "primary99",
+    "method": "tangent_brainlm",
+    "delta_auc": -0.06054142739950779,
+    "auc_ci": [
+      -0.0942637407711239,
+      -0.02838187038556192
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "primary99",
+    "method": "tangent_random",
+    "delta_auc": -0.03732567678424938,
+    "auc_ci": [
+      -0.08179245283018866,
+      0.006892945036915508
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "primary99",
+    "method": "brainlm_frozen",
+    "delta_auc": -0.02124692370795734,
+    "auc_ci": [
+      -0.13653199343724362,
+      0.09443601312551272
+    ],
+    "reference": "random_frozen"
+  },
+  {
+    "design": "primary99",
+    "method": "tangent_brainlm",
+    "delta_auc": -0.02321575061525841,
+    "auc_ci": [
+      -0.0663720262510254,
+      0.019776456111566833
+    ],
+    "reference": "tangent_random"
+  },
+  {
+    "design": "sensitivity96",
+    "method": "brainlm_frozen",
+    "delta_auc": -0.26800699300699304,
+    "auc_ci": [
+      -0.3670498251748254,
+      -0.16030157342657345
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "sensitivity96",
+    "method": "random_frozen",
+    "delta_auc": -0.2487762237762238,
+    "auc_ci": [
+      -0.38108610139860155,
+      -0.10749125874125913
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "sensitivity96",
+    "method": "tangent_brainlm",
+    "delta_auc": -0.055332167832167836,
+    "auc_ci": [
+      -0.0931883741258741,
+      -0.014857954545454579
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "sensitivity96",
+    "method": "tangent_random",
+    "delta_auc": -0.032167832167832165,
+    "auc_ci": [
+      -0.0751770104895105,
+      0.00787368881118878
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "sensitivity96",
+    "method": "brainlm_frozen",
+    "delta_auc": -0.019230769230769232,
+    "auc_ci": [
+      -0.1499344405594404,
+      0.1081643356643355
+    ],
+    "reference": "random_frozen"
+  },
+  {
+    "design": "sensitivity96",
+    "method": "tangent_brainlm",
+    "delta_auc": -0.023164335664335664,
+    "auc_ci": [
+      -0.06460008741258741,
+      0.023260489510489455
+    ],
+    "reference": "tangent_random"
+  },
+  {
+    "design": "OSU-to-CIN",
+    "method": "brainlm_frozen",
+    "delta_auc": -0.09304812834224598,
+    "auc_ci": [
+      -0.26951871657754006,
+      0.0866399286987522
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "OSU-to-CIN",
+    "method": "random_frozen",
+    "delta_auc": -0.033511586452762934,
+    "auc_ci": [
+      -0.2817023172905525,
+      0.21969696969696922
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "OSU-to-CIN",
+    "method": "tangent_brainlm",
+    "delta_auc": -0.012121212121212121,
+    "auc_ci": [
+      -0.09483957219251336,
+      0.07309269162210334
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "OSU-to-CIN",
+    "method": "tangent_random",
+    "delta_auc": 0.011764705882352944,
+    "auc_ci": [
+      -0.03815508021390374,
+      0.06810160427807481
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "OSU-to-CIN",
+    "method": "brainlm_frozen",
+    "delta_auc": -0.05953654188948305,
+    "auc_ci": [
+      -0.28844919786096274,
+      0.15757575757575756
+    ],
+    "reference": "random_frozen"
+  },
+  {
+    "design": "OSU-to-CIN",
+    "method": "tangent_brainlm",
+    "delta_auc": -0.02388591800356506,
+    "auc_ci": [
+      -0.11231729055258464,
+      0.06951871657754011
+    ],
+    "reference": "tangent_random"
+  },
+  {
+    "design": "CIN-to-OSU",
+    "method": "brainlm_frozen",
+    "delta_auc": -0.2323586744639376,
+    "auc_ci": [
+      -0.4631773879142297,
+      -0.00701754385964912
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "CIN-to-OSU",
+    "method": "random_frozen",
+    "delta_auc": -0.059259259259259255,
+    "auc_ci": [
+      -0.29048732943469785,
+      0.17584795321637411
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "CIN-to-OSU",
+    "method": "tangent_brainlm",
+    "delta_auc": -0.028070175438596492,
+    "auc_ci": [
+      -0.14541910331384014,
+      0.08383040935672509
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "CIN-to-OSU",
+    "method": "tangent_random",
+    "delta_auc": 0.015594541910331383,
+    "auc_ci": [
+      -0.0970857699805068,
+      0.13568226120857693
+    ],
+    "reference": "tangent_original"
+  },
+  {
+    "design": "CIN-to-OSU",
+    "method": "brainlm_frozen",
+    "delta_auc": -0.17309941520467836,
+    "auc_ci": [
+      -0.3372514619883038,
+      -0.005458089668615983
+    ],
+    "reference": "random_frozen"
+  },
+  {
+    "design": "CIN-to-OSU",
+    "method": "tangent_brainlm",
+    "delta_auc": -0.04366471734892788,
+    "auc_ci": [
+      -0.18208576998050685,
+      0.08190058479532146
+    ],
+    "reference": "tangent_random"
+  }
+]

@@ -1,0 +1,33 @@
+# Authorized SRPBS1600 c/co T1 repair and continuation
+
+The researcher now explicitly asks: first repair the technical errors, retaining the original transfer-learning pain classification/grading project objective. A prior instruction authorizes remote Codex repair and continued per-subject processing without stopping the entire batch on individual failures. The parent is reviewing project plans locally and will not edit remote pipeline code while you own this bounded repair.
+
+## Scope and non-negotiable boundaries
+
+- Work only under [本机路径已省略] Do not modify raw archive, published raw inputs, existing successful outputs, DS005713 code/production/runtime assets, account settings, proxy settings, or credentials. Existing dependencies and source images are read-only inputs.
+- Process only the original 13 Phase-A representatives in manifests/anonymous-pilot-v4-batch-v2/batch_plan.tsv. Two dummy-policy HOLD representatives remain HOLD. Do not launch the clinical145 subset or the1627 full cohort; do not train a model, export clinical labels, infer old N82 identity, send messages, or create automations.
+- Preserve TR correction, canonical no-crop handling, bounded known GUI modal handling, single-subject/16-worker execution, no minimum-duration QC, and existing necessary motion/censor/spatial/AAL90/finite/rank checks. Do not convert FAILED into PASS without computation and verification.
+- Keep old failures recoverable; prefer an isolated continuation work root with real source-input reuse. Do not re-extract the89.8GB archive for subjects already extracted, and do not rerun the five successful subjects. Keep real scientific exclusions such as [个体编号已省略] excluded.
+- Do not add arbitrary hashes, frozen contracts, baselines or gates. Preserve existing risk coverage using ordinary targeted tests and direct actual-data execution. Use apply_patch for code edits. Do not spawn more agents.
+- No sensitive authentication/config reads or prints: use existing authenticated CLI/runtime only. Do not output passwords, cookies, tokens, signed URLs, configuration secrets, or per-person clinical data.
+
+## Verified starting evidence (refresh before mutation)
+
+- Prior TR repair journal: operations/20260903-tr-resume/REPORT.md. Its Codex worker finished. Actual current batch: pilot-v5/batches/acquisition-strata-v3/status.json, events.tsv, subject_results.tsv, subject-logs/*.stderr.log and *.stdout.log.
+- At17:47 on2026-09-03: runner PID25582 was alive, current [个体编号已省略] extracting since17:28. Counts5 PASS,6 FAILED,1 EXCLUDED,1 RUNNING. Do not interrupt the healthy current subject. Avoid editing shared code while this active worker may still import it: develop in an isolated code area; publish/launch after v5 safely reaches its terminal state, or use fully isolated versioned entrypoints with no mutation of running code.
+- PASS: [个体编号已省略]/[个体编号已省略]/[个体编号已省略] in v4, recovered [个体编号已省略] and [个体编号已省略] in v5. The separate v3/[个体编号已省略] is outside these13; retain it unchanged.
+- Technical stage_workdir failures: [个体编号已省略], [个体编号已省略], [个体编号已省略], [个体编号已省略], [个体编号已省略], [个体编号已省略]. If [个体编号已省略] ends with the same in-scope failure, include it. All failed working.pending, source-input and logs are retained.
+- helper ds005713_make_dparsf_workdir.py checked_dcm2nii_crop expects c+source.name, but actual dcm2nii logs show reorient to o+source.name then crop to co+source.name. SRPBS prepare_t1 only catches the explicit canonical no-op case. Thus valid real co outputs are currently rejected before Stage1.
+- [个体编号已省略] has true motion exclusion: maximum translation5.849209mm and expanded censor137/240; do not retry merely to change outcome or relax QC.
+
+## Required work
+
+1. Inspect current remote scripts, source headers and crop logs; do not trust stale local copies. Record cause and current states in operations/20260903-co-repair/REPORT.md and status.json immediately.
+2. Implement minimal SRPBS-only crop compatibility. Support actual c/co output selection, unchanged canonical no-crop, and legitimate reorient-only/no-crop if encountered with evidence. Do not rename raw images or manufacture c files. Accept only a unique expected actual output consistent with this tool invocation, provenance, valid3D data and spatial mapping. Reorientation may permute axes, so old per-axis shape/voxel comparisons cannot blindly compare co to original un-reoriented source. Preserve orientation/affine risk coverage with an appropriate verified mapping or comparison to the actual o intermediate; account for crop origin offsets. Tool errors, stale/ambiguous outputs, source mutations and corrupt data must still fail. Do not modify DS005713 helper itself.
+3. Add/run focused regression tests covering c-only, co output, canonical unchanged no-crop, axis permutation, crop geometry, ambiguous/stale outputs and real errors. Run existing temporal-header and continuation regressions. Test real failing T1s in isolated staging before launching the long batch.
+4. Reuse already extracted source-input safely in new continuation working roots. Keep failed pending evidence. Resolve prior PASS paths across v4/v5 without reprocessing or incorrectly treating v5-only absence as a new failure.
+5. Actually launch a durable detached serial continuation for only the technical failures. Maintain explicit per-subject outcomes and keep running after subject-level failures; stop only on true global faults as before. Do not retry forever.
+6. Observe at least one formerly failing subject pass staging/config and enter real DPABI computation. When a recovered AAL90 result is available, use the existing verifier; never call staging success full preprocessing PASS. Record exact new root, runner PID, logs, counts, source reuse, test results and remaining work. User visual state stays PENDING.
+7. Finish with an honest concise handoff; background batch may remain running. Leave ongoing runner records usable for the user's later status queries. No proactive external notification.
+
+Prefer completing a tested concrete fix and getting real computation moving over elaborate preflight documentation. If genuinely blocked, record the precise new authority/information needed rather than retrying the same failure.

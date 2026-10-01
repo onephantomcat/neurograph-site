@@ -1,0 +1,20 @@
+{
+  "draws": 2000,
+  "attempts": 2000,
+  "unit": "person, shared weights across overlapping tasks",
+  "scope": "Conditional on saved predictions; no model refitting; not independent clinical evidence",
+  "pairs": {
+    "fc_plus_fastsurfer_minus_fc_demographics": {
+      "low": -0.08136921977199753,
+      "high": 0.04721602970377478
+    },
+    "fc_plus_fastsurfer_minus_fc_plus_spm": {
+      "low": -0.023625858612837784,
+      "high": 0.12549281255010425
+    },
+    "fc_plus_spm_minus_fc_demographics": {
+      "low": -0.14045385791334863,
+      "high": 0.0060797542221152955
+    }
+  }
+}

@@ -1,15 +1,15 @@
 {
   "as_of": "2026-10-01",
-  "state": "FIRST_BOUNDED_TWO_NEW_PEOPLE_VERIFIED",
+  "state": "FIXED_GRID_COVERAGE_FAILURE_EXTRACTION_STOPPED",
   "original79": 79,
-  "people_ready": 4,
-  "remaining": 75,
-  "new_people": 2,
+  "people_ready": 5,
+  "remaining": 74,
+  "new_people": 3,
   "reused_people": 2,
   "source_frames_per_run": 240,
   "windows_per_person": 12,
-  "distinct_windows_ready": 48,
-  "branch_window_representations_ready": 96,
+  "distinct_windows_ready": 60,
+  "branch_window_representations_ready": 120,
   "features_per_branch": 192,
   "patient_classifier_fits": 0,
   "patient_scores": 0,
@@ -69,7 +69,36 @@
     "本批新增2人的宽框自动脑掩膜均完整落在固定96³内，脑内非有限值为0；已独立复核实际掩膜和保存汇总、查看2张私有拼图。自动掩膜与完整解剖覆盖、非专家查看与专家审核分开；不能据4人保证剩余75人质量，也没有疼痛增益结论。",
     "Run-level normalization, FP64 brain-token/window pooling, one fixed random seed and shared checkpoint position buffer; original training preprocessing and upstream Mamba2 equivalence not established.",
     "FC is regressed/filtered whereas volume input is minimally processed; FC comparison includes preprocessing differences.",
-    "Timing ranges are observed calls, include first-call effects, are not P95 and exclude remote processing."
+    "Timing ranges are observed calls, include first-call effects, are not P95 and exclude remote processing.",
+    "下一人的宽框自动脑掩膜有217254个体素，其中145个位于固定96³框下方（z=-84、-82、-80mm），已停止其窗口和表示提取。既有5份表示保留；不能据前5人无框外损失保证其余74人覆盖。自动掩膜不证明完整解剖覆盖。"
   ],
-  "model": "NeuroMamba v1.0.0 / 3M_E192 / author-indicated Aurora"
+  "model": "NeuroMamba v1.0.0 / 3M_E192 / author-indicated Aurora",
+  "technical_images_viewed_total": 5,
+  "prior_first_batch_measurements_scope": "new_batch describes the earlier two-new-person batch; retained unchanged",
+  "grid_failure": {
+    "expanded_mask_voxels": 217254,
+    "outside_fixed_cube_voxels": 145,
+    "outside_z_mm": [
+      -84,
+      -82,
+      -80
+    ],
+    "outside_voxels_per_z": [
+      30,
+      53,
+      62
+    ],
+    "window_extraction_stopped_before_model": true,
+    "failed_person_not_dropped": true,
+    "candidate_grid_not_adopted": true
+  },
+  "background_diagnostic": {
+    "scope": "Original79 expanded-mask coverage only",
+    "reuse_masks": 6,
+    "new_mask_normalizations": 73,
+    "finite_task": true,
+    "automatic_grid_change": false,
+    "automatic_classifier_training": false,
+    "automatic_publication": false
+  }
 }

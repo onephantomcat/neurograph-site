@@ -1,7 +1,7 @@
 {
   "name": "疼痛 fMRI 迁移学习研究",
   "reviewed_at": "2026-10-01",
-  "record_reviewed_heading": "2026-10-01（CLIP原79开发比较完成）",
+  "record_reviewed_heading": "2026-10-01（15/79最近覆盖框）",
   "objective": "疾病分类与疼痛程度量化并行：先比较单任务，再依据结果判断是否研究共享表征的双任务。沿用原项目目标，v5的PHN/TN、七日NRS与医院规模作为后续补充方案，不阻挡现有数据的分表探索。公开异质Pain/HC、ZAN及既有站点留出均不等同独立医院临床验证。 研究目标已整合现有成果与阴性结果：继续争取可信预训练增益，重点研究少样本迁移何时有效。近期先比较同一T1的传统SPM结构、预训练结构、FC及有限融合，再按训练内证据推进学习曲线和双向站点评价；最终仍需未参与开发的数据验证。",
   "conclusions": [
     "原79开发池、原9项按人任务的四分支比较已完成并独立复读324个模型：切空间AUC 0.7422、CLIP 0.4270、同架构随机0.5411、同图像像素0.6918；均含相同人口学。固定FC灰度输入未见CLIP预训练增益。 CLIP相对切空间ΔAUC −0.3152，按人条件95%区间[−0.4309，−0.2030]；相对随机差值区间跨零。仅原79开发证据、单个随机种子及当前灰度配置，不能推广至所有CLIP用途或独立临床效果。原20人未评分，旧QC、标签、划分及主线保持。",
@@ -600,8 +600,8 @@
       "phase": "validation",
       "title": "按证据扩展图网络、多模态与应用",
       "status": "deferred",
-      "summary": "原79人中已完成7人的预训练与随机全run表示：原5人取框位置未变、表示直接复用，按同一坐标规则新增2人。每人240帧、12个固定窗口、每分支192维；共84个不同窗口、168份分支窗口表示。分类拟合和疼痛评分均0。 全部79人的本人掩膜都能放入2mm、96³框；沿同一规则选离原框最近的覆盖位置，36人不动、43人平移，最大8mm。新增2人框外已知自动脑体素损失0、脑内非有限0，独立复核保存汇总并实际查看2图30面板。各人不再共享同一个MNI原点，平移会改变脑相对位置和token分组；自动掩膜覆盖不等于完整解剖覆盖，技术查看不改原QC。 CLIP支线已用原79开发池中按身份顺序选取的2人FC图像，完成预训练与同架构随机编码器的512维冻结表示。12次GPU前向全部有限，同输入重复差为0；分类拟合和疼痛评分均0。主线既有结果保留。 原79开发池、原9项按人任务的四分支比较已完成并独立复读324个模型：切空间AUC 0.7422、CLIP 0.4270、同架构随机0.5411、同图像像素0.6918；均含相同人口学。固定FC灰度输入未见CLIP预训练增益。",
-      "next": "继续按原身份顺序有界提取其余72人，所有人采用同一取框规则、同一2mm尺寸、原权重/位置buffer与固定窗口汇总；窗口和表示保存在本机C盘，仅核对后回收本轮远端临时大文件。全部79表示核对后运行原9按人任务、三分支243头，保留原20、结构535停止、TN14和所有原边界。新验证继续补临床定义、年龄/量表—MRI时间、身份重叠和QC，不把名义147人当已可验证。",
+      "summary": "原79人中已完成15人的预训练与随机全run表示：原5人表示直接复用，按同一裁框规则新增10人。每人240帧、12个固定窗口、每分支192维；共180个不同窗口、360份分支窗口表示。分类拟合和疼痛评分均0。 本批新增8人完整240帧、96窗口/192分支前向已核对；已知自动脑掩膜框外损失0、脑内非有限0，保存4份实际掩膜并独立复核几何和汇总，实际查看8图120面板。局部左右不对称、前下部和外周掩膜差异保留，不改原QC或纳入。统一取框规则需36人不动、43人平移，最大8mm；各人MNI原点不同，平移会改变相对位置和token分组，自动掩膜保留不等于完整解剖覆盖。 CLIP支线已用原79开发池中按身份顺序选取的2人FC图像，完成预训练与同架构随机编码器的512维冻结表示。12次GPU前向全部有限，同输入重复差为0；分类拟合和疼痛评分均0。主线既有结果保留。 原79开发池、原9项按人任务的四分支比较已完成并独立复读324个模型：切空间AUC 0.7422、CLIP 0.4270、同架构随机0.5411、同图像像素0.6918；均含相同人口学。固定FC灰度输入未见CLIP预训练增益。",
+      "next": "接续剩余64人的相同固定提取流程，远端逐人归一化、本机C盘保存窗口并冻结提取；独立程序完成或遇错即停。全部79表示及同一取框规则核对后，才沿原9按人任务做三分支243头比较。训练内标准化和选C，原20、结构535停止、TN14、原QC/标签/划分和视觉豁免保持。新验证继续补终点、年龄/评分—MRI时间、身份重叠及QC。",
       "criteria": "新能力解决已证实的研究需求，并有相应真实数据和验证支持。 预训练增量须经同输入强传统对照、少样本曲线和双向站点评价支持；独立泛化仍需未参与开发的数据，技术接入成功不能替代。",
       "depends_on": [
         "G18"
@@ -654,14 +654,14 @@
         "steps": [
           "收束主要研究问题：现成预训练表示何时有小样本收益，能否跨站点并超过强传统方法和适用随机对照；分类、程度回归和PRT分别报告。",
           "原79人统一输入及独立数值复算完成，9任务405个分类头和保存模型复算完成。FC+FastSurfer融合平均AUC为0.7255，FC+人口学为0.7422；三个训练组的增量方向不一致，未满足原继续条件，停止这条结构路线的小样本及双向站点扩展。",
-          "原79人中已完成7人的预训练与随机全run表示：原5人取框位置未变、表示直接复用，按同一坐标规则新增2人。每人240帧、12个固定窗口、每分支192维；共84个不同窗口、168份分支窗口表示。分类拟合和疼痛评分均0。 全部79人的本人掩膜都能放入2mm、96³框；沿同一规则选离原框最近的覆盖位置，36人不动、43人平移，最大8mm。新增2人框外已知自动脑体素损失0、脑内非有限0，独立复核保存汇总并实际查看2图30面板。各人不再共享同一个MNI原点，平移会改变脑相对位置和token分组；自动掩膜覆盖不等于完整解剖覆盖，技术查看不改原QC。 继续按原身份顺序有界提取其余72人，所有人采用同一取框规则、同一2mm尺寸、原权重/位置buffer与固定窗口汇总；窗口和表示保存在本机C盘，仅核对后回收本轮远端临时大文件。全部79表示核对后运行原9按人任务、三分支243头，保留原20、结构535停止、TN14和所有原边界。新验证继续补临床定义、年龄/量表—MRI时间、身份重叠和QC，不把名义147人当已可验证。",
+          "原79人中已完成15人的预训练与随机全run表示：原5人表示直接复用，按同一裁框规则新增10人。每人240帧、12个固定窗口、每分支192维；共180个不同窗口、360份分支窗口表示。分类拟合和疼痛评分均0。 本批新增8人完整240帧、96窗口/192分支前向已核对；已知自动脑掩膜框外损失0、脑内非有限0，保存4份实际掩膜并独立复核几何和汇总，实际查看8图120面板。局部左右不对称、前下部和外周掩膜差异保留，不改原QC或纳入。统一取框规则需36人不动、43人平移，最大8mm；各人MNI原点不同，平移会改变相对位置和token分组，自动掩膜保留不等于完整解剖覆盖。 接续剩余64人的相同固定提取流程，远端逐人归一化、本机C盘保存窗口并冻结提取；独立程序完成或遇错即停。全部79表示及同一取框规则核对后，才沿原9按人任务做三分支243头比较。训练内标准化和选C，原20、结构535停止、TN14、原QC/标签/划分和视觉豁免保持。新验证继续补终点、年龄/评分—MRI时间、身份重叠及QC。",
           "并行准备未参与开发的验证：数据需求与候选表已完成，检查病种/终点、身份重叠、量表与MRI时间、用药/头动/站点、输入和原审核依据；新数据未到时继续开发比较。",
           "先根据已有结果说明要解决的具体问题，再决定扩展方向。",
           "瞳孔先看G29；三维场景先列需要的任务、真值、人数、扫描时间及资源。",
           "涉及应用响应时，模型在CPU加载后独立测试至少100次推理，记录95%的请求在多久内完成（P95）。",
           "CLIP当前固定FC灰度配置结束，保留阴性结果，不根据查询成绩翻转概率或搜索配色、提示词。主线继续已有体积输入与冻结表示工作；真正未参与开发的同终点数据仍待取得。"
         ],
-        "deliverable": "原79人中已完成7人的预训练与随机全run表示：原5人取框位置未变、表示直接复用，按同一坐标规则新增2人。每人240帧、12个固定窗口、每分支192维；共84个不同窗口、168份分支窗口表示。分类拟合和疼痛评分均0。 继续按原身份顺序有界提取其余72人，所有人采用同一取框规则、同一2mm尺寸、原权重/位置buffer与固定窗口汇总；窗口和表示保存在本机C盘，仅核对后回收本轮远端临时大文件。全部79表示核对后运行原9按人任务、三分支243头，保留原20、结构535停止、TN14和所有原边界。新验证继续补临床定义、年龄/量表—MRI时间、身份重叠和QC，不把名义147人当已可验证。"
+        "deliverable": "原79人中已完成15人的预训练与随机全run表示：原5人表示直接复用，按同一裁框规则新增10人。每人240帧、12个固定窗口、每分支192维；共180个不同窗口、360份分支窗口表示。分类拟合和疼痛评分均0。 接续剩余64人的相同固定提取流程，远端逐人归一化、本机C盘保存窗口并冻结提取；独立程序完成或遇错即停。全部79表示及同一取框规则核对后，才沿原9按人任务做三分支243头比较。训练内标准化和选C，原20、结构535停止、TN14、原QC/标签/划分和视觉豁免保持。新验证继续补终点、年龄/评分—MRI时间、身份重叠及QC。"
       }
     },
     {
@@ -1392,7 +1392,7 @@
     }
   ],
   "next_steps": [
-    "继续按原身份顺序有界提取其余72人，所有人采用同一取框规则、同一2mm尺寸、原权重/位置buffer与固定窗口汇总；窗口和表示保存在本机C盘，仅核对后回收本轮远端临时大文件。全部79表示核对后运行原9按人任务、三分支243头，保留原20、结构535停止、TN14和所有原边界。新验证继续补临床定义、年龄/量表—MRI时间、身份重叠和QC，不把名义147人当已可验证。",
+    "接续剩余64人的相同固定提取流程，远端逐人归一化、本机C盘保存窗口并冻结提取；独立程序完成或遇错即停。全部79表示及同一取框规则核对后，才沿原9按人任务做三分支243头比较。训练内标准化和选C，原20、结构535停止、TN14、原QC/标签/划分和视觉豁免保持。新验证继续补终点、年龄/评分—MRI时间、身份重叠及QC。",
     "CLIP当前固定FC灰度配置结束，保留阴性结果，不根据查询成绩翻转概率或搜索配色、提示词。主线继续已有体积输入与冻结表示工作；真正未参与开发的同终点数据仍待取得。",
     "PRT下一步补齐精确ROI/模式定义及临床、头动和刺激记录，再核对特征提取；额外1个基线编号不自动并入原192人。暂不扩大模型搜索，Emo外推保持各自原方案。",
     "P0｜确认sup7/sup8的VAS端点、回顾窗及评分与MRI时间关系，补用药和详细诊断；头动记录和已有字段无需重复申请。",
@@ -1485,7 +1485,7 @@
       "section": "sources",
       "repo_path": "docs/TRAINING_RESULTS_INDEX.md",
       "format": "md",
-      "size": 51208,
+      "size": 52006,
       "exists": true,
       "modified_at": "2026-10-01T19:29:44+08:00",
       "public_url": "./files/training-results-index.md",
@@ -1731,7 +1731,7 @@
       "section": "sources",
       "repo_path": "docs/RECENT_RESEARCH_HISTORY_2026-09-08.md",
       "format": "md",
-      "size": 72166,
+      "size": 72631,
       "exists": true,
       "modified_at": "2026-10-01T19:29:44+08:00",
       "public_url": "./files/research-history-report.md",
@@ -2761,7 +2761,7 @@
       "section": "sources",
       "repo_path": "docs/PRETRAINED_PAIN_PROGRESS_2026-09-24.md",
       "format": "md",
-      "size": 40681,
+      "size": 41950,
       "exists": true,
       "modified_at": "2026-10-01T19:29:44+08:00",
       "public_url": "./files/pretrained-pain-20260924.md",
@@ -3955,7 +3955,7 @@
       "section": "sources",
       "repo_path": "docs/ACTIVE_RESEARCH_GOAL_2026-09-29.md",
       "format": "md",
-      "size": 33258,
+      "size": 34270,
       "exists": true,
       "modified_at": "2026-10-01T19:29:44+08:00",
       "public_url": "./files/active-research-goal-20260929.md",
@@ -3987,7 +3987,7 @@
       "section": "sources",
       "repo_path": "docs/UNSEEN_VALIDATION_DATA_REQUIREMENTS_2026-09-30.md",
       "format": "md",
-      "size": 14305,
+      "size": 15574,
       "exists": true,
       "modified_at": "2026-10-01T19:29:44+08:00",
       "public_url": "./files/unseen-validation-requirements-20260930.md",
@@ -42265,25 +42265,25 @@
     },
     {
       "id": "volume-nearest-crop-20261001",
-      "label": "7/79全run表示已核对，按统一坐标规则保留脑掩膜",
-      "description": "原79人中已完成7人的预训练与随机全run表示：原5人取框位置未变、表示直接复用，按同一坐标规则新增2人。每人240帧、12个固定窗口、每分支192维；共84个不同窗口、168份分支窗口表示。分类拟合和疼痛评分均0。",
+      "label": "15/79全run表示已核对，固定提取继续",
+      "description": "原79人中已完成15人的预训练与随机全run表示：原5人表示直接复用，按同一裁框规则新增10人。每人240帧、12个固定窗口、每分支192维；共180个不同窗口、360份分支窗口表示。分类拟合和疼痛评分均0。",
       "repo_path": "docs/VOLUME_NEAREST_CROP_PROGRESS_2026-10-01.md",
       "format": "md",
-      "size": 4675,
+      "size": 6953,
       "exists": true,
-      "modified_at": "2026-10-01T20:03:38+08:00",
+      "modified_at": "2026-10-01T20:39:50+08:00",
       "public_url": "./files/volume-nearest-crop-20261001.md",
       "preview_url": "./data/previews/volume-nearest-crop-20261001.json"
     },
     {
       "id": "volume-nearest-crop-20261001-summary",
-      "label": "7/79全run表示已核对，按统一坐标规则保留脑掩膜：聚合实测",
-      "description": "全部79人的本人掩膜都能放入2mm、96³框；沿同一规则选离原框最近的覆盖位置，36人不动、43人平移，最大8mm。新增2人框外已知自动脑体素损失0、脑内非有限0，独立复核保存汇总并实际查看2图30面板。各人不再共享同一个MNI原点，平移会改变脑相对位置和token分组；自动掩膜覆盖不等于完整解剖覆盖，技术查看不改原QC。",
+      "label": "15/79全run表示已核对，固定提取继续：聚合实测",
+      "description": "本批新增8人完整240帧、96窗口/192分支前向已核对；已知自动脑掩膜框外损失0、脑内非有限0，保存4份实际掩膜并独立复核几何和汇总，实际查看8图120面板。局部左右不对称、前下部和外周掩膜差异保留，不改原QC或纳入。统一取框规则需36人不动、43人平移，最大8mm；各人MNI原点不同，平移会改变相对位置和token分组，自动掩膜保留不等于完整解剖覆盖。",
       "repo_path": "reports/volume-nearest-crop-progress-2026-10-01/summary.json",
       "format": "json",
-      "size": 4911,
+      "size": 5502,
       "exists": true,
-      "modified_at": "2026-10-01T20:11:00+08:00",
+      "modified_at": "2026-10-01T20:39:50+08:00",
       "public_url": "./files/volume-nearest-crop-20261001-summary.json",
       "preview_url": "./data/previews/volume-nearest-crop-20261001-summary.json"
     },
@@ -42313,8 +42313,8 @@
     }
   ],
   "focus_phase": "validation",
-  "focus_title": "CLIP原79开发比较完成，未见预训练增益",
-  "focus_description": "原79开发池、原9项按人任务的四分支比较已完成并独立复读324个模型：切空间AUC 0.7422、CLIP 0.4270、同架构随机0.5411、同图像像素0.6918；均含相同人口学。固定FC灰度输入未见CLIP预训练增益。 CLIP相对切空间ΔAUC −0.3152，按人条件95%区间[−0.4309，−0.2030]；相对随机差值区间跨零。仅原79开发证据、单个随机种子及当前灰度配置，不能推广至所有CLIP用途或独立临床效果。原20人未评分，旧QC、标签、划分及主线保持。",
+  "focus_title": "15/79全run表示已核对，固定提取继续",
+  "focus_description": "原79人中已完成15人的预训练与随机全run表示：原5人表示直接复用，按同一裁框规则新增10人。每人240帧、12个固定窗口、每分支192维；共180个不同窗口、360份分支窗口表示。分类拟合和疼痛评分均0。 本批新增8人完整240帧、96窗口/192分支前向已核对；已知自动脑掩膜框外损失0、脑内非有限0，保存4份实际掩膜并独立复核几何和汇总，实际查看8图120面板。局部左右不对称、前下部和外周掩膜差异保留，不改原QC或纳入。统一取框规则需36人不动、43人平移，最大8mm；各人MNI原点不同，平移会改变相对位置和token分组，自动掩膜保留不等于完整解剖覆盖。",
   "next_goal_ids": [
     "G12",
     "G23",
@@ -42331,9 +42331,24 @@
   "research_history": {
     "as_of": "2026-10-01",
     "scope": "截至9月30日已核验的研究记录；历史节点保留原日期，数字不随实时队列变化，运行状态只描述各自观察时点，数值完成不等于新增临床纳入。",
-    "focus": "CLIP原79开发比较完成，未见预训练增益",
-    "summary": "原79开发池、原9项按人任务的四分支比较已完成并独立复读324个模型：切空间AUC 0.7422、CLIP 0.4270、同架构随机0.5411、同图像像素0.6918；均含相同人口学。固定FC灰度输入未见CLIP预训练增益。",
+    "focus": "15/79全run表示已核对，固定提取继续",
+    "summary": "原79人中已完成15人的预训练与随机全run表示：原5人表示直接复用，按同一裁框规则新增10人。每人240帧、12个固定窗口、每分支192维；共180个不同窗口、360份分支窗口表示。分类拟合和疼痛评分均0。 本批新增8人完整240帧、96窗口/192分支前向已核对；已知自动脑掩膜框外损失0、脑内非有限0，保存4份实际掩膜并独立复核几何和汇总，实际查看8图120面板。局部左右不对称、前下部和外周掩膜差异保留，不改原QC或纳入。统一取框规则需36人不动、43人平移，最大8mm；各人MNI原点不同，平移会改变相对位置和token分组，自动掩膜保留不等于完整解剖覆盖。",
     "milestones": [
+      {
+        "date": "2026-10-01",
+        "status": "done",
+        "label": "最近覆盖框8人批次完成",
+        "title": "15/79全run表示已核对，固定提取继续",
+        "summary": "原79人中已完成15人的预训练与随机全run表示：原5人表示直接复用，按同一裁框规则新增10人。每人240帧、12个固定窗口、每分支192维；共180个不同窗口、360份分支窗口表示。分类拟合和疼痛评分均0。",
+        "result": "本批8人覆盖损失0/脑内非有限0/192前向有限，累计15；分类0。",
+        "method": "同一逐人取框规则、原2mm/96³、固定240帧/12窗、原发布权重和位置buffer。",
+        "boundary": "本批新增8人完整240帧、96窗口/192分支前向已核对；已知自动脑掩膜框外损失0、脑内非有限0，保存4份实际掩膜并独立复核几何和汇总，实际查看8图120面板。局部左右不对称、前下部和外周掩膜差异保留，不改原QC或纳入。统一取框规则需36人不动、43人平移，最大8mm；各人MNI原点不同，平移会改变相对位置和token分组，自动掩膜保留不等于完整解剖覆盖。",
+        "next": "接续剩余64人的相同固定提取流程，远端逐人归一化、本机C盘保存窗口并冻结提取；独立程序完成或遇错即停。全部79表示及同一取框规则核对后，才沿原9按人任务做三分支243头比较。训练内标准化和选C，原20、结构535停止、TN14、原QC/标签/划分和视觉豁免保持。新验证继续补终点、年龄/评分—MRI时间、身份重叠及QC。",
+        "sources": [
+          "volume-nearest-crop-20261001"
+        ],
+        "calendar_event_id": "event-fa42a9b2ecd24620"
+      },
       {
         "date": "2026-10-01",
         "status": "done",
@@ -50683,7 +50698,7 @@
     "date": "2026-09-25",
     "summary": "原开发数据中的Meta-matching和FMM均未显示可靠整体增益。Emo27患者、26对照共53人经用户授权批量确认。固定79人源模型外推AUC：AAL切空间0.6923、预训练DNN0.4943、等权融合0.6054；未见预训练增益。",
     "boundary": "用户授权批量确认已登记，未逐人专家阅片；13名原QC失败者保持排除，覆盖缺口保留。目标53人用于评价、用于训练0人；异质Pain到FM的探索不等于临床确认。 原79/99人仍属于反复使用的开发数据，原20人本轮未评分。",
-    "next": "继续按原身份顺序有界提取其余72人，所有人采用同一取框规则、同一2mm尺寸、原权重/位置buffer与固定窗口汇总；窗口和表示保存在本机C盘，仅核对后回收本轮远端临时大文件。全部79表示核对后运行原9按人任务、三分支243头，保留原20、结构535停止、TN14和所有原边界。新验证继续补临床定义、年龄/量表—MRI时间、身份重叠和QC，不把名义147人当已可验证。",
+    "next": "接续剩余64人的相同固定提取流程，远端逐人归一化、本机C盘保存窗口并冻结提取；独立程序完成或遇错即停。全部79表示及同一取框规则核对后，才沿原9按人任务做三分支243头比较。训练内标准化和选C，原20、结构535停止、TN14、原QC/标签/划分和视觉豁免保持。新验证继续补终点、年龄/评分—MRI时间、身份重叠及QC。",
     "methods": [
       "官方UKBB预训练DNN输出67维；458维组合还包含多个来源的Ridge，不能统称纯深度学习。",
       "原79开发者使用相同划分；选择C和开发融合权重只用训练内部数据。",
@@ -51326,9 +51341,9 @@
       ]
     },
     "input_inventory": {
-      "summary": "原79人中已完成7人的预训练与随机全run表示：原5人取框位置未变、表示直接复用，按同一坐标规则新增2人。每人240帧、12个固定窗口、每分支192维；共84个不同窗口、168份分支窗口表示。分类拟合和疼痛评分均0。",
-      "boundary": "全部79人的本人掩膜都能放入2mm、96³框；沿同一规则选离原框最近的覆盖位置，36人不动、43人平移，最大8mm。新增2人框外已知自动脑体素损失0、脑内非有限0，独立复核保存汇总并实际查看2图30面板。各人不再共享同一个MNI原点，平移会改变脑相对位置和token分组；自动掩膜覆盖不等于完整解剖覆盖，技术查看不改原QC。",
-      "next": "继续按原身份顺序有界提取其余72人，所有人采用同一取框规则、同一2mm尺寸、原权重/位置buffer与固定窗口汇总；窗口和表示保存在本机C盘，仅核对后回收本轮远端临时大文件。全部79表示核对后运行原9按人任务、三分支243头，保留原20、结构535停止、TN14和所有原边界。新验证继续补临床定义、年龄/量表—MRI时间、身份重叠和QC，不把名义147人当已可验证。",
+      "summary": "原79人中已完成15人的预训练与随机全run表示：原5人表示直接复用，按同一裁框规则新增10人。每人240帧、12个固定窗口、每分支192维；共180个不同窗口、360份分支窗口表示。分类拟合和疼痛评分均0。",
+      "boundary": "本批新增8人完整240帧、96窗口/192分支前向已核对；已知自动脑掩膜框外损失0、脑内非有限0，保存4份实际掩膜并独立复核几何和汇总，实际查看8图120面板。局部左右不对称、前下部和外周掩膜差异保留，不改原QC或纳入。统一取框规则需36人不动、43人平移，最大8mm；各人MNI原点不同，平移会改变相对位置和token分组，自动掩膜保留不等于完整解剖覆盖。",
+      "next": "接续剩余64人的相同固定提取流程，远端逐人归一化、本机C盘保存窗口并冻结提取；独立程序完成或遇错即停。全部79表示及同一取框规则核对后，才沿原9按人任务做三分支243头比较。训练内标准化和选C，原20、结构535停止、TN14、原QC/标签/划分和视觉豁免保持。新验证继续补终点、年龄/评分—MRI时间、身份重叠及QC。",
       "rows": [
         {
           "input": "CLIP FC图像开发比较",
@@ -51342,8 +51357,8 @@
         },
         {
           "input": "NeuroMamba最近覆盖框",
-          "finding": "原79人中已完成7人的预训练与随机全run表示：原5人取框位置未变、表示直接复用，按同一坐标规则新增2人。每人240帧、12个固定窗口、每分支192维；共84个不同窗口、168份分支窗口表示。分类拟合和疼痛评分均0。",
-          "action": "全部79人的本人掩膜都能放入2mm、96³框；沿同一规则选离原框最近的覆盖位置，36人不动、43人平移，最大8mm。新增2人框外已知自动脑体素损失0、脑内非有限0，独立复核保存汇总并实际查看2图30面板。各人不再共享同一个MNI原点，平移会改变脑相对位置和token分组；自动掩膜覆盖不等于完整解剖覆盖，技术查看不改原QC。"
+          "finding": "原79人中已完成15人的预训练与随机全run表示：原5人表示直接复用，按同一裁框规则新增10人。每人240帧、12个固定窗口、每分支192维；共180个不同窗口、360份分支窗口表示。分类拟合和疼痛评分均0。",
+          "action": "本批新增8人完整240帧、96窗口/192分支前向已核对；已知自动脑掩膜框外损失0、脑内非有限0，保存4份实际掩膜并独立复核几何和汇总，实际查看8图120面板。局部左右不对称、前下部和外周掩膜差异保留，不改原QC或纳入。统一取框规则需36人不动、43人平移，最大8mm；各人MNI原点不同，平移会改变相对位置和token分组，自动掩膜保留不等于完整解剖覆盖。"
         },
         {
           "input": "前阶段：两站点全run",
@@ -52151,16 +52166,16 @@
     "volume_cohort_progress": {
       "as_of": "2026-10-01",
       "model": "NeuroMamba v1.0.0 / 3M_E192 / author-indicated Aurora",
-      "state": "NEAREST_COMPLETE_CROP_TWO_NEW_PEOPLE_VERIFIED",
+      "state": "NEAREST_COMPLETE_CROP_15_PEOPLE_VERIFIED",
       "original79": 79,
-      "people_ready": 7,
-      "remaining": 72,
+      "people_ready": 15,
+      "remaining": 64,
       "reused_people": 5,
-      "new_people": 2,
+      "new_people": 10,
       "source_frames_per_run": 240,
       "windows_per_person": 12,
-      "distinct_windows_ready": 84,
-      "branch_window_representations_ready": 168,
+      "distinct_windows_ready": 180,
+      "branch_window_representations_ready": 360,
       "features_per_branch": 192,
       "patient_classifier_fits": 0,
       "patient_scores": 0,
@@ -52197,25 +52212,6 @@
         "position_buffer_interpolation": false,
         "expanded_input_strict_loading_rejected": true,
         "labels_predictions_not_used_for_crop": true
-      },
-      "new_batch": {
-        "brain_values": 103755600,
-        "expanded_mask_voxels": 432315,
-        "known_mask_outside_crop_voxels": 0,
-        "brain_nonfinite_values": 0,
-        "brain_raw_zero_values": 0,
-        "nonfinite_background_explicitly_filled": 43119840,
-        "windows": 24,
-        "branch_window_forwards": 48,
-        "pooling_numpy_torch_max_error": 2.220446049250313e-16,
-        "technical_images_viewed": 2,
-        "technical_panels_viewed": 30,
-        "independent_actual_saved_masks_and_pooling_verified": true,
-        "local_reading_inference_seconds_range": [
-          6.679651300000842,
-          8.998094000002311
-        ],
-        "window_bytes": 386786642
       },
       "unseen_metadata": {
         "dataset": "ds005016",
@@ -52269,12 +52265,51 @@
       "old_qc_labels_splits_changed": false,
       "expert_review": "NOT_PERFORMED",
       "limitations": [
-        "全部79人的本人掩膜都能放入2mm、96³框；沿同一规则选离原框最近的覆盖位置，36人不动、43人平移，最大8mm。新增2人框外已知自动脑体素损失0、脑内非有限0，独立复核保存汇总并实际查看2图30面板。各人不再共享同一个MNI原点，平移会改变脑相对位置和token分组；自动掩膜覆盖不等于完整解剖覆盖，技术查看不改原QC。",
+        "本批新增8人完整240帧、96窗口/192分支前向已核对；已知自动脑掩膜框外损失0、脑内非有限0，保存4份实际掩膜并独立复核几何和汇总，实际查看8图120面板。局部左右不对称、前下部和外周掩膜差异保留，不改原QC或纳入。统一取框规则需36人不动、43人平移，最大8mm；各人MNI原点不同，平移会改变相对位置和token分组，自动掩膜保留不等于完整解剖覆盖。",
         "No common MNI origin: intrinsic checkpoint position changes with translated crop; inter-person displacement may affect representations and encode acquisition/anatomy differences.",
         "Known automask retained, not proof of complete anatomical coverage. Original native masks touch boundaries in40 cases.",
         "No positional interpolation, resolution change, checkpoint change or diagnosis/prediction-based crop.",
         "One seed and shared released position buffer; not all random state is untrained. FC regressed/filtered whereas volume input minimally processed. Original79 development, not independent clinical validation."
       ],
+      "previous_two_person_batch": {
+        "brain_values": 103755600,
+        "expanded_mask_voxels": 432315,
+        "known_mask_outside_crop_voxels": 0,
+        "brain_nonfinite_values": 0,
+        "brain_raw_zero_values": 0,
+        "nonfinite_background_explicitly_filled": 43119840,
+        "windows": 24,
+        "branch_window_forwards": 48,
+        "pooling_numpy_torch_max_error": 2.220446049250313e-16,
+        "technical_images_viewed": 2,
+        "technical_panels_viewed": 30,
+        "independent_actual_saved_masks_and_pooling_verified": true,
+        "local_reading_inference_seconds_range": [
+          6.679651300000842,
+          8.998094000002311
+        ],
+        "window_bytes": 386786642
+      },
+      "latest_batch": {
+        "new_people": 8,
+        "brain_values": 409157520,
+        "expanded_mask_voxels": 1704823,
+        "known_mask_outside_crop_voxels": 0,
+        "brain_nonfinite_values": 0,
+        "brain_raw_zero_values": 0,
+        "nonfinite_background_explicitly_filled": 194494560,
+        "windows": 96,
+        "branch_window_forwards": 192,
+        "pooling_numpy_torch_max_error": 2.220446049250313e-16,
+        "technical_images_viewed": 8,
+        "technical_panels_viewed": 120,
+        "independent_actual_saved_masks_and_pooling_verified": true,
+        "local_reading_inference_seconds_range": [
+          6.365749399999913,
+          8.447209800000564
+        ],
+        "window_bytes": 1530155116
+      },
       "source": "volume-nearest-crop-20261001"
     },
     "clip_feasibility": {
@@ -52477,16 +52512,16 @@
     "volume_crop_progress": {
       "as_of": "2026-10-01",
       "model": "NeuroMamba v1.0.0 / 3M_E192 / author-indicated Aurora",
-      "state": "NEAREST_COMPLETE_CROP_TWO_NEW_PEOPLE_VERIFIED",
+      "state": "NEAREST_COMPLETE_CROP_15_PEOPLE_VERIFIED",
       "original79": 79,
-      "people_ready": 7,
-      "remaining": 72,
+      "people_ready": 15,
+      "remaining": 64,
       "reused_people": 5,
-      "new_people": 2,
+      "new_people": 10,
       "source_frames_per_run": 240,
       "windows_per_person": 12,
-      "distinct_windows_ready": 84,
-      "branch_window_representations_ready": 168,
+      "distinct_windows_ready": 180,
+      "branch_window_representations_ready": 360,
       "features_per_branch": 192,
       "patient_classifier_fits": 0,
       "patient_scores": 0,
@@ -52523,25 +52558,6 @@
         "position_buffer_interpolation": false,
         "expanded_input_strict_loading_rejected": true,
         "labels_predictions_not_used_for_crop": true
-      },
-      "new_batch": {
-        "brain_values": 103755600,
-        "expanded_mask_voxels": 432315,
-        "known_mask_outside_crop_voxels": 0,
-        "brain_nonfinite_values": 0,
-        "brain_raw_zero_values": 0,
-        "nonfinite_background_explicitly_filled": 43119840,
-        "windows": 24,
-        "branch_window_forwards": 48,
-        "pooling_numpy_torch_max_error": 2.220446049250313e-16,
-        "technical_images_viewed": 2,
-        "technical_panels_viewed": 30,
-        "independent_actual_saved_masks_and_pooling_verified": true,
-        "local_reading_inference_seconds_range": [
-          6.679651300000842,
-          8.998094000002311
-        ],
-        "window_bytes": 386786642
       },
       "unseen_metadata": {
         "dataset": "ds005016",
@@ -52595,12 +52611,51 @@
       "old_qc_labels_splits_changed": false,
       "expert_review": "NOT_PERFORMED",
       "limitations": [
-        "全部79人的本人掩膜都能放入2mm、96³框；沿同一规则选离原框最近的覆盖位置，36人不动、43人平移，最大8mm。新增2人框外已知自动脑体素损失0、脑内非有限0，独立复核保存汇总并实际查看2图30面板。各人不再共享同一个MNI原点，平移会改变脑相对位置和token分组；自动掩膜覆盖不等于完整解剖覆盖，技术查看不改原QC。",
+        "本批新增8人完整240帧、96窗口/192分支前向已核对；已知自动脑掩膜框外损失0、脑内非有限0，保存4份实际掩膜并独立复核几何和汇总，实际查看8图120面板。局部左右不对称、前下部和外周掩膜差异保留，不改原QC或纳入。统一取框规则需36人不动、43人平移，最大8mm；各人MNI原点不同，平移会改变相对位置和token分组，自动掩膜保留不等于完整解剖覆盖。",
         "No common MNI origin: intrinsic checkpoint position changes with translated crop; inter-person displacement may affect representations and encode acquisition/anatomy differences.",
         "Known automask retained, not proof of complete anatomical coverage. Original native masks touch boundaries in40 cases.",
         "No positional interpolation, resolution change, checkpoint change or diagnosis/prediction-based crop.",
         "One seed and shared released position buffer; not all random state is untrained. FC regressed/filtered whereas volume input minimally processed. Original79 development, not independent clinical validation."
       ],
+      "previous_two_person_batch": {
+        "brain_values": 103755600,
+        "expanded_mask_voxels": 432315,
+        "known_mask_outside_crop_voxels": 0,
+        "brain_nonfinite_values": 0,
+        "brain_raw_zero_values": 0,
+        "nonfinite_background_explicitly_filled": 43119840,
+        "windows": 24,
+        "branch_window_forwards": 48,
+        "pooling_numpy_torch_max_error": 2.220446049250313e-16,
+        "technical_images_viewed": 2,
+        "technical_panels_viewed": 30,
+        "independent_actual_saved_masks_and_pooling_verified": true,
+        "local_reading_inference_seconds_range": [
+          6.679651300000842,
+          8.998094000002311
+        ],
+        "window_bytes": 386786642
+      },
+      "latest_batch": {
+        "new_people": 8,
+        "brain_values": 409157520,
+        "expanded_mask_voxels": 1704823,
+        "known_mask_outside_crop_voxels": 0,
+        "brain_nonfinite_values": 0,
+        "brain_raw_zero_values": 0,
+        "nonfinite_background_explicitly_filled": 194494560,
+        "windows": 96,
+        "branch_window_forwards": 192,
+        "pooling_numpy_torch_max_error": 2.220446049250313e-16,
+        "technical_images_viewed": 8,
+        "technical_panels_viewed": 120,
+        "independent_actual_saved_masks_and_pooling_verified": true,
+        "local_reading_inference_seconds_range": [
+          6.365749399999913,
+          8.447209800000564
+        ],
+        "window_bytes": 1530155116
+      },
       "source": "volume-nearest-crop-20261001"
     },
     "clip_comparison": {
@@ -53969,7 +54024,7 @@
     "summary_source": "prt-images-20260925-summary"
   },
   "calendar": {
-    "revision": 67,
+    "revision": 68,
     "timezone": "Asia/Shanghai",
     "events": [
       {
@@ -56312,6 +56367,20 @@
         ],
         "date_basis": "人工维护；Asia/Shanghai",
         "updated_at": "2026-10-01T12:21:27.898123+00:00",
+        "editable": false
+      },
+      {
+        "title": "15/79全run表示已核对，固定提取继续",
+        "type": "work",
+        "date": "2026-10-01",
+        "time": "",
+        "description": "原79人中已完成15人的预训练与随机全run表示：原5人表示直接复用，按同一裁框规则新增10人。每人240帧、12个固定窗口、每分支192维；共180个不同窗口、360份分支窗口表示。分类拟合和疼痛评分均0。 本批新增8人完整240帧、96窗口/192分支前向已核对；已知自动脑掩膜框外损失0、脑内非有限0，保存4份实际掩膜并独立复核几何和汇总，实际查看8图120面板。局部左右不对称、前下部和外周掩膜差异保留，不改原QC或纳入。统一取框规则需36人不动、43人平移，最大8mm；各人MNI原点不同，平移会改变相对位置和token分组，自动掩膜保留不等于完整解剖覆盖。",
+        "id": "event-fa42a9b2ecd24620",
+        "sources": [
+          "volume-nearest-crop-20261001"
+        ],
+        "date_basis": "人工维护；Asia/Shanghai",
+        "updated_at": "2026-10-01T12:39:50.486416+00:00",
         "editable": false
       }
     ]

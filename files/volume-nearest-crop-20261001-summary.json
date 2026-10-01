@@ -1,16 +1,16 @@
 {
   "as_of": "2026-10-01",
   "model": "NeuroMamba v1.0.0 / 3M_E192 / author-indicated Aurora",
-  "state": "NEAREST_COMPLETE_CROP_TWO_NEW_PEOPLE_VERIFIED",
+  "state": "NEAREST_COMPLETE_CROP_15_PEOPLE_VERIFIED",
   "original79": 79,
-  "people_ready": 7,
-  "remaining": 72,
+  "people_ready": 15,
+  "remaining": 64,
   "reused_people": 5,
-  "new_people": 2,
+  "new_people": 10,
   "source_frames_per_run": 240,
   "windows_per_person": 12,
-  "distinct_windows_ready": 84,
-  "branch_window_representations_ready": 168,
+  "distinct_windows_ready": 180,
+  "branch_window_representations_ready": 360,
   "features_per_branch": 192,
   "patient_classifier_fits": 0,
   "patient_scores": 0,
@@ -47,25 +47,6 @@
     "position_buffer_interpolation": false,
     "expanded_input_strict_loading_rejected": true,
     "labels_predictions_not_used_for_crop": true
-  },
-  "new_batch": {
-    "brain_values": 103755600,
-    "expanded_mask_voxels": 432315,
-    "known_mask_outside_crop_voxels": 0,
-    "brain_nonfinite_values": 0,
-    "brain_raw_zero_values": 0,
-    "nonfinite_background_explicitly_filled": 43119840,
-    "windows": 24,
-    "branch_window_forwards": 48,
-    "pooling_numpy_torch_max_error": 2.220446049250313e-16,
-    "technical_images_viewed": 2,
-    "technical_panels_viewed": 30,
-    "independent_actual_saved_masks_and_pooling_verified": true,
-    "local_reading_inference_seconds_range": [
-      6.679651300000842,
-      8.998094000002311
-    ],
-    "window_bytes": 386786642
   },
   "unseen_metadata": {
     "dataset": "ds005016",
@@ -119,10 +100,49 @@
   "old_qc_labels_splits_changed": false,
   "expert_review": "NOT_PERFORMED",
   "limitations": [
-    "全部79人的本人掩膜都能放入2mm、96³框；沿同一规则选离原框最近的覆盖位置，36人不动、43人平移，最大8mm。新增2人框外已知自动脑体素损失0、脑内非有限0，独立复核保存汇总并实际查看2图30面板。各人不再共享同一个MNI原点，平移会改变脑相对位置和token分组；自动掩膜覆盖不等于完整解剖覆盖，技术查看不改原QC。",
+    "本批新增8人完整240帧、96窗口/192分支前向已核对；已知自动脑掩膜框外损失0、脑内非有限0，保存4份实际掩膜并独立复核几何和汇总，实际查看8图120面板。局部左右不对称、前下部和外周掩膜差异保留，不改原QC或纳入。统一取框规则需36人不动、43人平移，最大8mm；各人MNI原点不同，平移会改变相对位置和token分组，自动掩膜保留不等于完整解剖覆盖。",
     "No common MNI origin: intrinsic checkpoint position changes with translated crop; inter-person displacement may affect representations and encode acquisition/anatomy differences.",
     "Known automask retained, not proof of complete anatomical coverage. Original native masks touch boundaries in40 cases.",
     "No positional interpolation, resolution change, checkpoint change or diagnosis/prediction-based crop.",
     "One seed and shared released position buffer; not all random state is untrained. FC regressed/filtered whereas volume input minimally processed. Original79 development, not independent clinical validation."
-  ]
+  ],
+  "previous_two_person_batch": {
+    "brain_values": 103755600,
+    "expanded_mask_voxels": 432315,
+    "known_mask_outside_crop_voxels": 0,
+    "brain_nonfinite_values": 0,
+    "brain_raw_zero_values": 0,
+    "nonfinite_background_explicitly_filled": 43119840,
+    "windows": 24,
+    "branch_window_forwards": 48,
+    "pooling_numpy_torch_max_error": 2.220446049250313e-16,
+    "technical_images_viewed": 2,
+    "technical_panels_viewed": 30,
+    "independent_actual_saved_masks_and_pooling_verified": true,
+    "local_reading_inference_seconds_range": [
+      6.679651300000842,
+      8.998094000002311
+    ],
+    "window_bytes": 386786642
+  },
+  "latest_batch": {
+    "new_people": 8,
+    "brain_values": 409157520,
+    "expanded_mask_voxels": 1704823,
+    "known_mask_outside_crop_voxels": 0,
+    "brain_nonfinite_values": 0,
+    "brain_raw_zero_values": 0,
+    "nonfinite_background_explicitly_filled": 194494560,
+    "windows": 96,
+    "branch_window_forwards": 192,
+    "pooling_numpy_torch_max_error": 2.220446049250313e-16,
+    "technical_images_viewed": 8,
+    "technical_panels_viewed": 120,
+    "independent_actual_saved_masks_and_pooling_verified": true,
+    "local_reading_inference_seconds_range": [
+      6.365749399999913,
+      8.447209800000564
+    ],
+    "window_bytes": 1530155116
+  }
 }

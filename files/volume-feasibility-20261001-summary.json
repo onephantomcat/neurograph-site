@@ -1,0 +1,258 @@
+{
+  "date": "2026-10-01",
+  "title": "体积模型推理跑通，患者输入仍需适配",
+  "state": "SYNTHETIC_FEASIBILITY_COMPLETE_PATIENT_INPUT_ADAPTATION_PENDING",
+  "summary": "NeuroMamba主模型113项权重严格加载；完整96×96×96×20合成输入用时0.41秒，峰值分配显存984 MiB，重复输出一致。现有开发输入为3 mm，作者要求2 mm；本轮未训练或评分患者。",
+  "boundary": "这是合成输入的工程可行性核查，单次计时不含读取和预处理，不能当患者推理P95、疼痛收益或临床验证。Aurora与当前上游门控写法不同；零背景残差也不符合minback掩膜假设。ds005016仅核对元数据和文件名，可用人数、身份重叠及同终点仍未确立。原结构阴性及全部开发边界保留。",
+  "next": "先明确使用的作者后端与输入分支，核对固定2 mm坐标、脑覆盖、强度和背景，执行一个既有开发输入的技术试跑；输入未适配前不做患者分类比较。再沿原拆分准备强FC、预训练和适用随机表示的有限比较。新队列继续补终点、身份和QC证据；原20不评分，TN14及旧暂停任务保持。",
+  "patient_fits": 0,
+  "patient_scores": 0,
+  "model": {
+    "repo": "Transconnectome/NeuroMamba",
+    "source_commit": "2f51810e9ad51dc5bb126e17b6f8799807384581",
+    "release": "v1.0.0",
+    "asset": "3M_E192.pt",
+    "asset_bytes": 43801532,
+    "state_keys_strictly_loaded": 113,
+    "parameters_with_reconstruction": 3082296,
+    "frozen_backbone_parameters": 2998920,
+    "aurora_commit": "48ba80cab9028311bd35c4c4b6556fccb622e543",
+    "current_upstream_forward_equivalence": "NOT_ESTABLISHED_GATE_DIFFERS"
+  },
+  "runtime": {
+    "hardware": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "torch": "2.13.0+cu130",
+    "precision": "float32_no_autocast",
+    "input_shape": [
+      1,
+      1,
+      96,
+      96,
+      96,
+      20
+    ],
+    "records": [
+      {
+        "test": "released_12_layer_cpu_gpu_small_mask",
+        "output_shape": [
+          1,
+          10,
+          192
+        ],
+        "finite": true,
+        "max_abs": 3.472386598587036,
+        "pooled_l2": 14.687872886657715,
+        "max_abs_error": 1.7881393432617188e-06,
+        "rms_error": 4.4861582182420534e-07
+      },
+      {
+        "test": "released_full_40960_tokens_fp32",
+        "output_shape": [
+          1,
+          40960,
+          192
+        ],
+        "finite": true,
+        "max_abs": 3.7745869159698486,
+        "pooled_l2": 15.217317581176758,
+        "seconds": 0.4065525999994861,
+        "peak_allocated_mib": 984.06396484375,
+        "peak_reserved_mib": 1038.0,
+        "repeat_max_abs_error": 0.0
+      },
+      {
+        "test": "released_synthetic_ellipsoid_adaptive_mask",
+        "output_shape": [
+          1,
+          12080,
+          192
+        ],
+        "finite": true,
+        "max_abs": 4.7127156257629395,
+        "pooled_l2": 14.049365997314453,
+        "active_voxels": 193072,
+        "seconds": 0.08858969999891997,
+        "peak_allocated_mib": 381.412109375
+      }
+    ]
+  },
+  "numerical_checks": [
+    {
+      "test": "ssd_vs_direct_recurrence",
+      "length": 7,
+      "max_abs_error": 3.552713678800501e-15,
+      "rms_error": 6.215833887536008e-16,
+      "reference_max_abs": 15.924444328169317,
+      "finite": true,
+      "final_state": {
+        "max_abs_error": 8.881784197001252e-16,
+        "rms_error": 2.9170601599536654e-16,
+        "reference_max_abs": 4.654996251474392,
+        "finite": true
+      }
+    },
+    {
+      "test": "ssd_vs_direct_recurrence",
+      "length": 32,
+      "max_abs_error": 1.7763568394002505e-15,
+      "rms_error": 4.983269090531353e-16,
+      "reference_max_abs": 10.934630132340523,
+      "finite": true,
+      "final_state": {
+        "max_abs_error": 1.7763568394002505e-15,
+        "rms_error": 4.851545063646634e-16,
+        "reference_max_abs": 4.042191166306097,
+        "finite": true
+      }
+    },
+    {
+      "test": "ssd_vs_direct_recurrence",
+      "length": 37,
+      "max_abs_error": 3.1086244689504383e-15,
+      "rms_error": 4.4377536309637715e-16,
+      "reference_max_abs": 12.819982827024118,
+      "finite": true,
+      "final_state": {
+        "max_abs_error": 4.440892098500626e-16,
+        "rms_error": 1.893440939526987e-16,
+        "reference_max_abs": 3.015840290660234,
+        "finite": true
+      }
+    },
+    {
+      "test": "ssd_vs_direct_recurrence",
+      "length": 256,
+      "max_abs_error": 4.218847493575595e-15,
+      "rms_error": 5.281379080236216e-16,
+      "reference_max_abs": 23.969652348654705,
+      "finite": true,
+      "final_state": {
+        "max_abs_error": 1.887379141862766e-15,
+        "rms_error": 7.420734626583068e-16,
+        "reference_max_abs": 2.205140676216697,
+        "finite": true
+      }
+    },
+    {
+      "test": "ssd_vs_direct_recurrence",
+      "length": 259,
+      "max_abs_error": 3.552713678800501e-15,
+      "rms_error": 4.799228933917675e-16,
+      "reference_max_abs": 15.512945772793259,
+      "finite": true,
+      "final_state": {
+        "max_abs_error": 8.881784197001252e-16,
+        "rms_error": 3.590047849048938e-16,
+        "reference_max_abs": 6.779876505483701,
+        "finite": true
+      }
+    },
+    {
+      "test": "whole_block_vs_explicit_conv_and_recurrence",
+      "max_abs_error": 6.661338147750939e-16,
+      "rms_error": 1.2474654302407532e-16,
+      "reference_max_abs": 1.5838863594732897,
+      "finite": true
+    },
+    {
+      "test": "gate_expression_difference",
+      "max_abs_error": 0.7752555679156462,
+      "rms_error": 0.22655260458191456,
+      "reference_max_abs": 1.5273659100913632,
+      "finite": true,
+      "meaning": "Author Aurora uses z*silu(y); standard upstream gated norm uses y*silu(z). Shape match does not prove equality."
+    },
+    {
+      "test": "fp32_gpu_vs_cpu",
+      "max_abs_error": 4.76837158203125e-07,
+      "rms_error": 1.3088587991205713e-07,
+      "reference_max_abs": 1.5838450193405151,
+      "finite": true
+    },
+    {
+      "test": "bf16_gpu_vs_fp32_cpu",
+      "max_abs_error": 0.014396607875823975,
+      "rms_error": 0.0034612102899700403,
+      "reference_max_abs": 1.5838450193405151,
+      "finite": true
+    }
+  ],
+  "synthetic_background_checks": [
+    {
+      "test": "positive_raw_hdf5_formula",
+      "active_tokens": 12080,
+      "total_tokens": 40960,
+      "brain_minimum": -5.311336040496826,
+      "background_value": -20.0036563873291
+    },
+    {
+      "test": "zero_background_residual_hdf5_formula",
+      "active_tokens": 40960,
+      "total_tokens": 40960,
+      "brain_minimum": -5.018708229064941,
+      "background_value": -0.00017390433640684932
+    },
+    {
+      "test": "explicit_brain_min_background_residual",
+      "active_tokens": 12080,
+      "total_tokens": 40960,
+      "brain_minimum": -5.018708229064941,
+      "background_value": -5.018708229064941
+    }
+  ],
+  "one_existing_development_input_header": {
+    "shape": [
+      61,
+      73,
+      61,
+      240
+    ],
+    "pixdim": [
+      3.0,
+      3.0,
+      3.0,
+      2.5
+    ],
+    "sampled_people": 1,
+    "all_cohort_geometry_verified": false,
+    "preprocessing": "DPABI nuisance-regressed and filtered"
+  },
+  "candidate_metadata": {
+    "state": "METADATA_AND_FILE_INVENTORY_ONLY",
+    "source_ref": "2107a0a736dbeeff2adb1bc55ca7461feb6139aa",
+    "diagnostic_groups_by_readme_ranges": {
+      "episodic_migraine": 112,
+      "healthy_control": 35
+    },
+    "missing_intervention_by_diagnosis": {
+      "episodic_migraine": 22,
+      "healthy_control": 35
+    },
+    "imaging_filename_inventory": {
+      "participants_with_any_t1": 147,
+      "participants_with_any_rest": 147,
+      "participants_with_same_visit_t1_and_rest": 147,
+      "same_visit_pairs": 347,
+      "bold_files_by_task": {
+        "msit": 686,
+        "pain": 661,
+        "rest": 347
+      }
+    },
+    "clinical_pain_score_in_participants": false,
+    "imaging_downloaded": false,
+    "numerical_qc": false,
+    "identity_overlap": "UNKNOWN",
+    "same_endpoint": "NOT_ESTABLISHED",
+    "usable_validation_people": "UNKNOWN"
+  },
+  "limitations": [
+    "No patient feature extraction, fits or scores.",
+    "Runtime is one warmed synthetic FP32 forward, not a clinical latency benchmark.",
+    "Exact original training-forward semantics cannot be proven from the tensor-only checkpoint.",
+    "Current author non-HDF5 loader references absent debug_datasets.py; this probe does not claim the complete Lightning pipeline runs.",
+    "Author preprocessing.py explicit brain-min fill differs from HDF5 raw-zero z-normalization on centered residuals.",
+    "A 3 mm resample to 2 mm does not recreate native 2 mm acquisition or remove prior nuisance regression.",
+    "Candidate filenames are not downloaded, numerically usable images or unseen endpoint validation."
+  ]
+}

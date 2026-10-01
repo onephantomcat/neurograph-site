@@ -70,7 +70,8 @@
     "Run-level normalization, FP64 brain-token/window pooling, one fixed random seed and shared checkpoint position buffer; original training preprocessing and upstream Mamba2 equivalence not established.",
     "FC is regressed/filtered whereas volume input is minimally processed; FC comparison includes preprocessing differences.",
     "Timing ranges are observed calls, include first-call effects, are not P95 and exclude remote processing.",
-    "下一人的宽框自动脑掩膜有217254个体素，其中145个位于固定96³框下方（z=-84、-82、-80mm），已停止其窗口和表示提取。既有5份表示保留；不能据前5人无框外损失保证其余74人覆盖。自动掩膜不证明完整解剖覆盖。"
+    "下一人的宽框自动脑掩膜有217254个体素，其中145个位于固定96³框下方（z=-84、-82、-80mm），已停止其窗口和表示提取。既有5份表示保留；不能据前5人无框外损失保证其余74人覆盖。自动掩膜不证明完整解剖覆盖。",
+    "全部79人的扩展自动脑掩膜已实测并独立复算：43人、4764个体素超出原固定框；联合范围x=-72至82、y=-112至84、z=-86至86mm。前后跨度196mm超过2mm/96³可覆盖的190mm，仅移动框不能完整容纳已测掩膜。其余74人的表示提取保持暂停；已有5份保留，分类0。自动掩膜不证明完整解剖覆盖。"
   ],
   "model": "NeuroMamba v1.0.0 / 3M_E192 / author-indicated Aurora",
   "technical_images_viewed_total": 5,
@@ -99,6 +100,34 @@
     "finite_task": true,
     "automatic_grid_change": false,
     "automatic_classifier_training": false,
-    "automatic_publication": false
+    "automatic_publication": false,
+    "state": "INDEPENDENT_79_MASK_GEOMETRY_VERIFIED",
+    "completed_people": 79,
+    "reused_masks": 6,
+    "new_normalizations": 73,
+    "exit_code": 0,
+    "running": false,
+    "independent_actual_saved_masks_verified": true,
+    "union_min_mm": [
+      -72,
+      -112,
+      -86
+    ],
+    "union_max_mm": [
+      82,
+      84,
+      86
+    ],
+    "span_mm": [
+      154,
+      196,
+      172
+    ],
+    "outside_original_cube_people": 43,
+    "outside_original_cube_voxels": 4764,
+    "expanded_mask_edge_people": 0,
+    "native_mask_edge_people": 40,
+    "same_2mm_96cube_can_cover_measured_union": false,
+    "images_expert_reviewed": false
   }
 }

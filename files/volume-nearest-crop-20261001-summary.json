@@ -1,0 +1,128 @@
+{
+  "as_of": "2026-10-01",
+  "model": "NeuroMamba v1.0.0 / 3M_E192 / author-indicated Aurora",
+  "state": "NEAREST_COMPLETE_CROP_TWO_NEW_PEOPLE_VERIFIED",
+  "original79": 79,
+  "people_ready": 7,
+  "remaining": 72,
+  "reused_people": 5,
+  "new_people": 2,
+  "source_frames_per_run": 240,
+  "windows_per_person": 12,
+  "distinct_windows_ready": 84,
+  "branch_window_representations_ready": 168,
+  "features_per_branch": 192,
+  "patient_classifier_fits": 0,
+  "patient_scores": 0,
+  "random_seed": 20261001,
+  "fixed_position_buffer_shared": true,
+  "precision": "float32_no_autocast",
+  "continuous_600second_sequence": false,
+  "crop": {
+    "rule": "Per axis lower=clamp(original_lower, mask_upper-190, mask_lower); fixed2mm/96points; unique nearest original frame. Only existing expanded automask coordinates used.",
+    "voxel_size_mm": 2,
+    "shape": [
+      96,
+      96,
+      96
+    ],
+    "common_mni_origin": false,
+    "people_translation_needed": 43,
+    "people_unchanged": 36,
+    "maximum_absolute_translation_mm": 8,
+    "maximum_axis_translation_mm": [
+      0,
+      6,
+      8
+    ],
+    "per_person_max_mask_span_mm": [
+      152,
+      190,
+      168
+    ],
+    "all79_individual_mask_geometries_fit": true,
+    "all79_full_runs_extracted": false,
+    "old5_crop_and_representation_unchanged": true,
+    "strict_checkpoint_and_position_buffer_preserved": true,
+    "position_buffer_interpolation": false,
+    "expanded_input_strict_loading_rejected": true,
+    "labels_predictions_not_used_for_crop": true
+  },
+  "new_batch": {
+    "brain_values": 103755600,
+    "expanded_mask_voxels": 432315,
+    "known_mask_outside_crop_voxels": 0,
+    "brain_nonfinite_values": 0,
+    "brain_raw_zero_values": 0,
+    "nonfinite_background_explicitly_filled": 43119840,
+    "windows": 24,
+    "branch_window_forwards": 48,
+    "pooling_numpy_torch_max_error": 2.220446049250313e-16,
+    "technical_images_viewed": 2,
+    "technical_panels_viewed": 30,
+    "independent_actual_saved_masks_and_pooling_verified": true,
+    "local_reading_inference_seconds_range": [
+      6.679651300000842,
+      8.998094000002311
+    ],
+    "window_bytes": 386786642
+  },
+  "unseen_metadata": {
+    "dataset": "ds005016",
+    "fixed_git_snapshot": "2107a0a736dbeeff2adb1bc55ca7461feb6139aa",
+    "participant_rows": 147,
+    "patient_rows_from_readme": 112,
+    "control_rows_from_readme": 35,
+    "individual_age_in_participant_table": false,
+    "individual_pain_rating_in_participant_table": false,
+    "session_scan_table_paths_found": 0,
+    "behaviour_directory_files": 0,
+    "rest_filename_pairs": 347,
+    "task_event_files": 1347,
+    "representative_metadata_downloads": 6,
+    "representative_metadata_success": 6,
+    "pain_event_columns": [
+      "onset",
+      "duration",
+      "trial_type"
+    ],
+    "rest_header_probes": 2,
+    "rest_header_bytes_read": 704,
+    "representative_shape": [
+      64,
+      64,
+      40,
+      300
+    ],
+    "representative_tr_seconds": 2,
+    "representative_native_spacing_mm": [
+      3.4375,
+      3.4375,
+      4.48
+    ],
+    "representative_dtype": "int16",
+    "s3_full_content_version_not_verified": true,
+    "complete_images_downloaded": 0,
+    "people_qc_verified": 0,
+    "paper_randomized_patients": 98,
+    "paper_primary_endpoint": "Headache-day reduction baseline to20weeks",
+    "same_pain_hc_definition": "NOT_ESTABLISHED",
+    "scan_time_pain": "NOT_ESTABLISHED",
+    "identity_overlap": "UNKNOWN",
+    "validation_ready": false,
+    "participant_identifier_column_present": true,
+    "other_participant_columns": [
+      "sex",
+      "group"
+    ]
+  },
+  "old_qc_labels_splits_changed": false,
+  "expert_review": "NOT_PERFORMED",
+  "limitations": [
+    "全部79人的本人掩膜都能放入2mm、96³框；沿同一规则选离原框最近的覆盖位置，36人不动、43人平移，最大8mm。新增2人框外已知自动脑体素损失0、脑内非有限0，独立复核保存汇总并实际查看2图30面板。各人不再共享同一个MNI原点，平移会改变脑相对位置和token分组；自动掩膜覆盖不等于完整解剖覆盖，技术查看不改原QC。",
+    "No common MNI origin: intrinsic checkpoint position changes with translated crop; inter-person displacement may affect representations and encode acquisition/anatomy differences.",
+    "Known automask retained, not proof of complete anatomical coverage. Original native masks touch boundaries in40 cases.",
+    "No positional interpolation, resolution change, checkpoint change or diagnosis/prediction-based crop.",
+    "One seed and shared released position buffer; not all random state is untrained. FC regressed/filtered whereas volume input minimally processed. Original79 development, not independent clinical validation."
+  ]
+}

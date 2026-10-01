@@ -1,0 +1,75 @@
+{
+  "as_of": "2026-10-01",
+  "state": "FIRST_BOUNDED_TWO_NEW_PEOPLE_VERIFIED",
+  "original79": 79,
+  "people_ready": 4,
+  "remaining": 75,
+  "new_people": 2,
+  "reused_people": 2,
+  "source_frames_per_run": 240,
+  "windows_per_person": 12,
+  "distinct_windows_ready": 48,
+  "branch_window_representations_ready": 96,
+  "features_per_branch": 192,
+  "patient_classifier_fits": 0,
+  "patient_scores": 0,
+  "random_seed": 20261001,
+  "fixed_position_buffer_shared": true,
+  "precision": "float32_no_autocast",
+  "continuous_600second_sequence": false,
+  "new_batch": {
+    "brain_values": 97166880,
+    "nonfinite_inside_brain_values": 0,
+    "raw_zero_inside_brain_values": 0,
+    "masked_out_nonfinite_values": 41868240,
+    "expanded_automask_voxels": 404862,
+    "cube_lost_voxels": 0,
+    "known_voxels_outside_old_standard_box": 120,
+    "tokens_range": [
+      12780,
+      13350
+    ],
+    "new_gpu_forward_calls": 48,
+    "pooling_numpy_torch_max_error": 2.220446049250313e-16,
+    "gpu_seconds_range": [
+      0.14543780000167317,
+      6.455003199997009
+    ],
+    "peak_allocated_mib_max": 449.6845703125,
+    "local_reading_and_inference_seconds_range": [
+      14.964658299999428,
+      21.30322359999991
+    ],
+    "window_bytes": 364690465,
+    "transfer_bytes": 366254080,
+    "transfer_seconds_range": [
+      39.52406080000219,
+      41.99291589999848
+    ],
+    "remote_derived_bytes_reclaimed": 2948551879,
+    "independent_actual_mask_verification": true,
+    "technical_images_viewed": 2,
+    "technical_panels_viewed": 30
+  },
+  "storage": {
+    "user_chose_local_if_fits": true,
+    "estimated79_compressed_windows_gib_from_first2": 14.101956118829548,
+    "planned_new_space_gib": [
+      20,
+      25
+    ],
+    "full_run_fp32_gib_each": 0.791015625,
+    "all79_full_run_fp32_gib": 62.490234375,
+    "retain_all_compressed_windows_locally": true,
+    "remote_full_runs_temporary": true
+  },
+  "old_qc_labels_splits_changed": false,
+  "expert_review": "NOT_PERFORMED",
+  "limitations": [
+    "本批新增2人的宽框自动脑掩膜均完整落在固定96³内，脑内非有限值为0；已独立复核实际掩膜和保存汇总、查看2张私有拼图。自动掩膜与完整解剖覆盖、非专家查看与专家审核分开；不能据4人保证剩余75人质量，也没有疼痛增益结论。",
+    "Run-level normalization, FP64 brain-token/window pooling, one fixed random seed and shared checkpoint position buffer; original training preprocessing and upstream Mamba2 equivalence not established.",
+    "FC is regressed/filtered whereas volume input is minimally processed; FC comparison includes preprocessing differences.",
+    "Timing ranges are observed calls, include first-call effects, are not P95 and exclude remote processing."
+  ],
+  "model": "NeuroMamba v1.0.0 / 3M_E192 / author-indicated Aurora"
+}

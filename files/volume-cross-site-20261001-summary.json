@@ -1,0 +1,153 @@
+{
+  "as_of": "2026-10-01",
+  "state": "TWO_SITE_PAIRED_FULL_RUN_REPRESENTATIONS_COMPLETE",
+  "scope": "two_original_development_people_from_two_sites_technical_only",
+  "people": 2,
+  "sites": 2,
+  "source_frames_per_run": 240,
+  "tr_seconds": 2.5,
+  "windows_per_person": 12,
+  "distinct_windows": 24,
+  "branch_window_representations": 48,
+  "features_per_branch_per_person": 192,
+  "patient_classifier_fits": 0,
+  "patient_scores": 0,
+  "grid": {
+    "shape": [
+      96,
+      96,
+      96,
+      20
+    ],
+    "axis_codes": [
+      "L",
+      "A",
+      "S"
+    ],
+    "cube_affine": [
+      [
+        -2.0,
+        0.0,
+        0.0,
+        96.0
+      ],
+      [
+        0.0,
+        2.0,
+        0.0,
+        -106.0
+      ],
+      [
+        0.0,
+        0.0,
+        2.0,
+        -78.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "expanded_mask_shape": [
+      111,
+      131,
+      116
+    ],
+    "expanded_bounds_mm": [
+      [
+        -110,
+        -150,
+        -100
+      ],
+      [
+        110,
+        110,
+        130
+      ]
+    ],
+    "physical_grid_changed": false
+  },
+  "coverage": {
+    "expanded_automask_voxels_total": 426658,
+    "cube_lost_automask_voxels_total": 0,
+    "known_mask_voxels_outside_previous_spm_box_total": 73,
+    "known_mask_voxels_restored": 73,
+    "reference_crop_lost_voxels_total": 0,
+    "expanded_and_native_mask_edge_counts_all_zero": true,
+    "automask_reference_intersection_fraction_range": [
+      0.8658547307339661,
+      0.8802694544343174
+    ],
+    "common_domain_first_frame_max_error": 0.0,
+    "second_site_full_run_common_domain_max_error": 0.0,
+    "complete_anatomical_coverage_established": false
+  },
+  "input": {
+    "brain_values_total": 102397920,
+    "nonfinite_inside_brain_values_total": 0,
+    "raw_zero_inside_brain_values_total": 0,
+    "masked_out_nonfinite_values_total": 48328080,
+    "native_voxel_mm_approx": [
+      3.3125,
+      3.3125,
+      4.0
+    ],
+    "brain_mean_range": [
+      811.9203745001092,
+      914.8269293585669
+    ],
+    "brain_sample_std_range": [
+      164.2604666228199,
+      195.51128437799915
+    ],
+    "standardized_background_range": [
+      -4.662148952484131,
+      -4.530897617340088
+    ],
+    "confound_regression": false,
+    "filter": false,
+    "slice_timing": false,
+    "upsampling_restores_native_resolution": false
+  },
+  "representation": {
+    "new_gpu_forward_calls": 47,
+    "cached_branch_windows": 1,
+    "random_seed": 20261001,
+    "random_initialization_replayed_exact": true,
+    "fixed_position_buffer_shared": true,
+    "frozen_parameters_per_branch": 2998920,
+    "precision": "float32_no_autocast",
+    "pooling": "FP64 arithmetic mean of retained brain tokens per window; equal mean of twelve sequential nonoverlapping windows",
+    "continuous_600second_sequence": false,
+    "pretrained_aurora_upstream_equivalence": false
+  },
+  "forward": {
+    "all_branch_windows_finite": true,
+    "tokens_per_window_range": [
+      13630,
+      13750
+    ],
+    "pooling_numpy_torch_max_error": 2.220446049250313e-16,
+    "gpu_seconds_range": [
+      0.09024030000000494,
+      1.9978198000007978
+    ],
+    "peak_allocated_mib_max": 458.5517578125,
+    "timing_scope": "Observed new GPU forward calls; includes first call effects, excludes IO/normalization/initialization; not P95"
+  },
+  "technical_images_viewed": 2,
+  "technical_panels_viewed": 30,
+  "expert_review": "NOT_PERFORMED",
+  "old_qc_labels_splits_changed": false,
+  "limitations": [
+    "扩展MNI范围后，既定96³保留两例全部自动脑掩膜；发现并收回原标准框外73个体素。自动掩膜与参考交集为86.59%—88.03%，不能称完整解剖覆盖或推广到79人。分窗状态重置，随机分支共用冻结位置编码；无疼痛增益结论。",
+    "Same position buffer contains the released fixed encoding; random branch is a control for learned parameters conditional on this encoding, not a completely untrained state.",
+    "One fixed random seed does not characterize random seed variability.",
+    "FP32 and explicit automatic brain masking differ from author raw-zero background / saved FP16; exact original training preprocessing is not claimed.",
+    "Aurora differs from current upstream; checkpoint tensors alone do not prove original training forward semantics.",
+    "FC uses regression/filtering and different input processing; a future FC comparison is not a pure pretraining intervention."
+  ],
+  "model": "NeuroMamba v1.0.0 / 3M_E192 / author-indicated Aurora"
+}

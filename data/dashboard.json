@@ -1,9 +1,10 @@
 {
   "name": "疼痛 fMRI 迁移学习研究",
   "reviewed_at": "2026-10-01",
-  "record_reviewed_heading": "2026-10-01（7/79最近覆盖框）",
+  "record_reviewed_heading": "2026-10-01（CLIP原79开发比较完成）",
   "objective": "疾病分类与疼痛程度量化并行：先比较单任务，再依据结果判断是否研究共享表征的双任务。沿用原项目目标，v5的PHN/TN、七日NRS与医院规模作为后续补充方案，不阻挡现有数据的分表探索。公开异质Pain/HC、ZAN及既有站点留出均不等同独立医院临床验证。 研究目标已整合现有成果与阴性结果：继续争取可信预训练增益，重点研究少样本迁移何时有效。近期先比较同一T1的传统SPM结构、预训练结构、FC及有限融合，再按训练内证据推进学习曲线和双向站点评价；最终仍需未参与开发的数据验证。",
   "conclusions": [
+    "原79开发池、原9项按人任务的四分支比较已完成并独立复读324个模型：切空间AUC 0.7422、CLIP 0.4270、同架构随机0.5411、同图像像素0.6918；均含相同人口学。固定FC灰度输入未见CLIP预训练增益。 CLIP相对切空间ΔAUC −0.3152，按人条件95%区间[−0.4309，−0.2030]；相对随机差值区间跨零。仅原79开发证据、单个随机种子及当前灰度配置，不能推广至所有CLIP用途或独立临床效果。原20人未评分，旧QC、标签、划分及主线保持。",
     "当前优先投入三件事：明确预训练表示在小样本及跨站点条件下的收益，完成结构与FC公平比较，并行核查真正未参与开发的同终点数据。已完成新验证数据需求与候选盘点，尚无符合全部条件的新队列证据。",
     "原79人统一处理已完成18人的本地数值核验，下一批8人已启动。此前本地处理与训练接续中断，现已恢复；已完成影像未重跑。继续按用户要求免人工视觉审核，全79人输入齐备后执行既定9组训练对照，目前尚无新的疼痛预测成绩。",
     "现有分类参照约AUC 0.75，尚无稳定的预训练整体收益或可靠疼痛程度模型。原79/99及反复查看的Emo属于开发证据；结构融合本身不作为创新点，不设发表AUC门槛。",
@@ -599,7 +600,7 @@
       "phase": "validation",
       "title": "按证据扩展图网络、多模态与应用",
       "status": "deferred",
-      "summary": "原79人中已完成7人的预训练与随机全run表示：原5人取框位置未变、表示直接复用，按同一坐标规则新增2人。每人240帧、12个固定窗口、每分支192维；共84个不同窗口、168份分支窗口表示。分类拟合和疼痛评分均0。 全部79人的本人掩膜都能放入2mm、96³框；沿同一规则选离原框最近的覆盖位置，36人不动、43人平移，最大8mm。新增2人框外已知自动脑体素损失0、脑内非有限0，独立复核保存汇总并实际查看2图30面板。各人不再共享同一个MNI原点，平移会改变脑相对位置和token分组；自动掩膜覆盖不等于完整解剖覆盖，技术查看不改原QC。 CLIP支线已用原79开发池中按身份顺序选取的2人FC图像，完成预训练与同架构随机编码器的512维冻结表示。12次GPU前向全部有限，同输入重复差为0；分类拟合和疼痛评分均0。主线既有结果保留。",
+      "summary": "原79人中已完成7人的预训练与随机全run表示：原5人取框位置未变、表示直接复用，按同一坐标规则新增2人。每人240帧、12个固定窗口、每分支192维；共84个不同窗口、168份分支窗口表示。分类拟合和疼痛评分均0。 全部79人的本人掩膜都能放入2mm、96³框；沿同一规则选离原框最近的覆盖位置，36人不动、43人平移，最大8mm。新增2人框外已知自动脑体素损失0、脑内非有限0，独立复核保存汇总并实际查看2图30面板。各人不再共享同一个MNI原点，平移会改变脑相对位置和token分组；自动掩膜覆盖不等于完整解剖覆盖，技术查看不改原QC。 CLIP支线已用原79开发池中按身份顺序选取的2人FC图像，完成预训练与同架构随机编码器的512维冻结表示。12次GPU前向全部有限，同输入重复差为0；分类拟合和疼痛评分均0。主线既有结果保留。 原79开发池、原9项按人任务的四分支比较已完成并独立复读324个模型：切空间AUC 0.7422、CLIP 0.4270、同架构随机0.5411、同图像像素0.6918；均含相同人口学。固定FC灰度输入未见CLIP预训练增益。",
       "next": "继续按原身份顺序有界提取其余72人，所有人采用同一取框规则、同一2mm尺寸、原权重/位置buffer与固定窗口汇总；窗口和表示保存在本机C盘，仅核对后回收本轮远端临时大文件。全部79表示核对后运行原9按人任务、三分支243头，保留原20、结构535停止、TN14和所有原边界。新验证继续补临床定义、年龄/量表—MRI时间、身份重叠和QC，不把名义147人当已可验证。",
       "criteria": "新能力解决已证实的研究需求，并有相应真实数据和验证支持。 预训练增量须经同输入强传统对照、少样本曲线和双向站点评价支持；独立泛化仍需未参与开发的数据，技术接入成功不能替代。",
       "depends_on": [
@@ -643,7 +644,9 @@
         "clip-feasibility-20261001",
         "clip-feasibility-20261001-summary",
         "volume-nearest-crop-20261001",
-        "volume-nearest-crop-20261001-summary"
+        "volume-nearest-crop-20261001-summary",
+        "clip-comparison-20261001",
+        "clip-comparison-20261001-summary"
       ],
       "student_guide": {
         "title": "检验小样本收益、结构增量与新队列泛化",
@@ -656,7 +659,7 @@
           "先根据已有结果说明要解决的具体问题，再决定扩展方向。",
           "瞳孔先看G29；三维场景先列需要的任务、真值、人数、扫描时间及资源。",
           "涉及应用响应时，模型在CPU加载后独立测试至少100次推理，记录95%的请求在多久内完成（P95）。",
-          "并行CLIP支线：CLIP支线下一步复用原79现成FC，在相同9项按人划分内比较切空间、冻结CLIP、同架构随机表示及同图像像素对照；人口学与分类头条件一致，标准化和选参仅训练内。GPU与主线错峰，保留主线三分支243头方案。"
+          "CLIP当前固定FC灰度配置结束，保留阴性结果，不根据查询成绩翻转概率或搜索配色、提示词。主线继续已有体积输入与冻结表示工作；真正未参与开发的同终点数据仍待取得。"
         ],
         "deliverable": "原79人中已完成7人的预训练与随机全run表示：原5人取框位置未变、表示直接复用，按同一坐标规则新增2人。每人240帧、12个固定窗口、每分支192维；共84个不同窗口、168份分支窗口表示。分类拟合和疼痛评分均0。 继续按原身份顺序有界提取其余72人，所有人采用同一取框规则、同一2mm尺寸、原权重/位置buffer与固定窗口汇总；窗口和表示保存在本机C盘，仅核对后回收本轮远端临时大文件。全部79表示核对后运行原9按人任务、三分支243头，保留原20、结构535停止、TN14和所有原边界。新验证继续补临床定义、年龄/量表—MRI时间、身份重叠和QC，不把名义147人当已可验证。"
       }
@@ -1390,7 +1393,7 @@
   ],
   "next_steps": [
     "继续按原身份顺序有界提取其余72人，所有人采用同一取框规则、同一2mm尺寸、原权重/位置buffer与固定窗口汇总；窗口和表示保存在本机C盘，仅核对后回收本轮远端临时大文件。全部79表示核对后运行原9按人任务、三分支243头，保留原20、结构535停止、TN14和所有原边界。新验证继续补临床定义、年龄/量表—MRI时间、身份重叠和QC，不把名义147人当已可验证。",
-    "CLIP支线下一步复用原79现成FC，在相同9项按人划分内比较切空间、冻结CLIP、同架构随机表示及同图像像素对照；人口学与分类头条件一致，标准化和选参仅训练内。GPU与主线错峰，保留主线三分支243头方案。",
+    "CLIP当前固定FC灰度配置结束，保留阴性结果，不根据查询成绩翻转概率或搜索配色、提示词。主线继续已有体积输入与冻结表示工作；真正未参与开发的同终点数据仍待取得。",
     "PRT下一步补齐精确ROI/模式定义及临床、头动和刺激记录，再核对特征提取；额外1个基线编号不自动并入原192人。暂不扩大模型搜索，Emo外推保持各自原方案。",
     "P0｜确认sup7/sup8的VAS端点、回顾窗及评分与MRI时间关系，补用药和详细诊断；头动记录和已有字段无需重复申请。",
     "P0｜落实同病种、逐人同期评分与影像匹配的新队列；医院准备并行，原项目目标优先、v5作补充。",
@@ -1482,7 +1485,7 @@
       "section": "sources",
       "repo_path": "docs/TRAINING_RESULTS_INDEX.md",
       "format": "md",
-      "size": 49816,
+      "size": 51208,
       "exists": true,
       "modified_at": "2026-10-01T19:29:44+08:00",
       "public_url": "./files/training-results-index.md",
@@ -1728,7 +1731,7 @@
       "section": "sources",
       "repo_path": "docs/RECENT_RESEARCH_HISTORY_2026-09-08.md",
       "format": "md",
-      "size": 70441,
+      "size": 72166,
       "exists": true,
       "modified_at": "2026-10-01T19:29:44+08:00",
       "public_url": "./files/research-history-report.md",
@@ -3952,7 +3955,7 @@
       "section": "sources",
       "repo_path": "docs/ACTIVE_RESEARCH_GOAL_2026-09-29.md",
       "format": "md",
-      "size": 32080,
+      "size": 33258,
       "exists": true,
       "modified_at": "2026-10-01T19:29:44+08:00",
       "public_url": "./files/active-research-goal-20260929.md",
@@ -42283,11 +42286,35 @@
       "modified_at": "2026-10-01T20:11:00+08:00",
       "public_url": "./files/volume-nearest-crop-20261001-summary.json",
       "preview_url": "./data/previews/volume-nearest-crop-20261001-summary.json"
+    },
+    {
+      "id": "clip-comparison-20261001",
+      "label": "CLIP原79开发比较完成，未见预训练增益",
+      "description": "原79开发池、原9项按人任务的四分支比较已完成并独立复读324个模型：切空间AUC 0.7422、CLIP 0.4270、同架构随机0.5411、同图像像素0.6918；均含相同人口学。固定FC灰度输入未见CLIP预训练增益。",
+      "repo_path": "docs/CLIP_FC_COMPARISON_2026-10-01.md",
+      "format": "md",
+      "size": 5521,
+      "exists": true,
+      "modified_at": "2026-10-01T19:20:52+08:00",
+      "public_url": "./files/clip-comparison-20261001.md",
+      "preview_url": "./data/previews/clip-comparison-20261001.json"
+    },
+    {
+      "id": "clip-comparison-20261001-summary",
+      "label": "CLIP原79四分支聚合结果",
+      "description": "CLIP相对切空间ΔAUC −0.3152，按人条件95%区间[−0.4309，−0.2030]；相对随机差值区间跨零。仅原79开发证据、单个随机种子及当前灰度配置，不能推广至所有CLIP用途或独立临床效果。原20人未评分，旧QC、标签、划分及主线保持。",
+      "repo_path": "reports/clip-comparison-2026-10-01/summary.json",
+      "format": "json",
+      "size": 14884,
+      "exists": true,
+      "modified_at": "2026-10-01T19:20:52+08:00",
+      "public_url": "./files/clip-comparison-20261001-summary.json",
+      "preview_url": "./data/previews/clip-comparison-20261001-summary.json"
     }
   ],
   "focus_phase": "validation",
-  "focus_title": "7/79全run表示已核对，按统一坐标规则保留脑掩膜",
-  "focus_description": "原79人中已完成7人的预训练与随机全run表示：原5人取框位置未变、表示直接复用，按同一坐标规则新增2人。每人240帧、12个固定窗口、每分支192维；共84个不同窗口、168份分支窗口表示。分类拟合和疼痛评分均0。 全部79人的本人掩膜都能放入2mm、96³框；沿同一规则选离原框最近的覆盖位置，36人不动、43人平移，最大8mm。新增2人框外已知自动脑体素损失0、脑内非有限0，独立复核保存汇总并实际查看2图30面板。各人不再共享同一个MNI原点，平移会改变脑相对位置和token分组；自动掩膜覆盖不等于完整解剖覆盖，技术查看不改原QC。",
+  "focus_title": "CLIP原79开发比较完成，未见预训练增益",
+  "focus_description": "原79开发池、原9项按人任务的四分支比较已完成并独立复读324个模型：切空间AUC 0.7422、CLIP 0.4270、同架构随机0.5411、同图像像素0.6918；均含相同人口学。固定FC灰度输入未见CLIP预训练增益。 CLIP相对切空间ΔAUC −0.3152，按人条件95%区间[−0.4309，−0.2030]；相对随机差值区间跨零。仅原79开发证据、单个随机种子及当前灰度配置，不能推广至所有CLIP用途或独立临床效果。原20人未评分，旧QC、标签、划分及主线保持。",
   "next_goal_ids": [
     "G12",
     "G23",
@@ -42304,9 +42331,24 @@
   "research_history": {
     "as_of": "2026-10-01",
     "scope": "截至9月30日已核验的研究记录；历史节点保留原日期，数字不随实时队列变化，运行状态只描述各自观察时点，数值完成不等于新增临床纳入。",
-    "focus": "7/79全run表示已核对，按统一坐标规则保留脑掩膜",
-    "summary": "原79人中已完成7人的预训练与随机全run表示：原5人取框位置未变、表示直接复用，按同一坐标规则新增2人。每人240帧、12个固定窗口、每分支192维；共84个不同窗口、168份分支窗口表示。分类拟合和疼痛评分均0。 全部79人的本人掩膜都能放入2mm、96³框；沿同一规则选离原框最近的覆盖位置，36人不动、43人平移，最大8mm。新增2人框外已知自动脑体素损失0、脑内非有限0，独立复核保存汇总并实际查看2图30面板。各人不再共享同一个MNI原点，平移会改变脑相对位置和token分组；自动掩膜覆盖不等于完整解剖覆盖，技术查看不改原QC。",
+    "focus": "CLIP原79开发比较完成，未见预训练增益",
+    "summary": "原79开发池、原9项按人任务的四分支比较已完成并独立复读324个模型：切空间AUC 0.7422、CLIP 0.4270、同架构随机0.5411、同图像像素0.6918；均含相同人口学。固定FC灰度输入未见CLIP预训练增益。",
     "milestones": [
+      {
+        "date": "2026-10-01",
+        "status": "done",
+        "label": "CLIP原79开发比较",
+        "title": "CLIP原79开发比较完成，未见预训练增益",
+        "summary": "原79开发池、原9项按人任务的四分支比较已完成并独立复读324个模型：切空间AUC 0.7422、CLIP 0.4270、同架构随机0.5411、同图像像素0.6918；均含相同人口学。固定FC灰度输入未见CLIP预训练增益。",
+        "result": "CLIP未超过切空间、随机或像素；固定FC灰度配置结束。",
+        "method": "原9按人任务、四分支同人口学与训练内选C，324保存模型及按人条件区间独立复读。",
+        "boundary": "CLIP相对切空间ΔAUC −0.3152，按人条件95%区间[−0.4309，−0.2030]；相对随机差值区间跨零。仅原79开发证据、单个随机种子及当前灰度配置，不能推广至所有CLIP用途或独立临床效果。原20人未评分，旧QC、标签、划分及主线保持。",
+        "next": "CLIP当前固定FC灰度配置结束，保留阴性结果，不根据查询成绩翻转概率或搜索配色、提示词。主线继续已有体积输入与冻结表示工作；真正未参与开发的同终点数据仍待取得。",
+        "sources": [
+          "clip-comparison-20261001"
+        ],
+        "calendar_event_id": "event-770407cd64284f65"
+      },
       {
         "date": "2026-10-01",
         "status": "done",
@@ -51289,6 +51331,11 @@
       "next": "继续按原身份顺序有界提取其余72人，所有人采用同一取框规则、同一2mm尺寸、原权重/位置buffer与固定窗口汇总；窗口和表示保存在本机C盘，仅核对后回收本轮远端临时大文件。全部79表示核对后运行原9按人任务、三分支243头，保留原20、结构535停止、TN14和所有原边界。新验证继续补临床定义、年龄/量表—MRI时间、身份重叠和QC，不把名义147人当已可验证。",
       "rows": [
         {
+          "input": "CLIP FC图像开发比较",
+          "finding": "原79开发池、原9项按人任务的四分支比较已完成并独立复读324个模型：切空间AUC 0.7422、CLIP 0.4270、同架构随机0.5411、同图像像素0.6918；均含相同人口学。固定FC灰度输入未见CLIP预训练增益。",
+          "action": "CLIP相对切空间ΔAUC −0.3152，按人条件95%区间[−0.4309，−0.2030]；相对随机差值区间跨零。仅原79开发证据、单个随机种子及当前灰度配置，不能推广至所有CLIP用途或独立临床效果。原20人未评分，旧QC、标签、划分及主线保持。"
+        },
+        {
           "input": "CLIP FC图像技术支线",
           "finding": "CLIP支线已用原79开发池中按身份顺序选取的2人FC图像，完成预训练与同架构随机编码器的512维冻结表示。12次GPU前向全部有限，同输入重复差为0；分类拟合和疼痛评分均0。主线既有结果保留。",
           "action": "这是FC图像编码的技术可行性检查，没有疼痛预测成绩。图像没有新增模态；CLIP文本分支未使用，不能称脑影像—临床文本对齐。仅2人和一个随机种子，不代表全79质量、随机分布或独立临床验证。"
@@ -51369,10 +51416,10 @@
       "validation_source": "unseen-validation-requirements-20260930",
       "result_source": "structural-uniform79-20261001",
       "volume_source": "volume-nearest-crop-20261001",
-      "clip_source": "clip-feasibility-20261001",
-      "clip_summary": "CLIP支线已用原79开发池中按身份顺序选取的2人FC图像，完成预训练与同架构随机编码器的512维冻结表示。12次GPU前向全部有限，同输入重复差为0；分类拟合和疼痛评分均0。主线既有结果保留。",
-      "clip_boundary": "这是FC图像编码的技术可行性检查，没有疼痛预测成绩。图像没有新增模态；CLIP文本分支未使用，不能称脑影像—临床文本对齐。仅2人和一个随机种子，不代表全79质量、随机分布或独立临床验证。",
-      "clip_next": "CLIP支线下一步复用原79现成FC，在相同9项按人划分内比较切空间、冻结CLIP、同架构随机表示及同图像像素对照；人口学与分类头条件一致，标准化和选参仅训练内。GPU与主线错峰，保留主线三分支243头方案。"
+      "clip_source": "clip-comparison-20261001",
+      "clip_summary": "原79开发池、原9项按人任务的四分支比较已完成并独立复读324个模型：切空间AUC 0.7422、CLIP 0.4270、同架构随机0.5411、同图像像素0.6918；均含相同人口学。固定FC灰度输入未见CLIP预训练增益。",
+      "clip_boundary": "CLIP相对切空间ΔAUC −0.3152，按人条件95%区间[−0.4309，−0.2030]；相对随机差值区间跨零。仅原79开发证据、单个随机种子及当前灰度配置，不能推广至所有CLIP用途或独立临床效果。原20人未评分，旧QC、标签、划分及主线保持。",
+      "clip_next": "CLIP当前固定FC灰度配置结束，保留阴性结果，不根据查询成绩翻转概率或搜索配色、提示词。主线继续已有体积输入与冻结表示工作；真正未参与开发的同终点数据仍待取得。"
     },
     "structural_uniform79": {
       "date": "2026-10-01",
@@ -52555,6 +52602,581 @@
         "One seed and shared released position buffer; not all random state is untrained. FC regressed/filtered whereas volume input minimally processed. Original79 development, not independent clinical validation."
       ],
       "source": "volume-nearest-crop-20261001"
+    },
+    "clip_comparison": {
+      "people": 79,
+      "tasks": 9,
+      "fits": 324,
+      "original20_scored": 0,
+      "methods": {
+        "clip_demographics": {
+          "auc": 0.4269890260631002,
+          "ba": 0.4714506172839506,
+          "brier": 0.3427174149725142
+        },
+        "fc_demographics": {
+          "auc": 0.7421639231824417,
+          "ba": 0.6626543209876543,
+          "brier": 0.22405780417972856
+        },
+        "pixels_demographics": {
+          "auc": 0.691820987654321,
+          "ba": 0.5780864197530864,
+          "brier": 0.2740347114641841
+        },
+        "random_demographics": {
+          "auc": 0.5411008230452675,
+          "ba": 0.5179012345679013,
+          "brier": 0.3266672950514
+        }
+      },
+      "groups": [
+        {
+          "fold": 0,
+          "method": "clip_demographics",
+          "auc": 0.2601851851851852,
+          "ba": 0.3652777777777778,
+          "brier": 0.39532704987577
+        },
+        {
+          "fold": 0,
+          "method": "fc_demographics",
+          "auc": 0.6546296296296297,
+          "ba": 0.6074074074074074,
+          "brier": 0.23620365977806038
+        },
+        {
+          "fold": 0,
+          "method": "pixels_demographics",
+          "auc": 0.6273148148148148,
+          "ba": 0.5541666666666666,
+          "brier": 0.2920080776405198
+        },
+        {
+          "fold": 0,
+          "method": "random_demographics",
+          "auc": 0.4458333333333333,
+          "ba": 0.41898148148148145,
+          "brier": 0.3420749732398988
+        },
+        {
+          "fold": 1,
+          "method": "clip_demographics",
+          "auc": 0.4856995884773663,
+          "ba": 0.5296296296296297,
+          "brier": 0.3554197265767032
+        },
+        {
+          "fold": 1,
+          "method": "fc_demographics",
+          "auc": 0.7967592592592593,
+          "ba": 0.6583333333333333,
+          "brier": 0.2129617738162121
+        },
+        {
+          "fold": 1,
+          "method": "pixels_demographics",
+          "auc": 0.6864711934156379,
+          "ba": 0.49722222222222223,
+          "brier": 0.2949967396230709
+        },
+        {
+          "fold": 1,
+          "method": "random_demographics",
+          "auc": 0.6022633744855966,
+          "ba": 0.5819444444444445,
+          "brier": 0.28894577777682895
+        },
+        {
+          "fold": 2,
+          "method": "clip_demographics",
+          "auc": 0.535082304526749,
+          "ba": 0.5194444444444444,
+          "brier": 0.27740546846506936
+        },
+        {
+          "fold": 2,
+          "method": "fc_demographics",
+          "auc": 0.7751028806584362,
+          "ba": 0.7222222222222222,
+          "brier": 0.22300797894491323
+        },
+        {
+          "fold": 2,
+          "method": "pixels_demographics",
+          "auc": 0.7616769547325103,
+          "ba": 0.6828703703703703,
+          "brier": 0.2350993171289617
+        },
+        {
+          "fold": 2,
+          "method": "random_demographics",
+          "auc": 0.5752057613168725,
+          "ba": 0.5527777777777777,
+          "brier": 0.3489811341374723
+        }
+      ],
+      "task_metrics": [
+        {
+          "key": "f0_i0",
+          "fold": 0,
+          "inner": 0,
+          "method": "fc_demographics",
+          "auc": 0.7,
+          "ba": 0.6,
+          "brier": 0.2408673107283964
+        },
+        {
+          "key": "f0_i0",
+          "fold": 0,
+          "inner": 0,
+          "method": "clip_demographics",
+          "auc": 0.22499999999999998,
+          "ba": 0.3875,
+          "brier": 0.468707789572718
+        },
+        {
+          "key": "f0_i0",
+          "fold": 0,
+          "inner": 0,
+          "method": "random_demographics",
+          "auc": 0.5874999999999999,
+          "ba": 0.5625,
+          "brier": 0.26708044257377606
+        },
+        {
+          "key": "f0_i0",
+          "fold": 0,
+          "inner": 0,
+          "method": "pixels_demographics",
+          "auc": 0.5625,
+          "ba": 0.475,
+          "brier": 0.2951385928895849
+        },
+        {
+          "key": "f0_i1",
+          "fold": 0,
+          "inner": 1,
+          "method": "fc_demographics",
+          "auc": 0.7083333333333334,
+          "ba": 0.6527777777777778,
+          "brier": 0.2235418924693289
+        },
+        {
+          "key": "f0_i1",
+          "fold": 0,
+          "inner": 1,
+          "method": "clip_demographics",
+          "auc": 0.20833333333333334,
+          "ba": 0.3055555555555556,
+          "brier": 0.39373983723654493
+        },
+        {
+          "key": "f0_i1",
+          "fold": 0,
+          "inner": 1,
+          "method": "random_demographics",
+          "auc": 0.2916666666666667,
+          "ba": 0.22916666666666666,
+          "brier": 0.5032436640721469
+        },
+        {
+          "key": "f0_i1",
+          "fold": 0,
+          "inner": 1,
+          "method": "pixels_demographics",
+          "auc": 0.6666666666666666,
+          "ba": 0.6041666666666666,
+          "brier": 0.3080432738434801
+        },
+        {
+          "key": "f0_i2",
+          "fold": 0,
+          "inner": 2,
+          "method": "fc_demographics",
+          "auc": 0.5555555555555556,
+          "ba": 0.5694444444444444,
+          "brier": 0.24420177613645583
+        },
+        {
+          "key": "f0_i2",
+          "fold": 0,
+          "inner": 2,
+          "method": "clip_demographics",
+          "auc": 0.34722222222222227,
+          "ba": 0.4027777777777778,
+          "brier": 0.32353352281804704
+        },
+        {
+          "key": "f0_i2",
+          "fold": 0,
+          "inner": 2,
+          "method": "random_demographics",
+          "auc": 0.45833333333333337,
+          "ba": 0.4652777777777778,
+          "brier": 0.2559008130737734
+        },
+        {
+          "key": "f0_i2",
+          "fold": 0,
+          "inner": 2,
+          "method": "pixels_demographics",
+          "auc": 0.6527777777777778,
+          "ba": 0.5833333333333333,
+          "brier": 0.2728423661884944
+        },
+        {
+          "key": "f1_i0",
+          "fold": 1,
+          "inner": 0,
+          "method": "fc_demographics",
+          "auc": 0.7375,
+          "ba": 0.6625,
+          "brier": 0.212276628088503
+        },
+        {
+          "key": "f1_i0",
+          "fold": 1,
+          "inner": 0,
+          "method": "clip_demographics",
+          "auc": 0.4,
+          "ba": 0.3875,
+          "brier": 0.35803150915483983
+        },
+        {
+          "key": "f1_i0",
+          "fold": 1,
+          "inner": 0,
+          "method": "random_demographics",
+          "auc": 0.6,
+          "ba": 0.6,
+          "brier": 0.239521989463375
+        },
+        {
+          "key": "f1_i0",
+          "fold": 1,
+          "inner": 0,
+          "method": "pixels_demographics",
+          "auc": 0.5625,
+          "ba": 0.45,
+          "brier": 0.35337805855421167
+        },
+        {
+          "key": "f1_i1",
+          "fold": 1,
+          "inner": 1,
+          "method": "fc_demographics",
+          "auc": 0.888888888888889,
+          "ba": 0.7222222222222222,
+          "brier": 0.21217552261089861
+        },
+        {
+          "key": "f1_i1",
+          "fold": 1,
+          "inner": 1,
+          "method": "clip_demographics",
+          "auc": 0.5432098765432098,
+          "ba": 0.6666666666666667,
+          "brier": 0.3168178851617801
+        },
+        {
+          "key": "f1_i1",
+          "fold": 1,
+          "inner": 1,
+          "method": "random_demographics",
+          "auc": 0.5679012345679012,
+          "ba": 0.5555555555555556,
+          "brier": 0.24675873483514194
+        },
+        {
+          "key": "f1_i1",
+          "fold": 1,
+          "inner": 1,
+          "method": "pixels_demographics",
+          "auc": 0.8024691358024691,
+          "ba": 0.5,
+          "brier": 0.27877648588680565
+        },
+        {
+          "key": "f1_i2",
+          "fold": 1,
+          "inner": 2,
+          "method": "fc_demographics",
+          "auc": 0.763888888888889,
+          "ba": 0.5902777777777778,
+          "brier": 0.21443317074923463
+        },
+        {
+          "key": "f1_i2",
+          "fold": 1,
+          "inner": 2,
+          "method": "clip_demographics",
+          "auc": 0.513888888888889,
+          "ba": 0.5347222222222222,
+          "brier": 0.3914097854134896
+        },
+        {
+          "key": "f1_i2",
+          "fold": 1,
+          "inner": 2,
+          "method": "random_demographics",
+          "auc": 0.638888888888889,
+          "ba": 0.5902777777777778,
+          "brier": 0.38055660903196986
+        },
+        {
+          "key": "f1_i2",
+          "fold": 1,
+          "inner": 2,
+          "method": "pixels_demographics",
+          "auc": 0.6944444444444444,
+          "ba": 0.5416666666666666,
+          "brier": 0.25283567442819527
+        },
+        {
+          "key": "f2_i0",
+          "fold": 2,
+          "inner": 0,
+          "method": "fc_demographics",
+          "auc": 0.8641975308641975,
+          "ba": 0.8333333333333333,
+          "brier": 0.21859416730774917
+        },
+        {
+          "key": "f2_i0",
+          "fold": 2,
+          "inner": 0,
+          "method": "clip_demographics",
+          "auc": 0.46913580246913583,
+          "ba": 0.5,
+          "brier": 0.2603056337520746
+        },
+        {
+          "key": "f2_i0",
+          "fold": 2,
+          "inner": 0,
+          "method": "random_demographics",
+          "auc": 0.617283950617284,
+          "ba": 0.5555555555555556,
+          "brier": 0.2684139684071391
+        },
+        {
+          "key": "f2_i0",
+          "fold": 2,
+          "inner": 0,
+          "method": "pixels_demographics",
+          "auc": 0.8641975308641976,
+          "ba": 0.8333333333333333,
+          "brier": 0.1626357628968919
+        },
+        {
+          "key": "f2_i1",
+          "fold": 2,
+          "inner": 1,
+          "method": "fc_demographics",
+          "auc": 0.7250000000000001,
+          "ba": 0.625,
+          "brier": 0.23231390706746252
+        },
+        {
+          "key": "f2_i1",
+          "fold": 2,
+          "inner": 1,
+          "method": "clip_demographics",
+          "auc": 0.65,
+          "ba": 0.5375,
+          "brier": 0.2813888917498921
+        },
+        {
+          "key": "f2_i1",
+          "fold": 2,
+          "inner": 1,
+          "method": "random_demographics",
+          "auc": 0.65,
+          "ba": 0.575,
+          "brier": 0.32368980663184677
+        },
+        {
+          "key": "f2_i1",
+          "fold": 2,
+          "inner": 1,
+          "method": "pixels_demographics",
+          "auc": 0.7124999999999999,
+          "ba": 0.625,
+          "brier": 0.26183267838831736
+        },
+        {
+          "key": "f2_i2",
+          "fold": 2,
+          "inner": 2,
+          "method": "fc_demographics",
+          "auc": 0.7361111111111112,
+          "ba": 0.7083333333333333,
+          "brier": 0.218115862459528
+        },
+        {
+          "key": "f2_i2",
+          "fold": 2,
+          "inner": 2,
+          "method": "clip_demographics",
+          "auc": 0.4861111111111111,
+          "ba": 0.5208333333333333,
+          "brier": 0.2905218798932414
+        },
+        {
+          "key": "f2_i2",
+          "fold": 2,
+          "inner": 2,
+          "method": "random_demographics",
+          "auc": 0.45833333333333337,
+          "ba": 0.5277777777777778,
+          "brier": 0.454839627373431
+        },
+        {
+          "key": "f2_i2",
+          "fold": 2,
+          "inner": 2,
+          "method": "pixels_demographics",
+          "auc": 0.7083333333333333,
+          "ba": 0.5902777777777778,
+          "brier": 0.28082951010167584
+        }
+      ],
+      "feature_dimensions": {
+        "fc_demographics": 4007,
+        "clip_demographics": 514,
+        "random_demographics": 514,
+        "pixels_demographics": 150530
+      },
+      "completed_at": "2026-10-01T20:13:59.519195+08:00",
+      "as_of": "2026-10-01",
+      "state": "COMPLETE_INDEPENDENTLY_REPLAYED",
+      "rows": [
+        {
+          "method": "fc_demographics",
+          "label": "切空间FC＋人口学",
+          "auc": 0.7421639231824417,
+          "ba": 0.6626543209876543,
+          "brier": 0.22405780417972856
+        },
+        {
+          "method": "clip_demographics",
+          "label": "冻结CLIP＋人口学",
+          "auc": 0.4269890260631002,
+          "ba": 0.4714506172839506,
+          "brier": 0.3427174149725142
+        },
+        {
+          "method": "random_demographics",
+          "label": "随机编码器＋人口学",
+          "auc": 0.5411008230452675,
+          "ba": 0.5179012345679013,
+          "brier": 0.3266672950514
+        },
+        {
+          "method": "pixels_demographics",
+          "label": "同图像像素＋人口学",
+          "auc": 0.691820987654321,
+          "ba": 0.5780864197530864,
+          "brier": 0.2740347114641841
+        }
+      ],
+      "paired_auc_deltas": [
+        {
+          "comparison": "clip_demographics_minus_fc_demographics",
+          "delta": -0.31517489711934155,
+          "low": -0.43090025136900145,
+          "high": -0.20303441385354265
+        },
+        {
+          "comparison": "clip_demographics_minus_random_demographics",
+          "delta": -0.11411179698216734,
+          "low": -0.2551685069650756,
+          "high": 0.0343447890843723
+        },
+        {
+          "comparison": "clip_demographics_minus_pixels_demographics",
+          "delta": -0.2648319615912208,
+          "low": -0.3777958987444467,
+          "high": -0.15436778496039721
+        },
+        {
+          "comparison": "random_demographics_minus_pixels_demographics",
+          "delta": -0.15072016460905346,
+          "low": -0.2763621756079819,
+          "high": -0.026237260039343374
+        }
+      ],
+      "bootstrap": {
+        "draws": 2000,
+        "attempts": 2002,
+        "seed": 20261001,
+        "unit": "person; shared weights across all overlapping tasks",
+        "scope": "conditional on saved predictions; no refitting; development evidence"
+      },
+      "verification": {
+        "state": "ALL324_SAVED_HEADS_AND_AGGREGATES_REPLAYED",
+        "heads": 324,
+        "tasks": 9,
+        "training_mean_max_abs": 0.0,
+        "training_variance_max_abs": 0.0,
+        "manual_probability_max_abs": 0.0,
+        "tangent_reference_max_abs": 0.0,
+        "auc_implementation": "independent explicit positive-negative comparisons",
+        "bootstrap": "independently accumulated shared person weights; same 2000 draws and intervals",
+        "original20_scored": 0,
+        "seconds": 23.139999999999418
+      },
+      "fixed_input": {
+        "roi_count": 90,
+        "frames": 240,
+        "image_shape": [
+          3,
+          224,
+          224
+        ],
+        "mapping": "fixed [-1,1] linear grayscale uint8; diagonal r=0; three RGB channels; no text or metadata",
+        "preprocessing": "unchanged official bicubic224/center crop/RGB/channel normalization",
+        "people": 79,
+        "pearson_max_abs": 2.9802026180192343e-08,
+        "preprocessing_max_abs": 0.0,
+        "previous_two_inputs_exact": true
+      },
+      "model": {
+        "name": "OpenAI CLIP ViT-B/32",
+        "source_ref": "d05afc436d78f1c48dc0dbf8e5980a9d471f35f6",
+        "random_seed": 20261001,
+        "frozen": true,
+        "raw_features": 512,
+        "precision": "FP32_no_autocast_TF32_disabled",
+        "new_forward_calls": 154,
+        "previous_people_reused": 2,
+        "text_branch_used": false
+      },
+      "selection": {
+        "C": [
+          0.001,
+          0.01,
+          0.1,
+          1.0
+        ],
+        "classifier": "L2 balanced liblinear LogisticRegression",
+        "max_iter": 5000,
+        "random_state": 0,
+        "inner_folds": 2,
+        "train_only_standardization_and_reference": true,
+        "ties": "round mean AUC12; first C",
+        "PCA": false,
+        "queries_used_for_tuning": false
+      },
+      "decision": "END_CURRENT_FIXED_FC_GRAYSCALE_CONFIGURATION",
+      "limitations": [
+        "CLIP相对切空间ΔAUC −0.3152，按人条件95%区间[−0.4309，−0.2030]；相对随机差值区间跨零。仅原79开发证据、单个随机种子及当前灰度配置，不能推广至所有CLIP用途或独立临床效果。原20人未评分，旧QC、标签、划分及主线保持。",
+        "Nine overlapping tasks are not nine independent cohorts. Intervals are conditional on saved predictions, without model refitting.",
+        "Quantization, interpolation, ROI ordering and natural-image pretraining mismatch may affect this particular configuration.",
+        "No query-based probability inversion, additional prompt/color/seed search or fusion."
+      ],
+      "source": "clip-comparison-20261001"
     }
   },
   "pooled_external_preparation": {
@@ -53347,7 +53969,7 @@
     "summary_source": "prt-images-20260925-summary"
   },
   "calendar": {
-    "revision": 66,
+    "revision": 67,
     "timezone": "Asia/Shanghai",
     "events": [
       {
@@ -55676,6 +56298,20 @@
         ],
         "date_basis": "人工维护；Asia/Shanghai",
         "updated_at": "2026-10-01T12:03:38.180474+00:00",
+        "editable": false
+      },
+      {
+        "title": "CLIP原79开发比较完成，未见预训练增益",
+        "type": "work",
+        "date": "2026-10-01",
+        "time": "",
+        "description": "原79开发池、原9项按人任务的四分支比较已完成并独立复读324个模型：切空间AUC 0.7422、CLIP 0.4270、同架构随机0.5411、同图像像素0.6918；均含相同人口学。固定FC灰度输入未见CLIP预训练增益。 CLIP相对切空间ΔAUC −0.3152，按人条件95%区间[−0.4309，−0.2030]；相对随机差值区间跨零。仅原79开发证据、单个随机种子及当前灰度配置，不能推广至所有CLIP用途或独立临床效果。原20人未评分，旧QC、标签、划分及主线保持。",
+        "id": "event-770407cd64284f65",
+        "sources": [
+          "clip-comparison-20261001"
+        ],
+        "date_basis": "人工维护；Asia/Shanghai",
+        "updated_at": "2026-10-01T12:21:27.898123+00:00",
         "editable": false
       }
     ]

@@ -1,0 +1,574 @@
+{
+  "people": 79,
+  "tasks": 9,
+  "fits": 324,
+  "original20_scored": 0,
+  "methods": {
+    "clip_demographics": {
+      "auc": 0.4269890260631002,
+      "ba": 0.4714506172839506,
+      "brier": 0.3427174149725142
+    },
+    "fc_demographics": {
+      "auc": 0.7421639231824417,
+      "ba": 0.6626543209876543,
+      "brier": 0.22405780417972856
+    },
+    "pixels_demographics": {
+      "auc": 0.691820987654321,
+      "ba": 0.5780864197530864,
+      "brier": 0.2740347114641841
+    },
+    "random_demographics": {
+      "auc": 0.5411008230452675,
+      "ba": 0.5179012345679013,
+      "brier": 0.3266672950514
+    }
+  },
+  "groups": [
+    {
+      "fold": 0,
+      "method": "clip_demographics",
+      "auc": 0.2601851851851852,
+      "ba": 0.3652777777777778,
+      "brier": 0.39532704987577
+    },
+    {
+      "fold": 0,
+      "method": "fc_demographics",
+      "auc": 0.6546296296296297,
+      "ba": 0.6074074074074074,
+      "brier": 0.23620365977806038
+    },
+    {
+      "fold": 0,
+      "method": "pixels_demographics",
+      "auc": 0.6273148148148148,
+      "ba": 0.5541666666666666,
+      "brier": 0.2920080776405198
+    },
+    {
+      "fold": 0,
+      "method": "random_demographics",
+      "auc": 0.4458333333333333,
+      "ba": 0.41898148148148145,
+      "brier": 0.3420749732398988
+    },
+    {
+      "fold": 1,
+      "method": "clip_demographics",
+      "auc": 0.4856995884773663,
+      "ba": 0.5296296296296297,
+      "brier": 0.3554197265767032
+    },
+    {
+      "fold": 1,
+      "method": "fc_demographics",
+      "auc": 0.7967592592592593,
+      "ba": 0.6583333333333333,
+      "brier": 0.2129617738162121
+    },
+    {
+      "fold": 1,
+      "method": "pixels_demographics",
+      "auc": 0.6864711934156379,
+      "ba": 0.49722222222222223,
+      "brier": 0.2949967396230709
+    },
+    {
+      "fold": 1,
+      "method": "random_demographics",
+      "auc": 0.6022633744855966,
+      "ba": 0.5819444444444445,
+      "brier": 0.28894577777682895
+    },
+    {
+      "fold": 2,
+      "method": "clip_demographics",
+      "auc": 0.535082304526749,
+      "ba": 0.5194444444444444,
+      "brier": 0.27740546846506936
+    },
+    {
+      "fold": 2,
+      "method": "fc_demographics",
+      "auc": 0.7751028806584362,
+      "ba": 0.7222222222222222,
+      "brier": 0.22300797894491323
+    },
+    {
+      "fold": 2,
+      "method": "pixels_demographics",
+      "auc": 0.7616769547325103,
+      "ba": 0.6828703703703703,
+      "brier": 0.2350993171289617
+    },
+    {
+      "fold": 2,
+      "method": "random_demographics",
+      "auc": 0.5752057613168725,
+      "ba": 0.5527777777777777,
+      "brier": 0.3489811341374723
+    }
+  ],
+  "task_metrics": [
+    {
+      "key": "f0_i0",
+      "fold": 0,
+      "inner": 0,
+      "method": "fc_demographics",
+      "auc": 0.7,
+      "ba": 0.6,
+      "brier": 0.2408673107283964
+    },
+    {
+      "key": "f0_i0",
+      "fold": 0,
+      "inner": 0,
+      "method": "clip_demographics",
+      "auc": 0.22499999999999998,
+      "ba": 0.3875,
+      "brier": 0.468707789572718
+    },
+    {
+      "key": "f0_i0",
+      "fold": 0,
+      "inner": 0,
+      "method": "random_demographics",
+      "auc": 0.5874999999999999,
+      "ba": 0.5625,
+      "brier": 0.26708044257377606
+    },
+    {
+      "key": "f0_i0",
+      "fold": 0,
+      "inner": 0,
+      "method": "pixels_demographics",
+      "auc": 0.5625,
+      "ba": 0.475,
+      "brier": 0.2951385928895849
+    },
+    {
+      "key": "f0_i1",
+      "fold": 0,
+      "inner": 1,
+      "method": "fc_demographics",
+      "auc": 0.7083333333333334,
+      "ba": 0.6527777777777778,
+      "brier": 0.2235418924693289
+    },
+    {
+      "key": "f0_i1",
+      "fold": 0,
+      "inner": 1,
+      "method": "clip_demographics",
+      "auc": 0.20833333333333334,
+      "ba": 0.3055555555555556,
+      "brier": 0.39373983723654493
+    },
+    {
+      "key": "f0_i1",
+      "fold": 0,
+      "inner": 1,
+      "method": "random_demographics",
+      "auc": 0.2916666666666667,
+      "ba": 0.22916666666666666,
+      "brier": 0.5032436640721469
+    },
+    {
+      "key": "f0_i1",
+      "fold": 0,
+      "inner": 1,
+      "method": "pixels_demographics",
+      "auc": 0.6666666666666666,
+      "ba": 0.6041666666666666,
+      "brier": 0.3080432738434801
+    },
+    {
+      "key": "f0_i2",
+      "fold": 0,
+      "inner": 2,
+      "method": "fc_demographics",
+      "auc": 0.5555555555555556,
+      "ba": 0.5694444444444444,
+      "brier": 0.24420177613645583
+    },
+    {
+      "key": "f0_i2",
+      "fold": 0,
+      "inner": 2,
+      "method": "clip_demographics",
+      "auc": 0.34722222222222227,
+      "ba": 0.4027777777777778,
+      "brier": 0.32353352281804704
+    },
+    {
+      "key": "f0_i2",
+      "fold": 0,
+      "inner": 2,
+      "method": "random_demographics",
+      "auc": 0.45833333333333337,
+      "ba": 0.4652777777777778,
+      "brier": 0.2559008130737734
+    },
+    {
+      "key": "f0_i2",
+      "fold": 0,
+      "inner": 2,
+      "method": "pixels_demographics",
+      "auc": 0.6527777777777778,
+      "ba": 0.5833333333333333,
+      "brier": 0.2728423661884944
+    },
+    {
+      "key": "f1_i0",
+      "fold": 1,
+      "inner": 0,
+      "method": "fc_demographics",
+      "auc": 0.7375,
+      "ba": 0.6625,
+      "brier": 0.212276628088503
+    },
+    {
+      "key": "f1_i0",
+      "fold": 1,
+      "inner": 0,
+      "method": "clip_demographics",
+      "auc": 0.4,
+      "ba": 0.3875,
+      "brier": 0.35803150915483983
+    },
+    {
+      "key": "f1_i0",
+      "fold": 1,
+      "inner": 0,
+      "method": "random_demographics",
+      "auc": 0.6,
+      "ba": 0.6,
+      "brier": 0.239521989463375
+    },
+    {
+      "key": "f1_i0",
+      "fold": 1,
+      "inner": 0,
+      "method": "pixels_demographics",
+      "auc": 0.5625,
+      "ba": 0.45,
+      "brier": 0.35337805855421167
+    },
+    {
+      "key": "f1_i1",
+      "fold": 1,
+      "inner": 1,
+      "method": "fc_demographics",
+      "auc": 0.888888888888889,
+      "ba": 0.7222222222222222,
+      "brier": 0.21217552261089861
+    },
+    {
+      "key": "f1_i1",
+      "fold": 1,
+      "inner": 1,
+      "method": "clip_demographics",
+      "auc": 0.5432098765432098,
+      "ba": 0.6666666666666667,
+      "brier": 0.3168178851617801
+    },
+    {
+      "key": "f1_i1",
+      "fold": 1,
+      "inner": 1,
+      "method": "random_demographics",
+      "auc": 0.5679012345679012,
+      "ba": 0.5555555555555556,
+      "brier": 0.24675873483514194
+    },
+    {
+      "key": "f1_i1",
+      "fold": 1,
+      "inner": 1,
+      "method": "pixels_demographics",
+      "auc": 0.8024691358024691,
+      "ba": 0.5,
+      "brier": 0.27877648588680565
+    },
+    {
+      "key": "f1_i2",
+      "fold": 1,
+      "inner": 2,
+      "method": "fc_demographics",
+      "auc": 0.763888888888889,
+      "ba": 0.5902777777777778,
+      "brier": 0.21443317074923463
+    },
+    {
+      "key": "f1_i2",
+      "fold": 1,
+      "inner": 2,
+      "method": "clip_demographics",
+      "auc": 0.513888888888889,
+      "ba": 0.5347222222222222,
+      "brier": 0.3914097854134896
+    },
+    {
+      "key": "f1_i2",
+      "fold": 1,
+      "inner": 2,
+      "method": "random_demographics",
+      "auc": 0.638888888888889,
+      "ba": 0.5902777777777778,
+      "brier": 0.38055660903196986
+    },
+    {
+      "key": "f1_i2",
+      "fold": 1,
+      "inner": 2,
+      "method": "pixels_demographics",
+      "auc": 0.6944444444444444,
+      "ba": 0.5416666666666666,
+      "brier": 0.25283567442819527
+    },
+    {
+      "key": "f2_i0",
+      "fold": 2,
+      "inner": 0,
+      "method": "fc_demographics",
+      "auc": 0.8641975308641975,
+      "ba": 0.8333333333333333,
+      "brier": 0.21859416730774917
+    },
+    {
+      "key": "f2_i0",
+      "fold": 2,
+      "inner": 0,
+      "method": "clip_demographics",
+      "auc": 0.46913580246913583,
+      "ba": 0.5,
+      "brier": 0.2603056337520746
+    },
+    {
+      "key": "f2_i0",
+      "fold": 2,
+      "inner": 0,
+      "method": "random_demographics",
+      "auc": 0.617283950617284,
+      "ba": 0.5555555555555556,
+      "brier": 0.2684139684071391
+    },
+    {
+      "key": "f2_i0",
+      "fold": 2,
+      "inner": 0,
+      "method": "pixels_demographics",
+      "auc": 0.8641975308641976,
+      "ba": 0.8333333333333333,
+      "brier": 0.1626357628968919
+    },
+    {
+      "key": "f2_i1",
+      "fold": 2,
+      "inner": 1,
+      "method": "fc_demographics",
+      "auc": 0.7250000000000001,
+      "ba": 0.625,
+      "brier": 0.23231390706746252
+    },
+    {
+      "key": "f2_i1",
+      "fold": 2,
+      "inner": 1,
+      "method": "clip_demographics",
+      "auc": 0.65,
+      "ba": 0.5375,
+      "brier": 0.2813888917498921
+    },
+    {
+      "key": "f2_i1",
+      "fold": 2,
+      "inner": 1,
+      "method": "random_demographics",
+      "auc": 0.65,
+      "ba": 0.575,
+      "brier": 0.32368980663184677
+    },
+    {
+      "key": "f2_i1",
+      "fold": 2,
+      "inner": 1,
+      "method": "pixels_demographics",
+      "auc": 0.7124999999999999,
+      "ba": 0.625,
+      "brier": 0.26183267838831736
+    },
+    {
+      "key": "f2_i2",
+      "fold": 2,
+      "inner": 2,
+      "method": "fc_demographics",
+      "auc": 0.7361111111111112,
+      "ba": 0.7083333333333333,
+      "brier": 0.218115862459528
+    },
+    {
+      "key": "f2_i2",
+      "fold": 2,
+      "inner": 2,
+      "method": "clip_demographics",
+      "auc": 0.4861111111111111,
+      "ba": 0.5208333333333333,
+      "brier": 0.2905218798932414
+    },
+    {
+      "key": "f2_i2",
+      "fold": 2,
+      "inner": 2,
+      "method": "random_demographics",
+      "auc": 0.45833333333333337,
+      "ba": 0.5277777777777778,
+      "brier": 0.454839627373431
+    },
+    {
+      "key": "f2_i2",
+      "fold": 2,
+      "inner": 2,
+      "method": "pixels_demographics",
+      "auc": 0.7083333333333333,
+      "ba": 0.5902777777777778,
+      "brier": 0.28082951010167584
+    }
+  ],
+  "feature_dimensions": {
+    "fc_demographics": 4007,
+    "clip_demographics": 514,
+    "random_demographics": 514,
+    "pixels_demographics": 150530
+  },
+  "completed_at": "2026-10-01T20:13:59.519195+08:00",
+  "as_of": "2026-10-01",
+  "state": "COMPLETE_INDEPENDENTLY_REPLAYED",
+  "rows": [
+    {
+      "method": "fc_demographics",
+      "label": "切空间FC＋人口学",
+      "auc": 0.7421639231824417,
+      "ba": 0.6626543209876543,
+      "brier": 0.22405780417972856
+    },
+    {
+      "method": "clip_demographics",
+      "label": "冻结CLIP＋人口学",
+      "auc": 0.4269890260631002,
+      "ba": 0.4714506172839506,
+      "brier": 0.3427174149725142
+    },
+    {
+      "method": "random_demographics",
+      "label": "随机编码器＋人口学",
+      "auc": 0.5411008230452675,
+      "ba": 0.5179012345679013,
+      "brier": 0.3266672950514
+    },
+    {
+      "method": "pixels_demographics",
+      "label": "同图像像素＋人口学",
+      "auc": 0.691820987654321,
+      "ba": 0.5780864197530864,
+      "brier": 0.2740347114641841
+    }
+  ],
+  "paired_auc_deltas": [
+    {
+      "comparison": "clip_demographics_minus_fc_demographics",
+      "delta": -0.31517489711934155,
+      "low": -0.43090025136900145,
+      "high": -0.20303441385354265
+    },
+    {
+      "comparison": "clip_demographics_minus_random_demographics",
+      "delta": -0.11411179698216734,
+      "low": -0.2551685069650756,
+      "high": 0.0343447890843723
+    },
+    {
+      "comparison": "clip_demographics_minus_pixels_demographics",
+      "delta": -0.2648319615912208,
+      "low": -0.3777958987444467,
+      "high": -0.15436778496039721
+    },
+    {
+      "comparison": "random_demographics_minus_pixels_demographics",
+      "delta": -0.15072016460905346,
+      "low": -0.2763621756079819,
+      "high": -0.026237260039343374
+    }
+  ],
+  "bootstrap": {
+    "draws": 2000,
+    "attempts": 2002,
+    "seed": 20261001,
+    "unit": "person; shared weights across all overlapping tasks",
+    "scope": "conditional on saved predictions; no refitting; development evidence"
+  },
+  "verification": {
+    "state": "ALL324_SAVED_HEADS_AND_AGGREGATES_REPLAYED",
+    "heads": 324,
+    "tasks": 9,
+    "training_mean_max_abs": 0.0,
+    "training_variance_max_abs": 0.0,
+    "manual_probability_max_abs": 0.0,
+    "tangent_reference_max_abs": 0.0,
+    "auc_implementation": "independent explicit positive-negative comparisons",
+    "bootstrap": "independently accumulated shared person weights; same 2000 draws and intervals",
+    "original20_scored": 0,
+    "seconds": 23.139999999999418
+  },
+  "fixed_input": {
+    "roi_count": 90,
+    "frames": 240,
+    "image_shape": [
+      3,
+      224,
+      224
+    ],
+    "mapping": "fixed [-1,1] linear grayscale uint8; diagonal r=0; three RGB channels; no text or metadata",
+    "preprocessing": "unchanged official bicubic224/center crop/RGB/channel normalization",
+    "people": 79,
+    "pearson_max_abs": 2.9802026180192343e-08,
+    "preprocessing_max_abs": 0.0,
+    "previous_two_inputs_exact": true
+  },
+  "model": {
+    "name": "OpenAI CLIP ViT-B/32",
+    "source_ref": "d05afc436d78f1c48dc0dbf8e5980a9d471f35f6",
+    "random_seed": 20261001,
+    "frozen": true,
+    "raw_features": 512,
+    "precision": "FP32_no_autocast_TF32_disabled",
+    "new_forward_calls": 154,
+    "previous_people_reused": 2,
+    "text_branch_used": false
+  },
+  "selection": {
+    "C": [
+      0.001,
+      0.01,
+      0.1,
+      1.0
+    ],
+    "classifier": "L2 balanced liblinear LogisticRegression",
+    "max_iter": 5000,
+    "random_state": 0,
+    "inner_folds": 2,
+    "train_only_standardization_and_reference": true,
+    "ties": "round mean AUC12; first C",
+    "PCA": false,
+    "queries_used_for_tuning": false
+  },
+  "decision": "END_CURRENT_FIXED_FC_GRAYSCALE_CONFIGURATION",
+  "limitations": [
+    "CLIP相对切空间ΔAUC −0.3152，按人条件95%区间[−0.4309，−0.2030]；相对随机差值区间跨零。仅原79开发证据、单个随机种子及当前灰度配置，不能推广至所有CLIP用途或独立临床效果。原20人未评分，旧QC、标签、划分及主线保持。",
+    "Nine overlapping tasks are not nine independent cohorts. Intervals are conditional on saved predictions, without model refitting.",
+    "Quantization, interpolation, ROI ordering and natural-image pretraining mismatch may affect this particular configuration.",
+    "No query-based probability inversion, additional prompt/color/seed search or fusion."
+  ]
+}

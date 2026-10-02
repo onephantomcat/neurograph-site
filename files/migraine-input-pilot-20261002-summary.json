@@ -1,0 +1,114 @@
+{
+  "id": "migraine-input-pilot-20261002",
+  "title": "偏头痛输入试验：两人头动完成，官方模型仍待前向",
+  "date": "2026-10-02",
+  "summary": "两人各300帧完成运动校正与FD独立复算；两人完成2mm标准空间数值检查，96³裁框均保留100%脑掩膜。官方288维编码器223个状态张量严格加载、5,173,020参数；现成Mamba扩展在1080Ti实际失败，正编译原内核sm_61。",
+  "boundary": "两人试验不代表全队列质量；脑外NaN保留，两人空间数值/6个技术面板已检查，96³补边规则已明确；时间重采样/窗口及官方前向尚未完成。官方完整前向、人员表示、分类拟合和新增QC纳入均0；设备混杂、临床真值及身份/预训练重叠缺口保持。",
+  "next": "完成原Mamba sm_61运行、时间重采样/窗口和96³×20实际输入，再处理AAL90与同设备K5四方法；按端点补未参与开发的临床真值。文献主结果冻结/附录微调及区间代码口径已核对。",
+  "motion": {
+    "people": 2,
+    "frames_per_person": 300,
+    "radius_mm": 50,
+    "fd_first_frame": 0,
+    "mean_fd_mm_range": [
+      0.14700536736637,
+      0.20484413757912
+    ],
+    "max_fd_mm_range": [
+      0.479411336,
+      0.8419961825
+    ],
+    "fd_gt_0_5_frames_range": [
+      0,
+      2
+    ],
+    "expanded_previous1_next2_frames_range": [
+      0,
+      5
+    ],
+    "independent_dpabi_max_error_mm_upper_bound": 1.2e-16,
+    "expert_review": false
+  },
+  "spatial": {
+    "numeric_complete_people": 2,
+    "ongoing_people": 0,
+    "shape": [
+      91,
+      109,
+      91,
+      300
+    ],
+    "zooms": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "all_brain_mask_voxels_finite": true,
+    "outside_mask_nan_retained": true,
+    "expert_review": false,
+    "cohort_inclusion": false,
+    "outside_mask_nan_voxels_range": [
+      54635,
+      93461
+    ],
+    "technical_viewed_panels": 6,
+    "model_grid": [
+      96,
+      96,
+      96
+    ],
+    "model_padding": [
+      [
+        2,
+        3
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "model_y_crop": [
+      6,
+      102
+    ],
+    "model_crop_mask_retention_fraction_range": [
+      1,
+      1
+    ]
+  },
+  "official_model": {
+    "embedding_dim": 288,
+    "strict_loaded": true,
+    "state_tensors": 223,
+    "parameters": 5173020,
+    "missing_keys": 0,
+    "unexpected_keys": 0,
+    "random_seed": 20261004,
+    "random_replay_equal": true,
+    "fixed_buffers": [],
+    "learned_position_parameters_shared": false,
+    "torch": "2.4.1+cu121",
+    "author_torch": "2.7.1",
+    "runtime_adaptation": true,
+    "prebuilt_small_mamba_forward": "FAILED_NO_SM61_KERNEL",
+    "source_compile": "IN_PROGRESS",
+    "full_encoder_calls": 0,
+    "patient_representations": 0
+  },
+  "literature": {
+    "primary_headache_main": "FROZEN_ENCODER",
+    "appendix_partial_finetune_auc": 0.74,
+    "main_auc": 0.82,
+    "code_ref": "83a3f56993ed301864c5d2e4d2bfe790e0f2136d",
+    "public_code_bootstrap": "SHUFFLE_ONLY_NO_RESAMPLING",
+    "authors_full_results_reproduced": false
+  },
+  "classifier_fits": 0,
+  "new_qc_inclusions": 0,
+  "independent_clinical_validation": false
+}

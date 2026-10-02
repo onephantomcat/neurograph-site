@@ -1,5 +1,19 @@
 # 多数据集研究计划：按现有结果调整目标
 
+<!-- research-reassessment-20261002 -->
+强FC联合完整目标训练补集的SRPBS开发AUC为0.7947；K5联合为0.7469。Emo来源单独0.6980高于联合K5的0.6206，目标标签的增量仍需检验。结构融合、CLIP灰度和原79体积配置未形成可靠增量。
+
+上述为已完成开发结果的复评，没有新增训练。两队列既往接触、支持抽样及条件区间限制保留；0.7947不是独立临床验证，也不是确认性主要预算。
+
+下一步依次检验强FC的来源借用条件、偏头痛候选的临床表与真实输入、未参与开发的临床增量。结构融合已完成且条件535头停止，CLIP灰度与原79体积配置不继续扩展；三项新目标均未启动训练。
+
+1. 解释强FC的迁移收益与负迁移：K5主要、K10次要，双向比较来源单独、目标单独和有限来源权重；统一有效正则，有限训练参考消融，报告全部支持抽样及增量。现有数据可执行，尚未启动。
+2. 核查偏头痛候选并做一次有限对照：先完成按人/访视的临床与头动表、身份/QC和实际输入试运行；可运行才比较强FC、官方288维冻结表示、随机与协变量。147目录条目不算已验证人数，此任务若用于选择则属于开发。
+3. 确认未参与开发数据的临床增量：新同终点来源比较临床参照、强FC与有依据的预训练增量；诊断、扫描同期程度和治疗任务分别设计。现有79/99、Emo、ZAN、PRT不改名为未见验证；目前依赖新数据。
+
+[完整复评、论文比较与可执行目标](RESEARCH_REASSESSMENT_AND_NEXT_GOALS_2026-10-02.md)。
+
+
 <!-- multidataset-goal-20261002 -->
 
 2026-10-02。用户授权必要时调整目标并扩展多数据集试验。本阶段完成目标修订和四个官方仓库的实际元数据核查；尚未启动新增训练或完整影像下载。
@@ -58,5 +72,5 @@ ds004144为作者MRI仓库，临床资料另在[Zenodo](https://doi.org/10.5281/
 - [ds001928官方元数据（本次提交）](https://github.com/OpenNeuroDatasets/ds001928/tree/83f72d44434e9ceba4ecafa746f352dbea2ba15c)，DOI 10.18112/openneuro.ds001928.v1.1.0。
 - [ds005839官方元数据（本次提交）](https://github.com/OpenNeuroDatasets/ds005839/tree/c15c1526e3d7a2753369aabb200099211bed55d1)，DOI doi:10.18112/openneuro.ds005839.v1.0.1。
 
-- [原79体积结果](volume-comparison-20261002.md)、[结构结果](structural-uniform79-20261001.md)、CLIP固定输入结果（公开站点）。
-- [既有跨来源比较](pooled-external-results-20260925.md)、[PRT刺激支线](prt-modality-20260924.md)、[同终点独立验证需求](unseen-validation-requirements-20260930.md)。
+- [原79体积结果](VOLUME_ORIGINAL79_RESULTS_2026-10-02.md)、[结构结果](STRUCTURAL_UNIFORM79_RESULTS_2026-10-01.md)、CLIP固定输入结果（公开站点）。
+- [既有跨来源比较](POOLED_EXTERNAL_RESULTS_2026-09-25.md)、[PRT刺激支线](PRT_MODALITY_RESULTS_2026-09-24.md)、[同终点独立验证需求](UNSEEN_VALIDATION_DATA_REQUIREMENTS_2026-09-30.md)。

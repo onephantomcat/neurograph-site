@@ -1,10 +1,10 @@
 {
   "id": "migraine-input-pilot-20261002",
-  "title": "偏头痛输入试验：两人头动完成，官方模型仍待前向",
+  "title": "偏头痛输入试验：两人FC与官方288维已跑通",
   "date": "2026-10-02",
-  "summary": "两人各300帧完成运动校正与FD独立复算；两人完成2mm标准空间数值检查，96³裁框均保留100%脑掩膜。官方288维编码器223个状态张量严格加载、5,173,020参数；现成Mamba扩展在1080Ti实际失败，正编译原内核sm_61。",
-  "boundary": "两人试验不代表全队列质量；脑外NaN保留，两人空间数值/6个技术面板已检查，96³补边规则已明确；时间重采样/窗口及官方前向尚未完成。官方完整前向、人员表示、分类拟合和新增QC纳入均0；设备混杂、临床真值及身份/预训练重叠缺口保持。",
-  "next": "完成原Mamba sm_61运行、时间重采样/窗口和96³×20实际输入，再处理AAL90与同设备K5四方法；按端点补未参与开发的临床真值。文献主结果冻结/附录微调及区间代码口径已核对。",
+  "summary": "两人各300帧完成运动校正/MNI、去噪和AAL90；两份750×96³量化输入独立复核通过。原版NeuroSTORM完成152次真实前向，得到冻结预训练与随机同结构共4个288维向量。",
+  "boundary": "仅两人技术试验，分类拟合和新增QC/训练纳入均0；不代表全队列质量或诊断有效。Torch版本及38窗口整run汇总有本地适配；设备混杂、年龄/临床真值与身份/预训练重叠缺口保持，独立临床验证未完成。",
+  "next": "按同设备库存111病例/21对照准备逐人批量输入，完成全队列头动/覆盖与技术检查后做K5四方法有限对照；临床三个终点继续补独立真值、访视时间及身份证据。",
   "motion": {
     "people": 2,
     "frames_per_person": 300,
@@ -96,9 +96,26 @@
     "author_torch": "2.7.1",
     "runtime_adaptation": true,
     "prebuilt_small_mamba_forward": "FAILED_NO_SM61_KERNEL",
-    "source_compile": "IN_PROGRESS",
-    "full_encoder_calls": 0,
-    "patient_representations": 0
+    "source_compile": "COMPLETE_ORIGINAL_SM61_RUNTIME",
+    "full_encoder_calls": 154,
+    "patient_representations": 4,
+    "small_mamba_cuda_forward": true,
+    "synthetic_full_encoder_calls": 2,
+    "real_full_encoder_calls": 152,
+    "unique_people": 2,
+    "representations_per_person": 2,
+    "representation_dimensions": 288,
+    "each_resampled_frame_pooled_once": true,
+    "scan_cuda_vs_author_reference_error": 1.4901161193847656e-08,
+    "conv_cuda_vs_author_reference_error": 5.960464477539063e-08,
+    "pooling_independent_error_upper_bound": 2.7e-07,
+    "persisted_windows_independently_recombined": 152,
+    "whole_run_mean_replay_error": 0.0,
+    "peak_cuda_allocated_mib_max": 403.14599609375,
+    "kernel_and_model_math_unchanged": true,
+    "compiler_target_adaptation": "sm61",
+    "gcc": "11.4.0",
+    "cuda_toolkit": "12.1.105"
   },
   "literature": {
     "primary_headache_main": "FROZEN_ENCODER",
@@ -110,5 +127,96 @@
   },
   "classifier_fits": 0,
   "new_qc_inclusions": 0,
-  "independent_clinical_validation": false
+  "independent_clinical_validation": false,
+  "input_preparation": {
+    "people": 2,
+    "blob_shape": [
+      750,
+      96,
+      96,
+      96
+    ],
+    "dtype": "int8",
+    "original_frames": 300,
+    "original_tr_seconds": 2,
+    "resampled_tr_seconds": 0.8,
+    "brain_mask_retention_fraction": 1,
+    "windows_per_run": 38,
+    "last_window_start": 730,
+    "last_window_pool_range": [
+      10,
+      20
+    ],
+    "each_resampled_frame_pooled_once": true,
+    "local_aggregation": true,
+    "independent_global_statistics": true,
+    "quantization_checked_voxels_per_person": 128,
+    "quantization_checked_timepoints_per_voxel": 750,
+    "quantization_error_below_half_step": true,
+    "scale_error_upper_bound": 2e-08,
+    "original_images_unmodified": true
+  },
+  "fc_input": {
+    "people": 2,
+    "time_series_shape": [
+      300,
+      90
+    ],
+    "fc_shape": [
+      90,
+      90
+    ],
+    "grid_shape": [
+      61,
+      73,
+      61,
+      300
+    ],
+    "voxel_mm": 3,
+    "tr_seconds": 2,
+    "minimum_reference_roi_coverage": 1.0,
+    "coverage_threshold": 0.92,
+    "friston24": true,
+    "wm_csf_segment_threshold": 0.99,
+    "wm_csf_mean_signals": true,
+    "global_signal_regression": false,
+    "linear_trend": true,
+    "spike_threshold_fd_mm": 0.5,
+    "spike_previous_frames": 1,
+    "spike_next_frames": 2,
+    "spike_regressors_count_range": [
+      0,
+      5
+    ],
+    "physical_deleted_frames": 0,
+    "nuisance_design_columns_range": [
+      28,
+      33
+    ],
+    "residual_degrees_of_freedom_range": [
+      267,
+      272
+    ],
+    "sampled_qr_check_voxels_per_person": 512,
+    "sampled_qr_residual_error_upper_bound": 6e-06,
+    "wm_csf_means_independently_recomputed": false,
+    "filter_hz": [
+      0.01,
+      0.1
+    ],
+    "filter_zero_pad_length": 512,
+    "filter_retained_fft_bins": [
+      11,
+      102
+    ],
+    "filter_independent_roi_error_upper_bound": 7e-08,
+    "fc_independent_error_upper_bound": 3e-08,
+    "fisher_independent_error_upper_bound": 9e-08,
+    "roi_mean_error_upper_bound": 4.3e-06,
+    "normalized_missing_pattern_preserved": true,
+    "technical_planes_viewed": 6,
+    "expert_review": false,
+    "training_inclusion": false,
+    "tangent_reference_estimated": false
+  }
 }

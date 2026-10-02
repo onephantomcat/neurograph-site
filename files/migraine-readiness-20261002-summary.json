@@ -1,0 +1,237 @@
+{
+  "id": "migraine-readiness-20261002",
+  "title": "偏头痛候选：完整元数据、设备混杂与真实输入核查",
+  "date": "2026-10-02",
+  "summary": "3729份元数据与347个rest影像头已实读；首访视文件名配对146人（111患者/35对照），两人四份完整T1/rest已读取并核对官方版本。首访视病例全用TrioTim，对照14/35用Prisma，诊断比较需处理设备混杂。",
+  "boundary": "尚无逐人年龄、疼痛评分、治疗结局与访视时间表；头动/MNI和官方288维前向未完成，分类拟合与新增QC纳入均0。147目录/347运行不是验证人数，当前候选按开发研究管理。",
+  "next": "先复用服务器输入做两人头动、MNI/掩膜覆盖与官方288维后端试运行，再按同设备、K5、四方法有限对照推进；诊断/同期程度/治疗临床增量各自补真值与时间，论文工作稿已交付。",
+  "official_dataset_ref": "2107a0a736dbeeff2adb1bc55ca7461feb6139aa",
+  "participant_inventory": 147,
+  "diagnosis_inventory": {
+    "migraine": 112,
+    "control": 35
+  },
+  "first_visit_filename_pairs": {
+    "migraine": 111,
+    "control": 35
+  },
+  "metadata_files": 3729,
+  "metadata_bytes": 6230598,
+  "event_tables": 1347,
+  "event_columns": [
+    "onset",
+    "duration",
+    "trial_type"
+  ],
+  "clinical_fields_available": false,
+  "visit_pattern_counts": {
+    "ses-01,ses-02,ses-03": 92,
+    "ses-01": 39,
+    "ses-02,ses-03": 1,
+    "ses-01,ses-03": 11,
+    "ses-01,ses-02": 4
+  },
+  "geometry_groups": [
+    {
+      "shape": [
+        64,
+        64,
+        40,
+        300
+      ],
+      "zooms": [
+        3.4375,
+        3.4375,
+        4.48,
+        2.0
+      ],
+      "dtype": "int16",
+      "orientation": [
+        "L",
+        "A",
+        "S"
+      ],
+      "runs": 298
+    },
+    {
+      "shape": [
+        64,
+        64,
+        40,
+        300
+      ],
+      "zooms": [
+        3.4375,
+        3.4375,
+        4.48,
+        2.05
+      ],
+      "dtype": "int16",
+      "orientation": [
+        "L",
+        "A",
+        "S"
+      ],
+      "runs": 49
+    }
+  ],
+  "scanner_by_diagnosis_and_visit": [
+    {
+      "diagnosis": "control",
+      "session": "ses-01",
+      "scanner": "Prisma_fit",
+      "tr": 2.05,
+      "runs": 14
+    },
+    {
+      "diagnosis": "control",
+      "session": "ses-01",
+      "scanner": "TrioTim",
+      "tr": 2,
+      "runs": 21
+    },
+    {
+      "diagnosis": "control",
+      "session": "ses-02",
+      "scanner": "Prisma_fit",
+      "tr": 2.05,
+      "runs": 1
+    },
+    {
+      "diagnosis": "control",
+      "session": "ses-02",
+      "scanner": "TrioTim",
+      "tr": 2,
+      "runs": 16
+    },
+    {
+      "diagnosis": "control",
+      "session": "ses-03",
+      "scanner": "Prisma_fit",
+      "tr": 2.05,
+      "runs": 9
+    },
+    {
+      "diagnosis": "control",
+      "session": "ses-03",
+      "scanner": "TrioTim",
+      "tr": 2,
+      "runs": 16
+    },
+    {
+      "diagnosis": "migraine",
+      "session": "ses-01",
+      "scanner": "TrioTim",
+      "tr": 2,
+      "runs": 111
+    },
+    {
+      "diagnosis": "migraine",
+      "session": "ses-02",
+      "scanner": "Prisma_fit",
+      "tr": 2.05,
+      "runs": 13
+    },
+    {
+      "diagnosis": "migraine",
+      "session": "ses-02",
+      "scanner": "TrioTim",
+      "tr": 2,
+      "runs": 67
+    },
+    {
+      "diagnosis": "migraine",
+      "session": "ses-03",
+      "scanner": "Prisma_fit",
+      "tr": 2.05,
+      "runs": 12
+    },
+    {
+      "diagnosis": "migraine",
+      "session": "ses-03",
+      "scanner": "TrioTim",
+      "tr": 2,
+      "runs": 67
+    }
+  ],
+  "first_visit_diagnosis_sex": [
+    {
+      "diagnosis": "control",
+      "sex": "female",
+      "people": 30
+    },
+    {
+      "diagnosis": "control",
+      "sex": "male",
+      "people": 4
+    },
+    {
+      "diagnosis": "control",
+      "sex": "n/a",
+      "people": 1
+    },
+    {
+      "diagnosis": "migraine",
+      "sex": "female",
+      "people": 97
+    },
+    {
+      "diagnosis": "migraine",
+      "sex": "male",
+      "people": 14
+    }
+  ],
+  "same_scanner_first_visit_inventory": {
+    "migraine": 111,
+    "control": 21,
+    "total": 132,
+    "qc_approved": false
+  },
+  "complete_input_read": {
+    "people": 2,
+    "files": 4,
+    "bytes": 255591808,
+    "upstream_version_matched": 4,
+    "nonfinite_voxels": 0,
+    "technical_viewed_panels": 12,
+    "expert_qc": false,
+    "motion_measured": false,
+    "mni_registered": false
+  },
+  "official_model": {
+    "source_ref": "d43114c97deaf3e53ea051d2512b36ef8fcb748d",
+    "source_files": 104,
+    "source_bytes": 748662,
+    "nominal_embedding_dim": 288,
+    "checkpoint_loaded": false,
+    "forward_runs": 0,
+    "local_backend_ready": false,
+    "server_backend_ready": false
+  },
+  "server_small_replay": {
+    "state": "TWO_SAVED_HEADS_NUMERICAL_REPLAY_PASSED",
+    "python": "3.12.13 (main, Jul 18 2026, 17:02:19) [Clang 22.1.3 ]",
+    "numpy": "2.2.6",
+    "records": [
+      {
+        "representation": "covariates",
+        "features": 4,
+        "query_rows": 3,
+        "max_probability_error": 1.1102230246251565e-16
+      },
+      {
+        "representation": "fc",
+        "features": 4009,
+        "query_rows": 3,
+        "max_probability_error": 3.3306690738754696e-16
+      }
+    ],
+    "new_classifier_fits": 0,
+    "exact_full_training_environment_reproduced": false
+  },
+  "classifier_fits": 0,
+  "qc_approved_people": 0,
+  "identity_overlap": "UNKNOWN",
+  "pretraining_biological_overlap": "UNKNOWN",
+  "independent_clinical_validation": false
+}

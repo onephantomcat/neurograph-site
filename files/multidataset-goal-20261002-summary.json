@@ -1,0 +1,184 @@
+{
+  "as_of": "2026-10-02",
+  "state": "RESEARCH_DIRECTION_REVISED_METADATA_AUDITED",
+  "summary": "研究范围扩展到原79人之外：比较脑影像相对临床、人口学和强FC方法的预测增量，检验这些结果在不同病种、来源和样本规模下是否成立。预训练是否有用由结果决定；阴性和迁移失败也是研究结论。",
+  "boundary": "原79、Emo、ZAN和已使用的PRT仍保留开发接触记录；诊断分类、患者疼痛程度、刺激反应及治疗变化分别报告。原79体积AUC：FC0.7422、预训练0.5269、随机0.4771；合并SRPBS/ZAN到Emo此前未见可靠改善。新元数据核查没有新增训练、QC批准或独立临床验证。",
+  "next": "先核对Emo-Fibro与偏头痛候选的逐人终点、访视、身份重叠和可运行输入，再为各任务确定有限比较。复用有效特征，训练内选参；可兼容来源做按数据集留出评价。缺年龄可另做影像单独任务并报告缺失，缺评分不做程度回归；不会把干预分组当诊断。",
+  "datasets": [
+    {
+      "dataset": "ds005016",
+      "commit": "2107a0a736dbeeff2adb1bc55ca7461feb6139aa",
+      "name": "MBSR",
+      "license": "CC0",
+      "doi": "doi:10.18112/openneuro.ds005016.v1.1.3",
+      "participant_rows": 147,
+      "unique_ids": 147,
+      "groups": {
+        "sex": {
+          "female": 128,
+          "male": 18,
+          "n/a": 1
+        },
+        "group": {
+          "SMH": 44,
+          "MBSR+": 46,
+          "n/a": 57
+        }
+      },
+      "rest_filename_subjects": 147,
+      "t1_filename_subjects": 147,
+      "paired_filename_subjects": 147,
+      "rest_filename_runs": 347,
+      "complete_images_read": 0,
+      "qc_people_newly_passed": 0,
+      "classifier_fits": 0,
+      "readme_available": true,
+      "human_clinical_candidate": true,
+      "identity_overlap": "UNKNOWN",
+      "clinical_score_mri_pairing": "NOT_ESTABLISHED",
+      "usable_for_training_count": "NOT_ESTABLISHED",
+      "metadata_url": "https://github.com/OpenNeuroDatasets/ds005016/tree/2107a0a736dbeeff2adb1bc55ca7461feb6139aa",
+      "participant_table_available": true,
+      "role": "新增偏头痛诊断开发候选；本轮优先已有数据",
+      "endpoint_note": "group为SMH/MBSR+干预分组，n/a不是健康标签；按作者README明确编号范围核对147条，112偏头痛/35健康全部对应。无年龄或临床疼痛评分字段；扫描时疼痛、跨库身份和完整QC仍未建立。",
+      "available_fields": [
+        "sex",
+        "group"
+      ],
+      "author_readme_diagnosis_counts": {
+        "migraine": 112,
+        "healthy": 35,
+        "unmapped": 0
+      }
+    },
+    {
+      "dataset": "ds004144",
+      "commit": "b6e525adf7b861d5dab7e539bff19f90ce482032",
+      "name": "A behavioral, clinical and brain imaging dataset with focus on emotion regulation of females with fibromyalgia",
+      "license": "CC0",
+      "doi": "doi:10.18112/openneuro.ds004144.v1.0.2",
+      "participant_rows": null,
+      "unique_ids": null,
+      "groups": {},
+      "rest_filename_subjects": 66,
+      "t1_filename_subjects": 66,
+      "paired_filename_subjects": 66,
+      "rest_filename_runs": 66,
+      "complete_images_read": 0,
+      "qc_people_newly_passed": 0,
+      "classifier_fits": 0,
+      "readme_available": true,
+      "human_clinical_candidate": true,
+      "identity_overlap": "UNKNOWN",
+      "clinical_score_mri_pairing": "NOT_ESTABLISHED",
+      "usable_for_training_count": "NOT_ESTABLISHED",
+      "metadata_url": "https://github.com/OpenNeuroDatasets/ds004144/tree/b6e525adf7b861d5dab7e539bff19f90ce482032",
+      "participant_table_available": false,
+      "role": "既有Emo-Fibro开发来源；优先复用",
+      "endpoint_note": "MRI目录66人T1/rest文件名成对；根目录无participants.tsv，临床/人口学表由作者单独发布在Zenodo。既有53目标已多轮使用。",
+      "available_fields": []
+    },
+    {
+      "dataset": "ds001928",
+      "commit": "83f72d44434e9ceba4ecafa746f352dbea2ba15c",
+      "name": "Functional Connectivity of Music-Induced Analgesia in Fibromyalgia",
+      "license": "CC0",
+      "doi": "10.18112/openneuro.ds001928.v1.1.0",
+      "participant_rows": 40,
+      "unique_ids": 40,
+      "groups": {
+        "sex": {
+          "F": 40
+        },
+        "group": {
+          "FM": 20,
+          "HC": 20
+        }
+      },
+      "rest_filename_subjects": 40,
+      "t1_filename_subjects": 40,
+      "paired_filename_subjects": 40,
+      "rest_filename_runs": 160,
+      "complete_images_read": 0,
+      "qc_people_newly_passed": 0,
+      "classifier_fits": 0,
+      "readme_available": true,
+      "human_clinical_candidate": true,
+      "identity_overlap": "UNKNOWN",
+      "clinical_score_mri_pairing": "NOT_ESTABLISHED",
+      "usable_for_training_count": "NOT_ESTABLISHED",
+      "metadata_url": "https://github.com/OpenNeuroDatasets/ds001928/tree/83f72d44434e9ceba4ecafa746f352dbea2ba15c",
+      "participant_table_available": true,
+      "role": "既有音乐镇痛来源；患者内变化支线",
+      "endpoint_note": "40人元数据，20FM/20HC，均女性；160个rest文件名为重复条件，不能计160人。评分列需核对条件和时点。",
+      "available_fields": [
+        "age",
+        "sex",
+        "group",
+        "fm_years",
+        "pi",
+        "pcs",
+        "hlpnss",
+        "mgnftn",
+        "rmntn",
+        "psp",
+        "stai",
+        "state",
+        "trait",
+        "cesd",
+        "pic1",
+        "puc1",
+        "pic2",
+        "puc2",
+        "pim1",
+        "pum1",
+        "pim2",
+        "pum2",
+        "dpic",
+        "dpuc",
+        "dpim",
+        "dpum"
+      ]
+    },
+    {
+      "dataset": "ds005839",
+      "commit": "c15c1526e3d7a2753369aabb200099211bed55d1",
+      "name": "GABA Pain fMRI",
+      "license": "CC0",
+      "doi": "doi:10.18112/openneuro.ds005839.v1.0.1",
+      "participant_rows": 25,
+      "unique_ids": 25,
+      "groups": {
+        "Group": {
+          "INC": 18,
+          "SHAM": 7
+        }
+      },
+      "rest_filename_subjects": 24,
+      "t1_filename_subjects": 0,
+      "paired_filename_subjects": 0,
+      "rest_filename_runs": 45,
+      "complete_images_read": 0,
+      "qc_people_newly_passed": 0,
+      "classifier_fits": 0,
+      "readme_available": true,
+      "human_clinical_candidate": false,
+      "identity_overlap": "UNKNOWN",
+      "clinical_score_mri_pairing": "NOT_ESTABLISHED",
+      "usable_for_training_count": "NOT_ESTABLISHED",
+      "metadata_url": "https://github.com/OpenNeuroDatasets/ds005839/tree/c15c1526e3d7a2753369aabb200099211bed55d1",
+      "participant_table_available": true,
+      "role": "排除人类临床比较",
+      "endpoint_note": "作者README明确为雄性Sprague-Dawley大鼠；INC/SHAM是切口/假手术，不能混入人类患者/对照。",
+      "available_fields": [
+        "Group",
+        "Treatment"
+      ]
+    }
+  ],
+  "new_full_images_read": 0,
+  "new_classifier_fits": 0,
+  "new_qc_people": 0,
+  "new_confirmatory_validation": false,
+  "source": "multidataset-goal-20261002"
+}

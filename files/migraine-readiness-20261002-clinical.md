@@ -15,3 +15,17 @@
 样本量根据真正可获得的病例/对照比例、临床参照表现、预期最小有用增量和区间精度估计；当前没有证据支持把240人写成已落实。评价保留完整不确定性、校准、模型失败与无增量结果，不以某个AUC阈值倒推“临床有效”。治疗分组可作已知输入，随机化治疗差异不能自动证明个体治疗效应预测。
 
 当前可做：完成已得结果的论文Methods/Results/Discussion、偏头痛设备混杂与输入/环境处理、临床变量清单及可复核统计程序。当前确实缺：新来源逐人真值/时间、身份去重与伦理/许可、临床参照和独立H-test；相应任务不作伪运行。
+
+
+<!-- clinical-paired-evaluation-20261003 -->
+## 10月3日：配对评价程序的实际准备
+
+2026-10-03已写成临床配对评价程序，分别对诊断、同期疼痛程度、治疗变化三组合成数据（每组24人、三个方法）执行2000次真正有放回人员重采样，保留负增量。5项数值/失败情形检查通过；首次CLI的NumPy布尔JSON写出错误已修正并重跑。程序要求同一批人的预测，提供判别、误差、校准和预定阈值净获益；区间仅覆盖固定预测下的人员重采样。没有真实临床模型拟合或独立患者验证，量表/时间、H-test身份、训练来源与伦理仍需另行核实。
+
+[可运行程序](https://github.com/onephantomcat/Fmri/blob/main/operations/20261003-clinical-increment/paired_evaluation.py)与[数值检查](https://github.com/onephantomcat/Fmri/blob/main/operations/20261003-clinical-increment/test_paired_evaluation.py)已保存。私有输入JSON由subject_ids、outcome、predictions和evaluation组成；按预先确定的人员观测或治疗前后配对供给各方法预测。二分类指定开发阶段选定的工作阈值，连续程度/变化保留原单位。重复人员、缺失预测、非有限值会报错；单类重采样和恒定真值的未定义指标分别报告有效重采样数。不要把HC身份填成患者疼痛0分，亦不要由干预分组构造治疗应答。
+
+诊断报告AUC/AUPRC、患病率、Brier、平衡准确率与预定阈值净获益；同期程度与连续变化报告MAE/RMSE/R²、偏差及校准。校准数据用于评价，测试预测保持原值。程序不重拟合，因此区间不涵盖训练和选择过程，也无法从预测表证明身份、时间或独立性。治疗变化使用有依据的预定随访；二分类应答须在见到测试成绩前定义，不能由程序自动挑阈值。
+
+方法报告参考[TRIPOD+AI正式说明](https://www.bmj.com/content/385/bmj-2023-078378)关于独立评价、判别、校准及临床效用的区分；本项目仍缺真实H-test和临床参照资料，不宣称已完成其全部报告项目。
+
+运行入口：python operations/20261003-clinical-increment/paired_evaluation.py --input predictions_private.json --output paired_metrics.json。

@@ -50,3 +50,10 @@
 10月3日实际补查六个临床来源记录：两条Zenodo文件受限，Dryad脑影像标记记录只列补充DOCX且正文未取得，OpenPain需使用协议/注册；健康热痛与未列MRI的临床试验不能代替当前临床影像任务。新增逐人MRI、临床真值与独立验证均0。
 
 优先接入已有访问权限的逐人临床—MRI配对文件，核对诊断、量表及评分/MRI/随访时间、身份与使用依据；继续原候选输入和有限对照。 [完整来源补查](unseen-clinical-sources-20261003.md)。
+
+<!-- migraine-marker-access-readback-20261003 -->
+## 2020标记论文与补充文件访问
+
+公开正文把独立诊断队列与原开发患者的四周治疗变化分析分开；后者不能直接当作治疗前预测或新增独立人员。[2020标记原论文](https://pmc.ncbi.nlm.nih.gov/articles/PMC7176301/)。
+
+本次按该文PMCID读取当前官方云端目录，实际返回0个对象；没有取得补充DOCX或逐人MRI—真值配对。目录中未列对象不能证明补充文件不存在。此前Dryad只列一份DOCX且下载未成功的记录保留；当前仍缺可读取、可与MRI人员及时间对应的材料。[官方目录读取入口](https://pmc-oa-opendata.s3.amazonaws.com/?list-type=2&prefix=PMC7176301.&max-keys=100)。

@@ -26,3 +26,10 @@
 Zenodo两条官方JSON、Dryad正式版本及全文件清单、OpenPain首页/协议和CoSpine作者README均保留原读取材料与失败回执。Dryad首次网页下载403、API下载401仍保留；CoSpine下载后首次终端输出的GBK编码错误不影响已经保存的README，后续UTF-8读取成功。本报告只公开来源级结论，不公开逐人数据或私有运行路径。
 
 [2020标记原论文](https://pmc.ncbi.nlm.nih.gov/articles/PMC7176301/)；[既有ds005713的正式数据论文](https://pmc.ncbi.nlm.nih.gov/articles/PMC12749398/)。研究对象、任务及时间方向分别解释，已发表的相关性或分类结果不作为本项目新增成绩。
+
+<!-- migraine-marker-access-readback-20261003 -->
+## 2020标记论文与补充文件访问
+
+公开正文把独立诊断队列与原开发患者的四周治疗变化分析分开；后者不能直接当作治疗前预测或新增独立人员。[2020标记原论文](https://pmc.ncbi.nlm.nih.gov/articles/PMC7176301/)。
+
+本次按该文PMCID读取当前官方云端目录，实际返回0个对象；没有取得补充DOCX或逐人MRI—真值配对。目录中未列对象不能证明补充文件不存在。此前Dryad只列一份DOCX且下载未成功的记录保留；当前仍缺可读取、可与MRI人员及时间对应的材料。[官方目录读取入口](https://pmc-oa-opendata.s3.amazonaws.com/?list-type=2&prefix=PMC7176301.&max-keys=100)。

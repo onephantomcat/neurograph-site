@@ -67,5 +67,15 @@
     "Provider descriptions and file inventories do not establish actual paired people, clinical timing, QC, access permission or identity independence.",
     "No available source in this review established all requirements for the three independent clinical endpoints.",
     "Existing strong-FC findings and the active migraine input protocol remain unchanged."
-  ]
+  ],
+  "marker_current_cloud_recheck": {
+    "pmcid": "PMC7176301",
+    "listing": "https://pmc-oa-opendata.s3.amazonaws.com/?list-type=2&prefix=PMC7176301.&max-keys=100",
+    "observed_at": "2026-10-03T22:15:07.755779+08:00",
+    "actual_cloud_keys": 0,
+    "actual_supplement_docx_acquired": 0,
+    "article_web_text_read": true,
+    "listing_absence_does_not_prove_supplement_absence": true,
+    "paired_patient_mri_and_truth_acquired": false
+  }
 }

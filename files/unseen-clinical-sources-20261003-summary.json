@@ -1,0 +1,71 @@
+{
+  "run_id": "unseen-clinical-source-audit-20261003",
+  "state": "SOURCE_AVAILABILITY_REVIEW_COMPLETE",
+  "observed_date": "2026-10-03",
+  "recorded_at": 1791035513.5446153,
+  "sources": [
+    {
+      "id": "zenodo-20543967",
+      "title": "Dataset related to article:Triple network disruption in medication overuse headache functional signatures and clinical impact",
+      "url": "https://zenodo.org/records/20543967",
+      "status": "restricted_metadata_read",
+      "evidence": "官方API实际返回restricted，匿名files为空；126人为记录描述人数，未取得逐人工作簿。",
+      "next": "取得有权使用的临床与影像文件后再核对实际人数、时间、身份和输入。"
+    },
+    {
+      "id": "zenodo-14811536",
+      "title": "Dataset related to article: Longitudinal neurofunctional changes in medication overuse headache patients after mindfulness practice in a randomized controlled trial (the MIND-CM study)",
+      "url": "https://zenodo.org/records/14811536",
+      "status": "restricted_metadata_read",
+      "evidence": "官方API实际返回restricted，匿名files为空；描述列出网络种子和组间统计图，未取得逐人预测输入/结局。",
+      "next": "不能把组间统计图作为逐人治疗预测的MRI与真值。"
+    },
+    {
+      "id": "dryad-2f82381",
+      "title": "Data from: An fMRI-based neural marker for migraine without aura",
+      "url": "https://datadryad.org/dataset/doi:10.5061/dryad.2f82381",
+      "status": "supplement_listed_body_not_acquired",
+      "evidence": "版本32231的完整文件清单仅一份493,920字节DOCX；网页下载403、官方API下载401，正文未取得。",
+      "next": "论文的逐人表描述不等于本项目已取得表，更不等于取得T1/BOLD、身份或MRI时间。"
+    },
+    {
+      "id": "openpain",
+      "title": "OpenPain",
+      "url": "https://www.openpain.org/html/agreement.html",
+      "status": "agreement_and_registration_required",
+      "evidence": "首页和使用协议均实际HTTP200；下载入口经使用协议进入注册，尚无本项目可配对清单。",
+      "next": "需要已有授权访问的文件/清单；本轮未提交身份、接受协议或联系他人。"
+    },
+    {
+      "id": "cospine-ds005883",
+      "title": "CoSpine Pain-dataset",
+      "url": "https://github.com/OpenNeuroDatasets/ds005883",
+      "status": "different_population_and_endpoint",
+      "evidence": "作者README实际读取：39名健康人，热刺激任务及疼痛/不愉快度评分；没有据此取得临床患者队列。",
+      "next": "若另做实验热痛研究需单列设计，不能替代慢性疼痛诊断或治疗验证。"
+    },
+    {
+      "id": "compete-dryad-2rbnzs84m",
+      "title": "Antithrombotic therapy for migraine in patients with patent foramen ovale: A randomized clinical trial",
+      "url": "https://datadryad.org/dataset/doi:10.5061/dryad.2rbnzs84m",
+      "status": "clinical_trial_metadata_without_declared_mri_input",
+      "evidence": "官方元数据和完整4文件清单实际读取：临床/日记、字典和SAS代码；当前说明未列MRI，未下载逐人数据。",
+      "next": "可参考终点与临床字段，不能称为已经具备影像增量验证输入。"
+    }
+  ],
+  "source_records_reviewed": 6,
+  "newly_acquired_individual_mri_files": 0,
+  "newly_acquired_individual_clinical_truth_files": 0,
+  "new_training_inclusions": 0,
+  "new_model_fits": 0,
+  "new_independent_clinical_validations": 0,
+  "historical_exclusions": [
+    "Emo/ds004144 remains development data.",
+    "The new search hit for ds005713 refers to the historical source; it does not prove a new independent cohort or authorize stopped TN14 work."
+  ],
+  "limitations": [
+    "Provider descriptions and file inventories do not establish actual paired people, clinical timing, QC, access permission or identity independence.",
+    "No available source in this review established all requirements for the three independent clinical endpoints.",
+    "Existing strong-FC findings and the active migraine input protocol remain unchanged."
+  ]
+}

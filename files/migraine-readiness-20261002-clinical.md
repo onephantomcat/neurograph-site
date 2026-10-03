@@ -43,3 +43,10 @@
 作者公开示例与v2预印本把预训练来源列为UKB、ABCD、HCP-YA、HCP-A、HCP-D。ds005016未列在这五个来源中；这只能核对来源名称，不能证明跨库没有同一人。[作者示例](https://github.com/CUHK-AIM-Group/NeuroSTORM/blob/d43114c97deaf3e53ea051d2512b36ef8fcb748d/scripts/examples/pretrain.sh)，[v2预印本](https://arxiv.org/html/2506.11167v2)。
 
 本次实际读取所用源码版本的175文件目录及13个相关文件。HCP下载候选列表含1,206个不同编号；所用源码目录没有实际划分列表，代码从外部目录读入。作者模型库10页共849个文件已列读，另读到713条基线模型清单，列的是模型、任务与指标。下载候选和模型清单均不能替代该checkpoint的实际预训练人员。当前仍缺实际训练/验证成员和与偏头痛队列可核对的身份对应，生物身份重叠人数保持未知，不记0。[作者模型库](https://huggingface.co/zxcvb20001/NeuroSTORM/tree/main)。
+
+<!-- unseen-clinical-sources-20261003 -->
+## 10月3日：独立临床来源访问补查
+
+10月3日实际补查六个临床来源记录：两条Zenodo文件受限，Dryad脑影像标记记录只列补充DOCX且正文未取得，OpenPain需使用协议/注册；健康热痛与未列MRI的临床试验不能代替当前临床影像任务。新增逐人MRI、临床真值与独立验证均0。
+
+优先接入已有访问权限的逐人临床—MRI配对文件，核对诊断、量表及评分/MRI/随访时间、身份与使用依据；继续原候选输入和有限对照。 [完整来源补查](unseen-clinical-sources-20261003.md)。

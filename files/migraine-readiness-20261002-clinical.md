@@ -29,3 +29,10 @@
 方法报告参考[TRIPOD+AI正式说明](https://www.bmj.com/content/385/bmj-2023-078378)关于独立评价、判别、校准及临床效用的区分；本项目仍缺真实H-test和临床参照资料，不宣称已完成其全部报告项目。
 
 运行入口：python operations/20261003-clinical-increment/paired_evaluation.py --input predictions_private.json --output paired_metrics.json。
+
+<!-- clinical-primary-source-readback-20261003 -->
+## 原试验和补充材料：实际读取范围
+
+10月3日补查原试验全文与当前官方云端对象。正文分别定义28日日记中的头痛强度、20周头痛日降幅至少50%的治疗应答，以及刺激时口头评分；MRI日程为基线、10周、20周。这些终点不能互换，论文总体日程也不能替代逐人的日期和ses映射。[原试验全文](https://pmc.ncbi.nlm.nih.gov/articles/PMC7487005/)。
+
+本次实际读取官方云端153,729字节全文XML及版本元数据。该版本为作者稿、TDM许可，所列对象仅JSON/XML/TXT，没有列出补充DOCX；两个原补充链接返回HTML网页，尚未读到协议和图表文件正文。不能据此断言补充文件不存在或内含什么数据。目前仍未取得可与BIDS人员/访视对应的年龄、真实疼痛评分、日记、治疗结局和日期，也未证明独立H-test或预训练身份不重叠。[该版本官方元数据](https://pmc-oa-opendata.s3.amazonaws.com/PMC7487005.1/PMC7487005.1.json)。旧OA接口已停用，继续获取材料须使用当前官方服务。[PMC说明](https://pmc.ncbi.nlm.nih.gov/tools/oa-service/)。

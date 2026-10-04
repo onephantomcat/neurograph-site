@@ -1,9 +1,9 @@
 {
   "run_id": "unseen-clinical-source-followup-20261004",
-  "state": "SMALL_CLINICAL_BODIES_AND_ELIGIBILITY_REVIEWED",
+  "state": "THREE_SAMPLE_SOURCE_CODE_TIMING_RECONSTRUCTED_BEFORE_REAL_CENSORING",
   "observed_at": "2026-10-04T01:03:40.446455+08:00",
-  "title": "临床来源补查：已读到DEIPP真实疼痛记录",
-  "summary": "10月4日实读DEIPP的3人资料、4份问卷及3份连续VAS样本；66行当天问卷中63个人员—访视键与MRI文件库存对应，另3行为无对应影像的基线记录。三份连续记录共101,415个观测，影像头均为80×80×56×1326、TR0.46秒。尚未下载完整MRI或核准评分与扫描的准确时间对应；不计训练或独立临床验证。另一个腰痛库只含患者，缺对照及当前可读评分表。",
+  "title": "DEIPP连续评分：三个样本时间规则已核对",
+  "summary": "DEIPP已实读3人资料、4份问卷及3份连续VAS样本；66行当天问卷中63个访视键与MRI文件库存对应。三份连续记录共101,415个观测，影像头均为80×80×56×1326、TR0.46秒。10月4日按作者代码和真实样本重组时间轴：去掉22个扫描帧，再去掉66个初始帧，按13帧（5.98秒）对齐脑信号与评分；每份在实际头动删帧前有1,225个对齐点，独立插值复算误差0。完整MRI、实际删帧记录和准确扫描日期仍缺，临床配对、拟合与独立验证均未完成。腰痛库仍缺对照及可读评分表。",
   "boundary": "DEIPP是3名女性患者的密集重复扫描，论文主要分析2人；访视和采样点不是独立患者。它可继续核对个人疼痛变化输入，不能补足跨人诊断或预定治疗反应验证。腰痛库25个人员目录不等于已取得25人输入。Emo仍是开发队列，原停止决定和全部正负结果保留。",
   "source_records_reviewed": 2,
   "prior_six_source_audit_unchanged": true,
@@ -62,7 +62,36 @@
     "paper_primary_analysis_people": 2,
     "first_header_parse_failure_retained": true,
     "individual_identity_pretraining_overlap": "unknown",
-    "independent_h_test_eligible": false
+    "independent_h_test_eligible": false,
+    "author_timing_reconstruction": {
+      "observed_at": "2026-10-04T14:15:17.382639+08:00",
+      "source_code_commit": "e2657e611fbae91bbc258cf8641550edcde99837",
+      "metadata_git_commit": "24cf6ccd0b84956f96ccf950d908461bd64a9e14",
+      "actual_response_samples": 3,
+      "original_bold_volumes_per_sample": 1326,
+      "repetition_time_s": 0.46,
+      "remove_dummy_seconds": 10,
+      "remove_dummy_volumes": 22,
+      "post_dummy_volumes": 1304,
+      "trim_initial_volumes": 66,
+      "delay_volumes": 13,
+      "delay_seconds": 5.98,
+      "pre_censor_aligned_points_per_sample": 1225,
+      "total_pre_censor_aligned_points": 3675,
+      "independent_interpolation_max_error": 0,
+      "actual_saved_author_metadata_acquired": false,
+      "actual_motion_censor_mask_acquired": false,
+      "actual_preprocessed_mri_acquired": false,
+      "final_points_after_real_censoring": null,
+      "exact_acquisition_date_verified": false,
+      "clinical_mri_label_pairs_complete": 0,
+      "source_code_temporal_reconstruction_verified_for_samples": true,
+      "actual_complete_mri_response_alignment_verified": false,
+      "source_object_version_id_resolved": false,
+      "author_preprocessing_reproduced": false,
+      "new_model_fits": 0,
+      "scope": "三个首运行样本的删帧前时间规则复算；不扩展为全部访视、完整影像QC或独立患者验证。"
+    }
   },
   "low_back_pain": {
     "url": "https://github.com/OpenNeuroDatasets/ds007135",
@@ -82,5 +111,6 @@
     "Figshare article API returned 403; no figure-data files acquired.",
     "Continuous TSV first numeric parse failed on its real header; saved bodies reparsed with the actual column names."
   ],
-  "next": "核对DEIPP的正式对象版本、完整影像和评分/MRI时间；若开展个人疼痛变化研究须单列方案。继续原132候选输入，诊断/程度/治疗的跨人独立验证仍各自补齐。"
+  "next": "继续核对DEIPP对象版本、完整影像、作者处理元数据、实际头动删帧及扫描日期。三个样本的代码时间规则已复算，不替代63次访视的完整配对；个人疼痛变化须另列评价单位。原132候选处理及诊断、同期程度、治疗反应的跨人独立验证继续。",
+  "timing_reconstruction_observed_at": "2026-10-04T14:15:17.382639+08:00"
 }

@@ -1,0 +1,331 @@
+{
+  "paper": {
+    "doi": "10.1093/braincomms/fcag146",
+    "year": 2026,
+    "datasets": 8,
+    "conditions": 5,
+    "pain": 401,
+    "hc": 245,
+    "cortical_measurements_excluded": 56,
+    "cortical_measurements_before": 219640,
+    "cortical_measurements_after": 219584
+  },
+  "crosswalk": [
+    {
+      "study": "OA",
+      "reference": "Tetreault 2016",
+      "condition": "Osteoarthritis",
+      "location": "Illinois, USA",
+      "paper_pain": 56,
+      "paper_hc": 20,
+      "provider": "OpenNeuro",
+      "dataset_id": "ds000208",
+      "project_role": "Existing OA development",
+      "independent_test_confirmed": false
+    },
+    {
+      "study": "CLBP1",
+      "reference": "Makary 2020",
+      "condition": "Chronic low back pain",
+      "location": "Connecticut, USA",
+      "paper_pain": 29,
+      "paper_hc": 33,
+      "provider": "OpenPain",
+      "dataset_id": "",
+      "project_role": "OpenPain access and biological identity unverified",
+      "independent_test_confirmed": false
+    },
+    {
+      "study": "CLBP2_S1",
+      "reference": "Mano 2018 UK",
+      "condition": "Chronic low back pain",
+      "location": "Cambridge, UK",
+      "paper_pain": 24,
+      "paper_hc": 39,
+      "provider": "OpenPain",
+      "dataset_id": "",
+      "project_role": "OpenPain access and biological identity unverified",
+      "independent_test_confirmed": false
+    },
+    {
+      "study": "CLBP3_S2",
+      "reference": "Mano 2018 Japan",
+      "condition": "Chronic low back pain",
+      "location": "Osaka, Japan",
+      "paper_pain": 17,
+      "paper_hc": 17,
+      "provider": "OpenPain",
+      "dataset_id": "",
+      "project_role": "OpenPain access and SRPBS identity correspondence unverified",
+      "independent_test_confirmed": false
+    },
+    {
+      "study": "FM1",
+      "reference": "Pando-Naude 2019",
+      "condition": "Fibromyalgia",
+      "location": "Mexico City, Mexico",
+      "paper_pain": 20,
+      "paper_hc": 20,
+      "provider": "OpenNeuro",
+      "dataset_id": "ds001928",
+      "project_role": "Existing music analgesia development",
+      "independent_test_confirmed": false
+    },
+    {
+      "study": "FM2",
+      "reference": "Balducci 2022",
+      "condition": "Fibromyalgia",
+      "location": "Queretaro, Mexico",
+      "paper_pain": 33,
+      "paper_hc": 33,
+      "provider": "OpenNeuro",
+      "dataset_id": "ds004144",
+      "project_role": "Existing Emo development",
+      "independent_test_confirmed": false
+    },
+    {
+      "study": "migraine",
+      "reference": "Seminowicz 2020",
+      "condition": "Migraine",
+      "location": "Baltimore, USA",
+      "paper_pain": 111,
+      "paper_hc": 35,
+      "provider": "OpenNeuro",
+      "dataset_id": "ds005016",
+      "project_role": "Current migraine development",
+      "independent_test_confirmed": false
+    },
+    {
+      "study": "ptn",
+      "reference": "Filimonova 2025",
+      "condition": "Primary trigeminal neuralgia",
+      "location": "Novosibirsk, Russia",
+      "paper_pain": 111,
+      "paper_hc": 48,
+      "provider": "OpenNeuro",
+      "dataset_id": "ds005713",
+      "project_role": "Existing TN source; stopped branches retained",
+      "independent_test_confirmed": false
+    }
+  ],
+  "already_used_or_developing_openneuro_sources": 5,
+  "unresolved_openpain_sources": 3,
+  "new_independent_test_people_confirmed": 0,
+  "supplement": {
+    "sheets": 16,
+    "records": 9928,
+    "inventory": [
+      {
+        "sheet": "S_Cort",
+        "records": 2720
+      },
+      {
+        "sheet": "ICV_S",
+        "records": 544
+      },
+      {
+        "sheet": "S_Cort_Sex",
+        "records": 4080
+      },
+      {
+        "sheet": "S_Subcort",
+        "records": 256
+      },
+      {
+        "sheet": "ICV_S_Subcort",
+        "records": 256
+      },
+      {
+        "sheet": "S_Subcort_Sex",
+        "records": 384
+      },
+      {
+        "sheet": "M_Cort",
+        "records": 340
+      },
+      {
+        "sheet": "ICV_M",
+        "records": 68
+      },
+      {
+        "sheet": "ICV_M_Sex",
+        "records": 68
+      },
+      {
+        "sheet": "M_Cort_Sex",
+        "records": 680
+      },
+      {
+        "sheet": "Cort_Sex_Analysis",
+        "records": 340
+      },
+      {
+        "sheet": "M_Subcort",
+        "records": 32
+      },
+      {
+        "sheet": "ICV_M_Subcort",
+        "records": 32
+      },
+      {
+        "sheet": "M_Subcort_Sex",
+        "records": 64
+      },
+      {
+        "sheet": "Subcort_Sex_Analysis",
+        "records": 32
+      },
+      {
+        "sheet": "ICV_M_Subcort_Sex",
+        "records": 32
+      }
+    ]
+  },
+  "study_effect_direction": [
+    {
+      "study": "OA",
+      "records": 340,
+      "maximum_hc_minus_cp_error": 2.265214203028596,
+      "maximum_cp_minus_hc_error": 8.215650382226158e-15,
+      "hc_minus_cp_matches_at_1e_10": 0,
+      "cp_minus_hc_matches_at_1e_10": 340,
+      "orientation": "CP_MINUS_HC"
+    },
+    {
+      "study": "CLBP1",
+      "records": 340,
+      "maximum_hc_minus_cp_error": 1.4196377546183814,
+      "maximum_cp_minus_hc_error": 1.2378986724570495e-14,
+      "hc_minus_cp_matches_at_1e_10": 0,
+      "cp_minus_hc_matches_at_1e_10": 340,
+      "orientation": "CP_MINUS_HC"
+    },
+    {
+      "study": "CLBP2_S1",
+      "records": 340,
+      "maximum_hc_minus_cp_error": 1.637578961322106e-14,
+      "maximum_cp_minus_hc_error": 2.26690684791312,
+      "hc_minus_cp_matches_at_1e_10": 340,
+      "cp_minus_hc_matches_at_1e_10": 0,
+      "orientation": "HC_MINUS_CP"
+    },
+    {
+      "study": "CLBP3_S2",
+      "records": 340,
+      "maximum_hc_minus_cp_error": 2.98281456285562,
+      "maximum_cp_minus_hc_error": 1.9206858326015208e-14,
+      "hc_minus_cp_matches_at_1e_10": 0,
+      "cp_minus_hc_matches_at_1e_10": 340,
+      "orientation": "CP_MINUS_HC"
+    },
+    {
+      "study": "FM1",
+      "records": 340,
+      "maximum_hc_minus_cp_error": 3.466968760718732,
+      "maximum_cp_minus_hc_error": 5.162537064506978e-15,
+      "hc_minus_cp_matches_at_1e_10": 1,
+      "cp_minus_hc_matches_at_1e_10": 340,
+      "orientation": "CP_MINUS_HC"
+    },
+    {
+      "study": "FM2",
+      "records": 340,
+      "maximum_hc_minus_cp_error": 1.4507750989416066,
+      "maximum_cp_minus_hc_error": 1.759703494030873e-14,
+      "hc_minus_cp_matches_at_1e_10": 0,
+      "cp_minus_hc_matches_at_1e_10": 340,
+      "orientation": "CP_MINUS_HC"
+    },
+    {
+      "study": "migraine",
+      "records": 340,
+      "maximum_hc_minus_cp_error": 1.3928356594484437,
+      "maximum_cp_minus_hc_error": 1.1712852909795402e-14,
+      "hc_minus_cp_matches_at_1e_10": 0,
+      "cp_minus_hc_matches_at_1e_10": 340,
+      "orientation": "CP_MINUS_HC"
+    },
+    {
+      "study": "ptn",
+      "records": 340,
+      "maximum_hc_minus_cp_error": 1.490306869468744,
+      "maximum_cp_minus_hc_error": 0.0004924718171924747,
+      "hc_minus_cp_matches_at_1e_10": 0,
+      "cp_minus_hc_matches_at_1e_10": 305,
+      "orientation": "NOT_EXACTLY_REPRODUCED_FROM_PUBLISHED_GROUP_N"
+    }
+  ],
+  "reported_meta_metric_counts": [
+    {
+      "measurement": "Average Thickness",
+      "regions": 68,
+      "reported_fdr_lt_005": 4,
+      "significant_positive": 0,
+      "significant_negative": 4,
+      "significant_prediction_interval_contains_zero": 0,
+      "bh_recalculation_max_error": 1.6653345369377348e-16
+    },
+    {
+      "measurement": "Gaussian Curvature",
+      "regions": 68,
+      "reported_fdr_lt_005": 49,
+      "significant_positive": 49,
+      "significant_negative": 0,
+      "significant_prediction_interval_contains_zero": 33,
+      "bh_recalculation_max_error": 8.326672684688674e-17
+    },
+    {
+      "measurement": "Gray Matter Volume",
+      "regions": 68,
+      "reported_fdr_lt_005": 4,
+      "significant_positive": 0,
+      "significant_negative": 4,
+      "significant_prediction_interval_contains_zero": 2,
+      "bh_recalculation_max_error": 1.6653345369377348e-16
+    },
+    {
+      "measurement": "Mean Curvature",
+      "regions": 68,
+      "reported_fdr_lt_005": 3,
+      "significant_positive": 3,
+      "significant_negative": 0,
+      "significant_prediction_interval_contains_zero": 0,
+      "bh_recalculation_max_error": 1.6653345369377348e-16
+    },
+    {
+      "measurement": "Surface Area",
+      "regions": 68,
+      "reported_fdr_lt_005": 0,
+      "significant_positive": 0,
+      "significant_negative": 0,
+      "significant_prediction_interval_contains_zero": 0,
+      "bh_recalculation_max_error": 1.1102230246251565e-16
+    }
+  ],
+  "adjusted_and_subcortical_counts": [
+    {
+      "sheet": "ICV_M",
+      "regions": 68,
+      "reported_fdr_lt_005": 0
+    },
+    {
+      "sheet": "M_Subcort",
+      "regions": 32,
+      "reported_fdr_lt_005": 0
+    },
+    {
+      "sheet": "ICV_M_Subcort",
+      "regions": 32,
+      "reported_fdr_lt_005": 0
+    }
+  ],
+  "limitations": [
+    "Audit of published aggregates; no author MRI preprocessing or full meta-analysis rerun.",
+    "UK CLBP direction differs from the dictionary convention; do not silently flip published data.",
+    "PTN cannot be exactly replayed using only published group N, means and SD.",
+    "Reported meta FDR counts are not classifier performance or clinical validation."
+  ],
+  "new_classification_fits": 0,
+  "new_mri_downloads": 0,
+  "new_clinical_validation": 0
+}

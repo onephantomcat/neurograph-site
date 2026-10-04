@@ -1,0 +1,9 @@
+study,reference,condition,location,paper_pain,paper_hc,provider,dataset_id,project_role,independent_test_confirmed
+OA,Tetreault 2016,Osteoarthritis,"Illinois, USA",56,20,OpenNeuro,ds000208,Existing OA development,False
+CLBP1,Makary 2020,Chronic low back pain,"Connecticut, USA",29,33,OpenPain,,OpenPain access and biological identity unverified,False
+CLBP2_S1,Mano 2018 UK,Chronic low back pain,"Cambridge, UK",24,39,OpenPain,,OpenPain access and biological identity unverified,False
+CLBP3_S2,Mano 2018 Japan,Chronic low back pain,"Osaka, Japan",17,17,OpenPain,,OpenPain access and SRPBS identity correspondence unverified,False
+FM1,Pando-Naude 2019,Fibromyalgia,"Mexico City, Mexico",20,20,OpenNeuro,ds001928,Existing music analgesia development,False
+FM2,Balducci 2022,Fibromyalgia,"Queretaro, Mexico",33,33,OpenNeuro,ds004144,Existing Emo development,False
+migraine,Seminowicz 2020,Migraine,"Baltimore, USA",111,35,OpenNeuro,ds005016,Current migraine development,False
+ptn,Filimonova 2025,Primary trigeminal neuralgia,"Novosibirsk, Russia",111,48,OpenNeuro,ds005713,Existing TN source; stopped branches retained,False

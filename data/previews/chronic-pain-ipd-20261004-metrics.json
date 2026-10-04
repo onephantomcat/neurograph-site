@@ -1,0 +1,4 @@
+{
+  "content": "measurement,regions,reported_fdr_lt_005,significant_positive,significant_negative,significant_prediction_interval_contains_zero,bh_recalculation_max_error\r\nAverage Thickness,68,4,0,4,0,1.6653345369377348e-16\r\nGaussian Curvature,68,49,49,0,33,8.326672684688674e-17\r\nGray Matter Volume,68,4,0,4,2,1.6653345369377348e-16\r\nMean Curvature,68,3,3,0,0,1.6653345369377348e-16\r\nSurface Area,68,0,0,0,0,1.1102230246251565e-16\n",
+  "truncated": false
+}

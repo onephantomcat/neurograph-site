@@ -1,22 +1,22 @@
 {
   "id": "migraine-batch-inputs-20261003",
   "date": "2026-10-03",
-  "observed_at": "2026-10-04T18:51:38.070235+08:00",
+  "observed_at": "2026-10-04T22:28:21.305249+08:00",
   "state": "RUNNING",
   "worker_confirmed_live": true,
   "candidate_people": 132,
   "candidate_migraine_people": 111,
   "candidate_control_people": 21,
   "reused_pilot_people": 2,
-  "new_motion_numeric_people": 50,
-  "motion_numeric_people": 52,
-  "spatial_numeric_people": 52,
-  "fc_numeric_people": 51,
-  "representation_people": 51,
-  "representation_count": 102,
+  "new_motion_numeric_people": 57,
+  "motion_numeric_people": 59,
+  "spatial_numeric_people": 58,
+  "fc_numeric_people": 58,
+  "representation_people": 58,
+  "representation_count": 116,
   "prior_real_encoder_calls": 228,
-  "new_real_encoder_calls": 3876,
-  "total_completed_real_encoder_calls": 4104,
+  "new_real_encoder_calls": 4408,
+  "total_completed_real_encoder_calls": 4636,
   "classifier_fits": 0,
   "qc_inclusions": 0,
   "expert_reviews": 0,
@@ -28,8 +28,8 @@
   "bootstrap_failure_retained": true,
   "copied_pilot_independent_replay_pass": true,
   "whole_goal_complete": false,
-  "title": "偏头痛候选：51人输入已复核，影像质控待确认",
-  "summary": "同设备候选库存132人（111病例/21对照）。截至10月4日18:51，服务器完成51人完整输入与冻结/随机288维提取（102个向量、3876次前向）。51人窗口、空间、量化及WM/CSF已独立复核，3876个窗口重组和组织均值误差0；153幅模型技术切面已看。51人的153个小特征文件共8,056,316字节，已在本机载入；四例组织轮廓与功能影像边界差异待专家复核。另有一人的头动/空间程序已完成，完整表示尚未完成。旧裁框3人/228前向及完整维度合成540拟合和归档恢复记录保留；真实候选分类拟合0，偏头痛逐人临床对应与预训练实际人员仍缺。",
+  "title": "偏头痛候选：58人输入已复核，影像质控待确认",
+  "summary": "同设备候选库存132人（111病例/21对照）。截至10月4日22:28，服务器完成58人完整输入及冻结/随机288维提取（116个向量、4408次前向）。58人窗口、空间、量化及WM/CSF已独立复核，4408个窗口重组和组织均值误差0；174个模型技术切面已查看。174个小特征文件共9,162,142字节已读回并在本机载入；累计六例边界或组织轮廓差异待专家核对。头动程序完成59人，空间及完整表示58人，各层范围分别记录。专家确认、训练纳入和真实候选分类拟合仍0；旧失败和此前各阶段证据保留。",
   "boundary": "这些是候选输入的阶段进展，不是全队列QC、训练纳入或诊断成绩。首编号访视不等于已证实临床基线；专家确认、训练纳入、独立临床验证均0。原年龄、同期痛、治疗真值和身份/预训练重叠缺口保留。",
   "next": "继续完成全候选影像、数值和技术视觉检查，再在本机做原定K5四方法有限对照；只传小特征。本机训练产物完整归档服务器并实际恢复核验后，再释放已结束任务的大文件。",
   "source": "migraine-batch-inputs-20261003",
@@ -46,10 +46,10 @@
   "completed_prefix_phases_reused": 15,
   "interrupted_filter_complete_read_elements": 21249300,
   "interrupted_filter_replay_max_error": 3.8096936094689227e-06,
-  "technical_view_panels_inspected": 153,
+  "technical_view_panels_inspected": 174,
   "technical_view_is_expert_review": false,
   "tissue_mean_independent_audit": {
-    "people": 51,
+    "people": 58,
     "tissues_per_person": 2,
     "timepoints_per_tissue": 300,
     "independent_mean_max_error": 0.0,
@@ -69,7 +69,7 @@
   "model_voxel_mm": 2.5,
   "legacy_representation_people": 3,
   "legacy_representation_count": 6,
-  "current_protocol_real_encoder_calls": 3876,
+  "current_protocol_real_encoder_calls": 4408,
   "model_geometry_revision": {
     "spatial_adapter_version": 2,
     "physical_model_grid_vox_mm": 2.5,
@@ -82,13 +82,13 @@
     "mask_voxel_counts_change_from_resampling": true,
     "author_tensor_only_identity_header_vox_mm": 2.0,
     "author_spatial_stage_identity_proxy_explicit": true,
-    "people": 51,
-    "current_vectors": 102,
-    "current_encoder_calls": 3876,
-    "persistent_window_vectors_replayed": 3876,
+    "people": 58,
+    "current_vectors": 116,
+    "current_encoder_calls": 4408,
+    "persistent_window_vectors_replayed": 4408,
     "window_reconstruction_max_error": 0.0,
     "manual_spatial_interpolation_max_error": 6.103515625e-05,
-    "quantization_audits_pass": 51,
+    "quantization_audits_pass": 58,
     "legacy_crop_people": 3,
     "legacy_crop_vectors": 6,
     "legacy_encoder_calls": 228,
@@ -98,7 +98,7 @@
     "classifier_fits": 0,
     "qc_inclusions": 0,
     "expert_reviews": 0,
-    "model_grid_technical_view_panels_inspected": 153,
+    "model_grid_technical_view_panels_inspected": 174,
     "technical_views_are_not_expert_qc": true
   },
   "legacy_crop_input_validation": {
@@ -112,14 +112,14 @@
   "old_crop_protocol_representations_retained": true,
   "current_model_protocol_uses_legacy_vectors": false,
   "new_native_registration_technical_review": {
-    "people": 47,
-    "planes": 564,
-    "additional_normalized_and_filtered_planes": 282,
+    "people": 54,
+    "planes": 648,
+    "additional_normalized_and_filtered_planes": 324,
     "expert_reviews": 0,
     "qc_inclusions": 0,
-    "new_cases_for_expert_alignment_attention": 4,
-    "newly_added_attention_cases_this_review": 1,
-    "observation": "Four viewed cases have wider outer tissue contours than visible functional signal boundaries. Expert anatomical/alignment review pending; no automatic exclusion, threshold change or processing restart."
+    "new_cases_for_expert_alignment_attention": 6,
+    "newly_added_attention_cases_this_review": 2,
+    "observation": "Six viewed cases require expert review of tissue, signal boundary or detached mask differences. Expert anatomical/alignment review pending; no automatic exclusion, threshold change or processing restart."
   },
   "clinical_paired_evaluation_preparation": {
     "endpoint_examples": [
@@ -215,9 +215,9 @@
     "paired_patient_mri_and_truth_acquired": false
   },
   "small_feature_delivery": {
-    "people": 51,
-    "files": 153,
-    "bytes": 8056316,
+    "people": 58,
+    "files": 174,
+    "bytes": 9162142,
     "server_readback_equal": true,
     "actually_loaded_on_local_cpu": true,
     "time_series_shape": [
@@ -225,7 +225,7 @@
       90
     ],
     "representation_shape": [
-      51,
+      58,
       288
     ],
     "covariate_columns": 4,
@@ -234,8 +234,8 @@
     "qc_inclusions": 0
   },
   "updated_date": "2026-10-04",
-  "independently_reviewed_people": 51,
-  "independent_review_scope": "51 people/3876 stored windows. Previous 48-person records and dates retained; all three newly completed cases recomputed in original manifest order. Technical review is not expert QC or training inclusion.",
-  "independent_review_observed_at": "2026-10-04T18:56:07.217472+08:00",
-  "numeric_review_recorded_at": 1791111153.6729977
+  "independently_reviewed_people": 58,
+  "independent_review_scope": "58 people/4408 stored windows. Previous 51-person records and dates retained; all seven newly completed cases recomputed in original manifest order. Technical review is not expert QC or training inclusion.",
+  "independent_review_observed_at": "2026-10-04T22:37:54.302137+08:00",
+  "numeric_review_recorded_at": 1791124165.2423239
 }

@@ -1,0 +1,27 @@
+{
+  "state": "ACTUAL_TEMPORAL_BURDEN_AUDIT_COMPLETE",
+  "people": 47,
+  "frames_per_person": 300,
+  "original_design_ranks_recomputed": 47,
+  "saved_design_audits_all_match": true,
+  "residual_dof_min": 2,
+  "residual_dof_max": 272,
+  "residual_dof_median": 259.0,
+  "residual_dof_quartiles": [
+    233.0,
+    267.5
+  ],
+  "first_two_singular_energy_fraction_range": [
+    0.3010583219635818,
+    0.9999999999999103
+  ],
+  "first_two_singular_energy_fraction_median": 0.4102255697304217,
+  "physical_timepoints_deleted": 0,
+  "new_classifier_fits": 0,
+  "new_qc_inclusions": 0,
+  "expert_reviews": 0,
+  "input_transformations_changed": false,
+  "new_quality_threshold_or_exclusion": false,
+  "scope": "47 completed candidate inputs at the existing observation time; no diagnostic scores or label-based selection.",
+  "boundary": "Nuisance residual DOF and descriptive FC singular energy are not effective independent sample size or clinical validation."
+}

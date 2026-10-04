@@ -1,9 +1,9 @@
 {
   "run_id": "unseen-clinical-source-followup-20261004",
-  "state": "THREE_SAMPLE_SOURCE_CODE_TIMING_RECONSTRUCTED_BEFORE_REAL_CENSORING",
+  "state": "THREE_SAMPLE_PRE_CENSOR_TIMING_AND_THIRTEEN_READ_OBJECT_VERSIONS_VERIFIED",
   "observed_at": "2026-10-04T01:03:40.446455+08:00",
-  "title": "DEIPP连续评分：三个样本时间规则已核对",
-  "summary": "DEIPP已实读3人资料、4份问卷及3份连续VAS样本；66行当天问卷中63个访视键与MRI文件库存对应。三份连续记录共101,415个观测，影像头均为80×80×56×1326、TR0.46秒。10月4日按作者代码和真实样本重组时间轴：去掉22个扫描帧，再去掉66个初始帧，按13帧（5.98秒）对齐脑信号与评分；每份在实际头动删帧前有1,225个对齐点，独立插值复算误差0。完整MRI、实际删帧记录和准确扫描日期仍缺，临床配对、拟合与独立验证均未完成。腰痛库仍缺对照及可读评分表。",
+  "title": "DEIPP连续评分：时间规则与已读文件版本已核对",
+  "summary": "DEIPP已实读3人资料、4份问卷及3份连续VAS样本；66行当天问卷中63个访视键与MRI文件库存对应。三份连续记录共101,415个观测，影像头均为80×80×56×1326、TR0.46秒。10月4日按作者代码和真实样本重组时间轴：去掉22个扫描帧，再去掉66个初始帧，按13帧（5.98秒）对齐脑信号与评分；每份在实际头动删帧前有1,225个对齐点，独立插值复算误差0。13个已读S3对象已按具体版本重新读取，10个完整小文件与固定Git内容一致，三份影像只核查压缩头；与前次读取字节无变化。完整MRI、实际删帧记录和准确扫描日期仍缺，临床配对、拟合与独立验证均未完成。腰痛库仍缺对照及可读评分表。",
   "boundary": "DEIPP是3名女性患者的密集重复扫描，论文主要分析2人；访视和采样点不是独立患者。它可继续核对个人疼痛变化输入，不能补足跨人诊断或预定治疗反应验证。腰痛库25个人员目录不等于已取得25人输入。Emo仍是开发队列，原停止决定和全部正负结果保留。",
   "source_records_reviewed": 2,
   "prior_six_source_audit_unchanged": true,
@@ -87,10 +87,30 @@
       "clinical_mri_label_pairs_complete": 0,
       "source_code_temporal_reconstruction_verified_for_samples": true,
       "actual_complete_mri_response_alignment_verified": false,
-      "source_object_version_id_resolved": false,
+      "source_object_version_id_resolved": true,
       "author_preprocessing_reproduced": false,
       "new_model_fits": 0,
-      "scope": "三个首运行样本的删帧前时间规则复算；不扩展为全部访视、完整影像QC或独立患者验证。"
+      "scope": "三个首运行样本的删帧前时间规则复算；不扩展为全部访视、完整影像QC或独立患者验证。",
+      "source_object_version_resolution_scope": "Thirteen read objects only; complete BOLD content and remaining visits not verified.",
+      "full_mri_git_annex_content_verified": false
+    },
+    "source_object_version_readback": {
+      "observed_at": "2026-10-04T14:52:50.269444+08:00",
+      "metadata_git_commit": "24cf6ccd0b84956f96ccf950d908461bd64a9e14",
+      "objects_explicitly_version_read": 13,
+      "full_small_bodies_read": 10,
+      "full_small_bodies_matching_existing_git": 10,
+      "compressed_bold_header_prefixes": 3,
+      "bold_bytes_per_prefix": 65536,
+      "changed_bytes_from_previous_read": 0,
+      "prior_read_bytes_identical": true,
+      "full_mri_acquired": false,
+      "full_mri_git_annex_content_verified": false,
+      "exact_acquisition_date_verified": false,
+      "object_last_modified_is_not_scan_date": true,
+      "all_visit_objects_verified": false,
+      "new_model_fits": 0,
+      "scope": "Four questionnaire TSVs, three continuous response TSVs and three response dictionaries were read completely; three BOLD objects were read only as compressed header prefixes. Applies only to thirteen read objects."
     }
   },
   "low_back_pain": {
@@ -111,6 +131,7 @@
     "Figshare article API returned 403; no figure-data files acquired.",
     "Continuous TSV first numeric parse failed on its real header; saved bodies reparsed with the actual column names."
   ],
-  "next": "继续核对DEIPP对象版本、完整影像、作者处理元数据、实际头动删帧及扫描日期。三个样本的代码时间规则已复算，不替代63次访视的完整配对；个人疼痛变化须另列评价单位。原132候选处理及诊断、同期程度、治疗反应的跨人独立验证继续。",
-  "timing_reconstruction_observed_at": "2026-10-04T14:15:17.382639+08:00"
+  "next": "继续取得DEIPP完整影像、作者处理元数据、实际头动删帧及扫描日期。已读13个对象版本已核对，不能扩展为全部63次访视或完整MRI的同版本证明；三个样本代码时间规则已复算，个人疼痛变化另列评价单位。原132候选处理及诊断、同期程度、治疗反应的跨人独立验证继续。",
+  "timing_reconstruction_observed_at": "2026-10-04T14:15:17.382639+08:00",
+  "source_versions_observed_at": "2026-10-04T14:52:50.269444+08:00"
 }

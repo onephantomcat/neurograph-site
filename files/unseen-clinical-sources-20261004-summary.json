@@ -258,7 +258,94 @@
       "qc_inclusions": 0,
       "independent_clinical_validation_complete": false,
       "boundary": "This is complete-body acquisition and numerical readback of prerequisite anatomy/fieldmaps at this observation time. Earlier header-only receipts retain their original date and scope. Completion is not anatomical alignment, author preprocessing, clinical timing, expert QC or clinical fitting."
-    }
+    },
+    "author_prerequisite_independent_array_readback": {
+      "observed_at": "2026-10-04T19:39:06.153195+08:00",
+      "readback_finished_at": "2026-10-04T19:39:11.272657+08:00",
+      "selected_prerequisite_objects": 12,
+      "complete_prerequisite_objects_independently_read": 12,
+      "independent_new_objects_this_readback": 3,
+      "independent_previously_read_objects_reused": 9,
+      "first_independent_batch_observed_at": "2026-10-04T19:24:38.846997+08:00",
+      "completed_t1_images": 3,
+      "completed_t2_images": 3,
+      "completed_fieldmap_images": 6,
+      "complete_compressed_bytes": 122012143,
+      "independently_read_values": 141926400,
+      "finite_values": 141926400,
+      "worker_full_stream_and_independent_array_counts_equal": true,
+      "existing_git_annex_body_matches": true,
+      "gzip_complete_stream_and_crc_verified": true,
+      "qform_and_sform_codes": [
+        [
+          1,
+          1
+        ]
+      ],
+      "axis_codes": [
+        "LAS",
+        "RAS"
+      ],
+      "qform_sform_max_absolute_element_difference": 1.6012426188316553e-05,
+      "transferred_small_plane_archive_bytes": 1869189,
+      "large_mri_bodies_copied_locally": 0,
+      "expert_reviews": 0,
+      "qc_inclusions": 0,
+      "author_preprocessing_executed": false,
+      "classifier_fits": 0,
+      "exact_scan_dates_verified": false,
+      "anatomical_alignment_proven": false,
+      "clinical_validation_completed": false,
+      "scope": "Same three previously selected people and fixed original prerequisite-object order; baseline T1, author-requested next-session T2 and AP/PA fieldmaps. Complete-array readback and native geometry do not prove cross-image registration.",
+      "technical_native_panels_actually_viewed": 3,
+      "technical_middle_planes_actually_viewed": 36,
+      "technical_viewed_objects": 12,
+      "technical_fieldmap_volume_scope": "first volume only",
+      "technical_review_is_expert_qc": false
+    },
+    "author_prerequisite_independent_array_readback_history": [
+      {
+        "observed_at": "2026-10-04T19:24:38.846997+08:00",
+        "readback_finished_at": "2026-10-04T19:24:45.828700+08:00",
+        "selected_prerequisite_objects": 12,
+        "complete_prerequisite_objects_independently_read": 9,
+        "completed_t1_images": 3,
+        "completed_t2_images": 2,
+        "completed_fieldmap_images": 4,
+        "complete_compressed_bytes": 102068669,
+        "independently_read_values": 117555200,
+        "finite_values": 117555200,
+        "worker_full_stream_and_independent_array_counts_equal": true,
+        "existing_git_annex_body_matches": true,
+        "gzip_complete_stream_and_crc_verified": true,
+        "qform_and_sform_codes": [
+          [
+            1,
+            1
+          ]
+        ],
+        "axis_codes": [
+          "LAS",
+          "RAS"
+        ],
+        "qform_sform_max_absolute_element_difference": 1.6012426188316553e-05,
+        "transferred_small_plane_archive_bytes": 1547674,
+        "large_mri_bodies_copied_locally": 0,
+        "expert_reviews": 0,
+        "qc_inclusions": 0,
+        "author_preprocessing_executed": false,
+        "classifier_fits": 0,
+        "exact_scan_dates_verified": false,
+        "anatomical_alignment_proven": false,
+        "clinical_validation_completed": false,
+        "scope": "Same three previously selected people and fixed original prerequisite-object order; baseline T1, author-requested next-session T2 and AP/PA fieldmaps. Complete-array readback and native geometry do not prove cross-image registration.",
+        "technical_native_panels_actually_viewed": 3,
+        "technical_middle_planes_actually_viewed": 27,
+        "technical_viewed_objects": 9,
+        "technical_fieldmap_volume_scope": "first volume only",
+        "technical_review_is_expert_qc": false
+      }
+    ]
   },
   "low_back_pain": {
     "url": "https://github.com/OpenNeuroDatasets/ds007135",

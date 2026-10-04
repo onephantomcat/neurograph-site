@@ -1,0 +1,50 @@
+{
+  "state": "FIXED_132_SOURCE_MANIFEST_VISIT_JOIN_COMPLETE_NOT_QC",
+  "source_metadata_files_git_matched": 3729,
+  "source_metadata_bytes": 6230598,
+  "candidate_people": 132,
+  "patient_people": 111,
+  "control_people": 21,
+  "raw_headers_read": 264,
+  "distinct_raw_file_inodes": 264,
+  "all_original_manifest_rows_match": true,
+  "candidate_paired_visit_counts": {
+    "3": 91,
+    "1": 33,
+    "2": 8
+  },
+  "candidate_paired_visits": 322,
+  "candidate_sex_counts": {
+    "female": 115,
+    "male": 17
+  },
+  "intervention_counts_by_diagnosis": {
+    "migraine": {
+      "SMH": 43,
+      "MBSR+": 46,
+      "n/a": 22
+    },
+    "control": {
+      "n/a": 21
+    }
+  },
+  "source_sessions_scans_date_tables": [],
+  "independently_reviewed_input_people": 51,
+  "independently_reviewed_windows": 3876,
+  "pending_expert_attention_cases": 4,
+  "known_biological_overlap_people": null,
+  "new_fits": 0,
+  "new_qc_inclusions": 0,
+  "new_expert_reviews": 0,
+  "new_clinical_validations": 0,
+  "h_test_people_established": 0,
+  "all_three_goals": "ACTIVE",
+  "id": "migraine-identity-visits-20261004",
+  "date": "2026-10-04",
+  "observed_at": "2026-10-04T21:21:25.937355+08:00",
+  "summary": "原132人候选的manifest、参与者表、性别、标签、设备与首编号访视路径逐项一致，264份原始影像头与库存一致；该范围共有322组T1/rest访视配对，仍是132人。准确扫描日期、年龄、同期疼痛、治疗结局与实际预训练人员对应尚未取得；未新增专家确认、训练纳入或分类拟合。",
+  "boundary": "文件对应核查，不是专家QC、临床基线确认、训练纳入或跨库生物身份去重；独立输入复核仍51人/3876窗口。",
+  "input_read_scope": "264 image headers and stat only; no full MRI-array reread",
+  "checkpoint_actual_membership": "UNKNOWN",
+  "biological_overlap": "UNKNOWN"
+}

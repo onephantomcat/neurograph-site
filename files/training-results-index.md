@@ -627,3 +627,10 @@ DEIPP临床准备：2份BOLD读完；首样本删帧已核验。截至20:54，�
 现有工具的实际版本为ANTs 2.6.2.dev1、FreeSurfer 7.3.2、AFNI 25.2.09、Workbench 2.0.1；FSL组件可解析，但整体版本未从当前元数据确认。[作者固定版本说明](https://github.com/cocoanlab/DEIPP/blob/e2657e611fbae91bbc258cf8641550edcde99837/README.md)列出FSL 6.0、FreeSurfer 7.2、AFNI 23.0、Workbench 1.5.0与ciftify。首次结构命令按作者解剖代码执行，约4.70秒退出1，错误为未配置许可；[官方注册页](https://surfer.nmr.mgh.harvard.edu/registration.html)说明运行需license.txt。本次仅查看许可文件是否存在，未读取或生成许可内容。功能前缀复用[作者指令](https://github.com/cocoanlab/DEIPP/blob/e2657e611fbae91bbc258cf8641550edcde99837/analysis/preprocessing_cocoan_func.m)，没有执行原MATLAB驱动或后续完整工作流。3dTproject、ciftify、MATLAB入口与作者OASIS三份模板在已检查位置仍未解析；这不证明全服务器缺失这些工具。
 
 继续第三份BOLD与已启动的功能前缀；补FreeSurfer许可、作者模板及其余实际依赖，再做畸变校正和结构配准。继续原132候选输入及既定复核，之后按原K5四方法方案在本机运行有限分类。
+
+<!-- migraine-identity-visits-20261004 -->
+## 10月4日：候选文件与访视对应核查
+
+原132人候选的manifest、参与者表、性别、标签、设备与首编号访视路径逐项一致，264份原始影像头与库存一致；该范围共有322组T1/rest访视配对，仍是132人。准确扫描日期、年龄、同期疼痛、治疗结局与实际预训练人员对应尚未取得；未新增专家确认、训练纳入或分类拟合。
+
+3729份既有官方元数据与固定Git文件身份一致；本次只重新读取264影像头和文件stat，不声称再次读完全部MRI。91人有三组、8人有两组、33人有一组配对；重复访视不能当独立人员或跨训练/查询。原51人独立输入复核、3876窗口和四例待专家注意保留原时间。原每类K5、四方法540拟合/45训练折参考、所有旧失败与停止决定保持。 [完整复核](migraine-identity-visits-20261004.md)。

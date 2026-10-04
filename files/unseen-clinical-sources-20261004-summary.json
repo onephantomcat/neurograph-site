@@ -157,6 +157,25 @@
       "new_model_fits": 0,
       "independent_clinical_validation_complete": false,
       "scope": "One complete raw BOLD from the previously chosen three first-run samples. Full raw read and source identity do not establish preprocessing, anatomical QC, clinical timing or independent validation. Earlier thirteen-object readback remains a separate historical prefix/body receipt."
+    },
+    "author_runtime_location_observation": {
+      "observed_at": "2026-10-04T16:53:51.775574+08:00",
+      "scope": "Current PATH and five existing bounded standard/user/project directories; not an exhaustive installation search.",
+      "resolved_path_commands": 0,
+      "executable_candidates_in_checked_locations": 0,
+      "observation_errors": 0,
+      "author_requirements": {
+        "FSL": "6.0",
+        "FreeSurfer": "7.2",
+        "AFNI": "23.0",
+        "ConnectomeWorkbench": "1.5.0",
+        "ciftify": "version not listed",
+        "MATLAB": "version not listed"
+      },
+      "author_preprocessing_executed": false,
+      "new_software_installation_performed": false,
+      "author_pipeline_availability_not_established": true,
+      "independent_clinical_validation_complete": false
     }
   },
   "low_back_pain": {

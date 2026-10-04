@@ -2820,3 +2820,10 @@ ZAN源数据全部就绪 · 32/55数值通过
 - [固定目标标准化：全部68条件差值CSV](fc-target-scaling-20261004-differences.csv)
 - [固定目标标准化：K5两方向及两参考PNG](fc-target-scaling-20261004-figure.png)
 - [固定目标标准化：可导出SVG图](fc-target-scaling-20261004-svg.svg)
+
+<!-- deipp-runtime-and-raw-followup-20261004 -->
+DEIPP临床准备：2份BOLD读完；首样本删帧已核验。截至20:54，原选定3份BOLD中的2份已完整读完，共727,194,465压缩字节、950,476,800个数值，全部有限；原Git-annex对象、压缩流CRC和18个独立抽样点均通过，抽样误差0。原下载超时退出后，第二份在独立作业中从350,224,384字节接续，补齐20,579,810字节；第三份继续下载。两个原始均值/标准差面板共12个中间切面已技术查看，完整MRI本机复制0。首样本按作者指令去掉22帧，保留1304帧；467,353,600个数值独立读回均有限，与原始保留段逐值差0、坐标矩阵差0，头动校正正在运行。 临床结构处理已实际尝试第一步，在导入影像时因FreeSurfer许可文件未配置退出，完成的结构阶段为0。现有容器包含ANTs、FSL组件、AFNI和FreeSurfer等；软件版本与作者要求存在差异，功能前缀按原指令单独执行，完整作者流程尚未复现。场图畸变校正、结构配准、最终删帧、准确扫描日期和临床配对仍待完成；专家确认、QC纳入、临床分类拟合与独立验证均0。原首份BOLD、27对象、5/9/12份配套输入和所有既有结果保留原日期与范围。
+
+现有工具的实际版本为ANTs 2.6.2.dev1、FreeSurfer 7.3.2、AFNI 25.2.09、Workbench 2.0.1；FSL组件可解析，但整体版本未从当前元数据确认。[作者固定版本说明](https://github.com/cocoanlab/DEIPP/blob/e2657e611fbae91bbc258cf8641550edcde99837/README.md)列出FSL 6.0、FreeSurfer 7.2、AFNI 23.0、Workbench 1.5.0与ciftify。首次结构命令按作者解剖代码执行，约4.70秒退出1，错误为未配置许可；[官方注册页](https://surfer.nmr.mgh.harvard.edu/registration.html)说明运行需license.txt。本次仅查看许可文件是否存在，未读取或生成许可内容。功能前缀复用[作者指令](https://github.com/cocoanlab/DEIPP/blob/e2657e611fbae91bbc258cf8641550edcde99837/analysis/preprocessing_cocoan_func.m)，没有执行原MATLAB驱动或后续完整工作流。3dTproject、ciftify、MATLAB入口与作者OASIS三份模板在已检查位置仍未解析；这不证明全服务器缺失这些工具。
+
+继续第三份BOLD与已启动的功能前缀；补FreeSurfer许可、作者模板及其余实际依赖，再做畸变校正和结构配准。继续原132候选输入及既定复核，之后按原K5四方法方案在本机运行有限分类。

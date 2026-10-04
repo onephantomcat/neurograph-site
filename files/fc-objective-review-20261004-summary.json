@@ -1,0 +1,121 @@
+{
+  "id": "fc-objective-review-20261004",
+  "source_run": "fc-transfer-conditions-20261002",
+  "analysis_type": "post hoc saved-model objective audit",
+  "saved_heads": 6516,
+  "final_heads": 724,
+  "inner_heads": 5792,
+  "training_reference_fits": 0,
+  "new_model_fits": 0,
+  "new_independent_clinical_validations": 0,
+  "original_results_and_selections_unchanged": true,
+  "numerical": [
+    {
+      "phase": "final",
+      "representation": "covariates",
+      "heads": 362,
+      "max_gradient_l2": 2.6334256993604974e-05,
+      "max_gradient_relative_initial_l2": 4.953151344831718e-05,
+      "max_objective_gap_upper_bound": 1.6755040224925377e-08,
+      "median_objective_gap_upper_bound": 1.24412167503328e-13
+    },
+    {
+      "phase": "final",
+      "representation": "fc",
+      "heads": 362,
+      "max_gradient_l2": 0.00052319144205822,
+      "max_gradient_relative_initial_l2": 4.950543724641424e-05,
+      "max_objective_gap_upper_bound": 4.243121189576193e-06,
+      "median_objective_gap_upper_bound": 9.224447773794517e-10
+    },
+    {
+      "phase": "inner",
+      "representation": "covariates",
+      "heads": 2896,
+      "max_gradient_l2": 2.419028014613316e-05,
+      "max_gradient_relative_initial_l2": 4.980741486330269e-05,
+      "max_objective_gap_upper_bound": 2.6826205174827005e-08,
+      "median_objective_gap_upper_bound": 2.862163401783724e-12
+    },
+    {
+      "phase": "inner",
+      "representation": "fc",
+      "heads": 2896,
+      "max_gradient_l2": 0.0006461186517990405,
+      "max_gradient_relative_initial_l2": 4.9935224727657214e-05,
+      "max_objective_gap_upper_bound": 1.0317368454583617e-05,
+      "median_objective_gap_upper_bound": 2.4430914607675533e-08
+    }
+  ],
+  "max_query_probability_difference": 0.0,
+  "max_logloss_independent_function_difference": 4.440892098500626e-16,
+  "saved_reference_transforms": 366,
+  "direct_saved_transform_checks": 62,
+  "max_cached_covariance_transform_difference": 0.0,
+  "individual_covariance_recalculations": 132,
+  "derivative_checks": [
+    {
+      "representation": "covariates",
+      "lambda_": 1.0,
+      "central_step": 1e-05,
+      "absolute_error": 6.945966350227157e-12
+    },
+    {
+      "representation": "fc",
+      "lambda_": 10.0,
+      "central_step": 1e-05,
+      "absolute_error": 3.1754502766031797e-12
+    },
+    {
+      "representation": "covariates",
+      "lambda_": 0.01,
+      "central_step": 1e-05,
+      "absolute_error": 9.281644810392812e-12
+    },
+    {
+      "representation": "covariates",
+      "lambda_": 0.1,
+      "central_step": 1e-05,
+      "absolute_error": 1.7764000643915214e-12
+    },
+    {
+      "representation": "covariates",
+      "lambda_": 10.0,
+      "central_step": 1e-05,
+      "absolute_error": 6.0653910579901625e-12
+    },
+    {
+      "representation": "fc",
+      "lambda_": 0.01,
+      "central_step": 1e-05,
+      "absolute_error": 3.5232924870094793e-13
+    },
+    {
+      "representation": "fc",
+      "lambda_": 0.1,
+      "central_step": 1e-05,
+      "absolute_error": 1.9614889832462182e-12
+    },
+    {
+      "representation": "fc",
+      "lambda_": 1.0,
+      "central_step": 1e-05,
+      "absolute_error": 2.0955738966676823e-12
+    }
+  ],
+  "objective_formula": "sum(w_i * (logaddexp(0, x_i theta) - y_i * x_i theta)) + lambda/2 * ||theta||^2",
+  "intercept_penalized": true,
+  "intercept_scaling": 1,
+  "weight_sum": 1,
+  "gap_bound": "||gradient||_2^2 / (2 * lambda), from lambda-strong convexity in the augmented standardized coordinates",
+  "limitations": "Optimization evidence on previously developed cohorts; no refitting or new selection. Training loss is not generalization or clinical evidence. Standardization differs across conditions, so matching lambda and weight sums does not impose identical penalties in original FC coordinates. The bound controls the convex head objective, not reference estimation, input quality, sampling uncertainty or negative-transfer mechanisms.",
+  "environment": {
+    "python": "3.12.13 (main, Jul 18 2026, 17:08:38) [MSC v.1944 64 bit (AMD64)]",
+    "numpy": "2.5.1",
+    "sklearn": "1.9.0",
+    "scipy": "1.18.0",
+    "nilearn": "0.14.1",
+    "joblib": "1.5.3"
+  },
+  "elapsed_seconds": 70.2138614654541
+}

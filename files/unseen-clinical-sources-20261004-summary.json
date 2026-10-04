@@ -176,6 +176,63 @@
       "new_software_installation_performed": false,
       "author_pipeline_availability_not_established": true,
       "independent_clinical_validation_complete": false
+    },
+    "author_prerequisite_header_readback": {
+      "state": "THREE_SAMPLE_AUTHOR_PREREQUISITE_HEADERS_AND_METADATA_READ",
+      "acquisition_observed_at": "2026-10-04T17:51:08.705573+08:00",
+      "metadata_verification_observed_at": "2026-10-04T17:54:57.567404+08:00",
+      "fixed_metadata_commit": "24cf6ccd0b84956f96ccf950d908461bd64a9e14",
+      "selected_people": 3,
+      "selected_first_bold_runs": 3,
+      "source_objects_explicitly_version_read": 27,
+      "complete_json_bodies_matching_fixed_git": 15,
+      "compressed_mri_header_prefixes": 12,
+      "compressed_bytes_per_prefix": 65536,
+      "compressed_header_bytes_total": 786432,
+      "anatomical_header_pairs": 3,
+      "fieldmap_header_pairs": 3,
+      "t1_source_session": "ses-01",
+      "author_required_t2_source_session": "ses-02",
+      "t1_t2_spatial_shape": [
+        224,
+        320,
+        320
+      ],
+      "anatomical_voxel_mm_nominal": 0.7,
+      "fieldmap_spatial_shape": [
+        80,
+        80,
+        56
+      ],
+      "fieldmap_volumes": 2,
+      "fieldmap_voxel_mm_nominal": 2.7,
+      "opposite_phase_encoding_pairs": 3,
+      "fieldmap_pairs_with_both_intended_for_selected_bold": 3,
+      "fieldmap_pairs_without_complete_intended_for_metadata": 0,
+      "metadata_objects_with_date_fields": 0,
+      "temporal_table_candidates": 0,
+      "complete_new_prerequisite_mri_acquired": 0,
+      "anatomical_alignment_proven": false,
+      "exact_acquisition_date_verified": false,
+      "author_preprocessing_executed": false,
+      "new_classifier_fits": 0,
+      "expert_reviews": 0,
+      "qc_inclusions": 0,
+      "independent_clinical_validation_complete": false,
+      "boundary": "Author code uses baseline ses-01 T1 and following ses-02 T2, plus selected-session AP/PA fieldmaps. Only compressed image headers and complete small JSON metadata were read; matching headers or IntendedFor do not prove full image content, anatomical alignment, clinical timing or validation. Earlier thirteen-object, raw-BOLD and timing receipts retain their dates and scopes."
+    },
+    "author_execution_options_observation": {
+      "observed_at": "2026-10-04T17:42:48.679262+08:00",
+      "scope": "Current container commands, bounded user environment bin directories and top-level image locations; no exhaustive filesystem or installation claim.",
+      "user_environment_directories_observed": 3,
+      "author_tool_candidates": 0,
+      "container_runtime_commands_resolved": 0,
+      "bounded_container_image_files": 0,
+      "observation_errors": 0,
+      "new_software_installation_performed": false,
+      "author_preprocessing_executed": false,
+      "availability_not_established": true,
+      "ants_availability_not_checked": true
     }
   },
   "low_back_pain": {

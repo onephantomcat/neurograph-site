@@ -1,0 +1,50 @@
+{
+  "id": "migraine-clinical-registry-20261004",
+  "observed_at": "2026-10-04T23:00:33.118309+08:00",
+  "trial_id": "NCT02133209",
+  "trial_actual_enrollment": 98,
+  "registry_last_update": "2018-08-08",
+  "source_identity": "Related publication explicitly names NCT02133209; OpenNeuro README names the original RCT.",
+  "registry_clinical_months": [
+    0,
+    3,
+    6,
+    12
+  ],
+  "publication_clinical_weeks": [
+    0,
+    10,
+    20,
+    52
+  ],
+  "registry_headache_impact_priority": "primary",
+  "publication_headache_impact_priority": "secondary; disclosed by authors",
+  "treatment_response_definition": "At least 50% fewer headache days from baseline to week 20",
+  "frequency_definition": "Headache days / valid diary days * 28; preserve diary denominator and observation dates",
+  "pain_definition": "Published headache intensity averages daily headache ratings; scan-time pain remains unprovided",
+  "diagnosis_reference": "Related paper reports neurologist diagnosis at enrollment; individual screening correspondence not acquired",
+  "prior_care_is_separate": true,
+  "registry_results_section_present": false,
+  "registry_document_section_present": false,
+  "registry_ipd_sharing_module_present": false,
+  "publication_data_access": "Corresponding author upon reasonable request; not an obtained individual clinical table",
+  "scope_counts": {
+    "randomized_trial": 98,
+    "related_baseline_paper_patients": 117,
+    "related_baseline_paper_controls": 36,
+    "openneuro_people": 147,
+    "fixed_current_candidate_people": 132
+  },
+  "visit_number_to_clinical_time": "UNKNOWN",
+  "current_individual_clinical_rows_acquired": 0,
+  "new_independent_h_test": 0,
+  "new_classifier_fits": 0,
+  "new_expert_qc": 0,
+  "summary": "原试验NCT02133209已完整读回。注册随访3/6/12个月与发表10/20/52周保留各自口径；HIT-6在注册为主要、发表为次要，作者已说明调整。入组确诊与既往诊疗史分开；28天日记平均痛不能充当扫描时疼痛。逐人日期、日记、治疗结局及实际成员对应仍缺，H-test尚未建立。",
+  "sources": [
+    "https://clinicaltrials.gov/study/NCT02133209",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC7487005/",
+    "https://link.springer.com/article/10.1186/s10194-021-01340-5",
+    "https://github.com/OpenNeuroDatasets/ds005016/tree/2107a0a736dbeeff2adb1bc55ca7461feb6139aa"
+  ]
+}

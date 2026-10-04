@@ -23,3 +23,10 @@
 检查脚本首次误假设压缩后缀，在本机路径断言停止；按固定Git真实.nii路径修正。第二次头信息读完后，JSON写出因NumPy float32失败；显式转为Python float后同范围成功，原尝试与错误保留。两次均为核查程序失败，没有修改原MRI、标签或worker。
 
 [固定官方数据版本](https://github.com/OpenNeuroDatasets/ds005016/tree/2107a0a736dbeeff2adb1bc55ca7461feb6139aa)；[作者原试验](https://pmc.ncbi.nlm.nih.gov/articles/PMC7487005/)；[既有临床设计](migraine-readiness-20261002-clinical.md)；[原有限诊断方案](migraine-readiness-20261002-protocol.md)；[聚合JSON](migraine-identity-visits-20261004-summary.json)。
+
+<!-- migraine-clinical-registry-20261004 -->
+## 10月4日：原试验临床终点与访视口径
+
+原试验NCT02133209已完整读回。注册随访3/6/12个月与发表10/20/52周保留各自口径；HIT-6在注册为主要、发表为次要，作者已说明调整。入组确诊与既往诊疗史分开；28天日记平均痛不能充当扫描时疼痛。逐人日期、日记、治疗结局及实际成员对应仍缺，H-test尚未建立。
+
+[完整对照与所需字段](migraine-clinical-registry-20261004.md)。本次取得注册原文和论文方法证据，未取得可与影像人员对应的临床表，未增加专家QC、训练纳入或独立临床验证。132人共同输入与原四方法540拟合/45参考继续原方案。

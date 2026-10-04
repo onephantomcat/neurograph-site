@@ -233,6 +233,31 @@
       "author_preprocessing_executed": false,
       "availability_not_established": true,
       "ants_availability_not_checked": true
+    },
+    "author_prerequisite_full_acquisition": {
+      "state": "RUNNING",
+      "observed_at": "2026-10-04T18:35:27.896755+08:00",
+      "selected_objects": 12,
+      "complete_prerequisite_mri_objects": 5,
+      "complete_compressed_bytes": 60456499,
+      "actual_values_read": 70246400,
+      "finite_values": 70246400,
+      "existing_git_annex_full_body_identity_matches": true,
+      "previous_header_prefixes_equal": true,
+      "gzip_complete_stream_and_crc_verified": true,
+      "independent_nibabel_spot_read_max_error": 0.0,
+      "completed_t1_images": 2,
+      "completed_t2_images": 1,
+      "completed_fieldmap_images": 2,
+      "large_mri_copied_locally": 0,
+      "author_preprocessing_executed": false,
+      "anatomical_alignment_proven": false,
+      "exact_scan_date_verified": false,
+      "classifier_fits": 0,
+      "expert_reviews": 0,
+      "qc_inclusions": 0,
+      "independent_clinical_validation_complete": false,
+      "boundary": "This is complete-body acquisition and numerical readback of prerequisite anatomy/fieldmaps at this observation time. Earlier header-only receipts retain their original date and scope. Completion is not anatomical alignment, author preprocessing, clinical timing, expert QC or clinical fitting."
     }
   },
   "low_back_pain": {

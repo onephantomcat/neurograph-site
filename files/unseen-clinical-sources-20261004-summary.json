@@ -112,8 +112,8 @@
       "new_model_fits": 0,
       "scope": "Four questionnaire TSVs, three continuous response TSVs and three response dictionaries were read completely; three BOLD objects were read only as compressed header prefixes. Applies only to thirteen read objects."
     },
-    "complete_raw_bold_runs_downloaded": 2,
-    "full_mri_download_scope": "Two of the original three selected first rating runs; not all visits.",
+    "complete_raw_bold_runs_downloaded": 3,
+    "full_mri_download_scope": "All three originally selected first rating runs; not all visits.",
     "raw_bold_sample_acquisition": {
       "observed_at": "2026-10-04T16:05:28.365879+08:00",
       "technical_view_observed_at": "2026-10-04T15:59:48.917676+08:00",
@@ -347,31 +347,31 @@
       }
     ],
     "raw_bold_sample_followup": {
-      "observed_at": "2026-10-04T20:54:06.130472+08:00",
+      "observed_at": "2026-10-04T23:00:06.680677+08:00",
       "selection_rule": "The original three first rating runs, same source order and object versions; no result-based selection.",
       "selected_runs": 3,
-      "complete_raw_bold_runs": 2,
-      "remaining_selected_runs": 1,
-      "total_complete_compressed_bytes": 727194465,
-      "actual_values_read": 950476800,
-      "finite_values": 950476800,
+      "complete_raw_bold_runs": 3,
+      "remaining_selected_runs": 0,
+      "total_complete_compressed_bytes": 1131927149,
+      "actual_values_read": 1425715200,
+      "finite_values": 1425715200,
       "all_complete_bodies_match_existing_git_annex_keys": true,
       "all_complete_gzip_streams_and_crc_verified": true,
-      "independent_nibabel_spot_points": 18,
+      "independent_nibabel_spot_points": 27,
       "independent_spot_maximum_error": 0.0,
       "original_acquisition_failure": "Read operation timeout; original terminal status and partial body retained.",
       "separate_byte_range_continuation": true,
       "second_run_resumed_from_bytes": 350224384,
       "second_run_additional_bytes": 20579810,
       "second_range_response_verified": true,
-      "current_acquisition_state": "RUNNING",
-      "current_acquisition_worker_live": true,
-      "remaining_body_bytes_observed": 130023424,
-      "raw_technical_figures_actually_viewed": 2,
-      "raw_native_mean_sd_planes_actually_viewed": 12,
+      "current_acquisition_state": "COMPLETE_RAW_SAMPLE_ACQUISITION_AND_NUMERICAL_READ",
+      "current_acquisition_worker_live": false,
+      "remaining_body_bytes_observed": 0,
+      "raw_technical_figures_actually_viewed": 3,
+      "raw_native_mean_sd_planes_actually_viewed": 18,
       "whole_mri_copied_locally": 0,
-      "new_small_evidence_bytes_copied_locally": 184856,
-      "new_technical_view_observed_at": "2026-10-04T20:54:01.903510+08:00",
+      "new_small_evidence_bytes_copied_locally": 253663,
+      "new_technical_view_observed_at": "2026-10-04T22:50:05.050242+08:00",
       "expert_reviews": 0,
       "qc_inclusions": 0,
       "new_classifier_fits": 0,
@@ -425,9 +425,9 @@
       "classifier_fits": 0
     },
     "author_derived_functional_prefix": {
-      "observed_at": "2026-10-04T20:54:06.130472+08:00",
-      "state_at_observation": "RUNNING",
-      "current_stage_at_observation": "motion_correction",
+      "observed_at": "2026-10-04T23:00:06.680677+08:00",
+      "state_at_observation": "COMPLETE_AUTHOR_DERIVED_FUNCTIONAL_PREFIX",
+      "current_stage_at_observation": null,
       "source_pin": "e2657e611fbae91bbc258cf8641550edcde99837",
       "source_lines": "preprocessing_cocoan_func.m:88-124",
       "commands_individually_adapted_to_current_container": true,
@@ -460,9 +460,19 @@
           "stage": "convert_float",
           "returncode": 0,
           "seconds": 196.45595169067383
+        },
+        {
+          "stage": "motion_correction",
+          "returncode": 0,
+          "seconds": 2616.052788734436
+        },
+        {
+          "stage": "motion_mean",
+          "returncode": 0,
+          "seconds": 24.332586765289307
         }
       ],
-      "motion_correction_complete": false,
+      "motion_correction_complete": true,
       "distortion_correction_complete": false,
       "anatomical_registration_complete": false,
       "final_censor_complete": false,
@@ -472,7 +482,337 @@
       "independent_clinical_validations": 0,
       "header_tr_used_to_compute_dummy_count": true,
       "previous_author_json_tr_s": 0.46,
-      "dummy_count_matches_original_author_json_rule": true
+      "dummy_count_matches_original_author_json_rule": true,
+      "motion_independent_readback": {
+        "shape": [
+          80,
+          80,
+          56,
+          1304
+        ],
+        "tr_s": 0.46000000834465027,
+        "dtype": "float32",
+        "actual_values_read": 467353600,
+        "finite_values": 467353600,
+        "value_min": 0.0,
+        "value_max": 608.6514282226562,
+        "mean_maximum_difference": 1.5235386001677398e-05,
+        "motion_parameters_shape": [
+          1304,
+          6
+        ],
+        "gzip_complete_crc_verified": true,
+        "motion_mean_technical_views_pending": false,
+        "motion_censor_complete": false,
+        "distortion_correction_complete": false,
+        "anatomical_registration_complete": false
+      },
+      "independent_nibabel_motion_mean_readback": {
+        "state": "COMPLETE_INDEPENDENT_MOTION_MEAN_READ",
+        "shape": [
+          80,
+          80,
+          56,
+          1304
+        ],
+        "dtype": "float32",
+        "actual_values_read": 467353600,
+        "finite_values": 467353600,
+        "value_min": 0.0,
+        "value_max": 608.6514282226562,
+        "saved_mean_dtype": "float32",
+        "double_mean_maximum_difference": 1.5235386001677398e-05,
+        "float32_rounded_mean_maximum_difference": 0.0,
+        "saved_mean_affine_maximum_difference": 0.0,
+        "elapsed_seconds": 18.400494813919067,
+        "expert_reviews": 0,
+        "qc_inclusions": 0,
+        "classifier_fits": 0
+      },
+      "motion_mean_technical_figures_actually_viewed": 1,
+      "motion_native_mean_planes_actually_viewed": 3,
+      "afni_oblique_warning_degrees": 19.861206,
+      "automatic_deoblique_added": false
+    },
+    "raw_bold_sample_followup_history": [
+      {
+        "observed_at": "2026-10-04T20:54:06.130472+08:00",
+        "selection_rule": "The original three first rating runs, same source order and object versions; no result-based selection.",
+        "selected_runs": 3,
+        "complete_raw_bold_runs": 2,
+        "remaining_selected_runs": 1,
+        "total_complete_compressed_bytes": 727194465,
+        "actual_values_read": 950476800,
+        "finite_values": 950476800,
+        "all_complete_bodies_match_existing_git_annex_keys": true,
+        "all_complete_gzip_streams_and_crc_verified": true,
+        "independent_nibabel_spot_points": 18,
+        "independent_spot_maximum_error": 0.0,
+        "original_acquisition_failure": "Read operation timeout; original terminal status and partial body retained.",
+        "separate_byte_range_continuation": true,
+        "second_run_resumed_from_bytes": 350224384,
+        "second_run_additional_bytes": 20579810,
+        "second_range_response_verified": true,
+        "current_acquisition_state": "RUNNING",
+        "current_acquisition_worker_live": true,
+        "remaining_body_bytes_observed": 130023424,
+        "raw_technical_figures_actually_viewed": 2,
+        "raw_native_mean_sd_planes_actually_viewed": 12,
+        "whole_mri_copied_locally": 0,
+        "new_small_evidence_bytes_copied_locally": 184856,
+        "new_technical_view_observed_at": "2026-10-04T20:54:01.903510+08:00",
+        "expert_reviews": 0,
+        "qc_inclusions": 0,
+        "new_classifier_fits": 0,
+        "independent_clinical_validations": 0,
+        "original_first_run_readback_scope_and_time_preserved": true,
+        "all_visits_acquired": false,
+        "exact_scan_dates_verified": false,
+        "final_motion_censor_acquired": false
+      }
+    ],
+    "author_derived_functional_prefix_history": [
+      {
+        "observed_at": "2026-10-04T20:54:06.130472+08:00",
+        "state_at_observation": "RUNNING",
+        "current_stage_at_observation": "motion_correction",
+        "source_pin": "e2657e611fbae91bbc258cf8641550edcde99837",
+        "source_lines": "preprocessing_cocoan_func.m:88-124",
+        "commands_individually_adapted_to_current_container": true,
+        "original_MATLAB_driver_executed": false,
+        "completed_author_workflows": 0,
+        "removed_dummy_independent_readback": {
+          "shape": [
+            80,
+            80,
+            56,
+            1304
+          ],
+          "tr_s": 0.46000000834465027,
+          "dtype": "float32",
+          "removed_frames": 22,
+          "retained_frames": 1304,
+          "actual_values_read": 467353600,
+          "finite_values": 467353600,
+          "maximum_difference_from_raw_retained_values": 0.0,
+          "affine_maximum_difference": 0.0,
+          "gzip_complete_crc_verified": true
+        },
+        "completed_command_stages": [
+          {
+            "stage": "remove_dummy",
+            "returncode": 0,
+            "seconds": 105.06601405143738
+          },
+          {
+            "stage": "convert_float",
+            "returncode": 0,
+            "seconds": 196.45595169067383
+          }
+        ],
+        "motion_correction_complete": false,
+        "distortion_correction_complete": false,
+        "anatomical_registration_complete": false,
+        "final_censor_complete": false,
+        "expert_reviews": 0,
+        "qc_inclusions": 0,
+        "classifier_fits": 0,
+        "independent_clinical_validations": 0,
+        "header_tr_used_to_compute_dummy_count": true,
+        "previous_author_json_tr_s": 0.46,
+        "dummy_count_matches_original_author_json_rule": true
+      }
+    ],
+    "author_derived_distortion_prefix": {
+      "observed_at": "2026-10-04T23:00:06.680677+08:00",
+      "state_at_observation": "COMPLETE_AUTHOR_DERIVED_DISTORTION_PREFIX",
+      "current_stage_at_observation": null,
+      "worker_live_at_observation": false,
+      "source_pin": "e2657e611fbae91bbc258cf8641550edcde99837",
+      "source_lines": "preprocessing_cocoan_func.m:126-204",
+      "commands_individually_adapted_to_current_container": true,
+      "original_MATLAB_driver_executed": false,
+      "acquisition_parameters": {
+        "directions": [
+          "j-",
+          "j"
+        ],
+        "rows": [
+          [
+            0,
+            -1,
+            0,
+            0.0387103
+          ],
+          [
+            0,
+            -1,
+            0,
+            0.0387103
+          ],
+          [
+            0,
+            1,
+            0,
+            0.0387103
+          ],
+          [
+            0,
+            1,
+            0,
+            0.0387103
+          ]
+        ],
+        "selected_bold_direction": "j-",
+        "inindex": 1,
+        "source_volinfo": [
+          [
+            80,
+            80,
+            56,
+            2
+          ],
+          [
+            80,
+            80,
+            56,
+            2
+          ]
+        ]
+      },
+      "completed_command_stages": [
+        {
+          "stage": "merge_fieldmaps",
+          "returncode": 0,
+          "seconds": 1.90008544921875
+        },
+        {
+          "stage": "fieldmap_float",
+          "returncode": 0,
+          "seconds": 1.6662960052490234
+        },
+        {
+          "stage": "fieldmap_to_motion_mean",
+          "returncode": 0,
+          "seconds": 7.0800862312316895
+        },
+        {
+          "stage": "apply_fieldmap_linear_transform",
+          "returncode": 0,
+          "seconds": 2.210371732711792
+        },
+        {
+          "stage": "clamp_fieldmap_nonnegative",
+          "returncode": 0,
+          "seconds": 1.2324845790863037
+        },
+        {
+          "stage": "topup",
+          "returncode": 0,
+          "seconds": 338.01055216789246
+        },
+        {
+          "stage": "applytopup",
+          "returncode": 0,
+          "seconds": 731.6928336620331
+        },
+        {
+          "stage": "clamp_corrected_bold_nonnegative",
+          "returncode": 0,
+          "seconds": 203.2584228515625
+        },
+        {
+          "stage": "corrected_bold_mean",
+          "returncode": 0,
+          "seconds": 22.855724096298218
+        }
+      ],
+      "merged_fieldmap_readback": {
+        "shape": [
+          80,
+          80,
+          56,
+          4
+        ],
+        "actual_values_read": 1433600,
+        "finite_values": 1433600,
+        "value_min": 0.0,
+        "value_max": 4095.0
+      },
+      "coregistered_fieldmap_readback": {
+        "shape": [
+          80,
+          80,
+          56,
+          4
+        ],
+        "actual_values_read": 1433600,
+        "finite_values": 1433600,
+        "value_min": 0.0,
+        "value_max": 4128.73388671875
+      },
+      "topup_fieldmap_readback": {
+        "shape": [
+          80,
+          80,
+          56,
+          4
+        ],
+        "actual_values_read": 1433600,
+        "finite_values": 1433600,
+        "value_min": -141.29396057128906,
+        "value_max": 1151.9498291015625
+      },
+      "config_used": "b02b0.cnf; all three spatial dimensions divisible by 2, matching the author rule.",
+      "flirt_estimation_first_volume_warning_retained": true,
+      "linear_transform_application_preserved_all_four_volumes": true,
+      "distortion_correction_complete": true,
+      "completed_author_workflows": 0,
+      "anatomical_registration_complete": false,
+      "final_censor_complete": false,
+      "expert_reviews": 0,
+      "qc_inclusions": 0,
+      "classifier_fits": 0,
+      "independent_clinical_validations": 0,
+      "corrected_bold_readback": {
+        "shape": [
+          80,
+          80,
+          56,
+          1304
+        ],
+        "actual_values_read": 467353600,
+        "finite_values": 467353600,
+        "value_min": 0.0,
+        "value_max": 528.9041137695312,
+        "mean_maximum_difference": 1.52587890625e-05,
+        "float32_rounded_mean_maximum_difference": 0.0,
+        "distortion_command_sequence_complete": true,
+        "expert_alignment_confirmation": false,
+        "actual_final_censor_acquired": false
+      },
+      "technical_view": {
+        "recorded_after_actual_view_at": "2026-10-04T23:01:40.347617+08:00",
+        "native_corrected_mean_planes_actually_viewed": 3,
+        "technical_figures_actually_viewed": 1,
+        "observations": "Central brain signal visible in the three native middle planes. This is a technical view of the saved mean, not expert alignment confirmation or complete coverage proof.",
+        "expert_reviews": 0,
+        "qc_inclusions": 0
+      }
+    },
+    "remaining_selected_author_prefixes": {
+      "observed_at": "2026-10-04T23:00:06.680677+08:00",
+      "state_at_observation": "RUNNING",
+      "worker_live_at_observation": true,
+      "selection": "Original selected samples 2 then 3; same command sequence and versions, no added visits.",
+      "completed_functional_prefixes": 0,
+      "completed_distortion_prefixes": 0,
+      "current_stage_at_observation": "functional-prefix",
+      "completed_author_workflows": 0,
+      "expert_reviews": 0,
+      "qc_inclusions": 0,
+      "classifier_fits": 0,
+      "whole_mri_copied_locally": 0
     }
   },
   "low_back_pain": {
@@ -497,5 +837,9 @@
   "timing_reconstruction_observed_at": "2026-10-04T14:15:17.382639+08:00",
   "source_versions_observed_at": "2026-10-04T14:52:50.269444+08:00",
   "raw_mri_observed_at": "2026-10-04T16:05:28.365879+08:00",
-  "raw_mri_followup_observed_at": "2026-10-04T20:54:06.130472+08:00"
+  "raw_mri_followup_observed_at": "2026-10-04T23:00:06.680677+08:00",
+  "current_processing_observed_at": "2026-10-04T23:00:06.680677+08:00",
+  "current_processing_title": "DEIPP：3份BOLD读完；首样本头动与畸变校正已读回",
+  "current_processing_summary": "截至23:00，原选定3份BOLD均已完整读完，共1,131,927,149压缩字节、1,425,715,200个数值，全部有限；原Git-annex身份、压缩流CRC与27个独立抽样点均通过，抽样误差0。3张原始均值/标准差面板共18个中间切面已技术查看，完整MRI本机复制0。首样本去掉22帧后保留1304帧，头动校正完成，467,353,600个数值及1304×6个运动参数均有限；独立均值按保存精度舍入后误差0、坐标矩阵差0，3个头动均值切面已查看。首样本畸变校正也已完成，校正后1304帧、467,353,600个数值均有限；另两份沿原顺序接续处理。",
+  "current_processing_boundary": "完成的是原3人各一份运行的读取，以及首样本的部分功能处理。原MATLAB驱动和完整作者流程未执行；实际软件版本与作者说明存在差异。首样本约19.86度倾斜角警告保留，数值有限和技术查看均不证明配准质量。FreeSurfer许可仍缺，结构处理完成0；所选评分运行后续还需要同访视静息参考、结构配准、作者模板及其余依赖、最终删帧和准确扫描日期。专家确认、QC纳入、临床拟合及独立验证均0，重复访视不能充当独立患者。原首份BOLD、20:54两份BOLD、27对象与5/9/12份配套输入均保留原时点。"
 }

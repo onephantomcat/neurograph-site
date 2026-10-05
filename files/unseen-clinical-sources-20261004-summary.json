@@ -930,6 +930,63 @@
       "classifier_fits": 0,
       "independent_clinical_validations": 0,
       "prior_results_and_failures_preserved": true
+    },
+    "brain_extraction_mask_encoding_review": {
+      "observed_at": "2026-10-05T18:40:23.661271+08:00",
+      "title": "DEIPP：首份脑提取完成，掩膜编码差异已核对",
+      "summary": "10月5日，首份结构影像脑提取的4条命令均正常退出。独立读取5份320×320×320数组，共163,840,000有限值；原0/1掩膜转换为0/255，原值比较最大差254，但3,984,272个保留体素的支持区域差0，保存的遮罩T1及两份脑掩膜复制结果逐点差0。9个原生中央技术切面已实际查看。",
+      "boundary": "原逐值相等断言因此失败，失败原件保留；新复核按实际编码同时核对支持区域、255倍编码关系、空间坐标和遮罩结果，没有重做或改写科学输出。公开OASIS对象与作者实际模板字节身份仍未确认，软件版本适配保持。脑提取阶段完成不代表完整作者流程或专家质量通过；专家确认、QC纳入、临床拟合和独立验证均0。准确日期、身份访视临床真值和未开发验证仍待完成。",
+      "selected_original_structural_inputs": 1,
+      "new_people": 0,
+      "completed_brain_extraction_stages": 1,
+      "brain_extraction_commands_completed": 4,
+      "brain_extraction_commands_returncodes": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "independently_read_arrays": 5,
+      "shape_per_array": [
+        320,
+        320,
+        320
+      ],
+      "total_finite_values": 163840000,
+      "original_mask_values": [
+        0,
+        1
+      ],
+      "converted_mask_values": [
+        0,
+        255
+      ],
+      "mask_raw_numeric_maximum_difference": 254,
+      "mask_scaled_encoding_maximum_difference": 0,
+      "mask_support_mismatched_voxels": 0,
+      "mask_nonzero_voxels": 3984272,
+      "masked_t1_maximum_difference": 0,
+      "copied_brainmask_maximum_difference": 0,
+      "affine_maximum_difference": 5.960464477539063e-08,
+      "affine_check_tolerance_mm": 0.0001,
+      "source_size_mtime_unchanged": true,
+      "original_value_equality_assertion_failed": true,
+      "prior_failure_preserved": true,
+      "scientific_outputs_changed": false,
+      "native_planes_actually_viewed": 9,
+      "small_slice_files_copied_to_local": 1,
+      "small_slice_file_bytes": 215950,
+      "whole_mri_copies_to_local": 0,
+      "exact_template_byte_identity_to_deipp_author_unverified": true,
+      "software_version_adaptation": true,
+      "actual_freesurfer_version": "7.3.2",
+      "author_freesurfer_version": "7.2",
+      "completed_author_workflows": 0,
+      "expert_reviews": 0,
+      "qc_inclusions": 0,
+      "classifier_fits": 0,
+      "independent_clinical_validations": 0,
+      "prior_results_and_failures_preserved": true
     }
   },
   "low_back_pain": {
@@ -955,8 +1012,8 @@
   "source_versions_observed_at": "2026-10-04T14:52:50.269444+08:00",
   "raw_mri_observed_at": "2026-10-04T16:05:28.365879+08:00",
   "raw_mri_followup_observed_at": "2026-10-04T23:00:06.680677+08:00",
-  "current_processing_observed_at": "2026-10-05T18:09:18.699249+08:00",
-  "current_processing_title": "DEIPP：首份静息参考已读回，OASIS输入已核查",
-  "current_processing_summary": "10月5日，原三人同访视静息参考沿原身份和ses-01选取，本轮首份完整取得355,989,294压缩字节，80×80×56×1326数组475,238,400数值全部有限，原Git-annex对象和完整gzip读取检查通过。公开OASIS三份输入已独立读回，48,273,408数值均有限，形状216×256×291和空间坐标一致；55,360,609字节原包与明确服务器版本全字节相等。首份静息6个原生切面和模板9个切面已实际技术查看。",
-  "current_processing_boundary": "这是部分作者流程的输入核查。第一份结构初始阶段已完成，后续脑提取和首份静息头动任务已启动；脑提取、功能对齐和完整作者工作流尚未完成。模板来自公开OASIS对象，尚未确认与DEIPP作者实际模板逐字节一致；FreeSurfer、AFNI等软件版本适配保持。数值有限和少量技术切面不能证明专家QC通过；专家确认、QC纳入、临床拟合和独立验证均0，准确日期与临床真值仍缺。完整MRI留在服务器，本机只接收小切面包。"
+  "current_processing_observed_at": "2026-10-05T18:40:23.661271+08:00",
+  "current_processing_title": "DEIPP：首份脑提取完成，掩膜编码差异已核对",
+  "current_processing_summary": "10月5日，首份结构影像脑提取的4条命令均正常退出。独立读取5份320×320×320数组，共163,840,000有限值；原0/1掩膜转换为0/255，原值比较最大差254，但3,984,272个保留体素的支持区域差0，保存的遮罩T1及两份脑掩膜复制结果逐点差0。9个原生中央技术切面已实际查看。",
+  "current_processing_boundary": "原逐值相等断言因此失败，失败原件保留；新复核按实际编码同时核对支持区域、255倍编码关系、空间坐标和遮罩结果，没有重做或改写科学输出。公开OASIS对象与作者实际模板字节身份仍未确认，软件版本适配保持。脑提取阶段完成不代表完整作者流程或专家质量通过；专家确认、QC纳入、临床拟合和独立验证均0。准确日期、身份访视临床真值和未开发验证仍待完成。"
 }

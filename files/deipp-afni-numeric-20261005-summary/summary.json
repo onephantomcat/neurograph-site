@@ -1,0 +1,178 @@
+{
+  "observed_at": "2026-10-05T22:21:02.350482+08:00",
+  "title": "DEIPP：AFNI带通差异已按源码正则项复核",
+  "summary": "10月5日，按AFNI26.2.09源码独立重建多项式、阻带正弦余弦、干扰去均值和删帧设计，加入源码规定的列归一化及1e-6正则项。三组既有合成输出再次独立读回，带通最大差6.970×10⁻⁵，不含带通两组最大差5.387×10⁻⁵，均满足原2×10⁻⁴界限。",
+  "boundary": "此前未正则化SVD与带通的约3.497×10⁻⁴差异保留；纠正的是核对算法，没有重跑投影、改频率/删帧或放宽界限。源码正则化产生约3.363×10⁻⁴的理想投影偏移，说明理想投影与程序实现有区别。保存文本逆矩阵逐次float回放差约5.728×10⁻⁴仍未通过，不能声称逐位一致或全部精度差异均已解释。患者投影、完整ciftify、专家确认、QC纳入、分类拟合和独立临床验证仍0。",
+  "source_tag": "AFNI_26.2.09",
+  "actual_afni_build": "AFNI_26.2.09:linux_ubuntu_16_64",
+  "author_documented_afni_version": "23.0",
+  "software_version_adaptation": true,
+  "previous_unregularized_svd_bandpass_max_difference": 0.0003496953352737364,
+  "previous_source_frequency_design_bandpass_max_difference": 0.0003518941584275126,
+  "source_defined_regularization_factor": 1e-06,
+  "synthetic_regression_check_limit": 0.0002,
+  "source_stopband_index_bounds": [
+    [
+      0,
+      1
+    ],
+    [
+      12,
+      60
+    ]
+  ],
+  "independent_source_reconstruction": {
+    "state": "INDEPENDENT_SOURCE_RECONSTRUCTION_AND_SAVED_OUTPUT_CHECK_PASS",
+    "source_tag": "AFNI_26.2.09",
+    "source_stopband_index_bounds": [
+      [
+        0,
+        1
+      ],
+      [
+        12,
+        60
+      ]
+    ],
+    "source_defined_regularization_factor": 1e-06,
+    "used_saved_regressor_design_as_oracle": false,
+    "used_saved_pseudoinverse_as_oracle": false,
+    "source_and_output_size_mtime_preserved": true,
+    "rows": [
+      {
+        "mode": "KILL",
+        "source_reconstructed_design_shape": [
+          114,
+          3
+        ],
+        "source_design_vs_saved_text_max_difference": 4.920845031675114e-06,
+        "source_regularized_projection_max_difference": 5.387361937503332e-05,
+        "unchanged_original_check_limit": 0.0002,
+        "source_defined_check_passed": true
+      },
+      {
+        "mode": "ZERO",
+        "source_reconstructed_design_shape": [
+          114,
+          3
+        ],
+        "source_design_vs_saved_text_max_difference": 4.920845031675114e-06,
+        "source_regularized_projection_max_difference": 5.387361937503332e-05,
+        "unchanged_original_check_limit": 0.0002,
+        "source_defined_check_passed": true
+      },
+      {
+        "mode": "bandpass_KILL",
+        "source_reconstructed_design_shape": [
+          114,
+          102
+        ],
+        "source_design_vs_saved_text_max_difference": 4.920845031675114e-06,
+        "source_regularized_projection_max_difference": 6.970186700161474e-05,
+        "unchanged_original_check_limit": 0.0002,
+        "source_defined_check_passed": true
+      }
+    ],
+    "patient_workflows": 0,
+    "expert_reviews": 0,
+    "qc_inclusions": 0,
+    "classifier_fits": 0
+  },
+  "local_saved_design_algorithm_diagnostic": {
+    "state": "PINNED_SOURCE_REGULARIZATION_AND_FLOAT_DIAGNOSTIC_EXECUTED",
+    "observed_at": "2026-10-05T22:14:28.485896+08:00",
+    "source_tag": "AFNI_26.2.09",
+    "source_and_output_size_mtime_preserved": true,
+    "source_formula": "Column-normalized SVD, d/(d*d+1e-6*dmax*dmax), rescale pseudo-inverse rows, float coefficients/subtractions and final mean removal.",
+    "rows": [
+      {
+        "mode": "KILL",
+        "design_shape": [
+          114,
+          3
+        ],
+        "scaled_design_singular_range": [
+          0.9769399405506014,
+          1.0283507972576735
+        ],
+        "source_defined_regularization_factor": 1e-06,
+        "source_defined_regularization_delta": 1.0575053622204928e-06,
+        "ideal_unregularized_svd_max_difference": 5.390955450934598e-05,
+        "source_regularized_double_max_difference": 5.525207651391195e-05,
+        "source_regularized_float_sequence_max_difference": 7.110834121704102e-05,
+        "saved_pseudoinverse_float_sequence_max_difference": 0.00010097026824951172,
+        "saved_pseudoinverse_vs_independent_regularized_max_difference": 1.0932220592674291e-07,
+        "regularization_change_from_ideal_max_difference": 1.490217140109884e-05,
+        "unchanged_original_check_limit": 0.0002,
+        "source_regularized_check_passed": true
+      },
+      {
+        "mode": "ZERO",
+        "design_shape": [
+          114,
+          3
+        ],
+        "scaled_design_singular_range": [
+          0.9769399405506014,
+          1.0283507972576735
+        ],
+        "source_defined_regularization_factor": 1e-06,
+        "source_defined_regularization_delta": 1.0575053622204928e-06,
+        "ideal_unregularized_svd_max_difference": 5.390955450934598e-05,
+        "source_regularized_double_max_difference": 5.525207651391195e-05,
+        "source_regularized_float_sequence_max_difference": 7.110834121704102e-05,
+        "saved_pseudoinverse_float_sequence_max_difference": 0.00010097026824951172,
+        "saved_pseudoinverse_vs_independent_regularized_max_difference": 1.0932220592674291e-07,
+        "regularization_change_from_ideal_max_difference": 1.490217140109884e-05,
+        "unchanged_original_check_limit": 0.0002,
+        "source_regularized_check_passed": true
+      },
+      {
+        "mode": "bandpass_KILL",
+        "design_shape": [
+          114,
+          102
+        ],
+        "scaled_design_singular_range": [
+          0.22474870637481845,
+          1.3683206084940807
+        ],
+        "source_defined_regularization_factor": 1e-06,
+        "source_defined_regularization_delta": 1.8723012876296112e-06,
+        "ideal_unregularized_svd_max_difference": 0.00034969533530215813,
+        "source_regularized_double_max_difference": 7.005378160829245e-05,
+        "source_regularized_float_sequence_max_difference": 0.00011442601680755615,
+        "saved_pseudoinverse_float_sequence_max_difference": 0.0005728006362915039,
+        "saved_pseudoinverse_vs_independent_regularized_max_difference": 4.637785598338162e-07,
+        "regularization_change_from_ideal_max_difference": 0.0003362909921256138,
+        "unchanged_original_check_limit": 0.0002,
+        "source_regularized_check_passed": true
+      }
+    ],
+    "original_svd_failures_preserved": true,
+    "patient_parameters_changed": false,
+    "patient_workflows": 0,
+    "expert_reviews": 0,
+    "qc_inclusions": 0,
+    "classifier_fits": 0
+  },
+  "source_algorithm_bandpass_check_passed": true,
+  "source_regularization_difference_verified_at_original_limit": true,
+  "bitwise_equivalence_verified": false,
+  "saved_text_pseudoinverse_float_replay_check_passed": false,
+  "all_precision_discrepancies_explained": false,
+  "synthetic_saved_values": 22272,
+  "synthetic_runs": 3,
+  "new_projection_runs": 0,
+  "source_and_output_size_mtime_preserved": true,
+  "scientific_input_parameters_changed": false,
+  "check_limit_changed": false,
+  "full_patient_workflows": 0,
+  "complete_patient_ciftify_workflows": 0,
+  "expert_reviews": 0,
+  "qc_inclusions": 0,
+  "classifier_fits": 0,
+  "independent_clinical_validations": 0,
+  "whole_mri_copies_to_local": 0,
+  "shared_environment_modified": false
+}

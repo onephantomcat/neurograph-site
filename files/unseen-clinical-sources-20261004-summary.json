@@ -1261,6 +1261,142 @@
       "qc_inclusions": 0,
       "classifier_fits": 0,
       "independent_clinical_validations": 0
+    },
+    "isolated_afni_projection_dependency": {
+      "observed_at": "2026-10-05T21:42:16.563857+08:00",
+      "title": "DEIPP：AFNI投影工具已运行，带通数值差异待核查",
+      "summary": "10月5日，在服务器原生文件系统的独立目录配置官方AFNI26.2.09投影工具和同发行共享库。三组合成投影均退出0，外部进程完整读回22,272个保存值，全部有限；KILL删6帧后保留114帧，ZERO保留120帧并将指定6帧置零，掩膜外和空间坐标检查通过。",
+      "boundary": "合成去趋势及干扰回归与独立SVD的最大差约5.172×10⁻⁵，满足运行前2×10⁻⁴检查界限。带通输出与保存设计复算差约3.497×10⁻⁴，按官方源码频率索引重建差约3.519×10⁻⁴，均未满足同一界限，原因尚未确认。原权限失败和各数值失败保留，未改科学参数或放宽界限。没有执行患者投影，完整患者ciftify、专家确认、QC纳入、临床拟合及独立验证仍0。",
+      "actual_afni_build": "AFNI_26.2.09:linux_ubuntu_16_64",
+      "author_documented_afni_version": "23.0",
+      "software_version_adaptation": true,
+      "official_binary_bytes": 118248,
+      "matching_shared_library_bytes": [
+        8904224,
+        121400
+      ],
+      "initial_direct_execution_returncode": 255,
+      "initial_execution_mode": "0600",
+      "initial_failed_root_preserved": true,
+      "recovery_direct_help_returncode": 0,
+      "new_native_execution_mode": "0755",
+      "scientific_input_parameters_changed": false,
+      "synthetic_runs": 3,
+      "synthetic_input_shape": [
+        4,
+        4,
+        4,
+        120
+      ],
+      "masked_voxels": 32,
+      "censored_timepoints": 6,
+      "synthetic_regression_check_limit": 0.0002,
+      "synthetic_saved_values": 22272,
+      "synthetic_saved_finite_values": 22272,
+      "independent_saved_array_readback": true,
+      "synthetic_checks": [
+        {
+          "mode": "KILL",
+          "shape": [
+            4,
+            4,
+            4,
+            114
+          ],
+          "saved_values": 7296,
+          "finite_values": 7296,
+          "outside_mask_maximum": 0.0,
+          "affine_difference": 0.0,
+          "independent_svd_projection_maximum_difference": 5.1719675127515075e-05
+        },
+        {
+          "mode": "ZERO",
+          "shape": [
+            4,
+            4,
+            4,
+            120
+          ],
+          "saved_values": 7680,
+          "finite_values": 7680,
+          "outside_mask_maximum": 0.0,
+          "affine_difference": 0.0,
+          "independent_svd_projection_maximum_difference": 5.1719675127515075e-05
+        },
+        {
+          "mode": "bandpass_KILL",
+          "shape": [
+            4,
+            4,
+            4,
+            114
+          ],
+          "saved_values": 7296,
+          "finite_values": 7296,
+          "outside_mask_maximum": 0.0,
+          "affine_difference": 0.0,
+          "saved_design_shape": [
+            114,
+            102
+          ],
+          "saved_design_rank": 102,
+          "independent_svd_saved_design_projection_maximum_difference": 0.0003496953352737364,
+          "saved_design_numerical_check_passed": false,
+          "saved_design_leading_singular_values": [
+            10.854583310090023,
+            10.75624526438246,
+            9.490440770690952,
+            8.35764605296351,
+            7.7460170018507055
+          ],
+          "saved_design_trailing_singular_values": [
+            3.270246942349214,
+            3.052049368875707,
+            2.882518076810253,
+            2.536128240576351,
+            1.5917994170185272
+          ],
+          "source_defined_stopband_index_bounds": [
+            [
+              0,
+              1
+            ],
+            [
+              12,
+              60
+            ]
+          ],
+          "independent_fourier_design_shape": [
+            114,
+            102
+          ],
+          "independent_fourier_rank": 102,
+          "independent_fourier_projection_maximum_difference": 0.0003518941584275126,
+          "independent_fourier_equivalence": false
+        }
+      ],
+      "source_defined_frequency_index_bounds": [
+        [
+          0,
+          1
+        ],
+        [
+          12,
+          60
+        ]
+      ],
+      "bandpass_independent_check_passed": false,
+      "bandpass_discrepancy_explanation_verified": false,
+      "prior_naive_frequency_design_difference": 0.5413812991242679,
+      "source_and_output_size_mtime_preserved": true,
+      "full_patient_workflows": 0,
+      "complete_patient_ciftify_workflows": 0,
+      "expert_reviews": 0,
+      "qc_inclusions": 0,
+      "classifier_fits": 0,
+      "independent_clinical_validations": 0,
+      "whole_mri_copies_to_local": 0,
+      "shared_environment_modified": false
     }
   },
   "low_back_pain": {
@@ -1286,8 +1422,8 @@
   "source_versions_observed_at": "2026-10-04T14:52:50.269444+08:00",
   "raw_mri_observed_at": "2026-10-04T16:05:28.365879+08:00",
   "raw_mri_followup_observed_at": "2026-10-04T23:00:06.680677+08:00",
-  "current_processing_observed_at": "2026-10-05T20:55:52.332605+08:00",
-  "current_processing_title": "DEIPP：三条T2转换命令完成，强度缩放已核对",
-  "current_processing_summary": "10月5日，只读绑定官方FSL标准资源后，T1转换、方向重排和T2最近邻重采样三条实际命令均退出0。独立完整读回两份320³保存数组，共65,536,000个有限值；按FreeSurfer7.3.2源码复算uint8缩放、舍入与截断，固定27个位置差值均0，六个中央面板已技术查看。",
-  "current_processing_boundary": "原浮点T2转成uint8后会改变强度，之前原值对照最大差67.00032043457031及失败输出仍保留。新差值0只核对源码规定的转换期望和27个固定位置；没有证明原强度保持、整幅数值逐值等价或T2解剖配准。完整患者ciftify、T2标准空间warp、专家确认、QC纳入、临床拟合及独立验证仍0。"
+  "current_processing_observed_at": "2026-10-05T21:42:16.563857+08:00",
+  "current_processing_title": "DEIPP：AFNI投影工具已运行，带通数值差异待核查",
+  "current_processing_summary": "10月5日，在服务器原生文件系统的独立目录配置官方AFNI26.2.09投影工具和同发行共享库。三组合成投影均退出0，外部进程完整读回22,272个保存值，全部有限；KILL删6帧后保留114帧，ZERO保留120帧并将指定6帧置零，掩膜外和空间坐标检查通过。",
+  "current_processing_boundary": "合成去趋势及干扰回归与独立SVD的最大差约5.172×10⁻⁵，满足运行前2×10⁻⁴检查界限。带通输出与保存设计复算差约3.497×10⁻⁴，按官方源码频率索引重建差约3.519×10⁻⁴，均未满足同一界限，原因尚未确认。原权限失败和各数值失败保留，未改科学参数或放宽界限。没有执行患者投影，完整患者ciftify、专家确认、QC纳入、临床拟合及独立验证仍0。"
 }

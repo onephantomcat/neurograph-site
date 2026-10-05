@@ -1,0 +1,97 @@
+{
+  "id": "migraine-input-view-20261005",
+  "observed_at": "2026-10-05T13:41:12.087860+08:00",
+  "technical_view_recorded_at": "2026-10-05T14:11:31.548821+08:00",
+  "candidate_people": 132,
+  "numeric_review_people": 88,
+  "technical_view_people": 88,
+  "new_technical_view_pending": false,
+  "complete_new_plates_viewed": 30,
+  "original_new_figures_covered": 120,
+  "model_grid_planes": 264,
+  "native_people": 84,
+  "native_positions": 1008,
+  "source_and_filtered_planes": 504,
+  "new_expert_attention_people": 9,
+  "total_expert_attention_people": 15,
+  "view_method": "Complete originals pasted without cropping/resampling; descriptive display scaling. Not expert anatomical review.",
+  "geometry": {
+    "spatial_adapter_version": 2,
+    "physical_model_grid_vox_mm": 2.5,
+    "model_spatial_shape": [
+      96,
+      96,
+      96
+    ],
+    "whole_source_standard_space_fov_retained": true,
+    "mask_voxel_counts_change_from_resampling": true,
+    "author_tensor_only_identity_header_vox_mm": 2.0,
+    "author_spatial_stage_identity_proxy_explicit": true,
+    "people": 88,
+    "current_vectors": 176,
+    "current_encoder_calls": 6688,
+    "persistent_window_vectors_replayed": 6688,
+    "window_reconstruction_max_error": 0.0,
+    "manual_spatial_interpolation_max_error": 6.103515625e-05,
+    "quantization_audits_pass": 88,
+    "legacy_crop_people": 3,
+    "legacy_crop_vectors": 6,
+    "legacy_encoder_calls": 228,
+    "crop_failure_people": 1,
+    "crop_failure_mask_voxels_outside": 39,
+    "first_geometry_author_spatial_quantization_failure_retained": true,
+    "classifier_fits": 0,
+    "qc_inclusions": 0,
+    "expert_reviews": 0
+  },
+  "tissue_mean_recompute": {
+    "people": 88,
+    "tissues_per_person": 2,
+    "timepoints_per_tissue": 300,
+    "independent_mean_max_error": 0.0,
+    "source_t1_linear_mapping_max_error": 5.9138983932172096e-08,
+    "threshold_mask_different_voxels": 0,
+    "threshold_strictly_greater_than": 0.99,
+    "wm_csf_last_two_design_columns": true,
+    "compiled_source_revision_not_inferred": true,
+    "classifier_fits": 0,
+    "qc_inclusions": 0,
+    "expert_reviews": 0
+  },
+  "actual_small_feature_readback": {
+    "state": "LOCAL_FEATURE_BYTES_READ_BACK_MATCH_SERVER",
+    "files": 264,
+    "bytes": 13901159,
+    "people": 88,
+    "large_images_copied": 0,
+    "classifier_fits": 0,
+    "qc_inclusions": 0
+  },
+  "actual_local_feature_load": {
+    "state": "ACTUAL_SMALL_FEATURES_LOADED_NO_MODEL_FIT",
+    "people": 88,
+    "time_series_shape": [
+      300,
+      90
+    ],
+    "representation_shape": [
+      88,
+      288
+    ],
+    "covariate_columns": [
+      "sex_male",
+      "sex_missing",
+      "FD_Power_mean_mm",
+      "expanded_spike_fraction"
+    ],
+    "training_included_people": 0,
+    "classifier_fits": 0
+  },
+  "previous_independent_records_preserved": true,
+  "expert_reviews": 0,
+  "training_inclusions": 0,
+  "classifier_fits": 0,
+  "clinical_validation_complete": false,
+  "independent_h_test_established": false,
+  "summary": "10月5日完成新增30人的技术查看：30幅完整合成图覆盖120幅原图，累计88人的264个模型切面、84人的1008个原生位置及504个源/滤波切面已查看。新增9例专家注意，累计15例，涉及组织轮廓、局部低信号或边界差异；技术观察不代替专家质控。此前88人6688个保存窗口和300时间点组织均值重算误差0，264文件已实际载入本机。专家确认、训练纳入和分类拟合仍0，临床真值和H-test仍缺。"
+}

@@ -1,0 +1,69 @@
+{
+  "id": "neurostorm-checkpoint-provenance-20261004",
+  "observed_unix": 1791127540.5683386,
+  "source_read_at": "2026-10-04T23:33:11.950870+08:00",
+  "checkpoint_name": "pt_neurostorm_mae_5ds.ckpt",
+  "checkpoint_bytes": 93061240,
+  "metadata_bytes": 200359,
+  "metadata_read_scope": "ZIP data.pkl only; no tensor/storage load, torch.load or pickle callable execution",
+  "saved_fields": {
+    "dataset_name": "HCP1200,HCPA,HCPD,ABCD,UKB",
+    "seed": 1234,
+    "pretraining": true,
+    "use_mae": true,
+    "use_contrastive": false,
+    "reweighting_strategy": "hard_random",
+    "train_split": 0.8,
+    "val_split": 0.1,
+    "dataset_split_num": 1,
+    "batch_size": 16,
+    "eval_batch_size": 8,
+    "embed_dim": 36,
+    "depths": [
+      2,
+      2,
+      6,
+      2
+    ],
+    "num_heads": [
+      3,
+      6,
+      12,
+      24
+    ],
+    "img_size": [
+      96,
+      96,
+      96,
+      20
+    ],
+    "sequence_length": 20,
+    "stride_between_seq": 1,
+    "stride_within_seq": 1
+  },
+  "saved_epoch": 18,
+  "saved_parameter_count": 154,
+  "parameters_equal_prior_inspection": true,
+  "model_and_datamodule_saved_parameters_equal": true,
+  "independently_checked_scalar_fields": 12,
+  "topk_parameter_saved": false,
+  "project_name_contains_topk100": true,
+  "current_consumed_source_default_topk": 10000,
+  "original_training_topk": null,
+  "original_training_source_version": null,
+  "actual_pretraining_members": null,
+  "biological_overlap_people": null,
+  "independent_h_test_established": 0,
+  "new_forward_calls": 0,
+  "new_classifier_fits": 0,
+  "new_expert_qc": 0,
+  "new_training_inclusions": 0,
+  "official_model_revision": "90ab5a43b07c54482af900a0df31545f7c0644af",
+  "consumed_model_source_ref": "d43114c97deaf3e53ea051d2512b36ef8fcb748d",
+  "summary": "实际checkpoint保存MAE预训练、五来源、seed1234及训练/验证比例0.8/0.1，154项参数与此前检查一致。运行名含topk100，但未保存topk；当前源码默认10000，实际采样预算和人员不能由名称重建。尚需原训练源码、实际划分和逐轮训练/验证名单；个人重叠未知，H-test仍未建立。",
+  "source_links": [
+    "https://huggingface.co/zxcvb20001/NeuroSTORM/tree/90ab5a43b07c54482af900a0df31545f7c0644af",
+    "https://huggingface.co/zxcvb20001/NeuroSTORM/blob/90ab5a43b07c54482af900a0df31545f7c0644af/pretraining/pt_neurostorm_mae_5ds.ckpt",
+    "https://github.com/CUHK-AIM-Group/NeuroSTORM/blob/d43114c97deaf3e53ea051d2512b36ef8fcb748d/datasets/data_module.py"
+  ]
+}

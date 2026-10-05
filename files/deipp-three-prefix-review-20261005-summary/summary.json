@@ -1,0 +1,40 @@
+{
+  "observed_at": "2026-10-05T14:22:14.553595+08:00",
+  "title": "DEIPP：三份头动与畸变校正输出已独立读回",
+  "summary": "10月5日独立复核原第二、第三份保存输出，头动和畸变校正共4个数组、1,869,414,400个数值全部有限；各保留1304帧，保存均值按float32精度重算后差值0，坐标矩阵差0，运动参数均有限。新增12个原生中间切面已实际查看。连同此前首份，原选定3份运行的两个处理阶段均已数值读回；每阶段累计1,402,060,800个有限值。完整MRI仍留在服务器。",
+  "boundary": "这是部分功能预处理输出检查。三份原AFNI倾斜角警告约19.86°—27.63°均保留，数值有限和技术查看不能证明配准质量。FreeSurfer许可仍缺，结构处理完成0；同访视静息参考、作者模板对象对应、最终删帧、准确日期和完整作者流程仍待完成。专家确认、QC纳入、临床拟合和独立验证均0；未增加患者、运行或训练。",
+  "selected_original_runs": 3,
+  "newly_independently_reviewed_runs": 2,
+  "new_saved_arrays_read": 4,
+  "new_finite_values_read": 1869414400,
+  "retained_frames_per_run": 1304,
+  "shape_per_saved_array": [
+    80,
+    80,
+    56,
+    1304
+  ],
+  "cumulative_motion_arrays_independently_read": 3,
+  "cumulative_distortion_arrays_independently_read": 3,
+  "cumulative_finite_values_per_stage": 1402060800,
+  "saved_float32_mean_maximum_difference": 0,
+  "saved_mean_affine_maximum_difference": 0,
+  "new_motion_parameter_tables": 2,
+  "motion_parameters_per_table": [
+    1304,
+    6
+  ],
+  "new_motion_parameter_finite_values": 15648,
+  "new_native_midpoint_planes_actually_viewed": 12,
+  "oblique_warning_minimum_degrees": 19.861206,
+  "oblique_warning_maximum_degrees": 27.632694,
+  "whole_mri_copies_to_local": 0,
+  "completed_author_workflows": 0,
+  "completed_structural_runs": 0,
+  "expert_reviews": 0,
+  "qc_inclusions": 0,
+  "classifier_fits": 0,
+  "independent_clinical_validations": 0,
+  "license_available": false,
+  "prior_failure_and_history_preserved": true
+}

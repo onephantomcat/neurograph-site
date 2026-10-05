@@ -1,0 +1,87 @@
+{
+  "id": "migraine-input-information-20261005",
+  "input_observed_at": "2026-10-05T13:41:12.087860+08:00",
+  "computed_at": "2026-10-05T14:24:22.049648+08:00",
+  "people": 88,
+  "temporal": {
+    "state": "ACTUAL_TEMPORAL_BURDEN_AUDIT_COMPLETE",
+    "people": 88,
+    "frames_per_person": 300,
+    "original_design_ranks_recomputed": 88,
+    "saved_design_audits_all_match": true,
+    "residual_dof_min": 2,
+    "residual_dof_max": 272,
+    "residual_dof_median": 256.0,
+    "residual_dof_quartiles": [
+      225.0,
+      268.0
+    ],
+    "first_two_singular_energy_fraction_range": [
+      0.28403811092155046,
+      0.9999999999999103
+    ],
+    "first_two_singular_energy_fraction_median": 0.40854990352951537,
+    "physical_timepoints_deleted": 0,
+    "new_classifier_fits": 0,
+    "new_qc_inclusions": 0,
+    "expert_reviews": 0,
+    "input_transformations_changed": false,
+    "new_quality_threshold_or_exclusion": false,
+    "scope": "88 numerically and technically reviewed candidate inputs at the original 2026-10-05 13:41 input cutoff; no diagnostic scores or label-based selection.",
+    "boundary": "Nuisance residual DOF and descriptive FC singular energy are not effective independent sample size or clinical validation."
+  },
+  "covariance": {
+    "state": "ACTUAL_INDIVIDUAL_FC_COVARIANCES_CHECKED_NO_CLASSIFIER",
+    "observed_at": "2026-10-05T14:24:22.049648+08:00",
+    "input_review_cutoff": "2026-10-05T13:41:12.087860+08:00",
+    "people": 88,
+    "matrices": 88,
+    "regions": 90,
+    "timepoints": 300,
+    "fixed_estimator": "Nilearn default LedoitWolf(store_precision=False), directly fitted to unchanged series.",
+    "installed_versions": {
+      "nilearn": "0.13.1",
+      "sklearn": "1.8.0",
+      "numpy": "2.3.2"
+    },
+    "shrinkage_range": [
+      0.015284792520105839,
+      0.10647506266832352
+    ],
+    "covariance_condition_number_range": [
+      139.5451261098009,
+      3322.651657082847
+    ],
+    "all_covariances_positive_definite": true,
+    "all_matrix_log_eigenvalues_finite": true,
+    "independent_scalar_moment_relative_max_error": 6.909160848176614e-07,
+    "cholesky_relative_max_error": 8.819388496961665e-16,
+    "warnings": 0,
+    "actual_seconds": 1.1707634000003964,
+    "selection_rule": "All eighty-eight numerically and technically reviewed people in original manifest order; labels and scores not used for selection.",
+    "classifier_fits": 0,
+    "across_person_tangent_reference_fits": 0,
+    "expert_reviews": 0,
+    "qc_inclusions": 0,
+    "input_transformations_changed": false,
+    "estimator_parameters_changed": false,
+    "new_exclusion_threshold": false,
+    "boundary": "Shrinkage can make covariance matrices positive definite without restoring removed temporal information. This checks the fixed individual-covariance stage only; full 132-person common inputs and existing reviews precede the original finite classification protocol."
+  },
+  "previous_observations_preserved": {
+    "temporal_people": 47,
+    "covariance_people": 48,
+    "all_previous_case_results_equal": true,
+    "covariance_value_max_error": 0.0
+  },
+  "shareable_signal_function_execution": {
+    "people": 88,
+    "max_difference": 0.0
+  },
+  "expert_attention_people": 15,
+  "expert_reviews": 0,
+  "training_inclusions": 0,
+  "classifier_fits": 0,
+  "independent_h_test_established": false,
+  "clinical_validation_complete": false
+}

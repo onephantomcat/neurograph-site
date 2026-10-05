@@ -1575,6 +1575,59 @@
       "independent_clinical_validations": 0,
       "whole_mri_copies_to_local": 0,
       "shared_environment_modified": false
+    },
+    "three_original_rest_reference_acquisition_review": {
+      "observed_at": "2026-10-05T23:12:31.416640+08:00",
+      "title": "DEIPP：三份同访视静息参考已取得并独立读回",
+      "summary": "10月5日，原固定三人ses-01静息参考全部取得，共1,129,455,498压缩字节。另一个进程完整读取三份80×80×56×1326数组，共1,425,715,200数值，原Git-annex对象身份、gzip完整流与CRC、数值统计和源文件大小/mtime核对通过。新增两份原始均值/SD共12个固定中央切面已实际技术查看，完整MRI仍留服务器。",
+      "boundary": "完成的是原三份静息输入的取得和原始数值核对，新增参与者0。三份最终功能预处理、结构到功能配准、ciftify、删帧、专家/QC纳入及临床验证均未完成；同人同ses标签不证明准确日期或疼痛同期。原超时与断点续传、rating和结构失败及软件版本适配保留。有限数值和少量切面不能证明解剖或临床质量。",
+      "selected_original_people": 3,
+      "new_people": 0,
+      "selected_original_rest_runs": 3,
+      "complete_raw_rest_runs": 3,
+      "independently_read_raw_arrays": 3,
+      "raw_shape_per_array": [
+        80,
+        80,
+        56,
+        1326
+      ],
+      "total_original_raw_frames": 3978,
+      "total_compressed_bytes": 1129455498,
+      "total_values_read": 1425715200,
+      "total_finite_values": 1425715200,
+      "value_range": [
+        0,
+        1099
+      ],
+      "existing_git_annex_identity_verified": true,
+      "complete_gzip_stream_crc_verified": true,
+      "independent_full_read_statistics_match": true,
+      "independent_nibabel_header_tr_seconds": 0.46000000834465027,
+      "source_size_mtime_unchanged": true,
+      "download_timeout_attempts_retained": 1,
+      "existing_partial_resume_completed": true,
+      "original_acquisition_worker_restarted": false,
+      "new_raw_technical_figures": 2,
+      "new_native_mean_sd_planes_actually_viewed": 12,
+      "previous_first_raw_planes_actually_viewed": 6,
+      "total_raw_reference_planes_technically_viewed": 18,
+      "small_plane_files_copied_locally": 2,
+      "small_plane_file_bytes": 357312,
+      "whole_mri_copies_to_local": 0,
+      "exact_acquisition_date_verified": false,
+      "clinical_endpoint_alignment_verified": false,
+      "whole_dataset_acquired": false,
+      "all_visits_verified": false,
+      "full_clinical_mri_response_pairs_complete": 0,
+      "complete_anatomical_registration_workflows": 0,
+      "complete_ciftify_workflows": 0,
+      "completed_author_workflows": 0,
+      "expert_reviews": 0,
+      "qc_inclusions": 0,
+      "classifier_fits": 0,
+      "independent_clinical_validations": 0,
+      "original_failures_and_software_adaptation_preserved": true
     }
   },
   "low_back_pain": {
@@ -1600,8 +1653,8 @@
   "source_versions_observed_at": "2026-10-04T14:52:50.269444+08:00",
   "raw_mri_observed_at": "2026-10-04T16:05:28.365879+08:00",
   "raw_mri_followup_observed_at": "2026-10-04T23:00:06.680677+08:00",
-  "current_processing_observed_at": "2026-10-05T22:21:02.350482+08:00",
-  "current_processing_title": "DEIPP：AFNI带通差异已按源码正则项复核",
-  "current_processing_summary": "10月5日，按AFNI26.2.09源码独立重建多项式、阻带正弦余弦、干扰去均值和删帧设计，加入源码规定的列归一化及1e-6正则项。三组既有合成输出再次独立读回，带通最大差6.970×10⁻⁵，不含带通两组最大差5.387×10⁻⁵，均满足原2×10⁻⁴界限。",
-  "current_processing_boundary": "此前未正则化SVD与带通的约3.497×10⁻⁴差异保留；纠正的是核对算法，没有重跑投影、改频率/删帧或放宽界限。源码正则化产生约3.363×10⁻⁴的理想投影偏移，说明理想投影与程序实现有区别。保存文本逆矩阵逐次float回放差约5.728×10⁻⁴仍未通过，不能声称逐位一致或全部精度差异均已解释。患者投影、完整ciftify、专家确认、QC纳入、分类拟合和独立临床验证仍0。"
+  "current_processing_observed_at": "2026-10-05T23:12:31.416640+08:00",
+  "current_processing_title": "DEIPP：三份同访视静息参考已取得并独立读回",
+  "current_processing_summary": "10月5日，原固定三人ses-01静息参考全部取得，共1,129,455,498压缩字节。另一个进程完整读取三份80×80×56×1326数组，共1,425,715,200数值，原Git-annex对象身份、gzip完整流与CRC、数值统计和源文件大小/mtime核对通过。新增两份原始均值/SD共12个固定中央切面已实际技术查看，完整MRI仍留服务器。",
+  "current_processing_boundary": "完成的是原三份静息输入的取得和原始数值核对，新增参与者0。三份最终功能预处理、结构到功能配准、ciftify、删帧、专家/QC纳入及临床验证均未完成；同人同ses标签不证明准确日期或疼痛同期。原超时与断点续传、rating和结构失败及软件版本适配保留。有限数值和少量切面不能证明解剖或临床质量。"
 }

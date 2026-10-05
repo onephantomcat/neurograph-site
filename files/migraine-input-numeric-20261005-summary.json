@@ -1,0 +1,86 @@
+{
+  "id": "migraine-input-numeric-20261005",
+  "observed_at": "2026-10-05T13:41:12.087860+08:00",
+  "numeric_review_recorded_at": 1791179072.3600895,
+  "candidate_people": 132,
+  "previous_numeric_review_people": 58,
+  "new_numeric_review_people": 30,
+  "numeric_review_people": 88,
+  "selection": "All newly completed branches in the original candidate manifest order, with no label, rating, score or visual-quality selection.",
+  "geometry": {
+    "spatial_adapter_version": 2,
+    "physical_model_grid_vox_mm": 2.5,
+    "model_spatial_shape": [
+      96,
+      96,
+      96
+    ],
+    "whole_source_standard_space_fov_retained": true,
+    "mask_voxel_counts_change_from_resampling": true,
+    "author_tensor_only_identity_header_vox_mm": 2.0,
+    "author_spatial_stage_identity_proxy_explicit": true,
+    "people": 88,
+    "current_vectors": 176,
+    "current_encoder_calls": 6688,
+    "persistent_window_vectors_replayed": 6688,
+    "window_reconstruction_max_error": 0.0,
+    "manual_spatial_interpolation_max_error": 6.103515625e-05,
+    "quantization_audits_pass": 88,
+    "legacy_crop_people": 3,
+    "legacy_crop_vectors": 6,
+    "legacy_encoder_calls": 228,
+    "crop_failure_people": 1,
+    "crop_failure_mask_voxels_outside": 39,
+    "first_geometry_author_spatial_quantization_failure_retained": true,
+    "classifier_fits": 0,
+    "qc_inclusions": 0,
+    "expert_reviews": 0
+  },
+  "tissue_mean_recompute": {
+    "people": 88,
+    "tissue_entries": 176,
+    "timepoints_per_person": 300,
+    "independent_mean_max_error": 0.0,
+    "source_t1_linear_mapping_max_error": 5.9138983932172096e-08,
+    "threshold_mask_different_voxels": 0
+  },
+  "actual_small_feature_readback": {
+    "state": "LOCAL_FEATURE_BYTES_READ_BACK_MATCH_SERVER",
+    "files": 264,
+    "bytes": 13901159,
+    "people": 88,
+    "large_images_copied": 0,
+    "classifier_fits": 0,
+    "qc_inclusions": 0
+  },
+  "actual_local_feature_load": {
+    "state": "ACTUAL_SMALL_FEATURES_LOADED_NO_MODEL_FIT",
+    "people": 88,
+    "time_series_shape": [
+      300,
+      90
+    ],
+    "representation_shape": [
+      88,
+      288
+    ],
+    "covariate_columns": [
+      "sex_male",
+      "sex_missing",
+      "FD_Power_mean_mm",
+      "expanded_spike_fraction"
+    ],
+    "training_included_people": 0,
+    "classifier_fits": 0
+  },
+  "previous_independent_records_preserved": true,
+  "technical_view_people": 58,
+  "new_technical_view_pending": true,
+  "previously_recorded_expert_attention_people": 6,
+  "expert_reviews": 0,
+  "training_inclusions": 0,
+  "classifier_fits": 0,
+  "clinical_validation_complete": false,
+  "independent_h_test_established": false,
+  "summary": "10月5日13:41截点，按原候选顺序新增30人独立数值复核，累计88人、176个288维向量和6688个保存窗口，重组误差0。88人的WM/CSF掩膜与300时间点均值已复算，均值误差0。264个小特征文件已完整读回并在本机载入。技术查看仍为此前58人，新增技术图待查看；六例质量注意记录保留。专家确认、训练纳入与分类拟合均0，临床真值和H-test仍缺。"
+}

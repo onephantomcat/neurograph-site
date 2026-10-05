@@ -1084,6 +1084,54 @@
       "classifier_fits": 0,
       "independent_clinical_validations": 0,
       "prior_results_and_failures_preserved": true
+    },
+    "ciftify_dependency_compatibility": {
+      "observed_at": "2026-10-05T19:59:13.393294+08:00",
+      "title": "DEIPP：ciftify影像读取已兼容，作者T2流程仍未匹配",
+      "summary": "10月5日，在独立Python3.10环境中，ciftify2.3.3配合Nibabel3.2.2和NumPy1.23.5通过NIfTI、GIFTI小数组实际读取，差值均0。随包40个影像模板中，38个完整读取，共25,719,547个有限数值；另2个CIFTI-1文件的直接读取失败保留，Workbench信息读取成功。",
+      "boundary": "作者脚本要求的--T2参数在ciftify2.3.3中解析失败，其T2选择函数实际返回None；不能直接删除该参数后称作者流程通过。原Nibabel5导入失败、Nibabel4旧接口失败和本轮未匹配的T2分支均保留。小数组、模板和帮助检查只说明相应软件行为，尚未运行患者ciftify流程；专家确认、QC纳入、临床拟合和独立验证均0。",
+      "package_versions": {
+        "ciftify": "2.3.3",
+        "nibabel": "3.2.2",
+        "numpy": "1.23.5",
+        "nilearn": "0.9.2",
+        "scipy": "1.10.1",
+        "pybids": "0.16.5"
+      },
+      "python_version": "3.10.12",
+      "dependency_consistency_passed": true,
+      "actual_cli_help_returncode": 0,
+      "synthetic_io_checks": 2,
+      "synthetic_nifti_values": 24,
+      "synthetic_gifti_values": 12,
+      "synthetic_io_maximum_difference": 0,
+      "synthetic_io_is_patient_evidence": false,
+      "bundled_image_template_files": 40,
+      "fully_read_template_files": 38,
+      "fully_read_template_values": 25719547,
+      "all_fully_read_template_values_finite": true,
+      "nibabel_cifti1_read_failures": 2,
+      "workbench_information_reads": 2,
+      "workbench_information_returncodes": [
+        0,
+        0
+      ],
+      "legacy_templates_replaced": false,
+      "author_T2_flag_parse_passed": false,
+      "package_T2_selector_returns_none": true,
+      "author_exact_ciftify_version_unknown": true,
+      "author_T2_workflow_resolved": false,
+      "prior_import_and_io_failures_preserved": true,
+      "failed_environment_modified": false,
+      "shared_environment_modified": false,
+      "patient_ciftify_workflows_executed": 0,
+      "full_author_workflow_verified": false,
+      "new_people": 0,
+      "whole_mri_copies_to_local": 0,
+      "expert_reviews": 0,
+      "qc_inclusions": 0,
+      "classifier_fits": 0,
+      "independent_clinical_validations": 0
     }
   },
   "low_back_pain": {
@@ -1109,8 +1157,8 @@
   "source_versions_observed_at": "2026-10-04T14:52:50.269444+08:00",
   "raw_mri_observed_at": "2026-10-04T16:05:28.365879+08:00",
   "raw_mri_followup_observed_at": "2026-10-04T23:00:06.680677+08:00",
-  "current_processing_observed_at": "2026-10-05T19:18:53.950173+08:00",
-  "current_processing_title": "DEIPP：首份静息输出已复核，同访视跨运行矩阵已完成",
-  "current_processing_summary": "10月5日，首份静息头动与畸变校正保存输出已独立完整读取：两个80×80×56×1304数组，共934,707,200有限值；两份保存均值按float32精度重算差0，仿射差0，1304×6头动参数有限。同访视rating→rest及其逆矩阵按作者normcorr、6自由度指令完成，两侧乘积与单位矩阵最大差约4.08e-11。",
-  "current_processing_boundary": "这次完成的是首份静息功能前缀复核和跨运行矩阵计算。另保存一份变换后的rating均值用于私有技术查看，未重采样完整四维BOLD，也未完成到结构影像的配准、最终删帧或完整作者流程。实际查看两图15个展示面板，其中rest中央3切面重复显示、3面板为叠加图，合计9个不同保存数组的中央切面；不能加计更多输入或专家意见。原AFNI斜切警告、结构缺少非线性变换失败及独立恢复作业保留。专家确认、QC纳入、临床拟合和独立验证均0。"
+  "current_processing_observed_at": "2026-10-05T19:59:13.393294+08:00",
+  "current_processing_title": "DEIPP：ciftify影像读取已兼容，作者T2流程仍未匹配",
+  "current_processing_summary": "10月5日，在独立Python3.10环境中，ciftify2.3.3配合Nibabel3.2.2和NumPy1.23.5通过NIfTI、GIFTI小数组实际读取，差值均0。随包40个影像模板中，38个完整读取，共25,719,547个有限数值；另2个CIFTI-1文件的直接读取失败保留，Workbench信息读取成功。",
+  "current_processing_boundary": "作者脚本要求的--T2参数在ciftify2.3.3中解析失败，其T2选择函数实际返回None；不能直接删除该参数后称作者流程通过。原Nibabel5导入失败、Nibabel4旧接口失败和本轮未匹配的T2分支均保留。小数组、模板和帮助检查只说明相应软件行为，尚未运行患者ciftify流程；专家确认、QC纳入、临床拟合和独立验证均0。"
 }

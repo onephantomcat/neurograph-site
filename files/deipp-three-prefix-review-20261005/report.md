@@ -20,4 +20,4 @@
 
 取得有效FreeSurfer许可后接续结构处理；继续核对同访视静息参考、模板对象对应与其余作者依赖，再完成对齐和实际删帧。132候选与既定K5四方法540拟合方案继续，专家和临床终点缺口保留。
 
-[聚合表](../reports/deipp-three-saved-prefix-review-2026-10-05/summary.json)；[原阶段报告](UNSEEN_CLINICAL_SOURCE_AUDIT_2026-10-04.md)。
+[聚合表](https://onephantomcat.github.io/neurograph-site/files/deipp-three-prefix-review-20261005-summary/summary.json)；[原阶段报告](https://onephantomcat.github.io/neurograph-site/files/unseen-clinical-sources-20261004.md)。

@@ -1714,6 +1714,99 @@
       "official_standard_templates_fully_loaded": 6,
       "official_standard_template_finite_values": 24370983,
       "official_standard_resource_container_or_shared_environment_modified": false
+    },
+    "ciftify_discrete_label_semantics_review": {
+      "observed_at": "2026-10-06T13:57:35.518939+08:00",
+      "title": "DEIPP：旧转换丢失离散标签值，整数修复已独立核对",
+      "summary": "10月6日，完整逐值比较三个320³离散标签图，共98,304,000值。旧转换每图3,242,703体素的标签值改变，原177／190／110种标签只剩19／9／22种。另在独立目录明确使用整数输出，保留原最近邻、T1参考和Workbench标签导入；导入前后均逐值一致。独立进程再用数组置换和翻转完整读回98,304,000值，三个标签图的值和标签编号集合均与源文件一致。",
+      "boundary": "这是首份结构的离散标签转换失败与局部修复，固定参与者1、新增0；完整ciftify、标准空间与表面输出复核、结构到功能及患者流程仍未完成，专家、QC纳入、分类与临床验证均0。旧运行及其输出、失败证据保持；不能以完整命令退出0或图像有限来认定科学通过。该适配使用ciftify2.3.3、FreeSurfer7.3.2；作者ciftify版本未知，作者FreeSurfer7.2，不能称完整复现。",
+      "selected_original_people": 1,
+      "new_people": 0,
+      "label_maps": 3,
+      "shape_per_label_map": [
+        320,
+        320,
+        320
+      ],
+      "negative_total_values_compared": 98304000,
+      "old_saved_dtype": "uint8",
+      "old_all_label_semantics_preserved": false,
+      "labels": [
+        {
+          "label": "wmparc",
+          "source_unique_label_count": 177,
+          "saved_unique_label_count": 19,
+          "source_max": 5002,
+          "saved_max": 255,
+          "changed_label_voxels": 3242703,
+          "maximum_absolute_label_difference": 4747.0,
+          "corrected_saved_unique_label_count": 177,
+          "corrected_saved_max": 5002,
+          "corrected_changed_label_voxels": 0,
+          "corrected_maximum_absolute_label_difference": 0,
+          "corrected_all_label_ids_identical": true
+        },
+        {
+          "label": "aparc.a2009s+aseg",
+          "source_unique_label_count": 190,
+          "saved_unique_label_count": 9,
+          "source_max": 12175,
+          "saved_max": 255,
+          "changed_label_voxels": 3242703,
+          "maximum_absolute_label_difference": 11920.0,
+          "corrected_saved_unique_label_count": 190,
+          "corrected_saved_max": 12175,
+          "corrected_changed_label_voxels": 0,
+          "corrected_maximum_absolute_label_difference": 0,
+          "corrected_all_label_ids_identical": true
+        },
+        {
+          "label": "aparc+aseg",
+          "source_unique_label_count": 110,
+          "saved_unique_label_count": 22,
+          "source_max": 2035,
+          "saved_max": 255,
+          "changed_label_voxels": 3242703,
+          "maximum_absolute_label_difference": 1780.0,
+          "corrected_saved_unique_label_count": 110,
+          "corrected_saved_max": 2035,
+          "corrected_changed_label_voxels": 0,
+          "corrected_maximum_absolute_label_difference": 0,
+          "corrected_all_label_ids_identical": true
+        }
+      ],
+      "correction_dtype": "int32",
+      "correction_command_argument": "mri_convert -odt int -rt nearest",
+      "original_workbench_label_import_retained": true,
+      "correction_command_returncodes": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "correction_values_compared_before_import": 98304000,
+      "correction_values_compared_after_import": 98304000,
+      "independent_readback_values_compared": 98304000,
+      "independent_readback_algorithm": "Whole-array transpose and flip from affine signed permutation",
+      "independent_all_label_values_and_ids_identical": true,
+      "source_and_saved_size_mtime_unchanged": true,
+      "old_ciftify_outputs_modified": false,
+      "active_ciftify_worker_restarted": false,
+      "old_complete_command_live_at_observation": true,
+      "old_complete_command_state_at_observation": "RUNNING",
+      "old_complete_command_observed_unix": 1791266182.9143405,
+      "old_command_scientific_review_passed": false,
+      "whole_mri_copies_to_local": 0,
+      "complete_ciftify_workflows": 0,
+      "completed_author_workflows": 0,
+      "full_patient_pipeline_complete": false,
+      "expert_reviews": 0,
+      "qc_inclusions": 0,
+      "classifier_fits": 0,
+      "independent_clinical_validations": 0,
+      "original_failures_preserved": true
     }
   },
   "low_back_pain": {
@@ -1739,8 +1832,8 @@
   "source_versions_observed_at": "2026-10-04T14:52:50.269444+08:00",
   "raw_mri_observed_at": "2026-10-04T16:05:28.365879+08:00",
   "raw_mri_followup_observed_at": "2026-10-04T23:00:06.680677+08:00",
-  "current_processing_observed_at": "2026-10-06T13:34:00.374677+08:00",
-  "current_processing_title": "DEIPP：两份静息前缀与首份结构输出已独立核对",
-  "current_processing_summary": "10月6日，原第二、第三份静息头动与畸变前缀正常完成；独立进程完整读取四个80×80×56×1304输出，共1,869,414,400有限值，保存均值的float32舍入差和网格差均0。沿原参数执行两份同访视rating到静息矩阵及逆矩阵，保存均值诊断切面已查看。首份结构autorecon2/3命令正常完成，六个320³体积共196,608,000有限值、六个表面及双侧厚度已独立读取，T1/T2和表面交点中心图已查看。",
-  "current_processing_boundary": "这是固定三人中的两份功能前缀与首份结构保存输出复核，新增参与者0。全脑解剖精度、跨访视T2配准专家意见、完整ciftify、结构到功能、最终删帧及临床终点配对仍未完成；专家/QC纳入、分类和独立临床验证均0。共同网格、有限数值及可逆矩阵不能证明准确配准。FreeSurfer7.3.2对作者7.2、原功能前缀AFNI25.2.09对作者23.0及历史失败保持。"
+  "current_processing_observed_at": "2026-10-06T13:57:35.518939+08:00",
+  "current_processing_title": "DEIPP：旧转换丢失离散标签值，整数修复已独立核对",
+  "current_processing_summary": "10月6日，完整逐值比较三个320³离散标签图，共98,304,000值。旧转换每图3,242,703体素的标签值改变，原177／190／110种标签只剩19／9／22种。另在独立目录明确使用整数输出，保留原最近邻、T1参考和Workbench标签导入；导入前后均逐值一致。独立进程再用数组置换和翻转完整读回98,304,000值，三个标签图的值和标签编号集合均与源文件一致。",
+  "current_processing_boundary": "这是首份结构的离散标签转换失败与局部修复，固定参与者1、新增0；完整ciftify、标准空间与表面输出复核、结构到功能及患者流程仍未完成，专家、QC纳入、分类与临床验证均0。旧运行及其输出、失败证据保持；不能以完整命令退出0或图像有限来认定科学通过。该适配使用ciftify2.3.3、FreeSurfer7.3.2；作者ciftify版本未知，作者FreeSurfer7.2，不能称完整复现。"
 }

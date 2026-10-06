@@ -21,7 +21,7 @@ Nilearn 0.13.1、scikit-learn 1.8.0、NumPy 2.3.2。协方差实际计算约4.81
 
 全132共同输入已完成数值和技术查看；专家质量、身份/访视及真实临床条件仍待确认；满足原条件后执行原K5四方法540拟合/45训练参考。真实诊断参考、扫描同期疼痛、治疗结局、预测时已知临床参照、实际预训练成员及未开发独立H-test仍缺。论文和完整研究目标未完成。强FC既有受控/阴性证据、原20未评分、Emo13失败/窄覆盖、TN14/结构535/CLIP停止及全部失败保持。
 
-[聚合JSON](migraine-input-review132-20261006-summary.json)；[原107人复核](migraine-input-review107-20261005.md)；[有限比较方案](migraine-readiness-20261002-protocol.md)。
+[聚合JSON](../reports/migraine-input-review132-2026-10-06/summary.json)；[原107人复核](MIGRAINE_INPUT_REVIEW107_2026-10-05.md)；[有限比较方案](MIGRAINE_FINITE_PROTOCOL_2026-10-02.md)。
 
 
 <!-- migraine-fixed-k5-training-20261006 -->
@@ -91,3 +91,13 @@ Nilearn 0.13.1、scikit-learn 1.8.0、NumPy 2.3.2。协方差实际计算约4.81
 | 仅协变量 | balanced_accuracy | -0.055470 | [-0.172018, +0.063040] | 2000/0 |
 
 训练阶段已完成；保留全部五次抽样及阴性比较，不按查询成绩扩大搜索。继续现有临床功能作业与必要组织协变量、NTRP和ciftify；未开发临床终点及H-test继续补齐。原20未评分，Emo13失败及TN14/结构535/CLIP停止状态保持，总Goal继续运行。
+
+
+<!-- migraine-manuscript-training-integration-20261006 -->
+### 训练比较图与当前论文正文
+
+四方法五支持AUC、冻结相对三个参照的AUC及Brier差现在已制成同一聚合图；所有值直接来自既有固定评估，没有新增拟合或重采样。图中Brier差采用“冻结误差−参照误差”，正值较差；与前表“误差改善”正值较好的方向相反，数值符号已相应转换。
+
+![132人固定K5训练比较图](../reports/migraine-input-review132-2026-10-06/fixed-k5-training-comparison.png)
+
+[PNG](../reports/migraine-input-review132-2026-10-06/fixed-k5-training-comparison.png)、[矢量PDF](../reports/migraine-input-review132-2026-10-06/fixed-k5-training-comparison.pdf)、[SVG](../reports/migraine-input-review132-2026-10-06/fixed-k5-training-comparison.svg)。区间条件于既有头/外层及保存人员/支持编号，不含重新训练。论文主要摘要、Methods、Results与Discussion已整合真实132人训练；历史输入/失败段落保持原日期，实际新增专家报告仍0。[当前工作稿](MANUSCRIPT_WORKING_DRAFT_2026-10-02.md)。

@@ -434,5 +434,84 @@
     "qc_inclusions": 0,
     "classifier_fits": 0,
     "independent_clinical_validations": 0
+  },
+  "integer_full_and_functional_coreg_review": {
+    "observed_at": "2026-10-06T19:15:19.129797+08:00",
+    "summary": "完整整数适配命令已结束，独立读取131份数值输出，共319,005,605有限值（17体积、84份GIFTI、30份CIFTI）；另读13份参考资产8,137,574值。三个原生标签共98,304,000值与源一致，177/190/110种编号保持。新估计变换的T1/T2重放1,805,258值差0。首份静息到结构配准前缀恢复完成，8个矩阵128值有限、两次拼接独立回放；WM标签集合逐值回放32,768,000值差0。",
+    "boundary": "这是完整结构命令输出和首份功能配准前缀的技术复核。原缺模板导致矩阵导出内部失败、命令却退出0，后续求逆失败；保留原失败，补同一模板只读挂载后仅恢复失败后缀。矩阵可逆、数组有限和中央面查看均不证明MNI/MSM或功能配准解剖准确。完整功能预处理、最终删帧/组织协变量、专家/QC训练纳入、分类拟合和独立临床验证仍0；跨访视T2和作者版本差异保持。",
+    "selected_original_people": 1,
+    "new_people": 0,
+    "completed_integer_adapted_structural_commands": 1,
+    "all_saved_numeric_file_count": 131,
+    "all_saved_numeric_values_read": 319005605,
+    "volume_files_read": 17,
+    "gifti_files_read": 84,
+    "cifti_files_read": 30,
+    "surface_coordinate_values_read": 23308245,
+    "surface_triangle_index_values_read": 46389927,
+    "reference_asset_files_read": 13,
+    "reference_asset_values_read": 8137574,
+    "native_label_values_compared": 98304000,
+    "native_label_changed_values": 0,
+    "source_and_saved_label_counts": [
+      {
+        "name": "wmparc",
+        "source": 177,
+        "saved": 177
+      },
+      {
+        "name": "aparc+aseg",
+        "source": 110,
+        "saved": 110
+      },
+      {
+        "name": "aparc.a2009s+aseg",
+        "source": 190,
+        "saved": 190
+      }
+    ],
+    "native_wm_values_compared": 32768000,
+    "native_wm_changed_values": 0,
+    "native_wm_nonzero_values": 1325441,
+    "native_wm_command_final_printed_count": 1325440,
+    "native_wm_printed_count_differs_from_array_by": 1,
+    "coreg_matrices_read": 8,
+    "coreg_matrix_finite_values": 128,
+    "coreg_concat_replays": [
+      {
+        "output": "bbr.mat",
+        "maximum_difference": 1.9999987443952705e-08
+      },
+      {
+        "output": "func2fs.mat",
+        "maximum_difference": 7.105427357601002e-15
+      }
+    ],
+    "coreg_final_inverse_identity_maximum_difference": 3.9468517343266285e-10,
+    "original_coreg_failed": true,
+    "original_reorient_returncode_zero_but_missing_template_error": true,
+    "original_inverse_returncode": 254,
+    "original_successful_four_commands_not_repeated": true,
+    "resumed_suffix_commands": 7,
+    "same_official_template_mounted_read_only": true,
+    "new_saved_warp_replay_values_compared": 1805258,
+    "new_saved_warp_replay_changed_values": 0,
+    "uses_new_reestimated_warp": true,
+    "functional_saved_mean_diagnostic_values_read": 32768000,
+    "whole_4d_bold_standardized": false,
+    "whole_4d_bold_denoised": false,
+    "unique_fixed_volume_planes_actually_viewed": 15,
+    "display_panels_actually_viewed": 24,
+    "surface_fixed_triangle_plane_intersection_groups_actually_viewed": 36,
+    "small_evidence_bytes": 1523104,
+    "source_outputs_modified": false,
+    "source_size_mtime_unchanged": true,
+    "full_mri_copied_locally": 0,
+    "whole_surface_meshes_copied_locally": 0,
+    "complete_ciftify_workflows": 0,
+    "expert_reviews": 0,
+    "qc_inclusions": 0,
+    "classifier_fits": 0,
+    "independent_clinical_validations": 0
   }
 }

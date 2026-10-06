@@ -726,5 +726,81 @@
     "independent_clinical_validations": 0,
     "physical_frames_deleted": 0,
     "full_mri_copied_locally": 0
+  },
+  "fixed_ntrp_denoise_readback": {
+    "observed_at": "2026-10-06T23:35:21.173020+08:00",
+    "summary": "首份既定静息已实际执行固定NTRP去噪，原1304帧全部保留、标记0。投影和加均值两份完整4D各1,177,028,216有限值；独立回放加均值的全部1,177,028,216值与保存结果差0，独立时间均值902,629值差0。另在12个固定空间位置重建AFNI投影，比较15,648个值，最大绝对差8.887×10⁻⁴，未宣称逐值等价。",
+    "boundary": "独立投影抽样的患者误差大于先前合成检查的2×10⁻⁴，旧阈值没有放宽；这次只报告实际差异，不称全体素投影通过。AFNI日志标称1304点减1209回归量、剩余95DOF，并报告74,275个常数体素向量；未测成实际有效秩。NTRP命令保留帧数，因原标记0未验证非零标记时的插值效果。功能ciftify先后遇拼写与不存在的Settings字段两项真实失败；隔离适配仅修两个实际名称、保留原空间尺寸检查，后缀恢复正在运行。完整功能工作流、专家配准准确性及独立临床效度仍未确认，原跨访视T2与版本差异保留。",
+    "shape": [
+      91,
+      109,
+      91,
+      1304
+    ],
+    "finite_values": {
+      "projected": 1177028216,
+      "denoised": 1177028216,
+      "denoised_mean": 902629
+    },
+    "full_mean_addition": {
+      "compared_values": 1177028216,
+      "changed_values": 0,
+      "max_difference": 0.0
+    },
+    "independent_denoised_mean": {
+      "compared_values": 902629,
+      "changed_values": 0,
+      "max_difference": 0.0
+    },
+    "projection_fixed_spatial_locations": 12,
+    "projection_fixed_values_compared": 15648,
+    "projection_max_absolute_difference": 0.0008886873076758839,
+    "projection_design_shape": [
+      1304,
+      1209
+    ],
+    "projection_design_vs_saved_text_max_difference": 0.0004975585937501137,
+    "projection_stopband_index_bounds": [
+      [
+        0,
+        3
+      ],
+      [
+        60,
+        652
+      ]
+    ],
+    "projection_regularization_factor": 1e-06,
+    "projection_source_tag": "AFNI_26.2.09",
+    "projection_used_saved_design_as_oracle": false,
+    "projection_used_saved_pseudoinverse_as_oracle": false,
+    "old_synthetic_absolute_check_limit_unchanged": 0.0002,
+    "projection_patient_difference_exceeds_old_synthetic_limit": true,
+    "projection_whole_volume_equivalence_proven": false,
+    "TR_seconds": 0.46,
+    "passband_hz": [
+      0.005,
+      0.1
+    ],
+    "polort": 1,
+    "nuisance_columns": 16,
+    "retained_frames": 1304,
+    "marked_frames": 0,
+    "physical_frames_deleted": 0,
+    "logged_nominal_remaining_DOF": 95,
+    "logged_constant_voxel_vectors": 74275,
+    "original_ciftify_errors": [
+      "NameError: cifify",
+      "AttributeError: Settings.ref_vol"
+    ],
+    "original_failures_and_outputs_preserved": true,
+    "local_ciftify_adapter": "cifify.meants→ciftify.meants; settings.ref_vol.path→settings.func_ref.path; existing spatial dimension comparison preserved",
+    "functional_suffix_observed_state": "RUNNING",
+    "source_outputs_modified": false,
+    "complete_ciftify_workflows": 0,
+    "expert_accuracy_proven": false,
+    "independent_clinical_validations": 0,
+    "new_classifier_fits": 0,
+    "full_mri_copied_locally": 0
   }
 }

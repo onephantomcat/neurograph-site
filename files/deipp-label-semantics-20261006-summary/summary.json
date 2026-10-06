@@ -629,5 +629,102 @@
     "qc_inclusions": 0,
     "classifier_fits": 0,
     "independent_clinical_validations": 0
+  },
+  "full_functional_readback_and_actual_pcs": {
+    "observed_at": "2026-10-06T22:29:14.026108+08:00",
+    "summary": "首份既定静息全1304帧标准化已完成。完整读取91×109×91×1304数组，共1,177,028,216有限值；逐帧与1304个既有重采样输出比较均一致，902,629个保存均值与独立计算差0。真实WM/CSF各5个组织主成分已取得，另一算法重放最大得分差分别3.610×10⁻¹²、7.843×10⁻¹³；1304×16干扰矩阵20,864值逐值一致。",
+    "boundary": "这是同一首份临床功能输入的数值与运算复核，不证明解剖配准、专家质量或临床效度。明确使用Python/SciPy detrend后中心化/SVD版本适配，真实MATLAB toolbox pca仍缺失，不称原驱动完整复现。原跨访视T2、软件版本及历史失败保留。该临床分支完整功能ciftify与独立临床验证尚未完成；另一个132人开发队列按用户授权已训练，不与本分支实际专家证据0混写。",
+    "whole_4d_shape": [
+      91,
+      109,
+      91,
+      1304
+    ],
+    "whole_4d_finite_values": 1177028216,
+    "independently_compared_merged_frames": 1304,
+    "independently_compared_merged_values": 1177028216,
+    "merged_value_differences": 0,
+    "mean_values_compared": 902629,
+    "mean_max_difference": 0.0,
+    "WM_time_by_voxel_shape": [
+      1304,
+      11283
+    ],
+    "CSF_time_by_voxel_shape": [
+      1304,
+      243
+    ],
+    "tissue_score_shapes": [
+      [
+        1304,
+        5
+      ],
+      [
+        1304,
+        5
+      ]
+    ],
+    "actual_patient_tissue_pcs_completed": true,
+    "actual_matlab_toolbox_pca_called": false,
+    "explicit_python_svd_version_adaptation": true,
+    "independent_gram_replay": [
+      {
+        "tissue": "WM",
+        "input_shape": [
+          1304,
+          11283
+        ],
+        "score_values": 6520,
+        "coeff_values": 56415,
+        "independent_gram_score_max_difference": 3.609557097661309e-12,
+        "score_relative_max_difference": 1.9160459642408888e-14,
+        "coeff_max_difference": 2.6385144069607236e-15,
+        "latent_relative_max_difference": 6.216273849044464e-16,
+        "singular_values_top_six": [
+          3238.0874252228596,
+          1500.3700686068096,
+          1308.0185131418334,
+          1208.567817029187,
+          1176.9340687178765,
+          1102.9513779710983
+        ],
+        "top_five_distinct": true
+      },
+      {
+        "tissue": "CSF",
+        "input_shape": [
+          1304,
+          243
+        ],
+        "score_values": 6520,
+        "coeff_values": 1215,
+        "independent_gram_score_max_difference": 7.842615445952106e-13,
+        "score_relative_max_difference": 8.5207184810806e-15,
+        "coeff_max_difference": 2.5118795932144167e-15,
+        "latent_relative_max_difference": 1.7074071839936543e-15,
+        "singular_values_top_six": [
+          1102.1044773066483,
+          853.404092210871,
+          720.4477216775871,
+          651.7613240323318,
+          626.5095202962984,
+          610.9832425810603
+        ],
+        "top_five_distinct": true
+      }
+    ],
+    "nuisance_shape": [
+      1304,
+      16
+    ],
+    "nuisance_values_compared": 20864,
+    "nuisance_max_difference": 0,
+    "source_outputs_modified": false,
+    "new_people": 0,
+    "expert_accuracy_proven": false,
+    "complete_ciftify_workflows": 0,
+    "independent_clinical_validations": 0,
+    "physical_frames_deleted": 0,
+    "full_mri_copied_locally": 0
   }
 }

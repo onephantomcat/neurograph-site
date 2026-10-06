@@ -1806,7 +1806,93 @@
       "qc_inclusions": 0,
       "classifier_fits": 0,
       "independent_clinical_validations": 0,
-      "original_failures_preserved": true
+      "original_failures_preserved": true,
+      "standard_space_followup_review": {
+        "observed_at": "2026-10-06T14:24:41.966435+08:00",
+        "summary": "同一旧转换的标准空间八体积7,221,032值及两份变形场5,415,774值均完整读取且有限，网格与2mm参考一致。T1/T2按原保存变换和插值回放1,805,258值，逐值差0。把已修复整数标签送入同一旧变换后，三个标准标签图各183,823体素与旧输出不同；皮层下ROI从4种非背景编号恢复到19种，70,381体素改变。独立Python按原标签表回放902,629值全部一致；12标准中央面及6 ROI中央面实际查看。",
+        "boundary": "这是同一旧运行的保存输出检查与标签问题定位，新增人员0、重新估计配准0。当前同变换修复不证明旧变换解剖准确；旧标签错误运行仍保留，完整修复需从正确标签重建脑掩膜和配准，再检查表面及全流程。专家、QC纳入、分类和临床验证仍0；跨访视T2及软件版本差异保持。",
+        "selected_original_people": 1,
+        "new_people": 0,
+        "standard_volumes_read": 8,
+        "standard_volume_shape": [
+          91,
+          109,
+          91
+        ],
+        "standard_volume_finite_values": 7221032,
+        "standard_warps_read": 2,
+        "standard_warp_shape": [
+          91,
+          109,
+          91,
+          3
+        ],
+        "standard_warp_finite_values": 5415774,
+        "all_standard_reference_affine_differences": 0,
+        "linear_matrix_finite_values": 16,
+        "linear_matrix_determinant": 1.3758787691585568,
+        "computed_linear_inverse_identity_maximum_difference": 3.552713678800501e-15,
+        "saved_transform_replay_commands": 2,
+        "saved_transform_replay_values_compared": 1805258,
+        "saved_transform_replay_changed_values": 0,
+        "saved_transform_replay_maximum_difference": 0,
+        "retained_t1_interpolation": "trilinear",
+        "retained_t2_interpolation": "nearest",
+        "corrected_standard_label_maps": 3,
+        "corrected_standard_label_values_read": 2707887,
+        "corrected_standard_label_map_stats": [
+          {
+            "label": "wmparc",
+            "old_nonbackground_label_count": 18,
+            "corrected_nonbackground_label_count": 176,
+            "changed_from_old_voxels": 183823,
+            "workbench_import_changed_values": 0
+          },
+          {
+            "label": "aparc.a2009s+aseg",
+            "old_nonbackground_label_count": 8,
+            "corrected_nonbackground_label_count": 189,
+            "changed_from_old_voxels": 183823,
+            "workbench_import_changed_values": 0
+          },
+          {
+            "label": "aparc+aseg",
+            "old_nonbackground_label_count": 21,
+            "corrected_nonbackground_label_count": 109,
+            "changed_from_old_voxels": 183823,
+            "workbench_import_changed_values": 0
+          }
+        ],
+        "old_subcortical_nonbackground_labels": 4,
+        "corrected_subcortical_nonbackground_labels": 19,
+        "old_subcortical_nonzero_voxels": 37853,
+        "corrected_subcortical_nonzero_voxels": 32528,
+        "subcortical_changed_from_old_voxels": 70381,
+        "independent_roi_readback_values": 2707887,
+        "independent_identity_resampling_values_compared": 902629,
+        "independent_identity_resampling_changed_values": 0,
+        "independent_roi_table_replay_values_compared": 902629,
+        "independent_roi_table_replay_changed_values": 0,
+        "original_workbench_not_reinvoked_for_independent_table_replay": true,
+        "source_size_mtime_unchanged_for_standard_review_and_roi_resume": true,
+        "corrected_standard_first_attempt_failed_on_external_template_symlink": true,
+        "missing_reference_failure_preserved": true,
+        "only_failed_roi_prefix_resumed": true,
+        "three_successful_standard_label_transforms_repeated": false,
+        "warp_registration_reestimated": false,
+        "standard_midplanes_actually_viewed": 12,
+        "roi_midplanes_actually_viewed": 6,
+        "local_small_evidence_bytes": 192533,
+        "whole_mri_copies_to_local": 0,
+        "expert_reviews": 0,
+        "qc_inclusions": 0,
+        "classifier_fits": 0,
+        "complete_ciftify_workflows": 0,
+        "independent_clinical_validations": 0,
+        "full_patient_pipeline_complete": false,
+        "registration_accuracy_expert_confirmed": false,
+        "corrected_brainmask_difference_not_yet_measured": true
+      }
     }
   },
   "low_back_pain": {
@@ -1832,8 +1918,8 @@
   "source_versions_observed_at": "2026-10-04T14:52:50.269444+08:00",
   "raw_mri_observed_at": "2026-10-04T16:05:28.365879+08:00",
   "raw_mri_followup_observed_at": "2026-10-04T23:00:06.680677+08:00",
-  "current_processing_observed_at": "2026-10-06T13:57:35.518939+08:00",
+  "current_processing_observed_at": "2026-10-06T14:24:41.966435+08:00",
   "current_processing_title": "DEIPP：旧转换丢失离散标签值，整数修复已独立核对",
-  "current_processing_summary": "10月6日，完整逐值比较三个320³离散标签图，共98,304,000值。旧转换每图3,242,703体素的标签值改变，原177／190／110种标签只剩19／9／22种。另在独立目录明确使用整数输出，保留原最近邻、T1参考和Workbench标签导入；导入前后均逐值一致。独立进程再用数组置换和翻转完整读回98,304,000值，三个标签图的值和标签编号集合均与源文件一致。",
-  "current_processing_boundary": "这是首份结构的离散标签转换失败与局部修复，固定参与者1、新增0；完整ciftify、标准空间与表面输出复核、结构到功能及患者流程仍未完成，专家、QC纳入、分类与临床验证均0。旧运行及其输出、失败证据保持；不能以完整命令退出0或图像有限来认定科学通过。该适配使用ciftify2.3.3、FreeSurfer7.3.2；作者ciftify版本未知，作者FreeSurfer7.2，不能称完整复现。"
+  "current_processing_summary": "10月6日，完整逐值比较三个320³离散标签图，共98,304,000值。旧转换每图3,242,703体素的标签值改变，原177／190／110种标签只剩19／9／22种。另在独立目录明确使用整数输出，保留原最近邻、T1参考和Workbench标签导入；导入前后均逐值一致。独立进程再用数组置换和翻转完整读回98,304,000值，三个标签图的值和标签编号集合均与源文件一致。 后续：同一旧转换的标准空间八体积7,221,032值及两份变形场5,415,774值均完整读取且有限，网格与2mm参考一致。T1/T2按原保存变换和插值回放1,805,258值，逐值差0。把已修复整数标签送入同一旧变换后，三个标准标签图各183,823体素与旧输出不同；皮层下ROI从4种非背景编号恢复到19种，70,381体素改变。独立Python按原标签表回放902,629值全部一致；12标准中央面及6 ROI中央面实际查看。",
+  "current_processing_boundary": "这是首份结构的离散标签转换失败与局部修复，固定参与者1、新增0；完整ciftify、标准空间与表面输出复核、结构到功能及患者流程仍未完成，专家、QC纳入、分类与临床验证均0。旧运行及其输出、失败证据保持；不能以完整命令退出0或图像有限来认定科学通过。该适配使用ciftify2.3.3、FreeSurfer7.3.2；作者ciftify版本未知，作者FreeSurfer7.2，不能称完整复现。 这是同一旧运行的保存输出检查与标签问题定位，新增人员0、重新估计配准0。当前同变换修复不证明旧变换解剖准确；旧标签错误运行仍保留，完整修复需从正确标签重建脑掩膜和配准，再检查表面及全流程。专家、QC纳入、分类和临床验证仍0；跨访视T2及软件版本差异保持。"
 }

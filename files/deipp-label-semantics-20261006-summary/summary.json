@@ -802,5 +802,32 @@
     "independent_clinical_validations": 0,
     "new_classifier_fits": 0,
     "full_mri_copied_locally": 0
+  },
+  "functional_cifti_intermediate_semantics": {
+    "observed_at": "2026-10-07T00:25:37.793863+08:00",
+    "summary": "功能后缀作业的四个中间CIFTI均保留19个子皮层脑区。两个标签体积XML可独立解析；按输入ROI编号核对123,970个体素到脑区映射，差0，另核对模板31,870个标签值，差0。实际Workbench元数据解析警告保留，当前未发现这些中间对象的脑区名称或标签对应丢失。",
+    "boundary": "这次只核对中间标签表和CIFTI脑区映射，没有读取完整功能CIFTI时间序列或证明配准准确。原解析警告原因仍未确认，不以此次一致忽略其他警告。临时SeriesAxis为默认1秒，原中间命令未指定timestep；最终命令才显式使用原0.46秒TR，最终时间轴尚待实际读回。功能作业仍活跃，完整功能工作流未确认；原跨访视T2、版本差异及实际专家配准证据缺口保持。",
+    "intermediate_cifti_objects": 4,
+    "regions_per_object": 19,
+    "voxel_structure_mappings_compared": 123970,
+    "mapping_changed": 0,
+    "template_label_values_compared": 31870,
+    "template_label_values_changed": 0,
+    "source_voxel_count": 30115,
+    "template_voxel_count": 31870,
+    "source_label_xml_independently_parsed": 2,
+    "workbench_caret_parse_warning_preserved": true,
+    "warning_cause_confirmed": false,
+    "intermediate_series_TR_seconds": 1.0,
+    "intermediate_series_timepoints": 1304,
+    "final_expected_TR_seconds": 0.46,
+    "final_time_axis_reviewed": false,
+    "full_final_timeseries_readback_completed": false,
+    "complete_ciftify_workflows": 0,
+    "new_classifier_fits": 0,
+    "existing_132_fits": 540,
+    "existing_132_FC_references": 45,
+    "expert_accuracy_proven": false,
+    "full_mri_copied_locally": 0
   }
 }

@@ -1,0 +1,182 @@
+{
+  "id": "migraine-input-review132-20261006",
+  "input_observed_at": "2026-10-06T13:10:41.602707+08:00",
+  "computed_at": "2026-10-06T13:23:13.099173+08:00",
+  "people": 132,
+  "temporal": {
+    "state": "ACTUAL_TEMPORAL_BURDEN_AUDIT_COMPLETE",
+    "people": 132,
+    "frames_per_person": 300,
+    "original_design_ranks_recomputed": 132,
+    "saved_design_audits_all_match": true,
+    "residual_dof_min": 2,
+    "residual_dof_max": 272,
+    "residual_dof_median": 260.0,
+    "residual_dof_quartiles": [
+      233.5,
+      268.0
+    ],
+    "first_two_singular_energy_fraction_range": [
+      0.28403811092155046,
+      0.9999999999999103
+    ],
+    "first_two_singular_energy_fraction_median": 0.40385261938896666,
+    "physical_timepoints_deleted": 0,
+    "new_classifier_fits": 0,
+    "new_qc_inclusions": 0,
+    "expert_reviews": 0,
+    "input_transformations_changed": false,
+    "new_quality_threshold_or_exclusion": false,
+    "scope": "132 numerically and technically reviewed candidate inputs at the unchanged current scope cutoff; no diagnostic scores or label-based selection.",
+    "boundary": "Nuisance residual DOF and descriptive FC singular energy are not effective independent sample size or clinical validation."
+  },
+  "covariance": {
+    "state": "ACTUAL_INDIVIDUAL_FC_COVARIANCES_CHECKED_NO_CLASSIFIER",
+    "observed_at": "2026-10-06T13:23:13.099173+08:00",
+    "input_review_cutoff": "2026-10-06T13:10:41.602707+08:00",
+    "people": 132,
+    "matrices": 132,
+    "regions": 90,
+    "timepoints": 300,
+    "fixed_estimator": "Nilearn default LedoitWolf(store_precision=False), directly fitted to unchanged series.",
+    "installed_versions": {
+      "nilearn": "0.13.1",
+      "sklearn": "1.8.0",
+      "numpy": "2.3.2"
+    },
+    "shrinkage_range": [
+      0.015284792520105839,
+      0.10647506266832352
+    ],
+    "covariance_condition_number_range": [
+      139.5451261098009,
+      3322.651657082847
+    ],
+    "all_covariances_positive_definite": true,
+    "all_matrix_log_eigenvalues_finite": true,
+    "independent_scalar_moment_relative_max_error": 6.909160848176614e-07,
+    "cholesky_relative_max_error": 8.819388496961665e-16,
+    "warnings": 0,
+    "actual_seconds": 4.812327699999969,
+    "selection_rule": "All 132 reviewed inputs in original manifest order; no label, score or visual-quality selection.",
+    "classifier_fits": 0,
+    "across_person_tangent_reference_fits": 0,
+    "expert_reviews": 0,
+    "qc_inclusions": 0,
+    "input_transformations_changed": false,
+    "estimator_parameters_changed": false,
+    "new_exclusion_threshold": false,
+    "boundary": "Shrinkage positive definiteness does not restore removed temporal information. Individual estimation only; across-person references and classifiers await full 132-person necessary review."
+  },
+  "previous_observations_preserved": {
+    "temporal_people": 107,
+    "covariance_people": 107,
+    "all_previous_case_results_equal": true,
+    "covariance_value_max_error": 0.0
+  },
+  "shareable_signal_function_execution": {
+    "people": 132,
+    "max_difference": 0.0
+  },
+  "expert_attention_people": 25,
+  "expert_reviews": 0,
+  "training_inclusions": 0,
+  "classifier_fits": 0,
+  "independent_h_test_established": false,
+  "clinical_validation_complete": false,
+  "numeric_review_people": 132,
+  "previous_numeric_review_people": 107,
+  "new_numeric_review_people": 25,
+  "technical_view_people": 132,
+  "native_people": 132,
+  "model_grid_planes": 396,
+  "native_positions": 1584,
+  "source_and_filtered_planes": 792,
+  "complete_new_plates_viewed": 25,
+  "original_new_figures_covered": 100,
+  "new_expert_attention_people": 6,
+  "total_expert_attention_people": 25,
+  "early_native_people_completed": 4,
+  "early_native_original_figures_viewed": 16,
+  "complete_plates_actually_viewed_this_phase": 29,
+  "original_figures_covered_this_phase": 116,
+  "technical_view_recorded_at": "2026-10-06T13:19:14.691474+08:00",
+  "geometry": {
+    "spatial_adapter_version": 2,
+    "physical_model_grid_vox_mm": 2.5,
+    "model_spatial_shape": [
+      96,
+      96,
+      96
+    ],
+    "whole_source_standard_space_fov_retained": true,
+    "mask_voxel_counts_change_from_resampling": true,
+    "author_tensor_only_identity_header_vox_mm": 2.0,
+    "author_spatial_stage_identity_proxy_explicit": true,
+    "people": 132,
+    "current_vectors": 264,
+    "current_encoder_calls": 10032,
+    "persistent_window_vectors_replayed": 10032,
+    "window_reconstruction_max_error": 0.0,
+    "manual_spatial_interpolation_max_error": 6.103515625e-05,
+    "quantization_audits_pass": 132,
+    "legacy_crop_people": 3,
+    "legacy_crop_vectors": 6,
+    "legacy_encoder_calls": 228,
+    "crop_failure_people": 1,
+    "crop_failure_mask_voxels_outside": 39,
+    "first_geometry_author_spatial_quantization_failure_retained": true,
+    "classifier_fits": 0,
+    "qc_inclusions": 0,
+    "expert_reviews": 0
+  },
+  "tissue_mean_recompute": {
+    "people": 132,
+    "tissue_entries": 264,
+    "timepoints_per_person": 300,
+    "independent_mean_max_error": 0.0,
+    "source_t1_linear_mapping_max_error": 5.9138983932172096e-08,
+    "threshold_mask_different_voxels": 0
+  },
+  "actual_small_feature_readback": {
+    "state": "LOCAL_FEATURE_BYTES_READ_BACK_MATCH_SERVER",
+    "files": 396,
+    "bytes": 20847968,
+    "people": 132,
+    "large_images_copied": 0,
+    "classifier_fits": 0,
+    "qc_inclusions": 0
+  },
+  "actual_local_feature_load": {
+    "state": "ACTUAL_SMALL_FEATURES_LOADED_NO_MODEL_FIT",
+    "people": 132,
+    "time_series_shape": [
+      300,
+      90
+    ],
+    "representation_shape": [
+      132,
+      288
+    ],
+    "covariate_columns": [
+      "sex_male",
+      "sex_missing",
+      "FD_Power_mean_mm",
+      "expanded_spike_fraction"
+    ],
+    "training_included_people": 0,
+    "classifier_fits": 0
+  },
+  "canonical_feature_retention": {
+    "state": "NEW_SMALL_FEATURES_ADDED_WITH_PREVIOUS_ROWS_AND_BYTES_PRESERVED",
+    "people": 132,
+    "previous_people": 107,
+    "added_files": 75,
+    "files": 396,
+    "feature_bytes": 20847968,
+    "large_images_copied": 0,
+    "classifier_fits": 0,
+    "training_inclusions": 0
+  },
+  "summary": "全132人候选输入已完成数值复核与同范围技术查看：264个288维向量、10032个保存窗口，窗口重组与组织均值误差0。新增25人全部按原顺序查看，另补齐早期4人的原生图；累计396个模型切面、1584个原生位置及792个源/滤波切面。新增6项条纹或组织与功能边界注意，累计25项待专家确认。396个小特征文件20847968字节已完整读回并实际载入，原107行与文件保持。132份时间信息与个体FC协方差已复算，残差自由度2—272、中位数260，协方差均正定；正定不恢复移除的信息。专家确认、训练纳入、跨人参考和分类拟合仍0；真实临床终点与独立H-test仍缺。"
+}

@@ -178,5 +178,326 @@
     "classifier_fits": 0,
     "training_inclusions": 0
   },
-  "summary": "全132人候选输入已完成数值复核与同范围技术查看：264个288维向量、10032个保存窗口，窗口重组与组织均值误差0。新增25人全部按原顺序查看，另补齐早期4人的原生图；累计396个模型切面、1584个原生位置及792个源/滤波切面。新增6项条纹或组织与功能边界注意，累计25项待专家确认。396个小特征文件20847968字节已完整读回并实际载入，原107行与文件保持。132份时间信息与个体FC协方差已复算，残差自由度2—272、中位数260，协方差均正定；正定不恢复移除的信息。专家确认、训练纳入、跨人参考和分类拟合仍0；真实临床终点与独立H-test仍缺。"
+  "summary": "全132人候选输入已完成数值复核与同范围技术查看：264个288维向量、10032个保存窗口，窗口重组与组织均值误差0。新增25人全部按原顺序查看，另补齐早期4人的原生图；累计396个模型切面、1584个原生位置及792个源/滤波切面。新增6项条纹或组织与功能边界注意，累计25项待专家确认。396个小特征文件20847968字节已完整读回并实际载入，原107行与文件保持。132份时间信息与个体FC协方差已复算，残差自由度2—272、中位数260，协方差均正定；正定不恢复移除的信息。专家确认、训练纳入、跨人参考和分类拟合仍0；真实临床终点与独立H-test仍缺。",
+  "fixed_k5_training": {
+    "id": "migraine-fixed-k5-training-20261006",
+    "completed_at": "2026-10-06T21:44:44.578118+08:00",
+    "state": "TRAINING_AND_INDEPENDENT_REPLAY_COMPLETE",
+    "people": 132,
+    "class_counts": {
+      "migraine": 111,
+      "control": 21
+    },
+    "qc_status": "PASSED_BY_USER_AUTHORIZATION",
+    "qc_inclusions": 132,
+    "training_included_people": 132,
+    "expert_reviews": 0,
+    "actual_expert_reports_available": false,
+    "quality_attention_items_preserved": 25,
+    "inner_classifier_fits": 480,
+    "final_classifier_fits": 60,
+    "classifier_fits": 540,
+    "fc_reference_fits": 45,
+    "replayed_heads": 540,
+    "replayed_predictions": 2640,
+    "maximum_probability_replay_difference": 0.0,
+    "maximum_balanced_logloss_replay_difference": 0.0,
+    "pretraining_participant_overlap": "UNKNOWN",
+    "independent_clinical_validations": 0,
+    "original_files_modified": false,
+    "summary": "132人按用户授权将训练质控标为通过并全部纳入：111名偏头痛、21名对照。原K5四方法540次拟合、45次训练人员FC参考已完成，540个保存头及2,640个预测独立重放差0。五次固定抽样平均AUC：FC 0.5184、官方冻结表示0.5261、随机同结构0.4990、仅协变量0.6138。冻结表示相对FC和随机模型的AUC差值区间均包含0，未见可靠整体改善；相对协变量的Brier误差更高。",
+    "boundary": "通过状态依据用户授权，132人训练纳入已落实；没有新增逐人专家审核报告，实际专家证据仍0，原25项质量注意与所有原文件保留。诊断开发对照仅有21名对照；预训练人员重叠未知，首编号访视不证明临床基线，准确日期、年龄、同期疼痛与治疗随访仍缺。AUPRC须对照84.09%的偏头痛比例。配对区间仅覆盖固定已训模型下的人员/五次支持抽样重采样，不包含重训及全部选参不确定性，不是独立临床验证。",
+    "prevalence": 0.8409090909090909,
+    "metrics_by_support_draw": [
+      {
+        "fc": {
+          "auc": 0.5967395967395968,
+          "auprc": 0.8794854822265524,
+          "brier": 0.2773227156940454,
+          "balanced_accuracy": 0.5456885456885456
+        },
+        "pretrained": {
+          "auc": 0.5053625053625054,
+          "auprc": 0.8544743157818996,
+          "brier": 0.311749131406939,
+          "balanced_accuracy": 0.4974259974259974
+        },
+        "random": {
+          "auc": 0.44315744315744315,
+          "auprc": 0.8255689786576367,
+          "brier": 0.3146545311420989,
+          "balanced_accuracy": 0.4697554697554697
+        },
+        "covariates": {
+          "auc": 0.6143286143286143,
+          "auprc": 0.8936741683295121,
+          "brier": 0.25946799020061395,
+          "balanced_accuracy": 0.6422136422136422
+        }
+      },
+      {
+        "fc": {
+          "auc": 0.5632775632775633,
+          "auprc": 0.8788496186776836,
+          "brier": 0.25147757846650465,
+          "balanced_accuracy": 0.5527670527670527
+        },
+        "pretrained": {
+          "auc": 0.4774774774774775,
+          "auprc": 0.8531483121774762,
+          "brier": 0.3024393096951923,
+          "balanced_accuracy": 0.5495495495495495
+        },
+        "random": {
+          "auc": 0.43543543543543545,
+          "auprc": 0.8085673802524584,
+          "brier": 0.29388243731365754,
+          "balanced_accuracy": 0.43758043758043763
+        },
+        "covariates": {
+          "auc": 0.6126126126126126,
+          "auprc": 0.8908624955501858,
+          "brier": 0.2548887470615577,
+          "balanced_accuracy": 0.575933075933076
+        }
+      },
+      {
+        "fc": {
+          "auc": 0.5182325182325183,
+          "auprc": 0.8472301135577023,
+          "brier": 0.27665178025426734,
+          "balanced_accuracy": 0.49678249678249675
+        },
+        "pretrained": {
+          "auc": 0.5752895752895753,
+          "auprc": 0.8993583983260388,
+          "brier": 0.3059938826527151,
+          "balanced_accuracy": 0.5540540540540541
+        },
+        "random": {
+          "auc": 0.5418275418275418,
+          "auprc": 0.8668857886263458,
+          "brier": 0.2974577299187653,
+          "balanced_accuracy": 0.5373230373230373
+        },
+        "covariates": {
+          "auc": 0.5418275418275418,
+          "auprc": 0.8728704254179013,
+          "brier": 0.272855832150269,
+          "balanced_accuracy": 0.5302445302445302
+        }
+      },
+      {
+        "fc": {
+          "auc": 0.45345345345345345,
+          "auprc": 0.8183428416925861,
+          "brier": 0.2463508809076519,
+          "balanced_accuracy": 0.4877734877734878
+        },
+        "pretrained": {
+          "auc": 0.510939510939511,
+          "auprc": 0.866103883260194,
+          "brier": 0.36346053162178893,
+          "balanced_accuracy": 0.527027027027027
+        },
+        "random": {
+          "auc": 0.5268125268125268,
+          "auprc": 0.866739124851697,
+          "brier": 0.25504880141376657,
+          "balanced_accuracy": 0.49613899613899615
+        },
+        "covariates": {
+          "auc": 0.6323466323466324,
+          "auprc": 0.9072950824488338,
+          "brier": 0.26492936401171363,
+          "balanced_accuracy": 0.5463320463320462
+        }
+      },
+      {
+        "fc": {
+          "auc": 0.4603174603174603,
+          "auprc": 0.8520885077647441,
+          "brier": 0.29221376587590264,
+          "balanced_accuracy": 0.53989703989704
+        },
+        "pretrained": {
+          "auc": 0.5615615615615616,
+          "auprc": 0.8890015700629058,
+          "brier": 0.2635319465560371,
+          "balanced_accuracy": 0.5257400257400258
+        },
+        "random": {
+          "auc": 0.5478335478335479,
+          "auprc": 0.8622940962510302,
+          "brier": 0.26805565138843757,
+          "balanced_accuracy": 0.5077220077220077
+        },
+        "covariates": {
+          "auc": 0.667953667953668,
+          "auprc": 0.9051488454348265,
+          "brier": 0.24804303833085864,
+          "balanced_accuracy": 0.6364221364221364
+        }
+      }
+    ],
+    "mean_metrics_over_five_support_draws": {
+      "fc": {
+        "auc": 0.5184041184041185,
+        "auprc": 0.8551993127838537,
+        "brier": 0.2688033442396744,
+        "balanced_accuracy": 0.5245817245817246
+      },
+      "pretrained": {
+        "auc": 0.5261261261261262,
+        "auprc": 0.8724172959217029,
+        "brier": 0.30943496038653445,
+        "balanced_accuracy": 0.5307593307593308
+      },
+      "random": {
+        "auc": 0.499013299013299,
+        "auprc": 0.8460110737278337,
+        "brier": 0.2858198302353452,
+        "balanced_accuracy": 0.4897039897039897
+      },
+      "covariates": {
+        "auc": 0.6138138138138137,
+        "auprc": 0.8939702034362519,
+        "brier": 0.2600369943510026,
+        "balanced_accuracy": 0.5862290862290862
+      }
+    },
+    "pretrained_paired_improvements": {
+      "fc": {
+        "auc": {
+          "improvement": 0.007722007722007707,
+          "positive_means_better": true,
+          "interval": {
+            "lower": -0.11293340020036285,
+            "upper": 0.14224659838883966,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "auprc": {
+          "improvement": 0.01721798313784917,
+          "positive_means_better": true,
+          "interval": {
+            "lower": -0.03292368360594926,
+            "upper": 0.06908632769262153,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "brier": {
+          "improvement": -0.04063161614686006,
+          "positive_means_better": true,
+          "interval": {
+            "lower": -0.08629637428686501,
+            "upper": 0.0063692122649182245,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "balanced_accuracy": {
+          "improvement": 0.00617760617760621,
+          "positive_means_better": true,
+          "interval": {
+            "lower": -0.09376856595766696,
+            "upper": 0.12109805341055319,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        }
+      },
+      "random": {
+        "auc": {
+          "improvement": 0.027112827112827198,
+          "positive_means_better": true,
+          "interval": {
+            "lower": -0.06509456405116776,
+            "upper": 0.1169476619476619,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "auprc": {
+          "improvement": 0.026406222193869233,
+          "positive_means_better": true,
+          "interval": {
+            "lower": -0.0070702245490209285,
+            "upper": 0.05854227661142907,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "brier": {
+          "improvement": -0.023615130151189268,
+          "positive_means_better": true,
+          "interval": {
+            "lower": -0.07309442719925005,
+            "upper": 0.015759972224531713,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "balanced_accuracy": {
+          "improvement": 0.04105534105534109,
+          "positive_means_better": true,
+          "interval": {
+            "lower": -0.04040064102564099,
+            "upper": 0.1310360337637878,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        }
+      },
+      "covariates": {
+        "auc": {
+          "improvement": -0.08768768768768753,
+          "positive_means_better": true,
+          "interval": {
+            "lower": -0.21518949753324754,
+            "upper": 0.0472709252528877,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "auprc": {
+          "improvement": -0.02155290751454897,
+          "positive_means_better": true,
+          "interval": {
+            "lower": -0.07725924721958845,
+            "upper": 0.03403953351305793,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "brier": {
+          "improvement": -0.04939796603553187,
+          "positive_means_better": true,
+          "interval": {
+            "lower": -0.0883892898222326,
+            "upper": -0.015327100984449735,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "balanced_accuracy": {
+          "improvement": -0.05546975546975541,
+          "positive_means_better": true,
+          "interval": {
+            "lower": -0.1720175438596491,
+            "upper": 0.06304017857142863,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        }
+      }
+    },
+    "bootstrap_samples": 2000,
+    "seed": 20261006,
+    "work_threshold": 0.5,
+    "uncertainty_scope": "Paired empirical resampling of people and the five saved OOF support-draw indices; common resamples for all methods. Conditional on fixed trained heads, the saved outer partition and supplied predictions; no retraining or full training/selection uncertainty.",
+    "primary_aggregation": "Mean of metrics across all five fixed support draws; report all individual draws and all three contrasts. No best draw or averaged-probability ensemble selected."
+  }
 }

@@ -1,0 +1,27 @@
+"""Execute saved runtime preprocessing and the pinned author's exact znorm block."""
+from pathlib import Path
+import ast,json,os,time
+import numpy as np,nibabel as nib,torch
+import torch.nn.functional as F
+O=Path(__file__).resolve().parent;receipt=O/'normalization_measurement_private.json';assert not receipt.exists(),'Observe saved measurement, never repeat.'
+torch.set_num_threads(2)
+runtime=ast.parse((O/'preprocessing_source_private.py').read_text())
+names={'select_middle_96','spatial_resampling','temporal_resampling','_process_task_cpu'}
+nodes=[n for n in runtime.body if isinstance(n,ast.FunctionDef) and n.name in names];assert len(nodes)==4
+ns=dict(np=np,nib=nib,torch=torch,F=F,os=os);exec(compile(ast.Module(body=nodes,type_ignores=[]),'saved_runtime_preprocessing','exec'),ns)
+tree=ast.parse((O.parent/'20261007-author-training-alignment/author_foundational_utils_private.py').read_text());fn=next(n for n in tree.body if isinstance(n,ast.FunctionDef) and n.name=='preprocess_fmri')
+branch=next(n for n in ast.walk(fn) if isinstance(n,ast.If) and isinstance(n.test,ast.Compare) and any(isinstance(c,ast.Constant) and c.value=='znorm' for c in n.test.comparators))
+body=branch.body;assert len(body)>4
+author_code=compile(ast.Module(body=body,type_ignores=[]),'pinned_original_znorm_branch','exec')
+x,y,z,t=np.indices((3,4,5,40));mask=(x<2)&(y<2)&(z<3)
+values=np.where(mask,((t-19.5)+x*.5+y*.25+z*.125),0).astype(np.float32)
+spatial_mask=mask[...,0].astype(np.float32);header=nib.Nifti1Image(values,np.diag([2,2,2,1.])).header;header.set_zooms((2,2,2,.8));mask_header=nib.Nifti1Image(spatial_mask,np.diag([2,2,2,1.])).header
+root=O/'synthetic-private';root.mkdir(exist_ok=False)
+ns['_process_task_cpu'](('fixture',False,'synthetic.nii',str(root),str(root),'runtime',0,'z-norm'),dict(path='synthetic-not-read',data=values.copy(),header=header,mask_data=spatial_mask.copy(),mask_header=mask_header),fill_zeroback=False)
+blob=torch.load(root/'runtime/data.pt',map_location='cpu',weights_only=True);decoded=blob['frames'].to(torch.float32).mul_(blob['scale']).permute(1,2,3,0).numpy()
+window=values[...,10:30].copy();img=nib.Nifti1Image(window,np.eye(4));an=dict(nib=nib,np=np,current_img=img,verbose=False);exec(author_code,an);author=an['current_img'].get_fdata(dtype=np.float32)
+background=np.broadcast_to(spatial_mask[...,None]==0,values.shape);clipped=values.copy();clipped[background]=0;clipped[clipped<0]=0
+fore=torch.tensor(clipped[~background]);mean=float(fore.mean());std=float(fore.std());norm=(torch.tensor(clipped)-mean)/std;norm[background]=norm[~background].min();norm=norm.numpy()
+np.savez_compressed(root/'arrays_private.npz',input=values,mask=spatial_mask,raw_clipped=clipped,runtime_pre_quant=norm,runtime_quantized=blob['frames'].numpy(),runtime_decoded=decoded,window=window,author_window_normalized=author)
+record=dict(state='ORIGINAL_NORMALIZATION_STEPS_MEASURED',recorded_unix=time.time(),shape=list(values.shape),window_start=10,window_frames=20,source_functions_unmodified=True,author_only_exact_znorm_branch_executed=True,full_author_pipeline_executed=False,runtime_full_process_function_executed=True,raw_negative_clipped_before_normalization=int(np.count_nonzero(values<0)),runtime_normalized_negative_values=int(np.count_nonzero(norm<0)),runtime_decoded_negative_values=int(np.count_nonzero(decoded<0)),runtime_foreground_mean=mean,runtime_foreground_sample_std=std,runtime_scale=float(blob['scale']),runtime_maximum_quantization_error=float(abs(norm-decoded).max()),author_window_foreground_population_mean=float(an['mu']),author_window_foreground_population_std_plus_epsilon=float(an['sigma']),author_window_normalized_negative_values=int(np.count_nonzero(author<0)),runtime_window_vs_author_maximum_difference=float(abs(decoded[...,10:30]-author).max()),runtime_window_vs_author_rmse=float(np.sqrt(np.mean((decoded[...,10:30].astype(np.float64)-author)**2))),new_patient_arrays=0,new_model_forwards=0,new_classifier_fits=0,negative_normalized_values_are_not_clipped=True,versions=dict(torch=torch.__version__,numpy=np.__version__,nibabel=nib.__version__))
+receipt.write_text(json.dumps(record,indent=2),encoding='utf8');print(json.dumps(record),flush=True)

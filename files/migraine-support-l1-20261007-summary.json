@@ -1,0 +1,1008 @@
+{
+  "observed_at": "2026-10-07T11:31:27.944994+08:00",
+  "summary": "L1训练内诊断完成：新增480次绝对λ拟合、169次固定精度精化、480次训练阈值缩放拟合和96次较大监督预算拟合，共1,225次新分类拟合、6个新训练内FC参考。三条新分支及原始精度结果均保留，累计1,536个保存头、11,424个内层概率独立重放差0。没有新增外层查询预测或AUC。",
+  "boundary": "结果仍属开发诊断：内层选参损失有乐观偏差，K5与较大预算的验证人员不同，不作配对效果比较。K5梯度缩放后的FC/冻结/随机/协变量平均选参损失为0.688106/0.647279/0.679234/0.634295；FC14/15、冻结12/15、随机13/15组选择常数模型。较大预算每外折88训练人、内层44人，FC/冻结/随机分别3/3、2/3、3/3组仍选择常数；未支持影像增益或与儿科论文AUC0.82对齐。原132固定训练540拟合及其阴性结论不改，用户QC授权与25原注意/实际新增专家报告0、预训练重叠未知、缺准确日期/临床真值/H-test保持。",
+  "new_classifier_fits": 1225,
+  "new_training_FC_reference_fits": 6,
+  "saved_model_files": 1536,
+  "distinct_fitted_heads": 1225,
+  "reused_effective_heads": 311,
+  "replayed_inner_probabilities": 11424,
+  "new_outer_query_predictions": 0,
+  "new_outer_query_scores": 0,
+  "new_final_fits": 0,
+  "original_fixed_run_fits": 540,
+  "original_fixed_run_references": 45,
+  "unbiased_generalization_estimate": false,
+  "independent_clinical_validation": false,
+  "actual_new_expert_reports": 0,
+  "first_precision": {
+    "state": "SUPPORT_L1_480_MODELS_AND_2400_INNER_PROBABILITIES_REPLAYED",
+    "models": 480,
+    "inner_probabilities": 2400,
+    "maximum_probability_difference": 0.0,
+    "maximum_loss_difference": 1.7763568394002505e-15,
+    "maximum_kkt_residual": 0.0028811466398823704,
+    "methods": [
+      {
+        "method": "fc",
+        "mean_selected_inner_loss_l1": 0.6572796186089973,
+        "mean_original_selected_inner_loss_l2": 0.7445453255578603,
+        "mean_paired_l1_minus_l2": -0.08726570694886325,
+        "selected_lambda_counts": {
+          "10.0": 7,
+          "1.0": 0,
+          "0.1": 7,
+          "0.01": 1
+        },
+        "all_lambda_diagnostics": [
+          {
+            "lambda_": 10.0,
+            "models": 30,
+            "mean_inner_validation_loss": 0.693147180559945,
+            "zero_heads": 30,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0
+          },
+          {
+            "lambda_": 1.0,
+            "models": 30,
+            "mean_inner_validation_loss": 0.693147180559945,
+            "zero_heads": 30,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0
+          },
+          {
+            "lambda_": 0.1,
+            "models": 30,
+            "mean_inner_validation_loss": 0.8250024737360397,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 20.733333333333334,
+            "mean_covariate_nonzero": 0.03333333333333333,
+            "maximum_kkt_residual": 0.0028811466398823704
+          },
+          {
+            "lambda_": 0.01,
+            "models": 30,
+            "mean_inner_validation_loss": 0.9379938735845218,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 73.2,
+            "mean_covariate_nonzero": 0.1,
+            "maximum_kkt_residual": 0.002735710373757574
+          }
+        ]
+      },
+      {
+        "method": "pretrained",
+        "mean_selected_inner_loss_l1": 0.6357394117130449,
+        "mean_original_selected_inner_loss_l2": 0.9739984944554653,
+        "mean_paired_l1_minus_l2": -0.3382590827424207,
+        "selected_lambda_counts": {
+          "10.0": 12,
+          "1.0": 0,
+          "0.1": 2,
+          "0.01": 1
+        },
+        "all_lambda_diagnostics": [
+          {
+            "lambda_": 10.0,
+            "models": 30,
+            "mean_inner_validation_loss": 0.693147180559945,
+            "zero_heads": 30,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0
+          },
+          {
+            "lambda_": 1.0,
+            "models": 30,
+            "mean_inner_validation_loss": 0.693147180559945,
+            "zero_heads": 30,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0
+          },
+          {
+            "lambda_": 0.1,
+            "models": 30,
+            "mean_inner_validation_loss": 1.3827962495282902,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 3.5,
+            "mean_covariate_nonzero": 0.3333333333333333,
+            "maximum_kkt_residual": 0.001233144069095346
+          },
+          {
+            "lambda_": 0.01,
+            "models": 30,
+            "mean_inner_validation_loss": 2.5790304014306096,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 6.366666666666666,
+            "mean_covariate_nonzero": 0.5666666666666667,
+            "maximum_kkt_residual": 0.0014987891574532626
+          }
+        ]
+      },
+      {
+        "method": "random",
+        "mean_selected_inner_loss_l1": 0.6660939090899076,
+        "mean_original_selected_inner_loss_l2": 0.7500608610855041,
+        "mean_paired_l1_minus_l2": -0.08396695199559652,
+        "selected_lambda_counts": {
+          "10.0": 12,
+          "1.0": 0,
+          "0.1": 2,
+          "0.01": 1
+        },
+        "all_lambda_diagnostics": [
+          {
+            "lambda_": 10.0,
+            "models": 30,
+            "mean_inner_validation_loss": 0.693147180559945,
+            "zero_heads": 30,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0
+          },
+          {
+            "lambda_": 1.0,
+            "models": 30,
+            "mean_inner_validation_loss": 0.693147180559945,
+            "zero_heads": 30,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0
+          },
+          {
+            "lambda_": 0.1,
+            "models": 30,
+            "mean_inner_validation_loss": 1.3103754021538256,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 3.4,
+            "mean_covariate_nonzero": 0.13333333333333333,
+            "maximum_kkt_residual": 0.0012564425267675428
+          },
+          {
+            "lambda_": 0.01,
+            "models": 30,
+            "mean_inner_validation_loss": 2.016090677746293,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 8.1,
+            "mean_covariate_nonzero": 0.16666666666666666,
+            "maximum_kkt_residual": 0.0009495403161417556
+          }
+        ]
+      },
+      {
+        "method": "covariates",
+        "mean_selected_inner_loss_l1": 0.6475509183513125,
+        "mean_original_selected_inner_loss_l2": 0.6090890270035145,
+        "mean_paired_l1_minus_l2": 0.03846189134779806,
+        "selected_lambda_counts": {
+          "10.0": 10,
+          "1.0": 0,
+          "0.1": 4,
+          "0.01": 1
+        },
+        "all_lambda_diagnostics": [
+          {
+            "lambda_": 10.0,
+            "models": 30,
+            "mean_inner_validation_loss": 0.693147180559945,
+            "zero_heads": 30,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0
+          },
+          {
+            "lambda_": 1.0,
+            "models": 30,
+            "mean_inner_validation_loss": 0.693147180559945,
+            "zero_heads": 30,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0
+          },
+          {
+            "lambda_": 0.1,
+            "models": 30,
+            "mean_inner_validation_loss": 0.9038789115250658,
+            "zero_heads": 1,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 1.3333333333333333,
+            "maximum_kkt_residual": 2.7441365059721612e-05
+          },
+          {
+            "lambda_": 0.01,
+            "models": 30,
+            "mean_inner_validation_loss": 1.831295253550922,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 2.0,
+            "maximum_kkt_residual": 2.4906710436580978e-05
+          }
+        ]
+      }
+    ],
+    "new_replay_fits": 0,
+    "new_reference_fits": 0,
+    "new_final_fits": 0,
+    "outer_query_predictions": 0,
+    "outer_query_scores": 0,
+    "selection_loss_is_optimistic": true,
+    "unbiased_generalization_estimate": false,
+    "original_fixed_540_run_unchanged": true
+  },
+  "refined_absolute": {
+    "state": "SUPPORT_L1_480_MODELS_AND_2400_INNER_PROBABILITIES_REPLAYED",
+    "models": 480,
+    "inner_probabilities": 2400,
+    "maximum_probability_difference": 0.0,
+    "maximum_loss_difference": 1.7763568394002505e-15,
+    "maximum_kkt_residual": 9.18584274371137e-05,
+    "methods": [
+      {
+        "method": "fc",
+        "mean_selected_inner_loss_l1": 0.6906763203377029,
+        "mean_original_selected_inner_loss_l2": 0.7445453255578603,
+        "mean_paired_l1_minus_l2": -0.05386900522015744,
+        "selected_lambda_counts": {
+          "10.0": 14,
+          "1.0": 0,
+          "0.1": 1,
+          "0.01": 0
+        },
+        "all_lambda_diagnostics": [
+          {
+            "lambda_": 10.0,
+            "models": 30,
+            "mean_inner_validation_loss": 0.693147180559945,
+            "zero_heads": 30,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0
+          },
+          {
+            "lambda_": 1.0,
+            "models": 30,
+            "mean_inner_validation_loss": 0.693147180559945,
+            "zero_heads": 30,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0
+          },
+          {
+            "lambda_": 0.1,
+            "models": 30,
+            "mean_inner_validation_loss": 1.4212167214908347,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 3.1666666666666665,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 1.9899759672314943e-06
+          },
+          {
+            "lambda_": 0.01,
+            "models": 30,
+            "mean_inner_validation_loss": 2.418336672181159,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 3.8,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 2.96473900680827e-06
+          }
+        ]
+      },
+      {
+        "method": "pretrained",
+        "mean_selected_inner_loss_l1": 0.6487988512904995,
+        "mean_original_selected_inner_loss_l2": 0.9739984944554653,
+        "mean_paired_l1_minus_l2": -0.325199643164966,
+        "selected_lambda_counts": {
+          "10.0": 12,
+          "1.0": 0,
+          "0.1": 3,
+          "0.01": 0
+        },
+        "all_lambda_diagnostics": [
+          {
+            "lambda_": 10.0,
+            "models": 30,
+            "mean_inner_validation_loss": 0.693147180559945,
+            "zero_heads": 30,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0
+          },
+          {
+            "lambda_": 1.0,
+            "models": 30,
+            "mean_inner_validation_loss": 0.693147180559945,
+            "zero_heads": 30,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0
+          },
+          {
+            "lambda_": 0.1,
+            "models": 30,
+            "mean_inner_validation_loss": 1.4090242312538523,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 2.566666666666667,
+            "mean_covariate_nonzero": 0.3,
+            "maximum_kkt_residual": 8.820143167515004e-05
+          },
+          {
+            "lambda_": 0.01,
+            "models": 30,
+            "mean_inner_validation_loss": 2.77296713867211,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 3.1666666666666665,
+            "mean_covariate_nonzero": 0.36666666666666664,
+            "maximum_kkt_residual": 9.18584274371137e-05
+          }
+        ]
+      },
+      {
+        "method": "random",
+        "mean_selected_inner_loss_l1": 0.6806069034898623,
+        "mean_original_selected_inner_loss_l2": 0.7500608610855041,
+        "mean_paired_l1_minus_l2": -0.06945395759564184,
+        "selected_lambda_counts": {
+          "10.0": 14,
+          "1.0": 0,
+          "0.1": 1,
+          "0.01": 0
+        },
+        "all_lambda_diagnostics": [
+          {
+            "lambda_": 10.0,
+            "models": 30,
+            "mean_inner_validation_loss": 0.693147180559945,
+            "zero_heads": 30,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0
+          },
+          {
+            "lambda_": 1.0,
+            "models": 30,
+            "mean_inner_validation_loss": 0.693147180559945,
+            "zero_heads": 30,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0
+          },
+          {
+            "lambda_": 0.1,
+            "models": 30,
+            "mean_inner_validation_loss": 1.3602262470923374,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 2.7333333333333334,
+            "mean_covariate_nonzero": 0.06666666666666667,
+            "maximum_kkt_residual": 8.262432230948802e-05
+          },
+          {
+            "lambda_": 0.01,
+            "models": 30,
+            "mean_inner_validation_loss": 2.380401624565445,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 3.3666666666666667,
+            "mean_covariate_nonzero": 0.1,
+            "maximum_kkt_residual": 2.5448442219494494e-07
+          }
+        ]
+      },
+      {
+        "method": "covariates",
+        "mean_selected_inner_loss_l1": 0.6475509183513125,
+        "mean_original_selected_inner_loss_l2": 0.6090890270035145,
+        "mean_paired_l1_minus_l2": 0.03846189134779806,
+        "selected_lambda_counts": {
+          "10.0": 10,
+          "1.0": 0,
+          "0.1": 4,
+          "0.01": 1
+        },
+        "all_lambda_diagnostics": [
+          {
+            "lambda_": 10.0,
+            "models": 30,
+            "mean_inner_validation_loss": 0.693147180559945,
+            "zero_heads": 30,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0
+          },
+          {
+            "lambda_": 1.0,
+            "models": 30,
+            "mean_inner_validation_loss": 0.693147180559945,
+            "zero_heads": 30,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0
+          },
+          {
+            "lambda_": 0.1,
+            "models": 30,
+            "mean_inner_validation_loss": 0.9038789115250658,
+            "zero_heads": 1,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 1.3333333333333333,
+            "maximum_kkt_residual": 2.7441365059721612e-05
+          },
+          {
+            "lambda_": 0.01,
+            "models": 30,
+            "mean_inner_validation_loss": 1.831295253550922,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 2.0,
+            "maximum_kkt_residual": 2.4906710436580978e-05
+          }
+        ]
+      }
+    ],
+    "new_replay_fits": 0,
+    "new_reference_fits": 0,
+    "new_final_fits": 0,
+    "outer_query_predictions": 0,
+    "outer_query_scores": 0,
+    "selection_loss_is_optimistic": true,
+    "unbiased_generalization_estimate": false,
+    "original_fixed_540_run_unchanged": true
+  },
+  "relative_k5": {
+    "state": "SUPPORT_L1_480_MODELS_AND_2400_INNER_PROBABILITIES_REPLAYED",
+    "models": 480,
+    "inner_probabilities": 2400,
+    "maximum_probability_difference": 0.0,
+    "maximum_loss_difference": 1.7763568394002505e-15,
+    "maximum_kkt_residual": 2.91569013307659e-06,
+    "methods": [
+      {
+        "method": "fc",
+        "mean_selected_inner_loss_l1": 0.6881058337434612,
+        "mean_original_selected_inner_loss_l2": 0.7445453255578603,
+        "mean_paired_l1_minus_l2": -0.056439491814399174,
+        "parameterization": "fraction_of_train_lambda_max",
+        "selected_parameter_counts": {
+          "1.0": 14,
+          "0.3": 1,
+          "0.1": 0,
+          "0.03": 0
+        },
+        "all_parameter_diagnostics": [
+          {
+            "parameter": 1.0,
+            "models": 30,
+            "mean_inner_validation_loss": 0.693147180559945,
+            "zero_heads": 30,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0,
+            "minimum_actual_lambda": 0.495888911502558,
+            "maximum_actual_lambda": 0.49995350368125535
+          },
+          {
+            "parameter": 0.3,
+            "models": 30,
+            "mean_inner_validation_loss": 1.2371015901921898,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 2.8666666666666667,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 1.4686903880845037e-06,
+            "minimum_actual_lambda": 0.14876667345076738,
+            "maximum_actual_lambda": 0.1499860511043766
+          },
+          {
+            "parameter": 0.1,
+            "models": 30,
+            "mean_inner_validation_loss": 1.7412838577346705,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 3.433333333333333,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 2.49621654165727e-06,
+            "minimum_actual_lambda": 0.049588891150255804,
+            "maximum_actual_lambda": 0.04999535036812554
+          },
+          {
+            "parameter": 0.03,
+            "models": 30,
+            "mean_inner_validation_loss": 2.311633623114212,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 3.6666666666666665,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 2.91569013307659e-06,
+            "minimum_actual_lambda": 0.01487666734507674,
+            "maximum_actual_lambda": 0.01499860511043766
+          }
+        ]
+      },
+      {
+        "method": "pretrained",
+        "mean_selected_inner_loss_l1": 0.64727851768589,
+        "mean_original_selected_inner_loss_l2": 0.9739984944554653,
+        "mean_paired_l1_minus_l2": -0.32671997676957576,
+        "parameterization": "fraction_of_train_lambda_max",
+        "selected_parameter_counts": {
+          "1.0": 12,
+          "0.3": 2,
+          "0.1": 1,
+          "0.03": 0
+        },
+        "all_parameter_diagnostics": [
+          {
+            "parameter": 1.0,
+            "models": 30,
+            "mean_inner_validation_loss": 0.693147180559945,
+            "zero_heads": 30,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0,
+            "minimum_actual_lambda": 0.33166363390042536,
+            "maximum_actual_lambda": 0.4995475710446593
+          },
+          {
+            "parameter": 0.3,
+            "models": 30,
+            "mean_inner_validation_loss": 1.2233122383856445,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 2.433333333333333,
+            "mean_covariate_nonzero": 0.3,
+            "maximum_kkt_residual": 2.4638815107613787e-07,
+            "minimum_actual_lambda": 0.0994990901701276,
+            "maximum_actual_lambda": 0.14986427131339777
+          },
+          {
+            "parameter": 0.1,
+            "models": 30,
+            "mean_inner_validation_loss": 1.8643386791310506,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 2.8333333333333335,
+            "mean_covariate_nonzero": 0.36666666666666664,
+            "maximum_kkt_residual": 3.9152590008278976e-07,
+            "minimum_actual_lambda": 0.03316636339004254,
+            "maximum_actual_lambda": 0.04995475710446593
+          },
+          {
+            "parameter": 0.03,
+            "models": 30,
+            "mean_inner_validation_loss": 2.5746098067294474,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 3.1333333333333333,
+            "mean_covariate_nonzero": 0.36666666666666664,
+            "maximum_kkt_residual": 3.868475425983925e-07,
+            "minimum_actual_lambda": 0.00994990901701276,
+            "maximum_actual_lambda": 0.014986427131339778
+          }
+        ]
+      },
+      {
+        "method": "random",
+        "mean_selected_inner_loss_l1": 0.6792339522191227,
+        "mean_original_selected_inner_loss_l2": 0.7500608610855041,
+        "mean_paired_l1_minus_l2": -0.0708269088663814,
+        "parameterization": "fraction_of_train_lambda_max",
+        "selected_parameter_counts": {
+          "1.0": 13,
+          "0.3": 2,
+          "0.1": 0,
+          "0.03": 0
+        },
+        "all_parameter_diagnostics": [
+          {
+            "parameter": 1.0,
+            "models": 30,
+            "mean_inner_validation_loss": 0.693147180559945,
+            "zero_heads": 30,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0,
+            "minimum_actual_lambda": 0.4475749623117923,
+            "maximum_actual_lambda": 0.4992793563895607
+          },
+          {
+            "parameter": 0.3,
+            "models": 30,
+            "mean_inner_validation_loss": 1.2039364320905876,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 2.6666666666666665,
+            "mean_covariate_nonzero": 0.06666666666666667,
+            "maximum_kkt_residual": 1.5485985374597e-07,
+            "minimum_actual_lambda": 0.13427248869353767,
+            "maximum_actual_lambda": 0.1497838069168682
+          },
+          {
+            "parameter": 0.1,
+            "models": 30,
+            "mean_inner_validation_loss": 1.6749838717485936,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 3.0,
+            "mean_covariate_nonzero": 0.1,
+            "maximum_kkt_residual": 2.574001105107304e-07,
+            "minimum_actual_lambda": 0.04475749623117923,
+            "maximum_actual_lambda": 0.049927935638956075
+          },
+          {
+            "parameter": 0.03,
+            "models": 30,
+            "mean_inner_validation_loss": 2.212882794299306,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 3.2666666666666666,
+            "mean_covariate_nonzero": 0.1,
+            "maximum_kkt_residual": 2.3069203981644637e-07,
+            "minimum_actual_lambda": 0.013427248869353767,
+            "maximum_actual_lambda": 0.014978380691686822
+          }
+        ]
+      },
+      {
+        "method": "covariates",
+        "mean_selected_inner_loss_l1": 0.6342947547339749,
+        "mean_original_selected_inner_loss_l2": 0.6090890270035145,
+        "mean_paired_l1_minus_l2": 0.02520572773046046,
+        "parameterization": "fraction_of_train_lambda_max",
+        "selected_parameter_counts": {
+          "1.0": 8,
+          "0.3": 5,
+          "0.1": 2,
+          "0.03": 0
+        },
+        "all_parameter_diagnostics": [
+          {
+            "parameter": 1.0,
+            "models": 30,
+            "mean_inner_validation_loss": 0.693147180559945,
+            "zero_heads": 30,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0,
+            "minimum_actual_lambda": 0.051686433578778695,
+            "maximum_actual_lambda": 0.4868943314078506
+          },
+          {
+            "parameter": 0.3,
+            "models": 30,
+            "mean_inner_validation_loss": 0.9146575224949277,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 1.5,
+            "maximum_kkt_residual": 2.358319040052237e-09,
+            "minimum_actual_lambda": 0.015505930073633607,
+            "maximum_actual_lambda": 0.14606829942235516
+          },
+          {
+            "parameter": 0.1,
+            "models": 30,
+            "mean_inner_validation_loss": 1.2423949256175464,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 1.7333333333333334,
+            "maximum_kkt_residual": 2.46416779342562e-09,
+            "minimum_actual_lambda": 0.00516864335787787,
+            "maximum_actual_lambda": 0.04868943314078506
+          },
+          {
+            "parameter": 0.03,
+            "models": 30,
+            "mean_inner_validation_loss": 1.9793928701409895,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 1.9333333333333333,
+            "maximum_kkt_residual": 3.465345049108448e-09,
+            "minimum_actual_lambda": 0.0015505930073633609,
+            "maximum_actual_lambda": 0.014606829942235517
+          }
+        ]
+      }
+    ],
+    "new_replay_fits": 0,
+    "new_reference_fits": 0,
+    "new_final_fits": 0,
+    "outer_query_predictions": 0,
+    "outer_query_scores": 0,
+    "selection_loss_is_optimistic": true,
+    "unbiased_generalization_estimate": false,
+    "original_fixed_540_run_unchanged": true
+  },
+  "full_training_budget": {
+    "state": "FULL_TRAINING_BUDGET_96_MODELS_4224_INNER_PROBABILITIES_REPLAYED",
+    "models": 96,
+    "inner_probabilities": 4224,
+    "maximum_probability_difference": 0.0,
+    "maximum_loss_difference": 4.440892098500626e-16,
+    "maximum_kkt_residual": 3.1575918718260154e-08,
+    "methods": [
+      {
+        "method": "fc",
+        "mean_selected_inner_loss_l1": 0.6931471805599454,
+        "parameterization": "fraction_of_train_lambda_max",
+        "selected_parameter_counts": {
+          "1.0": 3,
+          "0.3": 0,
+          "0.1": 0,
+          "0.03": 0
+        },
+        "all_parameter_diagnostics": [
+          {
+            "parameter": 1.0,
+            "models": 6,
+            "mean_inner_validation_loss": 0.6931471805599453,
+            "zero_heads": 6,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0,
+            "minimum_actual_lambda": 0.32335564731602634,
+            "maximum_actual_lambda": 0.35837300945821704
+          },
+          {
+            "parameter": 0.3,
+            "models": 6,
+            "mean_inner_validation_loss": 0.8531461223344047,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 16.833333333333332,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 2.0508332657098727e-08,
+            "minimum_actual_lambda": 0.0970066941948079,
+            "maximum_actual_lambda": 0.1075119028374651
+          },
+          {
+            "parameter": 0.1,
+            "models": 6,
+            "mean_inner_validation_loss": 1.1053108052703489,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 23.666666666666668,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 3.0207923405745074e-08,
+            "minimum_actual_lambda": 0.03233556473160264,
+            "maximum_actual_lambda": 0.03583730094582171
+          },
+          {
+            "parameter": 0.03,
+            "models": 6,
+            "mean_inner_validation_loss": 1.435648426851295,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 26.666666666666668,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 3.1575918718260154e-08,
+            "minimum_actual_lambda": 0.00970066941948079,
+            "maximum_actual_lambda": 0.010751190283746511
+          }
+        ]
+      },
+      {
+        "method": "pretrained",
+        "mean_selected_inner_loss_l1": 0.6925693625563217,
+        "parameterization": "fraction_of_train_lambda_max",
+        "selected_parameter_counts": {
+          "1.0": 2,
+          "0.3": 1,
+          "0.1": 0,
+          "0.03": 0
+        },
+        "all_parameter_diagnostics": [
+          {
+            "parameter": 1.0,
+            "models": 6,
+            "mean_inner_validation_loss": 0.6931471805599453,
+            "zero_heads": 6,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0,
+            "minimum_actual_lambda": 0.1616149837888635,
+            "maximum_actual_lambda": 0.25093785718154543
+          },
+          {
+            "parameter": 0.3,
+            "models": 6,
+            "mean_inner_validation_loss": 0.7191873268402643,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 5.833333333333333,
+            "mean_covariate_nonzero": 1.6666666666666667,
+            "maximum_kkt_residual": 7.76416029385496e-09,
+            "minimum_actual_lambda": 0.04848449513665905,
+            "maximum_actual_lambda": 0.07528135715446363
+          },
+          {
+            "parameter": 0.1,
+            "models": 6,
+            "mean_inner_validation_loss": 1.019829807023456,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 11.833333333333334,
+            "mean_covariate_nonzero": 2.0,
+            "maximum_kkt_residual": 5.133506550403233e-09,
+            "minimum_actual_lambda": 0.01616149837888635,
+            "maximum_actual_lambda": 0.025093785718154543
+          },
+          {
+            "parameter": 0.03,
+            "models": 6,
+            "mean_inner_validation_loss": 1.653525489417688,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 17.0,
+            "mean_covariate_nonzero": 2.1666666666666665,
+            "maximum_kkt_residual": 4.618787483555431e-09,
+            "minimum_actual_lambda": 0.004848449513665904,
+            "maximum_actual_lambda": 0.007528135715446363
+          }
+        ]
+      },
+      {
+        "method": "random",
+        "mean_selected_inner_loss_l1": 0.6931471805599454,
+        "parameterization": "fraction_of_train_lambda_max",
+        "selected_parameter_counts": {
+          "1.0": 3,
+          "0.3": 0,
+          "0.1": 0,
+          "0.03": 0
+        },
+        "all_parameter_diagnostics": [
+          {
+            "parameter": 1.0,
+            "models": 6,
+            "mean_inner_validation_loss": 0.6931471805599453,
+            "zero_heads": 6,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0,
+            "minimum_actual_lambda": 0.22886792786043825,
+            "maximum_actual_lambda": 0.29962271662665096
+          },
+          {
+            "parameter": 0.3,
+            "models": 6,
+            "mean_inner_validation_loss": 0.8665111635799176,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 14.166666666666666,
+            "mean_covariate_nonzero": 0.3333333333333333,
+            "maximum_kkt_residual": 3.491783806541804e-09,
+            "minimum_actual_lambda": 0.06866037835813148,
+            "maximum_actual_lambda": 0.08988681498799529
+          },
+          {
+            "parameter": 0.1,
+            "models": 6,
+            "mean_inner_validation_loss": 1.267041521311215,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 21.666666666666668,
+            "mean_covariate_nonzero": 0.3333333333333333,
+            "maximum_kkt_residual": 2.73487101715153e-09,
+            "minimum_actual_lambda": 0.022886792786043827,
+            "maximum_actual_lambda": 0.0299622716626651
+          },
+          {
+            "parameter": 0.03,
+            "models": 6,
+            "mean_inner_validation_loss": 1.7784510008657601,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 24.666666666666668,
+            "mean_covariate_nonzero": 0.3333333333333333,
+            "maximum_kkt_residual": 2.452896424171014e-09,
+            "minimum_actual_lambda": 0.006866037835813147,
+            "maximum_actual_lambda": 0.008988681498799528
+          }
+        ]
+      },
+      {
+        "method": "covariates",
+        "mean_selected_inner_loss_l1": 0.6842333694640842,
+        "parameterization": "fraction_of_train_lambda_max",
+        "selected_parameter_counts": {
+          "1.0": 1,
+          "0.3": 2,
+          "0.1": 0,
+          "0.03": 0
+        },
+        "all_parameter_diagnostics": [
+          {
+            "parameter": 1.0,
+            "models": 6,
+            "mean_inner_validation_loss": 0.6931471805599453,
+            "zero_heads": 6,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 0.0,
+            "maximum_kkt_residual": 0.0,
+            "minimum_actual_lambda": 0.06803298522131732,
+            "maximum_actual_lambda": 0.21184936477066382
+          },
+          {
+            "parameter": 0.3,
+            "models": 6,
+            "mean_inner_validation_loss": 0.6866771173328711,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 1.8333333333333333,
+            "maximum_kkt_residual": 7.802170715054402e-11,
+            "minimum_actual_lambda": 0.020409895566395195,
+            "maximum_actual_lambda": 0.06355480943119915
+          },
+          {
+            "parameter": 0.1,
+            "models": 6,
+            "mean_inner_validation_loss": 0.7338524946534823,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 2.3333333333333335,
+            "maximum_kkt_residual": 2.790340354608123e-10,
+            "minimum_actual_lambda": 0.006803298522131732,
+            "maximum_actual_lambda": 0.021184936477066384
+          },
+          {
+            "parameter": 0.03,
+            "models": 6,
+            "mean_inner_validation_loss": 0.8093914874048762,
+            "zero_heads": 0,
+            "mean_brain_nonzero": 0.0,
+            "mean_covariate_nonzero": 2.8333333333333335,
+            "maximum_kkt_residual": 4.445685087423046e-10,
+            "minimum_actual_lambda": 0.002040989556639519,
+            "maximum_actual_lambda": 0.006355480943119915
+          }
+        ]
+      }
+    ],
+    "new_replay_fits": 0,
+    "new_reference_fits": 0,
+    "new_final_fits": 0,
+    "outer_query_predictions": 0,
+    "outer_query_scores": 0,
+    "selection_loss_is_optimistic": true,
+    "unbiased_generalization_estimate": false,
+    "original_fixed_540_run_unchanged": true,
+    "reference_diagnostics": [
+      {
+        "fold": 0,
+        "inner": 0,
+        "training_people": 44,
+        "minimum_mean_eigenvalue": 0.05711062625050545,
+        "mean_log_residual_frobenius": 0.0004895831225439906
+      },
+      {
+        "fold": 0,
+        "inner": 1,
+        "training_people": 44,
+        "minimum_mean_eigenvalue": 0.057085830718278885,
+        "mean_log_residual_frobenius": 0.00033062187139876187
+      },
+      {
+        "fold": 1,
+        "inner": 0,
+        "training_people": 44,
+        "minimum_mean_eigenvalue": 0.06353258341550827,
+        "mean_log_residual_frobenius": 0.0003114752471446991
+      },
+      {
+        "fold": 1,
+        "inner": 1,
+        "training_people": 44,
+        "minimum_mean_eigenvalue": 0.05280759558081627,
+        "mean_log_residual_frobenius": 0.0003026834165211767
+      },
+      {
+        "fold": 2,
+        "inner": 0,
+        "training_people": 44,
+        "minimum_mean_eigenvalue": 0.05957731232047081,
+        "mean_log_residual_frobenius": 0.0003085449861828238
+      },
+      {
+        "fold": 2,
+        "inner": 1,
+        "training_people": 44,
+        "minimum_mean_eigenvalue": 0.0616125613451004,
+        "mean_log_residual_frobenius": 0.00036961917066946626
+      }
+    ]
+  },
+  "refined_models": 169,
+  "maximum_refined_kkt": 2.96473900680827e-06,
+  "relative_fractions": [
+    1.0,
+    0.3,
+    0.1,
+    0.03
+  ],
+  "larger_budget_validation_not_paired_with_K5": true
+}

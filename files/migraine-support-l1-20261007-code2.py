@@ -1,0 +1,72 @@
+"""Replay the new L1 inner-support heads; never fit or score outer queries."""
+from pathlib import Path
+import argparse,json,joblib,numpy as np
+from scipy.special import expit
+
+def replay(run,parent,source_package=None):
+    run=Path(run);parent=Path(parent);full=(run/'groups_private.json').exists()
+    tasks=json.loads((run/'groups_private.json' if full else parent/'tasks_private.json').read_text())
+    lookup={t['task']:t for t in tasks};rows=[];prob_error=0.;loss_error=0.;count=0
+    status=json.loads((run/'status_private.json').read_text());design_root=Path(status.get('design_source',run/'designs'))
+    for path in sorted((run/'models').rglob('*.joblib')):
+        h=joblib.load(path);d=joblib.load(design_root/h['design']);task=lookup[path.parent.name]
+        assert h['phase']==('outer_training_inner_only' if full else 'support_inner_only') and d['support']==task['support']
+        assert d['train_indices']==h['train_indices'] and d['validation_indices']==h['validation_indices']
+        assert set(d['train_indices']).isdisjoint(d['validation_indices'])
+        assert set(d['train_indices'])|set(d['validation_indices'])==set(task['support'])
+        assert not (set(task['support']) & set(task['query']))
+        assert any(d['train_indices']==p['train'] and d['validation_indices']==p['validation'] for p in task['inner_splits'])
+        model=h['model'];params=model.get_params();lam=h['lambda_']
+        assert params['l1_ratio']==1 and params['solver']=='liblinear' and params['C']==1/lam
+        assert model.n_iter_.max()<params['max_iter'] and np.isfinite(model.coef_).all()
+        scaler=h['scaler'];z=(d['x']-scaler.mean_)/scaler.scale_;zv=(d['xv']-scaler.mean_)/scaler.scale_
+        p=expit(zv@model.coef_[0]+model.intercept_[0]);error=float(abs(p-h['probability']).max());assert error<1e-12;prob_error=max(prob_error,error);count+=len(p)
+        weights=np.array([.5/np.count_nonzero(d['yv']==c) for c in d['yv']]);clipped=np.clip(p,np.finfo(p.dtype).eps,1-np.finfo(p.dtype).eps)
+        loss=float(-np.sum(weights*(d['yv']*np.log(clipped)+(1-d['yv'])*np.log1p(-clipped))))
+        delta=abs(loss-h['validation_balanced_log_loss']);assert delta<1e-12;loss_error=max(loss_error,delta)
+        w=h['weights'];assert np.isclose(w.sum(),1) and all(np.isclose(w[d['y']==c].sum(),.5) for c in (0,1))
+        logits=z@model.coef_[0]+model.intercept_[0];residual=w*(expit(logits)-d['y']);gradient=np.r_[residual@z,np.sum(residual)];theta=np.r_[model.coef_[0],model.intercept_[0]]
+        kkt=np.where(theta!=0,abs(gradient+lam*np.sign(theta)),np.maximum(abs(gradient)-lam,0));kktmax=float(kkt.max());assert abs(kktmax-h['diagnostic']['maximum_kkt_residual'])<1e-12
+        brain=model.coef_[0][:-4] if h['method']!='covariates' else np.array([]);cov=model.coef_[0][-4:]
+        if 'fraction' in h:
+            threshold=float(abs(np.sum(z*(w*(.5-d['y']))[:,None],axis=0)).max())
+            assert abs(threshold-h['lambda_max'])<1e-12 and abs(lam-threshold*h['fraction'])<1e-12
+        rows.append(dict(task=task['task'],method=h['method'],inner=h['inner'],lambda_=lam,parameter=h.get('fraction',lam),loss=loss,kkt=kktmax,brain_nonzero=int(np.count_nonzero(brain)),covariate_nonzero=int(np.count_nonzero(cov)),all_zero=bool(not np.any(theta))))
+    assert len(rows)==(96 if full else 480) and count==(4224 if full else 2400)
+    selections=json.loads((run/'selection_private.json').read_text());assert len(selections)==(12 if full else 60)
+    aggregate=[];relative='fraction_grid' in selections[0];grid_field='fraction_grid' if relative else 'lambda_grid';chosen_field='chosen_fraction' if relative else 'chosen_lambda'
+    for method in ['fc','pretrained','random','covariates']:
+        groups=[r for r in selections if r['method']==method];assert len(groups)==(3 if full else 15)
+        for group in groups:
+            means=[float(np.mean([r['loss'] for r in rows if r['task']==group['task'] and r['method']==method and r['parameter']==lam])) for lam in group[grid_field]]
+            assert np.allclose(means,group['mean_inner_balanced_log_loss'],rtol=0,atol=1e-12)
+            i=int(np.argmin(np.round(means,12)));assert group[chosen_field]==group[grid_field][i]
+            assert abs(group['selected_inner_loss']-means[i])<1e-12
+        l1=np.array([g['selected_inner_loss'] for g in groups]);l2=np.array([g['old_l2_selected_inner_loss'] for g in groups]) if not full else None
+        diagnostics=[]
+        for parameter in groups[0][grid_field]:
+            subset=[r for r in rows if r['method']==method and r['parameter']==parameter]
+            diagnostics.append(dict(parameter=parameter,models=len(subset),mean_inner_validation_loss=float(np.mean([r['loss'] for r in subset])),zero_heads=sum(r['all_zero'] for r in subset),mean_brain_nonzero=float(np.mean([r['brain_nonzero'] for r in subset])),mean_covariate_nonzero=float(np.mean([r['covariate_nonzero'] for r in subset])),maximum_kkt_residual=max(r['kkt'] for r in subset),minimum_actual_lambda=min(r['lambda_'] for r in subset),maximum_actual_lambda=max(r['lambda_'] for r in subset)))
+        item=dict(method=method,mean_selected_inner_loss_l1=float(l1.mean()),parameterization='fraction_of_train_lambda_max' if relative else 'absolute_lambda',selected_parameter_counts={str(lam):sum(g[chosen_field]==lam for g in groups) for lam in groups[0][grid_field]},all_parameter_diagnostics=diagnostics)
+        if not full:item.update(mean_original_selected_inner_loss_l2=float(l2.mean()),mean_paired_l1_minus_l2=float((l1-l2).mean()))
+        aggregate.append(item)
+    reference_diagnostics=[]
+    if full:
+        assert source_package is not None
+        from sklearn.covariance import LedoitWolf
+        source=joblib.load(source_package)
+        from threadpoolctl import threadpool_limits
+        with threadpool_limits(limits=2):
+            for task in tasks:
+                for inner,part in enumerate(task['inner_splits']):
+                    saved=joblib.load(run/f'{task["task"]}_inner{inner}_reference_private.joblib');assert saved['train_indices']==part['train'] and saved['train_ids']==[source['subject_ids'][i] for i in part['train']]
+                    mean=saved['reference'].mean_;e,v=np.linalg.eigh(mean);assert np.isfinite(mean).all() and (e>0).all();whitening=(v*(e**-.5))@v.T;logsum=np.zeros_like(mean)
+                    for i in part['train']:
+                        cov=LedoitWolf().fit(source['time_series'][i]).covariance_;ev,vec=np.linalg.eigh(whitening@cov@whitening);assert (ev>0).all();logsum+=(vec*np.log(ev))@vec.T
+                    reference_diagnostics.append(dict(fold=task['fold'],inner=inner,training_people=len(part['train']),minimum_mean_eigenvalue=float(e.min()),mean_log_residual_frobenius=float(np.linalg.norm(logsum/len(part['train'])))))
+        assert len(reference_diagnostics)==6
+    value=dict(state='FULL_TRAINING_BUDGET_96_MODELS_4224_INNER_PROBABILITIES_REPLAYED' if full else 'SUPPORT_L1_480_MODELS_AND_2400_INNER_PROBABILITIES_REPLAYED',models=len(rows),inner_probabilities=count,maximum_probability_difference=prob_error,maximum_loss_difference=loss_error,maximum_kkt_residual=max(r['kkt'] for r in rows),methods=aggregate,new_replay_fits=0,new_reference_fits=0,new_final_fits=0,outer_query_predictions=0,outer_query_scores=0,selection_loss_is_optimistic=True,unbiased_generalization_estimate=False,original_fixed_540_run_unchanged=True,reference_diagnostics=reference_diagnostics)
+    (run/'independent_replay_private.json').write_text(json.dumps(value,indent=2),encoding='utf8');return value
+
+if __name__=='__main__':
+    parser=argparse.ArgumentParser();parser.add_argument('--run',required=True);parser.add_argument('--parent',required=True);parser.add_argument('--source');args=parser.parse_args();print(json.dumps(replay(args.run,args.parent,args.source)))

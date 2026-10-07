@@ -1,0 +1,4 @@
+{
+  "content": "scope,method,mean_selected_inner_loss,constant_selection_count,groups\nrefined,fc,0.6906763203377029,14,15\nrefined,pretrained,0.6487988512904995,12,15\nrefined,random,0.6806069034898623,14,15\nrefined,covariates,0.6475509183513125,10,15\nrelative_k5,fc,0.6881058337434612,14,15\nrelative_k5,pretrained,0.64727851768589,12,15\nrelative_k5,random,0.6792339522191227,13,15\nrelative_k5,covariates,0.6342947547339749,8,15\nfull_budget,fc,0.6931471805599454,3,3\nfull_budget,pretrained,0.6925693625563217,2,3\nfull_budget,random,0.6931471805599454,3,3\nfull_budget,covariates,0.6842333694640842,1,3\n",
+  "truncated": false
+}

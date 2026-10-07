@@ -146,3 +146,13 @@
 实际插值支持为原帧143至152，共10帧，此前12帧说明已更正，原运行和结果不重算。终态后的独立读回、固定48头训练与模型重放代码已准备；在真实活跃作业上检查得到NOT_READY、未创建输出目录、未读新MRI数组，新增分类拟合0。全部8配置沿原划分，不按查询结果扩大搜索。
 
 独立患者读回尚未执行；预定float32对float64重建绝对误差1e-4、32时序仍1e-3，原小数组1e-5不改。原encoder特征图未保存，不宣称独立重放全部GAP或再做模型前向。数学阈值尚不能当患者通过证据。
+
+
+<!-- manuscript-normalization-integration-20261007 -->
+## 已完成训练的论文整合
+
+已完成训练的四项诊断已整合论文Methods、Results和Discussion：240保存头、10,560训练内概率、全部40个阶段配置与可复现附录。数值精度改善，类均衡的概率误差代价与随机对照更强的结果同时保留；原K5主分析及阴性结论不变，本次新增拟合/查询评分0。
+
+原132人训练按用户授权QC全纳入，实际专家报告0、25原注意/文件/标签/划分保持。六内层分区人员重复，未知预训练重叠、空间/窗口/CONN差异与准确日期/临床真值/H-test缺失保留；未成立独立临床验证、完整作者复现或超越论文。
+
+[完整40配置与训练参数附录](https://onephantomcat.github.io/neurograph-site/files/migraine-normalization-20261007-manuscript-appendix.md)、[表格CSV](https://onephantomcat.github.io/neurograph-site/files/migraine-normalization-20261007-manuscript-table.csv)及[表格生成代码](https://onephantomcat.github.io/neurograph-site/files/migraine-normalization-20261007-code12.py)。原聚合保留，本次只重排已交付结果，开发新拟合累计1609、原K5 540/45参考单列；不挑最高内层AUC替换主分析。

@@ -975,3 +975,13 @@ L1训练内诊断完成：新增480次绝对λ拟合、169次固定精度精化�
 | 随机 | 训练内标准化 | 0.03 | 0.498713 | 0.487773 | -0.010940 | 0.213893 | 0.221690 | +0.007796 | 0/6 |
 
 全部AUC/AP/BAcc/Brier/logloss/平衡logloss及六分区范围见同报告聚合JSON。本轮六分区重复开发人员，不是六个独立临床队列；AP参照37/44=0.840909。类均衡原概率不自动当人群风险。未知预训练重叠、实际专家报告0、原25注意及用户QC授权、联合归一化/原2.5mm/TR/窗口360对作者365（−4秒）/CONN差异、缺独立临床真值日期与H-test等限制保留。没有可靠一致预训练提升，不宣称完整作者复现或超越论文；开发诊断累计1609新拟合，原K5 540另列。
+
+
+<!-- manuscript-normalization-integration-20261007 -->
+## 已完成训练的论文整合
+
+已完成训练的四项诊断已整合论文Methods、Results和Discussion：240保存头、10,560训练内概率、全部40个阶段配置与可复现附录。数值精度改善，类均衡的概率误差代价与随机对照更强的结果同时保留；原K5主分析及阴性结论不变，本次新增拟合/查询评分0。
+
+原132人训练按用户授权QC全纳入，实际专家报告0、25原注意/文件/标签/划分保持。六内层分区人员重复，未知预训练重叠、空间/窗口/CONN差异与准确日期/临床真值/H-test缺失保留；未成立独立临床验证、完整作者复现或超越论文。
+
+[完整40配置与训练参数附录](https://onephantomcat.github.io/neurograph-site/files/migraine-normalization-20261007-manuscript-appendix.md)、[表格CSV](https://onephantomcat.github.io/neurograph-site/files/migraine-normalization-20261007-manuscript-table.csv)及[表格生成代码](https://onephantomcat.github.io/neurograph-site/files/migraine-normalization-20261007-code12.py)。原聚合保留，本次只重排已交付结果，开发新拟合累计1609、原K5 540/45参考单列；不挑最高内层AUC替换主分析。

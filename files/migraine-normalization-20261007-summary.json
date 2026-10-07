@@ -769,5 +769,354 @@
     "training_qc": "PASSED_BY_USER_AUTHORIZATION",
     "expert_reports_added": 0,
     "clinical_validation": false
+  },
+  "followup_class_balance": {
+    "state": "ACTUAL_PREDECLARED_CLASS_BALANCE_INDEPENDENTLY_REPLAYED",
+    "people": 132,
+    "cases": 111,
+    "controls": 21,
+    "new_classifier_fits": 48,
+    "new_encoder_forwards": 0,
+    "new_query_scores": 0,
+    "C": 1.0,
+    "tol": 1e-10,
+    "max_iter": 10000,
+    "random_state": 0,
+    "solver": "liblinear",
+    "class_weight": "balanced",
+    "only_class_weight_changed": true,
+    "training_replay": {
+      "state": "ACTUAL_PREDECLARED_CLASS_BALANCE_INDEPENDENTLY_REPLAYED",
+      "models": 48,
+      "inner_probabilities": 2112,
+      "maximum_probability_difference": 0.0,
+      "maximum_loss_difference": 6.661338147750939e-16,
+      "maximum_scaler_difference": 0.0,
+      "maximum_weighted_kkt": 2.269979194058358e-07,
+      "weighted_objective_difference_range": [
+        -13.509952206034406,
+        -0.1862791422022294
+      ],
+      "training_control_weight": 3.142857142857143,
+      "training_case_weight": 0.5945945945945946,
+      "total_training_weight": 44,
+      "class_totals": [
+        22,
+        22
+      ],
+      "class_weights_estimated_from_training_only": true,
+      "only_class_weight_changed": true,
+      "new_refits_during_replay": 0,
+      "new_encoder_forwards": 0,
+      "new_query_scores": 0,
+      "parameter_selection": 0,
+      "threshold": 0.5,
+      "baseline_prior": 0.8409090909090909,
+      "conditional_development_diagnostic": true,
+      "balanced_probabilities_not_population_risk": true,
+      "methods": [
+        {
+          "method": "pretrained",
+          "scale": "raw",
+          "penalty": "l1",
+          "groups": 6,
+          "mean_unweighted_metrics": {
+            "auc": 0.481981981981982,
+            "average_precision": 0.8647298051340552,
+            "log_loss": 0.43974365404851357,
+            "balanced_log_loss": 0.9869895051772787,
+            "brier": 0.13424900662837652,
+            "balanced_accuracy": 0.5
+          },
+          "mean_balanced_metrics": {
+            "auc": 0.48648648648648657,
+            "average_precision": 0.8593485472476843,
+            "log_loss": 0.6935428250173382,
+            "balanced_log_loss": 0.6934919845667723,
+            "brier": 0.2501965764703693,
+            "balanced_accuracy": 0.48423423423423423
+          },
+          "paired_auc_difference_mean": 0.004504504504504496,
+          "paired_auc_difference_range": [
+            -0.09073359073359077,
+            0.13127413127413134
+          ],
+          "paired_brier_difference_mean": 0.11594756984199277,
+          "maximum_weighted_kkt": 1.9626966718533367e-11,
+          "weighted_objective_difference_range": [
+            -13.509952206034406,
+            -13.05853823951827
+          ],
+          "constant_heads": 2,
+          "mean_nonzero_coefficients": 1.0,
+          "maximum_iterations": 30,
+          "warnings": 0
+        },
+        {
+          "method": "pretrained",
+          "scale": "raw",
+          "penalty": "l2",
+          "groups": 6,
+          "mean_unweighted_metrics": {
+            "auc": 0.5566280566280567,
+            "average_precision": 0.8843936057326663,
+            "log_loss": 0.43579758059688406,
+            "balanced_log_loss": 1.0070415141689057,
+            "brier": 0.1334708983265043,
+            "balanced_accuracy": 0.5
+          },
+          "mean_balanced_metrics": {
+            "auc": 0.5572715572715573,
+            "average_precision": 0.8833231729556227,
+            "log_loss": 0.6361913723844634,
+            "balanced_log_loss": 0.6965495182733813,
+            "brier": 0.22438627401737565,
+            "balanced_accuracy": 0.5482625482625482
+          },
+          "paired_auc_difference_mean": 0.0006435006435006237,
+          "paired_auc_difference_range": [
+            -0.007722007722007818,
+            0.007722007722007707
+          ],
+          "paired_brier_difference_mean": 0.09091537569087134,
+          "maximum_weighted_kkt": 8.892076981681374e-08,
+          "weighted_objective_difference_range": [
+            -12.950647858716518,
+            -12.296838291799617
+          ],
+          "constant_heads": 0,
+          "mean_nonzero_coefficients": 288.0,
+          "maximum_iterations": 7,
+          "warnings": 0
+        },
+        {
+          "method": "pretrained",
+          "scale": "standardized",
+          "penalty": "l1",
+          "groups": 6,
+          "mean_unweighted_metrics": {
+            "auc": 0.5694980694980695,
+            "average_precision": 0.8905428503909536,
+            "log_loss": 0.46201075211695314,
+            "balanced_log_loss": 1.0519926120915313,
+            "brier": 0.14174340674665253,
+            "balanced_accuracy": 0.5318532818532818
+          },
+          "mean_balanced_metrics": {
+            "auc": 0.5386100386100386,
+            "average_precision": 0.8801561842649336,
+            "log_loss": 0.6211667319613229,
+            "balanced_log_loss": 0.9446276651364839,
+            "brier": 0.21104414279819825,
+            "balanced_accuracy": 0.5302445302445302
+          },
+          "paired_auc_difference_mean": -0.030888030888030844,
+          "paired_auc_difference_range": [
+            -0.11196911196911197,
+            0.007722007722007818
+          ],
+          "paired_brier_difference_mean": 0.06930073605154573,
+          "maximum_weighted_kkt": 2.281301036965999e-09,
+          "weighted_objective_difference_range": [
+            -9.131297576788008,
+            -6.35949176092323
+          ],
+          "constant_heads": 0,
+          "mean_nonzero_coefficients": 14.5,
+          "maximum_iterations": 61,
+          "warnings": 0
+        },
+        {
+          "method": "pretrained",
+          "scale": "standardized",
+          "penalty": "l2",
+          "groups": 6,
+          "mean_unweighted_metrics": {
+            "auc": 0.5463320463320464,
+            "average_precision": 0.8797585964179744,
+            "log_loss": 0.538777105775969,
+            "balanced_log_loss": 1.1645742236163203,
+            "brier": 0.1654435008813018,
+            "balanced_accuracy": 0.5263835263835264
+          },
+          "mean_balanced_metrics": {
+            "auc": 0.5431145431145431,
+            "average_precision": 0.8804267553512345,
+            "log_loss": 0.6383935279782921,
+            "balanced_log_loss": 1.0755492061770486,
+            "brier": 0.20859888666452764,
+            "balanced_accuracy": 0.4871299871299872
+          },
+          "paired_auc_difference_mean": -0.0032175032175032203,
+          "paired_auc_difference_range": [
+            -0.015444015444015524,
+            0.007722007722007707
+          ],
+          "paired_brier_difference_mean": 0.043155385783225884,
+          "maximum_weighted_kkt": 2.269979194058358e-07,
+          "weighted_objective_difference_range": [
+            -3.280838381045781,
+            -1.8615857272504162
+          ],
+          "constant_heads": 0,
+          "mean_nonzero_coefficients": 288.0,
+          "maximum_iterations": 9,
+          "warnings": 0
+        },
+        {
+          "method": "random",
+          "scale": "raw",
+          "penalty": "l1",
+          "groups": 6,
+          "mean_unweighted_metrics": {
+            "auc": 0.47876447876447886,
+            "average_precision": 0.8489736106670785,
+            "log_loss": 0.43958737435373774,
+            "balanced_log_loss": 0.9789878469186907,
+            "brier": 0.13419162663830575,
+            "balanced_accuracy": 0.5
+          },
+          "mean_balanced_metrics": {
+            "auc": 0.5,
+            "average_precision": 0.8409090909090909,
+            "log_loss": 0.6931471805599453,
+            "balanced_log_loss": 0.6931471805599453,
+            "brier": 0.25,
+            "balanced_accuracy": 0.5
+          },
+          "paired_auc_difference_mean": 0.021235521235521203,
+          "paired_auc_difference_range": [
+            -0.055984555984556095,
+            0.11003861003861004
+          ],
+          "paired_brier_difference_mean": 0.11580837336169425,
+          "maximum_weighted_kkt": 0.0,
+          "weighted_objective_difference_range": [
+            -13.423909466508235,
+            -13.315374954302726
+          ],
+          "constant_heads": 6,
+          "mean_nonzero_coefficients": 0.0,
+          "maximum_iterations": 0,
+          "warnings": 0
+        },
+        {
+          "method": "random",
+          "scale": "raw",
+          "penalty": "l2",
+          "groups": 6,
+          "mean_unweighted_metrics": {
+            "auc": 0.5411840411840412,
+            "average_precision": 0.8695014116618348,
+            "log_loss": 0.43571680009474273,
+            "balanced_log_loss": 1.004170900630967,
+            "brier": 0.1331240663838891,
+            "balanced_accuracy": 0.5
+          },
+          "mean_balanced_metrics": {
+            "auc": 0.5231660231660232,
+            "average_precision": 0.865814934639562,
+            "log_loss": 0.6347190272133671,
+            "balanced_log_loss": 0.6947460641230762,
+            "brier": 0.22136687427439386,
+            "balanced_accuracy": 0.5102960102960102
+          },
+          "paired_auc_difference_mean": -0.01801801801801799,
+          "paired_auc_difference_range": [
+            -0.06177606177606171,
+            0.0038610038610038533
+          ],
+          "paired_brier_difference_mean": 0.08824280789050476,
+          "maximum_weighted_kkt": 6.712055983237875e-08,
+          "weighted_objective_difference_range": [
+            -12.854388590780935,
+            -12.041340137685964
+          ],
+          "constant_heads": 0,
+          "mean_nonzero_coefficients": 288.0,
+          "maximum_iterations": 6,
+          "warnings": 0
+        },
+        {
+          "method": "random",
+          "scale": "standardized",
+          "penalty": "l1",
+          "groups": 6,
+          "mean_unweighted_metrics": {
+            "auc": 0.5032175032175032,
+            "average_precision": 0.8501098322713748,
+            "log_loss": 0.5697165480533702,
+            "balanced_log_loss": 1.3047221931030821,
+            "brier": 0.16543401882288322,
+            "balanced_accuracy": 0.5167310167310167
+          },
+          "mean_balanced_metrics": {
+            "auc": 0.4987129987129988,
+            "average_precision": 0.8482857513743657,
+            "log_loss": 0.6755267089796106,
+            "balanced_log_loss": 1.1912411954997768,
+            "brier": 0.2138933835563639,
+            "balanced_accuracy": 0.5057915057915058
+          },
+          "paired_auc_difference_mean": -0.004504504504504496,
+          "paired_auc_difference_range": [
+            -0.019305019305019377,
+            0.019305019305019377
+          ],
+          "paired_brier_difference_mean": 0.04845936473348065,
+          "maximum_weighted_kkt": 3.829615291550681e-09,
+          "weighted_objective_difference_range": [
+            -2.665614131466082,
+            -2.0912676598057995
+          ],
+          "constant_heads": 0,
+          "mean_nonzero_coefficients": 22.0,
+          "maximum_iterations": 45,
+          "warnings": 0
+        },
+        {
+          "method": "random",
+          "scale": "standardized",
+          "penalty": "l2",
+          "groups": 6,
+          "mean_unweighted_metrics": {
+            "auc": 0.4658944658944659,
+            "average_precision": 0.8364921020775737,
+            "log_loss": 0.7230744545514773,
+            "balanced_log_loss": 1.3463234757254285,
+            "brier": 0.21674193881824952,
+            "balanced_accuracy": 0.5148005148005149
+          },
+          "mean_balanced_metrics": {
+            "auc": 0.4626769626769627,
+            "average_precision": 0.8365552909632158,
+            "log_loss": 0.7867166903100918,
+            "balanced_log_loss": 1.2804823563008645,
+            "brier": 0.2447493252983394,
+            "balanced_accuracy": 0.4929214929214929
+          },
+          "paired_auc_difference_mean": -0.0032175032175032203,
+          "paired_auc_difference_range": [
+            -0.015444015444015524,
+            0.015444015444015524
+          ],
+          "paired_brier_difference_mean": 0.02800738648008989,
+          "maximum_weighted_kkt": 1.1466585328467893e-07,
+          "weighted_objective_difference_range": [
+            -0.3008825724881774,
+            -0.1862791422022294
+          ],
+          "constant_heads": 0,
+          "mean_nonzero_coefficients": 288.0,
+          "maximum_iterations": 10,
+          "warnings": 0
+        }
+      ]
+    },
+    "cumulative_new_diagnostic_classifier_fits": 1513,
+    "original_k5_540_separate": true,
+    "training_qc": "PASSED_BY_USER_AUTHORIZATION",
+    "expert_reports_added": 0,
+    "clinical_validation": false
   }
 }

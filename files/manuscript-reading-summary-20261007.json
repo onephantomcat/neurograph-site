@@ -1,0 +1,48 @@
+{
+  "state": "EXISTING_DEVELOPMENT_MANUSCRIPT_READING_MATERIALS",
+  "historical_review_preserved_complete": true,
+  "moved_sections": [
+    {
+      "section": "#### 10月5日至10月6日早期的DEIPP准备与适配（历史）",
+      "characters": 2436,
+      "lines": 41
+    },
+    {
+      "section": "<!-- migraine-temporal-audit-20261004 -->",
+      "characters": 372,
+      "lines": 5
+    },
+    {
+      "section": "以下保留早期截点和原程序执行证据，均按历史日期理解，不表示当前仍有分类阻塞。",
+      "characters": 1887,
+      "lines": 22
+    },
+    {
+      "section": "### 10月5日至10月6日早期的DEIPP结果（历史）",
+      "characters": 2701,
+      "lines": 41
+    },
+    {
+      "section": "<!-- deipp-rest-main-discussion-20261005 -->",
+      "characters": 2028,
+      "lines": 36
+    },
+    {
+      "section": "完整按阶段训练记录",
+      "characters": 18456,
+      "lines": 248
+    }
+  ],
+  "old_characters": 50764,
+  "reading_characters": 26487,
+  "new_classifier_fits": 0,
+  "new_encoder_forwards": 0,
+  "new_resampling": 0,
+  "new_query_scores": 0,
+  "original_k5_models": 540,
+  "original_k5_FC_references": 45,
+  "diagnostic_new_fits": 1609,
+  "independent_clinical_validation": false,
+  "submission_ready": false,
+  "expert_reports_added": 0
+}

@@ -4,6 +4,7 @@
   "record_reviewed_heading": "2026-10-06（132人输入复核；25项待专家确认）",
   "objective": "研究范围扩展到原79人之外：比较脑影像相对临床、人口学和强FC方法的预测增量，检验这些结果在不同病种、来源和样本规模下是否成立。预训练是否有用由结果决定；阴性和迁移失败也是研究结论。",
   "conclusions": [
+    "开发性论文阅读材料已整理：当前Methods、Results、Discussion保留全部主要比较，6组历史运行记录移至完整附录，原K5图及40训练配置可查。本次没有新拟合或评分；作者/伦理/许可及独立临床真值仍缺，不是提交就绪稿。",
     "已完成训练的四项诊断已整合论文Methods、Results和Discussion：240保存头、10,560训练内概率、全部40个阶段配置与可复现附录。数值精度改善，类均衡的概率误差代价与随机对照更强的结果同时保留；原K5主分析及阴性结论不变，本次新增拟合/查询评分0。",
     "相对L1正则96头已完成并独立重放。24个阈值参照为零解，其余72个头均不再是常数。原始预训练特征在0.3/0.1比例下AUC0.550193，同配置随机特征0.563707/0.571429；预训练没有一致优势。全部16配置保留，新查询评分与选参0。",
     "类别均衡48头已完成并独立重放。预训练四配置的训练内AUC变化+0.004505、+0.000644、−0.030888、−0.003218；八种配置的Brier均变差。随机原始L1六头全常数，AUC0.5是基线，不能当成学到了信号。新查询评分0，全部配置和负结果保留。",
@@ -657,7 +658,7 @@
       "phase": "model",
       "title": "按结果调整目标，开展多数据集预测与迁移研究",
       "status": "active",
-      "summary": "原K5 540拟合/45FC参考及五支持OOF已完成，未见可靠冻结整体改善。已完成训练的四项诊断已整合论文Methods、Results和Discussion：240保存头、10,560训练内概率、全部40个阶段配置与可复现附录。数值精度改善，类均衡的概率误差代价与随机对照更强的结果同时保留；原K5主分析及阴性结论不变，本次新增拟合/查询评分0。 原132人训练按用户授权QC全纳入，实际专家报告0、25原注意/文件/标签/划分保持。六内层分区人员重复，未知预训练重叠、空间/窗口/CONN差异与准确日期/临床真值/H-test缺失保留；未成立独立临床验证、完整作者复现或超越论文。",
+      "summary": "原K5 540拟合/45FC参考及五支持OOF已完成，未见可靠冻结整体改善。已完成训练的四项诊断已整合论文Methods、Results和Discussion：240保存头、10,560训练内概率、全部40个阶段配置与可复现附录。数值精度改善，类均衡的概率误差代价与随机对照更强的结果同时保留；原K5主分析及阴性结论不变，本次新增拟合/查询评分0。 原132人训练按用户授权QC全纳入，实际专家报告0、25原注意/文件/标签/划分保持。六内层分区人员重复，未知预训练重叠、空间/窗口/CONN差异与准确日期/临床真值/H-test缺失保留；未成立独立临床验证、完整作者复现或超越论文。 开发性论文阅读材料已整理：当前Methods、Results、Discussion保留全部主要比较，6组历史运行记录移至完整附录，原K5图及40训练配置可查。本次没有新拟合或评分；作者/伦理/许可及独立临床真值仍缺，不是提交就绪稿。",
       "next": "继续完成全候选影像、数值和技术视觉检查，再在本机做原定K5四方法有限对照；只传小特征。本机训练产物完整归档服务器并实际恢复核验后，再释放已结束任务的大文件。",
       "criteria": "交付按数据集/病种/终点区分的实际输入审计、运行前有限方案、全部主要方法结果和来源留出评价；独立临床验证另列。",
       "depends_on": [],
@@ -811,7 +812,11 @@
         "migraine-normalization-20261007-code11",
         "migraine-normalization-20261007-manuscript-appendix",
         "migraine-normalization-20261007-manuscript-table",
-        "migraine-normalization-20261007-code12"
+        "migraine-normalization-20261007-code12",
+        "manuscript-reading-history-20261007",
+        "manuscript-reading-materials-20261007",
+        "manuscript-reading-summary-20261007",
+        "manuscript-reading-code-20261007"
       ],
       "student_guide": {
         "title": "比较多个数据集，找出影像在哪些任务有帮助",
@@ -1670,9 +1675,9 @@
       "section": "sources",
       "repo_path": "docs/TRAINING_RESULTS_INDEX.md",
       "format": "md",
-      "size": 142073,
+      "size": 143048,
       "exists": true,
-      "modified_at": "2026-10-07T16:35:13.169713+08:00",
+      "modified_at": "2026-10-07T17:02:50.409866+08:00",
       "public_url": "./files/training-results-index.md",
       "preview_url": "./data/previews/training-results-index.json"
     },
@@ -1916,9 +1921,9 @@
       "section": "sources",
       "repo_path": "docs/RECENT_RESEARCH_HISTORY_2026-09-08.md",
       "format": "md",
-      "size": 159984,
+      "size": 160959,
       "exists": true,
-      "modified_at": "2026-10-07T16:35:13.169713+08:00",
+      "modified_at": "2026-10-07T17:02:50.409866+08:00",
       "public_url": "./files/research-history-report.md",
       "public_redacted": true,
       "preview_url": "./data/previews/research-history-report.json"
@@ -4140,9 +4145,9 @@
       "section": "sources",
       "repo_path": "docs/ACTIVE_RESEARCH_GOAL_2026-09-29.md",
       "format": "md",
-      "size": 110758,
+      "size": 111733,
       "exists": true,
-      "modified_at": "2026-10-07T16:35:13.169713+08:00",
+      "modified_at": "2026-10-07T17:02:50.409866+08:00",
       "public_url": "./files/active-research-goal-20260929.md",
       "preview_url": "./data/previews/active-research-goal-20260929.json"
     },
@@ -4495,9 +4500,9 @@
       "section": "sources",
       "repo_path": "docs/PROJECT_PLAN.md",
       "format": "md",
-      "size": 152814,
+      "size": 153950,
       "exists": true,
-      "modified_at": "2026-10-07T16:35:13.169713+08:00",
+      "modified_at": "2026-10-07T17:02:50.409866+08:00",
       "public_url": "./files/archive-a181ed9eb3c49bb7.md",
       "preview_url": "./data/previews/archive-a181ed9eb3c49bb7.json"
     },
@@ -42656,9 +42661,9 @@
       "description": "强FC迁移条件、偏头痛候选核查、独立临床增量及大型训练后的新对话接续。",
       "repo_path": "docs/INTEGRATED_PROJECT_GOAL_2026-10-02.md",
       "format": "md",
-      "size": 73626,
+      "size": 74601,
       "exists": true,
-      "modified_at": "2026-10-07T16:35:13.169713+08:00",
+      "modified_at": "2026-10-07T17:02:50.409866+08:00",
       "public_url": "./files/fc-transfer-conditions-20261002-goal.md",
       "preview_url": "./data/previews/fc-transfer-conditions-20261002-goal.json"
     },
@@ -42740,9 +42745,9 @@
       "description": "正式论文与指定源码版本核对；纳入已完成132人开发比较，按人群、终点、处理、监督预算和区间对象说明差异，不按跨研究AUC排名。",
       "repo_path": "docs/LITERATURE_COMPARISON_2026-10-02.md",
       "format": "md",
-      "size": 45294,
+      "size": 46269,
       "exists": true,
-      "modified_at": "2026-10-07T16:35:13.169713+08:00",
+      "modified_at": "2026-10-07T17:02:50.409866+08:00",
       "public_url": "./files/migraine-input-pilot-20261002-literature.md",
       "preview_url": "./data/previews/migraine-input-pilot-20261002-literature.json"
     },
@@ -44264,15 +44269,15 @@
     },
     {
       "id": "manuscript-current-review-20261007",
-      "label": "论文审阅稿：现有结果与当前处理状态",
-      "description": "已完成训练的四项诊断已整合论文Methods、Results和Discussion：240保存头、10,560训练内概率、全部40个阶段配置与可复现附录。数值精度改善，类均衡的概率误差代价与随机对照更强的结果同时保留；原K5主分析及阴性结论不变，本次新增拟合/查询评分0。 原132人训练按用户授权QC全纳入，实际专家报告0、25原注意/文件/标签/划分保持。六内层分区人员重复，未知预训练重叠、空间/窗口/CONN差异与准确日期/临床真值/H-test缺失保留；未成立独立临床验证、完整作者复现或超越论文。 DEIPP四份最终CIFTI数值/轴核对已完成，仍不证明专家配准或独立临床验证。",
+      "label": "开发性论文阅读版：主要比较与限制",
+      "description": "开发性论文阅读材料已整理：当前Methods、Results、Discussion保留全部主要比较，6组历史运行记录移至完整附录，原K5图及40训练配置可查。本次没有新拟合或评分；作者/伦理/许可及独立临床真值仍缺，不是提交就绪稿。 原K5 540/45参考及其阴性结果、开发1609拟合与随机对照、25原注意/用户授权QC/专家报告0、预训练重叠未知、版本及空间时间差异、临床日期与H-test缺口保持，不能由稿件整理推定科学目标完成。",
       "repo_path": "docs/MANUSCRIPT_REVIEW_COPY_2026-10-07.md",
       "format": "md",
       "exists": true,
       "public_url": "./files/manuscript-current-review-20261007.md",
       "preview_url": "./data/previews/manuscript-current-review-20261007.json",
-      "size": 95875,
-      "modified_at": "2026-10-07T16:35:13.169713+08:00"
+      "size": 53764,
+      "modified_at": "2026-10-07T17:02:50.409866+08:00"
     },
     {
       "id": "migraine-support-l1-20261007",
@@ -44475,8 +44480,8 @@
       "exists": true,
       "public_url": "./files/migraine-author-input-20261007.md",
       "preview_url": "./data/previews/migraine-author-input-20261007.json",
-      "size": 21372,
-      "modified_at": "2026-10-07T16:35:13.169713+08:00"
+      "size": 22347,
+      "modified_at": "2026-10-07T17:02:50.409866+08:00"
     },
     {
       "id": "migraine-author-input-20261007-summary",
@@ -44571,8 +44576,8 @@
       "exists": true,
       "public_url": "./files/migraine-normalization-20261007.md",
       "preview_url": "./data/previews/migraine-normalization-20261007.json",
-      "size": 18722,
-      "modified_at": "2026-10-07T16:35:13.169713+08:00"
+      "size": 19697,
+      "modified_at": "2026-10-07T17:02:50.409866+08:00"
     },
     {
       "id": "migraine-normalization-20261007-summary",
@@ -44777,11 +44782,59 @@
       "preview_url": "./data/previews/migraine-normalization-20261007-code12.json",
       "size": 8100,
       "modified_at": "2026-10-07T16:35:13.169713+08:00"
+    },
+    {
+      "id": "manuscript-reading-history-20261007",
+      "label": "完整历史审阅稿与阶段记录",
+      "description": "完整保存整理前审阅稿，历史仍0/待执行按各自日期理解，原失败和阴性结果不删除。",
+      "repo_path": "reports/manuscript-reading-2026-10-07/historical-review.md",
+      "format": "md",
+      "exists": true,
+      "public_url": "./files/manuscript-reading-history-20261007.md",
+      "preview_url": "./data/previews/manuscript-reading-history-20261007.json",
+      "size": 100957,
+      "modified_at": "2026-10-07T17:02:50.409866+08:00"
+    },
+    {
+      "id": "manuscript-reading-materials-20261007",
+      "label": "投稿阅读材料与复现范围",
+      "description": "开发性论文阅读材料已整理：当前Methods、Results、Discussion保留全部主要比较，6组历史运行记录移至完整附录，原K5图及40训练配置可查。本次没有新拟合或评分；作者/伦理/许可及独立临床真值仍缺，不是提交就绪稿。 原K5 540/45参考及其阴性结果、开发1609拟合与随机对照、25原注意/用户授权QC/专家报告0、预训练重叠未知、版本及空间时间差异、临床日期与H-test缺口保持，不能由稿件整理推定科学目标完成。",
+      "repo_path": "reports/manuscript-reading-2026-10-07/README.md",
+      "format": "md",
+      "exists": true,
+      "public_url": "./files/manuscript-reading-materials-20261007.md",
+      "preview_url": "./data/previews/manuscript-reading-materials-20261007.json",
+      "size": 3819,
+      "modified_at": "2026-10-07T17:02:50.409866+08:00"
+    },
+    {
+      "id": "manuscript-reading-summary-20261007",
+      "label": "阅读材料整理范围JSON",
+      "description": "仅段落整理范围，新增模型/患者数据/评分0，未达到可提交状态。",
+      "repo_path": "reports/manuscript-reading-2026-10-07/reading-materials-summary.json",
+      "format": "json",
+      "exists": true,
+      "public_url": "./files/manuscript-reading-summary-20261007.json",
+      "preview_url": "./data/previews/manuscript-reading-summary-20261007.json",
+      "size": 1319,
+      "modified_at": "2026-10-07T17:02:50.409866+08:00"
+    },
+    {
+      "id": "manuscript-reading-code-20261007",
+      "label": "阅读稿与历史附录整理代码",
+      "description": "从原完整审阅稿生成阅读版和完整历史附录，不执行任何科学拟合或重采样。",
+      "repo_path": "operations/20261007-manuscript-reading-materials/build_reading_materials.py",
+      "format": "py",
+      "exists": true,
+      "public_url": "./files/manuscript-reading-code-20261007.py",
+      "preview_url": "./data/previews/manuscript-reading-code-20261007.json",
+      "size": 13453,
+      "modified_at": "2026-10-07T17:02:50.409866+08:00"
     }
   ],
   "focus_phase": "model",
   "focus_title": "132人训练完成，后续诊断已整合论文",
-  "focus_description": "已完成训练的四项诊断已整合论文Methods、Results和Discussion：240保存头、10,560训练内概率、全部40个阶段配置与可复现附录。数值精度改善，类均衡的概率误差代价与随机对照更强的结果同时保留；原K5主分析及阴性结论不变，本次新增拟合/查询评分0。 原132人训练按用户授权QC全纳入，实际专家报告0、25原注意/文件/标签/划分保持。六内层分区人员重复，未知预训练重叠、空间/窗口/CONN差异与准确日期/临床真值/H-test缺失保留；未成立独立临床验证、完整作者复现或超越论文。",
+  "focus_description": "开发性论文阅读材料已整理：当前Methods、Results、Discussion保留全部主要比较，6组历史运行记录移至完整附录，原K5图及40训练配置可查。本次没有新拟合或评分；作者/伦理/许可及独立临床真值仍缺，不是提交就绪稿。 原K5 540/45参考及其阴性结果、开发1609拟合与随机对照、25原注意/用户授权QC/专家报告0、预训练重叠未知、版本及空间时间差异、临床日期与H-test缺口保持，不能由稿件整理推定科学目标完成。",
   "next_goal_ids": [
     "G19",
     "G12",
@@ -44806,11 +44859,11 @@
         "id": "migraine-support-l1-20261007",
         "date": "2026-10-07",
         "title": "训练方法：正则尺度、窗口与归一化",
-        "summary": "有限训练诊断已完成：先前L1 1225新拟合、作者默认96、原中央窗口48、新归一化与后续240，累计1609；原K5 540另列。已完成训练的四项诊断已整合论文Methods、Results和Discussion：240保存头、10,560训练内概率、全部40个阶段配置与可复现附录。数值精度改善，类均衡的概率误差代价与随机对照更强的结果同时保留；原K5主分析及阴性结论不变，本次新增拟合/查询评分0。",
-        "result": "有限训练诊断已完成：先前L1 1225新拟合、作者默认96、原中央窗口48、新归一化与后续240，累计1609；原K5 540另列。已完成训练的四项诊断已整合论文Methods、Results和Discussion：240保存头、10,560训练内概率、全部40个阶段配置与可复现附录。数值精度改善，类均衡的概率误差代价与随机对照更强的结果同时保留；原K5主分析及阴性结论不变，本次新增拟合/查询评分0。",
+        "summary": "有限训练诊断已完成：先前L1 1225新拟合、作者默认96、原中央窗口48、新归一化与后续240，累计1609；原K5 540另列。已完成训练的四项诊断已整合论文Methods、Results和Discussion：240保存头、10,560训练内概率、全部40个阶段配置与可复现附录。数值精度改善，类均衡的概率误差代价与随机对照更强的结果同时保留；原K5主分析及阴性结论不变，本次新增拟合/查询评分0。 开发性论文阅读材料已整理：当前Methods、Results、Discussion保留全部主要比较，6组历史运行记录移至完整附录，原K5图及40训练配置可查。本次没有新拟合或评分；作者/伦理/许可及独立临床真值仍缺，不是提交就绪稿。",
+        "result": "有限训练诊断已完成：先前L1 1225新拟合、作者默认96、原中央窗口48、新归一化与后续240，累计1609；原K5 540另列。已完成训练的四项诊断已整合论文Methods、Results和Discussion：240保存头、10,560训练内概率、全部40个阶段配置与可复现附录。数值精度改善，类均衡的概率误差代价与随机对照更强的结果同时保留；原K5主分析及阴性结论不变，本次新增拟合/查询评分0。 开发性论文阅读材料已整理：当前Methods、Results、Discussion保留全部主要比较，6组历史运行记录移至完整附录，原K5图及40训练配置可查。本次没有新拟合或评分；作者/伦理/许可及独立临床真值仍缺，不是提交就绪稿。",
         "method": "既有四方法有限L1、作者默认头和原中央窗口对照保留；新输入默认48→同目标精度48→类均衡48→训练lambda_max四比例L1 96。六原训练内分区，每折44训练/44验证，Scaler与类权重/正则阈值仅训练估计，全部8/8/8/16配置保留、不选最优。240模型和10560概率已经分别独立重放。本次正文与表格整合新增拟合/重采样/前向/查询评分0。",
         "boundary": "原有限诊断常数解、全部阴性结果和选择记录保留，详见原报告。新归一化联合改变多因素；严格求解不保证预测增益，类均衡八配置Brier均更差，相对L1在原始尺度随机更强、标准化时预训练更强，无一致预训练优势。原132人训练按用户授权QC全纳入，实际专家报告0、25原注意/文件/标签/划分保持。六内层分区人员重复，未知预训练重叠、空间/窗口/CONN差异与准确日期/临床真值/H-test缺失保留；未成立独立临床验证、完整作者复现或超越论文。",
-        "next": "保留当前有限诊断，不增搜索或以内层最高AUC替代原K5。继续可投稿材料的必要科学说明与真正未开发诊断/同期痛/治疗反应及H-test证据；缺临床真值和日期时不执行对应终点。",
+        "next": "保留全部已完成结果；核对整体目标缺口，缺独立临床真值、日期和H-test时不执行对应终点，不编造投稿声明。",
         "sources": [
           "migraine-support-l1-20261007",
           "migraine-support-l1-20261007-summary",
@@ -44853,7 +44906,11 @@
           "migraine-normalization-20261007-code11",
           "migraine-normalization-20261007-manuscript-appendix",
           "migraine-normalization-20261007-manuscript-table",
-          "migraine-normalization-20261007-code12"
+          "migraine-normalization-20261007-code12",
+          "manuscript-reading-history-20261007",
+          "manuscript-reading-materials-20261007",
+          "manuscript-reading-summary-20261007",
+          "manuscript-reading-code-20261007"
         ],
         "calendar_event_id": "event-88f03106166f46cc",
         "status": "completed",
@@ -44867,7 +44924,8 @@
         "normalization_solver_precision_marker": "normalization-solver-precision-20261007",
         "normalization_class_balance_marker": "normalization-class-balance-20261007",
         "normalization_relative_l1_marker": "normalization-relative-l1-20261007",
-        "manuscript_integration_marker": "manuscript-normalization-integration-20261007"
+        "manuscript_integration_marker": "manuscript-normalization-integration-20261007",
+        "reading_materials_marker": "manuscript-reading-materials-20261007"
       },
       {
         "id": "deipp-label-semantics-20261006",
@@ -54832,9 +54890,9 @@
       ]
     },
     "input_inventory": {
-      "summary": "132人原K5训练已完成；四项后续诊断的240保存头、10,560训练内概率与全部40配置已整合论文。没有一致预训练优势，本次新增拟合和查询评分0。",
+      "summary": "原132训练与后续诊断已完成，未见一致预训练增益。开发性论文阅读材料已整理：当前Methods、Results、Discussion保留全部主要比较，6组历史运行记录移至完整附录，原K5图及40训练配置可查。本次没有新拟合或评分；作者/伦理/许可及独立临床真值仍缺，不是提交就绪稿。",
       "boundary": "训练纳入依据用户授权，实际专家报告0、原25项注意/文件/标签/划分保留；六训练内分区人员重复。预训练成员重叠未知，准确日期/诊断与同期痛/治疗反应真值及真正未开发H-test仍缺。原20未评分、Emo13失败、TN14/结构535/CLIP停止及原SPM锁保持，不成立独立临床验证。",
-      "next": "保留全部有限诊断与原K5主要结果；继续可投稿材料及独立临床终点证据，缺真值时不执行对应终点，不依据已见成绩扩大搜索。",
+      "next": "保留全部已完成结果；核对整体目标缺口，缺独立临床真值、日期和H-test时不执行对应终点，不编造投稿声明。",
       "rows": [
         {
           "input": "归一化顺序与新输入分支",
@@ -90777,7 +90835,7 @@
     "summary_source": "prt-images-20260925-summary"
   },
   "calendar": {
-    "revision": 160,
+    "revision": 161,
     "events": [
       {
         "date": "2026-09-20",
@@ -93800,7 +93858,7 @@
         "type": "work",
         "date": "2026-10-07",
         "time": "",
-        "description": "有限训练诊断已完成：先前L1 1225新拟合、作者默认96、原中央窗口48、新归一化与后续240，累计1609；原K5 540另列。已完成训练的四项诊断已整合论文Methods、Results和Discussion：240保存头、10,560训练内概率、全部40个阶段配置与可复现附录。数值精度改善，类均衡的概率误差代价与随机对照更强的结果同时保留；原K5主分析及阴性结论不变，本次新增拟合/查询评分0。 原有限诊断常数解、全部阴性结果和选择记录保留，详见原报告。新归一化联合改变多因素；严格求解不保证预测增益，类均衡八配置Brier均更差，相对L1在原始尺度随机更强、标准化时预训练更强，无一致预训练优势。原132人训练按用户授权QC全纳入，实际专家报告0、25原注意/文件/标签/划分保持。六内层分区人员重复，未知预训练重叠、空间/窗口/CONN差异与准确日期/临床真值/H-test缺失保留；未成立独立临床验证、完整作者复现或超越论文。",
+        "description": "有限训练诊断已完成：先前L1 1225新拟合、作者默认96、原中央窗口48、新归一化与后续240，累计1609；原K5 540另列。已完成训练的四项诊断已整合论文Methods、Results和Discussion：240保存头、10,560训练内概率、全部40个阶段配置与可复现附录。数值精度改善，类均衡的概率误差代价与随机对照更强的结果同时保留；原K5主分析及阴性结论不变，本次新增拟合/查询评分0。 开发性论文阅读材料已整理：当前Methods、Results、Discussion保留全部主要比较，6组历史运行记录移至完整附录，原K5图及40训练配置可查。本次没有新拟合或评分；作者/伦理/许可及独立临床真值仍缺，不是提交就绪稿。 原有限诊断常数解、全部阴性结果和选择记录保留，详见原报告。新归一化联合改变多因素；严格求解不保证预测增益，类均衡八配置Brier均更差，相对L1在原始尺度随机更强、标准化时预训练更强，无一致预训练优势。原132人训练按用户授权QC全纳入，实际专家报告0、25原注意/文件/标签/划分保持。六内层分区人员重复，未知预训练重叠、空间/窗口/CONN差异与准确日期/临床真值/H-test缺失保留；未成立独立临床验证、完整作者复现或超越论文。",
         "id": "event-88f03106166f46cc",
         "sources": [
           "migraine-support-l1-20261007",
@@ -93844,10 +93902,14 @@
           "migraine-normalization-20261007-code11",
           "migraine-normalization-20261007-manuscript-appendix",
           "migraine-normalization-20261007-manuscript-table",
-          "migraine-normalization-20261007-code12"
+          "migraine-normalization-20261007-code12",
+          "manuscript-reading-history-20261007",
+          "manuscript-reading-materials-20261007",
+          "manuscript-reading-summary-20261007",
+          "manuscript-reading-code-20261007"
         ],
         "date_basis": "人工维护；Asia/Shanghai",
-        "updated_at": "2026-10-07T08:35:14.228094+00:00"
+        "updated_at": "2026-10-07T09:02:51.526544+00:00"
       }
     ]
   },

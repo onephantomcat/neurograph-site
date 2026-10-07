@@ -1,0 +1,4 @@
+{
+  "content": "# 作者默认分类头的训练内诊断\n\n`author_head_diagnostic.run(existing_design_run, new_output)`复用前期较大监督预算的24个保存设计矩阵。每原外层训练88人内部44训练/44验证，查询44人不计算。固定比较原始列与仅训练人员StandardScaler、L1/L2、C=1、tol=1e-4、max_iter=1000、seed=0、不传样本或类别权重。FC只用4005列，冻结/随机只用288列，协变量单独4列；不将协变量拼接到影像头。\n\n保存96个模型及4224个内层概率，全部16种组合不选优；实际警告和KKT残差保留。`replay_author_heads.py`从同目录私有receipt定位真实输出，独立重建标准化、sigmoid、平衡和普通logloss、指标及优化残差，不重训。\n\n这是依据固定作者公开源码的分类头诊断；没有执行作者重复LOP或重新取得20帧96³/CONN输入，没有新增外层测试或临床验证。作者当前评估代码中bootstrap循环实际为行置换，不把100次置换当100次独立患者重采样。不同任务的AUC和AP不能直接排名；内层AP须同时看37/44阳性比例基线。\n\n输入设计joblib包含x/xv/y/yv、train_indices、validation_indices、outer_query；前期groups_private.json规定成员。本目录receipt、设计、模型、概率、原作者整份源码与人员信息不公开。已执行Python3.13、scikit-learn1.8.0；固定头没有出现ConvergenceWarning，但最大KKT残差不等于最优解已认证。\n",
+  "truncated": false
+}

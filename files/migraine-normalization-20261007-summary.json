@@ -101,5 +101,339 @@
     "full_patient_readback_executed": false,
     "original_completed_models_repeated": 0,
     "raw_encoder_maps_independently_repooled": false
+  },
+  "followup_results": {
+    "state": "ACTUAL_132_NEW_NORMALIZATION_AND_48_HEADS_REPLAYED",
+    "people": 132,
+    "cases": 111,
+    "controls": 21,
+    "new_encoder_forwards": 264,
+    "new_classifier_fits": 48,
+    "new_query_scores": 0,
+    "independent_input_readback": {
+      "state": "INDEPENDENT_NEW_NORMALIZATION_132_INPUTS_READ_BACK",
+      "feature_bytes": 442509,
+      "people": 132,
+      "vector_values": 76032,
+      "finite_normalized_values": 2335703040,
+      "maximum_float64_normalization_difference": 1.584086597955503e-05,
+      "maximum_independent_32_series_difference": 0.0009613037103690658,
+      "maximum_recorded_pool_float32_vs_float64_difference": 3.643333910119395e-07,
+      "source_frames_per_person": 10,
+      "window_start": 360,
+      "window_frames": 20,
+      "raw_encoder_maps_independently_repooled": false,
+      "new_model_forwards": 0,
+      "new_classifier_fits": 0,
+      "patient_mri_copied_locally": 0,
+      "recorded_unix": 1791356740.6938343,
+      "local_bytes_equal": true,
+      "original_manifest_order_confirmed": true
+    },
+    "feature_effects": {
+      "pretrained": {
+        "median_relative_L2_change": 0.24345130477357013,
+        "median_cosine_similarity": 0.9711343427639185
+      },
+      "random": {
+        "median_relative_L2_change": 0.052447954108438194,
+        "median_cosine_similarity": 0.998647985491941
+      }
+    },
+    "training_replay": {
+      "state": "ACTUAL_NEW_NORMALIZATION_HEADS_INDEPENDENTLY_REPLAYED",
+      "models": 48,
+      "inner_probabilities": 2112,
+      "maximum_probability_difference": 0.0,
+      "maximum_loss_difference": 4.440892098500626e-16,
+      "maximum_scaler_difference": 0.0,
+      "new_refits": 0,
+      "new_outer_query_scores": 0,
+      "parameter_selection": 0,
+      "six_partitions_same_as_previous_larger_budget": true,
+      "conditional_development_diagnostic_not_independent_validation": true,
+      "no_extra_encoder_forwards_during_training": true,
+      "input_normalization_changed": true,
+      "selected_existing_window_start": 360,
+      "exact_author_center_start": 365,
+      "temporal_offset_seconds": -4.0,
+      "no_window_selection_by_results": true,
+      "baseline_training_prior": 0.8409090909090909,
+      "baseline_auc": 0.5,
+      "baseline_average_precision": 0.8409090909090909,
+      "methods": [
+        {
+          "method": "pretrained",
+          "scale": "raw",
+          "penalty": "l1",
+          "groups": 6,
+          "feature_count": 288,
+          "mean_old_normalization_window_inner_metrics": {
+            "auc": 0.4517374517374518,
+            "average_precision": 0.8429114488248975,
+            "log_loss": 0.44276977524957245,
+            "balanced_log_loss": 0.9867958005835291,
+            "brier": 0.13520762278677956,
+            "balanced_accuracy": 0.5
+          },
+          "paired_inner_auc_difference_mean": 0.020592020592020616,
+          "paired_inner_auc_difference_range": [
+            -0.06563706563706556,
+            0.13899613899613905
+          ],
+          "mean_inner_metrics": {
+            "auc": 0.47232947232947237,
+            "average_precision": 0.8562244227059504,
+            "log_loss": 0.43979821791059726,
+            "balanced_log_loss": 0.9872023746117566,
+            "brier": 0.13426892847230681,
+            "balanced_accuracy": 0.5
+          },
+          "constant_heads": 0,
+          "mean_nonzero_coefficients": 1.5,
+          "maximum_kkt_residual": 0.03762911420258419,
+          "maximum_iterations": 31,
+          "warnings": 0
+        },
+        {
+          "method": "pretrained",
+          "scale": "raw",
+          "penalty": "l2",
+          "groups": 6,
+          "feature_count": 288,
+          "mean_old_normalization_window_inner_metrics": {
+            "auc": 0.5566280566280566,
+            "average_precision": 0.8855841390499034,
+            "log_loss": 0.4421054814546069,
+            "balanced_log_loss": 1.0237489830350455,
+            "brier": 0.13519020194628678,
+            "balanced_accuracy": 0.5
+          },
+          "paired_inner_auc_difference_mean": 0.0012870012870012844,
+          "paired_inner_auc_difference_range": [
+            -0.12741312741312738,
+            0.08880308880308885
+          ],
+          "mean_inner_metrics": {
+            "auc": 0.5579150579150579,
+            "average_precision": 0.885144356483417,
+            "log_loss": 0.43579912978293023,
+            "balanced_log_loss": 1.0070207713370791,
+            "brier": 0.13347212078032186,
+            "balanced_accuracy": 0.5
+          },
+          "constant_heads": 0,
+          "mean_nonzero_coefficients": 288.0,
+          "maximum_kkt_residual": 0.00046286021292652434,
+          "maximum_iterations": 9,
+          "warnings": 0
+        },
+        {
+          "method": "pretrained",
+          "scale": "standardized",
+          "penalty": "l1",
+          "groups": 6,
+          "feature_count": 288,
+          "mean_old_normalization_window_inner_metrics": {
+            "auc": 0.566924066924067,
+            "average_precision": 0.8906314387154236,
+            "log_loss": 0.46090420254404557,
+            "balanced_log_loss": 1.0038991532662382,
+            "brier": 0.14338308812673947,
+            "balanced_accuracy": 0.5102960102960102
+          },
+          "paired_inner_auc_difference_mean": 0.0032175032175031835,
+          "paired_inner_auc_difference_range": [
+            -0.10038610038610052,
+            0.07335907335907338
+          ],
+          "mean_inner_metrics": {
+            "auc": 0.5701415701415701,
+            "average_precision": 0.8906704410357856,
+            "log_loss": 0.4619705214024723,
+            "balanced_log_loss": 1.0519054994179682,
+            "brier": 0.14173016598406604,
+            "balanced_accuracy": 0.5318532818532818
+          },
+          "constant_heads": 0,
+          "mean_nonzero_coefficients": 12.166666666666666,
+          "maximum_kkt_residual": 0.0005416158753330791,
+          "maximum_iterations": 19,
+          "warnings": 0
+        },
+        {
+          "method": "pretrained",
+          "scale": "standardized",
+          "penalty": "l2",
+          "groups": 6,
+          "feature_count": 288,
+          "mean_old_normalization_window_inner_metrics": {
+            "auc": 0.5701415701415701,
+            "average_precision": 0.8938435685614049,
+            "log_loss": 0.5030979847685965,
+            "balanced_log_loss": 1.0548766805225773,
+            "brier": 0.1609541318005946,
+            "balanced_accuracy": 0.4877734877734878
+          },
+          "paired_inner_auc_difference_mean": -0.023809523809523808,
+          "paired_inner_auc_difference_range": [
+            -0.11583011583011582,
+            0.11583011583011582
+          ],
+          "mean_inner_metrics": {
+            "auc": 0.5463320463320464,
+            "average_precision": 0.8797585964179744,
+            "log_loss": 0.5387774418598775,
+            "balanced_log_loss": 1.1645729019055515,
+            "brier": 0.1654439233284575,
+            "balanced_accuracy": 0.5263835263835264
+          },
+          "constant_heads": 0,
+          "mean_nonzero_coefficients": 288.0,
+          "maximum_kkt_residual": 8.222627398126597e-05,
+          "maximum_iterations": 7,
+          "warnings": 0
+        },
+        {
+          "method": "random",
+          "scale": "raw",
+          "penalty": "l1",
+          "groups": 6,
+          "feature_count": 288,
+          "mean_old_normalization_window_inner_metrics": {
+            "auc": 0.4742599742599743,
+            "average_precision": 0.8430988097272433,
+            "log_loss": 0.43960994284167443,
+            "balanced_log_loss": 0.9793800389021508,
+            "brier": 0.13419749973864417,
+            "balanced_accuracy": 0.5
+          },
+          "paired_inner_auc_difference_mean": 0.0045045045045045045,
+          "paired_inner_auc_difference_range": [
+            -0.015444015444015413,
+            0.030888030888030937
+          ],
+          "mean_inner_metrics": {
+            "auc": 0.47876447876447886,
+            "average_precision": 0.8489736106670785,
+            "log_loss": 0.4395894051214628,
+            "balanced_log_loss": 0.9789243837367586,
+            "brier": 0.13419224916396758,
+            "balanced_accuracy": 0.5
+          },
+          "constant_heads": 0,
+          "mean_nonzero_coefficients": 1.0,
+          "maximum_kkt_residual": 0.005921265328945324,
+          "maximum_iterations": 15,
+          "warnings": 0
+        },
+        {
+          "method": "random",
+          "scale": "raw",
+          "penalty": "l2",
+          "groups": 6,
+          "feature_count": 288,
+          "mean_old_normalization_window_inner_metrics": {
+            "auc": 0.5328185328185329,
+            "average_precision": 0.8672239266728364,
+            "log_loss": 0.43671076249197927,
+            "balanced_log_loss": 1.0077624637976432,
+            "brier": 0.13336287563963148,
+            "balanced_accuracy": 0.5
+          },
+          "paired_inner_auc_difference_mean": 0.008365508365508348,
+          "paired_inner_auc_difference_range": [
+            -0.034749034749034735,
+            0.05019305019305015
+          ],
+          "mean_inner_metrics": {
+            "auc": 0.5411840411840412,
+            "average_precision": 0.8695014116618348,
+            "log_loss": 0.4357159814680089,
+            "balanced_log_loss": 1.0041707341737018,
+            "brier": 0.13312373146994635,
+            "balanced_accuracy": 0.5
+          },
+          "constant_heads": 0,
+          "mean_nonzero_coefficients": 288.0,
+          "maximum_kkt_residual": 0.0002752855253020936,
+          "maximum_iterations": 7,
+          "warnings": 0
+        },
+        {
+          "method": "random",
+          "scale": "standardized",
+          "penalty": "l1",
+          "groups": 6,
+          "feature_count": 288,
+          "mean_old_normalization_window_inner_metrics": {
+            "auc": 0.5083655083655084,
+            "average_precision": 0.8494819406289871,
+            "log_loss": 0.5741168137156618,
+            "balanced_log_loss": 1.3297171247332813,
+            "brier": 0.16622308449425097,
+            "balanced_accuracy": 0.5257400257400258
+          },
+          "paired_inner_auc_difference_mean": -0.005148005148005147,
+          "paired_inner_auc_difference_range": [
+            -0.07335907335907332,
+            0.084942084942085
+          ],
+          "mean_inner_metrics": {
+            "auc": 0.5032175032175032,
+            "average_precision": 0.8501098322713748,
+            "log_loss": 0.5696389582752851,
+            "balanced_log_loss": 1.3044329338976193,
+            "brier": 0.1654268963542402,
+            "balanced_accuracy": 0.5167310167310167
+          },
+          "constant_heads": 0,
+          "mean_nonzero_coefficients": 20.333333333333332,
+          "maximum_kkt_residual": 0.0005305441897673902,
+          "maximum_iterations": 15,
+          "warnings": 0
+        },
+        {
+          "method": "random",
+          "scale": "standardized",
+          "penalty": "l2",
+          "groups": 6,
+          "feature_count": 288,
+          "mean_old_normalization_window_inner_metrics": {
+            "auc": 0.4671814671814672,
+            "average_precision": 0.832116537665938,
+            "log_loss": 0.7224859329908541,
+            "balanced_log_loss": 1.4333650955322763,
+            "brier": 0.20721146208401198,
+            "balanced_accuracy": 0.5074002574002574
+          },
+          "paired_inner_auc_difference_mean": -0.0012870012870012844,
+          "paired_inner_auc_difference_range": [
+            -0.0424710424710425,
+            0.05791505791505791
+          ],
+          "mean_inner_metrics": {
+            "auc": 0.4658944658944659,
+            "average_precision": 0.8364921020775737,
+            "log_loss": 0.7230638447572404,
+            "balanced_log_loss": 1.3463182543228545,
+            "brier": 0.21673922590223701,
+            "balanced_accuracy": 0.5148005148005149
+          },
+          "constant_heads": 0,
+          "mean_nonzero_coefficients": 288.0,
+          "maximum_kkt_residual": 9.875618400531638e-05,
+          "maximum_iterations": 7,
+          "warnings": 0
+        }
+      ]
+    },
+    "joint_normalization_change": true,
+    "exact_author_input_reproduction": false,
+    "expert_reports_added": 0,
+    "training_qc": "PASSED_BY_USER_AUTHORIZATION",
+    "clinical_validation": false,
+    "cumulative_new_diagnostic_classifier_fits": 1417,
+    "original_k5_540_separate": true
   }
 }

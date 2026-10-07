@@ -74,5 +74,32 @@
   },
   "normalized_negative_values_not_clipped": true,
   "original_fixed_fits": 540,
-  "previous_diagnostic_fits": 1369
+  "previous_diagnostic_fits": 1369,
+  "followup_preparation": {
+    "state": "CODE_PREPARED_PATIENT_READBACK_AND_FITTING_NOT_EXECUTED",
+    "required_source_frames": 10,
+    "source_first": 143,
+    "source_last": 152,
+    "independent_coefficient_maximum_difference": 9.155273431815658e-06,
+    "row_sum_difference": 0.0,
+    "live_worker_refusal_test": {
+      "state": "ACTUAL_LIVE_WORKER_REFUSED_PREMATURE_READBACK",
+      "returncode": 3,
+      "output_directory_created": false,
+      "observation": {
+        "state": "NOT_READY_FOR_INDEPENDENT_READBACK",
+        "process_active": true,
+        "worker_state": "STARTED",
+        "exitcode": null,
+        "completed_people": 17,
+        "new_array_reads": 0,
+        "new_classifier_fits": 0
+      }
+    },
+    "new_classifier_fits": 0,
+    "new_model_forwards": 0,
+    "full_patient_readback_executed": false,
+    "original_completed_models_repeated": 0,
+    "raw_encoder_maps_independently_repooled": false
+  }
 }

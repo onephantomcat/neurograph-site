@@ -1,0 +1,33 @@
+"""Fixed new-normalization window diagnostic; no extra encoder or query score."""
+from pathlib import Path
+import importlib.util,json,time,os,warnings,joblib,numpy as np
+import argparse
+from sklearn.preprocessing import StandardScaler
+from sklearn.linear_model import LogisticRegression
+from threadpoolctl import threadpool_limits
+parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--output-root',type=Path,required=True);args=parser.parse_args()
+O=Path(__file__).resolve().parent;p=O/'training_launch_private.json';assert not p.exists(),'Observe existing run, never refit.'
+spec=importlib.util.spec_from_file_location('fixed_head',O.parent/'20261007-author-training-alignment/author_head_diagnostic.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+acquired=json.loads((O/'new_feature_receipt_private.json').read_text());assert acquired['state']=='INDEPENDENT_NEW_NORMALIZATION_132_INPUTS_READ_BACK';centers=np.load(acquired['features_file']);old=json.loads((O.parent/'20261007-author-input-behavior/training_launch_private.json').read_text());source=Path(old['source_design_run']);baseline=Path(old['run']);groups=json.loads((source/'groups_private.json').read_text());original=joblib.load(json.loads((O.parent/'20261006-training-priority/training_preparation_private.json').read_text())['package']);assert acquired['subject_ids']==original['subject_ids'];assert centers['pretrained'].shape==centers['random'].shape==(132,288)
+root=args.output_root;root.mkdir(parents=True,exist_ok=True);out=root/('run-'+str(int(time.time())));out.mkdir();(out/'models').mkdir();(out/'designs').mkdir()
+with p.open('x',encoding='utf8') as f:json.dump(dict(pid=os.getpid(),run=str(out),source_design_run=str(source),baseline_run=str(baseline),selected_window_index=18,selected_start=360,exact_author_center_start=365,new_model_forwards=0,expected_fits=48,expected_inner_probabilities=2112,new_outer_query_scores=0,parameter_selection=0,started_unix=time.time()),f,indent=2)
+state=dict(state='RUNNING',new_inner_fits=0,new_reference_fits=0,new_model_forwards=0,new_final_fits=0,outer_query_predictions=0,outer_query_scores=0,parameter_selection=0);m.save(out/'status_private.json',state);rows=[]
+try:
+ with threadpool_limits(limits=2):
+  for g in groups:
+   folder=out/'models'/g['task'];folder.mkdir()
+   for k,part in enumerate(g['inner_splits']):
+    for method in ['pretrained','random']:
+     name=f'{g["task"]}_inner{k}_{method}.joblib';d=joblib.load(source/'designs'/name);train=d['train_indices'];valid=d['validation_indices'];assert train==part['train'] and valid==part['validation'];assert not (set(train)|set(valid))&set(g['query']);np.testing.assert_array_equal(d['y'],original['labels'][train]);np.testing.assert_array_equal(d['yv'],original['labels'][valid]);x=centers[method][train];xv=centers[method][valid];assert x.shape==xv.shape==(44,288)
+     design=dict(x=x,xv=xv,y=d['y'],yv=d['yv'],train_indices=train,validation_indices=valid,outer_query=g['query']);joblib.dump(design,out/'designs'/name,compress=3)
+     for scale in ['raw','standardized']:
+      scaler=None if scale=='raw' else StandardScaler().fit(x);z=x if scaler is None else scaler.transform(x);zv=xv if scaler is None else scaler.transform(xv)
+      for penalty in ['l1','l2']:
+       with warnings.catch_warnings(record=True) as caught:
+        warnings.simplefilter('always');model=LogisticRegression(l1_ratio=1. if penalty=='l1' else 0.,solver='liblinear',C=1.,tol=1e-4,max_iter=1000,random_state=0).fit(z,d['y'])
+       probability=model.predict_proba(zv)[:,1];stats=m.metrics(d['yv'],probability);diag=m.diagnostic(z,d['y'],model,penalty=='l1');old_head=joblib.load(baseline/'models'/g['task']/f'inner{k}_{method}_{scale}_{penalty}.joblib');assert old_head['train_indices']==train and old_head['validation_indices']==valid
+       h=dict(model=model,scaler=scaler,method=method,scale=scale,penalty=penalty,train_indices=train,validation_indices=valid,outer_query=g['query'],design=name,probability=probability,training_prior=float(d['y'].mean()),metrics=stats,diagnostic=diag,warnings=[str(w.message) for w in caught],phase='new_normalization_outer_training_inner_only',saved_window_index=18,baseline_metrics=old_head['metrics']);joblib.dump(h,folder/f'inner{k}_{method}_{scale}_{penalty}.joblib',compress=3);rows.append(dict(task=g['task'],inner=k,method=method,scale=scale,penalty=penalty,metrics=stats,baseline_metrics=old_head['metrics'],diagnostic=diag,warnings=h['warnings']));state['new_inner_fits']+=1;m.save(out/'status_private.json',state)
+ assert state['new_inner_fits']==48;m.save(out/'inner_results_private.json',rows);m.save(out/'groups_private.json',groups);state.update(state='NEW_WINDOW_NORMALIZATION_HEADS_COMPLETE_REPLAY_PENDING',completed_unix=time.time(),saved_models=48,inner_probabilities=2112,exact_author_input_reproduction=False,selected_window_start=360,author_middle_start=365,time_offset_seconds=-4.,maximum_kkt_residual=max(r['diagnostic']['maximum_kkt_residual'] for r in rows),warnings=sum(bool(r['warnings']) for r in rows));m.save(out/'status_private.json',state);print(json.dumps(state),flush=True)
+except BaseException:
+ import traceback
+ state.update(state='FAILED',error=traceback.format_exc());m.save(out/'status_private.json',state);raise

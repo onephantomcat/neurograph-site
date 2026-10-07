@@ -2643,6 +2643,58 @@
         "independent_clinical_validations": 0,
         "new_classifier_fits": 0,
         "complete_ciftify_workflows": 0
+      },
+      "first_rating_chain_and_motion_review": {
+        "observed_at": "2026-10-07T17:50:17.821961+08:00",
+        "summary": "首份疼痛评分任务（rating_run-1）的变换链与保存均值已核对：独立读取902,629个有限值，三组矩阵运算差均小于4.60e-9，三组中央面已技术查看。MATLAB实际按固定参数计算1304帧低通FD，最大0.0256025003208328毫米，0帧超过0.15毫米阈值；独立Python核对FD最大差7.147060721024445e-16，帧标记一致。",
+        "boundary": "这是既定首份rating运行，另于已完成的首份静息；复用既有跨运行、功能到结构、T1线性矩阵和修正形变，不重估配准。均值spline重采样最小值为-27.006235122680664，保留负值，没有裁剪。运动标记不证明专家配准或临床质量通过，1304帧保持，物理删除0；本阶段尚未执行rating组织PC、NTRP、去噪或功能ciftify。完整1304帧标准化已启动，报告时点仍在运行且未完成独立读回。此前132人用户授权QC和540拟合/45参考及开发对照阴性结果保持，实际专家报告0、原25注意、预训练重叠未知、跨访视T2和版本差异、临床真值与H-test缺口保留。",
+        "task": "rating_run-1",
+        "selected_existing_people": 1,
+        "new_people": 0,
+        "new_mean_finite_values": 902629,
+        "new_mean_shape": [
+          91,
+          109,
+          91
+        ],
+        "new_mean_minimum": -27.006235122680664,
+        "new_mean_maximum": 403.12249755859375,
+        "matrix_max_differences": {
+          "rating_to_fs": 2.6202329195257335e-09,
+          "fs_inverse": 4.592917201076685e-09,
+          "rating_to_linear_mni": 4.0521541677662754e-10
+        },
+        "new_rating_central_planes_actually_viewed": 3,
+        "existing_reference_planes_actually_viewed": 3,
+        "new_registration_estimates": 0,
+        "motion_parameter_values": 7824,
+        "motion_fd_values_compared": 1304,
+        "motion_censor_values_compared": 1304,
+        "motion_marked_frames": 0,
+        "retained_frames": 1304,
+        "maximum_filtered_fd_mm": 0.0256025003208328,
+        "maximum_independent_fd_difference": 7.147060721024445e-16,
+        "matlab_equations_actually_executed": true,
+        "matlab_version": "R2025a",
+        "cutoff_hz": 0.1,
+        "threshold_mm": 0.15,
+        "rotation_radius_mm": 50,
+        "repetition_time_nominal_seconds": 0.46,
+        "physical_frames_deleted": 0,
+        "full_standardization_started": true,
+        "full_standardization_complete_at_review": false,
+        "full_4d_independently_read_back": false,
+        "tissue_masks_reused": true,
+        "rating_tissue_PCs_acquired": false,
+        "ntrp_executed": false,
+        "rating_functional_ciftify_complete": false,
+        "expert_registration_accuracy_proven": false,
+        "expert_reports": 0,
+        "new_classifier_fits": 0,
+        "new_inner_FC_references": 0,
+        "independent_clinical_validations": 0,
+        "source_outputs_modified": false,
+        "whole_mri_copied_locally": 0
       }
     }
   },
@@ -2669,8 +2721,8 @@
   "source_versions_observed_at": "2026-10-04T14:52:50.269444+08:00",
   "raw_mri_observed_at": "2026-10-04T16:05:28.365879+08:00",
   "raw_mri_followup_observed_at": "2026-10-04T23:00:06.680677+08:00",
-  "current_processing_observed_at": "2026-10-07T10:45:45.729075+08:00",
+  "current_processing_observed_at": "2026-10-07T17:50:17.821961+08:00",
   "current_processing_title": "DEIPP：旧转换丢失离散标签值，整数修复已独立核对",
-  "current_processing_summary": "两条功能ciftify后缀命令已完成，四份最终CIFTI独立完整读回476,126,912个有限值。每份为1304×91,282，TR0.46秒、起点0；左右皮层29,696/29,716顶点与持久ROI集合一致，19个子皮层脑区共31,870体素逐区完整对应。未平滑和6毫米平滑两档保留，源文件大小与修改时间未变。",
-  "current_processing_boundary": "这是经两处名称适配后的技术输出完成与独立数值/轴核对；没有重放表面投影，不证明专家配准准确、完整作者复现或临床验证。原Workbench警告原因仍未知，跨访视T2、版本差异和原失败保留。132训练540拟合与45参考不重做，仍无可靠冻结整体提升；实际新增专家报告0，临床真值/准确日期与H-test仍缺。"
+  "current_processing_summary": "两条功能ciftify后缀命令已完成，四份最终CIFTI独立完整读回476,126,912个有限值。每份为1304×91,282，TR0.46秒、起点0；左右皮层29,696/29,716顶点与持久ROI集合一致，19个子皮层脑区共31,870体素逐区完整对应。未平滑和6毫米平滑两档保留，源文件大小与修改时间未变。 后续：首份疼痛评分任务（rating_run-1）的变换链与保存均值已核对：独立读取902,629个有限值，三组矩阵运算差均小于4.60e-9，三组中央面已技术查看。MATLAB实际按固定参数计算1304帧低通FD，最大0.0256025003208328毫米，0帧超过0.15毫米阈值；独立Python核对FD最大差7.147060721024445e-16，帧标记一致。",
+  "current_processing_boundary": "这是经两处名称适配后的技术输出完成与独立数值/轴核对；没有重放表面投影，不证明专家配准准确、完整作者复现或临床验证。原Workbench警告原因仍未知，跨访视T2、版本差异和原失败保留。132训练540拟合与45参考不重做，仍无可靠冻结整体提升；实际新增专家报告0，临床真值/准确日期与H-test仍缺。 这是既定首份rating运行，另于已完成的首份静息；复用既有跨运行、功能到结构、T1线性矩阵和修正形变，不重估配准。均值spline重采样最小值为-27.006235122680664，保留负值，没有裁剪。运动标记不证明专家配准或临床质量通过，1304帧保持，物理删除0；本阶段尚未执行rating组织PC、NTRP、去噪或功能ciftify。完整1304帧标准化已启动，报告时点仍在运行且未完成独立读回。此前132人用户授权QC和540拟合/45参考及开发对照阴性结果保持，实际专家报告0、原25注意、预训练重叠未知、跨访视T2和版本差异、临床真值与H-test缺口保留。"
 }

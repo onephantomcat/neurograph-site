@@ -411,3 +411,8 @@ L1训练内诊断完成：新增480次绝对λ拟合、169次固定精度精化�
 开发性论文阅读材料已整理：当前Methods、Results、Discussion保留全部主要比较，6组历史运行记录移至完整附录，原K5图及40训练配置可查。本次没有新拟合或评分；作者/伦理/许可及独立临床真值仍缺，不是提交就绪稿。 原K5 540/45参考及其阴性结果、开发1609拟合与随机对照、25原注意/用户授权QC/专家报告0、预训练重叠未知、版本及空间时间差异、临床日期与H-test缺口保持，不能由稿件整理推定科学目标完成。
 
 [当前论文](https://onephantomcat.github.io/neurograph-site/files/manuscript-current-review-20261007.md)、[完整历史附录](https://onephantomcat.github.io/neurograph-site/files/manuscript-reading-history-20261007.md)与[复现/缺声明说明](https://onephantomcat.github.io/neurograph-site/files/manuscript-reading-materials-20261007.md)。
+
+
+<!-- deipp-first-rating-chain-motion-20261007 -->
+
+首份疼痛评分任务（rating_run-1）的变换链与保存均值已核对：独立读取902,629个有限值，三组矩阵运算差均小于4.60e-9，三组中央面已技术查看。MATLAB实际按固定参数计算1304帧低通FD，最大0.0256025003208328毫米，0帧超过0.15毫米阈值；独立Python核对FD最大差7.147060721024445e-16，帧标记一致。 这是既定首份rating运行，另于已完成的首份静息；复用既有跨运行、功能到结构、T1线性矩阵和修正形变，不重估配准。均值spline重采样最小值为-27.006235122680664，保留负值，没有裁剪。运动标记不证明专家配准或临床质量通过，1304帧保持，物理删除0；本阶段尚未执行rating组织PC、NTRP、去噪或功能ciftify。完整1304帧标准化已启动，报告时点仍在运行且未完成独立读回。此前132人用户授权QC和540拟合/45参考及开发对照阴性结果保持，实际专家报告0、原25注意、预训练重叠未知、跨访视T2和版本差异、临床真值与H-test缺口保留。 下一步：沿既有唯一作业接续首份rating的1304帧标准化；真实终态后只独立核对新输出，再取得这份任务自身WM/CSF各5PC，固定高通0.005Hz（命令上限9999）与NTRP，继而功能ciftify。静息组织PC或CIFTI不能代替rating；不重复已完成的132训练、旧静息或结构流程。

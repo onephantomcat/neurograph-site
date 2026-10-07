@@ -829,5 +829,102 @@
     "existing_132_FC_references": 45,
     "expert_accuracy_proven": false,
     "full_mri_copied_locally": 0
+  },
+  "final_functional_cifti_readback": {
+    "observed_at": "2026-10-07T10:45:45.729075+08:00",
+    "summary": "两条功能ciftify后缀命令已完成，四份最终CIFTI独立完整读回476,126,912个有限值。每份为1304×91,282，TR0.46秒、起点0；左右皮层29,696/29,716顶点与持久ROI集合一致，19个子皮层脑区共31,870体素逐区完整对应。未平滑和6毫米平滑两档保留，源文件大小与修改时间未变。",
+    "boundary": "这是经两处名称适配后的技术输出完成与独立数值/轴核对；没有重放表面投影，不证明专家配准准确、完整作者复现或临床验证。原Workbench警告原因仍未知，跨访视T2、版本差异和原失败保留。132训练540拟合与45参考不重做，仍无可靠冻结整体提升；实际新增专家报告0，临床真值/准确日期与H-test仍缺。",
+    "final_cifti_files_read": 4,
+    "finite_values": 476126912,
+    "files": [
+      {
+        "name": "standard_preproc_Atlas_s0.dtseries.nii",
+        "smoothing_fwhm_mm": 0.0,
+        "shape": [
+          1304,
+          91282
+        ],
+        "TR_seconds": 0.46,
+        "start_seconds": 0.0,
+        "surface_vertices": 59412,
+        "volume_voxels": 31870,
+        "numeric": {
+          "finite_values": 119031728,
+          "zero_values": 246456,
+          "minimum": -11.737015724182129,
+          "maximum": 441.67340087890625,
+          "constant_timecourses": 189
+        },
+        "source_file_unchanged": true
+      },
+      {
+        "name": "standard_preproc_Atlas_s6.dtseries.nii",
+        "smoothing_fwhm_mm": 6.0,
+        "shape": [
+          1304,
+          91282
+        ],
+        "TR_seconds": 0.46,
+        "start_seconds": 0.0,
+        "surface_vertices": 59412,
+        "volume_voxels": 31870,
+        "numeric": {
+          "finite_values": 119031728,
+          "zero_values": 7824,
+          "minimum": 0.0,
+          "maximum": 342.64520263671875,
+          "constant_timecourses": 6
+        },
+        "source_file_unchanged": true
+      },
+      {
+        "name": "denoised_Atlas_s0.dtseries.nii",
+        "smoothing_fwhm_mm": 0.0,
+        "shape": [
+          1304,
+          91282
+        ],
+        "TR_seconds": 0.46,
+        "start_seconds": 0.0,
+        "surface_vertices": 59412,
+        "volume_voxels": 31870,
+        "numeric": {
+          "finite_values": 119031728,
+          "zero_values": 246456,
+          "minimum": 0.0,
+          "maximum": 397.46038818359375,
+          "constant_timecourses": 189
+        },
+        "source_file_unchanged": true
+      },
+      {
+        "name": "denoised_Atlas_s6.dtseries.nii",
+        "smoothing_fwhm_mm": 6.0,
+        "shape": [
+          1304,
+          91282
+        ],
+        "TR_seconds": 0.46,
+        "start_seconds": 0.0,
+        "surface_vertices": 59412,
+        "volume_voxels": 31870,
+        "numeric": {
+          "finite_values": 119031728,
+          "zero_values": 7824,
+          "minimum": 0.0,
+          "maximum": 330.23919677734375,
+          "constant_timecourses": 6
+        },
+        "source_file_unchanged": true
+      }
+    ],
+    "adapted_functional_commands_completed": 2,
+    "whole_output_readback_complete": true,
+    "expert_accuracy_proven": false,
+    "surface_projection_replayed": false,
+    "author_full_reproduction_proven": false,
+    "independent_clinical_validations": 0,
+    "new_classifier_fits": 0,
+    "complete_ciftify_workflows": 0
   }
 }

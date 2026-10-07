@@ -1088,5 +1088,84 @@
       "used_saved_inverse_as_oracle": false,
       "fixture_reexecuted": false
     }
+  },
+  "first_rating_fixed_highpass_denoise_review": {
+    "observed_at": "2026-10-07T19:05:49.250147+08:00",
+    "summary": "首份疼痛评分任务（rating_run-1）的固定高通去噪已完成独立读回：投影和加均值两份完整4D各1,177,028,216个值均有限；全量float32加法回放与902,629个时间均值差均为0。12个固定位置、15,648个时间值按AFNI源公式独立重放，最大差0.00017595601188069576，低于原0.0002界限；结果只覆盖这12处。",
+    "boundary": "评分任务固定高通[0.005,9999]、TR0.46秒、polort1、16列干扰与NTRP，标记0、保留1304帧、物理删除0。当前AFNI设计1304×25，含Nyquist频点，患者日志标称1279剩余DOF、76,129常数向量，不证明实际秩或全体素投影等价；设计与保存打印文本最大差0.0004994506835913626，文本没有作为重放oracle。新的高通合成差0.00024227745761531717仍超原2e-4，其首次失败保留；此前静息患者超差也保持，不能用本评分任务12处结果覆盖旧失败。评分任务功能ciftify已启动、尚未完成最终CIFTI读回；专家配准准确性、完整作者复现及临床验证未成立。原540/45与开发1609训练及阴性结果不改，实际专家0/原25注意/用户QC授权、预训练未知、版本/跨访视T2、真实临床信息/日期/H-test缺口保留。",
+    "task": "rating_run-1",
+    "selected_existing_people": 1,
+    "new_people": 0,
+    "finite_values": {
+      "projected": 1177028216,
+      "denoised": 1177028216,
+      "denoised_mean": 902629,
+      "original_mean_reference": 902629
+    },
+    "full_mean_addition": {
+      "compared_values": 1177028216,
+      "changed_values": 0,
+      "max_difference": 0.0
+    },
+    "independent_denoised_mean": {
+      "compared_values": 902629,
+      "changed_values": 0,
+      "max_difference": 0.0
+    },
+    "projection_fixed_positions": 12,
+    "projection_values_compared": 15648,
+    "source_projection_maximum_difference": 0.00017595601188069576,
+    "source_projection_design_shape": [
+      1304,
+      25
+    ],
+    "source_projection_design_vs_saved_text_max_difference": 0.0004994506835913626,
+    "stopband_index_bounds": [
+      [
+        0,
+        3
+      ],
+      [
+        652,
+        652
+      ]
+    ],
+    "old_synthetic_limit_unchanged": 0.0002,
+    "checked_12_positions_satisfy_original_limit": true,
+    "whole_voxel_projection_equivalence_proven": false,
+    "used_saved_design_as_oracle": false,
+    "used_saved_pseudoinverse_as_oracle": false,
+    "actual_rank_proven": false,
+    "logged_nominal_remaining_DOF": 1279,
+    "logged_constant_voxel_vectors": 76129,
+    "logged_regressors": 25,
+    "rating_passband_hz": [
+      0.005,
+      9999
+    ],
+    "TR_nominal_seconds": 0.46,
+    "polort": 1,
+    "nuisance_shape": [
+      1304,
+      16
+    ],
+    "cenmode": "NTRP",
+    "marked_frames": 0,
+    "retained_frames": 1304,
+    "physical_frames_deleted": 0,
+    "source_size_mtime_unchanged": true,
+    "rating_functional_ciftify_started": true,
+    "rating_functional_ciftify_complete": false,
+    "existing_two_name_adapter_copied_byte_equal": true,
+    "new_adapter_replacements": 0,
+    "expert_registration_accuracy_proven": false,
+    "expert_reports": 0,
+    "new_classifier_fits": 0,
+    "new_inner_FC_references": 0,
+    "independent_clinical_validations": 0,
+    "whole_mri_copied_locally": 0,
+    "highpass_synthetic_error_above_old_limit_retained": true,
+    "old_rest_patient_error_above_old_limit_retained": true,
+    "new_AFNI_commands_in_independent_readback": 0
   }
 }

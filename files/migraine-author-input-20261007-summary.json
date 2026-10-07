@@ -1,0 +1,714 @@
+{
+  "recorded_at": "2026-10-07T12:16:08.939606+08:00",
+  "summary": "作者时间输入行为与固定中央窗口训练已完成：三个已知TR小数组的12份保存输出独立读回147,600值，测得空间重采样丢失TR与时间单位。复用原132人264个已算中央20帧窗口向量，新增48固定头/2,112内层概率，独立重放差0；没有新增模型前向、FC参考或外层测试。",
+  "boundary": "TR0.46秒小数组的字面20帧覆盖6.992秒，保留TR诊断覆盖15.200秒；TR2秒为30.400与15.200秒，TR1控制相同。这里只证明固定源码与当前环境的函数行为，不推断正式论文或原132管线失败。原管线本来就是20帧窗口、TR2→.8、750帧/38窗口；没有8帧改20帧。最近已存窗口start360与精确中央start365偏差−4秒，仍含2.5mm全视野/整段归一化/int8与负值截断适配。冻结内层AUC四固定组合的中央减整段平均差为−0.003218/+0.001931/+0.009009/+0.004505，没有可靠泛化增益或论文AUC.82对齐；全部8组合/负结果保留，不选窗口或头。用户QC授权与原25注意/实际新专家报告0、原标签/划分、重叠未知及临床真值/日期/H-test缺口保持。",
+  "new_classifier_fits": 48,
+  "new_reference_fits": 0,
+  "new_model_forwards": 0,
+  "new_final_fits": 0,
+  "new_outer_query_predictions": 0,
+  "new_outer_query_scores": 0,
+  "parameter_selection": 0,
+  "replayed_probabilities": 2112,
+  "new_resampling": 0,
+  "original_fixed_fits": 540,
+  "previous_training_diagnostic_fits": 1321,
+  "maximum_kkt_residual": 0.028233324896765666,
+  "warnings": 0,
+  "source_code_commit": "83a3f56993ed301864c5d2e4d2bfe790e0f2136d",
+  "small_array_behavior": {
+    "state": "PINNED_AUTHOR_SMALL_ARRAY_SAMPLING_MEASURED",
+    "source_commit": "83a3f56993ed301864c5d2e4d2bfe790e0f2136d",
+    "recorded_unix": 1791345912.4212046,
+    "versions": {
+      "torch": "2.9.1+cpu",
+      "nibabel": "5.4.2",
+      "numpy": "2.3.2"
+    },
+    "original_functions_unmodified": true,
+    "only_two_ast_function_definitions_executed": true,
+    "patient_arrays_used": 0,
+    "new_model_forwards": 0,
+    "new_classifier_fits": 0,
+    "diagnostic_only_preserves_input_tr_before_original_temporal_function": true,
+    "cases": [
+      {
+        "input_tr": 0.46000000834465027,
+        "input_units": [
+          "mm",
+          "sec"
+        ],
+        "spatial_tr": 1.0,
+        "spatial_units": [
+          "unknown",
+          "unknown"
+        ],
+        "literal_output_tr": 1.0,
+        "diagnostic_output_tr": 1.0,
+        "input_shape": [
+          4,
+          5,
+          6,
+          80
+        ],
+        "spatial_shape": [
+          5,
+          6,
+          11,
+          80
+        ],
+        "output_shape": [
+          5,
+          6,
+          11,
+          20
+        ],
+        "literal_interpolated_frames": 100,
+        "preserved_tr_interpolated_frames": 46,
+        "literal_source_frame_coordinates": [
+          31.9,
+          32.7,
+          33.5,
+          34.3,
+          35.1,
+          35.9,
+          36.7,
+          37.5,
+          38.3,
+          39.1,
+          39.9,
+          40.7,
+          41.5,
+          42.3,
+          43.1,
+          43.9,
+          44.7,
+          45.5,
+          46.3,
+          47.1
+        ],
+        "preserved_tr_source_frame_coordinates": [
+          22.97826086956522,
+          24.717391304347824,
+          26.456521739130434,
+          28.195652173913043,
+          29.934782608695652,
+          31.673913043478258,
+          33.41304347826087,
+          35.15217391304348,
+          36.891304347826086,
+          38.630434782608695,
+          40.369565217391305,
+          42.108695652173914,
+          43.84782608695652,
+          45.58695652173913,
+          47.32608695652174,
+          49.06521739130435,
+          50.80434782608695,
+          52.54347826086956,
+          54.28260869565217,
+          56.02173913043478
+        ],
+        "literal_physical_time_span_seconds": 6.992000126838685,
+        "preserved_tr_physical_time_span_seconds": 15.200000275736269,
+        "changed_values": 6600,
+        "maximum_value_difference": 8.921747207641602
+      },
+      {
+        "input_tr": 1.0,
+        "input_units": [
+          "mm",
+          "sec"
+        ],
+        "spatial_tr": 1.0,
+        "spatial_units": [
+          "unknown",
+          "unknown"
+        ],
+        "literal_output_tr": 1.0,
+        "diagnostic_output_tr": 1.0,
+        "input_shape": [
+          4,
+          5,
+          6,
+          80
+        ],
+        "spatial_shape": [
+          5,
+          6,
+          11,
+          80
+        ],
+        "output_shape": [
+          5,
+          6,
+          11,
+          20
+        ],
+        "literal_interpolated_frames": 100,
+        "preserved_tr_interpolated_frames": 100,
+        "literal_source_frame_coordinates": [
+          31.9,
+          32.7,
+          33.5,
+          34.3,
+          35.1,
+          35.9,
+          36.7,
+          37.5,
+          38.3,
+          39.1,
+          39.9,
+          40.7,
+          41.5,
+          42.3,
+          43.1,
+          43.9,
+          44.7,
+          45.5,
+          46.3,
+          47.1
+        ],
+        "preserved_tr_source_frame_coordinates": [
+          31.9,
+          32.7,
+          33.5,
+          34.3,
+          35.1,
+          35.9,
+          36.7,
+          37.5,
+          38.3,
+          39.1,
+          39.9,
+          40.7,
+          41.5,
+          42.3,
+          43.1,
+          43.9,
+          44.7,
+          45.5,
+          46.3,
+          47.1
+        ],
+        "literal_physical_time_span_seconds": 15.200000000000003,
+        "preserved_tr_physical_time_span_seconds": 15.200000000000003,
+        "changed_values": 0,
+        "maximum_value_difference": 0.0
+      },
+      {
+        "input_tr": 2.0,
+        "input_units": [
+          "mm",
+          "sec"
+        ],
+        "spatial_tr": 1.0,
+        "spatial_units": [
+          "unknown",
+          "unknown"
+        ],
+        "literal_output_tr": 1.0,
+        "diagnostic_output_tr": 1.0,
+        "input_shape": [
+          4,
+          5,
+          6,
+          80
+        ],
+        "spatial_shape": [
+          5,
+          6,
+          11,
+          80
+        ],
+        "output_shape": [
+          5,
+          6,
+          11,
+          20
+        ],
+        "literal_interpolated_frames": 100,
+        "preserved_tr_interpolated_frames": 200,
+        "literal_source_frame_coordinates": [
+          31.9,
+          32.7,
+          33.5,
+          34.3,
+          35.1,
+          35.9,
+          36.7,
+          37.5,
+          38.3,
+          39.1,
+          39.9,
+          40.7,
+          41.5,
+          42.3,
+          43.1,
+          43.9,
+          44.7,
+          45.5,
+          46.3,
+          47.1
+        ],
+        "preserved_tr_source_frame_coordinates": [
+          35.7,
+          36.1,
+          36.5,
+          36.9,
+          37.3,
+          37.7,
+          38.1,
+          38.5,
+          38.9,
+          39.3,
+          39.7,
+          40.1,
+          40.5,
+          40.9,
+          41.3,
+          41.7,
+          42.1,
+          42.5,
+          42.9,
+          43.3
+        ],
+        "literal_physical_time_span_seconds": 30.400000000000006,
+        "preserved_tr_physical_time_span_seconds": 15.199999999999989,
+        "changed_values": 6600,
+        "maximum_value_difference": 3.800006866455078
+      }
+    ]
+  },
+  "independent_small_array_readback": {
+    "state": "SAVED_AUTHOR_SMALL_ARRAY_TEMPORAL_SAMPLING_INDEPENDENTLY_READ_BACK",
+    "finite_values_read": 147600,
+    "maximum_independent_temporal_interpolation_difference": 6.634256116910819e-06,
+    "spatial_interpolation_independently_replayed": false,
+    "patient_arrays_used": 0,
+    "patient_pipeline_failure_inferred": false,
+    "original_source_functions_unchanged": true,
+    "cases": [
+      {
+        "input_tr": 0.46000000834465027,
+        "source_units": [
+          "mm",
+          "sec"
+        ],
+        "spatial_units": [
+          "unknown",
+          "unknown"
+        ],
+        "branches": [
+          {
+            "branch": "literal",
+            "values": 6600,
+            "max_independent_interpolation_difference": 5.7220458984375e-06,
+            "actual_saved_tr": 1.0,
+            "source_coordinates": [
+              31.9,
+              47.1
+            ]
+          },
+          {
+            "branch": "preserved_tr_diagnostic",
+            "values": 6600,
+            "max_independent_interpolation_difference": 6.634256116910819e-06,
+            "actual_saved_tr": 1.0,
+            "source_coordinates": [
+              22.97826086956522,
+              56.02173913043478
+            ]
+          }
+        ]
+      },
+      {
+        "input_tr": 1.0,
+        "source_units": [
+          "mm",
+          "sec"
+        ],
+        "spatial_units": [
+          "unknown",
+          "unknown"
+        ],
+        "branches": [
+          {
+            "branch": "literal",
+            "values": 6600,
+            "max_independent_interpolation_difference": 5.7220458984375e-06,
+            "actual_saved_tr": 1.0,
+            "source_coordinates": [
+              31.9,
+              47.1
+            ]
+          },
+          {
+            "branch": "preserved_tr_diagnostic",
+            "values": 6600,
+            "max_independent_interpolation_difference": 5.7220458984375e-06,
+            "actual_saved_tr": 1.0,
+            "source_coordinates": [
+              31.9,
+              47.1
+            ]
+          }
+        ]
+      },
+      {
+        "input_tr": 2.0,
+        "source_units": [
+          "mm",
+          "sec"
+        ],
+        "spatial_units": [
+          "unknown",
+          "unknown"
+        ],
+        "branches": [
+          {
+            "branch": "literal",
+            "values": 6600,
+            "max_independent_interpolation_difference": 5.7220458984375e-06,
+            "actual_saved_tr": 1.0,
+            "source_coordinates": [
+              31.9,
+              47.1
+            ]
+          },
+          {
+            "branch": "preserved_tr_diagnostic",
+            "values": 6600,
+            "max_independent_interpolation_difference": 5.7220458984375e-06,
+            "actual_saved_tr": 1.0,
+            "source_coordinates": [
+              35.7,
+              43.3
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "center_feature_difference": {
+    "state": "NEW_PREDETERMINED_AGGREGATION_FEATURE_DIFFERENCE_MEASURED",
+    "people": 132,
+    "methods": [
+      {
+        "method": "pretrained",
+        "compared_values": 38016,
+        "relative_L2_change_min": 0.0006130163421180964,
+        "relative_L2_change_median": 0.0018425396003285681,
+        "relative_L2_change_max": 0.004928099726700127,
+        "cosine_min": 0.9999878617019714,
+        "cosine_median": 0.9999984652787992,
+        "cosine_max": 0.9999998137940747,
+        "labels_used_for_selection": false
+      },
+      {
+        "method": "random",
+        "compared_values": 38016,
+        "relative_L2_change_min": 0.0014054639012373508,
+        "relative_L2_change_median": 0.0037965576069354016,
+        "relative_L2_change_max": 0.009049644854566089,
+        "cosine_min": 0.9999593875213332,
+        "cosine_median": 0.9999928781223615,
+        "cosine_max": 0.9999990124430252,
+        "labels_used_for_selection": false
+      }
+    ],
+    "new_model_forwards": 0,
+    "window_selection_by_results": false
+  },
+  "independent_replay": {
+    "state": "ACTUAL_NEAREST_CENTER_HEADS_INDEPENDENTLY_REPLAYED",
+    "models": 48,
+    "inner_probabilities": 2112,
+    "maximum_probability_difference": 0.0,
+    "maximum_loss_difference": 4.440892098500626e-16,
+    "maximum_scaler_difference": 0.0,
+    "new_refits": 0,
+    "new_outer_query_scores": 0,
+    "parameter_selection": 0,
+    "six_partitions_same_as_previous_larger_budget": true,
+    "conditional_development_diagnostic_not_independent_validation": true,
+    "no_new_encoder_forwards": true,
+    "selected_existing_window_start": 360,
+    "exact_author_center_start": 365,
+    "temporal_offset_seconds": -4.0,
+    "no_window_selection_by_results": true,
+    "baseline_training_prior": 0.8409090909090909,
+    "baseline_auc": 0.5,
+    "baseline_average_precision": 0.8409090909090909,
+    "methods": [
+      {
+        "method": "pretrained",
+        "scale": "raw",
+        "penalty": "l1",
+        "groups": 6,
+        "feature_count": 288,
+        "mean_whole_run_inner_metrics": {
+          "auc": 0.45495495495495497,
+          "average_precision": 0.8402420786125574,
+          "log_loss": 0.4428812058215787,
+          "balanced_log_loss": 0.9867695250604115,
+          "brier": 0.1352440801254882,
+          "balanced_accuracy": 0.5
+        },
+        "paired_inner_auc_difference_mean": -0.0032175032175032203,
+        "paired_inner_auc_difference_range": [
+          -0.01158301158301156,
+          0.0
+        ],
+        "mean_inner_metrics": {
+          "auc": 0.4517374517374518,
+          "average_precision": 0.8429114488248975,
+          "log_loss": 0.44276977524957245,
+          "balanced_log_loss": 0.9867958005835291,
+          "brier": 0.13520762278677956,
+          "balanced_accuracy": 0.5
+        },
+        "constant_heads": 0,
+        "mean_nonzero_coefficients": 3.0,
+        "maximum_kkt_residual": 0.028233324896765666,
+        "maximum_iterations": 15,
+        "warnings": 0
+      },
+      {
+        "method": "pretrained",
+        "scale": "raw",
+        "penalty": "l2",
+        "groups": 6,
+        "feature_count": 288,
+        "mean_whole_run_inner_metrics": {
+          "auc": 0.5546975546975547,
+          "average_precision": 0.8847543538574513,
+          "log_loss": 0.44229947881379506,
+          "balanced_log_loss": 1.0236733072279678,
+          "brier": 0.1352604566832313,
+          "balanced_accuracy": 0.5
+        },
+        "paired_inner_auc_difference_mean": 0.0019305019305019082,
+        "paired_inner_auc_difference_range": [
+          -1.1102230246251565e-16,
+          0.007722007722007707
+        ],
+        "mean_inner_metrics": {
+          "auc": 0.5566280566280566,
+          "average_precision": 0.8855841390499034,
+          "log_loss": 0.4421054814546069,
+          "balanced_log_loss": 1.0237489830350455,
+          "brier": 0.13519020194628678,
+          "balanced_accuracy": 0.5
+        },
+        "constant_heads": 0,
+        "mean_nonzero_coefficients": 288.0,
+        "maximum_kkt_residual": 0.0006446049407026755,
+        "maximum_iterations": 9,
+        "warnings": 0
+      },
+      {
+        "method": "pretrained",
+        "scale": "standardized",
+        "penalty": "l1",
+        "groups": 6,
+        "feature_count": 288,
+        "mean_whole_run_inner_metrics": {
+          "auc": 0.5579150579150579,
+          "average_precision": 0.8874422517970723,
+          "log_loss": 0.4639372357248901,
+          "balanced_log_loss": 1.0113792802970198,
+          "brier": 0.14422078477044412,
+          "balanced_accuracy": 0.5102960102960102
+        },
+        "paired_inner_auc_difference_mean": 0.00900900900900902,
+        "paired_inner_auc_difference_range": [
+          -0.003861003861003909,
+          0.030888030888030937
+        ],
+        "mean_inner_metrics": {
+          "auc": 0.566924066924067,
+          "average_precision": 0.8906314387154236,
+          "log_loss": 0.46090420254404557,
+          "balanced_log_loss": 1.003899153266238,
+          "brier": 0.14338308812673947,
+          "balanced_accuracy": 0.5102960102960102
+        },
+        "constant_heads": 0,
+        "mean_nonzero_coefficients": 8.833333333333334,
+        "maximum_kkt_residual": 0.0009529775073817692,
+        "maximum_iterations": 16,
+        "warnings": 0
+      },
+      {
+        "method": "pretrained",
+        "scale": "standardized",
+        "penalty": "l2",
+        "groups": 6,
+        "feature_count": 288,
+        "mean_whole_run_inner_metrics": {
+          "auc": 0.5656370656370657,
+          "average_precision": 0.8929551650147713,
+          "log_loss": 0.5038682634845822,
+          "balanced_log_loss": 1.0550173269909071,
+          "brier": 0.16147520401028526,
+          "balanced_accuracy": 0.4877734877734878
+        },
+        "paired_inner_auc_difference_mean": 0.004504504504504496,
+        "paired_inner_auc_difference_range": [
+          -1.1102230246251565e-16,
+          0.015444015444015413
+        ],
+        "mean_inner_metrics": {
+          "auc": 0.5701415701415701,
+          "average_precision": 0.8938435685614049,
+          "log_loss": 0.5030979847685965,
+          "balanced_log_loss": 1.0548766805225773,
+          "brier": 0.1609541318005946,
+          "balanced_accuracy": 0.4877734877734878
+        },
+        "constant_heads": 0,
+        "mean_nonzero_coefficients": 288.0,
+        "maximum_kkt_residual": 0.00017680000072478608,
+        "maximum_iterations": 6,
+        "warnings": 0
+      },
+      {
+        "method": "random",
+        "scale": "raw",
+        "penalty": "l1",
+        "groups": 6,
+        "feature_count": 288,
+        "mean_whole_run_inner_metrics": {
+          "auc": 0.47297297297297297,
+          "average_precision": 0.8421033796774525,
+          "log_loss": 0.4396025424055556,
+          "balanced_log_loss": 0.9793764708242616,
+          "brier": 0.13419545344257822,
+          "balanced_accuracy": 0.5
+        },
+        "paired_inner_auc_difference_mean": 0.001287001287001303,
+        "paired_inner_auc_difference_range": [
+          -0.01158301158301156,
+          0.015444015444015524
+        ],
+        "mean_inner_metrics": {
+          "auc": 0.4742599742599743,
+          "average_precision": 0.8430988097272433,
+          "log_loss": 0.43960994284167443,
+          "balanced_log_loss": 0.9793800389021506,
+          "brier": 0.13419749973864417,
+          "balanced_accuracy": 0.5
+        },
+        "constant_heads": 0,
+        "mean_nonzero_coefficients": 1.0,
+        "maximum_kkt_residual": 0.008467303839422513,
+        "maximum_iterations": 15,
+        "warnings": 0
+      },
+      {
+        "method": "random",
+        "scale": "raw",
+        "penalty": "l2",
+        "groups": 6,
+        "feature_count": 288,
+        "mean_whole_run_inner_metrics": {
+          "auc": 0.5244530244530244,
+          "average_precision": 0.8607736019734894,
+          "log_loss": 0.4371152825704825,
+          "balanced_log_loss": 1.0091349790826967,
+          "brier": 0.1334705531926574,
+          "balanced_accuracy": 0.5
+        },
+        "paired_inner_auc_difference_mean": 0.008365508365508348,
+        "paired_inner_auc_difference_range": [
+          -0.007722007722007707,
+          0.030888030888030826
+        ],
+        "mean_inner_metrics": {
+          "auc": 0.5328185328185329,
+          "average_precision": 0.8672239266728364,
+          "log_loss": 0.43671076249197927,
+          "balanced_log_loss": 1.0077624637976432,
+          "brier": 0.13336287563963148,
+          "balanced_accuracy": 0.5
+        },
+        "constant_heads": 0,
+        "mean_nonzero_coefficients": 288.0,
+        "maximum_kkt_residual": 0.0002516987110403046,
+        "maximum_iterations": 7,
+        "warnings": 0
+      },
+      {
+        "method": "random",
+        "scale": "standardized",
+        "penalty": "l1",
+        "groups": 6,
+        "feature_count": 288,
+        "mean_whole_run_inner_metrics": {
+          "auc": 0.5083655083655084,
+          "average_precision": 0.8497595979404652,
+          "log_loss": 0.5632309906189055,
+          "balanced_log_loss": 1.3239402058390735,
+          "brier": 0.1608522036166015,
+          "balanced_accuracy": 0.5160875160875161
+        },
+        "paired_inner_auc_difference_mean": -1.850371707708594e-17,
+        "paired_inner_auc_difference_range": [
+          -0.050193050193050315,
+          0.05019305019305009
+        ],
+        "mean_inner_metrics": {
+          "auc": 0.5083655083655084,
+          "average_precision": 0.8494819406289871,
+          "log_loss": 0.5741168137156618,
+          "balanced_log_loss": 1.3297171247332809,
+          "brier": 0.16622308449425097,
+          "balanced_accuracy": 0.5257400257400258
+        },
+        "constant_heads": 0,
+        "mean_nonzero_coefficients": 21.5,
+        "maximum_kkt_residual": 0.0007577988823155302,
+        "maximum_iterations": 16,
+        "warnings": 0
+      },
+      {
+        "method": "random",
+        "scale": "standardized",
+        "penalty": "l2",
+        "groups": 6,
+        "feature_count": 288,
+        "mean_whole_run_inner_metrics": {
+          "auc": 0.46332046332046334,
+          "average_precision": 0.828075356490166,
+          "log_loss": 0.7220877872200573,
+          "balanced_log_loss": 1.4396939115692273,
+          "brier": 0.20702161800074018,
+          "balanced_accuracy": 0.49549549549549554
+        },
+        "paired_inner_auc_difference_mean": 0.0038610038610038255,
+        "paired_inner_auc_difference_range": [
+          -0.019305019305019377,
+          0.015444015444015413
+        ],
+        "mean_inner_metrics": {
+          "auc": 0.4671814671814672,
+          "average_precision": 0.832116537665938,
+          "log_loss": 0.7224859329908541,
+          "balanced_log_loss": 1.4333650955322763,
+          "brier": 0.20721146208401198,
+          "balanced_accuracy": 0.5074002574002574
+        },
+        "constant_heads": 0,
+        "mean_nonzero_coefficients": 288.0,
+        "maximum_kkt_residual": 0.00013558813608455234,
+        "maximum_iterations": 7,
+        "warnings": 0
+      }
+    ]
+  },
+  "selected_existing_window_start": 360,
+  "author_exact_center_start": 365,
+  "time_offset_seconds": -4.0,
+  "original132_pipeline_failure_inferred": false
+}

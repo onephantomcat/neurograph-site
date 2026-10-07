@@ -2695,6 +2695,116 @@
         "independent_clinical_validations": 0,
         "source_outputs_modified": false,
         "whole_mri_copied_locally": 0
+      },
+      "first_rating_full_and_tissue_pcs_review": {
+        "observed_at": "2026-10-07T18:49:51.803717+08:00",
+        "summary": "首份疼痛评分任务（rating_run-1）的完整1304帧标准化已完成。独立读回1,177,028,216个有限值，与全部逐帧输出一致；902,629个时间均值差为0。任务自身WM、CSF各5个主成分及16列干扰已生成，独立Gram核对得分最大差分别3.998579245489964e-12和1.5276668818842154e-12，20,864个干扰值重放差为0。",
+        "boundary": "只接续既定首份rating，复用已有修正形变与组织掩膜位置，评分任务协变量来自自身时序；没有新增人员或重估配准。TR保存为0.46000000834465027秒，1304帧保持、物理删除0；实际PCA为SciPy去趋势/中心化/SVD版本适配，MATLAB toolbox pca缺失仍保留。高通去噪已启动，尚未独立读回；rating功能ciftify尚未执行。新参数合成核对先因24列预期错误失败；当前AFNI实际25列，另进程投影最大差0.00024227745761531717超过原0.0002界限，原失败与原2e-4界限保留，不认定等价。原132人540拟合/45参考与开发1609及阴性结果保持，新增训练0；实际专家报告0、原25注意/用户授权QC、预训练重叠未知、跨访视T2/版本差异、临床真值/日期/H-test缺口保留。",
+        "task": "rating_run-1",
+        "selected_existing_people": 1,
+        "new_people": 0,
+        "whole_4d_shape": [
+          91,
+          109,
+          91,
+          1304
+        ],
+        "whole_4d_finite_values": 1177028216,
+        "saved_frames_compared": 1304,
+        "merged_values_match_each_original_frame": true,
+        "mean_values_checked": 902629,
+        "mean_different_values": 0,
+        "mean_maximum_difference": 0,
+        "output_TR_seconds": 0.46000000834465027,
+        "output_time_unit": "sec",
+        "full_standardization_complete_at_review": true,
+        "full_4d_independently_read_back": true,
+        "tissue_masks_reused": true,
+        "new_tissue_mask_commands": 0,
+        "rating_tissue_PCs_acquired": true,
+        "tissue_input_shapes": [
+          [
+            1304,
+            11283
+          ],
+          [
+            1304,
+            243
+          ]
+        ],
+        "tissue_score_shapes": [
+          [
+            1304,
+            5
+          ],
+          [
+            1304,
+            5
+          ]
+        ],
+        "tissue_pc_backend": "Explicit Python/SciPy float64 linear-detrend, column-center, economy SVD; checked against actual core-MATLAB fixtures, not a call of unavailable toolbox pca.",
+        "actual_matlab_toolbox_pca_called": false,
+        "independent_gram_score_max_differences": [
+          3.998579245489964e-12,
+          1.5276668818842154e-12
+        ],
+        "nuisance_shape": [
+          1304,
+          16
+        ],
+        "nuisance_values_checked": 20864,
+        "nuisance_replay_max_difference": 0,
+        "new_svd_calls_in_independent_replay": 0,
+        "retained_frames": 1304,
+        "physical_frames_deleted": 0,
+        "rating_denoise_started": true,
+        "rating_denoise_independently_read_back": false,
+        "rating_functional_ciftify_complete": false,
+        "expert_registration_accuracy_proven": false,
+        "expert_reports": 0,
+        "new_classifier_fits": 0,
+        "new_inner_FC_references": 0,
+        "independent_clinical_validations": 0,
+        "source_size_mtime_unchanged": true,
+        "source_outputs_modified": false,
+        "whole_mri_copied_locally": 0,
+        "new_highpass_synthetic_parameter_readback": {
+          "patient_series_processed": 0,
+          "AFNI_version": "26.2.09",
+          "author_AFNI_version": "23.0",
+          "author_actual_semantics_unknown": true,
+          "actual_command_returncode": 0,
+          "original_fixture_state_retained": "FAILED",
+          "first_incorrect_24_column_assertion_retained": true,
+          "output_values": 5216,
+          "design_shape": [
+            1304,
+            25
+          ],
+          "stopband_index_bounds": [
+            [
+              0,
+              3
+            ],
+            [
+              652,
+              652
+            ]
+          ],
+          "stopband_basis_count": 7,
+          "high_frequency_stop_basis_count": 1,
+          "nyquist_hz": 1.0869565217391304,
+          "logged_nominal_remaining_DOF": 1279,
+          "logged_constant_vectors": 1,
+          "log_numbers_are_not_patient_denoise_values": true,
+          "maximum_projection_difference": 0.00024227745761531717,
+          "old_synthetic_limit_unchanged": 0.0002,
+          "projection_satisfies_old_synthetic_limit": false,
+          "initial_projection_limit_assertion_failed_retained": true,
+          "used_saved_design_as_oracle": false,
+          "used_saved_inverse_as_oracle": false,
+          "fixture_reexecuted": false
+        }
       }
     }
   },
@@ -2721,8 +2831,8 @@
   "source_versions_observed_at": "2026-10-04T14:52:50.269444+08:00",
   "raw_mri_observed_at": "2026-10-04T16:05:28.365879+08:00",
   "raw_mri_followup_observed_at": "2026-10-04T23:00:06.680677+08:00",
-  "current_processing_observed_at": "2026-10-07T17:50:17.821961+08:00",
+  "current_processing_observed_at": "2026-10-07T18:49:51.803717+08:00",
   "current_processing_title": "DEIPP：旧转换丢失离散标签值，整数修复已独立核对",
-  "current_processing_summary": "两条功能ciftify后缀命令已完成，四份最终CIFTI独立完整读回476,126,912个有限值。每份为1304×91,282，TR0.46秒、起点0；左右皮层29,696/29,716顶点与持久ROI集合一致，19个子皮层脑区共31,870体素逐区完整对应。未平滑和6毫米平滑两档保留，源文件大小与修改时间未变。 后续：首份疼痛评分任务（rating_run-1）的变换链与保存均值已核对：独立读取902,629个有限值，三组矩阵运算差均小于4.60e-9，三组中央面已技术查看。MATLAB实际按固定参数计算1304帧低通FD，最大0.0256025003208328毫米，0帧超过0.15毫米阈值；独立Python核对FD最大差7.147060721024445e-16，帧标记一致。",
-  "current_processing_boundary": "这是经两处名称适配后的技术输出完成与独立数值/轴核对；没有重放表面投影，不证明专家配准准确、完整作者复现或临床验证。原Workbench警告原因仍未知，跨访视T2、版本差异和原失败保留。132训练540拟合与45参考不重做，仍无可靠冻结整体提升；实际新增专家报告0，临床真值/准确日期与H-test仍缺。 这是既定首份rating运行，另于已完成的首份静息；复用既有跨运行、功能到结构、T1线性矩阵和修正形变，不重估配准。均值spline重采样最小值为-27.006235122680664，保留负值，没有裁剪。运动标记不证明专家配准或临床质量通过，1304帧保持，物理删除0；本阶段尚未执行rating组织PC、NTRP、去噪或功能ciftify。完整1304帧标准化已启动，报告时点仍在运行且未完成独立读回。此前132人用户授权QC和540拟合/45参考及开发对照阴性结果保持，实际专家报告0、原25注意、预训练重叠未知、跨访视T2和版本差异、临床真值与H-test缺口保留。"
+  "current_processing_summary": "此前记录：两条功能ciftify后缀命令已完成，四份最终CIFTI独立完整读回476,126,912个有限值。每份为1304×91,282，TR0.46秒、起点0；左右皮层29,696/29,716顶点与持久ROI集合一致，19个子皮层脑区共31,870体素逐区完整对应。未平滑和6毫米平滑两档保留，源文件大小与修改时间未变。 后续：首份疼痛评分任务（rating_run-1）的变换链与保存均值已核对：独立读取902,629个有限值，三组矩阵运算差均小于4.60e-9，三组中央面已技术查看。MATLAB实际按固定参数计算1304帧低通FD，最大0.0256025003208328毫米，0帧超过0.15毫米阈值；独立Python核对FD最大差7.147060721024445e-16，帧标记一致。 当前后续：首份疼痛评分任务（rating_run-1）的完整1304帧标准化已完成。独立读回1,177,028,216个有限值，与全部逐帧输出一致；902,629个时间均值差为0。任务自身WM、CSF各5个主成分及16列干扰已生成，独立Gram核对得分最大差分别3.998579245489964e-12和1.5276668818842154e-12，20,864个干扰值重放差为0。",
+  "current_processing_boundary": "只接续既定首份rating，复用已有修正形变与组织掩膜位置，评分任务协变量来自自身时序；没有新增人员或重估配准。TR保存为0.46000000834465027秒，1304帧保持、物理删除0；实际PCA为SciPy去趋势/中心化/SVD版本适配，MATLAB toolbox pca缺失仍保留。高通去噪已启动，尚未独立读回；rating功能ciftify尚未执行。新参数合成核对先因24列预期错误失败；当前AFNI实际25列，另进程投影最大差0.00024227745761531717超过原0.0002界限，原失败与原2e-4界限保留，不认定等价。原132人540拟合/45参考与开发1609及阴性结果保持，新增训练0；实际专家报告0、原25注意/用户授权QC、预训练重叠未知、跨访视T2/版本差异、临床真值/日期/H-test缺口保留。"
 }

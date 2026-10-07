@@ -978,5 +978,115 @@
     "independent_clinical_validations": 0,
     "source_outputs_modified": false,
     "whole_mri_copied_locally": 0
+  },
+  "first_rating_full_and_tissue_pcs_review": {
+    "observed_at": "2026-10-07T18:49:51.803717+08:00",
+    "summary": "首份疼痛评分任务（rating_run-1）的完整1304帧标准化已完成。独立读回1,177,028,216个有限值，与全部逐帧输出一致；902,629个时间均值差为0。任务自身WM、CSF各5个主成分及16列干扰已生成，独立Gram核对得分最大差分别3.998579245489964e-12和1.5276668818842154e-12，20,864个干扰值重放差为0。",
+    "boundary": "只接续既定首份rating，复用已有修正形变与组织掩膜位置，评分任务协变量来自自身时序；没有新增人员或重估配准。TR保存为0.46000000834465027秒，1304帧保持、物理删除0；实际PCA为SciPy去趋势/中心化/SVD版本适配，MATLAB toolbox pca缺失仍保留。高通去噪已启动，尚未独立读回；rating功能ciftify尚未执行。新参数合成核对先因24列预期错误失败；当前AFNI实际25列，另进程投影最大差0.00024227745761531717超过原0.0002界限，原失败与原2e-4界限保留，不认定等价。原132人540拟合/45参考与开发1609及阴性结果保持，新增训练0；实际专家报告0、原25注意/用户授权QC、预训练重叠未知、跨访视T2/版本差异、临床真值/日期/H-test缺口保留。",
+    "task": "rating_run-1",
+    "selected_existing_people": 1,
+    "new_people": 0,
+    "whole_4d_shape": [
+      91,
+      109,
+      91,
+      1304
+    ],
+    "whole_4d_finite_values": 1177028216,
+    "saved_frames_compared": 1304,
+    "merged_values_match_each_original_frame": true,
+    "mean_values_checked": 902629,
+    "mean_different_values": 0,
+    "mean_maximum_difference": 0,
+    "output_TR_seconds": 0.46000000834465027,
+    "output_time_unit": "sec",
+    "full_standardization_complete_at_review": true,
+    "full_4d_independently_read_back": true,
+    "tissue_masks_reused": true,
+    "new_tissue_mask_commands": 0,
+    "rating_tissue_PCs_acquired": true,
+    "tissue_input_shapes": [
+      [
+        1304,
+        11283
+      ],
+      [
+        1304,
+        243
+      ]
+    ],
+    "tissue_score_shapes": [
+      [
+        1304,
+        5
+      ],
+      [
+        1304,
+        5
+      ]
+    ],
+    "tissue_pc_backend": "Explicit Python/SciPy float64 linear-detrend, column-center, economy SVD; checked against actual core-MATLAB fixtures, not a call of unavailable toolbox pca.",
+    "actual_matlab_toolbox_pca_called": false,
+    "independent_gram_score_max_differences": [
+      3.998579245489964e-12,
+      1.5276668818842154e-12
+    ],
+    "nuisance_shape": [
+      1304,
+      16
+    ],
+    "nuisance_values_checked": 20864,
+    "nuisance_replay_max_difference": 0,
+    "new_svd_calls_in_independent_replay": 0,
+    "retained_frames": 1304,
+    "physical_frames_deleted": 0,
+    "rating_denoise_started": true,
+    "rating_denoise_independently_read_back": false,
+    "rating_functional_ciftify_complete": false,
+    "expert_registration_accuracy_proven": false,
+    "expert_reports": 0,
+    "new_classifier_fits": 0,
+    "new_inner_FC_references": 0,
+    "independent_clinical_validations": 0,
+    "source_size_mtime_unchanged": true,
+    "source_outputs_modified": false,
+    "whole_mri_copied_locally": 0,
+    "new_highpass_synthetic_parameter_readback": {
+      "patient_series_processed": 0,
+      "AFNI_version": "26.2.09",
+      "author_AFNI_version": "23.0",
+      "author_actual_semantics_unknown": true,
+      "actual_command_returncode": 0,
+      "original_fixture_state_retained": "FAILED",
+      "first_incorrect_24_column_assertion_retained": true,
+      "output_values": 5216,
+      "design_shape": [
+        1304,
+        25
+      ],
+      "stopband_index_bounds": [
+        [
+          0,
+          3
+        ],
+        [
+          652,
+          652
+        ]
+      ],
+      "stopband_basis_count": 7,
+      "high_frequency_stop_basis_count": 1,
+      "nyquist_hz": 1.0869565217391304,
+      "logged_nominal_remaining_DOF": 1279,
+      "logged_constant_vectors": 1,
+      "log_numbers_are_not_patient_denoise_values": true,
+      "maximum_projection_difference": 0.00024227745761531717,
+      "old_synthetic_limit_unchanged": 0.0002,
+      "projection_satisfies_old_synthetic_limit": false,
+      "initial_projection_limit_assertion_failed_retained": true,
+      "used_saved_design_as_oracle": false,
+      "used_saved_inverse_as_oracle": false,
+      "fixture_reexecuted": false
+    }
   }
 }

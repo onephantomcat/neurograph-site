@@ -1,0 +1,91 @@
+{
+  "summary": "CoSpine首人固定FAST偏置校正及三类组织分割完成，白质概率≥0.5得到517,792体素；复用原刚体初始化和实际白质边界，BBR命令完成。独立核对新输出9,013,248个有限值、校正算术及刚体矩阵，并查看四张私有截面图。",
+  "boundary": "这是1人的输入处理，无新增预测成绩。BBR与原刚体位置变化不等于配准改善；尚未做FNIRT或新的MNI组合，因此99.54%是上一阶段仿射覆盖。实际专家新增0、患者模型拟合0、独立临床验证未完成，完整MRI留服务器。",
+  "next": "复用现有结果完成必要MNI非线性配准与实际时间处理核对，再提取逐试次特征。论文主线继续NeuroSTORM疼痛任务适配，比较冻结表示、作者任务提示调优和同容量直接监督；刺激/血流延迟/评分动作的区分是待检验问题，普通adapter本身不称原创。保持26开发/13研究留出，不重开旧配置搜索。",
+  "people": 1,
+  "patient_model_fits": 0,
+  "expert_reports_added": 0,
+  "clinical_validation_complete": false,
+  "full_MRI_transfer": 0,
+  "FAST": {
+    "bias_range_in_mask": [
+      0.7441650032997131,
+      1.1741029024124146
+    ],
+    "white_matter_threshold": 0.5,
+    "white_matter_voxels": 517792,
+    "white_matter_outside_input_mask": 0,
+    "source_size_mtime_unchanged": true
+  },
+  "FAST_independent_review": {
+    "values_per_image": 9013248,
+    "restored_times_bias_max_absolute_error": 4.3813721276819706e-05,
+    "restored_times_bias_max_relative_error": 1.1650319954068744e-07,
+    "float32_epsilon": 1.1920928955078125e-07,
+    "bias_positive_entire_grid": true,
+    "full_crop_division_max_difference": 0.0,
+    "PVE_sum_max_error_original_mask": 1.0,
+    "PVE_tissue_support_voxels": 1186057,
+    "original_mask_zero_input_excluded_voxels": 4,
+    "nonzero_input_unsegmented_voxels": 0,
+    "PVE_sum_max_error": 2.9802322387695312e-08,
+    "PVE_ranges": {
+      "pve_0": [
+        0.0,
+        1.0
+      ],
+      "pve_1": [
+        0.0,
+        1.0
+      ],
+      "pve_2": [
+        0.0,
+        1.0
+      ]
+    },
+    "wm_threshold_exact": true
+  },
+  "BBR": {
+    "stages": [
+      {
+        "stage": "BBR_existing_rigid_init_and_FIXED_WM",
+        "exit_code": 0,
+        "seconds": 77.5472354888916
+      }
+    ],
+    "linear_determinant": 1.0000000069118677,
+    "sampled_native_support_points": 2021,
+    "displacement_from_old_rigid_mean_mm": 2.6228167212078755,
+    "displacement_from_old_rigid_max_mm": 3.9427505963023095,
+    "output_shape": [
+      192,
+      288,
+      163
+    ],
+    "output_finite_values": 9013248,
+    "source_size_mtime_unchanged": true,
+    "existing_rigid_initializer_reused": true,
+    "WM_segmentation_reused": true,
+    "FAST_repeated": false,
+    "fieldmap_distortion_correction_repeated": false,
+    "nonlinear_complete": false
+  },
+  "BBR_independent_review": {
+    "raw_output_values_checked": 9013248,
+    "reference_grid_exact": true,
+    "rigid_determinant": 1.0000000069118677,
+    "rigid_orthogonality_max_error": 1.9031148679182763e-07,
+    "world_transform_finite": true,
+    "displacement_mean_mm": 2.6228167212078763,
+    "displacement_max_mm": 3.9427505963023095,
+    "displacement_replay_exact": true
+  },
+  "technical_pixel_observations": [
+    "三方向切面中，校正前后结构位置保持，偏置场呈平滑空间变化；阈值白质边界主要位于内部亮组织及小脑/脑干，仍有局部边界和下部残留需专业复核。仅为技术像素检查，不能确认组织分割准确或新增专家QC。",
+    "同一白质轮廓叠加在原刚体及BBR的EPI截面上，能观察到局部位置变化；EPI低分辨率、模糊及局部对比不足仍在。九个截面不能量化哪次配准更准确，也不能代替专业组织边界复核。"
+  ],
+  "existing_warnings_retained": [
+    "Apptainer fuse2fs absent warning; SIF-backed commands completed; no EXT3 filesystem requested",
+    "Whole original-mask PVE normalization maximum error 1.0 retained: exactly four zero-input voxels have no segmented tissue; all nonzero input voxels segmented, tissue-support error 2.9802322387695312e-08"
+  ]
+}

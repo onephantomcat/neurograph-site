@@ -1,0 +1,81 @@
+{
+  "summary": "CoSpine首人复用原T1，先按标准方向重定向并以默认170毫米去除颈部，再执行原BET-R。掩膜体积约1287毫升；同参数重新仿射配准后，AAL90平均非零覆盖由64.83%升至99.54%，零支持区由4降至0、不足一半由29降至0，最小覆盖91.43%。",
+  "boundary": "这是1人的空间输入修复，非零覆盖不代表有效神经信号或解剖准确。未完成偏置校正、BBR或FNIRT，实际专家新增0、患者模型拟合0；不据此声称疼痛预测增量、完整作者复现或独立临床验证。原文件/标签/人员划分/QC与全部失败和停止状态保持。",
+  "next": "继续复用首人输入，完成有依据的偏置校正与必要配准；核对实际派生时间处理，明确参考时间/滤波不确定性后提取任务特征。沿26开发/13研究留出推进NeuroSTORM真实时空任务适配及同条件参照，普通adapter本身不称原创，不重做旧配置搜索。",
+  "people": 1,
+  "patient_model_fits": 0,
+  "expert_reports_added": 0,
+  "clinical_validation_complete": false,
+  "full_MRI_transfer": 0,
+  "crop": {
+    "crop_shape": [
+      192,
+      288,
+      163
+    ],
+    "crop_voxel_mm": [
+      1.0,
+      1.0416666269302368,
+      1.0416666269302368
+    ],
+    "crop_finite_values": 9013248,
+    "old_mask_voxels": 2392718,
+    "new_native_mask_voxels": 1186061,
+    "removed_old_mask_voxels": 1216187,
+    "added_new_mask_voxels": 9530,
+    "new_mask_volume_ml": 1286.9584521600789,
+    "source_size_mtime_unchanged": true,
+    "robustfov_brain_size_mm": 170,
+    "BET_parameters": [
+      "-R",
+      "-m"
+    ],
+    "bias_correction_complete": false
+  },
+  "crop_independent_review": {
+    "crop_values_checked": 9013248,
+    "crop_world_index_max_noninteger_error": 1.487731978500051e-06,
+    "crop_source_value_max_difference": 0.0,
+    "new_mask_count_exact": true
+  },
+  "before": {
+    "coverage_mean": 0.6483446635446816,
+    "coverage_min": 0.0,
+    "zero_support_ROIs": 4,
+    "less_than_half_support_ROIs": 29
+  },
+  "after": {
+    "coverage_mean": 0.9954137941140595,
+    "coverage_min": 0.9143017701601573,
+    "zero_support_ROIs": 0,
+    "less_than_half_support_ROIs": 0,
+    "matrix_composition_max_error": 3.4951934679838814e-09,
+    "MNI_affine_grid": [
+      91,
+      109,
+      91
+    ],
+    "source_size_mtime_unchanged": true,
+    "nonlinear_registration_complete": false
+  },
+  "affine_independent_review": {
+    "raw_header_and_values_complete": true,
+    "atlas_ROI_coverage_exact": true,
+    "matrix_composition_max_error": 3.4951934679838814e-09,
+    "epi_to_T1_linear_determinant": 1.0000000334735306,
+    "T1_to_MNI_linear_determinant": 1.4585423745745147,
+    "independent_support_resampling_disagree_voxels": 2,
+    "independent_support_resampling_disagree_fraction": 2.2157497709468674e-06,
+    "world_transform_finite": true
+  },
+  "technical_pixel_observation": "新脑提取已去除明显的颈部/面部保留，T1到MNI的大幅轮廓错位较前阶段减少；EPI到T1轮廓较贴近脑部。EPI支持包络在部分MNI截面仍超出参考脑边缘，局部边界/眶部残留未解决。覆盖提高不能证明解剖精确，仍需偏置校正及必要配准复核。",
+  "failure_records_retained": [
+    "Read-only inventory quoting error occurred before processing",
+    "Two25s read-only container probes timed out; applying the previously verified runtime PATH/temp/bind settings restored normal startup, without global environment changes",
+    "fsl_anat wrapper absent in current container; reuse installed fslreorient2std/robustfov/BET components, not claim complete fsl_anat",
+    "Combined numerical-review parent remained alive when child renderer checked it; numeric results and original failure retained, renderer resumed separately after actual terminal observation; no repeated numerical review"
+  ],
+  "existing_warnings_retained": [
+    "Apptainer fuse2fs absent warning; SIF-backed commands completed; no EXT3 filesystem was requested"
+  ]
+}

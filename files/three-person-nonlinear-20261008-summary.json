@@ -1,0 +1,269 @@
+{
+  "summary": "新增3名开发受试者完成固定非线性映射、230帧单次空间重采样及63次NeuroSTORM冻结编码。独立核对622,814,010个BOLD值和5,824,224个缓存值，15幅私有空间图已查看。Omni完成1次固定真实MRI前向，CLS768及4,848个动态patch通过独立复核。累计5人75个相关主窗口中，人间均值差异占池化总离差平方和约99.9506%。",
+  "boundary": "这是健康开发人群的空间和表示描述，没有新增疼痛预测拟合、专家报告或独立临床成绩；75个窗口不能当75名独立受试者，人间差异不等于疼痛信号。研究总目标尚未完成。",
+  "next": "沿原采集作业接续关闭的开发输入；在明确物理时间、预处理和人级分区后，对冻结池化、时间差异token读出、作者任务提示及同容量监督方法做有限开发比较，保留强FC、协变量与适用传统对照。",
+  "people": 3,
+  "cumulative_real_token_people": 5,
+  "all_models_new_real_encoder_calls": 64,
+  "patient_model_fits": 0,
+  "expert_reports_added": 0,
+  "clinical_validation_complete": false,
+  "full_MRI_transfer": 0,
+  "nonlinear_review": {
+    "people": 3,
+    "FNIRT_calls": 3,
+    "old_FAST_or_BBR_repeated": false,
+    "raw_values_checked": 18955209,
+    "reference_grids_all_exact": true,
+    "independent_trilinear_interior_values_checked": 2186536,
+    "independent_trilinear_relative_peak_difference_range": [
+      1.2159029211034067e-05,
+      1.8475364413461648e-05
+    ],
+    "independent_relative_field_support_disagree_voxels": 0,
+    "Jacobian_in_standard_brain_range": [
+      0.1985148936510086,
+      2.9425010681152344
+    ],
+    "Jacobian_nonpositive_in_standard_brain": 0,
+    "AAL90_support_mean_fraction_range": [
+      0.9915913879134678,
+      0.9974189301930303
+    ],
+    "AAL90_support_min_fraction_range": [
+      0.8392857142857143,
+      0.9436813186813187
+    ],
+    "zero_support_ROIs": 0,
+    "less_than_half_support_ROIs": 0,
+    "FNIRT_seconds_range": [
+      294.7952470779419,
+      392.92683601379395
+    ],
+    "source_size_mtime_all_unchanged": true,
+    "expert_anatomical_accuracy_confirmed": false
+  },
+  "real_encoding": {
+    "model": "NeuroSTORM",
+    "new_people": 3,
+    "new_encoder_calls": 63,
+    "primary_windows": 45,
+    "phase_sensitivity_windows": 18,
+    "per_person_cached_token_shape": [
+      21,
+      288,
+      2,
+      2,
+      2,
+      20
+    ],
+    "frozen_encoder_parameters": 5173020,
+    "untrained_adapter_parameters": 5480,
+    "strict_encoder_load_all": true,
+    "adapter_updated": false,
+    "decoder_or_head_fits": 0,
+    "per_person_MNI_BOLD_shape": [
+      91,
+      109,
+      91,
+      230
+    ],
+    "TR_seconds_range": [
+      2.680000066757202,
+      2.680000066757202
+    ],
+    "full_BOLD_values_independently_checked": 622814010,
+    "token_values_independently_checked": 5824224,
+    "full_BOLD_mean_relative_peak_difference_range": [
+      9.361404013930398e-08,
+      1.403586467395343e-07
+    ],
+    "raw_normalization_mean_max_difference": 0.0,
+    "raw_normalization_std_max_difference": 1.3005774235352874e-10,
+    "first_window_60_samples_quantization_max_difference": 4.545200371630642e-08,
+    "manual_pool_max_difference": 0.0,
+    "spatial_world_origin_all_exact": true,
+    "per_person_21_window_encoder_loop_seconds_range": [
+      13.384656429290771,
+      14.63428282737732
+    ],
+    "peak_CUDA_allocated_MiB_range": [
+      402.88720703125,
+      402.88720703125
+    ],
+    "new_token_calls_repeated": 0,
+    "old_person_encoder_calls_repeated": 0
+  },
+  "omni_real_encoding": {
+    "state": "COMPLETE_ONE_FIXED_REAL_MRI_OFFICIAL_OMNI_FEATURE_FORWARD",
+    "people": 1,
+    "weights_only": true,
+    "loaded_state_items": 349,
+    "feature_values_exact": true,
+    "full_model_strict_load": false,
+    "missing_keys": [
+      "encoder.classifier.bias",
+      "encoder.classifier.weight"
+    ],
+    "unloaded_classifier_parameters": 2050,
+    "model_parameters": 156658434,
+    "loaded_parameter_values": 156656384,
+    "pretrained_encoder_forward_attempts": 1,
+    "pretrained_encoder_forward_calls": 1,
+    "decoder_forward_calls": 0,
+    "model_fits": 0,
+    "ratings_read": false,
+    "holdout_people_read": 0,
+    "input_shape": [
+      1,
+      40,
+      96,
+      96,
+      96
+    ],
+    "first_to_last_span_seconds": 15.199999999999998,
+    "grid_step_seconds": 0.38974358974358975,
+    "distinct_native_source_frames": 8,
+    "source_acquisition_before_rating": true,
+    "background_value": 0,
+    "int8_quantization": false,
+    "negative_clamping": false,
+    "manual_120_voxel_time_values_max_difference": 8.433609299807188e-08,
+    "CLS_shape": [
+      768
+    ],
+    "patch_shape": [
+      4848,
+      768
+    ],
+    "coordinate_shape": [
+      4848,
+      3
+    ],
+    "classifier_forward_calls": 0,
+    "encoder_blocks_called": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ],
+    "all_finite": true,
+    "seconds": 1.2784945964813232,
+    "peak_CUDA_allocated_MiB": 990.65283203125,
+    "cache_reload_exact": true,
+    "source_size_mtime_unchanged": true
+  },
+  "omni_real_independent_review": {
+    "state": "COMPLETE_INDEPENDENT_ONE_REAL_OMNI_INPUT_AND_FEATURE_CACHE_REVIEW",
+    "model_calls": 0,
+    "raw_population_foreground_count_exact": true,
+    "raw_mean_max_difference": 0.0,
+    "raw_std_max_difference": 2.546585164964199e-11,
+    "input_values_checked": 35389440,
+    "manual_120_voxel_time_values_max_difference": 8.433609988145463e-08,
+    "zero_background_exact": true,
+    "world_grid_affine_exact": true,
+    "CLS_shape": [
+      768
+    ],
+    "patch_shape": [
+      4848,
+      768
+    ],
+    "coordinate_shape": [
+      4848,
+      3
+    ],
+    "cached_feature_values_checked": 3738576,
+    "features_finite": true,
+    "coordinate_range_checked": true,
+    "encoder_calls_repeated": 0
+  },
+  "five_person_cache": {
+    "people": 5,
+    "primary_windows": 75,
+    "dependent_person_pairs": 10,
+    "cached_values_checked": 3477600,
+    "manual_pooled_max_difference": 0.0,
+    "between_person_mean_pooled_symmetric_relative_L2_range": [
+      0.07367191830198,
+      0.2814813521375512
+    ],
+    "between_person_mean_final_token_symmetric_relative_L2_range": [
+      0.11167143376288345,
+      0.297474791026161
+    ],
+    "within_person_pooled_relative_deviation_range": [
+      0.0005418777490757735,
+      0.009238795578247212
+    ],
+    "between_person_center_sum_squares": 125.20219590858389,
+    "within_person_window_sum_squares": 0.06189570911529014,
+    "total_sum_squares": 125.2640916176992,
+    "between_person_fraction_of_pooled_sum_squares": 0.9995058782743246,
+    "variance_partition_identity_relative_difference": 1.13447154181846e-16,
+    "between_person_mean_temporal_pattern_cosine_range": [
+      0.8909687828924046,
+      0.9692882419485743
+    ],
+    "source_size_mtime_unchanged": true,
+    "encoder_calls": 0,
+    "model_fits": 0,
+    "ratings_read": false
+  },
+  "temporal_input_audit": {
+    "people": 3,
+    "primary_trials_per_person": 15,
+    "reference_phases_tested": 3,
+    "neurostorm_samples": 20,
+    "neurostorm_step_seconds": 0.8,
+    "omni_real_samples": 40,
+    "omni_real_step_seconds": 0.38974358974358975,
+    "first_to_last_span_seconds": 15.2,
+    "common_native_support": true,
+    "distinct_native_source_frames_range": [
+      7,
+      8
+    ],
+    "source_acquisition_reaches_rating_trials": 0,
+    "ratings_values_used": false,
+    "temporal_padding": false,
+    "temporal_resolution_increased": false,
+    "actual_slice_time_reference_confirmed": false,
+    "Omni_real_forward_calls": 1
+  },
+  "private_pixels": {
+    "images_actually_inspected": 15,
+    "images_public": false,
+    "expert_QC": false,
+    "training_inclusion": false
+  },
+  "development_input_acquisition": {
+    "observed_at": "2026-10-08T23:52:30.386171+08:00",
+    "state": "RUNNING",
+    "new_people_completed": 4,
+    "new_people_target": 25,
+    "failed_people": 8,
+    "worker_observed_live": true,
+    "holdout_people_read": 0,
+    "partial_files_retained": true,
+    "automatic_retry": false
+  },
+  "limits": [
+    "Healthy development participants, not patients or independent clinical cohort",
+    "Person-wise unit: 75 windows remain dependent within five people",
+    "Pooled variance partition is descriptive and not pain information or identity classification",
+    "Whole-scan normalization and unknown derivative filtering can include later information",
+    "Unconfirmed slice-time reference and prestimulus contribution retained",
+    "One Omni real feature forward is not pain decoding or fair architecture performance comparison",
+    "No three clinical endpoints, identity/visit/pretraining membership or H-test proof"
+  ]
+}

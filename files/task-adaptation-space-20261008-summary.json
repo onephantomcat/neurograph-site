@@ -1,0 +1,114 @@
+{
+  "summary": "NeuroSTORM的5480参数内部适配器通过真实CUDA合成前向、反向和保存重载，5173020参数编码器保持冻结。CoSpine首人T1完整读取15925248有限值，BET及两级仿射命令完成；AAL90有4区无支持、29区支持不足一半，平均覆盖64.83%。患者模型拟合0。",
+  "boundary": "内部adapter接口通过不等于新方法有效；八个空间格点不是ROI，普通bottleneck也不是LoRA。单人仿射与非零覆盖是技术观察，不是非线性标准化、专家QC、完整作者复现或独立临床验证。原132及各旧结果/停止、QC授权/专家0/25注意保持；39健康者585试次仍是39人。",
+  "next": "先修正脑提取并复核配准、实际派生滤波及切片参考时间，再提取逐试次特征。沿26开发/13研究性留出，用新的有限任务适配假设比较冻结GAP、时空token和内部适配及同条件强参照；不重做54图模型或旧停止搜索。",
+  "people_in_space_pilot": 1,
+  "patient_model_fits": 0,
+  "expert_reports_added": 0,
+  "clinical_validation_complete": false,
+  "host_MRI_transfer": 0,
+  "T1": {
+    "shape": [
+      192,
+      288,
+      288
+    ],
+    "finite_values": 15925248,
+    "compressed_bytes": 14874922,
+    "voxel_mm": [
+      1.0,
+      1.0416666269302368,
+      1.0416666269302368
+    ]
+  },
+  "space": {
+    "matrix_composition_max_error": 3.191033215443895e-08,
+    "MNI_affine_grid": [
+      91,
+      109,
+      91
+    ],
+    "zero_support_ROIs": 4,
+    "less_than_half_support_ROIs": 29,
+    "coverage_min": 0.0,
+    "coverage_mean": 0.6483446635446816,
+    "source_size_mtime_unchanged": true,
+    "nonlinear_registration_complete": false
+  },
+  "independent_review": {
+    "T1_independent_finite_values": 15925248,
+    "raw_header_and_values_complete": true,
+    "atlas_ROI_coverage_exact": true,
+    "matrix_composition_max_error": 3.191033215443895e-08,
+    "epi_to_T1_linear_determinant": 1.0000001055281504,
+    "T1_to_MNI_linear_determinant": 0.7356681266431142,
+    "independent_support_resampling_disagree_voxels": 2,
+    "independent_support_resampling_disagree_fraction": 2.2157497709468674e-06,
+    "world_transform_finite": true
+  },
+  "token_adapter": {
+    "synthetic_only": true,
+    "patient_forwards": 0,
+    "classifier_fits": 0,
+    "optimizer_steps": 0,
+    "torch": "2.4.1+cu121",
+    "encoder_parameters": 5173020,
+    "trainable_adapter_parameters": 5480,
+    "encoder_eval": true,
+    "strict_encoder_load": true,
+    "prefix_shape": [
+      1,
+      288,
+      2,
+      2,
+      2,
+      20
+    ],
+    "output_shape": [
+      1,
+      288,
+      2,
+      2,
+      2,
+      20
+    ],
+    "zero_initial_adapter_output_max_difference": 0.0,
+    "finite_adapter_gradient_sums": {
+      "norm.weight": 0.0,
+      "norm.bias": 0.0,
+      "down.weight": 0.0,
+      "down.bias": 0.0,
+      "up.weight": 0.03495171666145325,
+      "up.bias": 0.009366374462842941
+    },
+    "all_encoder_gradients_absent": true,
+    "nonzero_adapter_effect_max_difference": 0.007325887680053711,
+    "adapter_state_reload_max_difference": 0.0,
+    "peak_cuda_allocated_mib": 403.43408203125
+  },
+  "event_design": {
+    "frames": 230,
+    "columns": 26,
+    "rank": 26,
+    "ordinary_residual_degrees_freedom": 204,
+    "unit_column_condition_number": 2.313576661044099,
+    "HRF_independent_max_difference": 6.245004513516506e-17,
+    "event_convolution_independent_max_difference": 1.3322676295501878e-15,
+    "ratings_replacement_design_unchanged": true,
+    "highpass_seconds": 128,
+    "provisional_reference_frame_seconds": 0,
+    "temporal_reference_confirmed": false,
+    "full_SPM_replication": false
+  },
+  "private_pixel_review_summary": "原T1的BET掩膜明显保留颈部和面部组织；T1到MNI的仿射轮廓在多个截面超出参考脑边界。EPI到T1较接近脑部，但映射到MNI后的支持在多个截面缺失，当前不能将覆盖缺口归因于采集视野，也不能直接当作完整脑网络输入。需先修正脑提取并复核配准；这是技术视觉检查，未新增专家QC。",
+  "failures_retained": [
+    "Initial unmatched bracket before T1 download",
+    "BET-R missing dc dependency after complete T1 read",
+    "Resuming existing directories initially raised FileExistsError before command execution",
+    "Container executable lookup did not use injected PATH",
+    "NTFS copy had mode0600 and could not execute; existing GNU dc placed in private ext4 cache with explicit in-container PATH",
+    "Read-only container probes exceeded30/35seconds; not considered worker failure or anatomical evidence",
+    "Numerical review passed before plotting failed for missing Matplotlib; private PNGs rendered separately with existing NumPy/SciPy/nibabel and standard PNG encoding, without repeated numerical review"
+  ],
+  "warning": "Official Mamba/PyTorch AMP deprecation warnings retained; no global package, Git or scientific parameter changes."
+}

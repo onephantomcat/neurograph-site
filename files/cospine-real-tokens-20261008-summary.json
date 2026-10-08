@@ -1,0 +1,179 @@
+{
+  "summary": "CoSpine首人完整230帧已映射到MNI；15个固定早期窗口和6个时间参考敏感性窗口完成21次冻结NeuroSTORM内部前向。真实时空特征全部为有限值，独立读回通过。",
+  "boundary": "这是1名健康热痛受试者的输入与表示实验，预测拟合0、专家新增0。池化向量在15窗口间变化很小，不能当作疼痛稳定性或有效性。事件插值/空间补边/整段归一化采用明确的本地设置；原切片参考与时间滤波仍未知，不能证明评分信号已排除。",
+  "next": "先用固定的重复帧与时间顺序对照检查时空表示，区分位置编码、静态成分与真实动态；再在原26开发/13研究留出范围内开展有限疼痛任务适配，与冻结表示、作者提示调优、同容量监督及适用FC/协变量公平比较。旧停止分支保持，三个独立临床目标尚未完成。",
+  "people": 1,
+  "patient_model_fits": 0,
+  "expert_reports_added": 0,
+  "clinical_validation_complete": false,
+  "full_MRI_transfer": 0,
+  "full_BOLD": {
+    "state": "COMPLETE_FULL_230_FRAME_SINGLE_SPATIAL_RESAMPLING",
+    "exit_code": 0,
+    "resampling_seconds": 196.75838804244995,
+    "shape": [
+      91,
+      109,
+      91,
+      230
+    ],
+    "TR_seconds": 2.680000066757202,
+    "values_checked": 207604670,
+    "mean_vs_reviewed_mean_max_absolute_difference": 0.009014096467581112,
+    "mean_vs_reviewed_mean_relative_peak_difference": 4.885367464372931e-07,
+    "source_size_mtime_unchanged": true,
+    "spatial_sampling_per_frame": 1,
+    "temporal_interpolation": false,
+    "temporal_padding": false,
+    "registration_fits": 0
+  },
+  "tokens": {
+    "state": "COMPLETE_REAL_TASK_WINDOW_FROZEN_INTERNAL_TOKENS",
+    "people": 1,
+    "encoder_calls": 21,
+    "model_fits": 0,
+    "optimizer_steps": 0,
+    "clinical_patients": 0,
+    "holdout_people_read": 0,
+    "ratings_read": false,
+    "normalization": "Full mapped native scan foreground pooled mean and sample std; negative values clamped after nonzero background definition; background set to minimum foreground z; single native-scan symmetric int8 scale. Offline local protocol, not author post-whole-run-resampling moments.",
+    "spatial_source_shape": [
+      91,
+      109,
+      91
+    ],
+    "center_crop_shape": [
+      91,
+      96,
+      91
+    ],
+    "spatial_padding": [
+      [
+        3,
+        2
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        3,
+        2
+      ]
+    ],
+    "input_shape": [
+      1,
+      1,
+      96,
+      96,
+      96,
+      20
+    ],
+    "reference_brain_voxels_removed_by_center_crop": 0,
+    "reference_brain_voxels": 228483,
+    "temporal_padding": false,
+    "actual_slice_reference_confirmed": false,
+    "encoder_parameters": 5173020,
+    "adapter_parameters": 5480,
+    "strict_encoder_load": true,
+    "adapter_updated": false,
+    "primary_trials": 15,
+    "sensitivity_extra_windows": 6,
+    "prefix_shape": [
+      21,
+      288,
+      2,
+      2,
+      2,
+      20
+    ],
+    "final_shape": [
+      21,
+      288,
+      2,
+      2,
+      2,
+      20
+    ],
+    "pooled_shape": [
+      21,
+      288
+    ],
+    "finite": true,
+    "cache_reload_exact": true,
+    "pain_predictions": 0,
+    "elapsed_encoder_loop_seconds": 14.101176023483276,
+    "peak_cuda_allocated_mib": 402.88720703125,
+    "reference_phase_sensitivity": [
+      {
+        "reference_phase_seconds": 1.340000033378601,
+        "three_trial_relative_L2_range": [
+          0.00024376931558215854,
+          0.0003132603148039779
+        ],
+        "three_trial_cosine_range": [
+          0.9999999603455658,
+          0.9999999708353092
+        ]
+      },
+      {
+        "reference_phase_seconds": 2.680000066757202,
+        "three_trial_relative_L2_range": [
+          0.0004231547770424746,
+          0.0005122357198627683
+        ],
+        "three_trial_cosine_range": [
+          0.9999998692409839,
+          0.9999999139993699
+        ]
+      }
+    ],
+    "interpretation": "Real healthy first-person early-response tokens only, no pain-head training, independent-person gain, clinical patient evidence or novelty. Spatial padding is background, no temporal padding; local event-time interpolation/native-scan moments differ from author whole-run preprocessing. Full-scan moments and unknown derivative filtering may mix later information. Tokens are 2x2x2 spatial cells, not AAL90."
+  },
+  "independent_review": {
+    "state": "COMPLETE_INDEPENDENT_FULL_BOLD_AND_REAL_TOKEN_REVIEW",
+    "MRI_transferred": 0,
+    "model_calls": 0,
+    "model_fits": 0,
+    "raw_full_BOLD_shape": [
+      91,
+      109,
+      91,
+      230
+    ],
+    "raw_values_checked": 207604670,
+    "raw_TR_seconds": 2.680000066757202,
+    "raw_units_byte": 10,
+    "foreground_count_equal": true,
+    "normalization_mean_max_difference": 0.0,
+    "normalization_std_max_difference": 1.318767317570746e-10,
+    "spatial_world_origin_exact": true,
+    "first_window_three_voxel_60_samples_max_difference": 3.3595318860157874e-08,
+    "padded_background_matches": true,
+    "token_arrays_finite": true,
+    "token_values_checked": 1941408,
+    "pooled_manual_sum_max_difference": 0.0,
+    "primary_pooled_relative_deviation_from_subject_mean_range": [
+      0.0005418777490757735,
+      0.0012790290783152726
+    ],
+    "primary_105_pair_cosine_range": [
+      0.9999973266303056,
+      0.9999996865946007
+    ],
+    "primary_token_temporal_std_RMS_over_total_RMS_range": [
+      0.0767273829146935,
+      0.07678490733099992
+    ],
+    "anatomical_accuracy_confirmed": false,
+    "interpretation": "Independent raw header/value checks and event interpolation/quantization/cache arithmetic only. Similar pooled vectors can reflect shared/static components and are not pain stability. No encoder rerun, pain prediction or expert/clinical proof."
+  },
+  "existing_warnings_retained": [
+    "Apptainer fuse2fs missing warning retained; actual SIF applywarp exited zero, no EXT3 filesystem requested."
+  ],
+  "author_pipeline_differences": [
+    "Author center crop leaves short axes short; local 91x96x91 is padded with declared background to 96^3 without removing reference-brain voxels or filling missing time frames.",
+    "Author whole-run temporal interpolation uses align_corners=False and rounded run length; local windows interpolate actual event target times directly using declared frame references.",
+    "Local per-scan moments and int8 scale are computed on mapped native frames before event interpolation; author computes them after whole-run temporal interpolation. Both use whole-scan information, local method is offline only."
+  ]
+}

@@ -1,0 +1,273 @@
+{
+  "summary": "1名新增开发受试者完成空间单位副本、裁剪、FAST、初始刚体/仿射与BBR；独立数值复核和私有图像技术检查已完成，非线性映射及新模型编码尚未开展。截至记录，25人采集作业新增完成3人，3人网络超时保留失败，原作业仍在接续。",
+  "boundary": "这是新增1人的技术输入推进，拟合0、专家新增0，不能证明配准改善、疼痛预测收益或临床效用。原前26开发/后13研究留出保持，留出MRI未读；三个独立临床目标尚未完成。",
+  "next": "接续同一采集作业，保留超时的部分文件和失败记录；对已完成输入继续固定非线性映射及独立复核，再开展预先说明预算和时间窗口的跨人表示比较。保留作者提示调优、差异token读出与同容量监督对照；新模型先核实官方输入和权重，不靠名称或最高开发分数判断论文贡献。",
+  "people": 1,
+  "patient_model_fits": 0,
+  "expert_reports_added": 0,
+  "new_encoder_calls": 0,
+  "clinical_validation_complete": false,
+  "full_MRI_transfer": 0,
+  "mean_header_copy": {
+    "source_units": [
+      "unknown",
+      "unknown"
+    ],
+    "copy_units": [
+      "mm",
+      "unknown"
+    ],
+    "values_exact": true,
+    "affine_exact": true,
+    "zooms_exact": true,
+    "qform_sform_codes_preserved": true,
+    "original_file_changed": false
+  },
+  "crop_independent_review": {
+    "state": "COMPLETE_NEW_DEVELOPMENT_CROP_INDEPENDENT_NUMERIC_REVIEW",
+    "model_fits": 0,
+    "new_encoder_calls": 0,
+    "mean_values_checked": 638976,
+    "mean_values_exact": true,
+    "mean_affine_and_zooms_exact": true,
+    "mean_qform_sform_codes_preserved": true,
+    "original_unknown_units_retained": true,
+    "derived_spatial_units": "mm",
+    "crop_values_world_checked": 9013248,
+    "crop_world_to_original_index_max_fractional_error": 1.4877319927109056e-06,
+    "crop_vs_original_T1_max_difference": 0.0,
+    "brain_mask_multiplication_exact": true,
+    "brain_mask_voxels": 1235654,
+    "brain_mask_volume_ml": 1340.770297012894,
+    "crop_shape": [
+      192,
+      288,
+      163
+    ],
+    "original_crop_worker_state": "FAILED",
+    "original_render_failure_retained": true,
+    "FSL_commands_repeated": 0,
+    "expert_reports_added": 0,
+    "training_inclusion": false,
+    "interpretation": "Independent full cropped-value/world/header review only; private pixels pending, not expert anatomical QC or clinical validation."
+  },
+  "FAST_and_affine": {
+    "state": "COMPLETE_NEW_FAST_AND_INITIAL_AFFINE_PENDING_INDEPENDENT_REVIEW",
+    "stages": [
+      {
+        "stage": "FAST_fixed_T1_bias_and_tissue",
+        "exit_code": 0,
+        "seconds": 195.56448698043823
+      },
+      {
+        "stage": "epi_to_T1_rigid",
+        "exit_code": 0,
+        "seconds": 18.758517742156982
+      },
+      {
+        "stage": "T1_to_MNI_initial_affine",
+        "exit_code": 0,
+        "seconds": 29.946320295333862
+      }
+    ],
+    "people": 1,
+    "model_fits": 0,
+    "expert_reports_added": 0,
+    "holdout_people_read": 0,
+    "full_MRI_transfer": 0,
+    "configuration_search": false,
+    "FAST": {
+      "grid": [
+        192,
+        288,
+        163
+      ],
+      "values_per_image": 9013248,
+      "WM_threshold": 0.5,
+      "WM_voxels": 516330,
+      "WM_outside_input_mask": 0,
+      "bias_positive_full_grid": true,
+      "bias_in_mask_range": [
+        0.716542661190033,
+        1.2292256355285645
+      ],
+      "PVE_sum_max_error_supported_mask": 0.0,
+      "zero_PVE_inside_input_mask": 2
+    },
+    "matrix_determinants": {
+      "epi_to_T1_rigid.mat": 1.0000000450831057,
+      "T1_to_MNI_affine.mat": 1.369810649877635
+    },
+    "source_size_mtime_unchanged": true,
+    "MNI_registration_complete": false,
+    "nonlinear_complete": false,
+    "BBR_complete": false,
+    "training_inclusion": false,
+    "interpretation": "Fixed new-person FAST and initializer only; no model outcome, expert tissue QC or complete standard pipeline."
+  },
+  "FAST_affine_independent_review": {
+    "state": "COMPLETE_NEW_FAST_AFFINE_ARITHMETIC_PENDING_PRIVATE_PIXELS",
+    "model_fits": 0,
+    "expert_reports_added": 0,
+    "FSL_commands_repeated": 0,
+    "default_filtered_affine_exact_FSL_replay": true,
+    "independent_affine_scope": "Unfiltered diagnostic matrix/grid/linear-interpolation review, not independent reconstruction of default blur kernel",
+    "original_failed_review_retained": true,
+    "tissue_output_values_checked": 54079488,
+    "bias_restore_relative_error": 1.148529169286656e-07,
+    "whole_head_division_exact": true,
+    "WM_threshold_exact": true,
+    "WM_voxels": 516330,
+    "PVE_supported_sum_max_error": 2.9802322387695312e-08,
+    "zero_input_mask_voxels_excluded": 2,
+    "PVE_sum_original_mask_max_error": 1.0,
+    "rigid_manual_resampling": {
+      "interior_values_checked": 1645923,
+      "manual_linear_relative_peak_difference": 0.00015297079517040402
+    },
+    "affine_unfiltered_manual_resampling": {
+      "interior_values_checked": 202419,
+      "manual_linear_relative_peak_difference": 0.00011836767225759104
+    },
+    "training_inclusion": false,
+    "interpretation": "Independent arithmetic and interior linear-resampling checks only; private tissue and initializer contours pending. Not expert anatomical accuracy or complete MNI preprocessing."
+  },
+  "saved_affine_resampling_diagnostic": {
+    "state": "COMPLETE_SAVED_AFFINE_RESAMPLING_DIAGNOSTIC",
+    "stages": [
+      {
+        "stage": "saved_affine_apply_default",
+        "exit_code": 0,
+        "seconds": 2.168987274169922
+      },
+      {
+        "stage": "saved_affine_apply_noresampblur",
+        "exit_code": 0,
+        "seconds": 1.0670537948608398
+      }
+    ],
+    "registration_fits": 0,
+    "new_resampling_budget": 2,
+    "original_vs_unfiltered_manual_relative_peak_difference": 0.3456632196903229,
+    "default": {
+      "vs_original_relative_peak_difference": 0.0,
+      "vs_unfiltered_manual_relative_peak_difference": 0.3456632196903229
+    },
+    "noresampblur": {
+      "vs_original_relative_peak_difference": 0.34566256403923035,
+      "vs_unfiltered_manual_relative_peak_difference": 0.00031500624027103186
+    },
+    "interior_values_checked": 220825,
+    "new_resampling_calls": 2,
+    "primary_output_replaced": false,
+    "interpretation": "Saved affine applied with default versus disabled resampling blur; neither diagnostic image replaces the primary source or fitted transform."
+  },
+  "BBR": {
+    "state": "COMPLETE_NEW_DEVELOPMENT_BBR_PENDING_INDEPENDENT_REVIEW",
+    "stages": [
+      {
+        "stage": "BBR_fixed_WM_rigid_init",
+        "exit_code": 0,
+        "seconds": 73.88842535018921
+      }
+    ],
+    "people": 1,
+    "model_fits": 0,
+    "expert_reports_added": 0,
+    "holdout_people_read": 0,
+    "full_MRI_transfer": 0,
+    "configuration_search": false,
+    "linear_determinant": 1.0000001599590147,
+    "output_shape": [
+      192,
+      288,
+      163
+    ],
+    "source_size_mtime_unchanged": true,
+    "FAST_repeated": false,
+    "rigid_init_reestimated": false,
+    "fieldmap_correction_repeated": false,
+    "nonlinear_complete": false,
+    "training_inclusion": false,
+    "interpretation": "One new-person fixed BBR, initializer and FAST reused; not improved accuracy, expert QC, clinical validation or model gain."
+  },
+  "BBR_independent_review": {
+    "state": "COMPLETE_BBR_NUMERIC_AND_RENDER_PENDING_PIXEL_INSPECTION",
+    "model_fits": 0,
+    "expert_reports_added": 0,
+    "FSL_commands_repeated": 0,
+    "raw_output_values_checked": 9013248,
+    "reference_grid_exact": true,
+    "rigid_determinant": 1.0000001599590147,
+    "rigid_orthogonality_max_error": 2.0051837901213787e-07,
+    "manual_resampling_interior_values_checked": 3523471,
+    "manual_cubic_spline_relative_peak_difference": 8.68874485604465e-06,
+    "actual_epi_reg_final_interpolation": "spline",
+    "source_interior_margin_voxels": 4,
+    "original_linear_review_failure_retained": true,
+    "world_transform_finite": true,
+    "sampled_support_points": 2016,
+    "displacement_from_rigid_mean_mm": 4.10388078615845,
+    "displacement_from_rigid_max_mm": 6.87897646302155,
+    "training_inclusion": false,
+    "interpretation": "Independent rigid/matrix/grid/raw and interpolation checks; movement does not establish better anatomical accuracy, expert QC or model outcomes."
+  },
+  "pixel_inspection": {
+    "private_images_actually_inspected": 6,
+    "expert_QC": false,
+    "anatomical_accuracy_confirmed": false,
+    "training_inclusion": false,
+    "images_public": false
+  },
+  "retained_failures": [
+    "crop_render_missing_matplotlib_after_successful_FSL_commands",
+    "initial_affine_review_assumed_unfiltered_interpolation",
+    "initial_BBR_review_assumed_linear_interpolation"
+  ],
+  "nonlinear_mapping_done": false,
+  "full_BOLD_resampling_done": false,
+  "new_encoder_calls_done": false,
+  "development_input_acquisition": {
+    "state": "RUNNING",
+    "new_people_target": 25,
+    "new_people_completed": 3,
+    "prior_people_reused": 1,
+    "holdout_people_read": 0,
+    "model_fits": 0,
+    "expert_reports_added": 0,
+    "full_MRI_transfer": 0,
+    "observed_at": "2026-10-08T20:59:47.805734+08:00",
+    "worker_observed_live": true,
+    "failed_people": 3,
+    "failure_category": "network_read_or_proxy_tunnel_timeout",
+    "partial_files_retained": true,
+    "automatic_retry": false,
+    "MNI_registration_complete": false,
+    "expert_QC_complete": false,
+    "training_inclusion": false,
+    "development_people_total": 26,
+    "research_holdout_people": 13
+  },
+  "modern_method_readiness": [
+    {
+      "method": "ScaPT",
+      "paper_year": 2024,
+      "role": "hierarchical_prompt_and_Domain_Independent_Prompt",
+      "paper_input": "DiFuMo1024_ROI_time_series",
+      "official_weight_runtime_verified": false,
+      "pain_benefit_verified": false
+    },
+    {
+      "method": "Omni-fMRI",
+      "paper_year": 2026,
+      "role": "atlas_free_voxel_dynamic_patching",
+      "author_input": "96x96x96x40",
+      "author_output_CLS_dimension": 768,
+      "checkpoint_entry_verified": true,
+      "checkpoint_downloaded": false,
+      "forward_verified": false,
+      "pain_benefit_verified": false
+    }
+  ],
+  "source_size_mtime_checks_are_not_hashes": true
+}

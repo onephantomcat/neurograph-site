@@ -1,0 +1,167 @@
+{
+  "summary": "Omni-fMRI作者标准SDPA组件完成2次实际调用，完整12层编码器完成1次随机权重合成输入前向，输出CLS768和954个动态patch。官方权重已下载，但完整加载或预训练前向尚未通过，实际失败保留。新增3人完成固定裁剪、FAST与初始配准，独立读取300,145,071个空间结果值，私有6幅图已查看。",
+  "boundary": "这是运行兼容性和输入准备，没有新疼痛预测拟合或临床成绩；新3人的BBR、非线性映射和真实编码尚未开展。实际专家新增0，原2人真实表示不重复。三个独立临床目标尚未完成。",
+  "next": "继续原采集作业，保留网络失败；对已复核3人按原顺序接续固定BBR/非线性与真实编码。Omni真实输入须先说明与NeuroSTORM一致的物理时间和各自预处理，再比较冻结读出、时间差异与作者提示适配，保留同容量监督和适用传统对照。",
+  "people": 3,
+  "patient_model_fits": 0,
+  "expert_reports_added": 0,
+  "clinical_validation_complete": false,
+  "new_real_fMRI_encoder_calls": 0,
+  "full_MRI_transfer": 0,
+  "crop_review": {
+    "people": 3,
+    "mean_values_checked": 1851392,
+    "crop_values_world_checked": 27039744,
+    "crop_vs_original_T1_max_difference": 0.0,
+    "brain_mask_voxel_range": [
+      1185501,
+      1229052
+    ],
+    "brain_mask_ml_range": [
+      1286.3508133175492,
+      1333.6066690872133
+    ],
+    "FSL_commands_repeated": 0,
+    "source_files_modified": false
+  },
+  "fast_numeric_review": {
+    "people": 3,
+    "total_raw_values_checked": 300145071,
+    "restore_times_bias_relative_peak_difference_range": [
+      6.036316080549196e-08,
+      8.25341897960816e-08
+    ],
+    "corrected_crop_all_exact": true,
+    "WM_threshold_all_exact": true,
+    "WM_outside_input_mask_total": 0,
+    "zero_PVE_inside_mask_total": 9,
+    "PVE_sum_max_difference_supported": 2.9802322387695312e-08,
+    "rigid_orthogonality_max_difference": 8.911212723283768e-08,
+    "reference_grids_all_exact": true,
+    "default_FSL_blur_independently_reconstructed": false,
+    "FSL_commands_repeated": 0,
+    "source_size_mtime_all_unchanged": true
+  },
+  "attention_component": {
+    "state": "COMPLETE_OFFICIAL_OMNI_PACKED_ATTENTION_COMPONENT_PROBE",
+    "attention_component_calls": 2,
+    "parameter_count": 2953216,
+    "packed_sequence_lengths": [
+      5,
+      9
+    ],
+    "output_shape": [
+      14,
+      768
+    ],
+    "manual_float64_max_absolute_difference": 9.522299915243337e-08,
+    "cross_sequence_perturbation_first_sequence_max_difference": 0.0,
+    "seconds": 0.7526848316192627,
+    "peak_cuda_allocated_mib": 21.60986328125,
+    "attention_backend": "Author standard packed SDPA fallback because FlashAttention is absent",
+    "source_modified": false
+  },
+  "random_weight_full_encoder": {
+    "state": "COMPLETE_FULL_AUTHOR_MODEL_CONSTRUCTION_AND_SYNTHETIC_ENCODER_FORWARD",
+    "full_model_constructed": true,
+    "full_encoder_forward_calls": 1,
+    "decoder_forward_calls": 0,
+    "full_model_parameters": 156658434,
+    "encoder_parameters": 110043394,
+    "input_shape": [
+      1,
+      40,
+      96,
+      96,
+      96
+    ],
+    "synthetic_nonzero_spatial_voxels": 92096,
+    "CLS_shape": [
+      768
+    ],
+    "patch_tokens_shape": [
+      954,
+      768
+    ],
+    "patch_coordinate_shape": [
+      954,
+      3
+    ],
+    "all_finite": true,
+    "coordinate_bounds_valid": true,
+    "seconds": 2.349275827407837,
+    "peak_cuda_allocated_mib": 838.4033203125,
+    "attention_backend": "author_standard_packed_SDPA",
+    "author_model_sources_modified": false,
+    "extractor_function_bodies_reused_exact": true
+  },
+  "checkpoint_transfer": {
+    "state": "COMPLETE_OFFICIAL_HTTP_TRANSFER_PENDING_TORCH_READBACK",
+    "HTTP_status": 200,
+    "expected_content_bytes": 1880318274,
+    "bytes_received": 1880318274,
+    "local_file_bytes": 1880318274,
+    "checkpoint_readback": false,
+    "weights_loaded": false,
+    "automatic_retry": false
+  },
+  "checkpoint_readiness": {
+    "metadata_process_state": "FAILED_ISOLATED_CHECKPOINT_METADATA_AND_WEIGHT_REVIEW",
+    "strict_load_and_synthetic_forward_complete": false,
+    "actual_readback": {},
+    "targeted_wheel_recovery": "Pending transfer; not installed and no resumed pretrained forward as of this report"
+  },
+  "private_dependency_overlay": {
+    "original_venv_modified": false,
+    "base_numpy_version": "1.26.4",
+    "base_torch_version": "2.4.1+cu121",
+    "base_available": {
+      "timm": false,
+      "torchvision": false,
+      "PIL": false,
+      "cv2": false,
+      "flash_attn": false
+    },
+    "timm": "1.0.19",
+    "torchvision": "0.19.1+cu121",
+    "Pillow": "11.3.0",
+    "opencv_headless": "4.11.0.86",
+    "numpy2_metadata_install_state": "FAILED_ISOLATED_CHECKPOINT_METADATA_AND_WEIGHT_REVIEW",
+    "FlashAttention_installed": false
+  },
+  "private_pixels": {
+    "images_actually_inspected": 6,
+    "images_public": false,
+    "expert_QC": false,
+    "anatomical_accuracy_confirmed": false,
+    "training_inclusion": false
+  },
+  "development_input_acquisition": {
+    "observed_at": "2026-10-08T22:28:11.863881+08:00",
+    "state": "RUNNING",
+    "new_people_completed": 4,
+    "new_people_target": 25,
+    "failed_people": 6,
+    "worker_observed_live": true,
+    "holdout_people_read": 0,
+    "original_partial_files_retained": true,
+    "automatic_retry": false
+  },
+  "retained_failures": [
+    "original_omni_timm_import_failure",
+    "full_model_source_path_transfer_error_before_construction",
+    "full_model_import_missing_cv2_before_construction",
+    "checkpoint_weights_only_numpy2_scalar_metadata_failure",
+    "overlong_Windows_transfer_command_before_remote_launch",
+    "launch_template_substitution_error_before_remote_launch",
+    "isolated_numpy2_online_install_600_second_timeout"
+  ],
+  "scientific_limits": [
+    "Synthetic input is not fMRI or a performance benchmark",
+    "No new clinical fits or independent H-test",
+    "No complete author training reproduction",
+    "No real Omni input or decoder forward",
+    "Model complexity and runtime success do not establish publication novelty",
+    "Original pretraining membership overlap and clinical truth/date requirements remain"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "methods": ["gcn", "no_graph"],
+  "seeds": [0, 1, 2],
+  "epochs": 100,
+  "hidden": 16,
+  "dropout": 0.2,
+  "learning_rate": 0.001,
+  "weight_decay": 0.001,
+  "threshold": 0.5,
+  "loss": "sum training-class-balanced BCE, each class total weight 0.5",
+  "batch": "all 44 training people",
+  "expected_fits": 36,
+  "node_scaling": "column mean/std over 44 training people and their 90 nodes; validation transform only",
+  "covariate_scaling": "44 training people only",
+  "checkpoint": "epoch100 only; no early stopping or configuration/seed selection",
+  "graph": "positive signed-FC edges plus unit diagonal, symmetric degree normalization; signed FC rows retained in x",
+  "query_computations": 0,
+  "scope": "six existing 44/44 inner partitions, correlated development sets, no H-test or K5 increment claim",
+  "stop": "no consistent paired validation mechanism signal across partitions/seeds -> stop this hypothesis without search expansion"
+}

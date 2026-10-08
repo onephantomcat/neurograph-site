@@ -1,0 +1,335 @@
+{
+  "state": "ALL_36_FIXED_GRAPH_FITS_SUMMARIZED",
+  "completed_fits": 36,
+  "methods": {
+    "gcn": {
+      "auc": 0.5523380523380523,
+      "average_precision": 0.8664177203167349,
+      "log_loss": 0.5596236233890138,
+      "balanced_log_loss": 0.8548711890882001,
+      "brier": 0.1830071686870522,
+      "balanced_accuracy": 0.5779708279708279
+    },
+    "no_graph": {
+      "auc": 0.5323895323895323,
+      "average_precision": 0.8607899762070963,
+      "log_loss": 0.5680228142508499,
+      "balanced_log_loss": 0.8463859357096482,
+      "brier": 0.18759567787249884,
+      "balanced_accuracy": 0.5593093093093092
+    }
+  },
+  "paired_differences": [
+    {
+      "task": "f0_full",
+      "inner": 0,
+      "seed": 0,
+      "differences": {
+        "auc": 0.019305019305019377,
+        "average_precision": 0.005129134192462859,
+        "log_loss": -0.04242035564228558,
+        "balanced_log_loss": 0.05037996025428548,
+        "brier": -0.018932223320007324,
+        "balanced_accuracy": -0.08880308880308879
+      }
+    },
+    {
+      "task": "f0_full",
+      "inner": 0,
+      "seed": 1,
+      "differences": {
+        "auc": 0.0347490347490349,
+        "average_precision": 0.002808637167249106,
+        "log_loss": -0.0052013772293998395,
+        "balanced_log_loss": -0.039286432896989965,
+        "brier": -0.004582390189170837,
+        "balanced_accuracy": 0.0714285714285714
+      }
+    },
+    {
+      "task": "f0_full",
+      "inner": 0,
+      "seed": 2,
+      "differences": {
+        "auc": 0.08880308880308885,
+        "average_precision": 0.022793647360407343,
+        "log_loss": 0.009626350547870421,
+        "balanced_log_loss": -0.06131877942988817,
+        "brier": 0.0018559694290161133,
+        "balanced_accuracy": 0.030888030888030826
+      }
+    },
+    {
+      "task": "f0_full",
+      "inner": 1,
+      "seed": 0,
+      "differences": {
+        "auc": 0.08880308880308868,
+        "average_precision": 0.030690996587519725,
+        "log_loss": -0.043798274971578566,
+        "balanced_log_loss": 0.07396086167323646,
+        "brier": -0.01998843252658844,
+        "balanced_accuracy": 0.11196911196911197
+      }
+    },
+    {
+      "task": "f0_full",
+      "inner": 1,
+      "seed": 1,
+      "differences": {
+        "auc": -0.015444015444015524,
+        "average_precision": -0.013346498565216747,
+        "log_loss": -0.0109886646465438,
+        "balanced_log_loss": 0.06915497095243983,
+        "brier": -0.006748318672180176,
+        "balanced_accuracy": -0.11583011583011582
+      }
+    },
+    {
+      "task": "f0_full",
+      "inner": 1,
+      "seed": 2,
+      "differences": {
+        "auc": -0.030888030888030826,
+        "average_precision": -0.005365239697646906,
+        "log_loss": 0.0065336093560968145,
+        "balanced_log_loss": 0.048090214655151176,
+        "brier": 0.003157898783683777,
+        "balanced_accuracy": -0.013513513513513487
+      }
+    },
+    {
+      "task": "f1_full",
+      "inner": 0,
+      "seed": 0,
+      "differences": {
+        "auc": -0.042471042471042386,
+        "average_precision": -0.003966339601717328,
+        "log_loss": 0.00047728970920923874,
+        "balanced_log_loss": 0.1650333459415967,
+        "brier": -0.012189224362373352,
+        "balanced_accuracy": 0.04054054054054057
+      }
+    },
+    {
+      "task": "f1_full",
+      "inner": 0,
+      "seed": 1,
+      "differences": {
+        "auc": -0.023166023166023175,
+        "average_precision": -0.012030868795749772,
+        "log_loss": 0.008217874323432017,
+        "balanced_log_loss": -0.05935585582852654,
+        "brier": 0.007249236106872559,
+        "balanced_accuracy": 0.0
+      }
+    },
+    {
+      "task": "f1_full",
+      "inner": 0,
+      "seed": 2,
+      "differences": {
+        "auc": 0.030888030888030937,
+        "average_precision": 0.007535761077321013,
+        "log_loss": -0.021999011318289963,
+        "balanced_log_loss": -0.0397784523540623,
+        "brier": -0.005215659737586975,
+        "balanced_accuracy": 0.013513513513513487
+      }
+    },
+    {
+      "task": "f1_full",
+      "inner": 1,
+      "seed": 0,
+      "differences": {
+        "auc": 0.0926640926640927,
+        "average_precision": 0.03567279324729444,
+        "log_loss": -0.0477933468089794,
+        "balanced_log_loss": -0.052095941428305315,
+        "brier": -0.022235751152038574,
+        "balanced_accuracy": 0.08494208494208488
+      }
+    },
+    {
+      "task": "f1_full",
+      "inner": 1,
+      "seed": 1,
+      "differences": {
+        "auc": 0.007722007722007707,
+        "average_precision": -0.004868676546778916,
+        "log_loss": 0.019227860247430062,
+        "balanced_log_loss": 0.013111965070519926,
+        "brier": 0.007495209574699402,
+        "balanced_accuracy": -0.05405405405405406
+      }
+    },
+    {
+      "task": "f1_full",
+      "inner": 1,
+      "seed": 2,
+      "differences": {
+        "auc": 0.030888030888030937,
+        "average_precision": 0.006566719346979943,
+        "log_loss": 0.05321006106981252,
+        "balanced_log_loss": -0.0663157090975125,
+        "brier": 0.02643086016178131,
+        "balanced_accuracy": 0.003861003861003909
+      }
+    },
+    {
+      "task": "f2_full",
+      "inner": 0,
+      "seed": 0,
+      "differences": {
+        "auc": 0.0038610038610039643,
+        "average_precision": 0.015665522799477305,
+        "log_loss": -0.0712482968418306,
+        "balanced_log_loss": 0.08643807429411876,
+        "brier": -0.03271530568599701,
+        "balanced_accuracy": 0.013513513513513375
+      }
+    },
+    {
+      "task": "f2_full",
+      "inner": 0,
+      "seed": 1,
+      "differences": {
+        "auc": -0.0424710424710425,
+        "average_precision": -0.016796811765327213,
+        "log_loss": 0.0325304509936154,
+        "balanced_log_loss": 0.09478022444933232,
+        "brier": 0.007325232028961182,
+        "balanced_accuracy": 0.0
+      }
+    },
+    {
+      "task": "f2_full",
+      "inner": 0,
+      "seed": 2,
+      "differences": {
+        "auc": 0.05405405405405417,
+        "average_precision": 0.02234528898615573,
+        "log_loss": -0.03916327206483988,
+        "balanced_log_loss": -0.017005396527478678,
+        "brier": -0.016756266355514526,
+        "balanced_accuracy": 0.05405405405405406
+      }
+    },
+    {
+      "task": "f2_full",
+      "inner": 1,
+      "seed": 0,
+      "differences": {
+        "auc": 0.084942084942085,
+        "average_precision": 0.017584326566191244,
+        "log_loss": -0.0820789393540553,
+        "balanced_log_loss": -0.04404856829372883,
+        "brier": -0.033208005130290985,
+        "balanced_accuracy": 0.06756756756756754
+      }
+    },
+    {
+      "task": "f2_full",
+      "inner": 1,
+      "seed": 1,
+      "differences": {
+        "auc": -0.02316602316602312,
+        "average_precision": -0.008375302204605584,
+        "log_loss": 0.0365433228142249,
+        "balanced_log_loss": -0.03191728424609375,
+        "brier": 0.014828413724899292,
+        "balanced_accuracy": 0.1428571428571428
+      }
+    },
+    {
+      "task": "f2_full",
+      "inner": 1,
+      "seed": 2,
+      "differences": {
+        "auc": 0.0,
+        "average_precision": -0.0007436961805229458,
+        "log_loss": 0.047139284303062134,
+        "balanced_log_loss": -0.03709263637415805,
+        "brier": 0.021635591983795166,
+        "balanced_accuracy": -0.027027027027027084
+      }
+    }
+  ],
+  "auc_positive_pairs": 11,
+  "brier_improved_pairs": 10,
+  "auc_difference_mean": 0.019948519948519983,
+  "auc_difference_range": [
+    -0.0424710424710425,
+    0.0926640926640927
+  ],
+  "parameter_count_each": 1749,
+  "training_means": {
+    "gcn": {
+      "auc": 0.9974259974259974,
+      "average_precision": 0.9995367796399088,
+      "log_loss": 0.2963793767984348,
+      "balanced_log_loss": 0.2900969382842215,
+      "brier": 0.07869645208120346,
+      "balanced_accuracy": 0.9682539682539684
+    },
+    "no_graph": {
+      "auc": 0.9974259974259974,
+      "average_precision": 0.9995593359577446,
+      "log_loss": 0.2870639320359351,
+      "balanced_log_loss": 0.28270725987609746,
+      "brier": 0.0736229835699002,
+      "balanced_accuracy": 0.9812312312312312
+    }
+  },
+  "query_scores": 0,
+  "independent_clinical_validations": 0,
+  "scope": "Correlated training-inner development sets, all seeds reported; no confidence interval treating 18 rows as independent cohorts.",
+  "decision": "STOP_STATIC_POSITIVE_GCN_HYPOTHESIS_NO_SEARCH_EXPANSION",
+  "summary": "轻量静态GCN与同容量无图消融完成36次训练内开发拟合，每模型1749参数。全部18组验证AUC均值0.552338/0.532390，成对平均差0.019949；仅11/18组AUC改善、10/18组Brier改善，差值方向不一致。两方法训练AUC均约0.997426，验证明显较弱，存在过拟合。停止这一静态正边GCN假设，不扩大配置、seed或查询搜索。",
+  "boundary": "复用原132开发人和六个44训练/44验证内层分区，每训练集7对照/37病例，seed0/1/2全报告；分区与seed相关，不当18个独立队列。节点输入为signed FC行，传播仅正边加自环；两方法同输入/参数/监督/损失/优化器/epochs，只改变传播是否为I。训练人拟合节点列与协变量标准化、训练类均衡权重；固定100epoch，无验证早停或选最优，无外层查询计算。新44人监督不能与原K5成绩直接作公平增量；未证明强FC/协变量增量、K5鲁棒性、预训练收益、生物标志物或独立临床泛化。原540/45和1609拟合保持，本轮36另列，不回写主分析；专家0/25注意、用户QC全纳入、真实三终点/日期/预训练重叠/H-test与投稿声明缺口保留。",
+  "next": "停止当前静态正边GCN方向并保留全部正负结果。任务态连接特征等待真实作者个人分区和metadata；独立诊断/同期疼痛/疗效验证等待相应真实标签、日期与未开发人员。当前不增加架构或参数搜索。",
+  "independent_replay": {
+    "state": "ALL_36_STATIC_GRAPH_CHECKPOINTS_INDEPENDENTLY_REPLAYED",
+    "models": 36,
+    "probabilities": 1584,
+    "new_fits": 0,
+    "new_query_scores": 0,
+    "maximum_probability_difference": 2.384185791015625e-07,
+    "maximum_metric_difference": 2.130212720108382e-08,
+    "initial_float32_float64_Brier_equality_failed": true,
+    "replay": "NumPy affine/message propagation/Pearson and existing independent rank evaluation; no torch model.forward or graph() used. Brier precision difference bounded by float32 eps; rank metrics strict."
+  },
+  "config": {
+    "methods": [
+      "gcn",
+      "no_graph"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "epochs": 100,
+    "hidden": 16,
+    "dropout": 0.2,
+    "learning_rate": 0.001,
+    "weight_decay": 0.001,
+    "threshold": 0.5,
+    "loss": "sum training-class-balanced BCE, each class total weight 0.5",
+    "batch": "all 44 training people",
+    "expected_fits": 36,
+    "node_scaling": "column mean/std over 44 training people and their 90 nodes; validation transform only",
+    "covariate_scaling": "44 training people only",
+    "checkpoint": "epoch100 only; no early stopping or configuration/seed selection",
+    "graph": "positive signed-FC edges plus unit diagonal, symmetric degree normalization; signed FC rows retained in x",
+    "query_computations": 0,
+    "scope": "six existing 44/44 inner partitions, correlated development sets, no H-test or K5 increment claim",
+    "stop": "no consistent paired validation mechanism signal across partitions/seeds -> stop this hypothesis without search expansion"
+  },
+  "versions": {
+    "torch": "2.9.1+cpu",
+    "numpy": "2.3.2"
+  },
+  "actual_warning_count": 0,
+  "initial_prelaunch_UTF8_error_retained": true
+}

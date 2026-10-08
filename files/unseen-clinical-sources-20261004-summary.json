@@ -2884,6 +2884,220 @@
         "highpass_synthetic_error_above_old_limit_retained": true,
         "old_rest_patient_error_above_old_limit_retained": true,
         "new_AFNI_commands_in_independent_readback": 0
+      },
+      "first_rating_final_cifti_and_bins_review": {
+        "observed_at": "2026-10-08T14:40:28.431097+08:00",
+        "summary": "首份疼痛评分任务（rating_run-1）的两条功能映射已完成，四份最终CIFTI完整读回共476,126,912个有限值。每份1304×91,282，TR0.46秒、起点0；左右皮层29,696/29,716顶点和19个子皮层脑区共31,870体素逐集合对应，未平滑/6毫米两档保留。固定13帧延迟连接原VAS与1225脑行，原标签未改；实际MATLAB2/5/10分箱已独立核对全部7,350个分组值，差0，组均值最大差1.221245327087672e-15。",
+        "boundary": "1225行来自同一人同一运行，是依赖时间点；不是1225名患者或独立临床样本。排名分箱短片段NaN为0/29/69行，完整MRI仍保留1304帧、物理删除0，不排除人或改变QC。首次独立时间分箱把自动边界误作首尾等分而失败；原输出/失败保留，按已安装R2025a的binpicker算法修正重放，MATLAB没有重跑。实际时间分箱边界为0:700:1400、0:250:1250、0:130:1300，时间组不等人数。作者个人分区和人工SCAN网络编号未取得，尚未生成作者parcel连接特征；完整作者复现、专家配准准确性及独立临床验证未成立。原Workbench警告、版本差异/跨访视T2、AFNI旧超差/合成失败，原540/45及1609阴性结果、用户QC授权/实际专家0/原25注意、临床真值/日期/预训练成员/H-test缺口保留。",
+        "task": "rating_run-1",
+        "selected_existing_people": 1,
+        "new_people": 0,
+        "final_cifti_files_read": 4,
+        "finite_values": 476126912,
+        "shape_each": [
+          1304,
+          91282
+        ],
+        "TR_seconds": 0.46,
+        "start_seconds": 0,
+        "left_surface_vertices": 29696,
+        "right_surface_vertices": 29716,
+        "subcortical_structures": 19,
+        "subcortical_voxels": 31870,
+        "source_size_mtime_unchanged": true,
+        "smoothing_fwhm_mm": [
+          0,
+          6
+        ],
+        "source_commands_seconds": [
+          5408.8564574718475,
+          5420.886563777924
+        ],
+        "fixed_join_points": 1225,
+        "delay_frames": 13,
+        "delay_seconds": 5.98,
+        "time_offset_max_difference_seconds": 9.592326932761353e-14,
+        "actual_marked_frames": 0,
+        "retained_frames": 1304,
+        "physical_MRI_rows_deleted": 0,
+        "old_label_values_changed": 0,
+        "new_interpolation_calls": 0,
+        "bin_comparisons": [
+          {
+            "bins": 2,
+            "rank_bin_values_compared": 1225,
+            "time_bin_values_compared": 1225,
+            "group_values_changed": 0,
+            "time_bin_edges": [
+              0.0,
+              700.0,
+              1400.0
+            ],
+            "rating_bin_NaN_rows": 0,
+            "rating_bin_group_counts": [
+              613,
+              612
+            ],
+            "time_bin_group_counts": [
+              699,
+              526
+            ],
+            "group_means": {
+              "rbin": {
+                "group_ids": [
+                  1,
+                  2
+                ],
+                "max_mean_difference": 3.3306690738754696e-16
+              },
+              "tbin": {
+                "group_ids": [
+                  1,
+                  2
+                ],
+                "max_mean_difference": 1.2212453270876722e-15
+              }
+            }
+          },
+          {
+            "bins": 5,
+            "rank_bin_values_compared": 1225,
+            "time_bin_values_compared": 1225,
+            "group_values_changed": 0,
+            "time_bin_edges": [
+              0.0,
+              250.0,
+              500.0,
+              750.0,
+              1000.0,
+              1250.0
+            ],
+            "rating_bin_NaN_rows": 29,
+            "rating_bin_group_counts": [
+              245,
+              234,
+              235,
+              237,
+              245
+            ],
+            "time_bin_group_counts": [
+              249,
+              250,
+              250,
+              250,
+              226
+            ],
+            "group_means": {
+              "rbin": {
+                "group_ids": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "max_mean_difference": 9.992007221626409e-16
+              },
+              "tbin": {
+                "group_ids": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5
+                ],
+                "max_mean_difference": 9.992007221626409e-16
+              }
+            }
+          },
+          {
+            "bins": 10,
+            "rank_bin_values_compared": 1225,
+            "time_bin_values_compared": 1225,
+            "group_values_changed": 0,
+            "time_bin_edges": [
+              0.0,
+              130.0,
+              260.0,
+              390.0,
+              520.0,
+              650.0,
+              780.0,
+              910.0,
+              1040.0,
+              1170.0,
+              1300.0
+            ],
+            "rating_bin_NaN_rows": 69,
+            "rating_bin_group_counts": [
+              123,
+              112,
+              108,
+              113,
+              110,
+              115,
+              116,
+              118,
+              121,
+              120
+            ],
+            "time_bin_group_counts": [
+              129,
+              130,
+              130,
+              130,
+              130,
+              130,
+              130,
+              130,
+              130,
+              56
+            ],
+            "group_means": {
+              "rbin": {
+                "group_ids": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10
+                ],
+                "max_mean_difference": 6.661338147750939e-16
+              },
+              "tbin": {
+                "group_ids": [
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6,
+                  7,
+                  8,
+                  9,
+                  10
+                ],
+                "max_mean_difference": 5.551115123125783e-16
+              }
+            }
+          }
+        ],
+        "bin_group_values_compared": 7350,
+        "maximum_bin_mean_difference": 1.2212453270876722e-15,
+        "initial_independent_time_bins_replay_failed": true,
+        "actual_MATLAB_binning_reexecuted": false,
+        "author_individual_parcellation_acquired": false,
+        "expert_accuracy_proven": false,
+        "expert_reports": 0,
+        "author_full_reproduction_proven": false,
+        "new_classifier_fits": 0,
+        "independent_clinical_validations": 0,
+        "whole_MRI_copied_locally": 0
       }
     }
   },
@@ -2910,8 +3124,8 @@
   "source_versions_observed_at": "2026-10-04T14:52:50.269444+08:00",
   "raw_mri_observed_at": "2026-10-04T16:05:28.365879+08:00",
   "raw_mri_followup_observed_at": "2026-10-04T23:00:06.680677+08:00",
-  "current_processing_observed_at": "2026-10-07T19:05:49.250147+08:00",
+  "current_processing_observed_at": "2026-10-08T14:40:28.431097+08:00",
   "current_processing_title": "DEIPP：旧转换丢失离散标签值，整数修复已独立核对",
-  "current_processing_summary": "首份疼痛评分任务（rating_run-1）的固定高通去噪已完成独立读回：投影和加均值两份完整4D各1,177,028,216个值均有限；全量float32加法回放与902,629个时间均值差均为0。12个固定位置、15,648个时间值按AFNI源公式独立重放，最大差0.00017595601188069576，低于原0.0002界限；结果只覆盖这12处。",
-  "current_processing_boundary": "评分任务固定高通[0.005,9999]、TR0.46秒、polort1、16列干扰与NTRP，标记0、保留1304帧、物理删除0。当前AFNI设计1304×25，含Nyquist频点，患者日志标称1279剩余DOF、76,129常数向量，不证明实际秩或全体素投影等价；设计与保存打印文本最大差0.0004994506835913626，文本没有作为重放oracle。新的高通合成差0.00024227745761531717仍超原2e-4，其首次失败保留；此前静息患者超差也保持，不能用本评分任务12处结果覆盖旧失败。评分任务功能ciftify已启动、尚未完成最终CIFTI读回；专家配准准确性、完整作者复现及临床验证未成立。原540/45与开发1609训练及阴性结果不改，实际专家0/原25注意/用户QC授权、预训练未知、版本/跨访视T2、真实临床信息/日期/H-test缺口保留。"
+  "current_processing_summary": "首份疼痛评分任务（rating_run-1）的两条功能映射已完成，四份最终CIFTI完整读回共476,126,912个有限值。每份1304×91,282，TR0.46秒、起点0；左右皮层29,696/29,716顶点和19个子皮层脑区共31,870体素逐集合对应，未平滑/6毫米两档保留。固定13帧延迟连接原VAS与1225脑行，原标签未改；实际MATLAB2/5/10分箱已独立核对全部7,350个分组值，差0，组均值最大差1.221245327087672e-15。",
+  "current_processing_boundary": "1225行来自同一人同一运行，是依赖时间点；不是1225名患者或独立临床样本。排名分箱短片段NaN为0/29/69行，完整MRI仍保留1304帧、物理删除0，不排除人或改变QC。首次独立时间分箱把自动边界误作首尾等分而失败；原输出/失败保留，按已安装R2025a的binpicker算法修正重放，MATLAB没有重跑。实际时间分箱边界为0:700:1400、0:250:1250、0:130:1300，时间组不等人数。作者个人分区和人工SCAN网络编号未取得，尚未生成作者parcel连接特征；完整作者复现、专家配准准确性及独立临床验证未成立。原Workbench警告、版本差异/跨访视T2、AFNI旧超差/合成失败，原540/45及1609阴性结果、用户QC授权/实际专家0/原25注意、临床真值/日期/预训练成员/H-test缺口保留。"
 }

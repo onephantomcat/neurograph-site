@@ -1,0 +1,142 @@
+{
+  "summary": "CoSpine首人固定FNIRT与BBR组合完成，独立支持重采样及90区计数一致；平均非零覆盖99.42%，上一阶段仿射为99.54%，两次均无零支持区。真实事件窗口复核发现，在暂定帧参考0下，20×0.8秒窗口的插值需要评分开始后的采样点，涉及3/15试次。",
+  "boundary": "这是1人的空间/时间输入研究，无新增预测成绩。非零覆盖和正Jacobian不等于解剖准确；时间重采样不能增加真实分辨率。实际切片参考/派生滤波仍未知，完整4D重采样、任务特征和患者拟合均未做，专家新增0、独立临床目标未完成。",
+  "next": "复用已核对形变，完成服务器端完整时间序列空间映射；明确自己的物理时间窗口和实际派生处理限制，再做真实时空token前向。固定提前窗口仅为候选，包含预刺激/早期响应，不能宣称纯疼痛。随后按人员26开发/13研究留出比较冻结、作者提示调优、同容量监督和疼痛任务适配，保留旧停止状态。",
+  "people": 1,
+  "patient_model_fits": 0,
+  "expert_reports_added": 0,
+  "clinical_validation_complete": false,
+  "full_MRI_transfer": 0,
+  "before": {
+    "coverage_mean": 0.9954137941140595,
+    "coverage_min": 0.9143017701601573,
+    "zero_support_ROIs": 0,
+    "less_than_half_support_ROIs": 0
+  },
+  "after": {
+    "stages": [
+      {
+        "stage": "FNIRT_fixed_installed_config",
+        "exit_code": 0,
+        "seconds": 319.1676309108734
+      },
+      {
+        "stage": "BBR_FNIRT_composed_field",
+        "exit_code": 0,
+        "seconds": 3.0225603580474854
+      },
+      {
+        "stage": "EPI_mean_single_resampling",
+        "exit_code": 0,
+        "seconds": 1.5691041946411133
+      },
+      {
+        "stage": "EPI_support_single_resampling",
+        "exit_code": 0,
+        "seconds": 1.1678462028503418
+      }
+    ],
+    "reference_shape": [
+      91,
+      109,
+      91
+    ],
+    "values_per_scalar_image": 902629,
+    "jacobian_inside_reference_brain_range": [
+      0.23778589069843292,
+      2.499999523162842
+    ],
+    "jacobian_inside_reference_brain_nonpositive": 0,
+    "jacobian_inside_reference_brain_percentiles": [
+      0.4752138453722,
+      0.9981306195259094,
+      1.7046729350090022
+    ],
+    "coverage_mean": 0.9941972049564203,
+    "coverage_min": 0.9300365271143579,
+    "zero_support_ROIs": 0,
+    "less_than_half_support_ROIs": 0,
+    "source_size_mtime_unchanged": true,
+    "BBR_reused": true,
+    "FAST_repeated": false,
+    "affine_reestimated": false,
+    "full_BOLD_resampling_done": false
+  },
+  "independent_review": {
+    "raw_new_outputs_values_checked": 6318403,
+    "atlas_ROI_counts_exact": true,
+    "jacobian_range_exact": true,
+    "jacobian_nonpositive": 0,
+    "independent_relative_field_support_disagree_voxels": 0,
+    "independent_relative_field_support_disagree_fraction": 0.0,
+    "independent_trilinear_interior_voxels": 690376,
+    "independent_trilinear_max_absolute_error": 0.2333984375,
+    "independent_trilinear_max_relative_to_peak": 1.2649488780880347e-05,
+    "anatomical_accuracy_confirmed": false
+  },
+  "independent_finite_review": {
+    "T1_in_MNI_nonlin": true,
+    "T1_to_MNI_jac": true,
+    "EPI_to_MNI_relative_warp": true,
+    "EPI_in_MNI_nonlin": true,
+    "EPI_support_in_MNI_nonlin": true
+  },
+  "task_window_audit": {
+    "state": "COMPLETE_LABEL_FREE_WINDOW_SUPPORT_AUDIT",
+    "people": 1,
+    "pain_trials": 15,
+    "native_frames": 230,
+    "native_TR_seconds": 2.680000066757202,
+    "provisional_native_reference_seconds": 0,
+    "target_frames": 20,
+    "target_step_seconds": 0.8,
+    "target_first_to_last_span_seconds": 15.200000000000001,
+    "twenty_native_first_to_last_span_seconds": 50.92000126838684,
+    "distinct_native_source_frames_range": [
+      7,
+      8
+    ],
+    "sample_point_at_or_after_report_trials": 3,
+    "conservative_source_volume_reaches_report_trials": 14,
+    "ratings_replacement_unchanged": true,
+    "incomplete_windows": 0,
+    "padding_used": false,
+    "patient_images_read": 0,
+    "task_image_features": 0,
+    "model_fits": 0,
+    "actual_slice_reference_confirmed": false,
+    "interpretation": "Declared frame-reference-zero linear interpolation support only; overlap counts are conditional diagnostics, not observed motion or report contamination. Native slice-time correction/filtering remain unknown; interpolation creates no temporal resolution.",
+    "fixed_early_response_candidate": [
+      {
+        "reference_phase_seconds": 0.0,
+        "target_start_relative_to_pain_seconds": -5.360000133514404,
+        "target_end_relative_to_pain_seconds": 9.839999866485597,
+        "sample_point_at_or_after_report_trials": 0,
+        "conservative_source_volume_reaches_report_trials": 0
+      },
+      {
+        "reference_phase_seconds": 1.340000033378601,
+        "target_start_relative_to_pain_seconds": -5.360000133514404,
+        "target_end_relative_to_pain_seconds": 9.839999866485597,
+        "sample_point_at_or_after_report_trials": 0,
+        "conservative_source_volume_reaches_report_trials": 0
+      },
+      {
+        "reference_phase_seconds": 2.680000066757202,
+        "target_start_relative_to_pain_seconds": -5.360000133514404,
+        "target_end_relative_to_pain_seconds": 9.839999866485597,
+        "sample_point_at_or_after_report_trials": 0,
+        "conservative_source_volume_reaches_report_trials": 0
+      }
+    ],
+    "early_candidate_selected_by": "Fixed two-native-TR lead plus unchanged 20x0.8s span; no pain targets or model metrics consulted.",
+    "early_candidate_limits": "Includes prestimulus/anticipatory period and captures early response only; it does not isolate nociception. Unknown derivative temporal filtering/slice interpolation can still mix later signal; this support audit is not proof of uncontaminated MRI."
+  },
+  "technical_pixel_observation": "三张私有图已查看。整头T1的非零轮廓包含头皮，位于模板脑外不单独说明配准错误；补充的整头T1棋盘格可观察脑室、胼胝体和脑干在交替图块间的对应，局部边界/强度仍有差异。EPI支持轮廓大体包围参考脑部，局部边缘仍有超出或不足。仅为技术像素检查，没有定量准确性或新增专家报告。",
+  "failure_records_retained": [
+    "Initial independent raw reader treated uncompressed atlas as gzip and failed before ROI/sampling conclusions; actual reviewer terminal was verified, original failed file/reader/logs preserved, only reader dispatch corrected and review resumed. FNIRT not repeated."
+  ],
+  "existing_warnings_retained": [
+    "Apptainer fuse2fs missing warning retained; actual SIF commands exited zero, no EXT3 filesystem requested."
+  ]
+}

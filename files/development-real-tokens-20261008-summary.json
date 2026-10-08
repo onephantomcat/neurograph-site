@@ -1,0 +1,197 @@
+{
+  "summary": "1名新增开发受试者完成固定非线性映射、230帧单次空间重采样和21次冻结编码；独立核对207,604,670个BOLD值及1,941,408个缓存值。累计2人的30个主窗口缓存显示，平均池化表示的跨人相对差异约28.15%，人内窗口偏离约0.054%～0.924%。这些是表示描述，尚无疼痛预测结果。",
+  "boundary": "模型拟合0、留出MRI读取0、实际专家新增0；2人和30个相关窗口不能证明泛化、疼痛特异性或临床效用。Omni-fMRI组件探测因缺timm在导入阶段失败，前向调用0。三个独立临床目标尚未完成。",
+  "next": "接续原采集作业并保留网络失败，对原顺序已关闭输入沿用同一固定空间和编码方案。输入人数足够后，比较冻结池化、时间差异token读出、作者提示适配和同容量监督方法；核实Omni独立依赖及真实前向，统一物理时间与预算，保留传统模型作为对照。",
+  "people": 1,
+  "cumulative_real_token_people": 2,
+  "new_encoder_calls": 21,
+  "patient_model_fits": 0,
+  "expert_reports_added": 0,
+  "clinical_validation_complete": false,
+  "full_MRI_transfer": 0,
+  "nonlinear_mapping_done": true,
+  "nonlinear_fixed_steps": [
+    {
+      "stage": "FNIRT_fixed_installed_config",
+      "exit_code": 0,
+      "seconds": 303.1074562072754
+    },
+    {
+      "stage": "BBR_FNIRT_composed_field",
+      "exit_code": 0,
+      "seconds": 3.0232322216033936
+    },
+    {
+      "stage": "EPI_mean_single_resampling",
+      "exit_code": 0,
+      "seconds": 1.117429494857788
+    },
+    {
+      "stage": "EPI_support_single_resampling",
+      "exit_code": 0,
+      "seconds": 1.4184691905975342
+    }
+  ],
+  "nonlinear_numeric_review": {
+    "raw_new_outputs_values_checked": 6318403,
+    "atlas_ROI_counts_exact": true,
+    "jacobian_range_exact": true,
+    "jacobian_nonpositive": 0,
+    "coverage_mean": 0.9935108732678769,
+    "coverage_min": 0.8583106267029973,
+    "zero_support_ROIs": 0,
+    "less_than_half_support_ROIs": 0,
+    "independent_relative_field_support_disagree_voxels": 0,
+    "independent_trilinear_interior_voxels": 726061,
+    "independent_trilinear_max_relative_to_peak": 1.3727969417232089e-05
+  },
+  "fullbold": {
+    "state": "COMPLETE_FULL_230_FRAME_SINGLE_SPATIAL_RESAMPLING",
+    "resampling_seconds": 194.58851385116577,
+    "shape": [
+      91,
+      109,
+      91,
+      230
+    ],
+    "TR_seconds": 2.680000066757202,
+    "values_checked": 207604670,
+    "mean_vs_reviewed_mean_max_absolute_difference": 0.17409561820568342,
+    "mean_vs_reviewed_mean_relative_peak_difference": 8.803377013424957e-06,
+    "spatial_sampling_per_frame": 1,
+    "temporal_interpolation": false,
+    "temporal_padding": false,
+    "source_size_mtime_unchanged": true
+  },
+  "fullbold_numeric_review": {
+    "raw_values_checked": 207604670,
+    "raw_TR_seconds": 2.680000066757202,
+    "raw_units_byte": 10,
+    "normalization_mean_max_difference": 0.0,
+    "normalization_std_max_difference": 1.3460521586239338e-10,
+    "spatial_world_origin_exact": true,
+    "first_window_three_voxel_60_samples_max_difference": 4.4757695327746205e-08,
+    "padded_background_matches": true,
+    "token_arrays_finite": true,
+    "token_values_checked": 1941408,
+    "pooled_manual_sum_max_difference": 0.0,
+    "primary_pooled_relative_deviation_from_subject_mean_range": [
+      0.0016504100634873653,
+      0.009238795578247212
+    ],
+    "primary_105_pair_cosine_range": [
+      0.9999022558218685,
+      0.9999982270983224
+    ],
+    "primary_token_temporal_std_RMS_over_total_RMS_range": [
+      0.07669713467646336,
+      0.07706192487564219
+    ]
+  },
+  "two_person_cache_description": {
+    "state": "COMPLETE_TWO_PERSON_LABEL_FREE_CACHE_DESCRIPTION",
+    "people": 2,
+    "primary_trials_per_person": 15,
+    "model_fits": 0,
+    "encoder_calls": 0,
+    "ratings_read": false,
+    "holdout_people_read": 0,
+    "full_MRI_transfer": 0,
+    "primary_windows": 30,
+    "cached_final_and_pooled_values_checked": 1391040,
+    "manual_pooled_max_difference": 0.0,
+    "between_person_mean_pooled_symmetric_relative_L2": 0.2814813521375512,
+    "between_person_mean_final_token_symmetric_relative_L2": 0.297474791026161,
+    "within_person_pooled_relative_deviation_aggregate_range": [
+      0.0005418777490757735,
+      0.009238795578247212
+    ],
+    "between_person_mean_temporal_pattern_cosine": 0.8909687828924041,
+    "source_size_mtime_unchanged": true,
+    "interpretation": "Two development people, 30 dependent primary windows. Between-person difference and shared temporal pattern are descriptive; no labels, pain decoding, reliable generalization, causal positional attribution, new independent H-test or clinical proof."
+  },
+  "pixel_inspection": {
+    "private_images_actually_inspected": 5,
+    "expert_QC": false,
+    "anatomical_accuracy_confirmed": false,
+    "images_public": false
+  },
+  "omni_component_probe": {
+    "state": "FAILED_COMPONENT_READINESS",
+    "checkpoint_downloaded": false,
+    "full_model_constructed": false,
+    "full_model_forward": false,
+    "patient_MRI_read": false,
+    "optimizer_steps": 0,
+    "model_fits": 0,
+    "attention_component_calls": 0,
+    "environment_modified": false,
+    "torch_version": "2.4.1+cu121",
+    "GPU": "NVIDIA GeForce GTX 1080 Ti",
+    "compute_capability": [
+      6,
+      1
+    ]
+  },
+  "omni_dependency_inventory": {
+    "timm": false,
+    "torchvision": false,
+    "flash_attn": false,
+    "author_optional_standard_SDPA_fallback_present": true,
+    "fallback_actually_tested": false,
+    "missing_module_error": "ModuleNotFoundError: timm"
+  },
+  "scapt_readiness": {
+    "official_MICCAI_2024_page_code_repository_entry": "N/A",
+    "official_weight_runtime_verified": false,
+    "whole_internet_code_absence_claim": false,
+    "input": "DiFuMo1024_ROI_time_series"
+  },
+  "development_input_acquisition": {
+    "state": "RUNNING",
+    "new_people_target": 25,
+    "new_people_completed": 4,
+    "prior_people_reused": 1,
+    "holdout_people_read": 0,
+    "model_fits": 0,
+    "expert_reports_added": 0,
+    "full_MRI_transfer": 0,
+    "observed_at": "2026-10-08T21:36:34.022188+08:00",
+    "worker_observed_live": true,
+    "failed_people": 5,
+    "partial_files_retained": true,
+    "automatic_retry": false,
+    "expert_QC_complete": false,
+    "training_inclusion": false
+  },
+  "retained_failures": [
+    "Omni_actual_component_import_missing_timm",
+    "original_acquisition_network_failures_with_partial_files",
+    "previous_render_and_interpolation_assumption_failures"
+  ],
+  "preprocessing_limitations": [
+    "offline_whole_scan_normalization",
+    "unknown_original_slice_timing_and_temporal_filtering",
+    "pre_stimulus_context",
+    "not_complete_author_preprocessing",
+    "pretraining_member_overlap_unknown"
+  ],
+  "temporal_input": {
+    "primary_windows": 15,
+    "phase_sensitivity_windows": 6,
+    "spatial_shape": [
+      96,
+      96,
+      96
+    ],
+    "frames": 20,
+    "interval_seconds": 0.8,
+    "source_TR_seconds": 2.680000066757202,
+    "encoder_parameters_frozen": 5173020,
+    "zero_adapter_parameters": 5480,
+    "model_fits": 0,
+    "ratings_read": false,
+    "repeated_old_encoder_calls": 0,
+    "shared_GAP_not_broadcast_to_AAL90": true
+  }
+}

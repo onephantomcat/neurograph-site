@@ -1,8 +1,8 @@
 {
   "date": "2026-10-12",
-  "summary": "ABIDE原任务协议核对已完成：三套CC200作者模型通过真实训练步骤测试；BNT/Com当前代码的验证和测试人数与论文70/10/20不一致，BrainHGT的最佳权重浅拷贝问题已实测。",
-  "boundary": "截至本次核对，ABIDE正式患者拟合0，原文成绩差距仍未测。作者数据包下载中断后正在分段恢复；BrainHGT完整OMST输入尚缺。合成输入的训练步骤不算原任务成绩复现，既有疼痛适配结果保留。",
-  "next": "先完成作者1009人CC200数组核对，再执行BNT、Com两协议各5seed；BrainHGT补齐OMST后各10seed。历史模型与预训练模型按原任务数据可得性排序，原任务复现后再判断疼痛迁移。",
+  "summary": "BNT与Com-BrainTF在作者ABIDE数组上完成20次拟合，40份选中／末轮权重回读通过。BNT AUROC为0.7836／0.7786，Com为0.7716／0.7613；均低于各自原文。",
+  "boundary": "本轮为官方代码在作者1009行CC200数据上的原任务复算，尚不能称完整论文协议复现。当前代码划分706/203/100；论文划分／批量对齐为706/100/203。两作者包19个站点、FC对角全0、无人员ID，100帧时序不能重建包内FC；诊断方向仅有站点汇总支持。BrainHGT原OMST输入缺，患者拟合0。ABIDE疾病分类不证明疼痛迁移有效。",
+  "next": "优先补BrainHGT原OMST驱动／输出与数据对应记录，并核对ALTER的1012人DPARSF原输入；现有20次不追加搜索。疼痛路线先核对同人CC200与临床终点，保留Emo53未胜切空间的阴性结论。",
   "rows": [
     {
       "model": "BNT",
@@ -10,12 +10,139 @@
       "original_auc_sd": 0.01,
       "original_accuracy": 0.71,
       "original_accuracy_sd": 0.012,
-      "local_original_task_auc": null,
-      "delta_auc_pp": null,
-      "status": "技术训练步骤通过，原任务患者成绩未测",
+      "local_original_task_auc": 0.783560064942181,
+      "delta_auc_pp": -1.8439935057819046,
+      "status": "官方代码在作者ABIDE数组上复算完成；论文全协议仍有差异",
       "parameters": 3976042,
       "trainable_parameters": 3956042,
       "train_val_test_current_code": [
+        706,
+        203,
+        100
+      ],
+      "protocol": "current_code",
+      "protocol_label": "作者当前代码",
+      "checkpoint": "final",
+      "local_auc_sample_sd": 0.039308082837245045,
+      "metrics": {
+        "auc": 0.783560064942181,
+        "auprc": 0.7652150296622171,
+        "accuracy": 0.7060000000000001,
+        "balanced_accuracy": 0.7062160692973022,
+        "brier": 0.18867870472341758
+      },
+      "sample_sd": {
+        "auc": 0.039308082837245045,
+        "auprc": 0.07390362428357995,
+        "accuracy": 0.028809720581775843,
+        "balanced_accuracy": 0.028717014718962975,
+        "brier": 0.01464382409425884
+      },
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "fits": 5,
+      "split": [
+        706,
+        203,
+        100
+      ]
+    },
+    {
+      "model": "BNT",
+      "original_auc": 0.802,
+      "original_auc_sd": 0.01,
+      "original_accuracy": 0.71,
+      "original_accuracy_sd": 0.012,
+      "local_original_task_auc": 0.778630232995366,
+      "delta_auc_pp": -2.3369767004634,
+      "status": "官方代码在作者ABIDE数组上复算完成；论文全协议仍有差异",
+      "parameters": 3976042,
+      "trainable_parameters": 3956042,
+      "train_val_test_current_code": [
+        706,
+        203,
+        100
+      ],
+      "protocol": "paper_aligned",
+      "protocol_label": "论文划分／批量对齐",
+      "checkpoint": "selected",
+      "local_auc_sample_sd": 0.029349777629660116,
+      "metrics": {
+        "auc": 0.778630232995366,
+        "auprc": 0.750149187381479,
+        "accuracy": 0.6817733990147783,
+        "balanced_accuracy": 0.6861013901357929,
+        "brier": 0.20855070886757537
+      },
+      "sample_sd": {
+        "auc": 0.029349777629660116,
+        "auprc": 0.02882477154341835,
+        "accuracy": 0.04783654536476931,
+        "balanced_accuracy": 0.044631884560882455,
+        "brier": 0.022981400823008213
+      },
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "fits": 5,
+      "split": [
+        706,
+        100,
+        203
+      ]
+    },
+    {
+      "model": "Com-BrainTF",
+      "original_auc": 0.796,
+      "original_auc_sd": 0.038,
+      "original_accuracy": 0.725,
+      "original_accuracy_sd": 0.044,
+      "local_original_task_auc": 0.771552188854846,
+      "delta_auc_pp": -2.444781114515404,
+      "status": "官方代码在作者ABIDE数组上复算完成；论文全协议仍有差异",
+      "parameters": 8381986,
+      "trainable_parameters": 8380386,
+      "train_val_test_current_code": [
+        706,
+        203,
+        100
+      ],
+      "protocol": "current_code",
+      "protocol_label": "作者当前代码",
+      "checkpoint": "selected",
+      "local_auc_sample_sd": 0.03332012436143376,
+      "metrics": {
+        "auc": 0.771552188854846,
+        "auprc": 0.7454825931730142,
+        "accuracy": 0.708,
+        "balanced_accuracy": 0.7113206626806154,
+        "brier": 0.24977540133893186
+      },
+      "sample_sd": {
+        "auc": 0.03332012436143376,
+        "auprc": 0.04836177043655359,
+        "accuracy": 0.05449770637375486,
+        "balanced_accuracy": 0.048484672290862334,
+        "brier": 0.0384587952304577
+      },
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "fits": 5,
+      "split": [
         706,
         203,
         100
@@ -27,15 +154,46 @@
       "original_auc_sd": 0.038,
       "original_accuracy": 0.725,
       "original_accuracy_sd": 0.044,
-      "local_original_task_auc": null,
-      "delta_auc_pp": null,
-      "status": "技术训练步骤通过，原任务患者成绩未测",
+      "local_original_task_auc": 0.7613408543370552,
+      "delta_auc_pp": -3.4659145662944812,
+      "status": "官方代码在作者ABIDE数组上复算完成；论文全协议仍有差异",
       "parameters": 8381986,
       "trainable_parameters": 8380386,
       "train_val_test_current_code": [
         706,
         203,
         100
+      ],
+      "protocol": "paper_aligned",
+      "protocol_label": "论文划分／批量对齐",
+      "checkpoint": "selected",
+      "local_auc_sample_sd": 0.0070299702915169295,
+      "metrics": {
+        "auc": 0.7613408543370552,
+        "auprc": 0.7348993992715854,
+        "accuracy": 0.6945812807881773,
+        "balanced_accuracy": 0.6898489853386435,
+        "brier": 0.2579719883224515
+      },
+      "sample_sd": {
+        "auc": 0.0070299702915169295,
+        "auprc": 0.021719542770793857,
+        "accuracy": 0.01101511318965416,
+        "balanced_accuracy": 0.006965745668525835,
+        "brier": 0.03264054322669827
+      },
+      "seeds": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "fits": 5,
+      "split": [
+        706,
+        100,
+        203
       ]
     },
     {
@@ -46,37 +204,52 @@
       "original_accuracy_sd": 0.0191,
       "local_original_task_auc": null,
       "delta_auc_pp": null,
-      "status": "技术训练步骤通过，原任务患者成绩未测",
+      "status": "官方类技术步骤通过；原任务患者拟合0",
       "parameters": 5168298,
       "trainable_parameters": 5166250,
       "train_val_test_current_code": [
         706,
         100,
         203
+      ],
+      "protocol": "pending",
+      "protocol_label": "OMST原输入待补",
+      "checkpoint": null,
+      "local_auc_sample_sd": null,
+      "fits": 0,
+      "split": [
+        706,
+        100,
+        203
       ]
     }
   ],
-  "original_task_patient_fits": 0,
+  "original_task_patient_fits": 20,
+  "weight_readbacks": 40,
+  "training_refits_for_review": 0,
+  "max_probability_error": 0,
+  "max_independent_metric_error": 2.220446049250313e-16,
   "technical_training_steps": 3,
   "fit_budget": 40,
   "conditional_HGT_fits": 20,
+  "HGT_fits": 0,
   "expanded_inventory": [
     {
       "model": "BNT",
       "priority": "1",
       "original_task": "ABIDE1009 ASD/HC CC200",
-      "data_access": "官方作者数组公开；传输恢复中",
-      "current_status": "官方Emo53适配已完成；原任务成绩尚无",
-      "next": "先跑两协议各5seed",
+      "data_access": "作者1009行CC200包已完整读取；两包FC/时序/标签/站点逐元素相同",
+      "current_status": "官方ABIDE任务复算10拟合／20权重读回通过；Emo53另列任务适配",
+      "next": "先解释数据与协议差异，不追加seed或按测试成绩选配置",
       "source": "https://github.com/Wayfear/BrainNetworkTransformer"
     },
     {
       "model": "Com-BrainTF",
       "priority": "1",
       "original_task": "ABIDE1009 ASD/HC CC200+8社区",
-      "data_access": "官方作者数组公开；传输恢复中",
-      "current_status": "官方Emo53适配已完成；原任务成绩尚无",
-      "next": "先跑两协议各5seed",
+      "data_access": "作者1009行CC200包已完整读取；两包FC/时序/标签/站点逐元素相同",
+      "current_status": "官方ABIDE任务复算10拟合／20权重读回通过；Emo53另列任务适配",
+      "next": "先解释数据与协议差异，不追加seed或按测试成绩选配置",
       "source": "https://github.com/ubc-tea/Com-BrainTF"
     },
     {
@@ -91,10 +264,10 @@
     {
       "model": "ALTER",
       "priority": "2",
-      "original_task": "ABIDE/ADNI疾病诊断",
-      "data_access": "作者仓库已获取；默认abide.npy仍需对照原文人员/图构造",
-      "current_status": "新增候选，未训练",
-      "next": "优先下一项原任务审读",
+      "original_task": "ABIDE1012人：519ASD/493NC，DPARSF、CC200",
+      "data_access": "作者代码已取得；原1012人DPARSF包尚缺，不能用BNT1009人CPAC包替代",
+      "current_status": "未训练；论文阈值0.3/K16，当前代码正边>0/K32/final保存存在差异",
+      "next": "核对1012人原输入、阈值、walk length、选择规则；暂不扩患者拟合预算",
       "source": "https://github.com/yushuowiki/ALTER",
       "commit": "ad5c5a95d54aa2a0a2a275c008a692d73af293f7"
     },
@@ -245,5 +418,41 @@
       "source": ""
     }
   ],
-  "runtime_compatibility": "Only newer Torch _sa_block keyword acceptance; original node count, heads, widths, pools and anatomical inputs retained."
+  "runtime_compatibility": "Only newer Torch _sa_block keyword acceptance; original node count, heads, widths, pools and anatomical inputs retained.",
+  "sd_definition": "本地sample SD, ddof=1, five fixed seeds; not confidence interval or five independently resampled training cohorts",
+  "label_metric_definition": "AUC/AP/BA/Brier use original raw label1; aggregate phenotype counts support 0=ASD/1=control, individual identity unverified",
+  "data": {
+    "rows": 1009,
+    "sites": 19,
+    "atlas": "CC200",
+    "labels": {
+      "0": 493,
+      "1": 516
+    },
+    "FC_shape": [
+      1009,
+      200,
+      200
+    ],
+    "TS_shape": [
+      1009,
+      200,
+      100
+    ],
+    "FC_diagonal": 0,
+    "author_arrays_equal": [
+      "corr",
+      "timeseires",
+      "label",
+      "site"
+    ],
+    "person_ID_available": false,
+    "phenotype_available_rows": 1035,
+    "phenotype_OHSU_rows_absent": 26
+  },
+  "author_commits": {
+    "BNT": "8a588aadad0166209269fa114e5df4e42209e207",
+    "Com-BrainTF": "d5749461f74df3d1f5c3fb159e01d6dbeaa328b0",
+    "BrainHGT": "4f411fab1163e24f0b54e9cb398fbfe5928ce833"
+  }
 }

@@ -1,74 +1,82 @@
-# ABIDE原任务协议核对与执行方案
+# ABIDE作者原任务复算与协议差异
 
-2026-10-12。本报告记录本次协议审计与技术训练步骤，正式患者训练尚未启动。
+2026-10-12。覆盖本轮BNT、Com-BrainTF20次固定拟合及BrainHGT准备，替换同日较早“患者拟合0”准备快照。原Word／Excel与此前修订版保留。本轮不扩超参数搜索，不按测试成绩选择配置或最好seed。
 
-ABIDE原任务协议核对已完成：三套CC200作者模型通过真实训练步骤测试；BNT/Com当前代码的验证和测试人数与论文70/10/20不一致，BrainHGT的最佳权重浅拷贝问题已实测。
+BNT与Com-BrainTF在作者ABIDE数组上完成20次拟合，40份选中／末轮权重回读通过。BNT AUROC为0.7836／0.7786，Com为0.7716／0.7613；均低于各自原文。
 
-截至本次核对，ABIDE正式患者拟合0，原文成绩差距仍未测。作者数据包下载中断后正在分段恢复；BrainHGT完整OMST输入尚缺。合成输入的训练步骤不算原任务成绩复现，既有疼痛适配结果保留。
+| 模型／协议 | 原文AUROC | 本地AUROC（均值±样本SD） | 差值（百分点） | Accuracy | BA | AP(label1) | Brier |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| BNT · 作者当前代码 | 0.8020±0.0100 | 0.7836±0.0393 | -1.84 | 0.7060 | 0.7062 | 0.7652 | 0.1887 |
+| BNT · 论文划分／批量对齐 | 0.8020±0.0100 | 0.7786±0.0293 | -2.34 | 0.6818 | 0.6861 | 0.7501 | 0.2086 |
+| Com-BrainTF · 作者当前代码 | 0.7960±0.0380 | 0.7716±0.0333 | -2.44 | 0.7080 | 0.7113 | 0.7455 | 0.2498 |
+| Com-BrainTF · 论文划分／批量对齐 | 0.7960±0.0380 | 0.7613±0.0070 | -3.47 | 0.6946 | 0.6898 | 0.7349 | 0.2580 |
 
-## 原文与复现成绩
 
-|模型|原文AUROC（均值±SD）|本轮原任务AUROC|差距百分点|当前状态|
-|---|---:|---:|---:|---|
-|BNT|0.8020±0.0100|未测|未测|技术训练步骤通过，原任务患者成绩未测|
-|Com-BrainTF|0.7960±0.0380|未测|未测|技术训练步骤通过，原任务患者成绩未测|
-|BrainHGT|0.7665±0.0145|未测|未测|技术训练步骤通过，原任务患者成绩未测|
-
-BrainHGT表1同时报告ACC0.7133±0.0191；BNT0.710±0.012，Com0.725±0.044。BNT在Com论文中的参照为0.783±0.044，与BNT自己原文0.802±0.010分开，不能跨论文归因社区模块增量。
-
-来源：[BNT NeurIPS2022原文](https://proceedings.neurips.cc/paper_files/paper/2022/file/a408234a9b80604a9cf6ca518e474550-Paper-Conference.pdf)、[Com-BrainTF原文](https://arxiv.org/html/2307.10181)、[BrainHGT原文](https://arxiv.org/html/2511.17604)。这些均为作者报告的成绩，不是本轮实测。
+BrainHGT原文AUROC0.7665±0.0145、Accuracy0.7133±0.0191；本轮患者拟合0，差距未测。其技术前向与优化步骤通过不等于原任务成绩复现。
 
 ## 实际协议差异
 
-- 直接执行三者作者划分函数，输入为1009个合成行索引与17个模拟站点：BNT/Com的train/validation/test=706/203/100，HGT=706/100/203；各集合互斥、并集1009。并非真实ABIDE人群核对。BNT和Com第二次StratifiedShuffleSplit使用test_length，却把sklearn返回的训练索引赋给测试集合。第一层train固定random_state42，第二层依赖NumPy状态；多次运行不是五组完全不同的训练人员。
-- BNT论文batch64，当前作者ABIDE配置16；Com64，HGT32。BNT论文验证选轮次，当前trainer保存最终模型；Com报告验证最佳轮次的指标，却保存最终权重。HGT只在零起始epoch>20时选择最佳验证AUC，即第22轮起；state_dict().copy()为浅拷贝。实际给模型参数加1后浅拷贝同步改变，逐tensor clone未变。不能把最终保存的权重当成最佳轮次重放证据。
-- HGT原Dice CSV共201行，作者默认pandas读取得到200×8，真实CC200前向通过。header=None会得到201×8，不适用于200个节点。本轮保留作者读取规则；未独立验证每行解剖对齐，不擅自增删先验行。
-- 三者官方模型核心保持CC200。服务器Torch2.4.1+cu121、NumPy1.26.4，BNT/Com只补新版Torch的is_causal接口形参并关闭绕过作者自定义注意力的融合快速路径；没有更改注意力头数、隐层、池化或社区映射。实际作者训练步骤、有限梯度和重复eval已通过；总参数BNT3,976,042、Com8,381,986、HGT5,168,298。Com优化器字典与HGT配置文件大小写的调度错误已修正，首轮失败保留，BNT成功步骤未重做。
-- HGT需要OMST。作者在[图构建回复](https://github.com/null-cks/BrainHGT/issues/2)给出[OMST参考仓库](https://github.com/stdimitr/topological_filtering_networks)。参考Matlab实现与论文图公式的候选树数量、GE归一化及对称成本计算还需逐项对应，当前未取得作者完整预处理驱动或原预计算图。论文11.99%为报告的平均密度，不能调阈值追到该数字；不以稠密FC冒充OMST。
+两模型均固定seed0–4；BNT200epoch、Com50epoch。作者当前代码的二次切分实际为706训练／203验证／100测试；论文划分／批量对齐组为706／100／203。训练第一层split固定random_state42，因此五seed训练人员集合相同，第二层split及训练随机性变化；SD反映这组运行，不是人员抽样置信区间。对齐组仍保留作者数据FC零对角与未公开的代码默认项，不命名“精确论文复现”。
 
-作者提交：BNT `8a588aadad0166209269fa114e5df4e42209e207`，Com `d5749461f74df3d1f5c3fb159e01d6dbeaa328b0`，HGT `4f411fab1163e24f0b54e9cb398fbfe5928ce833`。公开issue只是辅助定位；上述划分和浅拷贝结论来自本轮实际执行，不据此推断作者未公开训练代码或发表实验有误。
+BNT当前代码batch16、主指标按末轮；对齐组batch64、按验证选模。Com均batch64，主指标按验证选模；作者原代码保存的是末轮权重，本轮保留验证选中与末轮两份，分别独立回读。当前代码每epoch执行作者train/val/test和打乱评价，以保留代码随机状态行为；对齐组只按验证选择后评测测试一次。多因素同时不同，不能把两组差异归因于某一个修复。BNT mixup alpha1，Com无mixup；保持作者优化器、调度器、网络规模／社区结构。唯一运行兼容改动为新版Torch的_sa_block关键字参数；未缩小模型。
 
-## 数据核对与有限执行
+本地SD采用ddof=1，原文SD定义未据此改写；原文与本地差值是描述性复现差距，不是显著性检验。BNT原文0.802与Com论文引用的BNT0.783±0.044来自不同实验记录，不能混写同一原成绩。
 
-作者BNT和Com分别提供公开数组链接；首次完整传输均中断，返回预期文件长度807,240,999字节。保留部分文件，正在有时限的HTTP分段恢复；服务器直接访问超时。传输完成后核对keys、1009×200×200 FC、时序、标签分布、站点、有限值、FC对称性及两包逐数组一致性，保持原文件与行顺序。没有subject ID时只认作者行级数据，不声称已独立核定同一批生物学人员；标签1对应ASD还是HC必须另有表型依据，不能按论文人数倒推或翻转标签。
+## 作者数组与诊断映射
 
-协议分两条：当前作者配置与论文对齐配置。后者对齐70/10/20及BNT batch64，所有轮次只按验证AUC选模，未公开项沿作者配置，明确不声称取得作者私有训练代码。采用作者模型、optimizer、scheduler、train_per_epoch/test_per_epoch，外层循环记录完整曲线与clone快照；当前配置还保留逐轮测试/随机顺序行为。BNT当前代码以最终轮次为作者保存结果，另列验证选择的补充读回；Com/HGT报告最佳轮次指标和最终保存权重分别登记。
+两作者包各1009行：FC1009×200×200，时序1009×200×100，标签0为493行、1为516行，19站点。FC、时序、标签、站点逐元素相同；无人员ID，不能逐人链接到公开表型，也不能确认原文的生物学参与者集合。FC有限、近对称，对角全0；BNT论文叙述自相关为1。前5例由包内100帧时序重算的Pearson FC与存储FC的最大非对角差为0.43–0.76，因此不能擅自用该时序重建原FC或填1后宣称修复。
 
-BNT200epoch、Com50epoch，各协议seed0–4，20次拟合；HGT100epoch，各协议42、1042直到9042，另20次仅在输入图来源明确后执行。超参数搜索0、不加seed、不挑最好成绩。两协议同时改变多个因素，差异不能归因某个单独修正。报告所有seed、均值和样本SD，AUROC/ACC/BA/AP/Brier/logloss及按原文AUC的百分点差；原文SD不是置信区间。
+PCP公开表型1035可用行，各19站点的DX_GROUP1／2数量恰好对应包内label0／1；OHSU26行缺席。这支持汇总层面0=ASD、1=control推断，与原文516ASD／493NC文字相反，但缺ID仍不能做人员级确认。本轮原标签不翻转，AUC/AP均按原label1；AP不是已核实ASD AP。若同时翻转标签与概率，AUC保持而AP／临床召回含义会变。保留此限制。
 
-普通固定批处理在完整数据和闲置GPU可用后接续BNT/Com，遇到下载、数据或训练错误保留失败并停止对应分支；不重启活跃worker、不恢复旧停止分支。HGT原图尚缺，不安排替代图自动训练。
+## 实际核验及失败保留
 
-## 历史模型与前沿候选
+20次患者拟合均终态完成，40份权重严格加载回读，选中权重概率最大差0、独立指标误差≤2.23e-16，复核重拟合0。两协议主结果在训练前明确；附表保留全部种子及选中／末轮指标，未按测试集择优。合成全循环4次及8份回读只作技术验证，未混入患者成绩。
 
-|模型|顺序|原任务|数据可得性|已有证据身份|下一步|
-|---|---|---|---|---|---|
-|[BNT](https://github.com/Wayfear/BrainNetworkTransformer)|1|ABIDE1009 ASD/HC CC200|官方作者数组公开；传输恢复中|官方Emo53适配已完成；原任务成绩尚无|先跑两协议各5seed|
-|[Com-BrainTF](https://github.com/ubc-tea/Com-BrainTF)|1|ABIDE1009 ASD/HC CC200+8社区|官方作者数组公开；传输恢复中|官方Emo53适配已完成；原任务成绩尚无|先跑两协议各5seed|
-|[BrainHGT](https://github.com/null-cks/BrainHGT)|1B|ABIDE1009 ASD/HC CC200+OMST+Dice|公开FC候选；作者OMST参考有，完整驱动/原图缺|OA/Emo官方适配与本地小HGT分开；原任务尚无|补图构建记录后各10seed|
-|[ALTER](https://github.com/yushuowiki/ALTER)|2|ABIDE/ADNI疾病诊断|作者仓库已获取；默认abide.npy仍需对照原文人员/图构造|新增候选，未训练|优先下一项原任务审读|
-|[Vanilla Transformer](https://github.com/Wayfear/BrainNetworkTransformer)|2|BNT论文ABIDE对照|BNT仓库自带；可以共用CC200作者数组|候选，未在本轮训练|三主模型后另立有限比较预算|
-|[BrainNetCNN](https://github.com/Wayfear/BrainNetworkTransformer)|2|BNT论文ABIDE对照；自身原论文任务另查|BNT仓库自带；属于第三方对照实现|候选，未在本轮训练|标BNT框架对照，不称自身作者原任务|
-|[FBNetGen](https://github.com/Wayfear/FBNETGEN)|2B|论文PNC/ABCD；官方另提供ABIDE示例|官方代码已获取；PNC/ABCD需授权，ABIDE示例可用|新增候选，未训练|ABIDE官方示例与原PNC/ABCD成绩分表|
-|[BrainGNN](https://github.com/xxlya/BrainGNN_Pytorch)|2B|发表任务fMRI；官方仓库提供不同的ABIDE示例|官方初版仓库已获取，作者明确示例不同于发表数据|新增候选，未训练|可做作者示例复算，不能对标发表原成绩|
-|[STAGIN](https://github.com/egyptdj/stagin)|3|原HCP静息态/任务态分类|本地代码已有；HCP授权与人员原划分待核对|99/79人官方任务适配，非HCP原任务成绩|HCP数据齐全后执行原任务|
-|[BrainLM](https://huggingface.co/vandijklab/brainlm/tree/main/old_13M)|3|原文重建/回归及下游任务逐项核对|官方权重可得；原数据/标签/划分未齐核|官方13M权重下游适配，非原预训练复现|优先官方下游，不从零重做预训练|
-|[Brain-JEPA](https://github.com/Eric-LRL/Brain-JEPA)|3|UKB预训练，HCP-Aging/ADNI及MACC下游|官方权重/配置；UKB等需访问权限，MACC非公开直接可得|450ROI官方权重适配，非原任务成绩|开放且授权的原下游优先；不新增4A100预训练|
-|[NeuroSTORM](https://github.com/CUHK-AIM-Group/NeuroSTORM)|3|官方五任务benchmark，逐队列原配置待核对|官方权重及demo；完整原任务队列/标签/划分待齐|真实MRI官方288维适配；预训练/原任务未复现|demo仅技术验证；完整benchmark才对原成绩|
-|[Omni-fMRI](https://github.com/OneMore1/Omni-fMRI)|3|原多数据集下游任务|官方权重与代码；任务原队列/划分待核对|一次真实前向接入，不等于多人原任务评价|原作者下游条件齐全后执行|
-|[Meta-matching / multilayer](https://github.com/ThomasYeoLab/CBIG)|3|原HCP-YA/HCP-Aging表型回归/标签预算|官方CBIG表示；原标签和人员重叠需核定|部分官方表示下游适配；未完整多层stacking|对齐原回归及标签预算，不用疼痛AUC代替|
-|[FMM](https://github.com/Shef-AIRE/FMM_TC)|4|原抑郁治疗反应|官方代码/权重；原疗效真值与完整患者队列未齐|诊断任务适配，未复现原治疗反应|需原终点和队列；当前不训练|
-|[NeuroMamba / 儿科头痛路线](https://github.com/cavalab/pediatric-headache-foundation-models)|4|110人189扫描，按人留出头痛分类|作者代码可查；儿科原队列不是成人132人|成人任务文献指导/官方表示适配|原队列可得后才复算儿科成绩|
-|DCSTN|4|原文疾病及有效连接任务待逐项核对|本轮未确认此前采用官方仓库|本地简化重实现，Gaussian TE替代|先核实现身份；不记官方复现|
-|[ScaPT](https://arxiv.org/abs/2408.10567)|4|DiFuMo1024原提示下游任务|原论文正式页代码N/A；尚未核得可执行官方实现|候选/接口准备，没有作者真实训练|找真实代码/权重与原输入后再执行|
-|[FastSurferVINN](https://github.com/Deep-MI/FastSurfer)|工具|脑组织分割任务|官方工具可用，原分割标准需另核|已有分割工具应用，不是疼痛分类baseline|用Dice/表面指标；不进入AUC模型榜|
-|本地FC / AE / MLP / TCN|另列|本地诊断开发任务|本地实现；FC切空间需引文|本地参照或小模型，不具备作者模型复现身份|保留既有参照；不包装为大型模型复现|
+作者传输曾IncompleteRead／Range失败；本地D盘空间不足导致Com传输追加和JSON写入失败。仅迁移本轮已结束传输副本并保留失败日志，按原作者Content-Range补齐最后1,015,156字节后完整读取；没有删除影像、改标签或影响服务器训练。服务器权重和逐行预测保留私有；公开仅聚合结果。
 
-官方ABIDE示例、论文原任务、第三方baseline实现、官方权重下游适配和本地小模型分开。BrainGNN作者README明确ABIDE示例不同于发表的任务fMRI数据；FBNetGen官方ABIDE示例也不能直接替代其PNC/ABCD原文成绩。STAGIN后来提供ABIDE加载器，不表示它的NeurIPS原任务就是ABIDE。
+## 模型身份与开放数据优先级
 
-## 疼痛迁移判断
+| 模型 | 本轮状态 | 原任务／适配限制与下一步 |
+|---|---|---|
+| BNT | 官方ABIDE任务复算10拟合／20权重读回通过；Emo53另列任务适配 | ABIDE1009 ASD/HC CC200；作者1009行CC200包已完整读取；两包FC/时序/标签/站点逐元素相同；先解释数据与协议差异，不追加seed或按测试成绩选配置 |
+| Com-BrainTF | 官方ABIDE任务复算10拟合／20权重读回通过；Emo53另列任务适配 | ABIDE1009 ASD/HC CC200+8社区；作者1009行CC200包已完整读取；两包FC/时序/标签/站点逐元素相同；先解释数据与协议差异，不追加seed或按测试成绩选配置 |
+| BrainHGT | OA/Emo官方适配与本地小HGT分开；原任务尚无 | ABIDE1009 ASD/HC CC200+OMST+Dice；公开FC候选；作者OMST参考有，完整驱动/原图缺；补图构建记录后各10seed |
+| ALTER | 未训练；论文阈值0.3/K16，当前代码正边>0/K32/final保存存在差异 | ABIDE1012人：519ASD/493NC，DPARSF、CC200；作者代码已取得；原1012人DPARSF包尚缺，不能用BNT1009人CPAC包替代；核对1012人原输入、阈值、walk length、选择规则；暂不扩患者拟合预算 |
+| Vanilla Transformer | 候选，未在本轮训练 | BNT论文ABIDE对照；BNT仓库自带；可以共用CC200作者数组；三主模型后另立有限比较预算 |
+| BrainNetCNN | 候选，未在本轮训练 | BNT论文ABIDE对照；自身原论文任务另查；BNT仓库自带；属于第三方对照实现；标BNT框架对照，不称自身作者原任务 |
+| FBNetGen | 新增候选，未训练 | 论文PNC/ABCD；官方另提供ABIDE示例；官方代码已获取；PNC/ABCD需授权，ABIDE示例可用；ABIDE官方示例与原PNC/ABCD成绩分表 |
+| BrainGNN | 新增候选，未训练 | 发表任务fMRI；官方仓库提供不同的ABIDE示例；官方初版仓库已获取，作者明确示例不同于发表数据；可做作者示例复算，不能对标发表原成绩 |
+| STAGIN | 99/79人官方任务适配，非HCP原任务成绩 | 原HCP静息态/任务态分类；本地代码已有；HCP授权与人员原划分待核对；HCP数据齐全后执行原任务 |
+| BrainLM | 官方13M权重下游适配，非原预训练复现 | 原文重建/回归及下游任务逐项核对；官方权重可得；原数据/标签/划分未齐核；优先官方下游，不从零重做预训练 |
+| Brain-JEPA | 450ROI官方权重适配，非原任务成绩 | UKB预训练，HCP-Aging/ADNI及MACC下游；官方权重/配置；UKB等需访问权限，MACC非公开直接可得；开放且授权的原下游优先；不新增4A100预训练 |
+| NeuroSTORM | 真实MRI官方288维适配；预训练/原任务未复现 | 官方五任务benchmark，逐队列原配置待核对；官方权重及demo；完整原任务队列/标签/划分待齐；demo仅技术验证；完整benchmark才对原成绩 |
+| Omni-fMRI | 一次真实前向接入，不等于多人原任务评价 | 原多数据集下游任务；官方权重与代码；任务原队列/划分待核对；原作者下游条件齐全后执行 |
+| Meta-matching / multilayer | 部分官方表示下游适配；未完整多层stacking | 原HCP-YA/HCP-Aging表型回归/标签预算；官方CBIG表示；原标签和人员重叠需核定；对齐原回归及标签预算，不用疼痛AUC代替 |
+| FMM | 诊断任务适配，未复现原治疗反应 | 原抑郁治疗反应；官方代码/权重；原疗效真值与完整患者队列未齐；需原终点和队列；当前不训练 |
+| NeuroMamba / 儿科头痛路线 | 成人任务文献指导/官方表示适配 | 110人189扫描，按人留出头痛分类；作者代码可查；儿科原队列不是成人132人；原队列可得后才复算儿科成绩 |
+| DCSTN | 本地简化重实现，Gaussian TE替代 | 原文疾病及有效连接任务待逐项核对；本轮未确认此前采用官方仓库；先核实现身份；不记官方复现 |
+| ScaPT | 候选/接口准备，没有作者真实训练 | DiFuMo1024原提示下游任务；原论文正式页代码N/A；尚未核得可执行官方实现；找真实代码/权重与原输入后再执行 |
+| FastSurferVINN | 已有分割工具应用，不是疼痛分类baseline | 脑组织分割任务；官方工具可用，原分割标准需另核；用Dice/表面指标；不进入AUC模型榜 |
+| 本地FC / AE / MLP / TCN | 本地参照或小模型，不具备作者模型复现身份 | 本地诊断开发任务；本地实现；FC切空间需引文；保留既有参照；不包装为大型模型复现 |
 
-先完成作者1009人CC200数组核对，再执行BNT、Com两协议各5seed；BrainHGT补齐OMST后各10seed。历史模型与预训练模型按原任务数据可得性排序，原任务复现后再判断疼痛迁移。
+ALTER论文ABIDE为1012人（519ASD／493NC）、DPARSF、阈值0.3、walk K16；当前作者代码正FC>0、walk维32，不能把BNT1009人CPAC数组训练称为ALTER发表结果复现。候选代码已准备，但本轮患者拟合0。BrainGNN的官方ABIDE示例不同于发表数据；FBNetGen的PNC／ABCD原任务与ABIDE示例分开。BrainLM／Brain-JEPA／NeuroSTORM等公开权重能支持适配，但完整原下游任务仍需队列、标签、人员划分与权限；用户目前没有额外HCP／UKB／ADNI授权，不用单例demo顶替原任务。
 
-当前暂不重开疼痛模型搜索。Emo53已完成官方适配的阴性结果保留，不能用ABIDE成功替代疼痛有效性。原任务稳定性和实现差距明确后，优先选择输入与标签最完整的同病种诊断队列做一次有限迁移对照；只有存在同期疼痛或治疗随访真实标签时，才讨论分级/疗效主任务。缺独立临床验证、未知预训练人员重叠和原QC限制照实保留，不承诺论文录用。
+## 疼痛迁移与下一轮具体工作
 
-<Self-Audit>原文成绩、本轮技术步骤和未完成患者训练分列；全部固定预算，不使用测试选参。复用作者模型/训练步骤及既有部署运输组件；原图、人员身份、标签语义和原任务AUC仍有明确未测项。</Self-Audit>
+优先任务为原任务协议差异整理和BrainHGT输入补齐；首篇疼痛论文的主终点暂不仅凭ABIDE分数选定。Emo53此前官方任务适配未胜切空间AUROC0.5983，受约束残差B阶段保持停止。诊断、扫描同期疼痛和疗效是三个不同终点，ABIDE ASD分类不能证明疼痛分级或疗效有效。
+
+1. BrainHGT：对照作者回复和OMST参考，明确相关转距离、符号／绝对值、归一化、树数与停止依据、原Dice顺序及人员对应；仅确认原图构建后执行已记载两协议各10seed、100epoch的20次条件预算。当前不以稠密FC／任意密度替代，不开始患者拟合。
+2. 额外开放模型：先核ALTER1012人DPARSF原输入；若缺失，仅登记数据缺项。Vanilla Transformer和BNT框架BrainNetCNN可共用作者1009包，未来须单列有限预算，不能无上限扩模型库。本轮不新增拟合。
+3. 疼痛路线：先核同一人的CC200真实输入、FC／协变量对照、独立人员划分与临床标签时点；再写单因素、固定预算的官方base迁移方案。既有132／79／Emo测试已用于开发，不能改名独立验证；不自动重跑既有216次Emo模型回读或扩搜旧测试集。建议先比较冻结官方表征与同人强FC参照，是否微调由训练内依据决定。本轮尚无新增疼痛适配拟合。
+
+优先补BrainHGT原OMST驱动／输出与数据对应记录，并核对ALTER的1012人DPARSF原输入；现有20次不追加搜索。疼痛路线先核对同人CC200与临床终点，保留Emo53未胜切空间的阴性结论。
+
+## 原文与作者资料
+
+- [BNT原文表1/2](https://proceedings.neurips.cc/paper_files/paper/2022/file/a408234a9b80604a9cf6ca518e474550-Paper-Conference.pdf)；[作者代码与数据入口](https://github.com/Wayfear/BrainNetworkTransformer)
+- [Com-BrainTF原文](https://arxiv.org/html/2307.10181)；[作者代码与数据入口](https://github.com/ubc-tea/Com-BrainTF)
+- [BrainHGT原文](https://arxiv.org/html/2511.17604)；[作者关于预处理的回复](https://github.com/null-cks/BrainHGT/issues/2)；[OMST参考实现](https://github.com/stdimitr/topological_filtering_networks)
+- [ALTER原文](https://arxiv.org/html/2501.01100)；[作者代码](https://github.com/yushuowiki/ALTER)
+- [PCP表型来源](https://github.com/preprocessed-connectomes-project/abide/blob/master/Phenotypic_V1_0b_preprocessed1.csv)
+
+<Self-Audit>官方原任务复算、论文全协议复现、疼痛任务适配与本地小模型分列；主结果预先指定，测试不选配置。复用作者模型／训练器及既有独立评价与发布组件；保留患者ID、诊断方向、FC来源、BrainHGT OMST与独立临床验证缺项。</Self-Audit>

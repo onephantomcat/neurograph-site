@@ -1,0 +1,452 @@
+{
+  "date": "2026-10-12",
+  "task": "Emo53 FM/HC diagnosis development",
+  "summary": "Emo53同条件比较完成：切空间Logistic AUROC0.5983；BrainHGT两个seed为0.4815/0.4573，BNT为0.5142/0.5256，Com-BrainTF为0.5328/0.4145。三套官方任务适配均未超过传统对照。",
+  "boundary": "53人（27FM/26HC）、三折人级开发评价；原13例失败和QC限制保留。未复现作者ABIDE原任务成绩，未新增独立临床验证。",
+  "next": "本轮停止在A阶段，不扩大学习率、轮次或seed；B阶段残差候选保留未运行。优先检验作者原任务实现，再决定同病种任务适配与独立验证。切空间自身区间较宽，不能据当前排序保证泛化。",
+  "people": 53,
+  "patients": 27,
+  "controls": 26,
+  "outer_folds": 3,
+  "outer_test_sizes": [
+    18,
+    18,
+    17
+  ],
+  "outer_seed": 20261011,
+  "seeds": [
+    0,
+    1
+  ],
+  "final_fits": 27,
+  "inner_fits": 189,
+  "traditional_reference_fits": 12,
+  "neural_final_fits": 18,
+  "neural_inner_fits": 108,
+  "traditional_final_fits": 9,
+  "traditional_inner_fits": 81,
+  "phase_B_fits": 0,
+  "phase_B_state": "PREPARED_NOT_RUN_AFTER_NEGATIVE_PHASE_A",
+  "rows": [
+    {
+      "model": "tangent",
+      "implementation": "切空间 Logistic",
+      "seed": null,
+      "auc": 0.5982905982905983,
+      "auprc": 0.5735821471564113,
+      "brier": 0.2443792257956532,
+      "balanced_accuracy": 0.5861823361823362,
+      "sensitivity": 0.5185185185185185,
+      "specificity": 0.6538461538461539,
+      "auc_interval": {
+        "lower": 0.43531164677924966,
+        "upper": 0.7521367521367521,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      },
+      "paired_auc_versus_tangent": null,
+      "parameters": {
+        "logistic_coefficients_including_intercept": 4006
+      }
+    },
+    {
+      "model": "pearson",
+      "implementation": "Pearson FC Logistic",
+      "seed": null,
+      "auc": 0.5256410256410257,
+      "auprc": 0.5536519651174884,
+      "brier": 0.2996310639553905,
+      "balanced_accuracy": 0.5121082621082621,
+      "sensitivity": 0.37037037037037035,
+      "specificity": 0.6538461538461539,
+      "auc_interval": {
+        "lower": 0.36140800865800865,
+        "upper": 0.6789006692232498,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      },
+      "paired_auc_versus_tangent": {
+        "improvement": -0.07264957264957261,
+        "positive_means_better": true,
+        "interval": {
+          "lower": -0.2193732193732194,
+          "upper": 0.06695188492063497,
+          "valid_resamples": 2000,
+          "invalid_resamples": 0
+        }
+      },
+      "parameters": {
+        "logistic_coefficients_including_intercept": 4006
+      }
+    },
+    {
+      "model": "covariates",
+      "implementation": "协变量 Logistic",
+      "seed": null,
+      "auc": 0.3547008547008547,
+      "auprc": 0.441461512183188,
+      "brier": 0.2676241530683517,
+      "balanced_accuracy": 0.3575498575498576,
+      "sensitivity": 0.4074074074074074,
+      "specificity": 0.3076923076923077,
+      "auc_interval": {
+        "lower": 0.21264367816091953,
+        "upper": 0.5230192062088612,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      },
+      "paired_auc_versus_tangent": {
+        "improvement": -0.24358974358974356,
+        "positive_means_better": true,
+        "interval": {
+          "lower": -0.4228819786535304,
+          "upper": -0.04925315568022455,
+          "valid_resamples": 2000,
+          "invalid_resamples": 0
+        }
+      },
+      "parameters": {
+        "logistic_coefficients_including_intercept": 5
+      }
+    },
+    {
+      "model": "BrainHGT",
+      "implementation": "BrainHGT 官方适配",
+      "seed": 0,
+      "auc": 0.48148148148148145,
+      "auprc": 0.4953818520668058,
+      "brier": 0.3630819996766373,
+      "balanced_accuracy": 0.4928774928774929,
+      "sensitivity": 0.37037037037037035,
+      "specificity": 0.6153846153846154,
+      "auc_interval": {
+        "lower": 0.323157128700607,
+        "upper": 0.6422287390029325,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      },
+      "paired_auc_versus_tangent": {
+        "improvement": -0.11680911680911682,
+        "positive_means_better": true,
+        "interval": {
+          "lower": -0.30891326505550637,
+          "upper": 0.08407705745341604,
+          "valid_resamples": 2000,
+          "invalid_resamples": 0
+        }
+      },
+      "parameters": {
+        "total_parameters": 3309738,
+        "trainable_parameters": 3307690,
+        "gradient_active_parameters": 3307690
+      }
+    },
+    {
+      "model": "BrainHGT",
+      "implementation": "BrainHGT 官方适配",
+      "seed": 1,
+      "auc": 0.45726495726495725,
+      "auprc": 0.47437590765822285,
+      "brier": 0.36263805405664323,
+      "balanced_accuracy": 0.42165242165242167,
+      "sensitivity": 0.07407407407407407,
+      "specificity": 0.7692307692307693,
+      "auc_interval": {
+        "lower": 0.29285714285714287,
+        "upper": 0.6197402597402596,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      },
+      "paired_auc_versus_tangent": {
+        "improvement": -0.14102564102564102,
+        "positive_means_better": true,
+        "interval": {
+          "lower": -0.2777777777777778,
+          "upper": 0.0014285714285713915,
+          "valid_resamples": 2000,
+          "invalid_resamples": 0
+        }
+      },
+      "parameters": {
+        "total_parameters": 3309738,
+        "trainable_parameters": 3307690,
+        "gradient_active_parameters": 3307690
+      }
+    },
+    {
+      "model": "BNT",
+      "implementation": "BNT 官方适配",
+      "seed": 0,
+      "auc": 0.5142450142450142,
+      "auprc": 0.5470627764551206,
+      "brier": 0.3393307147033244,
+      "balanced_accuracy": 0.4935897435897436,
+      "sensitivity": 0.3333333333333333,
+      "specificity": 0.6538461538461539,
+      "auc_interval": {
+        "lower": 0.3532487922705314,
+        "upper": 0.6742907415165479,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      },
+      "paired_auc_versus_tangent": {
+        "improvement": -0.08404558404558404,
+        "positive_means_better": true,
+        "interval": {
+          "lower": -0.282051282051282,
+          "upper": 0.11929144385026734,
+          "valid_resamples": 2000,
+          "invalid_resamples": 0
+        }
+      },
+      "parameters": {
+        "total_parameters": 1066872,
+        "trainable_parameters": 1062822,
+        "gradient_active_parameters": 1062822
+      }
+    },
+    {
+      "model": "BNT",
+      "implementation": "BNT 官方适配",
+      "seed": 1,
+      "auc": 0.5256410256410257,
+      "auprc": 0.5469868598297997,
+      "brier": 0.2761008495904004,
+      "balanced_accuracy": 0.5071225071225072,
+      "sensitivity": 0.6296296296296297,
+      "specificity": 0.38461538461538464,
+      "auc_interval": {
+        "lower": 0.3717375366568915,
+        "upper": 0.6768478260869564,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      },
+      "paired_auc_versus_tangent": {
+        "improvement": -0.07264957264957261,
+        "positive_means_better": true,
+        "interval": {
+          "lower": -0.30891326505550637,
+          "upper": 0.1628766233766233,
+          "valid_resamples": 2000,
+          "invalid_resamples": 0
+        }
+      },
+      "parameters": {
+        "total_parameters": 1066872,
+        "trainable_parameters": 1062822,
+        "gradient_active_parameters": 1062822
+      }
+    },
+    {
+      "model": "Com-BrainTF",
+      "implementation": "Com-BrainTF 官方适配",
+      "seed": 0,
+      "auc": 0.5327635327635327,
+      "auprc": 0.5338050583570615,
+      "brier": 0.2985917303967506,
+      "balanced_accuracy": 0.5448717948717948,
+      "sensitivity": 0.6666666666666666,
+      "specificity": 0.4230769230769231,
+      "auc_interval": {
+        "lower": 0.37244704570791526,
+        "upper": 0.6934732142857142,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      },
+      "paired_auc_versus_tangent": {
+        "improvement": -0.06552706552706555,
+        "positive_means_better": true,
+        "interval": {
+          "lower": -0.3003158866995074,
+          "upper": 0.17960051224387796,
+          "valid_resamples": 2000,
+          "invalid_resamples": 0
+        }
+      },
+      "parameters": {
+        "total_parameters": 3064916,
+        "trainable_parameters": 3064196,
+        "gradient_active_parameters": 1403088
+      }
+    },
+    {
+      "model": "Com-BrainTF",
+      "implementation": "Com-BrainTF 官方适配",
+      "seed": 1,
+      "auc": 0.41452991452991456,
+      "auprc": 0.45433212404302764,
+      "brier": 0.44596888805949775,
+      "balanced_accuracy": 0.4487179487179487,
+      "sensitivity": 0.6666666666666666,
+      "specificity": 0.23076923076923078,
+      "auc_interval": {
+        "lower": 0.25287356321839083,
+        "upper": 0.5718392911315604,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      },
+      "paired_auc_versus_tangent": {
+        "improvement": -0.18376068376068372,
+        "positive_means_better": true,
+        "interval": {
+          "lower": -0.3428683353683354,
+          "upper": -0.03957796761443328,
+          "valid_resamples": 2000,
+          "invalid_resamples": 0
+        }
+      },
+      "parameters": {
+        "total_parameters": 3064916,
+        "trainable_parameters": 3064196,
+        "gradient_active_parameters": 1403088
+      }
+    }
+  ],
+  "official_versions": {
+    "BrainHGT": "4f411fab1163e24f0b54e9cb398fbfe5928ce833",
+    "BNT": "8a588aadad0166209269fa114e5df4e42209e207",
+    "Com-BrainTF": "d5749461f74df3d1f5c3fb159e01d6dbeaa328b0"
+  },
+  "adaptations": {
+    "BrainHGT": "Official 256/8/1, FFN1024, encoder32, dropout0.1; signed FC node profiles; positive FC adjacency for author shortest paths instead of OMST. External AAL90/Yeo7+other Dice replaces CC200 prior.",
+    "BNT": "90 FC features; 2 heads for divisibility; two layers; pooling45 follows original 100/200 ratio and avoids 100 orthogonal centers in rank90. Original default orthogonal/frozen centers; dropout0.1.",
+    "Com-BrainTF": "AAL90/Yeo7+other hard argmax communities, no invented cerebellum; eight prompts/shared local/global Transformer; 2 heads for width90; original pooling8 and dropout0.3. Community path/boundaries made configurable.",
+    "runtime": "BNT/Com _sa_block accepts PyTorch is_causal keyword; full bidirectional attention unchanged."
+  },
+  "inner_learning_rates": [
+    0.0001,
+    0.0003
+  ],
+  "traditional_C": [
+    0.01,
+    0.1,
+    1.0
+  ],
+  "max_inner_epochs": 100,
+  "batch_size": 8,
+  "weight_decay": 0.0001,
+  "decision_threshold": 0.5,
+  "selection": "Mean inner AUROC over 3 folds for each seed; LR ties choose 1e-4. Median selected epoch; epoch ties earlier. Full outer-train refit; no outer early stopping.",
+  "selected_final_epochs": {
+    "BrainHGT": [
+      {
+        "seed": 0,
+        "epochs": 13,
+        "lr": 0.0003
+      },
+      {
+        "seed": 1,
+        "epochs": 11,
+        "lr": 0.0001
+      },
+      {
+        "seed": 0,
+        "epochs": 3,
+        "lr": 0.0003
+      },
+      {
+        "seed": 1,
+        "epochs": 2,
+        "lr": 0.0003
+      },
+      {
+        "seed": 0,
+        "epochs": 14,
+        "lr": 0.0003
+      },
+      {
+        "seed": 1,
+        "epochs": 6,
+        "lr": 0.0003
+      }
+    ],
+    "BNT": [
+      {
+        "seed": 0,
+        "epochs": 8,
+        "lr": 0.0003
+      },
+      {
+        "seed": 1,
+        "epochs": 7,
+        "lr": 0.0003
+      },
+      {
+        "seed": 0,
+        "epochs": 8,
+        "lr": 0.0003
+      },
+      {
+        "seed": 1,
+        "epochs": 1,
+        "lr": 0.0001
+      },
+      {
+        "seed": 0,
+        "epochs": 1,
+        "lr": 0.0001
+      },
+      {
+        "seed": 1,
+        "epochs": 4,
+        "lr": 0.0003
+      }
+    ],
+    "Com-BrainTF": [
+      {
+        "seed": 0,
+        "epochs": 8,
+        "lr": 0.0003
+      },
+      {
+        "seed": 1,
+        "epochs": 12,
+        "lr": 0.0003
+      },
+      {
+        "seed": 0,
+        "epochs": 5,
+        "lr": 0.0003
+      },
+      {
+        "seed": 1,
+        "epochs": 8,
+        "lr": 0.0003
+      },
+      {
+        "seed": 0,
+        "epochs": 2,
+        "lr": 0.0003
+      },
+      {
+        "seed": 1,
+        "epochs": 1,
+        "lr": 0.0003
+      }
+    ]
+  },
+  "uncertainty": "2000 paired person resamples, conditional on saved splits and selected models; no repeated training or research-selection coverage.",
+  "independent_review": {
+    "traditional_saved_models": 90,
+    "traditional_predictions": 1113,
+    "traditional_manual_probability_max_error": 0.0,
+    "neural_models": 126,
+    "neural_predictions": 1590,
+    "neural_saved_replay_max_error": 0.0,
+    "metric_library_comparison_max_error": 1.1102230246251565e-16,
+    "fit_membership_disjoint": true,
+    "refits": 0
+  },
+  "clinical_validation_complete": false,
+  "new_expert_QC_reports": 0,
+  "new_MRI_extractions": 0,
+  "original_Emo_failures_retained": 13,
+  "publication_novelty_established": false,
+  "all_model_jobs_exited": true,
+  "software_failures_retained": [
+    "Legacy Python3.6 metadata probe did not support capture_output; corrected read-only probe",
+    "Server pip TLS handshake failure; installed offline wheels into task-specific dependencies",
+    "Dependency-race BrainHGT smoke import failure; repeated only after offline installation completed; no optimizer steps in smoke"
+  ],
+  "scope": "No score-based exclusion, no new data pool, no seed or hyperparameter extension; old STOP/QC/labels remain unchanged."
+}

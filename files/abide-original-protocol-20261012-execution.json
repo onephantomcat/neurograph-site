@@ -1,0 +1,51 @@
+{
+  "scope": "Synthetic indices/site labels only; author code execution, not ABIDE results",
+  "versions": {
+    "torch": "2.9.1+cpu",
+    "pandas": "2.3.2"
+  },
+  "BNT": {
+    "actual_train_val_test": [
+      706,
+      203,
+      100
+    ],
+    "disjoint": true,
+    "union_count": 1009
+  },
+  "Com-BrainTF": {
+    "actual_train_val_test": [
+      706,
+      203,
+      100
+    ],
+    "disjoint": true,
+    "union_count": 1009
+  },
+  "BrainHGT": {
+    "actual_train_val_test": [
+      706,
+      100,
+      203
+    ],
+    "disjoint": true,
+    "union_count": 1009
+  },
+  "checkpoint": {
+    "shallow_saved_weight_changed": true,
+    "cloned_saved_weight_changed": false
+  },
+  "prior": {
+    "csv_rows": 201,
+    "author_default_shape": [
+      200,
+      8
+    ],
+    "header_none_shape": [
+      201,
+      8
+    ],
+    "author_forward": "SUCCEEDED",
+    "header_none_is_valid_for_200_nodes": false
+  }
+}

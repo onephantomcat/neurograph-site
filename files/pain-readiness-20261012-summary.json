@@ -1,0 +1,224 @@
+{
+  "id": "pain-readiness-20261012",
+  "date": "2026-10-12",
+  "summary": "现有疼痛材料补齐了部分人员、临床字段及任务时间对应，尚未形成新的独立临床验证。DS00571336次扫描经原person_id匹配到33人（19患者/14健康）；Emo27患者与原Power264的同人访谈VAS一致，病程/药物等已有字段齐备；CoSpine585个固定早期窗无直接报告期重叠。",
+  "boundary": "本轮是元数据和已有输入复核，新MRI读取/编码/拟合/专家报告/纳入均0。访谈痛、实验热痛、个人自发痛、病种诊断和疗效分别解释；缺项不补造。未恢复TN14、Emo B或其他暂停分支，未新建Goal/自动化，未联系作者。",
+  "next": "优先整理Emo27访谈VAS的同人AAL90强FC和限定临床历史/混杂对照，作为限定的离线开发补充；同期疼痛/疗效目标仍先补真实时点和结局。CoSpine先核时间处理并准备动态/强FC参照，13人留出MRI保持未读。无新依据不追加ABIDE或Emo诊断模型搜索。",
+  "new_fits": 0,
+  "MRI_reads": 0,
+  "new_expert_reports": 0,
+  "new_inclusions": 0,
+  "independent_clinical_H_test": false,
+  "rows": [
+    {
+      "id": "emo",
+      "name": "Emo-Fibro",
+      "people": "66候选；现有AAL90为27患者/26对照",
+      "endpoint": "诊断；患者访谈VAS0–100",
+      "identity": "53人与临床组别逐行一致；27患者与公开Power264的同人VAS一致",
+      "time": "27患者26人有访谈至MRI任务天数和MRI钟点；缺精确评分至rest间隔",
+      "FC": "AAL90切空间及现成Pearson；Power264另流程；同人CC200未备齐",
+      "covariates": "年龄、教育、确诊/症状病程、药物状态/用药数量均27/27；原4项混杂参照已持有",
+      "validation": "已开发；无独立H-test",
+      "next": "可先准备27人访谈VAS的同人FC/临床对照；不改称同期痛，不重搜53人诊断模型"
+    },
+    {
+      "id": "srpbs",
+      "name": "SRPBS临床",
+      "people": "99人；46患者中44有VAS，sup7=29/sup8=15",
+      "endpoint": "异质Pain/HC；分表VAS探索",
+      "identity": "现有99主表及44患者表匹配；HC零值不作程度目标",
+      "time": "施测时间/回顾窗未证实；观察范围不能确定量表端点",
+      "FC": "既有AAL90切空间强对照和相同划分",
+      "covariates": "年龄、性别、FD/删帧齐；sup8病程12/15，sup7病程缺；药物缺",
+      "validation": "99/96及79子集均已开发",
+      "next": "保留分表原始单位和负结果，补施测定义，不跨表直接合并VAS"
+    },
+    {
+      "id": "zan",
+      "name": "ZAN ds007181",
+      "people": "54：25患者/29健康",
+      "endpoint": "ZAN/HC诊断开发",
+      "identity": "影像和组别/年龄/性别可对应",
+      "time": "NRS/VAS、病程及评分与扫描间隔仍缺",
+      "FC": "AAL90时序/FC与既有对照",
+      "covariates": "年龄、性别、FD/删帧已齐",
+      "validation": "已开发；7T与来源差异保留",
+      "next": "不开展程度或疗效拟合；ZAN不自动等于PHN"
+    },
+    {
+      "id": "migraine",
+      "name": "偏头痛 ds005016",
+      "people": "132：111患者/21对照；322成对访视仍是132人",
+      "endpoint": "既有诊断开发；同期痛/治疗反应待逐人真值",
+      "identity": "132人与公开参与者ID/性别精确一致",
+      "time": "首编号访视≠已证实临床基线；日期、日记、20周应答及其MRI对应缺",
+      "FC": "已完成同人AAL90切空间/冻结/随机/仅协变量比较；不重跑",
+      "covariates": "原性别、设备/头动等有限参照；个体年龄、病史/用药等充分临床参照缺",
+      "validation": "已开发；15个未进入132的人不能自动当H-test",
+      "next": "只补临床—MRI时间表和预训练/跨库身份；无新真值就不拟合同期痛/疗效"
+    },
+    {
+      "id": "tn_source",
+      "name": "DS005713既有来源",
+      "people": "36扫描/33人：19patient、14HC",
+      "endpoint": "来源分组已补；具体诊断/程度仍部分可对应",
+      "identity": "公开179人心理表，使用原manifest person_id匹配36/36；不靠fu后缀猜人",
+      "time": "详细临床仅匹配7扫描，基线痛6；扫描同期性/手术日期仍缺",
+      "FC": "旧AAL90来源及覆盖排除保持；14覆盖失败不复活",
+      "covariates": "179表以心理量表为主；源侧充分临床/用药参照不齐",
+      "validation": "已使用来源；原6人属于已停止TN14",
+      "next": "只更正来源构成；patient不自动等于已核实TN分型；TN14停止保持"
+    },
+    {
+      "id": "oa",
+      "name": "OA ds000208",
+      "people": "76公开人；56患者有结局，当前数值交集8人待审核",
+      "endpoint": "两周安慰剂/三个月度洛西汀或安慰剂反应，分研究/组",
+      "identity": "27重处理结果与原56患者标签匹配；仍是原8通过、19未通过",
+      "time": "预治疗rest角色由来源说明支持；准确日期/基线疼痛量表缺",
+      "FC": "8人AAL90数值通过；技术通过不当训练纳入",
+      "covariates": "年龄/性别；充分治疗前临床参照未齐；改善百分比是结局",
+      "validation": "旧62/64重叠，已开发",
+      "next": "不训练疗效模型：各组4/2/2，三个月安慰剂仅应答者；29头动排除保留"
+    },
+    {
+      "id": "music",
+      "name": "音乐镇痛 ds001928",
+      "people": "20患者/20对照；17患者四条件完整=68有评分扫描",
+      "endpoint": "0–10实验前痛；音乐/对照短期配对变化",
+      "identity": "20患者每人4条件路径及4钟点对应；不按rest1当首扫描",
+      "time": "TaskName/AcquisitionTime可核；日历日期及精确评分扫描间隔未齐",
+      "FC": "现有强FC、统一预处理/QC均未备齐",
+      "covariates": "患者年龄/性别/确诊年数20/20",
+      "validation": "候选补充来源；与Emo生物身份非重叠未证实，终点/量表窗不同",
+      "next": "适合短期变化开发准备，不能作药物疗效或直接当Emo访谈VAS外部检验"
+    },
+    {
+      "id": "deipp",
+      "name": "DEIPP ds006815",
+      "people": "3患者/63访视；不能算63独立患者",
+      "endpoint": "个人自发痛连续VAS；日问卷0–100、入组0–10分开",
+      "identity": "66问卷键中63匹配MRI访视；3基线键无MRI",
+      "time": "63日问卷日期齐，可派生问卷相对天数；精确MRI日历日期未证实；首run1225点原时轴/实际censor已核",
+      "FC": "个人parcellation/作者保存连接输出仍缺；不擅自换atlas称复现",
+      "covariates": "当天/一周VAS及用药63/63；个体内临床/时间参照另设计",
+      "validation": "3人不足跨人独立临床确认",
+      "next": "维持个体内访视/时间块任务，原parcel和剩余输入核对优先；不启动跨人诊断/疗效"
+    },
+    {
+      "id": "cospine",
+      "name": "CoSpine ds005883",
+      "people": "39健康人/585嵌套疼痛试次；26开发/13研究留出",
+      "endpoint": "实验热痛PR与不愉快度UpR，各0–10",
+      "identity": "39事件表与人对应，两个评分585/585",
+      "time": "固定早期窗−5.36至+9.84秒，不直接覆盖任一报告期；最小间隔6.158秒",
+      "FC": "已有5人表示/读出配置已停止；没有同人强FC或CC200比较",
+      "covariates": "年龄、性别、教育、体重/身高、个体热刺激温度39/39",
+      "validation": "13研究留出MRI本轮0读取；不是独立临床H-test，预训练重叠未知",
+      "next": "先核时间滤波/整段归一化及报告信号影响并准备真动态/强FC对照；不继续池化/差分/注意力搜索"
+    },
+    {
+      "id": "prt",
+      "name": "PRT AHinCBP",
+      "people": "192：141患者/51对照；既有60任务响应特征",
+      "endpoint": "既有诊断/任务不愉快度；pain_avg临床痛仍未取得",
+      "identity": "原基线神经/行为表对应保留",
+      "time": "临床痛与MRI时点、逐人刺激/头动记录缺",
+      "FC": "ROI/固定模式任务响应，不当AAL90静息FC",
+      "covariates": "年龄/性别及任务不愉快度已有；影像增量此前不稳定",
+      "validation": "既有开发；本次4个Figshare临床API仍403",
+      "next": "等可读临床文件/允许访问来源；不把403说成数据不存在，不重复发信"
+    },
+    {
+      "id": "spinal",
+      "name": "ds004926",
+      "people": "40健康者/两个访视",
+      "endpoint": "实验热痛脊髓fMRI与生理/评分",
+      "identity": "公开参与者表40人；本轮仅核元数据",
+      "time": "行为评分/事件及MRI还需逐run核对",
+      "FC": "源README是脊髓视野，不能直接作为全脑BNT/CC200外部队列",
+      "covariates": "年龄/性别40人表；其他字段需原数据核查",
+      "validation": "候选方法学来源，非全脑临床验证",
+      "next": "更正模态边界；不下载MRI或套全脑网络"
+    },
+    {
+      "id": "lbp",
+      "name": "ds007135慢性腰痛PET/MR",
+      "people": "25人员目录；均患者，无HC/干预",
+      "endpoint": "慢性腰痛横断面候选",
+      "identity": "公开目录已读，逐人可读临床评分表未取得",
+      "time": "评分与MRI窗口缺",
+      "FC": "未准备统一FC/时序或QC",
+      "covariates": "当前树无参与者TSV/临床表",
+      "validation": "不能构成病例/对照或治疗应答H-test",
+      "next": "保留来源候选；先取得真实临床表，不训练缺真值模型"
+    },
+    {
+      "id": "n82",
+      "name": "历史SRPBS-FC N82",
+      "people": "82：43疼痛/29健康/10卒中",
+      "endpoint": "历史外部测试未通过",
+      "identity": "既有归档；与当前SRPBS跨库人员非重叠尚未证实",
+      "time": "当前审计未取得新的评分时点资料",
+      "FC": "BAL140连接，不能拼作AAL90/CC200同输入",
+      "covariates": "本轮未取得新的充分临床参照",
+      "validation": "已评估，不重新命名独立验证",
+      "next": "保留阴性结果、卒中单列；不为本轮模型强行转换图谱"
+    }
+  ],
+  "newly_resolved": {
+    "DS005713_saved_person_group_scan_matches": 36,
+    "DS005713_source_person_groups": {
+      "patient": 19,
+      "HC": 14
+    },
+    "Emo_matched_AAL_Power264_patient_targets": 27,
+    "Emo_clinical_history_medication_fields_complete": 27,
+    "Emo_time_fields_available": 26,
+    "Emo_interval_over14_days": 5,
+    "DEIPP_questionnaire_visit_dates_matched": 63,
+    "CoSpine_fixed_early_windows_checked": 585,
+    "CoSpine_direct_report_period_overlap": 0,
+    "CoSpine_min_report_gap_seconds": 6.158
+  },
+  "unresolved": [
+    "Emo5病例间隔15–21天与论文≤两周表述冲突，原值不改；ACR2010字典/2016论文命名差异保留。",
+    "DS005713 README人数/临床覆盖与实读表不一致；patient/HC不替代具体病种或时点。",
+    "各临床队列的同期评分/真实治疗窗口与充分临床参照、跨库和预训练成员独立性仍部分缺失。",
+    "PRT四个Figshare临床API本次直连均403；数据不可读，不等于不存在。",
+    "现有Emo53/132/SRPBS/ZAN等均已开发；音乐候选非重叠与终点可比性未证实，DEIPP3人和CoSpine13留出不当独立临床H-test。"
+  ],
+  "cospine_additional_technical_receipt": {
+    "state": "COMPLETE_TECHNICAL_BATCH_PENDING_ACTUAL_PRIVATE_PIXELS",
+    "people": 12,
+    "new_review_or_release_this_audit": false,
+    "scope": "Existing receipt read only; actual private pixels still required by that workflow, not expert/QC inclusion or new encoder features"
+  },
+  "prepared27": {
+    "state": "MATCHED27_INTERVIEW_INPUTS_PREPARED_NO_FITS",
+    "people": 27,
+    "ts_shape": [
+      27,
+      300,
+      90
+    ],
+    "FC_shape": [
+      27,
+      90,
+      90
+    ],
+    "covariate_shape": [
+      27,
+      4
+    ],
+    "clinical_raw_shape": [
+      27,
+      6
+    ],
+    "stored_FC_vs_independent_Pearson_max_error": 2.98017267530426e-08,
+    "training_transform_or_tangent_reference_fits": 0,
+    "new_classifier_fits": 0,
+    "new_MRI_reads": 0
+  }
+}

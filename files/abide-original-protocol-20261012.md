@@ -1,3 +1,11 @@
+# 2026-10-12同数据对照更新
+
+BNT／Com此前20次，新增VanillaTF／BNT框架BrainNetCNN20次；共40拟合、80权重回读，复核重拟合0。VanillaTF 与 BNT框架BrainNetCNN完成20次固定拟合、40份选中／末轮权重回读，复核重拟合0。 VanillaTF AUROC0.7731/0.7503；BrainNetCNN 0.7637/0.7554（当前／部分对齐）。 四组新对照的平均AUROC均低于同协议BNT。
+
+直接复用既有BNT逐seed划分、1009行CC200作者数组和监督预算；两协议多因素不同，不作单因素归因。BrainNetCNN为BNT作者框架对照实现，原eval仍有随机dropout；成绩为保存随机状态的一次读出，回读仅重放该次读出。未确认完整论文协议、人员身份与诊断方向，AP按原label1。ABIDE成绩不证明疼痛或小样本鲁棒性，研究总目标未完成。
+
+[同数据对照报告与全部固定seed](BNT_CONTROLS_RESULTS_2026-10-12.md)。此前BNT／Com与原输入核查的记录保留如下，各自“本轮”指其原阶段。
+
 # ABIDE作者原任务复算与协议差异
 
 2026-10-12。覆盖本轮BNT、Com-BrainTF20次固定拟合及BrainHGT准备，替换同日较早“患者拟合0”准备快照。原Word／Excel与此前修订版保留。本轮不扩超参数搜索，不按测试成绩选择配置或最好seed。

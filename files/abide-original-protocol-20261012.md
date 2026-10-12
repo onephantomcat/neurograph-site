@@ -80,3 +80,10 @@ ALTER论文ABIDE为1012人（519ASD／493NC）、DPARSF、阈值0.3、walk K16�
 - [PCP表型来源](https://github.com/preprocessed-connectomes-project/abide/blob/master/Phenotypic_V1_0b_preprocessed1.csv)
 
 <Self-Audit>官方原任务复算、论文全协议复现、疼痛任务适配与本地小模型分列；主结果预先指定，测试不选配置。复用作者模型／训练器及既有独立评价与发布组件；保留患者ID、诊断方向、FC来源、BrainHGT OMST与独立临床验证缺项。</Self-Audit>
+
+
+## BrainHGT／ALTER原输入专项核查
+
+BrainHGT补原OMST数组或实际调用；ALTER补论文1012人DPARSF原数据或作者数据版本确认。两者本轮0患者拟合；不把BNT包、本地OMST或旧阈值择优结果算官方复现。 ALTER历史官方README曾链接BNT数据，仍不等于论文1012人DPARSF原数组；最新阈值0与历史0.3及K16/32的差异已核对。
+
+完整缺项与证据：[原输入核查](HGT_ALTER_ORIGINAL_INPUT_AUDIT_2026-10-12.md)。

@@ -1,8 +1,8 @@
 {
   "date": "2026-10-12",
   "summary": "BNT与Com-BrainTF在作者ABIDE数组上完成20次拟合，40份选中／末轮权重回读通过。BNT AUROC为0.7836／0.7786，Com为0.7716／0.7613；均低于各自原文。",
-  "boundary": "本轮为官方代码在作者1009行CC200数据上的原任务复算，尚不能称完整论文协议复现。当前代码划分706/203/100；论文划分／批量对齐为706/100/203。两作者包19个站点、FC对角全0、无人员ID，100帧时序不能重建包内FC；诊断方向仅有站点汇总支持。BrainHGT原OMST输入缺，患者拟合0。ABIDE疾病分类不证明疼痛迁移有效。",
-  "next": "优先补BrainHGT原OMST驱动／输出与数据对应记录，并核对ALTER的1012人DPARSF原输入；现有20次不追加搜索。疼痛路线先核对同人CC200与临床终点，保留Emo53未胜切空间的阴性结论。",
+  "boundary": "本轮为官方代码在作者1009行CC200数据上的原任务复算，尚不能称完整论文协议复现。当前代码划分706/203/100；论文划分／批量对齐为706/100/203。两作者包19个站点、FC对角全0、无人员ID，100帧时序不能重建包内FC；诊断方向仅有站点汇总支持。BrainHGT原OMST输入缺，患者拟合0。ABIDE疾病分类不证明疼痛迁移有效。 本轮核查HGT3/ALTER55个官方历史commit及issue：原输入仍未补齐，HGT/ALTER本轮患者拟合均0；ALTER早期官方README有BNT入口，但论文1012人与1009包的对应仍缺确认。",
+  "next": "BrainHGT补原OMST数组或实际调用；ALTER补论文1012人DPARSF原数据或作者数据版本确认。两者本轮0患者拟合；不把BNT包、本地OMST或旧阈值择优结果算官方复现。",
   "rows": [
     {
       "model": "BNT",
@@ -204,7 +204,7 @@
       "original_accuracy_sd": 0.0191,
       "local_original_task_auc": null,
       "delta_auc_pp": null,
-      "status": "官方类技术步骤通过；原任务患者拟合0",
+      "status": "原函数与Dice可用；原OMST数组/实际调用缺，患者拟合0",
       "parameters": 5168298,
       "trainable_parameters": 5166250,
       "train_val_test_current_code": [
@@ -213,7 +213,7 @@
         203
       ],
       "protocol": "pending",
-      "protocol_label": "OMST原输入待补",
+      "protocol_label": "原OMST输入／调用缺项",
       "checkpoint": null,
       "local_auc_sample_sd": null,
       "fits": 0,
@@ -265,9 +265,9 @@
       "model": "ALTER",
       "priority": "2",
       "original_task": "ABIDE1012人：519ASD/493NC，DPARSF、CC200",
-      "data_access": "作者代码已取得；原1012人DPARSF包尚缺，不能用BNT1009人CPAC包替代",
-      "current_status": "未训练；论文阈值0.3/K16，当前代码正边>0/K32/final保存存在差异",
-      "next": "核对1012人原输入、阈值、walk length、选择规则；暂不扩患者拟合预算",
+      "data_access": "早期官方README曾链接BNT1009包；论文1012人DPARSF原数组/对应未确认",
+      "current_status": "55历史commit审读及4次原RRWP函数合成数值检查；患者拟合0",
+      "next": "补原数据/代码版本；不把1009包择优训练称原1012人复现",
       "source": "https://github.com/yushuowiki/ALTER",
       "commit": "ad5c5a95d54aa2a0a2a275c008a692d73af293f7"
     },
@@ -454,5 +454,101 @@
     "BNT": "8a588aadad0166209269fa114e5df4e42209e207",
     "Com-BrainTF": "d5749461f74df3d1f5c3fb159e01d6dbeaa328b0",
     "BrainHGT": "4f411fab1163e24f0b54e9cb398fbfe5928ce833"
-  }
+  },
+  "input_audit": {
+    "date": "2026-10-12",
+    "observed_unix": 1791802824.7722442,
+    "state": "ORIGINAL_INPUTS_INCOMPLETE_NO_PATIENT_FITS",
+    "patient_fits": 0,
+    "new_training_fits": 0,
+    "prior_BNT_Com_patient_fits": 20,
+    "local_substitute_claimed_as_official": false,
+    "author_messages_sent": 0,
+    "models": [
+      {
+        "model": "BrainHGT",
+        "commit": "4f411fab1163e24f0b54e9cb398fbfe5928ce833",
+        "commits_checked": 3,
+        "patient_fits": 0,
+        "original_input_name": "abide_1009_omst.npy",
+        "required_keys": [
+          "timeseries",
+          "corr",
+          "label",
+          "omst",
+          "site"
+        ],
+        "available": "官方模型、原CC200 Dice先验及作者所指OMST参考；已有1009行BNT/Com数据包不能证明与HGT原数据相同",
+        "missing": [
+          "实际训练的1009行原数组或可追溯生成脚本与人员/ROI顺序",
+          "OMST实际函数版本、abs/符号处理、GE/Cost归一化、逐边/整树选择、树数与停止规则",
+          "原FC/完整时序及预处理/裁剪和诊断方向记录；不能把100帧BNT时序自动当原输入"
+        ],
+        "effect": "作者模型使用adj>0构造最短路径；负权保留方式及OMST调用差异会改变图",
+        "decision": "不构建替代OMST并计为官方复现；既有20次条件预算尚不启动",
+        "sources": [
+          "https://github.com/null-cks/BrainHGT/issues/2",
+          "https://github.com/null-cks/BrainHGT/issues/5",
+          "https://github.com/null-cks/BrainHGT/issues/6",
+          "https://github.com/stdimitr/topological_filtering_networks"
+        ]
+      },
+      {
+        "model": "ALTER",
+        "commit": "ad5c5a95d54aa2a0a2a275c008a692d73af293f7",
+        "commits_checked": 55,
+        "patient_fits": 0,
+        "original_input_name": "abide.npy",
+        "required_keys": [
+          "timeseires",
+          "corr",
+          "label",
+          "site"
+        ],
+        "available": "历史官方README曾链接BNT数据；当前作者源码完整，原论文1012人数组与当前包的对应未确认",
+        "missing": [
+          "作者确认论文519ASD+493NC的1012人数据是否实际另建，或论文人数是否应为公开包1009；原人员选择/表型与ROI顺序",
+          "若为自建：原DPARSF配置、处理脚本、完整CC200时序/FC或原数组",
+          "生成表1的代码版本、阈值0.3/0、K16/32、mixup及checkpoint/seed协议"
+        ],
+        "effect": "最新官方正边阈值0，历史版本0.3；原config K32，论文K16。原生作者函数数值测试证实版本差异改变RRWP输入",
+        "decision": "不将1009包替代论文1012人原数据；不择最高测试分数版本，患者拟合0",
+        "sources": [
+          "https://github.com/yushuowiki/ALTER/issues/2",
+          "https://github.com/yushuowiki/ALTER/issues/4",
+          "https://github.com/yushuowiki/ALTER/issues/5",
+          "https://arxiv.org/html/2501.01100"
+        ]
+      }
+    ],
+    "numerical_test": {
+      "scope": "4节点合成输入，执行两官方历史版本的原函数，K16/32共4次；不是患者成绩",
+      "source_functions_modified": false,
+      "training_fits": 0,
+      "shapes": [
+        [
+          4,
+          16
+        ],
+        [
+          4,
+          32
+        ]
+      ],
+      "max_revision_differences": {
+        "16": 0.6058925688266754,
+        "32": 0.609363317489624
+      }
+    },
+    "access_findings": {
+      "official_branches_each": 1,
+      "tags_each": 0,
+      "releases_each": 0,
+      "BrainHGT_original_arrays_in_history": 0,
+      "ALTER_original_arrays_in_history": 0,
+      "anonymous_ALTER": "旧匿名入口本轮401/not_connected，仅说明入口不可访问，不证明原数据不存在"
+    },
+    "next": "等待原作者数据/调用及协议依据；可补齐后执行官方原任务，不用本地替代实现追原文成绩。作者问题草稿已准备，发送待明确授权。"
+  },
+  "input_audit_source": "abide-original-protocol-20261012-input-audit"
 }

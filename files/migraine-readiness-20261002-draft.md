@@ -1232,3 +1232,6 @@ BNT与Com-BrainTF在作者ABIDE数组上完成20次拟合，40份选中／末轮
 优先补BrainHGT原OMST驱动／输出与数据对应记录，并核对ALTER的1012人DPARSF原输入；现有20次不追加搜索。疼痛路线先核对同人CC200与临床终点，保留Emo53未胜切空间的阴性结论。
 
 完整报告：[ABIDE原任务复算与协议差异](ABIDE_ORIGINAL_PROTOCOL_2026-10-12.md)。
+
+
+原输入专项核查：HGT3与ALTER55个官方历史版本及最新issue审读，输入仍不齐，本轮0患者拟合。ALTER早期官方README曾指BNT包，但未确认论文1012人DPARSF与1009包的对应；两官方RRWP版本4次合成原函数数值检查，非患者成绩。缺项详见[BrainHGT／ALTER原输入核查](HGT_ALTER_ORIGINAL_INPUT_AUDIT_2026-10-12.md)。

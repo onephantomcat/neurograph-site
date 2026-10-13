@@ -412,7 +412,7 @@
       "title": "明确临床定义、量表尺度与评估划分",
       "status": "active",
       "summary": "已完成SRPBS99/ZAN54头动和临床字段对应；sup7评分29人、sup8评分15人，病程单位确认为年且3人缺失。VAS端点、回顾窗和扫描间隔仍待确认。",
-      "next": "访谈VAS仍不是扫描同期痛；1缺失/5间隔15–21天冲突保留，继续取得真实评分/扫描时点和治疗结局。",
+      "next": "CoSpine时序来源干预确认整段统计与token后续位置依赖，原真实临床时点仍待补齐；不将技术窗口当MRI同期临床疼痛。",
       "criteria": "标签字典与排除规则可执行；卒中单列；未使用目标量表构造输入。",
       "depends_on": [
         "G07"
@@ -433,10 +433,10 @@
         "title": "查清现有疼痛评分怎么填的",
         "purpose": "已完成SRPBS99/ZAN54头动和临床字段对应；sup7评分29人、sup8评分15人，病程单位确认为年且3人缺失。VAS端点、回顾窗和扫描间隔仍待确认。",
         "steps": [
-          "阅读Emo27同人对照和负结果。",
-          "访谈VAS仍不是扫描同期痛；1缺失/5间隔15–21天冲突保留，继续取得真实评分/扫描时点和治疗结局。"
+          "阅读CoSpine实际输入、时序干预与适配接口报告。",
+          "CoSpine时序来源干预确认整段统计与token后续位置依赖，原真实临床时点仍待补齐；不将技术窗口当MRI同期临床疼痛。"
         ],
-        "deliverable": "限定任务适配、真实终点与独立验证准备；不按旧开发分数扩搜。"
+        "deliverable": "可复现适配准备及时间来源缺项，保持原临床目标。"
       }
     },
     {
@@ -583,7 +583,7 @@
       "title": "建立连续疼痛严重度单任务比较",
       "status": "active",
       "summary": "已完成sup7的29人、sup8的15人分表探索及N82的43人独立表内回归。最新临床MAE16.1827/2.3114，联合影像17.6380/2.2252；未有可靠影像增量。",
-      "next": "三原评分分组完成冻结先验适配；原VAS范围/时点限制、全部seed及临床/强FC参照保留。诊断开发不替代同期评分/疗效真值；继续补真实时点与临床参照。",
+      "next": "CoSpine新增12人技术输入完成，疼痛监督拟合0；先核上游时间处理、限定窗口与强FC/刺激/协变量参照。OA8例待审核及基线/治疗/随访对应缺项保留，疗效拟合0。",
       "criteria": "报告MAE、RMSE、R²、Spearman及区间；缺失处理在训练折拟合，不给健康组人工赋VAS=0。",
       "depends_on": [
         "G12",
@@ -602,10 +602,10 @@
         "title": "先用简单方法预测疼痛分数",
         "purpose": "已完成sup7的29人、sup8的15人分表探索及N82的43人独立表内回归。最新临床MAE16.1827/2.3114，联合影像17.6380/2.2252；未有可靠影像增量。",
         "steps": [
-          "阅读三评分分组全部模型/seed、来源及继续/停止决定。",
-          "三原评分分组完成冻结先验适配；原VAS范围/时点限制、全部seed及临床/强FC参照保留。诊断开发不替代同期评分/疗效真值；继续补真实时点与临床参照。"
+          "阅读CoSpine实际输入、时序干预与适配接口报告。",
+          "CoSpine新增12人技术输入完成，疼痛监督拟合0；先核上游时间处理、限定窗口与强FC/刺激/协变量参照。OA8例待审核及基线/治疗/随访对应缺项保留，疗效拟合0。"
         ],
-        "deliverable": "可复现适配、同条件正负结果及真实临床验证准备。"
+        "deliverable": "可复现适配准备及时间来源缺项，保持原临床目标。"
       }
     },
     {
@@ -640,7 +640,7 @@
       "title": "取得新的独立临床队列并验证泛化",
       "status": "blocked",
       "summary": "拟取得单病种PTN的H-dev与H-test，目前均未取得。公开OA、99/96和旧N82已用于开发或评估，不是新的PTN独立测试。 10月3日实际补查六个临床来源记录：两条Zenodo文件受限，Dryad脑影像标记记录只列补充DOCX且正文未取得，OpenPain需使用协议/注册；健康热痛与未列MRI的临床试验不能代替当前临床影像任务。新增逐人MRI、临床真值与独立验证均0。",
-      "next": "本轮三评分分组均已开发，不能升级独立验证；继续核可比人员/预训练成员与独立同病种来源。",
+      "next": "官方检查点与五来源可追溯，但实际训练名单和生物学非重叠未确认；CoSpine13研究留出MRI保持未读，健康热痛不当独立临床验证。",
       "criteria": "主体无重叠，统计检验与主要终点按预设执行，并报告不确定性。",
       "depends_on": [
         "G15",
@@ -663,10 +663,10 @@
         "title": "用未参与开发的患者做最终测试",
         "purpose": "医院数据尚未取得，需要先落实病例、采集和独立测试分组。 10月3日实际补查六个临床来源记录：两条Zenodo文件受限，Dryad脑影像标记记录只列补充DOCX且正文未取得，OpenPain需使用协议/注册；健康热痛与未列MRI的临床试验不能代替当前临床影像任务。新增逐人MRI、临床真值与独立验证均0。",
         "steps": [
-          "阅读三评分分组全部模型/seed、来源及继续/停止决定。",
-          "本轮三评分分组均已开发，不能升级独立验证；继续核可比人员/预训练成员与独立同病种来源。"
+          "阅读CoSpine实际输入、时序干预与适配接口报告。",
+          "官方检查点与五来源可追溯，但实际训练名单和生物学非重叠未确认；CoSpine13研究留出MRI保持未读，健康热痛不当独立临床验证。"
         ],
-        "deliverable": "可复现适配、同条件正负结果及真实临床验证准备。"
+        "deliverable": "可复现适配准备及时间来源缺项，保持原临床目标。"
       }
     },
     {
@@ -675,7 +675,7 @@
       "title": "按结果调整目标，开展多数据集预测与迁移研究",
       "status": "active",
       "summary": "原K5 540拟合/45FC参考及五支持OOF已完成，未见可靠冻结整体改善。已完成训练的四项诊断已整合论文Methods、Results和Discussion：240保存头、10,560训练内概率、全部40个阶段配置与可复现附录。数值精度改善，类均衡的概率误差代价与随机对照更强的结果同时保留；原K5主分析及阴性结论不变，本次新增拟合/查询评分0。 原132人训练按用户授权QC全纳入，实际专家报告0、25原注意/文件/标签/划分保持。六内层分区人员重复，未知预训练重叠、空间/窗口/CONN差异与准确日期/临床真值/H-test缺失保留；未成立独立临床验证、完整作者复现或超越论文。 开发性论文阅读材料已整理：当前Methods、Results、Discussion保留全部主要比较，6组历史运行记录移至完整附录，原K5图及40训练配置可查。本次没有新拟合或评分；作者/伦理/许可及独立临床真值仍缺，不是提交就绪稿。 轻量静态GCN与同容量无图消融完成36次训练内开发拟合，每模型1749参数。全部18组验证AUC均值0.552338/0.532390，成对平均差0.019949；仅11/18组AUC改善、10/18组Brier改善，差值方向不一致。两方法训练AUC均约0.997426，验证明显较弱，存在过拟合。停止这一静态正边GCN假设，不扩大配置、seed或查询搜索。 2026-10-08扩大研究：原132人开发数据完成60个固定模型：线性SVM、RBF SVM、浅随机森林，分别比较FC加4协变量与仅4协变量。验证AUC均值依次0.4704/0.4595、0.5598/0.4196、0.5064/0.6579；影像森林训练AUC1.0、验证0.5064。72个SVM校准器有33个反转方向，影像SVM校准前验证AUC仅0.5058/0.5232。没有稳定影像增量，停止本轮配置搜索。CoSpine已核对39人585个疼痛试次，并完整读取首人native脑影像与事件时间轴。 2026-10-08现代方法：分层图Transformer完成54个保存模型，每个6869参数；六组44训练/44验证、三seed比较乘法衰减、加log先验、无拓扑偏置。验证AUC均值0.5871、0.5832、0.5871，训练均1.0。加log使短程头分配给两跳外的注意力从84.12%降到70.77%，但AUC未稳定改善，停止当前偏置配置搜索。 2026-10-08任务适配：NeuroSTORM的5480参数内部适配器通过真实CUDA合成前向、反向和保存重载，5173020参数编码器保持冻结。CoSpine首人T1完整读取15925248有限值，BET及两级仿射命令完成；AAL90有4区无支持、29区支持不足一半，平均覆盖64.83%。患者模型拟合0。 2026-10-08空间修复：CoSpine首人复用原T1，先按标准方向重定向并以默认170毫米去除颈部，再执行原BET-R。掩膜体积约1287毫升；同参数重新仿射配准后，AAL90平均非零覆盖由64.83%升至99.54%，零支持区由4降至0、不足一半由29降至0，最小覆盖91.43%。 2026-10-08偏置/BBR复核：CoSpine首人固定FAST偏置校正及三类组织分割完成，白质概率≥0.5得到517,792体素；复用原刚体初始化和实际白质边界，BBR命令完成。独立核对新输出9,013,248个有限值、校正算术及刚体矩阵，并查看四张私有截面图。 2026-10-08非线性/窗口复核：CoSpine首人固定FNIRT与BBR组合完成，独立支持重采样及90区计数一致；平均非零覆盖99.42%，上一阶段仿射为99.54%，两次均无零支持区。真实事件窗口复核发现，在暂定帧参考0下，20×0.8秒窗口的插值需要评分开始后的采样点，涉及3/15试次。 2026-10-08真实窗口前向复核：CoSpine首人完整230帧已映射到MNI；15个固定早期窗口和6个时间参考敏感性窗口完成21次冻结NeuroSTORM内部前向。真实时空特征全部为有限值，独立读回通过。 2026-10-08时序对照复核：三个预先指定的真实窗口完成恒定均值帧、倒序共6次冻结前向，独立输入和指标重放通过。去掉实测时间变化后，内部token时间变化仍约7.67%；池化向量的变化很小。另25个开发输入正在按原人序采集，截至记录完成1/25人的原生影像及事件输入核查。 2026-10-08新增开发空间复核：1名新增开发受试者完成空间单位副本、裁剪、FAST、初始刚体/仿射与BBR；独立数值复核和私有图像技术检查已完成，非线性映射及新模型编码尚未开展。截至记录，25人采集作业新增完成3人，3人网络超时保留失败，原作业仍在接续。 2026-10-08新增开发空间复核：1名新增开发受试者完成固定非线性映射、230帧单次空间重采样和21次冻结编码；独立核对207,604,670个BOLD值及1,941,408个缓存值。累计2人的30个主窗口缓存显示，平均池化表示的跨人相对差异约28.15%，人内窗口偏离约0.054%～0.924%。这些是表示描述，尚无疼痛预测结果。 2026-10-08新增开发空间复核：Omni-fMRI作者标准SDPA组件完成2次实际调用，完整12层编码器完成1次随机权重合成输入前向，输出CLS768和954个动态patch。官方权重已下载，但完整加载或预训练前向尚未通过，实际失败保留。新增3人完成固定裁剪、FAST与初始配准，独立读取300,145,071个空间结果值，私有6幅图已查看。 2026-10-08新增开发空间复核：新增3名开发受试者各完成1次固定BBR，复用已完成FAST和刚体矩阵。独立读回27,039,744个输出值，并核对10,074,031个源内部插值点；六幅私有BBR/刚体对照图已查看。Omni-fMRI官方特征权重349项匹配加载，完成1次合成编码器前向，CLS768和768维patch通过形状/有限值检查；完整模型缺两项未调用classifier参数，严格全模型加载失败及前向后的保存失败保留。 2026-10-08新增开发空间复核：新增3名开发受试者完成固定非线性映射、230帧单次空间重采样及63次NeuroSTORM冻结编码。独立核对622,814,010个BOLD值和5,824,224个缓存值，15幅私有空间图已查看。Omni完成1次固定真实MRI前向，CLS768及4,848个动态patch通过独立复核。累计5人75个相关主窗口中，人间均值差异占池化总离差平方和约99.9506%。 2026-10-09新增有限疼痛读出：5名健康开发受试者、75个相关试次按人留一。30个神经读出和5个协变量拟合完成并独立重放；PR评分平均MAE：协变量0.8762，平均池化3.3692，时间差分1.5627，时间注意力2.6723。三个影像残差读出均未超过协变量，本轮配置停止扩展。 2026-10-12：Emo53同条件比较完成：切空间Logistic AUROC0.5983；BrainHGT两个seed为0.4815/0.4573，BNT为0.5142/0.5256，Com-BrainTF为0.5328/0.4145。三套官方任务适配均未超过传统对照。 2026-10-12：BNT／Com此前20次，新增VanillaTF／BNT框架BrainNetCNN20次；共40拟合、80权重回读，复核重拟合0。VanillaTF 与 BNT框架BrainNetCNN完成20次固定拟合、40份选中／末轮权重回读，复核重拟合0。 VanillaTF AUROC0.7731/0.7503；BrainNetCNN 0.7637/0.7554（当前／部分对齐）。 四组新对照的平均AUROC均低于同协议BNT。 HGT/ALTER原输入核查完成但材料不齐，两者0新患者拟合；待补原数组/实际调用。 VanillaTF 与 BNT框架BrainNetCNN完成20次固定拟合、40份选中／末轮权重回读，复核重拟合0。 VanillaTF AUROC0.7731/0.7503；BrainNetCNN 0.7637/0.7554（当前／部分对齐）。",
-      "next": "本轮没有稳定候选，停止当前配置扩搜。Emo未超临床Ridge，sup7未超训练均值，sup8未超完整Pearson FC＋临床。保留可追溯预训练接入实现；先补原VAS端点/时点和可比较独立来源，再决定有新依据的疼痛适配。",
+      "next": "优先取得可核实的上游时间处理与限定报告前输入，并按完整窗口解释双向token；补强FC/刺激及协变量对照与实际预训练成员依据后再设计有限疼痛适配。OA先补基线、治疗/扫描/随访对应和既有审核，不启动8例疗效训练。",
       "criteria": "交付按数据集/病种/终点区分的实际输入审计、运行前有限方案、全部主要方法结果和来源留出评价；独立临床验证另列。",
       "depends_on": [],
       "sources": [
@@ -880,10 +880,10 @@
         "title": "比较多个数据集，找出影像在哪些任务有帮助",
         "purpose": "比较脑影像相对临床、人口学和强FC方法的增量，保留阴性与迁移失败。132人原K5训练已完成；四项后续诊断的240保存头、10,560训练内概率与全部40配置已整合论文。没有一致预训练优势，本次新增拟合和查询评分0。 训练纳入依据用户授权，实际专家报告0、原25项注意/文件/标签/划分保留；六训练内分区人员重复。预训练成员重叠未知，准确日期/诊断与同期痛/治疗反应真值及真正未开发H-test仍缺。原20未评分、Emo13失败、TN14/结构535/CLIP停止及原SPM锁保持，不成立独立临床验证。 最新分层图Transformer：分层图Transformer完成54个保存模型，每个6869参数；六组44训练/44验证、三seed比较乘法衰减、加log先验、无拓扑偏置。验证AUC均值0.5871、0.5832、0.5871，训练均1.0。加log使短程头分配给两跳外的注意力从84.12%降到70.77%，但AUC未稳定改善，停止当前偏置配置搜索。 这是原132人反复使用的开发数据和本地小型层级适配，不是BrainHGT完整复现、新独立队列或临床验证。七网络先验来自真实标准图谱，第8类为未覆盖区域而非生物学网络。54配置实际55次梯度拟合，含一次保存失败丢失的模型；失败保留，未扩大科学配置。原标签、人员划分、QC授权/专家0/25注意、旧结果和停止分支保持。 NeuroSTORM的5480参数内部适配器通过真实CUDA合成前向、反向和保存重载，5173020参数编码器保持冻结。CoSpine首人T1完整读取15925248有限值，BET及两级仿射命令完成；AAL90有4区无支持、29区支持不足一半，平均覆盖64.83%。患者模型拟合0。 内部adapter接口通过不等于新方法有效；八个空间格点不是ROI，普通bottleneck也不是LoRA。单人仿射与非零覆盖是技术观察，不是非线性标准化、专家QC、完整作者复现或独立临床验证。原132及各旧结果/停止、QC授权/专家0/25注意保持；39健康者585试次仍是39人。 CoSpine首人复用原T1，先按标准方向重定向并以默认170毫米去除颈部，再执行原BET-R。掩膜体积约1287毫升；同参数重新仿射配准后，AAL90平均非零覆盖由64.83%升至99.54%，零支持区由4降至0、不足一半由29降至0，最小覆盖91.43%。 这是1人的空间输入修复，非零覆盖不代表有效神经信号或解剖准确。未完成偏置校正、BBR或FNIRT，实际专家新增0、患者模型拟合0；不据此声称疼痛预测增量、完整作者复现或独立临床验证。原文件/标签/人员划分/QC与全部失败和停止状态保持。 CoSpine首人固定FAST偏置校正及三类组织分割完成，白质概率≥0.5得到517,792体素；复用原刚体初始化和实际白质边界，BBR命令完成。独立核对新输出9,013,248个有限值、校正算术及刚体矩阵，并查看四张私有截面图。 这是1人的输入处理，无新增预测成绩。BBR与原刚体位置变化不等于配准改善；尚未做FNIRT或新的MNI组合，因此99.54%是上一阶段仿射覆盖。实际专家新增0、患者模型拟合0、独立临床验证未完成，完整MRI留服务器。 CoSpine首人固定FNIRT与BBR组合完成，独立支持重采样及90区计数一致；平均非零覆盖99.42%，上一阶段仿射为99.54%，两次均无零支持区。真实事件窗口复核发现，在暂定帧参考0下，20×0.8秒窗口的插值需要评分开始后的采样点，涉及3/15试次。 这是1人的空间/时间输入研究，无新增预测成绩。非零覆盖和正Jacobian不等于解剖准确；时间重采样不能增加真实分辨率。实际切片参考/派生滤波仍未知，完整4D重采样、任务特征和患者拟合均未做，专家新增0、独立临床目标未完成。 CoSpine首人完整230帧已映射到MNI；15个固定早期窗口和6个时间参考敏感性窗口完成21次冻结NeuroSTORM内部前向。真实时空特征全部为有限值，独立读回通过。 这是1名健康热痛受试者的输入与表示实验，预测拟合0、专家新增0。池化向量在15窗口间变化很小，不能当作疼痛稳定性或有效性。事件插值/空间补边/整段归一化采用明确的本地设置；原切片参考与时间滤波仍未知，不能证明评分信号已排除。 三个预先指定的真实窗口完成恒定均值帧、倒序共6次冻结前向，独立输入和指标重放通过。去掉实测时间变化后，内部token时间变化仍约7.67%；池化向量的变化很小。另25个开发输入正在按原人序采集，截至记录完成1/25人的原生影像及事件输入核查。 时间对照只涉及1名健康热痛受试者，拟合0、专家新增0，不能据此归因疼痛或证明临床效用。输入核查不是MNI配准、专家QC或训练纳入；13名研究留出未读。三个独立临床目标尚未完成。 1名新增开发受试者完成空间单位副本、裁剪、FAST、初始刚体/仿射与BBR；独立数值复核和私有图像技术检查已完成，非线性映射及新模型编码尚未开展。截至记录，25人采集作业新增完成3人，3人网络超时保留失败，原作业仍在接续。 这是新增1人的技术输入推进，拟合0、专家新增0，不能证明配准改善、疼痛预测收益或临床效用。原前26开发/后13研究留出保持，留出MRI未读；三个独立临床目标尚未完成。 1名新增开发受试者完成固定非线性映射、230帧单次空间重采样和21次冻结编码；独立核对207,604,670个BOLD值及1,941,408个缓存值。累计2人的30个主窗口缓存显示，平均池化表示的跨人相对差异约28.15%，人内窗口偏离约0.054%～0.924%。这些是表示描述，尚无疼痛预测结果。 模型拟合0、留出MRI读取0、实际专家新增0；2人和30个相关窗口不能证明泛化、疼痛特异性或临床效用。Omni-fMRI组件探测因缺timm在导入阶段失败，前向调用0。三个独立临床目标尚未完成。 Omni-fMRI作者标准SDPA组件完成2次实际调用，完整12层编码器完成1次随机权重合成输入前向，输出CLS768和954个动态patch。官方权重已下载，但完整加载或预训练前向尚未通过，实际失败保留。新增3人完成固定裁剪、FAST与初始配准，独立读取300,145,071个空间结果值，私有6幅图已查看。 这是运行兼容性和输入准备，没有新疼痛预测拟合或临床成绩；新3人的BBR、非线性映射和真实编码尚未开展。实际专家新增0，原2人真实表示不重复。三个独立临床目标尚未完成。 新增3名开发受试者各完成1次固定BBR，复用已完成FAST和刚体矩阵。独立读回27,039,744个输出值，并核对10,074,031个源内部插值点；六幅私有BBR/刚体对照图已查看。Omni-fMRI官方特征权重349项匹配加载，完成1次合成编码器前向，CLS768和768维patch通过形状/有限值检查；完整模型缺两项未调用classifier参数，严格全模型加载失败及前向后的保存失败保留。 本轮没有新增真实MRI编码、疼痛预测拟合或临床成绩；BBR位移不等于配准改善，合成前向不等于疼痛收益。实际专家新增0，新3人非线性映射仍未做。研究总目标尚未完成。 新增3名开发受试者完成固定非线性映射、230帧单次空间重采样及63次NeuroSTORM冻结编码。独立核对622,814,010个BOLD值和5,824,224个缓存值，15幅私有空间图已查看。Omni完成1次固定真实MRI前向，CLS768及4,848个动态patch通过独立复核。累计5人75个相关主窗口中，人间均值差异占池化总离差平方和约99.9506%。 这是健康开发人群的空间和表示描述，没有新增疼痛预测拟合、专家报告或独立临床成绩；75个窗口不能当75名独立受试者，人间差异不等于疼痛信号。研究总目标尚未完成。 5名健康开发受试者、75个相关试次按人留一。30个神经读出和5个协变量拟合完成并独立重放；PR评分平均MAE：协变量0.8762，平均池化3.3692，时间差分1.5627，时间注意力2.6723。三个影像残差读出均未超过协变量，本轮配置停止扩展。 这是五人健康热痛的离线开发诊断，75个试次不能当75名独立受试者；未读13名研究留出、未新增专家报告或临床验证。当前比较没有强FC、随机encoder、作者prompt或内部adapter对照，不能证明完整方法优劣或论文创新。研究总目标尚未完成。",
         "steps": [
-          "阅读三评分分组全部模型/seed、来源及继续/停止决定。",
-          "本轮没有稳定候选，停止当前配置扩搜。Emo未超临床Ridge，sup7未超训练均值，sup8未超完整Pearson FC＋临床。保留可追溯预训练接入实现；先补原VAS端点/时点和可比较独立来源，再决定有新依据的疼痛适配。"
+          "阅读CoSpine实际输入、时序干预与适配接口报告。",
+          "优先取得可核实的上游时间处理与限定报告前输入，并按完整窗口解释双向token；补强FC/刺激及协变量对照与实际预训练成员依据后再设计有限疼痛适配。OA先补基线、治疗/扫描/随访对应和既有审核，不启动8例疗效训练。"
         ],
-        "deliverable": "可复现适配、同条件正负结果及真实临床验证准备。"
+        "deliverable": "可复现适配准备及时间来源缺项，保持原临床目标。"
       }
     },
     {
@@ -1458,13 +1458,14 @@
         "tasks": [
           "跨人逐试次疼痛/不愉快评分研究"
         ],
-        "materials": "已有5人表示/读出配置已停止；没有同人强FC或CC200比较；年龄、性别、教育、体重/身高、个体热刺激温度39/39",
+        "materials": "已有5人表示/读出配置已停止；没有同人强FC或CC200比较；年龄、性别、教育、体重/身高、个体热刺激温度39/39；新增12人真实时空token，完整MRI及缓存仍在服务器",
         "role": "实验热痛评分新输入",
-        "status": "人员/终点/时点与已有输入核查；新拟合0",
-        "gaps": "固定早期窗−5.36至+9.84秒，不直接覆盖任一报告期；最小间隔6.158秒；13研究留出MRI本轮0读取；不是独立临床H-test，预训练重叠未知；先核时间滤波/整段归一化及报告信号影响并准备真动态/强FC对照；不继续池化/差分/注意力搜索",
+        "status": "新增12名原开发成员技术输入完成；时间依赖实测，疼痛监督拟合0、专家/QC新纳入0",
+        "gaps": "整段归一化及冻结encoder较早token依赖后续输入；上游滤波执行/参考相位及实际预训练名册未确认；不当独立临床验证",
         "sources": [
           "research-expansion-20261008",
-          "pain-readiness-20261012"
+          "pain-readiness-20261012",
+          "cospine-pain-readiness-20261013"
         ]
       }
     ]
@@ -1679,6 +1680,7 @@
     }
   ],
   "next_steps": [
+    "优先取得可核实的上游时间处理与限定报告前输入，并按完整窗口解释双向token；补强FC/刺激及协变量对照与实际预训练成员依据后再设计有限疼痛适配。OA先补基线、治疗/扫描/随访对应和既有审核，不启动8例疗效训练。",
     "本轮没有稳定候选，停止当前配置扩搜。Emo未超临床Ridge，sup7未超训练均值，sup8未超完整Pearson FC＋临床。保留可追溯预训练接入实现；先补原VAS端点/时点和可比较独立来源，再决定有新依据的疼痛适配。",
     "现代方法的后续任务适配/时序可靠性须明确新假设和同预算对照。已有54分层图、36静态图、60传统模型与原540/45和1609开发不重做；旧停止状态和原开发边界保留。",
     "PRT下一步补齐精确ROI/模式定义及临床、头动和刺激记录，再核对特征提取；额外1个基线编号不自动并入原192人。暂不扩大模型搜索，Emo外推保持各自原方案。",
@@ -1773,7 +1775,7 @@
       "section": "sources",
       "repo_path": "docs/TRAINING_RESULTS_INDEX.md",
       "format": "md",
-      "size": 183527,
+      "size": 185927,
       "exists": true,
       "modified_at": "2026-10-13",
       "public_url": "./files/training-results-index.md",
@@ -2019,7 +2021,7 @@
       "section": "sources",
       "repo_path": "docs/RECENT_RESEARCH_HISTORY_2026-09-08.md",
       "format": "md",
-      "size": 203394,
+      "size": 206120,
       "exists": true,
       "modified_at": "2026-10-13",
       "public_url": "./files/research-history-report.md",
@@ -4598,7 +4600,7 @@
       "section": "sources",
       "repo_path": "docs/PROJECT_PLAN.md",
       "format": "md",
-      "size": 420010,
+      "size": 421034,
       "exists": true,
       "modified_at": "2026-10-13",
       "public_url": "./files/archive-a181ed9eb3c49bb7.md",
@@ -42795,7 +42797,7 @@
       "description": "三个临床终点、配对评价准备、原试验读取和预训练成员来源核查；逐人真值、访视对应与独立测试仍缺。",
       "repo_path": "docs/CLINICAL_INCREMENT_DESIGN_2026-10-02.md",
       "format": "md",
-      "size": 93536,
+      "size": 95155,
       "exists": true,
       "modified_at": "2026-10-13",
       "public_url": "./files/migraine-readiness-20261002-clinical.md",
@@ -46051,11 +46053,95 @@
       "size": 11483,
       "modified_at": "2026-10-13",
       "preview_url": "./previews/pain-prior-transfer-20261013-license.json"
+    },
+    {
+      "id": "cospine-pain-readiness-20261013",
+      "label": "CoSpine：疼痛输入与时序适配准备",
+      "repo_path": "docs/COSPINE_PAIN_READINESS_RESULTS_2026-10-13.md",
+      "section": "reports",
+      "description": "健康热痛离线技术与适配准备，未新增专家QC、训练纳入、疼痛预测成绩或独立临床验证；13名研究留出MRI未读。原五人读出、临床及强FC负结果与停止状态保留。",
+      "public_url": "./files/cospine-pain-readiness-20261013.md",
+      "exists": true,
+      "available": true,
+      "format": "md",
+      "size": 8620,
+      "modified_at": "2026-10-13",
+      "preview_url": "./previews/cospine-pain-readiness-20261013.json"
+    },
+    {
+      "id": "cospine-pain-readiness-20261013-summary",
+      "label": "CoSpine输入和时序依赖聚合",
+      "repo_path": "reports/cospine-pain-readiness-2026-10-13/summary.json",
+      "section": "reports",
+      "description": "健康热痛离线技术与适配准备，未新增专家QC、训练纳入、疼痛预测成绩或独立临床验证；13名研究留出MRI未读。原五人读出、临床及强FC负结果与停止状态保留。",
+      "public_url": "./files/cospine-pain-readiness-20261013-summary.json",
+      "exists": true,
+      "available": true,
+      "format": "json",
+      "size": 5519,
+      "modified_at": "2026-10-13",
+      "preview_url": "./previews/cospine-pain-readiness-20261013-summary.json"
+    },
+    {
+      "id": "cospine-pain-readiness-20261013-readiness",
+      "label": "六项适配准备与缺项",
+      "repo_path": "reports/cospine-pain-readiness-2026-10-13/readiness.csv",
+      "section": "reports",
+      "description": "健康热痛离线技术与适配准备，未新增专家QC、训练纳入、疼痛预测成绩或独立临床验证；13名研究留出MRI未读。原五人读出、临床及强FC负结果与停止状态保留。",
+      "public_url": "./files/cospine-pain-readiness-20261013-readiness.csv",
+      "exists": true,
+      "available": true,
+      "format": "csv",
+      "size": 840,
+      "modified_at": "2026-10-13",
+      "preview_url": "./previews/cospine-pain-readiness-20261013-readiness.json"
+    },
+    {
+      "id": "cospine-pain-readiness-20261013-plan",
+      "label": "本轮有限执行范围",
+      "repo_path": "docs/COSPINE_PAIN_ADAPTATION_PREPARATION_2026-10-13.md",
+      "section": "reports",
+      "description": "健康热痛离线技术与适配准备，未新增专家QC、训练纳入、疼痛预测成绩或独立临床验证；13名研究留出MRI未读。原五人读出、临床及强FC负结果与停止状态保留。",
+      "public_url": "./files/cospine-pain-readiness-20261013-plan.md",
+      "exists": true,
+      "available": true,
+      "format": "md",
+      "size": 2500,
+      "modified_at": "2026-10-13",
+      "preview_url": "./previews/cospine-pain-readiness-20261013-plan.json"
+    },
+    {
+      "id": "cospine-pain-readiness-20261013-adapter",
+      "label": "自有事件时序残差接口",
+      "repo_path": "research-code/pain-adaptation/event_time_adapter.py",
+      "section": "reports",
+      "description": "健康热痛离线技术与适配准备，未新增专家QC、训练纳入、疼痛预测成绩或独立临床验证；13名研究留出MRI未读。原五人读出、临床及强FC负结果与停止状态保留。",
+      "public_url": "./files/cospine-pain-readiness-20261013-adapter.py",
+      "exists": true,
+      "available": true,
+      "format": "py",
+      "size": 2055,
+      "modified_at": "2026-10-13",
+      "preview_url": "./previews/cospine-pain-readiness-20261013-adapter.json"
+    },
+    {
+      "id": "cospine-pain-readiness-20261013-normalization",
+      "label": "自有限定窗口归一化候选",
+      "repo_path": "research-code/pain-adaptation/window_preprocessing.py",
+      "section": "reports",
+      "description": "健康热痛离线技术与适配准备，未新增专家QC、训练纳入、疼痛预测成绩或独立临床验证；13名研究留出MRI未读。原五人读出、临床及强FC负结果与停止状态保留。",
+      "public_url": "./files/cospine-pain-readiness-20261013-normalization.py",
+      "exists": true,
+      "available": true,
+      "format": "py",
+      "size": 1601,
+      "modified_at": "2026-10-13",
+      "preview_url": "./previews/cospine-pain-readiness-20261013-normalization.json"
     }
   ],
   "focus_phase": "model",
-  "focus_title": "小样本疼痛回归：冻结先验适配",
-  "focus_description": "三组原评分患者的冻结先验适配完成。Emo27有限临床Ridge MAE12.9692，冻结先验全部表示/种子13.2865–15.8575；SRPBS sup7／29人有限临床Ridge MAE18.5703，冻结先验全部表示/种子17.9883–19.2077；SRPBS sup8／15人有限临床Ridge MAE2.4139，冻结先验全部表示/种子2.2117–2.4556。 Emo为访谈VAS，不能称MRI同期痛；SRPBS两评分表的单位端点和MRI时点未确认，仅作分开的补充探索。全部有开发史，未新增临床真值或独立验证，原负结果和停止分支保留。 本轮没有稳定候选，停止当前配置扩搜。Emo未超临床Ridge，sup7未超训练均值，sup8未超完整Pearson FC＋临床。保留可追溯预训练接入实现；先补原VAS端点/时点和可比较独立来源，再决定有新依据的疼痛适配。",
+  "focus_title": "CoSpine：疼痛输入与时序适配准备",
+  "focus_description": "新增12名CoSpine开发成员完成原生帧空间映射、252次冻结编码与独立读回，24幅非线性图已实际查看。时间干预发现整段归一化及编码器早期token依赖后续输入；5504参数适配器接入通过，疼痛监督拟合0。 健康热痛离线技术与适配准备，未新增专家QC、训练纳入、疼痛预测成绩或独立临床验证；13名研究留出MRI未读。原五人读出、临床及强FC负结果与停止状态保留。 优先取得可核实的上游时间处理与限定报告前输入，并按完整窗口解释双向token；补强FC/刺激及协变量对照与实际预训练成员依据后再设计有限疼痛适配。OA先补基线、治疗/扫描/随访对应和既有审核，不启动8例疗效训练。",
   "next_goal_ids": [
     "G19",
     "G12",
@@ -48578,6 +48664,27 @@
           "pain-prior-transfer-20261013-license"
         ],
         "calendar_event_id": "event-7246093524ea441c"
+      },
+      {
+        "id": "cospine-pain-readiness-20261013",
+        "date": "2026-10-13",
+        "status": "partial",
+        "label": "12人技术输入／时序依赖实测／适配接口",
+        "title": "CoSpine：疼痛输入与时序适配准备",
+        "summary": "新增12名CoSpine开发成员完成原生帧空间映射、252次冻结编码与独立读回，24幅非线性图已实际查看。时间干预发现整段归一化及编码器早期token依赖后续输入；5504参数适配器接入通过，疼痛监督拟合0。",
+        "result": "新增12名CoSpine开发成员完成原生帧空间映射、252次冻结编码与独立读回，24幅非线性图已实际查看。时间干预发现整段归一化及编码器早期token依赖后续输入；5504参数适配器接入通过，疼痛监督拟合0。",
+        "method": "原人员/固定窗口与空间映射；冻结编码、真实时间干预及独立读回。",
+        "boundary": "健康热痛离线技术与适配准备，未新增专家QC、训练纳入、疼痛预测成绩或独立临床验证；13名研究留出MRI未读。原五人读出、临床及强FC负结果与停止状态保留。",
+        "next": "优先取得可核实的上游时间处理与限定报告前输入，并按完整窗口解释双向token；补强FC/刺激及协变量对照与实际预训练成员依据后再设计有限疼痛适配。OA先补基线、治疗/扫描/随访对应和既有审核，不启动8例疗效训练。",
+        "sources": [
+          "cospine-pain-readiness-20261013",
+          "cospine-pain-readiness-20261013-summary",
+          "cospine-pain-readiness-20261013-readiness",
+          "cospine-pain-readiness-20261013-plan",
+          "cospine-pain-readiness-20261013-adapter",
+          "cospine-pain-readiness-20261013-normalization"
+        ],
+        "calendar_event_id": "event-89fe31353d884e05"
       }
     ]
   },
@@ -93349,7 +93456,7 @@
     "summary_source": "prt-images-20260925-summary"
   },
   "calendar": {
-    "revision": 190,
+    "revision": 191,
     "events": [
       {
         "date": "2026-09-20",
@@ -96773,6 +96880,24 @@
         ],
         "date_basis": "人工维护；Asia/Shanghai",
         "updated_at": "2026-10-13T10:31:39.219659+00:00"
+      },
+      {
+        "title": "CoSpine：疼痛输入与时序适配准备",
+        "type": "work",
+        "date": "2026-10-13",
+        "time": "",
+        "description": "新增12名CoSpine开发成员完成原生帧空间映射、252次冻结编码与独立读回，24幅非线性图已实际查看。时间干预发现整段归一化及编码器早期token依赖后续输入；5504参数适配器接入通过，疼痛监督拟合0。 健康热痛离线技术与适配准备，未新增专家QC、训练纳入、疼痛预测成绩或独立临床验证；13名研究留出MRI未读。原五人读出、临床及强FC负结果与停止状态保留。",
+        "id": "event-89fe31353d884e05",
+        "sources": [
+          "cospine-pain-readiness-20261013",
+          "cospine-pain-readiness-20261013-summary",
+          "cospine-pain-readiness-20261013-readiness",
+          "cospine-pain-readiness-20261013-plan",
+          "cospine-pain-readiness-20261013-adapter",
+          "cospine-pain-readiness-20261013-normalization"
+        ],
+        "date_basis": "人工维护；Asia/Shanghai",
+        "updated_at": "2026-10-13T11:52:45.402870+00:00"
       }
     ]
   },
@@ -125183,5 +125308,165 @@
     "cohorts_pooled": false,
     "independent_clinical_validation": false,
     "clinical_goal_complete": false
+  },
+  "cospine_pain_readiness": {
+    "id": "cospine-pain-readiness-20261013",
+    "date": "2026-10-13",
+    "summary": "新增12名CoSpine开发成员完成原生帧空间映射、252次冻结编码与独立读回，24幅非线性图已实际查看。时间干预发现整段归一化及编码器早期token依赖后续输入；5504参数适配器接入通过，疼痛监督拟合0。",
+    "boundary": "健康热痛离线技术与适配准备，未新增专家QC、训练纳入、疼痛预测成绩或独立临床验证；13名研究留出MRI未读。原五人读出、临床及强FC负结果与停止状态保留。",
+    "next": "优先取得可核实的上游时间处理与限定报告前输入，并按完整窗口解释双向token；补强FC/刺激及协变量对照与实际预训练成员依据后再设计有限疼痛适配。OA先补基线、治疗/扫描/随访对应和既有审核，不启动8例疗效训练。",
+    "rows": [
+      {
+        "item": "开发输入",
+        "result": "12人／180相关主试次／252固定窗口；技术完成",
+        "limit": "训练纳入0；原26开发/13留出不变"
+      },
+      {
+        "item": "整段归一化",
+        "result": "后续帧干预使早期z值改变0.0102–0.0193",
+        "limit": "一个开发窗口的60个实测源样本；不是评分污染或性能证明"
+      },
+      {
+        "item": "编码器时序依赖",
+        "result": "早期prefix最大变化0.19994，final最大变化0.26720",
+        "limit": "后5输入位置固定加0.5；完整窗口token不能解释为仅对应时刻的信息"
+      },
+      {
+        "item": "时序残差适配",
+        "result": "5504可训练参数；冻结5173020参数；零初始化重放差0",
+        "limit": "真实缓存梯度接口通过；疼痛监督拟合0"
+      },
+      {
+        "item": "预训练来源",
+        "result": "官方版本/权重与五来源可追溯",
+        "limit": "实际训练名册未取得，未证明生物学人员无重叠"
+      },
+      {
+        "item": "OA疗效任务",
+        "result": "56患者原应答表；数值通过交集4/2/2",
+        "limit": "8例待审核、19例未通过；基线及准确时点仍缺"
+      }
+    ],
+    "verification": {
+      "new_people": 12,
+      "primary_dependent_trials": 180,
+      "main_windows": 180,
+      "phase_sensitivity_windows": 72,
+      "frozen_window_calls": 252,
+      "encoder_intervention_full_calls": 2,
+      "adapter_probe_last_stage_calls": 2,
+      "synthetic_backward_calls": 1,
+      "optimizer_steps": 0,
+      "pain_supervised_fits": 0,
+      "expert_reports_added": 0,
+      "new_QC_inclusions": 0,
+      "holdout_MRI_reads": 0,
+      "full_MRI_local_transfers": 0,
+      "native_frames_range": [
+        224,
+        230
+      ],
+      "full_BOLD_values_checked": 2476813976,
+      "token_values_checked": 23296896,
+      "raw_mean_error_max": 0.0,
+      "raw_std_error_max": 1.446096575818956e-10,
+      "first_window_reconstruction_error_max": 9.428924707677311e-08,
+      "pooled_sum_error_max": 0.0,
+      "acquired_frame_padding": false,
+      "repeat_scientific_registration_fits": 0,
+      "whole_frame_resampling_seconds": 2175.7336468696594,
+      "frozen_encoder_loop_seconds": 158.43813610076904
+    },
+    "clinical_goal_complete": false,
+    "independent_clinical_validation": false,
+    "normalization_dependency": {
+      "unchanged_early_voxel_samples": 60,
+      "early_z_score_change_range": [
+        0.01020150844285378,
+        0.01927963162493873
+      ]
+    },
+    "encoder_dependency": {
+      "unaltered_replay_max_difference": 0.0,
+      "earlier_prefix_token_max_change": 0.19993722438812256,
+      "earlier_final_token_max_change": 0.26720428466796875,
+      "strict_causal_token_support_observed": false
+    },
+    "adapter": {
+      "adapter_parameters": 5504,
+      "frozen_encoder_parameters": 5173020,
+      "zero_init_saved_final_max_difference": 0.0,
+      "adapter_output_weight_gradient_sum": 1.334614634513855,
+      "encoder_gradients_absent": true
+    },
+    "source": {
+      "repository": "zxcvb20001/NeuroSTORM",
+      "revision": "90ab5a43b07c54482af900a0df31545f7c0644af",
+      "file": "pretraining/pt_neurostorm_mae_5ds.ckpt",
+      "saved_source_families": [
+        "HCP1200",
+        "HCPA",
+        "HCPD",
+        "ABCD",
+        "UKB"
+      ],
+      "actual_training_roster_obtained": false
+    },
+    "OA": {
+      "public_patients": 56,
+      "numeric_pass": 8,
+      "numeric_not_pass": 19,
+      "groups": [
+        {
+          "study": 1,
+          "drug": "placebo",
+          "people": 17,
+          "responders": 8,
+          "nonresponders": 9
+        },
+        {
+          "study": 2,
+          "drug": "duloxetine",
+          "people": 19,
+          "responders": 8,
+          "nonresponders": 11
+        },
+        {
+          "study": 2,
+          "drug": "placebo",
+          "people": 20,
+          "responders": 10,
+          "nonresponders": 10
+        }
+      ],
+      "numeric_pass_groups": [
+        {
+          "study": 1,
+          "drug": "placebo",
+          "people": 4,
+          "responders": 3,
+          "nonresponders": 1
+        },
+        {
+          "study": 2,
+          "drug": "duloxetine",
+          "people": 2,
+          "responders": 1,
+          "nonresponders": 1
+        },
+        {
+          "study": 2,
+          "drug": "placebo",
+          "people": 2,
+          "responders": 2,
+          "nonresponders": 0
+        }
+      ],
+      "response_threshold_percent": 20,
+      "baseline_VAS_present": false,
+      "cohort_level_pretreatment_MRI_confirmed": true,
+      "exact_time_linkage_confirmed": false,
+      "motion_exclusions_preserved": 29
+    }
   }
 }

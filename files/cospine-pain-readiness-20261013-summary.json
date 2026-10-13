@@ -1,0 +1,160 @@
+{
+  "id": "cospine-pain-readiness-20261013",
+  "date": "2026-10-13",
+  "summary": "新增12名CoSpine开发成员完成原生帧空间映射、252次冻结编码与独立读回，24幅非线性图已实际查看。时间干预发现整段归一化及编码器早期token依赖后续输入；5504参数适配器接入通过，疼痛监督拟合0。",
+  "boundary": "健康热痛离线技术与适配准备，未新增专家QC、训练纳入、疼痛预测成绩或独立临床验证；13名研究留出MRI未读。原五人读出、临床及强FC负结果与停止状态保留。",
+  "next": "优先取得可核实的上游时间处理与限定报告前输入，并按完整窗口解释双向token；补强FC/刺激及协变量对照与实际预训练成员依据后再设计有限疼痛适配。OA先补基线、治疗/扫描/随访对应和既有审核，不启动8例疗效训练。",
+  "rows": [
+    {
+      "item": "开发输入",
+      "result": "12人／180相关主试次／252固定窗口；技术完成",
+      "limit": "训练纳入0；原26开发/13留出不变"
+    },
+    {
+      "item": "整段归一化",
+      "result": "后续帧干预使早期z值改变0.0102–0.0193",
+      "limit": "一个开发窗口的60个实测源样本；不是评分污染或性能证明"
+    },
+    {
+      "item": "编码器时序依赖",
+      "result": "早期prefix最大变化0.19994，final最大变化0.26720",
+      "limit": "后5输入位置固定加0.5；完整窗口token不能解释为仅对应时刻的信息"
+    },
+    {
+      "item": "时序残差适配",
+      "result": "5504可训练参数；冻结5173020参数；零初始化重放差0",
+      "limit": "真实缓存梯度接口通过；疼痛监督拟合0"
+    },
+    {
+      "item": "预训练来源",
+      "result": "官方版本/权重与五来源可追溯",
+      "limit": "实际训练名册未取得，未证明生物学人员无重叠"
+    },
+    {
+      "item": "OA疗效任务",
+      "result": "56患者原应答表；数值通过交集4/2/2",
+      "limit": "8例待审核、19例未通过；基线及准确时点仍缺"
+    }
+  ],
+  "verification": {
+    "new_people": 12,
+    "primary_dependent_trials": 180,
+    "main_windows": 180,
+    "phase_sensitivity_windows": 72,
+    "frozen_window_calls": 252,
+    "encoder_intervention_full_calls": 2,
+    "adapter_probe_last_stage_calls": 2,
+    "synthetic_backward_calls": 1,
+    "optimizer_steps": 0,
+    "pain_supervised_fits": 0,
+    "expert_reports_added": 0,
+    "new_QC_inclusions": 0,
+    "holdout_MRI_reads": 0,
+    "full_MRI_local_transfers": 0,
+    "native_frames_range": [
+      224,
+      230
+    ],
+    "full_BOLD_values_checked": 2476813976,
+    "token_values_checked": 23296896,
+    "raw_mean_error_max": 0.0,
+    "raw_std_error_max": 1.446096575818956e-10,
+    "first_window_reconstruction_error_max": 9.428924707677311e-08,
+    "pooled_sum_error_max": 0.0,
+    "acquired_frame_padding": false,
+    "repeat_scientific_registration_fits": 0,
+    "whole_frame_resampling_seconds": 2175.7336468696594,
+    "frozen_encoder_loop_seconds": 158.43813610076904
+  },
+  "clinical_goal_complete": false,
+  "independent_clinical_validation": false,
+  "normalization_dependency": {
+    "unchanged_early_voxel_samples": 60,
+    "early_z_score_change_range": [
+      0.01020150844285378,
+      0.01927963162493873
+    ]
+  },
+  "encoder_dependency": {
+    "unaltered_replay_max_difference": 0.0,
+    "earlier_prefix_token_max_change": 0.19993722438812256,
+    "earlier_final_token_max_change": 0.26720428466796875,
+    "strict_causal_token_support_observed": false
+  },
+  "adapter": {
+    "adapter_parameters": 5504,
+    "frozen_encoder_parameters": 5173020,
+    "zero_init_saved_final_max_difference": 0.0,
+    "adapter_output_weight_gradient_sum": 1.334614634513855,
+    "encoder_gradients_absent": true
+  },
+  "source": {
+    "repository": "zxcvb20001/NeuroSTORM",
+    "revision": "90ab5a43b07c54482af900a0df31545f7c0644af",
+    "file": "pretraining/pt_neurostorm_mae_5ds.ckpt",
+    "saved_source_families": [
+      "HCP1200",
+      "HCPA",
+      "HCPD",
+      "ABCD",
+      "UKB"
+    ],
+    "actual_training_roster_obtained": false
+  },
+  "OA": {
+    "public_patients": 56,
+    "numeric_pass": 8,
+    "numeric_not_pass": 19,
+    "groups": [
+      {
+        "study": 1,
+        "drug": "placebo",
+        "people": 17,
+        "responders": 8,
+        "nonresponders": 9
+      },
+      {
+        "study": 2,
+        "drug": "duloxetine",
+        "people": 19,
+        "responders": 8,
+        "nonresponders": 11
+      },
+      {
+        "study": 2,
+        "drug": "placebo",
+        "people": 20,
+        "responders": 10,
+        "nonresponders": 10
+      }
+    ],
+    "numeric_pass_groups": [
+      {
+        "study": 1,
+        "drug": "placebo",
+        "people": 4,
+        "responders": 3,
+        "nonresponders": 1
+      },
+      {
+        "study": 2,
+        "drug": "duloxetine",
+        "people": 2,
+        "responders": 1,
+        "nonresponders": 1
+      },
+      {
+        "study": 2,
+        "drug": "placebo",
+        "people": 2,
+        "responders": 2,
+        "nonresponders": 0
+      }
+    ],
+    "response_threshold_percent": 20,
+    "baseline_VAS_present": false,
+    "cohort_level_pretreatment_MRI_confirmed": true,
+    "exact_time_linkage_confirmed": false,
+    "motion_exclusions_preserved": 29
+  }
+}

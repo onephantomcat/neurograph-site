@@ -188,6 +188,6 @@ ZAN/SRPBS保留原第一重复的五外折/三内折；Emo三外折/三内折；
 
 完整MRI和权重留服务器；小输入/逐人预测仅私有保留。公开的是聚合、适配方案和自有源码修改配方，不复制第三方完整代码、权重或个人数据。
 
-[拟合前方案](https://onephantomcat.github.io/neurograph-site/files/compact-pain-20261013-plan.md) · [完整聚合](https://onephantomcat.github.io/neurograph-site/files/compact-pain-20261013-summary.json) · [全部种子指标](https://onephantomcat.github.io/neurograph-site/files/compact-pain-20261013-metrics.csv) · [区间图](https://onephantomcat.github.io/neurograph-site/files/compact-pain-20261013-figure.png) · [自有源码修改配方](https://github.com/onephantomcat/Fmri/blob/main/research-code/pain-adaptation/compact_recipe.py)
+[拟合前方案](https://onephantomcat.github.io/neurograph-site/files/compact-pain-20261013-plan.md) · [完整聚合](https://onephantomcat.github.io/neurograph-site/files/compact-pain-20261013-summary.json) · [全部种子指标](https://onephantomcat.github.io/neurograph-site/files/compact-pain-20261013-metrics.csv) · [区间图](https://onephantomcat.github.io/neurograph-site/files/compact-pain-20261013-figure.png) · [自有源码修改配方](https://onephantomcat.github.io/neurograph-site/files/compact-pain-20261013-recipe.py)
 
 <Self-Audit>泄露：沿用原人级划分，所有缩放、切空间参考和epoch/C选择仅训练侧；全部队列有历史开发选择，独立验证缺失。过拟合：实际参数、训练/查询、所有seed与阴性结果公开，停止无依据扩展。复用：复用原有限训练、经典对照、配对评价及发布组件；历史实现不重构。</Self-Audit>

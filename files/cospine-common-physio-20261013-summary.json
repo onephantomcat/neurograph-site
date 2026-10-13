@@ -1,0 +1,249 @@
+{
+  "id": "cospine-common-physio-20261013",
+  "date": "2026-10-14",
+  "summary": "4名原开发成员、60个相关试次完成同人留一人对照，共同协变量人均MAE 0.959371，较强FC 0.996683。随机/读出/残差两种子和冻结预训练逐折结果全部保留；40次外层拟合、216次内层Ridge拟合。",
+  "boundary": "健康人热痛随后报告PR 0–10的4人开发结果；各人统一未作畸变或BOLD生理回归，使用同人DICOM/CSA切片时点。2人的JSON时钟不匹配和1组场图位置问题已保留；短窗FC仅真实采集帧。局部配准、独立TTL/记录长度及预训练名册缺口仍在。新增专家/正式QC/独立临床验证0，13人留出MRI未读，原三临床目标未完成。",
+  "next": "小残差未形成两种子一致超出共同协变量、强FC、随机、冻结及读出对照的增量证据，停止本轮残差扩参；优先补场图来源、真实患者同期疼痛/疗效终点及独立来源，不追开发分数。",
+  "rows": [
+    {
+      "item": "共同协变量",
+      "result": "人均MAE 0.959371；对共同协变量Δ +0.000000",
+      "limit": "对较强FC Δ -0.037312；改善3/4人"
+    },
+    {
+      "item": "共同协变量＋Pearson FC",
+      "result": "人均MAE 1.102766；对共同协变量Δ +0.143396",
+      "limit": "对较强FC Δ +0.106083；改善0/4人"
+    },
+    {
+      "item": "共同协变量＋切空间FC",
+      "result": "人均MAE 0.996683；对共同协变量Δ +0.037312",
+      "limit": "对较强FC Δ +0.000000；改善0/4人"
+    },
+    {
+      "item": "随机官方架构，种子0",
+      "result": "人均MAE 1.363280；对共同协变量Δ +0.403910",
+      "limit": "对较强FC Δ +0.366597；改善0/4人"
+    },
+    {
+      "item": "随机官方架构，种子1",
+      "result": "人均MAE 2.541800；对共同协变量Δ +1.582430",
+      "limit": "对较强FC Δ +1.545117；改善1/4人"
+    },
+    {
+      "item": "冻结官方预训练",
+      "result": "人均MAE 1.932229；对共同协变量Δ +0.972859",
+      "limit": "对较强FC Δ +0.935546；改善1/4人"
+    },
+    {
+      "item": "冻结模型仅训练读出，种子0",
+      "result": "人均MAE 3.072701；对共同协变量Δ +2.113330",
+      "limit": "对较强FC Δ +2.076018；改善0/4人"
+    },
+    {
+      "item": "冻结模型＋小残差，种子0",
+      "result": "人均MAE 2.318301；对共同协变量Δ +1.358930",
+      "limit": "对较强FC Δ +1.321618；改善0/4人"
+    },
+    {
+      "item": "冻结模型仅训练读出，种子1",
+      "result": "人均MAE 3.094691；对共同协变量Δ +2.135321",
+      "limit": "对较强FC Δ +2.098008；改善0/4人"
+    },
+    {
+      "item": "冻结模型＋小残差，种子1",
+      "result": "人均MAE 2.417972；对共同协变量Δ +1.458601",
+      "limit": "对较强FC Δ +1.421289；改善0/4人"
+    }
+  ],
+  "metrics": [
+    {
+      "model": "common",
+      "person_mean_MAE": 0.9593706436955214,
+      "trial_MAE": 0.9593706436955216,
+      "people": 4,
+      "trials": 60,
+      "delta_MAE_vs_common": 0.0,
+      "delta_MAE_vs_best_FC": -0.03731235118915954,
+      "people_improved_vs_common": 0,
+      "people_improved_vs_best_FC": 3,
+      "paired_FC_delta_range": [
+        -0.12627487713879493,
+        0.07957903732217886
+      ]
+    },
+    {
+      "model": "pearson",
+      "person_mean_MAE": 1.1027663033370638,
+      "trial_MAE": 1.1027663033370636,
+      "people": 4,
+      "trials": 60,
+      "delta_MAE_vs_common": 0.14339565964154244,
+      "delta_MAE_vs_best_FC": 0.1060833084523829,
+      "people_improved_vs_common": 0,
+      "people_improved_vs_best_FC": 0,
+      "paired_FC_delta_range": [
+        0.028982931267239942,
+        0.233473148986997
+      ]
+    },
+    {
+      "model": "tangent",
+      "person_mean_MAE": 0.9966829948846809,
+      "trial_MAE": 0.996682994884681,
+      "people": 4,
+      "trials": 60,
+      "delta_MAE_vs_common": 0.03731235118915954,
+      "delta_MAE_vs_best_FC": 0.0,
+      "people_improved_vs_common": 1,
+      "people_improved_vs_best_FC": 0,
+      "paired_FC_delta_range": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "model": "random0",
+      "person_mean_MAE": 1.3632803079208946,
+      "trial_MAE": 1.3632803079208944,
+      "people": 4,
+      "trials": 60,
+      "delta_MAE_vs_common": 0.4039096642253732,
+      "delta_MAE_vs_best_FC": 0.3665973130362137,
+      "people_improved_vs_common": 0,
+      "people_improved_vs_best_FC": 0,
+      "paired_FC_delta_range": [
+        0.12904669885106856,
+        0.6190735527117784
+      ]
+    },
+    {
+      "model": "random1",
+      "person_mean_MAE": 2.5418002182412422,
+      "trial_MAE": 2.541800218241242,
+      "people": 4,
+      "trials": 60,
+      "delta_MAE_vs_common": 1.5824295745457209,
+      "delta_MAE_vs_best_FC": 1.5451172233565613,
+      "people_improved_vs_common": 1,
+      "people_improved_vs_best_FC": 1,
+      "paired_FC_delta_range": [
+        -0.09549196767347601,
+        3.384282412324246
+      ]
+    },
+    {
+      "model": "pretrained",
+      "person_mean_MAE": 1.9322294178397004,
+      "trial_MAE": 1.9322294178397001,
+      "people": 4,
+      "trials": 60,
+      "delta_MAE_vs_common": 0.972858774144179,
+      "delta_MAE_vs_best_FC": 0.9355464229550194,
+      "people_improved_vs_common": 0,
+      "people_improved_vs_best_FC": 1,
+      "paired_FC_delta_range": [
+        -0.00046521600630433646,
+        2.949508868542657
+      ]
+    },
+    {
+      "model": "head_only0",
+      "person_mean_MAE": 3.072701056798299,
+      "trial_MAE": 3.0727010567982993,
+      "people": 4,
+      "trials": 60,
+      "delta_MAE_vs_common": 2.1133304131027772,
+      "delta_MAE_vs_best_FC": 2.0760180619136177,
+      "people_improved_vs_common": 0,
+      "people_improved_vs_best_FC": 0,
+      "paired_FC_delta_range": [
+        0.1762914331486949,
+        6.28938529910221
+      ]
+    },
+    {
+      "model": "residual0",
+      "person_mean_MAE": 2.3183009227116904,
+      "trial_MAE": 2.3183009227116904,
+      "people": 4,
+      "trials": 60,
+      "delta_MAE_vs_common": 1.358930279016169,
+      "delta_MAE_vs_best_FC": 1.3216179278270095,
+      "people_improved_vs_common": 0,
+      "people_improved_vs_best_FC": 0,
+      "paired_FC_delta_range": [
+        0.08181171335092463,
+        3.5085596205947227
+      ]
+    },
+    {
+      "model": "head_only1",
+      "person_mean_MAE": 3.094691252708435,
+      "trial_MAE": 3.094691252708435,
+      "people": 4,
+      "trials": 60,
+      "delta_MAE_vs_common": 2.135320609012914,
+      "delta_MAE_vs_best_FC": 2.0980082578237544,
+      "people_improved_vs_common": 0,
+      "people_improved_vs_best_FC": 0,
+      "paired_FC_delta_range": [
+        0.17489639835865578,
+        6.075771026030921
+      ]
+    },
+    {
+      "model": "residual1",
+      "person_mean_MAE": 2.4179719289143877,
+      "trial_MAE": 2.417971928914388,
+      "people": 4,
+      "trials": 60,
+      "delta_MAE_vs_common": 1.4586012852188663,
+      "delta_MAE_vs_best_FC": 1.4212889340297068,
+      "people_improved_vs_common": 0,
+      "people_improved_vs_best_FC": 0,
+      "paired_FC_delta_range": [
+        0.02013203220875348,
+        3.984743448312822
+      ]
+    }
+  ],
+  "verification": {
+    "people": 4,
+    "trials": 60,
+    "outer_fits": 40,
+    "inner_ridge_fits": 216,
+    "optimizer_steps": 3840,
+    "encoder_calls": 180,
+    "random_seeds": [
+      0,
+      1
+    ],
+    "adapter_seeds": [
+      0,
+      1
+    ],
+    "epochs": 20,
+    "adapter_parameters": 5480,
+    "frozen_parameters": 5173020,
+    "fitted_models_saved": 40,
+    "checkpoint_query_replay_max_error": 0.0,
+    "uniform_distortion_correction": false,
+    "same_person_CSA_timing": true,
+    "BOLD_JSON_clock_mismatched_people": 2,
+    "fmap_geometry_problem_people": 1,
+    "source_min_report_gap": 1.1119999999799575,
+    "actual_FC_frame_range": [
+      7,
+      8
+    ],
+    "holdout_MRI_reads": 0,
+    "formal_QC_changes": 0,
+    "expert_reports": 0,
+    "full_MRI_local_transfers": 0,
+    "pretraining_overlap_proven": false,
+    "clinical_goal_complete": false,
+    "prior_public_download_byte_matches": 21,
+    "prior_public_browser_verified": true
+  }
+}

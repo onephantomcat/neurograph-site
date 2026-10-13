@@ -1,0 +1,3150 @@
+{
+  "id": "pain-model-adaptation-20261013",
+  "date": "2026-10-13",
+  "summary": "BNT、Com-BrainTF、BrainHGT已分别在ZAN54和SRPBS99完成协变量融合适配。SRPBS切空间AUROC0.7527高于全部神经结果；ZAN神经结果最高0.4993，无稳定强FC增量。",
+  "boundary": "患者组/健康组的开发比较，不是扫描同期痛、程度或疗效预测。两个队列分别解释；全部固定种子和阴性结果保留，没有新增独立临床验证或专家QC。",
+  "next": "停止本轮大参数从零训练配置；下一步只考虑有训练内依据的低参数适配，并继续取得真实疼痛时点、治疗结局及独立人员来源，不扩搜索到出现好分。",
+  "metric_rows": [
+    {
+      "cohort": "zan",
+      "model": "covariates",
+      "people": 54,
+      "patient": 25,
+      "patient_prevalence": 0.46296296296296297,
+      "auc": 0.3117241379310345,
+      "auprc": 0.36522351437487516,
+      "brier": 0.2504334644749785,
+      "balanced_accuracy": 0.3896551724137931,
+      "logloss": 0.6940141166495398,
+      "sensitivity": 0.4,
+      "specificity": 0.3793103448275862,
+      "accuracy": 0.3888888888888889,
+      "delta_auc_vs_tangent": -0.07862068965517244,
+      "delta_lower": -0.29120879120879123,
+      "delta_upper": 0.1318903318903318,
+      "name": "仅四协变量"
+    },
+    {
+      "cohort": "zan",
+      "model": "pearson_covariates",
+      "people": 54,
+      "patient": 25,
+      "patient_prevalence": 0.46296296296296297,
+      "auc": 0.42344827586206896,
+      "auprc": 0.47899065233797894,
+      "brier": 0.27932001271731444,
+      "balanced_accuracy": 0.4413793103448276,
+      "logloss": 0.7563982411806867,
+      "sensitivity": 0.4,
+      "specificity": 0.4827586206896552,
+      "accuracy": 0.4444444444444444,
+      "delta_auc_vs_tangent": 0.033103448275862035,
+      "delta_lower": -0.12637400793650794,
+      "delta_upper": 0.19053046218487368,
+      "name": "Pearson FC＋四协变量"
+    },
+    {
+      "cohort": "zan",
+      "model": "tangent_covariates",
+      "people": 54,
+      "patient": 25,
+      "patient_prevalence": 0.46296296296296297,
+      "auc": 0.3903448275862069,
+      "auprc": 0.3927978066905951,
+      "brier": 0.26378326903124877,
+      "balanced_accuracy": 0.4613793103448276,
+      "logloss": 0.721046662146435,
+      "sensitivity": 0.44,
+      "specificity": 0.4827586206896552,
+      "accuracy": 0.46296296296296297,
+      "delta_auc_vs_tangent": 0.0,
+      "delta_lower": null,
+      "delta_upper": null,
+      "name": "切空间FC＋四协变量"
+    },
+    {
+      "cohort": "zan",
+      "model": "BNT_seed0",
+      "people": 54,
+      "patient": 25,
+      "patient_prevalence": 0.46296296296296297,
+      "auc": 0.36137931034482756,
+      "auprc": 0.4414253127198915,
+      "brier": 0.27334660626101626,
+      "balanced_accuracy": 0.43655172413793103,
+      "logloss": 0.753299894323437,
+      "sensitivity": 0.08,
+      "specificity": 0.7931034482758621,
+      "accuracy": 0.46296296296296297,
+      "delta_auc_vs_tangent": -0.028965517241379357,
+      "delta_lower": -0.22414830178895515,
+      "delta_upper": 0.176418087121212,
+      "name": "BNT · seed0"
+    },
+    {
+      "cohort": "zan",
+      "model": "BNT_seed1",
+      "people": 54,
+      "patient": 25,
+      "patient_prevalence": 0.46296296296296297,
+      "auc": 0.42344827586206896,
+      "auprc": 0.41716209419943284,
+      "brier": 0.2588744647755962,
+      "balanced_accuracy": 0.5,
+      "logloss": 0.7119987291905727,
+      "sensitivity": 0.0,
+      "specificity": 1.0,
+      "accuracy": 0.5370370370370371,
+      "delta_auc_vs_tangent": 0.033103448275862035,
+      "delta_lower": -0.17252467903765237,
+      "delta_upper": 0.255523692646764,
+      "name": "BNT · seed1"
+    },
+    {
+      "cohort": "zan",
+      "model": "Com-BrainTF_seed0",
+      "people": 54,
+      "patient": 25,
+      "patient_prevalence": 0.46296296296296297,
+      "auc": 0.3627586206896552,
+      "auprc": 0.4475739545170418,
+      "brier": 0.3255197484229792,
+      "balanced_accuracy": 0.41724137931034483,
+      "logloss": 0.892060819578665,
+      "sensitivity": 0.8,
+      "specificity": 0.034482758620689655,
+      "accuracy": 0.3888888888888889,
+      "delta_auc_vs_tangent": -0.027586206896551724,
+      "delta_lower": -0.22722728116492033,
+      "delta_upper": 0.17379610194902545,
+      "name": "Com-BrainTF · seed0"
+    },
+    {
+      "cohort": "zan",
+      "model": "Com-BrainTF_seed1",
+      "people": 54,
+      "patient": 25,
+      "patient_prevalence": 0.46296296296296297,
+      "auc": 0.4096551724137931,
+      "auprc": 0.4150196460172912,
+      "brier": 0.273842758770227,
+      "balanced_accuracy": 0.4951724137931035,
+      "logloss": 0.7465362545001591,
+      "sensitivity": 0.68,
+      "specificity": 0.3103448275862069,
+      "accuracy": 0.48148148148148145,
+      "delta_auc_vs_tangent": 0.0193103448275862,
+      "delta_lower": -0.17917875596184418,
+      "delta_upper": 0.2307931034482758,
+      "name": "Com-BrainTF · seed1"
+    },
+    {
+      "cohort": "zan",
+      "model": "BrainHGT_seed0",
+      "people": 54,
+      "patient": 25,
+      "patient_prevalence": 0.46296296296296297,
+      "auc": 0.4993103448275862,
+      "auprc": 0.46532072265521884,
+      "brier": 0.25463960399560104,
+      "balanced_accuracy": 0.47172413793103446,
+      "logloss": 0.7024987927665595,
+      "sensitivity": 0.84,
+      "specificity": 0.10344827586206896,
+      "accuracy": 0.4444444444444444,
+      "delta_auc_vs_tangent": 0.10896551724137926,
+      "delta_lower": -0.09232954545454541,
+      "delta_upper": 0.308341049382716,
+      "name": "BrainHGT · seed0"
+    },
+    {
+      "cohort": "zan",
+      "model": "BrainHGT_seed1",
+      "people": 54,
+      "patient": 25,
+      "patient_prevalence": 0.46296296296296297,
+      "auc": 0.4013793103448276,
+      "auprc": 0.40194348967408167,
+      "brier": 0.26355038804538145,
+      "balanced_accuracy": 0.4275862068965517,
+      "logloss": 0.7208433695756992,
+      "sensitivity": 0.2,
+      "specificity": 0.6551724137931034,
+      "accuracy": 0.4444444444444444,
+      "delta_auc_vs_tangent": 0.011034482758620678,
+      "delta_lower": -0.20003472222222218,
+      "delta_upper": 0.22503472222222207,
+      "name": "BrainHGT · seed1"
+    },
+    {
+      "cohort": "srpbs",
+      "model": "covariates",
+      "people": 99,
+      "patient": 46,
+      "patient_prevalence": 0.46464646464646464,
+      "auc": 0.5504511894995898,
+      "auprc": 0.47660861060856186,
+      "brier": 0.2602779943997016,
+      "balanced_accuracy": 0.6091058244462675,
+      "logloss": 0.7169979570778067,
+      "sensitivity": 0.6521739130434783,
+      "specificity": 0.5660377358490566,
+      "accuracy": 0.6060606060606061,
+      "delta_auc_vs_tangent": -0.2022149302707137,
+      "delta_lower": -0.30678603600817955,
+      "delta_upper": -0.10597381342062195,
+      "name": "仅四协变量"
+    },
+    {
+      "cohort": "srpbs",
+      "model": "pearson_covariates",
+      "people": 99,
+      "patient": 46,
+      "patient_prevalence": 0.46464646464646464,
+      "auc": 0.7026251025430681,
+      "auprc": 0.6363007114411695,
+      "brier": 0.22018834040375146,
+      "balanced_accuracy": 0.6534044298605415,
+      "logloss": 0.6312968286697608,
+      "sensitivity": 0.6086956521739131,
+      "specificity": 0.6981132075471698,
+      "accuracy": 0.6565656565656566,
+      "delta_auc_vs_tangent": -0.05004101722723542,
+      "delta_lower": -0.12962820934379216,
+      "delta_upper": 0.032102418745275876,
+      "name": "Pearson FC＋四协变量"
+    },
+    {
+      "cohort": "srpbs",
+      "model": "tangent_covariates",
+      "people": 99,
+      "patient": 46,
+      "patient_prevalence": 0.46464646464646464,
+      "auc": 0.7526661197703035,
+      "auprc": 0.7133042377186811,
+      "brier": 0.20037589955843058,
+      "balanced_accuracy": 0.6874487284659556,
+      "logloss": 0.5870353550386881,
+      "sensitivity": 0.6956521739130435,
+      "specificity": 0.6792452830188679,
+      "accuracy": 0.6868686868686869,
+      "delta_auc_vs_tangent": 0.0,
+      "delta_lower": null,
+      "delta_upper": null,
+      "name": "切空间FC＋四协变量"
+    },
+    {
+      "cohort": "srpbs",
+      "model": "BNT_seed0",
+      "people": 99,
+      "patient": 46,
+      "patient_prevalence": 0.46464646464646464,
+      "auc": 0.6841673502871206,
+      "auprc": 0.6266931923269909,
+      "brier": 0.27257693788805654,
+      "balanced_accuracy": 0.6099261689909762,
+      "logloss": 0.8806899604196083,
+      "sensitivity": 0.5217391304347826,
+      "specificity": 0.6981132075471698,
+      "accuracy": 0.6161616161616161,
+      "delta_auc_vs_tangent": -0.0684987694831829,
+      "delta_lower": -0.18472792188421613,
+      "delta_upper": 0.04277469306700566,
+      "name": "BNT · seed0"
+    },
+    {
+      "cohort": "srpbs",
+      "model": "BNT_seed1",
+      "people": 99,
+      "patient": 46,
+      "patient_prevalence": 0.46464646464646464,
+      "auc": 0.6242821985233798,
+      "auprc": 0.573334261989737,
+      "brier": 0.2412735161479876,
+      "balanced_accuracy": 0.5730106644790812,
+      "logloss": 0.6747092110765441,
+      "sensitivity": 0.391304347826087,
+      "specificity": 0.7547169811320755,
+      "accuracy": 0.5858585858585859,
+      "delta_auc_vs_tangent": -0.12838392124692366,
+      "delta_lower": -0.2296172582139671,
+      "delta_upper": -0.037189660643871865,
+      "name": "BNT · seed1"
+    },
+    {
+      "cohort": "srpbs",
+      "model": "Com-BrainTF_seed0",
+      "people": 99,
+      "patient": 46,
+      "patient_prevalence": 0.46464646464646464,
+      "auc": 0.6365873666940115,
+      "auprc": 0.5636660626775981,
+      "brier": 0.24018058055710154,
+      "balanced_accuracy": 0.5693191140278917,
+      "logloss": 0.6750990523035508,
+      "sensitivity": 0.4782608695652174,
+      "specificity": 0.660377358490566,
+      "accuracy": 0.5757575757575758,
+      "delta_auc_vs_tangent": -0.11607875307629201,
+      "delta_lower": -0.21592857142857136,
+      "delta_upper": -0.0172188415596124,
+      "name": "Com-BrainTF · seed0"
+    },
+    {
+      "cohort": "srpbs",
+      "model": "Com-BrainTF_seed1",
+      "people": 99,
+      "patient": 46,
+      "patient_prevalence": 0.46464646464646464,
+      "auc": 0.6037735849056604,
+      "auprc": 0.5371910143889803,
+      "brier": 0.24768890180597095,
+      "balanced_accuracy": 0.5715750615258408,
+      "logloss": 0.6888707833164838,
+      "sensitivity": 0.3695652173913043,
+      "specificity": 0.7735849056603774,
+      "accuracy": 0.5858585858585859,
+      "delta_auc_vs_tangent": -0.14889253486464316,
+      "delta_lower": -0.23851417760086488,
+      "delta_upper": -0.05768853530950309,
+      "name": "Com-BrainTF · seed1"
+    },
+    {
+      "cohort": "srpbs",
+      "model": "BrainHGT_seed0",
+      "people": 99,
+      "patient": 46,
+      "patient_prevalence": 0.46464646464646464,
+      "auc": 0.6345365053322395,
+      "auprc": 0.5769561201300671,
+      "brier": 0.2443286752530808,
+      "balanced_accuracy": 0.6302296964725185,
+      "logloss": 0.6931480644332567,
+      "sensitivity": 0.5434782608695652,
+      "specificity": 0.7169811320754716,
+      "accuracy": 0.6363636363636364,
+      "delta_auc_vs_tangent": -0.11812961443806402,
+      "delta_lower": -0.2068401360544218,
+      "delta_upper": -0.03469328082110035,
+      "name": "BrainHGT · seed0"
+    },
+    {
+      "cohort": "srpbs",
+      "model": "BrainHGT_seed1",
+      "people": 99,
+      "patient": 46,
+      "patient_prevalence": 0.46464646464646464,
+      "auc": 0.6242821985233798,
+      "auprc": 0.5637045824304571,
+      "brier": 0.24538027256302827,
+      "balanced_accuracy": 0.5996718621821164,
+      "logloss": 0.6876067448668706,
+      "sensitivity": 0.6521739130434783,
+      "specificity": 0.5471698113207547,
+      "accuracy": 0.5959595959595959,
+      "delta_auc_vs_tangent": -0.12838392124692366,
+      "delta_lower": -0.21579395228012738,
+      "delta_upper": -0.042452180872349074,
+      "name": "BrainHGT · seed1"
+    }
+  ],
+  "cohorts": {
+    "zan": {
+      "people": 54,
+      "patient": 25,
+      "healthy": 29,
+      "metrics": {
+        "covariates": {
+          "auc": 0.3117241379310345,
+          "auprc": 0.36522351437487516,
+          "brier": 0.2504334644749785,
+          "balanced_accuracy": 0.3896551724137931,
+          "logloss": 0.6940141166495398,
+          "sensitivity": 0.4,
+          "specificity": 0.3793103448275862,
+          "accuracy": 0.3888888888888889
+        },
+        "pearson_covariates": {
+          "auc": 0.42344827586206896,
+          "auprc": 0.47899065233797894,
+          "brier": 0.27932001271731444,
+          "balanced_accuracy": 0.4413793103448276,
+          "logloss": 0.7563982411806867,
+          "sensitivity": 0.4,
+          "specificity": 0.4827586206896552,
+          "accuracy": 0.4444444444444444
+        },
+        "tangent_covariates": {
+          "auc": 0.3903448275862069,
+          "auprc": 0.3927978066905951,
+          "brier": 0.26378326903124877,
+          "balanced_accuracy": 0.4613793103448276,
+          "logloss": 0.721046662146435,
+          "sensitivity": 0.44,
+          "specificity": 0.4827586206896552,
+          "accuracy": 0.46296296296296297
+        },
+        "BNT_seed0": {
+          "auc": 0.36137931034482756,
+          "auprc": 0.4414253127198915,
+          "brier": 0.27334660626101626,
+          "balanced_accuracy": 0.43655172413793103,
+          "logloss": 0.753299894323437,
+          "sensitivity": 0.08,
+          "specificity": 0.7931034482758621,
+          "accuracy": 0.46296296296296297
+        },
+        "BNT_seed1": {
+          "auc": 0.42344827586206896,
+          "auprc": 0.41716209419943284,
+          "brier": 0.2588744647755962,
+          "balanced_accuracy": 0.5,
+          "logloss": 0.7119987291905727,
+          "sensitivity": 0.0,
+          "specificity": 1.0,
+          "accuracy": 0.5370370370370371
+        },
+        "Com-BrainTF_seed0": {
+          "auc": 0.3627586206896552,
+          "auprc": 0.4475739545170418,
+          "brier": 0.3255197484229792,
+          "balanced_accuracy": 0.41724137931034483,
+          "logloss": 0.892060819578665,
+          "sensitivity": 0.8,
+          "specificity": 0.034482758620689655,
+          "accuracy": 0.3888888888888889
+        },
+        "Com-BrainTF_seed1": {
+          "auc": 0.4096551724137931,
+          "auprc": 0.4150196460172912,
+          "brier": 0.273842758770227,
+          "balanced_accuracy": 0.4951724137931035,
+          "logloss": 0.7465362545001591,
+          "sensitivity": 0.68,
+          "specificity": 0.3103448275862069,
+          "accuracy": 0.48148148148148145
+        },
+        "BrainHGT_seed0": {
+          "auc": 0.4993103448275862,
+          "auprc": 0.46532072265521884,
+          "brier": 0.25463960399560104,
+          "balanced_accuracy": 0.47172413793103446,
+          "logloss": 0.7024987927665595,
+          "sensitivity": 0.84,
+          "specificity": 0.10344827586206896,
+          "accuracy": 0.4444444444444444
+        },
+        "BrainHGT_seed1": {
+          "auc": 0.4013793103448276,
+          "auprc": 0.40194348967408167,
+          "brier": 0.26355038804538145,
+          "balanced_accuracy": 0.4275862068965517,
+          "logloss": 0.7208433695756992,
+          "sensitivity": 0.2,
+          "specificity": 0.6551724137931034,
+          "accuracy": 0.4444444444444444
+        }
+      },
+      "fold_metrics": {
+        "covariates": [
+          {
+            "fold": 0,
+            "n": 11,
+            "auc": 0.16666666666666669,
+            "brier": 0.25139983790821685
+          },
+          {
+            "fold": 1,
+            "n": 11,
+            "auc": 0.4666666666666667,
+            "brier": 0.25003893781709857
+          },
+          {
+            "fold": 2,
+            "n": 11,
+            "auc": 0.3333333333333333,
+            "brier": 0.2501675561043106
+          },
+          {
+            "fold": 3,
+            "n": 11,
+            "auc": 0.43333333333333335,
+            "brier": 0.25026811925918807
+          },
+          {
+            "fold": 4,
+            "n": 10,
+            "auc": 0.48000000000000004,
+            "brier": 0.25027881196718865
+          }
+        ],
+        "pearson_covariates": [
+          {
+            "fold": 0,
+            "n": 11,
+            "auc": 0.5333333333333333,
+            "brier": 0.24669488622014668
+          },
+          {
+            "fold": 1,
+            "n": 11,
+            "auc": 0.3666666666666667,
+            "brier": 0.2799354785363413
+          },
+          {
+            "fold": 2,
+            "n": 11,
+            "auc": 0.4666666666666667,
+            "brier": 0.2877985418643571
+          },
+          {
+            "fold": 3,
+            "n": 11,
+            "auc": 0.5666666666666667,
+            "brier": 0.25246850965500256
+          },
+          {
+            "fold": 4,
+            "n": 10,
+            "auc": 0.16,
+            "brier": 0.33474091077006557
+          }
+        ],
+        "tangent_covariates": [
+          {
+            "fold": 0,
+            "n": 11,
+            "auc": 0.6000000000000001,
+            "brier": 0.24395594283491107
+          },
+          {
+            "fold": 1,
+            "n": 11,
+            "auc": 0.26666666666666666,
+            "brier": 0.2745551210475065
+          },
+          {
+            "fold": 2,
+            "n": 11,
+            "auc": 0.4666666666666667,
+            "brier": 0.2593941256377822
+          },
+          {
+            "fold": 3,
+            "n": 11,
+            "auc": 0.49999999999999994,
+            "brier": 0.24971687063666118
+          },
+          {
+            "fold": 4,
+            "n": 10,
+            "auc": 0.0,
+            "brier": 0.2940453865961963
+          }
+        ],
+        "BNT_seed0": [
+          {
+            "fold": 0,
+            "n": 11,
+            "auc": 0.16666666666666669,
+            "brier": 0.24948797032284914
+          },
+          {
+            "fold": 1,
+            "n": 11,
+            "auc": 0.5666666666666667,
+            "brier": 0.2478360442476813
+          },
+          {
+            "fold": 2,
+            "n": 11,
+            "auc": 0.4666666666666667,
+            "brier": 0.33621673117761086
+          },
+          {
+            "fold": 3,
+            "n": 11,
+            "auc": 0.4333333333333333,
+            "brier": 0.24827582953228253
+          },
+          {
+            "fold": 4,
+            "n": 10,
+            "auc": 0.16000000000000003,
+            "brier": 0.28607344100102167
+          }
+        ],
+        "BNT_seed1": [
+          {
+            "fold": 0,
+            "n": 11,
+            "auc": 0.19999999999999998,
+            "brier": 0.251400962566368
+          },
+          {
+            "fold": 1,
+            "n": 11,
+            "auc": 0.5333333333333333,
+            "brier": 0.24932153642599733
+          },
+          {
+            "fold": 2,
+            "n": 11,
+            "auc": 0.8,
+            "brier": 0.2489867549930522
+          },
+          {
+            "fold": 3,
+            "n": 11,
+            "auc": 0.43333333333333335,
+            "brier": 0.24993223822149177
+          },
+          {
+            "fold": 4,
+            "n": 10,
+            "auc": 0.12,
+            "brier": 0.29831646836061976
+          }
+        ],
+        "Com-BrainTF_seed0": [
+          {
+            "fold": 0,
+            "n": 11,
+            "auc": 0.4666666666666667,
+            "brier": 0.2513772892456872
+          },
+          {
+            "fold": 1,
+            "n": 11,
+            "auc": 0.4666666666666667,
+            "brier": 0.2503993769402842
+          },
+          {
+            "fold": 2,
+            "n": 11,
+            "auc": 0.43333333333333335,
+            "brier": 0.5110395462835298
+          },
+          {
+            "fold": 3,
+            "n": 11,
+            "auc": 0.6333333333333333,
+            "brier": 0.2503451454185569
+          },
+          {
+            "fold": 4,
+            "n": 10,
+            "auc": 0.16,
+            "brier": 0.36832914780722403
+          }
+        ],
+        "Com-BrainTF_seed1": [
+          {
+            "fold": 0,
+            "n": 11,
+            "auc": 0.033333333333333326,
+            "brier": 0.25694531677540733
+          },
+          {
+            "fold": 1,
+            "n": 11,
+            "auc": 0.4,
+            "brier": 0.2555753911180238
+          },
+          {
+            "fold": 2,
+            "n": 11,
+            "auc": 0.4,
+            "brier": 0.2605821787966478
+          },
+          {
+            "fold": 3,
+            "n": 11,
+            "auc": 0.36666666666666664,
+            "brier": 0.2538107187283552
+          },
+          {
+            "fold": 4,
+            "n": 10,
+            "auc": 0.12,
+            "brier": 0.3491459313989485
+          }
+        ],
+        "BrainHGT_seed0": [
+          {
+            "fold": 0,
+            "n": 11,
+            "auc": 0.5,
+            "brier": 0.2566676935970811
+          },
+          {
+            "fold": 1,
+            "n": 11,
+            "auc": 0.5333333333333333,
+            "brier": 0.24956239448199186
+          },
+          {
+            "fold": 2,
+            "n": 11,
+            "auc": 0.6,
+            "brier": 0.2539692205944361
+          },
+          {
+            "fold": 3,
+            "n": 11,
+            "auc": 0.6,
+            "brier": 0.25338657458480507
+          },
+          {
+            "fold": 4,
+            "n": 10,
+            "auc": 0.07999999999999999,
+            "brier": 0.26010938999210004
+          }
+        ],
+        "BrainHGT_seed1": [
+          {
+            "fold": 0,
+            "n": 11,
+            "auc": 0.23333333333333334,
+            "brier": 0.25106622776278603
+          },
+          {
+            "fold": 1,
+            "n": 11,
+            "auc": 0.7666666666666667,
+            "brier": 0.24827554594746404
+          },
+          {
+            "fold": 2,
+            "n": 11,
+            "auc": 0.7333333333333334,
+            "brier": 0.24765599522853307
+          },
+          {
+            "fold": 3,
+            "n": 11,
+            "auc": 0.4666666666666667,
+            "brier": 0.2524016940066945
+          },
+          {
+            "fold": 4,
+            "n": 10,
+            "auc": 0.08000000000000002,
+            "brier": 0.3238326862050343
+          }
+        ]
+      },
+      "paired_fc": {
+        "covariates": {
+          "auc": {
+            "improvement": -0.07862068965517244,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.29120879120879123,
+              "upper": 0.1318903318903318,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": -0.02757429231571995,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.13107347266771768,
+              "upper": 0.07714866840801349,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": 0.013349804556270273,
+            "positive_means_better": true,
+            "interval": {
+              "lower": 0.0006053105218031971,
+              "upper": 0.026715597284181564,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": -0.07172413793103449,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.26069713906782876,
+              "upper": 0.11504626951995371,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "pearson_covariates": {
+          "auc": {
+            "improvement": 0.033103448275862035,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.12637400793650794,
+              "upper": 0.19053046218487368,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.08619284564738383,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.02775653032209404,
+              "upper": 0.20900512676982233,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": -0.015536743686065668,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.044080071985963136,
+              "upper": 0.012036531767913437,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": -0.020000000000000018,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.1676019818628076,
+              "upper": 0.12962962962962965,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "BNT_seed0": {
+          "auc": {
+            "improvement": -0.028965517241379357,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.22414830178895515,
+              "upper": 0.176418087121212,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.048627506029296386,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.08130436708810164,
+              "upper": 0.16493709458410238,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": -0.009563337229767488,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.04537021091939225,
+              "upper": 0.023860929813547743,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": -0.024827586206896568,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.15850590027566852,
+              "upper": 0.1111111111111111,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "BNT_seed1": {
+          "auc": {
+            "improvement": 0.033103448275862035,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.17252467903765237,
+              "upper": 0.255523692646764,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.024364287508837734,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.08735252737191841,
+              "upper": 0.15902875997405547,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": 0.0049088042556525435,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.015262820922223289,
+              "upper": 0.025078662582475195,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": 0.0386206896551724,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.09037787356321837,
+              "upper": 0.17040673211781204,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "Com-BrainTF_seed0": {
+          "auc": {
+            "improvement": -0.027586206896551724,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.22722728116492033,
+              "upper": 0.17379610194902545,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.054776147826446686,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.07606260088980321,
+              "upper": 0.17896935882799977,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": -0.06173647939173044,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.11419104231461567,
+              "upper": -0.008477265194533791,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": -0.04413793103448277,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.19506827731092435,
+              "upper": 0.10883731617647056,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "Com-BrainTF_seed1": {
+          "auc": {
+            "improvement": 0.0193103448275862,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.17917875596184418,
+              "upper": 0.2307931034482758,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.02222183932669608,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.08116112178553393,
+              "upper": 0.1591371435908015,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": -0.010059489738978244,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.035413782560156995,
+              "upper": 0.014060347573640272,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": 0.03379310344827591,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.15000175315568023,
+              "upper": 0.22021092511976095,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "BrainHGT_seed0": {
+          "auc": {
+            "improvement": 0.10896551724137926,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.09232954545454541,
+              "upper": 0.308341049382716,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.07252291596462374,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.04164333728858586,
+              "upper": 0.21331579190389538,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": 0.00914366503564773,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.007925451620485784,
+              "upper": 0.026762516688277355,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": 0.010344827586206862,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.1531220159151193,
+              "upper": 0.1791666666666667,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "BrainHGT_seed1": {
+          "auc": {
+            "improvement": 0.011034482758620678,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.20003472222222218,
+              "upper": 0.22503472222222207,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.009145682983486558,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.09486546508625343,
+              "upper": 0.13053101083453209,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": 0.0002328809858673231,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.01517740116189534,
+              "upper": 0.016638513113050056,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": -0.03379310344827591,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.21533636407602652,
+              "upper": 0.15000000000000002,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        }
+      },
+      "paired_nuisance": {
+        "pearson_covariates": {
+          "auc": {
+            "improvement": 0.11172413793103447,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.12181571717755929,
+              "upper": 0.34069264069264055,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.11376713796310378,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.04684319331517722,
+              "upper": 0.2729420890031466,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": -0.02888654824233594,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.0628093442156356,
+              "upper": 0.002296025344685682,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": 0.051724137931034475,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.1481576797385621,
+              "upper": 0.24590097402597386,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "tangent_covariates": {
+          "auc": {
+            "improvement": 0.07862068965517244,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.13189033189033192,
+              "upper": 0.29120879120879123,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.02757429231571995,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.07714866840801352,
+              "upper": 0.13107347266771768,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": -0.013349804556270273,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.026715597284181575,
+              "upper": -0.0006053105218031998,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": 0.07172413793103449,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.11504626951995377,
+              "upper": 0.2606971390678287,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "BNT_seed0": {
+          "auc": {
+            "improvement": 0.04965517241379308,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.13519282872300115,
+              "upper": 0.23185639279125847,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.07620179834501634,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.05610011899192495,
+              "upper": 0.19734205216619155,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": -0.02291314178603776,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.060515926144104865,
+              "upper": 0.011023525951838496,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": 0.046896551724137925,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.12962962962962954,
+              "upper": 0.22391366960528955,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "BNT_seed1": {
+          "auc": {
+            "improvement": 0.11172413793103447,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.05471030613725398,
+              "upper": 0.2786677951346904,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.051938579824557685,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.028744351177078974,
+              "upper": 0.15280324437266635,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": -0.00844100030061773,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.024368843784407162,
+              "upper": 0.006103930367657233,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": 0.1103448275862069,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.019508616383616333,
+              "upper": 0.23931034482758617,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "Com-BrainTF_seed0": {
+          "auc": {
+            "improvement": 0.051034482758620714,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.15011206896551724,
+              "upper": 0.2609103260869563,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.08235044014216664,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.061690259985528184,
+              "upper": 0.21593732664126875,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": -0.07508628394800071,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.1294465779595798,
+              "upper": -0.021875529275094934,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": 0.027586206896551724,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.12689655172413788,
+              "upper": 0.17917025862068967,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "Com-BrainTF_seed1": {
+          "auc": {
+            "improvement": 0.09793103448275864,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.08573593073593076,
+              "upper": 0.28140929946549337,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.04979613164241603,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.05606723414770982,
+              "upper": 0.18506740861507975,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": -0.023409294295248517,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.04865041222950568,
+              "upper": -0.0016584067868872397,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": 0.1055172413793104,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.06667293233082705,
+              "upper": 0.2684162528647822,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "BrainHGT_seed0": {
+          "auc": {
+            "improvement": 0.1875862068965517,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.04028093434343437,
+              "upper": 0.4026014330497089,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.10009720828034369,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.030053742446939858,
+              "upper": 0.2528715001626699,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": -0.004206139520622543,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.015968778782298854,
+              "upper": 0.007794343758433101,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": 0.08206896551724135,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.08949704843546755,
+              "upper": 0.2432300420168062,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "BrainHGT_seed1": {
+          "auc": {
+            "improvement": 0.08965517241379312,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.12034535928298111,
+              "upper": 0.2963194444444443,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.03671997529920651,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.06877890066324022,
+              "upper": 0.15837659626109815,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": -0.01311692357040295,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.025189241794821154,
+              "upper": -0.0019184962119744207,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": 0.037931034482758585,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.12916903409090913,
+              "upper": 0.2088300492610835,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        }
+      },
+      "metric_intervals": {
+        "covariates": {
+          "auc": {
+            "lower": 0.17580357142857145,
+            "upper": 0.45794839676935717,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "auprc": {
+            "lower": 0.26082939354736423,
+            "upper": 0.5379942681061562,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "brier": {
+            "lower": 0.25016843362140445,
+            "upper": 0.250728067341254,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.2606896551724138,
+            "upper": 0.5195086163836162,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "pearson_covariates": {
+          "auc": {
+            "lower": 0.26367461430575034,
+            "upper": 0.5786511733880154,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "auprc": {
+            "lower": 0.32186517651964447,
+            "upper": 0.6732919698171528,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "brier": {
+            "lower": 0.24824305002992214,
+            "upper": 0.3132392261813851,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.3008441558441558,
+            "upper": 0.5729312762973352,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "tangent_covariates": {
+          "auc": {
+            "lower": 0.2455112467265245,
+            "upper": 0.5489209803354538,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "auprc": {
+            "lower": 0.283461337646407,
+            "upper": 0.5654916970149508,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "brier": {
+            "lower": 0.2510313494514493,
+            "upper": 0.2772658686527651,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.32959326788218796,
+            "upper": 0.5903778735632182,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "BNT_seed0": {
+          "auc": {
+            "lower": 0.21928775104206139,
+            "upper": 0.5175587851235671,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "auprc": {
+            "lower": 0.2979272660184419,
+            "upper": 0.6195902405469715,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "brier": {
+            "lower": 0.23945805566666548,
+            "upper": 0.31078469319699054,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.3458070054945055,
+            "upper": 0.5250129310344827,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "BNT_seed1": {
+          "auc": {
+            "lower": 0.2719686948853615,
+            "upper": 0.5862552594670407,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "auprc": {
+            "lower": 0.2916109050821259,
+            "upper": 0.6150270880002315,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "brier": {
+            "lower": 0.24426755348500603,
+            "upper": 0.27467382527853,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.5,
+            "upper": 0.5,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "Com-BrainTF_seed0": {
+          "auc": {
+            "lower": 0.21378662172673063,
+            "upper": 0.5241480872466993,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "auprc": {
+            "lower": 0.3024973317179981,
+            "upper": 0.627549709171532,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "brier": {
+            "lower": 0.27266733943456184,
+            "upper": 0.3798625091336325,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.3214136904761905,
+            "upper": 0.5027472527472527,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "Com-BrainTF_seed1": {
+          "auc": {
+            "lower": 0.2586466165413534,
+            "upper": 0.5696893612852664,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "auprc": {
+            "lower": 0.29214719805874284,
+            "upper": 0.6151371289083992,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "brier": {
+            "lower": 0.25202294706062434,
+            "upper": 0.2990211413773017,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.367965367965368,
+            "upper": 0.6208629908835903,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "BrainHGT_seed0": {
+          "auc": {
+            "lower": 0.3406896551724138,
+            "upper": 0.6470027299138448,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "auprc": {
+            "lower": 0.3304754275321778,
+            "upper": 0.664762745131272,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "brier": {
+            "lower": 0.24270141989603009,
+            "upper": 0.2664684505342089,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.37757491365604956,
+            "upper": 0.5632406186612576,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "BrainHGT_seed1": {
+          "auc": {
+            "lower": 0.25655172413793104,
+            "upper": 0.5564008966139046,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "auprc": {
+            "lower": 0.27730222094220364,
+            "upper": 0.5896009728476878,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "brier": {
+            "lower": 0.2523266402909561,
+            "upper": 0.2756702255339715,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.314448275862069,
+            "upper": 0.5551819923371647,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        }
+      },
+      "model_fit_summaries": {
+        "BNT": {
+          "parameters": 1066882,
+          "gradient_parameters": 1062832,
+          "per_seed": [
+            {
+              "seed": 0,
+              "mean_outer_train_auc": 0.7904347826086957,
+              "mean_fold_query_auc": 0.35866666666666663,
+              "median_selected_epochs": 1.0
+            },
+            {
+              "seed": 1,
+              "mean_outer_train_auc": 0.7573913043478261,
+              "mean_fold_query_auc": 0.4173333333333334,
+              "median_selected_epochs": 2.0
+            }
+          ]
+        },
+        "Com-BrainTF": {
+          "parameters": 3064926,
+          "gradient_parameters": 1403098,
+          "per_seed": [
+            {
+              "seed": 0,
+              "mean_outer_train_auc": 0.7691304347826087,
+              "mean_fold_query_auc": 0.43200000000000005,
+              "median_selected_epochs": 1.0
+            },
+            {
+              "seed": 1,
+              "mean_outer_train_auc": 0.8734782608695653,
+              "mean_fold_query_auc": 0.26399999999999996,
+              "median_selected_epochs": 5.0
+            }
+          ]
+        },
+        "BrainHGT": {
+          "parameters": 3309748,
+          "gradient_parameters": 3307700,
+          "per_seed": [
+            {
+              "seed": 0,
+              "mean_outer_train_auc": 0.7903079710144928,
+              "mean_fold_query_auc": 0.46266666666666667,
+              "median_selected_epochs": 2.0
+            },
+            {
+              "seed": 1,
+              "mean_outer_train_auc": 0.8566485507246376,
+              "mean_fold_query_auc": 0.45600000000000007,
+              "median_selected_epochs": 1.0
+            }
+          ]
+        }
+      }
+    },
+    "srpbs": {
+      "people": 99,
+      "patient": 46,
+      "healthy": 53,
+      "metrics": {
+        "covariates": {
+          "auc": 0.5504511894995898,
+          "auprc": 0.47660861060856186,
+          "brier": 0.2602779943997016,
+          "balanced_accuracy": 0.6091058244462675,
+          "logloss": 0.7169979570778067,
+          "sensitivity": 0.6521739130434783,
+          "specificity": 0.5660377358490566,
+          "accuracy": 0.6060606060606061
+        },
+        "pearson_covariates": {
+          "auc": 0.7026251025430681,
+          "auprc": 0.6363007114411695,
+          "brier": 0.22018834040375146,
+          "balanced_accuracy": 0.6534044298605415,
+          "logloss": 0.6312968286697608,
+          "sensitivity": 0.6086956521739131,
+          "specificity": 0.6981132075471698,
+          "accuracy": 0.6565656565656566
+        },
+        "tangent_covariates": {
+          "auc": 0.7526661197703035,
+          "auprc": 0.7133042377186811,
+          "brier": 0.20037589955843058,
+          "balanced_accuracy": 0.6874487284659556,
+          "logloss": 0.5870353550386881,
+          "sensitivity": 0.6956521739130435,
+          "specificity": 0.6792452830188679,
+          "accuracy": 0.6868686868686869
+        },
+        "BNT_seed0": {
+          "auc": 0.6841673502871206,
+          "auprc": 0.6266931923269909,
+          "brier": 0.27257693788805654,
+          "balanced_accuracy": 0.6099261689909762,
+          "logloss": 0.8806899604196083,
+          "sensitivity": 0.5217391304347826,
+          "specificity": 0.6981132075471698,
+          "accuracy": 0.6161616161616161
+        },
+        "BNT_seed1": {
+          "auc": 0.6242821985233798,
+          "auprc": 0.573334261989737,
+          "brier": 0.2412735161479876,
+          "balanced_accuracy": 0.5730106644790812,
+          "logloss": 0.6747092110765441,
+          "sensitivity": 0.391304347826087,
+          "specificity": 0.7547169811320755,
+          "accuracy": 0.5858585858585859
+        },
+        "Com-BrainTF_seed0": {
+          "auc": 0.6365873666940115,
+          "auprc": 0.5636660626775981,
+          "brier": 0.24018058055710154,
+          "balanced_accuracy": 0.5693191140278917,
+          "logloss": 0.6750990523035508,
+          "sensitivity": 0.4782608695652174,
+          "specificity": 0.660377358490566,
+          "accuracy": 0.5757575757575758
+        },
+        "Com-BrainTF_seed1": {
+          "auc": 0.6037735849056604,
+          "auprc": 0.5371910143889803,
+          "brier": 0.24768890180597095,
+          "balanced_accuracy": 0.5715750615258408,
+          "logloss": 0.6888707833164838,
+          "sensitivity": 0.3695652173913043,
+          "specificity": 0.7735849056603774,
+          "accuracy": 0.5858585858585859
+        },
+        "BrainHGT_seed0": {
+          "auc": 0.6345365053322395,
+          "auprc": 0.5769561201300671,
+          "brier": 0.2443286752530808,
+          "balanced_accuracy": 0.6302296964725185,
+          "logloss": 0.6931480644332567,
+          "sensitivity": 0.5434782608695652,
+          "specificity": 0.7169811320754716,
+          "accuracy": 0.6363636363636364
+        },
+        "BrainHGT_seed1": {
+          "auc": 0.6242821985233798,
+          "auprc": 0.5637045824304571,
+          "brier": 0.24538027256302827,
+          "balanced_accuracy": 0.5996718621821164,
+          "logloss": 0.6876067448668706,
+          "sensitivity": 0.6521739130434783,
+          "specificity": 0.5471698113207547,
+          "accuracy": 0.5959595959595959
+        }
+      },
+      "fold_metrics": {
+        "covariates": [
+          {
+            "fold": 0,
+            "n": 20,
+            "auc": 0.8282828282828283,
+            "brier": 0.24884824138172496
+          },
+          {
+            "fold": 1,
+            "n": 20,
+            "auc": 0.5858585858585859,
+            "brier": 0.24718852886460482
+          },
+          {
+            "fold": 2,
+            "n": 20,
+            "auc": 0.3636363636363636,
+            "brier": 0.31997401951840193
+          },
+          {
+            "fold": 3,
+            "n": 20,
+            "auc": 0.73,
+            "brier": 0.22217265777499176
+          },
+          {
+            "fold": 4,
+            "n": 19,
+            "auc": 0.4888888888888889,
+            "brier": 0.26336065761978883
+          }
+        ],
+        "pearson_covariates": [
+          {
+            "fold": 0,
+            "n": 20,
+            "auc": 0.7373737373737373,
+            "brier": 0.21051348216567828
+          },
+          {
+            "fold": 1,
+            "n": 20,
+            "auc": 0.6464646464646464,
+            "brier": 0.23247502776393722
+          },
+          {
+            "fold": 2,
+            "n": 20,
+            "auc": 0.6363636363636364,
+            "brier": 0.2438089509693177
+          },
+          {
+            "fold": 3,
+            "n": 20,
+            "auc": 0.92,
+            "brier": 0.15903446261390777
+          },
+          {
+            "fold": 4,
+            "n": 19,
+            "auc": 0.6555555555555556,
+            "brier": 0.2569477489323459
+          }
+        ],
+        "tangent_covariates": [
+          {
+            "fold": 0,
+            "n": 20,
+            "auc": 0.7878787878787878,
+            "brier": 0.19154087915520665
+          },
+          {
+            "fold": 1,
+            "n": 20,
+            "auc": 0.7575757575757575,
+            "brier": 0.20287810701061026
+          },
+          {
+            "fold": 2,
+            "n": 20,
+            "auc": 0.6868686868686869,
+            "brier": 0.24085631268129273
+          },
+          {
+            "fold": 3,
+            "n": 20,
+            "auc": 0.9700000000000001,
+            "brier": 0.13644943972557422
+          },
+          {
+            "fold": 4,
+            "n": 19,
+            "auc": 0.711111111111111,
+            "brier": 0.2317220676226813
+          }
+        ],
+        "BNT_seed0": [
+          {
+            "fold": 0,
+            "n": 20,
+            "auc": 0.7272727272727273,
+            "brier": 0.2400350862250651
+          },
+          {
+            "fold": 1,
+            "n": 20,
+            "auc": 0.5353535353535354,
+            "brier": 0.32108992604779224
+          },
+          {
+            "fold": 2,
+            "n": 20,
+            "auc": 0.6767676767676768,
+            "brier": 0.35877573072765345
+          },
+          {
+            "fold": 3,
+            "n": 20,
+            "auc": 0.81,
+            "brier": 0.2197918611965189
+          },
+          {
+            "fold": 4,
+            "n": 19,
+            "auc": 0.7444444444444445,
+            "brier": 0.2205928824724742
+          }
+        ],
+        "BNT_seed1": [
+          {
+            "fold": 0,
+            "n": 20,
+            "auc": 0.8282828282828283,
+            "brier": 0.2424957570056306
+          },
+          {
+            "fold": 1,
+            "n": 20,
+            "auc": 0.5959595959595959,
+            "brier": 0.24511103865957012
+          },
+          {
+            "fold": 2,
+            "n": 20,
+            "auc": 0.6363636363636364,
+            "brier": 0.23371021741353495
+          },
+          {
+            "fold": 3,
+            "n": 20,
+            "auc": 0.8,
+            "brier": 0.2392969805859138
+          },
+          {
+            "fold": 4,
+            "n": 19,
+            "auc": 0.5333333333333333,
+            "brier": 0.24598938028198838
+          }
+        ],
+        "Com-BrainTF_seed0": [
+          {
+            "fold": 0,
+            "n": 20,
+            "auc": 0.7171717171717171,
+            "brier": 0.21959246587822806
+          },
+          {
+            "fold": 1,
+            "n": 20,
+            "auc": 0.6262626262626262,
+            "brier": 0.24057614059872176
+          },
+          {
+            "fold": 2,
+            "n": 20,
+            "auc": 0.6767676767676768,
+            "brier": 0.2552681668219231
+          },
+          {
+            "fold": 3,
+            "n": 20,
+            "auc": 0.79,
+            "brier": 0.22342698163654923
+          },
+          {
+            "fold": 4,
+            "n": 19,
+            "auc": 0.6,
+            "brier": 0.2631895987602426
+          }
+        ],
+        "Com-BrainTF_seed1": [
+          {
+            "fold": 0,
+            "n": 20,
+            "auc": 0.7777777777777778,
+            "brier": 0.21904408980377355
+          },
+          {
+            "fold": 1,
+            "n": 20,
+            "auc": 0.4949494949494949,
+            "brier": 0.2957772592635737
+          },
+          {
+            "fold": 2,
+            "n": 20,
+            "auc": 0.5252525252525253,
+            "brier": 0.2513431458318049
+          },
+          {
+            "fold": 3,
+            "n": 20,
+            "auc": 0.81,
+            "brier": 0.22084930232476302
+          },
+          {
+            "fold": 4,
+            "n": 19,
+            "auc": 0.5777777777777777,
+            "brier": 0.2516276491743592
+          }
+        ],
+        "BrainHGT_seed0": [
+          {
+            "fold": 0,
+            "n": 20,
+            "auc": 0.696969696969697,
+            "brier": 0.20796853246007757
+          },
+          {
+            "fold": 1,
+            "n": 20,
+            "auc": 0.5555555555555555,
+            "brier": 0.24759108839851374
+          },
+          {
+            "fold": 2,
+            "n": 20,
+            "auc": 0.5757575757575757,
+            "brier": 0.3081400835594477
+          },
+          {
+            "fold": 3,
+            "n": 20,
+            "auc": 0.92,
+            "brier": 0.16514113010494932
+          },
+          {
+            "fold": 4,
+            "n": 19,
+            "auc": 0.5555555555555556,
+            "brier": 0.2953537978734333
+          }
+        ],
+        "BrainHGT_seed1": [
+          {
+            "fold": 0,
+            "n": 20,
+            "auc": 0.7474747474747474,
+            "brier": 0.20582323673335878
+          },
+          {
+            "fold": 1,
+            "n": 20,
+            "auc": 0.5555555555555556,
+            "brier": 0.24132176168120756
+          },
+          {
+            "fold": 2,
+            "n": 20,
+            "auc": 0.595959595959596,
+            "brier": 0.2621935957952885
+          },
+          {
+            "fold": 3,
+            "n": 20,
+            "auc": 0.73,
+            "brier": 0.24579687562461333
+          },
+          {
+            "fold": 4,
+            "n": 19,
+            "auc": 0.6222222222222222,
+            "brier": 0.27315460984475987
+          }
+        ]
+      },
+      "paired_fc": {
+        "covariates": {
+          "auc": {
+            "improvement": -0.2022149302707137,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.30678603600817955,
+              "upper": -0.10597381342062195,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": -0.23669562711011927,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.3352246386287318,
+              "upper": -0.1258140478389249,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": -0.05990209484127104,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.08973932849933006,
+              "upper": -0.03045005859091105,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": -0.07834290401968813,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.179624495728524,
+              "upper": 0.021028763360391597,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "pearson_covariates": {
+          "auc": {
+            "improvement": -0.05004101722723542,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.12962820934379216,
+              "upper": 0.032102418745275876,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": -0.07700352627751161,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.17347962987631624,
+              "upper": 0.012090833204840444,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": -0.019812440845320883,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.04537372295104852,
+              "upper": 0.006905173335046325,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": -0.034044298605414136,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.12588109574784423,
+              "upper": 0.053231653117295774,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "BNT_seed0": {
+          "auc": {
+            "improvement": -0.0684987694831829,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.18472792188421613,
+              "upper": 0.04277469306700566,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": -0.08661104539169018,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.21996814508724116,
+              "upper": 0.0608526977758203,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": -0.07220103832962596,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.13847616177376298,
+              "upper": -0.0077428800486039825,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": -0.07752255947497944,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.19302549303994093,
+              "upper": 0.035543592436974754,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "BNT_seed1": {
+          "auc": {
+            "improvement": -0.12838392124692366,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.2296172582139671,
+              "upper": -0.037189660643871865,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": -0.1399699757289441,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.25389993049752096,
+              "upper": -0.029847714460769215,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": -0.04089761658955701,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.07083708947348284,
+              "upper": -0.010417915837164482,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": -0.1144380639868744,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.21853209210040608,
+              "upper": -0.011836734693877582,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "Com-BrainTF_seed0": {
+          "auc": {
+            "improvement": -0.11607875307629201,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.21592857142857136,
+              "upper": -0.0172188415596124,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": -0.149638175041083,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.25301690379235425,
+              "upper": -0.02242064168714941,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": -0.03980468099867096,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.07038408694375856,
+              "upper": -0.00870814326180235,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": -0.11812961443806391,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.22272363710940418,
+              "upper": -0.014801887674049248,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "Com-BrainTF_seed1": {
+          "auc": {
+            "improvement": -0.14889253486464316,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.23851417760086488,
+              "upper": -0.05768853530950309,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": -0.1761132233297008,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.28862788944816875,
+              "upper": -0.05536746837219071,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": -0.04731300224754037,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.0800483381969177,
+              "upper": -0.01332667128804644,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": -0.1158736669401148,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.21446946935148847,
+              "upper": -0.022727272727272815,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "BrainHGT_seed0": {
+          "auc": {
+            "improvement": -0.11812961443806402,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.2068401360544218,
+              "upper": -0.03469328082110035,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": -0.13634811758861398,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.23783916846551062,
+              "upper": -0.028509886993800953,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": -0.043952775694650226,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.07571371670744402,
+              "upper": -0.012069597405480062,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": -0.05721903199343714,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.15041634153661468,
+              "upper": 0.03270867430441889,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "BrainHGT_seed1": {
+          "auc": {
+            "improvement": -0.12838392124692366,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.21579395228012738,
+              "upper": -0.042452180872349074,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": -0.14959965528822405,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.2555403426160829,
+              "upper": -0.020931761089978324,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": -0.0450043730045977,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.07288718981205071,
+              "upper": -0.01785350417769342,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": -0.08777686628383918,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.17669342136027474,
+              "upper": 0.0031506651243491694,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        }
+      },
+      "paired_nuisance": {
+        "pearson_covariates": {
+          "auc": {
+            "improvement": 0.15217391304347827,
+            "positive_means_better": true,
+            "interval": {
+              "lower": 0.037582340787554666,
+              "upper": 0.26984420928865377,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.15969210083260765,
+            "positive_means_better": true,
+            "interval": {
+              "lower": 0.048620468793492945,
+              "upper": 0.261973409525721,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": 0.04008965399595016,
+            "positive_means_better": true,
+            "interval": {
+              "lower": 0.01306157710650912,
+              "upper": 0.06825889335028436,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": 0.044298605414273995,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.06919218663675483,
+              "upper": 0.160186490570341,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "tangent_covariates": {
+          "auc": {
+            "improvement": 0.2022149302707137,
+            "positive_means_better": true,
+            "interval": {
+              "lower": 0.10597381342062195,
+              "upper": 0.30678603600817955,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.23669562711011927,
+            "positive_means_better": true,
+            "interval": {
+              "lower": 0.12581404783892486,
+              "upper": 0.33522463862873175,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": 0.05990209484127104,
+            "positive_means_better": true,
+            "interval": {
+              "lower": 0.03045005859091105,
+              "upper": 0.08973932849933006,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": 0.07834290401968813,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.021028763360391643,
+              "upper": 0.1796244957285239,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "BNT_seed0": {
+          "auc": {
+            "improvement": 0.1337161607875308,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.00942160855570295,
+              "upper": 0.2812270987453013,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.1500845817184291,
+            "positive_means_better": true,
+            "interval": {
+              "lower": 0.022292883040719382,
+              "upper": 0.29058142858273656,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": -0.012298943488354919,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.0814323939620497,
+              "upper": 0.05423795955457184,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": 0.0008203445447086954,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.12039710228960626,
+              "upper": 0.12593482905982908,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "BNT_seed1": {
+          "auc": {
+            "improvement": 0.07383100902379003,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.02831037890251057,
+              "upper": 0.17940600996398323,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.09672565138117517,
+            "positive_means_better": true,
+            "interval": {
+              "lower": 0.00575475672926702,
+              "upper": 0.183119236960806,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": 0.01900447825171403,
+            "positive_means_better": true,
+            "interval": {
+              "lower": 0.0016170170454500262,
+              "upper": 0.038677916887395115,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": -0.03609515996718626,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.13983576215389448,
+              "upper": 0.06462354833647203,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "Com-BrainTF_seed0": {
+          "auc": {
+            "improvement": 0.08613617719442168,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.007640689043979217,
+              "upper": 0.18974394132653058,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.08705745206903626,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.0020692988853770735,
+              "upper": 0.1907199525215657,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": 0.02009741384260008,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.0019881482512296377,
+              "upper": 0.04347898075179137,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": -0.03978671041837578,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.1451392195951112,
+              "upper": 0.06520089880431289,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "Com-BrainTF_seed1": {
+          "auc": {
+            "improvement": 0.05332239540607053,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.05227531171814117,
+              "upper": 0.16158201214370035,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.06058240378041846,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.04036878175064455,
+              "upper": 0.15995958988807496,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": 0.012589092593730672,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.017914262280548782,
+              "upper": 0.04337954944366989,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": -0.037530762920426675,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.14172206263213816,
+              "upper": 0.06853225047080963,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "BrainHGT_seed0": {
+          "auc": {
+            "improvement": 0.08408531583264967,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.010823327005220679,
+              "upper": 0.18869477443900912,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.10034750952150528,
+            "positive_means_better": true,
+            "interval": {
+              "lower": 0.015696065577929647,
+              "upper": 0.19710377819746974,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": 0.015949319146620816,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.015201368483692588,
+              "upper": 0.04842628984042001,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": 0.02112387202625099,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.09091746019937512,
+              "upper": 0.1346177944862155,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        },
+        "BrainHGT_seed1": {
+          "auc": {
+            "improvement": 0.07383100902379003,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.04664607877615618,
+              "upper": 0.20011320410956454,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "auprc": {
+            "improvement": 0.08709597182189521,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.020135225117030368,
+              "upper": 0.2019643491661775,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "brier": {
+            "improvement": 0.014897721836673344,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.016914091894848965,
+              "upper": 0.047460637810152896,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          },
+          "balanced_accuracy": {
+            "improvement": -0.009433962264151052,
+            "positive_means_better": true,
+            "interval": {
+              "lower": -0.1311298769507804,
+              "upper": 0.11122959183673456,
+              "valid_resamples": 2000,
+              "invalid_resamples": 0
+            }
+          }
+        }
+      },
+      "metric_intervals": {
+        "covariates": {
+          "auc": {
+            "lower": 0.43206833060556465,
+            "upper": 0.6624384741591468,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "auprc": {
+            "lower": 0.37440802366306564,
+            "upper": 0.6311348353227503,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "brier": {
+            "lower": 0.2399815228322032,
+            "upper": 0.2819800610684284,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.5126582998124352,
+            "upper": 0.7092873584297159,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "pearson_covariates": {
+          "auc": {
+            "lower": 0.6000816993464052,
+            "upper": 0.8004175744371822,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "auprc": {
+            "lower": 0.5035779936944107,
+            "upper": 0.7829515074451886,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "brier": {
+            "lower": 0.18917661035545585,
+            "upper": 0.25007371760461566,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.561988543371522,
+            "upper": 0.7446785174283003,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "tangent_covariates": {
+          "auc": {
+            "lower": 0.6560661764705883,
+            "upper": 0.8482376177054192,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "auprc": {
+            "lower": 0.5766710889125882,
+            "upper": 0.8479558550219186,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "brier": {
+            "lower": 0.163758942173802,
+            "upper": 0.23611389792848517,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.5980392156862745,
+            "upper": 0.7796581196581196,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "BNT_seed0": {
+          "auc": {
+            "lower": 0.580393843957336,
+            "upper": 0.7857405462184872,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "auprc": {
+            "lower": 0.49915389839513535,
+            "upper": 0.7888661442349253,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "brier": {
+            "lower": 0.20679278531996828,
+            "upper": 0.33721462188216816,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.5143944006768565,
+            "upper": 0.705563725490196,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "BNT_seed1": {
+          "auc": {
+            "lower": 0.5046593620350311,
+            "upper": 0.7306391198454689,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "auprc": {
+            "lower": 0.4436809729569256,
+            "upper": 0.7239495959854702,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "brier": {
+            "lower": 0.2279959482375752,
+            "upper": 0.25447519765231985,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.4777651515151515,
+            "upper": 0.6648979591836734,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "Com-BrainTF_seed0": {
+          "auc": {
+            "lower": 0.5267198273917199,
+            "upper": 0.7452781322476427,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "auprc": {
+            "lower": 0.44124122666975535,
+            "upper": 0.7294583195356205,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "brier": {
+            "lower": 0.21488281167742346,
+            "upper": 0.26708887812511184,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.4769273823936354,
+            "upper": 0.6636441019335142,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "Com-BrainTF_seed1": {
+          "auc": {
+            "lower": 0.49223132685277504,
+            "upper": 0.7097985654163466,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "auprc": {
+            "lower": 0.4223507654937345,
+            "upper": 0.6899034726430014,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "brier": {
+            "lower": 0.2184526885770281,
+            "upper": 0.27850134306422847,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.48521424620271775,
+            "upper": 0.6613636363636364,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "BrainHGT_seed0": {
+          "auc": {
+            "lower": 0.5240778824350253,
+            "upper": 0.741030612244898,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "auprc": {
+            "lower": 0.4553923176895616,
+            "upper": 0.7316104302894085,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "brier": {
+            "lower": 0.2055651011491983,
+            "upper": 0.2848609415081287,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.5359375,
+            "upper": 0.7229961931581144,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        },
+        "BrainHGT_seed1": {
+          "auc": {
+            "lower": 0.5132700938392493,
+            "upper": 0.7386979669605125,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "auprc": {
+            "lower": 0.43719842057412567,
+            "upper": 0.7313351458078997,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "brier": {
+            "lower": 0.21159672638291466,
+            "upper": 0.2788862772138593,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          },
+          "balanced_accuracy": {
+            "lower": 0.505908275810324,
+            "upper": 0.6977602040816326,
+            "valid_resamples": 2000,
+            "invalid_resamples": 0
+          }
+        }
+      },
+      "model_fit_summaries": {
+        "BNT": {
+          "parameters": 1066882,
+          "gradient_parameters": 1062832,
+          "per_seed": [
+            {
+              "seed": 0,
+              "mean_outer_train_auc": 1.0,
+              "mean_fold_query_auc": 0.6987676767676768,
+              "median_selected_epochs": 12.0
+            },
+            {
+              "seed": 1,
+              "mean_outer_train_auc": 0.9379326170023845,
+              "mean_fold_query_auc": 0.6787878787878787,
+              "median_selected_epochs": 7.0
+            }
+          ]
+        },
+        "Com-BrainTF": {
+          "parameters": 3064926,
+          "gradient_parameters": 1403098,
+          "per_seed": [
+            {
+              "seed": 0,
+              "mean_outer_train_auc": 0.985063302505163,
+              "mean_fold_query_auc": 0.6820404040404041,
+              "median_selected_epochs": 9.0
+            },
+            {
+              "seed": 1,
+              "mean_outer_train_auc": 0.9627931918629592,
+              "mean_fold_query_auc": 0.6371515151515151,
+              "median_selected_epochs": 8.0
+            }
+          ]
+        },
+        "BrainHGT": {
+          "parameters": 3309748,
+          "gradient_parameters": 3307700,
+          "per_seed": [
+            {
+              "seed": 0,
+              "mean_outer_train_auc": 0.9569089022577396,
+              "mean_fold_query_auc": 0.6607676767676768,
+              "median_selected_epochs": 5.0
+            },
+            {
+              "seed": 1,
+              "mean_outer_train_auc": 0.9130989793780492,
+              "mean_fold_query_auc": 0.6502424242424243,
+              "median_selected_epochs": 5.0
+            }
+          ]
+        }
+      }
+    }
+  },
+  "fits": {
+    "neural_inner": 180,
+    "neural_final": 60,
+    "classical_inner": 360,
+    "classical_final": 30,
+    "tangent_references": 40
+  },
+  "verification": {
+    "neural_models": 240,
+    "classical_models": 390,
+    "probabilities": 12393,
+    "neural_max_error": 0.0,
+    "classical_max_error": 0.0,
+    "refits": 0
+  },
+  "models": [
+    {
+      "model": "BNT",
+      "state": "SYNTHETIC_FORWARD_BACKWARD_BATCH_RELOAD_PASS",
+      "parameters": 1066882,
+      "gradient_parameters": 1062832,
+      "batch_error": 0.0,
+      "reload_error": 0.0,
+      "optimizer_steps": 0,
+      "patient_inputs": 0
+    },
+    {
+      "model": "Com-BrainTF",
+      "state": "SYNTHETIC_FORWARD_BACKWARD_BATCH_RELOAD_PASS",
+      "parameters": 3064926,
+      "gradient_parameters": 1403098,
+      "batch_error": 0.0,
+      "reload_error": 0.0,
+      "optimizer_steps": 0,
+      "patient_inputs": 0
+    },
+    {
+      "model": "BrainHGT",
+      "state": "SYNTHETIC_FORWARD_BACKWARD_BATCH_RELOAD_PASS",
+      "parameters": 3309748,
+      "gradient_parameters": 3307700,
+      "batch_error": 0.0,
+      "reload_error": 0.0,
+      "optimizer_steps": 0,
+      "patient_inputs": 0
+    }
+  ],
+  "portable_wrapper": {
+    "state": "PUBLISHABLE_WRAPPER_EQUIVALENCE_PASS",
+    "rows": [
+      {
+        "model": "BNT",
+        "error": 0.0
+      },
+      {
+        "model": "Com-BrainTF",
+        "error": 0.0
+      },
+      {
+        "model": "BrainHGT",
+        "error": 0.0
+      }
+    ],
+    "training_scaler_equivalent": true,
+    "patient_inputs": 0,
+    "optimizer_steps": 0
+  },
+  "training_seconds": {
+    "BNT": 111.45450496673584,
+    "Com-BrainTF": 340.0666615962982,
+    "BrainHGT": 233.39901089668274
+  },
+  "source_repeat": 1,
+  "seeds": [
+    0,
+    1
+  ],
+  "outer_folds": 5,
+  "inner_folds": 3,
+  "cohorts_pooled": false,
+  "new_MRI_reads": 0,
+  "new_QC_inclusions": 0,
+  "new_expert_reports": 0,
+  "independent_clinical_validation": false,
+  "clinical_goal_complete": false,
+  "method": "原AAL90 signed Pearson节点输入＋训练侧四协变量线性logit分支；单配置、最多30轮，内层均衡logloss选择轮次。BrainHGT正FC拓扑替代原OMST，Com采用固定Yeo7＋Other；不是完整作者原任务复现或预训练疼痛模型。",
+  "uncertainty": "2000次按人配对抽样，条件于保存的划分、训练和选参；未覆盖重训/研究选择，不把相关折或两个种子算独立临床重复。"
+}

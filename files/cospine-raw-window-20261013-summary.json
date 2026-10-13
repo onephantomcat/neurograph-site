@@ -1,0 +1,58 @@
+{
+  "id": "cospine-raw-window-20261013",
+  "date": "2026-10-13",
+  "summary": "1名原开发成员的原始报告前输入试验完成：真实切片时间对齐、短段运动校正、固定空间映射及一次官方冻结编码。独立输入重建误差0，所有源切片早于评分，疼痛监督拟合0。",
+  "boundary": "健康热痛单人技术试验，未新增专家QC、训练纳入、疼痛预测或独立临床验证。场图和生理噪声校正未做，局部配准偏差保留；26开发/13研究留出和全部旧负结果不变。",
+  "next": "先补原始输入的畸变/生理噪声与窗口边界处理，再按原开发名单批量准备同人数据。有限疼痛适配统一刺激/协变量、强FC、随机模型、冻结模型和小残差；不依据开发分数筛人，不读取13人留出MRI。",
+  "rows": [
+    {
+      "item": "报告前时点",
+      "result": "9原始帧→8时间对齐帧→20位置；最晚采集比评分早6.228秒",
+      "limit": "真实70层SliceTiming；未额外丢弃6帧或移动事件零点"
+    },
+    {
+      "item": "刺激前统计",
+      "result": "2个对齐基线帧；后续输入干预不改变统计；量化裁剪0",
+      "limit": "不直接把前7个插值位置当完整刺激前采集"
+    },
+    {
+      "item": "空间与运动",
+      "result": "标准脑支持99.9615%；短段最大FD 0.445毫米",
+      "limit": "支持率不等于配准精度；局部边缘差异、场图/生理校正缺项保留"
+    },
+    {
+      "item": "官方模型接入",
+      "result": "冻结5173020参数；1次真实编码；token有限且缓存完全相同",
+      "limit": "仅兼容前向，无预测头训练、无疼痛分数"
+    },
+    {
+      "item": "独立复核与失败",
+      "result": "17694720个模型输入值重建误差0；两幅技术图实际查看",
+      "limit": "容器参数、整型头、量化精度及填充坐标修正与旧文件保留"
+    }
+  ],
+  "verification": {
+    "raw_values_checked": 263782400,
+    "aligned_values_checked": 4718592,
+    "mapped_values_checked": 7221032,
+    "model_input_values_checked": 17694720,
+    "model_input_replay_error_max": 0.0,
+    "token_values_checked": 92448,
+    "frozen_encoder_calls": 1,
+    "pain_fits": 0,
+    "optimizer_steps": 0,
+    "QC_inclusions": 0,
+    "expert_reports": 0,
+    "holdout_MRI_reads": 0,
+    "full_MRI_local_transfers": 0,
+    "last_source_slice_to_rating_gap_seconds": 6.227999999999998,
+    "baseline_future_stat_error": 0.0,
+    "clipped_values": 0,
+    "clinical_goal_complete": false
+  },
+  "sources": [
+    "https://raw.githubusercontent.com/OpenNeuroDatasets/ds005883/037ed267e7f7f2024a5fe3d0e8fb4759f7f67bdd/README.md",
+    "https://github.com/LINIP-share/CoSpine",
+    "https://fsl.fmrib.ox.ac.uk/fsl/docs/registration/mcflirt.html"
+  ]
+}

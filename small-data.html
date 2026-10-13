@@ -78,8 +78,8 @@
   </header>
   <main id="main" class="wrap">
     <section id="judgment">
-<!-- fmm-results-20260925 --><div class="callout"><strong>9月25日：FMM患者开发比较已完成</strong><p>原79人开发比较：仅连接分支AUC 0.5360，加入预训练表示0.5013，随机表示对照0.5174；原AAL90切空间参照0.7175。本次适配没有改善开发表现，预训练组合接近随机排序。 单种子、反复使用的79人开发数据；AAL参照的脑区划分不同。采用公开512维权重和固定裁剪，是FMM启发适配；未新增外部验证、视觉批准或训练纳入。</p><a href="./api/source/fmm-results-20260925?preview=1">查看结果及后续取舍</a></div>
-<!-- fmm-preparation-20260924 --><div class="callout"><strong>9月24日核查：进入FMM分支准备</strong><p>选边、PCA、CPM及冻结BrainLM线性融合此前已比较，尚无稳定收益，下一轮不重复这些分支。9月24日已完成79人输入与合成程序自检；后续患者开发结果见上方9月25日记录。319个eMCI案例是扫描数，独立人数与重复访视划分仍需核实。</p><a href="./api/source/fmm-preparation-20260924?preview=1">阅读本轮准备与研究边界</a></div>
+<!-- fmm-results-20260925 --><div class="callout"><strong>9月25日：FMM患者开发比较已完成</strong><p>原79人开发比较：仅连接分支AUC 0.5360，加入预训练表示0.5013，随机表示对照0.5174；原AAL90切空间参照0.7175。本次适配没有改善开发表现，预训练组合接近随机排序。 单种子、反复使用的79人开发数据；AAL参照的脑区划分不同。采用公开512维权重和固定裁剪，是FMM启发适配；未新增外部验证、视觉批准或训练纳入。</p><a href="./#evidence?source=fmm-results-20260925">查看结果及后续取舍</a></div>
+<!-- fmm-preparation-20260924 --><div class="callout"><strong>9月24日核查：进入FMM分支准备</strong><p>选边、PCA、CPM及冻结BrainLM线性融合此前已比较，尚无稳定收益，下一轮不重复这些分支。9月24日已完成79人输入与合成程序自检；后续患者开发结果见上方9月25日记录。319个eMCI案例是扫描数，独立人数与重复访视划分仍需核实。</p><a href="./#evidence?source=fmm-preparation-20260924">阅读本轮准备与研究边界</a></div>
       <h2>先把“少样本”说清楚</h2>
       <p class="sub">Few-shot 指目标任务每类只给少量有标签的独立受试者用于适配；one-shot 是每类只给 1 名。一个人切出许多扫描窗口，仍然只有 1 名受试者。窗口、访视和同一个人的衍生特征，都要留在同一侧。</p>
       <div class="callout"><strong>目前最值得比较的路线</strong><p>用统一的受试者划分，先建立正则化功能连接基线，再比较“来源数据预训练＋目标任务线性头”与 5-shot 相似度模型。如果评分标签可靠，可另外尝试从相关表型迁移。1-shot 先作为方法压力测试，结果不能直接写成临床性能。</p></div>

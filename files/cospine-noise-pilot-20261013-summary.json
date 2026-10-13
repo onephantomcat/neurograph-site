@@ -1,0 +1,83 @@
+{
+  "id": "cospine-noise-pilot-20261013",
+  "date": "2026-10-13",
+  "summary": "1名原开发成员的畸变与生理诊断完成：固定TOPUP使校准AP/PA相关性0.653211→0.979989；DICOM/生理起点与作者生成触发一致。8帧的32项生理设计剩余自由度0，未应用该回归；校正后官方冻结编码通过，监督拟合0。",
+  "boundary": "健康热痛单人技术结果；校准图一致性和表示变化不当疼痛预测增益。作者触发表仅已下载前段，实际独立TTL及0.6955秒记录长度差未解决；新增专家/QC/临床验证0，原划分和全部负结果保留。",
+  "next": "下一轮停止8帧直接套32项去噪，先固定不做短窗GLM、生理指标作为各方法共同协变量的有限方案，并核实整段采样长度/实际触发、场图到BOLD姿态。再扩原开发成员，同人同划分比较刺激/协变量、强FC、随机、冻结及小残差；13人留出MRI保持未读。",
+  "rows": [
+    {
+      "item": "畸变校正",
+      "result": "固定TOPUP一次；AP/PA相关性0.653211→0.979989",
+      "limit": "同人校准图的一致性，不是疼痛成绩；校准到BOLD姿态待确认"
+    },
+    {
+      "item": "生理时点",
+      "result": "400Hz；作者对齐波形读回差0，起始触发与DICOM一致",
+      "limit": "生成触发并非独立TTL；触发表前段覆盖本窗，整表未齐；记录长度差0.6955秒"
+    },
+    {
+      "item": "短窗去噪阴性结果",
+      "result": "32项：8帧、秩8、剩余自由度0；4项加运动仍为0",
+      "limit": "未执行BOLD生理回归；作者真实PNM阶数未知，当前容器无PNM工具"
+    },
+    {
+      "item": "校正后模型接入",
+      "result": "冻结5173020参数；1次真实编码，输入重建差0",
+      "limit": "表示相对L2变化6.41%，仅处理链敏感性；监督拟合0"
+    },
+    {
+      "item": "复核和保留",
+      "result": "4幅主要私有技术图实际查看；13人留出MRI读取0",
+      "limit": "保留下载超时/部分文件、依赖与绘图失败；局部配准差异仍在"
+    }
+  ],
+  "verification": {
+    "TOPUP_fits": 1,
+    "applytopup_calls": 1,
+    "AP_PA_before": {
+      "correlation": 0.6532114101824935,
+      "standardized_RMS_difference": 0.8328128118821259
+    },
+    "AP_PA_after": {
+      "correlation": 0.9799888209987139,
+      "standardized_RMS_difference": 0.2000558871979852
+    },
+    "field_values_checked": 1146880,
+    "prefix_values_checked": 10321920,
+    "author_trigger_full_file_complete": false,
+    "author_prefix_covers_report": true,
+    "author_DICOM_start_error_samples": 1.1641532182693481e-09,
+    "waveform_max_difference": 0.0,
+    "physio_design_shape": [
+      8,
+      36,
+      32
+    ],
+    "full32_rank_range": [
+      8,
+      8
+    ],
+    "full32_residual_df_range": [
+      0,
+      0
+    ],
+    "four_term_plus_motion_residual_df_range": [
+      0,
+      0
+    ],
+    "BOLD_physio_regressions": 0,
+    "model_input_values_checked": 17694720,
+    "model_input_replay_error_max": 0.0,
+    "frozen_encoder_calls": 1,
+    "token_values_checked": 92448,
+    "before_after_pooled_relative_L2": 0.0641093802249779,
+    "before_after_pooled_cosine": 0.9979473913890687,
+    "pain_fits": 0,
+    "optimizer_steps": 0,
+    "QC_inclusions": 0,
+    "expert_reports": 0,
+    "holdout_MRI_reads": 0,
+    "full_MRI_local_transfers": 0,
+    "clinical_goal_complete": false
+  }
+}

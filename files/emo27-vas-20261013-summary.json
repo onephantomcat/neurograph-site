@@ -1,0 +1,533 @@
+{
+  "id": "emo27-vas-20261013",
+  "date": "2026-10-13",
+  "people": 27,
+  "summary": "Emo27同人访谈VAS比较完成：临床＋混杂MAE12.97，加入强FC后15.88，误差增加2.91个VAS点；没有稳定影像增量。",
+  "boundary": "三折人级开发评价，访谈VAS不是扫描同期痛。144内层及12最终Ridge、6常量估计已完成；无新增独立临床验证、专家报告或QC纳入。",
+  "next": "停止Emo27追加BNT训练；已准备BNT回归/临床接口和既有偏头痛132人的FC及原划分。其他已跑队列按各自诊断、评分或疗效终点选择，保留旧开发历史，不追旧查询分数。",
+  "models": [
+    {
+      "model": "train_mean",
+      "name": "训练均值",
+      "mae": 15.884773662551439,
+      "rmse": 19.65457883384435,
+      "r2": -0.03678825721038792
+    },
+    {
+      "model": "train_median",
+      "name": "训练中位数",
+      "mae": 16.055555555555557,
+      "rmse": 19.262562038739713,
+      "r2": 0.004157432019497587
+    },
+    {
+      "model": "confounds",
+      "name": "仅混杂项",
+      "mae": 16.21975944958516,
+      "rmse": 19.90116218899327,
+      "r2": -0.06296622132425433
+    },
+    {
+      "model": "clinical_confounds",
+      "name": "临床＋混杂",
+      "mae": 12.969238020668833,
+      "rmse": 17.567435785023285,
+      "r2": 0.1717158799934898
+    },
+    {
+      "model": "tangent_confounds",
+      "name": "强FC＋混杂",
+      "mae": 15.92450318918346,
+      "rmse": 19.722768235079283,
+      "r2": -0.04399478251776956
+    },
+    {
+      "model": "clinical_tangent_confounds",
+      "name": "临床＋强FC＋混杂",
+      "mae": 15.875298687821417,
+      "rmse": 19.676196384376347,
+      "r2": -0.03907018330665868
+    }
+  ],
+  "clinical_fc_increment": {
+    "improvement": -2.906060667152584,
+    "positive_means_better": true,
+    "interval": {
+      "lower": -5.889161849587437,
+      "upper": 0.2086132221971306,
+      "valid_resamples": 2000,
+      "invalid_resamples": 0
+    }
+  },
+  "fold_improvement_vas": [
+    -5.653601182320399,
+    -3.06947040071635,
+    0.004889581579003988
+  ],
+  "fold_metrics": {
+    "train_mean": [
+      {
+        "fold": 0,
+        "n": 9,
+        "mae": 15.858024691358025
+      },
+      {
+        "fold": 1,
+        "n": 9,
+        "mae": 17.833333333333332
+      },
+      {
+        "fold": 2,
+        "n": 9,
+        "mae": 13.962962962962962
+      }
+    ],
+    "train_median": [
+      {
+        "fold": 0,
+        "n": 9,
+        "mae": 16.11111111111111
+      },
+      {
+        "fold": 1,
+        "n": 9,
+        "mae": 17.944444444444443
+      },
+      {
+        "fold": 2,
+        "n": 9,
+        "mae": 14.11111111111111
+      }
+    ],
+    "confounds": [
+      {
+        "fold": 0,
+        "n": 9,
+        "mae": 15.343624603955991
+      },
+      {
+        "fold": 1,
+        "n": 9,
+        "mae": 17.816172726569327
+      },
+      {
+        "fold": 2,
+        "n": 9,
+        "mae": 15.499481018230162
+      }
+    ],
+    "clinical_confounds": [
+      {
+        "fold": 0,
+        "n": 9,
+        "mae": 10.86378188899259
+      },
+      {
+        "fold": 1,
+        "n": 9,
+        "mae": 14.139840465252698
+      },
+      {
+        "fold": 2,
+        "n": 9,
+        "mae": 13.904091707761214
+      }
+    ],
+    "tangent_confounds": [
+      {
+        "fold": 0,
+        "n": 9,
+        "mae": 16.595054988107723
+      },
+      {
+        "fold": 1,
+        "n": 9,
+        "mae": 17.2523194123549
+      },
+      {
+        "fold": 2,
+        "n": 9,
+        "mae": 13.92613516708775
+      }
+    ],
+    "clinical_tangent_confounds": [
+      {
+        "fold": 0,
+        "n": 9,
+        "mae": 16.517383071312988
+      },
+      {
+        "fold": 1,
+        "n": 9,
+        "mae": 17.209310865969048
+      },
+      {
+        "fold": 2,
+        "n": 9,
+        "mae": 13.89920212618221
+      }
+    ]
+  },
+  "conditional_metric_intervals": {
+    "train_mean": {
+      "mae": {
+        "lower": 11.64917695473251,
+        "upper": 20.397273662551438,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      },
+      "rmse": {
+        "lower": 14.887467584284753,
+        "upper": 23.989493632558943,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      },
+      "r2": {
+        "lower": -0.2760046265769306,
+        "upper": 0.02072011779697026,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      }
+    },
+    "train_median": {
+      "mae": {
+        "lower": 12.314351851851852,
+        "upper": 20.204166666666662,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      },
+      "rmse": {
+        "lower": 15.192913651305851,
+        "upper": 23.06165702013808,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      },
+      "r2": {
+        "lower": -0.25724972111901584,
+        "upper": 0.03903828840609879,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      }
+    },
+    "confounds": {
+      "mae": {
+        "lower": 12.045963146046086,
+        "upper": 20.600107571298658,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      },
+      "rmse": {
+        "lower": 15.237688869898319,
+        "upper": 24.25232885738742,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      },
+      "r2": {
+        "lower": -0.3182595467955699,
+        "upper": 0.04061576913991622,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      }
+    },
+    "clinical_confounds": {
+      "mae": {
+        "lower": 8.746110909373954,
+        "upper": 17.71421834970313,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      },
+      "rmse": {
+        "lower": 11.773717030855378,
+        "upper": 22.561391900706994,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      },
+      "r2": {
+        "lower": -0.15888754369084715,
+        "upper": 0.4539177823544866,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      }
+    },
+    "tangent_confounds": {
+      "mae": {
+        "lower": 11.766182831820231,
+        "upper": 20.44085196022808,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      },
+      "rmse": {
+        "lower": 15.00844702369995,
+        "upper": 24.076110053774055,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      },
+      "r2": {
+        "lower": -0.29442972547993135,
+        "upper": 0.03377126029463359,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      }
+    },
+    "clinical_tangent_confounds": {
+      "mae": {
+        "lower": 11.719928827477004,
+        "upper": 20.41294043636767,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      },
+      "rmse": {
+        "lower": 14.931641462463023,
+        "upper": 24.037738275082404,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      },
+      "r2": {
+        "lower": -0.28517346535227944,
+        "upper": 0.039445592899858495,
+        "valid_resamples": 2000,
+        "invalid_resamples": 0
+      }
+    }
+  },
+  "clinical_vs_mean": {
+    "improvement": 2.915535641882606,
+    "interval": {
+      "lower": -0.26982594494181733,
+      "upper": 5.899212053491578
+    }
+  },
+  "fits": {
+    "inner_ridge": 144,
+    "final_ridge": 12,
+    "constants": 6,
+    "tangent_references": 12
+  },
+  "verification": {
+    "ridge_replays": 156,
+    "constant_replays": 6,
+    "predictions": 1026,
+    "max_prediction_error": 0.0,
+    "refits": 0
+  },
+  "bnt": {
+    "training_started": false,
+    "decision": "No consistent incremental evidence; do not expand Emo27 BNT training/search",
+    "synthetic_state": "SYNTHETIC_INTERFACE_BACKWARD_RELOAD_PASS",
+    "synthetic_parameters": [
+      {
+        "clinical_features": 0,
+        "parameters": 1066839,
+        "gradient_parameters": 1062789,
+        "batch_error": 0.0,
+        "reload_error": 0.0
+      },
+      {
+        "clinical_features": 13,
+        "parameters": 1066852,
+        "gradient_parameters": 1062802,
+        "batch_error": 0.0,
+        "reload_error": 0.0
+      }
+    ],
+    "optimizer_steps": 0,
+    "patient_inputs": 0
+  },
+  "other_inputs": [
+    {
+      "name": "Emo27",
+      "people": 27,
+      "roi": 90,
+      "endpoint": "interview VAS0-100",
+      "clinical_raw_columns": 6,
+      "existing_outer_folds": 3,
+      "bnt_training": "not advanced after negative increment"
+    },
+    {
+      "name": "migraine132",
+      "people": 132,
+      "roi": 90,
+      "endpoint": "diagnosis only",
+      "patient": 111,
+      "healthy": 21,
+      "existing_groups": 3,
+      "clinical_columns": 0,
+      "bnt_training": "inputs prepared; no diagnosis rerun or severity/response fitting"
+    }
+  ],
+  "cohorts": [
+    {
+      "id": "emo",
+      "name": "Emo-Fibro",
+      "people": "66候选；现有AAL90为27患者/26对照",
+      "endpoint": "诊断；患者访谈VAS0–100",
+      "identity": "53人与临床组别逐行一致；27患者与公开Power264的同人VAS一致",
+      "time": "27患者26人有访谈至MRI任务天数和MRI钟点；缺精确评分至rest间隔",
+      "FC": "AAL90切空间及现成Pearson；Power264另流程；同人CC200未备齐",
+      "covariates": "年龄、教育、确诊/症状病程、药物状态/用药数量均27/27；原4项混杂参照已持有",
+      "validation": "已开发；无独立H-test",
+      "next": "27人访谈VAS比较完成：临床MAE12.97，临床＋FC15.88；无稳定FC增量，不启动Emo27 BNT搜索。"
+    },
+    {
+      "id": "srpbs",
+      "name": "SRPBS临床",
+      "people": "99人；46患者中44有VAS，sup7=29/sup8=15",
+      "endpoint": "异质Pain/HC；分表VAS探索",
+      "identity": "现有99主表及44患者表匹配；HC零值不作程度目标",
+      "time": "施测时间/回顾窗未证实；观察范围不能确定量表端点",
+      "FC": "既有AAL90切空间强对照和相同划分",
+      "covariates": "年龄、性别、FD/删帧齐；sup8病程12/15，sup7病程缺；药物缺",
+      "validation": "99/96及79子集均已开发",
+      "next": "保留分表原始单位和负结果，补施测定义，不跨表直接合并VAS"
+    },
+    {
+      "id": "zan",
+      "name": "ZAN ds007181",
+      "people": "54：25患者/29健康",
+      "endpoint": "ZAN/HC诊断开发",
+      "identity": "影像和组别/年龄/性别可对应",
+      "time": "NRS/VAS、病程及评分与扫描间隔仍缺",
+      "FC": "AAL90时序/FC与既有对照",
+      "covariates": "年龄、性别、FD/删帧已齐",
+      "validation": "已开发；7T与来源差异保留",
+      "next": "不开展程度或疗效拟合；ZAN不自动等于PHN"
+    },
+    {
+      "id": "migraine",
+      "name": "偏头痛 ds005016",
+      "people": "132：111患者/21对照；322成对访视仍是132人",
+      "endpoint": "既有诊断开发；同期痛/治疗反应待逐人真值",
+      "identity": "132人与公开参与者ID/性别精确一致",
+      "time": "首编号访视≠已证实临床基线；日期、日记、20周应答及其MRI对应缺",
+      "FC": "已完成同人AAL90切空间/冻结/随机/仅协变量比较；不重跑",
+      "covariates": "原性别、设备/头动等有限参照；个体年龄、病史/用药等充分临床参照缺",
+      "validation": "已开发；15个未进入132的人不能自动当H-test",
+      "next": "原132人AAL90 FC/混杂及3外层、6内层人员关系已接入通用接口，诊断准备而非新增拟合；同期痛/疗效仍缺真值。"
+    },
+    {
+      "id": "tn_source",
+      "name": "DS005713既有来源",
+      "people": "36扫描/33人：19patient、14HC",
+      "endpoint": "来源分组已补；具体诊断/程度仍部分可对应",
+      "identity": "公开179人心理表，使用原manifest person_id匹配36/36；不靠fu后缀猜人",
+      "time": "详细临床仅匹配7扫描，基线痛6；扫描同期性/手术日期仍缺",
+      "FC": "旧AAL90来源及覆盖排除保持；14覆盖失败不复活",
+      "covariates": "179表以心理量表为主；源侧充分临床/用药参照不齐",
+      "validation": "已使用来源；原6人属于已停止TN14",
+      "next": "只更正来源构成；patient不自动等于已核实TN分型；TN14停止保持"
+    },
+    {
+      "id": "oa",
+      "name": "OA ds000208",
+      "people": "76公开人；56患者有结局，当前数值交集8人待审核",
+      "endpoint": "两周安慰剂/三个月度洛西汀或安慰剂反应，分研究/组",
+      "identity": "27重处理结果与原56患者标签匹配；仍是原8通过、19未通过",
+      "time": "预治疗rest角色由来源说明支持；准确日期/基线疼痛量表缺",
+      "FC": "8人AAL90数值通过；技术通过不当训练纳入",
+      "covariates": "年龄/性别；充分治疗前临床参照未齐；改善百分比是结局",
+      "validation": "旧62/64重叠，已开发",
+      "next": "不训练疗效模型：各组4/2/2，三个月安慰剂仅应答者；29头动排除保留"
+    },
+    {
+      "id": "music",
+      "name": "音乐镇痛 ds001928",
+      "people": "20患者/20对照；17患者四条件完整=68有评分扫描",
+      "endpoint": "0–10实验前痛；音乐/对照短期配对变化",
+      "identity": "20患者每人4条件路径及4钟点对应；不按rest1当首扫描",
+      "time": "TaskName/AcquisitionTime可核；日历日期及精确评分扫描间隔未齐",
+      "FC": "现有强FC、统一预处理/QC均未备齐",
+      "covariates": "患者年龄/性别/确诊年数20/20",
+      "validation": "候选补充来源；与Emo生物身份非重叠未证实，终点/量表窗不同",
+      "next": "适合短期变化开发准备，不能作药物疗效或直接当Emo访谈VAS外部检验"
+    },
+    {
+      "id": "deipp",
+      "name": "DEIPP ds006815",
+      "people": "3患者/63访视；不能算63独立患者",
+      "endpoint": "个人自发痛连续VAS；日问卷0–100、入组0–10分开",
+      "identity": "66问卷键中63匹配MRI访视；3基线键无MRI",
+      "time": "63日问卷日期齐，可派生问卷相对天数；精确MRI日历日期未证实；首run1225点原时轴/实际censor已核",
+      "FC": "个人parcellation/作者保存连接输出仍缺；不擅自换atlas称复现",
+      "covariates": "当天/一周VAS及用药63/63；个体内临床/时间参照另设计",
+      "validation": "3人不足跨人独立临床确认",
+      "next": "维持个体内访视/时间块任务，原parcel和剩余输入核对优先；不启动跨人诊断/疗效"
+    },
+    {
+      "id": "cospine",
+      "name": "CoSpine ds005883",
+      "people": "39健康人/585嵌套疼痛试次；26开发/13研究留出",
+      "endpoint": "实验热痛PR与不愉快度UpR，各0–10",
+      "identity": "39事件表与人对应，两个评分585/585",
+      "time": "固定早期窗−5.36至+9.84秒，不直接覆盖任一报告期；最小间隔6.158秒",
+      "FC": "已有5人表示/读出配置已停止；没有同人强FC或CC200比较",
+      "covariates": "年龄、性别、教育、体重/身高、个体热刺激温度39/39",
+      "validation": "13研究留出MRI本轮0读取；不是独立临床H-test，预训练重叠未知",
+      "next": "先核时间滤波/整段归一化及报告信号影响并准备真动态/强FC对照；不继续池化/差分/注意力搜索"
+    },
+    {
+      "id": "prt",
+      "name": "PRT AHinCBP",
+      "people": "192：141患者/51对照；既有60任务响应特征",
+      "endpoint": "既有诊断/任务不愉快度；pain_avg临床痛仍未取得",
+      "identity": "原基线神经/行为表对应保留",
+      "time": "临床痛与MRI时点、逐人刺激/头动记录缺",
+      "FC": "ROI/固定模式任务响应，不当AAL90静息FC",
+      "covariates": "年龄/性别及任务不愉快度已有；影像增量此前不稳定",
+      "validation": "既有开发；本次4个Figshare临床API仍403",
+      "next": "等可读临床文件/允许访问来源；不把403说成数据不存在，不重复发信"
+    },
+    {
+      "id": "spinal",
+      "name": "ds004926",
+      "people": "40健康者/两个访视",
+      "endpoint": "实验热痛脊髓fMRI与生理/评分",
+      "identity": "公开参与者表40人；本轮仅核元数据",
+      "time": "行为评分/事件及MRI还需逐run核对",
+      "FC": "源README是脊髓视野，不能直接作为全脑BNT/CC200外部队列",
+      "covariates": "年龄/性别40人表；其他字段需原数据核查",
+      "validation": "候选方法学来源，非全脑临床验证",
+      "next": "更正模态边界；不下载MRI或套全脑网络"
+    },
+    {
+      "id": "lbp",
+      "name": "ds007135慢性腰痛PET/MR",
+      "people": "25人员目录；均患者，无HC/干预",
+      "endpoint": "慢性腰痛横断面候选",
+      "identity": "公开目录已读，逐人可读临床评分表未取得",
+      "time": "评分与MRI窗口缺",
+      "FC": "未准备统一FC/时序或QC",
+      "covariates": "当前树无参与者TSV/临床表",
+      "validation": "不能构成病例/对照或治疗应答H-test",
+      "next": "保留来源候选；先取得真实临床表，不训练缺真值模型"
+    },
+    {
+      "id": "n82",
+      "name": "历史SRPBS-FC N82",
+      "people": "82：43疼痛/29健康/10卒中",
+      "endpoint": "历史外部测试未通过",
+      "identity": "既有归档；与当前SRPBS跨库人员非重叠尚未证实",
+      "time": "当前审计未取得新的评分时点资料",
+      "FC": "BAL140连接，不能拼作AAL90/CC200同输入",
+      "covariates": "本轮未取得新的充分临床参照",
+      "validation": "已评估，不重新命名独立验证",
+      "next": "保留阴性结果、卒中单列；不为本轮模型强行转换图谱"
+    }
+  ],
+  "limitations": [
+    "Existing development people/folds, not independent validation",
+    "Interview timing is not scan-time pain;1missing interval and5intervals15-21days retained",
+    "Conditional intervals exclude retraining/split/selection uncertainty",
+    "27women;4confounds+9clinical encoded+4005FC columns; all seeds/splits retained",
+    "No clipping, external calibration, MRI reread, QC change or patient exclusion"
+  ],
+  "runtime": {
+    "numpy": "2.3.2",
+    "sklearn": "1.8.0",
+    "nilearn": "0.13.1"
+  },
+  "new_MRI_reads": 0,
+  "new_expert_reports": 0,
+  "new_training_inclusions": 0,
+  "independent_clinical_validation": false,
+  "failure": "首次服务器启动缺joblib，导入阶段0拟合；未安装或修改共享环境，改用既有本机回归环境完成一次固定批处理。旧132输入包QC布尔值未反映后续用户授权，保留原值且本轮未改QC。"
+}

@@ -1,0 +1,2581 @@
+{
+  "date": "2026-10-14",
+  "people": 27,
+  "target": "interview VAS 0-100, not MRI contemporaneous",
+  "main": [
+    {
+      "context": "clinical",
+      "model": "clinical",
+      "MAE": 12.969238020668833,
+      "RMSE": 17.567435785023285,
+      "R2": 0.1717158799934898,
+      "MAE_improvement_vs_clinical": 0.0,
+      "conditional_MAE_improvement_CI": [
+        0.0,
+        0.0
+      ],
+      "brain_residual_r": null,
+      "brain_residual_spearman": null,
+      "conditional_r_CI": [
+        null,
+        null
+      ],
+      "fold_MAE": [
+        10.863781888992593,
+        14.139840465252696,
+        13.90409170776121
+      ],
+      "fold_r": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "context": "clinical",
+      "model": "raw_bundle",
+      "MAE": 14.34124296374139,
+      "RMSE": 18.01902075184364,
+      "R2": 0.12858515011462224,
+      "MAE_improvement_vs_clinical": -1.3720049430725543,
+      "conditional_MAE_improvement_CI": [
+        -3.9001169547664865,
+        1.0385342382779008
+      ],
+      "brain_residual_r": 0.26166317964672553,
+      "brain_residual_spearman": 0.37973137973137966,
+      "conditional_r_CI": [
+        0.046298408873096934,
+        0.4770162260363743
+      ],
+      "fold_MAE": [
+        13.527475673501336,
+        14.555405912847593,
+        14.940847304875238
+      ],
+      "fold_r": [
+        0.25189876468211697,
+        0.6399595888899129,
+        0.1425021333121752
+      ]
+    },
+    {
+      "context": "clinical",
+      "model": "closest_half",
+      "MAE": 14.172123076247678,
+      "RMSE": 18.04921407936105,
+      "R2": 0.12566235446532592,
+      "MAE_improvement_vs_clinical": -1.202885055578842,
+      "conditional_MAE_improvement_CI": [
+        -3.9668670471008616,
+        1.287610185959735
+      ],
+      "brain_residual_r": 0.23561305295399732,
+      "brain_residual_spearman": 0.37545787545787546,
+      "conditional_r_CI": [
+        -0.01912463954735426,
+        0.43328199990960176
+      ],
+      "fold_MAE": [
+        14.927973285525066,
+        13.657759828205084,
+        13.930636115012875
+      ],
+      "fold_r": [
+        -0.029686351886746953,
+        0.6700985598768668,
+        0.17199591952557736
+      ]
+    },
+    {
+      "context": "clinical",
+      "model": "individual_noise",
+      "MAE": 14.333405138853793,
+      "RMSE": 17.80485291709188,
+      "R2": 0.14917671611993277,
+      "MAE_improvement_vs_clinical": -1.3641671181849613,
+      "conditional_MAE_improvement_CI": [
+        -3.7829680575733557,
+        0.9588122753195486
+      ],
+      "brain_residual_r": 0.2597342798487162,
+      "brain_residual_spearman": 0.3669108669108669,
+      "conditional_r_CI": [
+        0.03605014722618493,
+        0.4676974811430349
+      ],
+      "fold_MAE": [
+        14.362137107891694,
+        14.343405604262077,
+        14.29467270440761
+      ],
+      "fold_r": [
+        0.13622934942435166,
+        0.6829154709751971,
+        0.155228314310414
+      ]
+    },
+    {
+      "context": "clinical",
+      "model": "permuted_noise",
+      "MAE": 14.116260017077842,
+      "RMSE": 17.55626534746367,
+      "R2": 0.17276889132340667,
+      "MAE_improvement_vs_clinical": -1.1470219964090076,
+      "conditional_MAE_improvement_CI": [
+        -3.6293229503746365,
+        1.2756245371740165
+      ],
+      "brain_residual_r": 0.2863128739176356,
+      "brain_residual_spearman": 0.3711843711843712,
+      "conditional_r_CI": [
+        0.05347883599583472,
+        0.4968443022635772
+      ],
+      "fold_MAE": [
+        13.861184564068264,
+        14.068105758611507,
+        14.419489728553751
+      ],
+      "fold_r": [
+        0.1182886171516647,
+        0.7235898964069223,
+        0.21137457761266285
+      ]
+    },
+    {
+      "context": "clinical",
+      "model": "pearson",
+      "MAE": 16.50032509657104,
+      "RMSE": 20.49381299407823,
+      "R2": -0.12721854078618833,
+      "MAE_improvement_vs_clinical": -3.531087075902209,
+      "conditional_MAE_improvement_CI": [
+        -7.407463476379172,
+        0.508966069499805
+      ],
+      "brain_residual_r": 0.22967539520513827,
+      "brain_residual_spearman": 0.27777777777777773,
+      "conditional_r_CI": [
+        0.010841103241147348,
+        0.4345589823172419
+      ],
+      "fold_MAE": [
+        18.09030000034572,
+        16.301686238938508,
+        15.1089890504289
+      ],
+      "fold_r": [
+        0.004312859348119461,
+        0.32679302682226474,
+        0.3460183989530187
+      ]
+    },
+    {
+      "context": "clinical",
+      "model": "tangent",
+      "MAE": 15.71614360044523,
+      "RMSE": 19.562354332067617,
+      "R2": -0.02708131304806982,
+      "MAE_improvement_vs_clinical": -2.7469055797763975,
+      "conditional_MAE_improvement_CI": [
+        -5.777014246534523,
+        0.246531957179204
+      ],
+      "brain_residual_r": 0.1044468154141282,
+      "brain_residual_spearman": 0.06593406593406594,
+      "conditional_r_CI": [
+        -0.252488590315075,
+        0.4128864798310682
+      ],
+      "fold_MAE": [
+        16.442250035499896,
+        16.954485917261838,
+        13.751694848573962
+      ],
+      "fold_r": [
+        -0.37925440378903563,
+        0.15768867689473912,
+        0.30909061968990514
+      ]
+    },
+    {
+      "context": "psych",
+      "model": "clinical",
+      "MAE": 12.74738992607249,
+      "RMSE": 16.78380387303322,
+      "R2": 0.24396243008697216,
+      "MAE_improvement_vs_clinical": 0.0,
+      "conditional_MAE_improvement_CI": [
+        0.0,
+        0.0
+      ],
+      "brain_residual_r": null,
+      "brain_residual_spearman": null,
+      "conditional_r_CI": [
+        null,
+        null
+      ],
+      "fold_MAE": [
+        14.544427510098883,
+        12.720490611279983,
+        10.977251656838598
+      ],
+      "fold_r": [
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "context": "psych",
+      "model": "raw_bundle",
+      "MAE": 14.28260225686843,
+      "RMSE": 17.586375183999348,
+      "R2": 0.16992897611411828,
+      "MAE_improvement_vs_clinical": -1.5352123307959407,
+      "conditional_MAE_improvement_CI": [
+        -4.7466514844037215,
+        1.7065144944655521
+      ],
+      "brain_residual_r": 0.1418623439747577,
+      "brain_residual_spearman": 0.17277167277167274,
+      "conditional_r_CI": [
+        -0.20602005210115276,
+        0.4547395316064548
+      ],
+      "fold_MAE": [
+        14.75544744285062,
+        13.396315920369272,
+        14.696043407385396
+      ],
+      "fold_r": [
+        0.05426023657179893,
+        0.7336878317161407,
+        0.02809225322171053
+      ]
+    },
+    {
+      "context": "psych",
+      "model": "closest_half",
+      "MAE": 15.050216865581499,
+      "RMSE": 18.28930562720124,
+      "R2": 0.10224667907219398,
+      "MAE_improvement_vs_clinical": -2.302826939509012,
+      "conditional_MAE_improvement_CI": [
+        -5.014143811134837,
+        0.2617614979811467
+      ],
+      "brain_residual_r": 0.053051354944275514,
+      "brain_residual_spearman": 0.16422466422466422,
+      "conditional_r_CI": [
+        -0.3048636980519034,
+        0.38768853817543564
+      ],
+      "fold_MAE": [
+        18.221773437692647,
+        13.087395246226562,
+        13.841481912825293
+      ],
+      "fold_r": [
+        -0.16460467992575167,
+        0.6819796410482563,
+        0.06761560020973947
+      ]
+    },
+    {
+      "context": "psych",
+      "model": "individual_noise",
+      "MAE": 14.734359141208452,
+      "RMSE": 17.72466515969799,
+      "R2": 0.1568231681820058,
+      "MAE_improvement_vs_clinical": -1.9869692151359646,
+      "conditional_MAE_improvement_CI": [
+        -4.716713857536256,
+        0.5973015504681242
+      ],
+      "brain_residual_r": 0.10595422934238959,
+      "brain_residual_spearman": 0.15384615384615385,
+      "conditional_r_CI": [
+        -0.23213871492605892,
+        0.40474119218191873
+      ],
+      "fold_MAE": [
+        16.687391130993113,
+        13.39226988797557,
+        14.123416404656675
+      ],
+      "fold_r": [
+        -0.022341318584082698,
+        0.7426539723019393,
+        0.046732367417460306
+      ]
+    },
+    {
+      "context": "psych",
+      "model": "permuted_noise",
+      "MAE": 14.722877338161883,
+      "RMSE": 17.809547467317724,
+      "R2": 0.14872798910920715,
+      "MAE_improvement_vs_clinical": -1.9754874120893942,
+      "conditional_MAE_improvement_CI": [
+        -4.7127906166067355,
+        0.6957595102876336
+      ],
+      "brain_residual_r": 0.07824515117179914,
+      "brain_residual_spearman": 0.1623931623931624,
+      "conditional_r_CI": [
+        -0.27521200544318897,
+        0.4052220290127731
+      ],
+      "fold_MAE": [
+        16.746435502476952,
+        13.209607449675204,
+        14.212589062333489
+      ],
+      "fold_r": [
+        -0.13663954571183748,
+        0.675289902278872,
+        0.09090389667816905
+      ]
+    },
+    {
+      "context": "psych",
+      "model": "pearson",
+      "MAE": 16.474613490867803,
+      "RMSE": 20.440401967506215,
+      "R2": -0.12135067763460294,
+      "MAE_improvement_vs_clinical": -3.7272235647953127,
+      "conditional_MAE_improvement_CI": [
+        -7.531219078085286,
+        0.0905966080370312
+      ],
+      "brain_residual_r": 0.12889319004388014,
+      "brain_residual_spearman": 0.11416361416361415,
+      "conditional_r_CI": [
+        -0.12001418774307111,
+        0.37713623077785086
+      ],
+      "fold_MAE": [
+        18.067138742981026,
+        16.267881720232353,
+        15.088820009390027
+      ],
+      "fold_r": [
+        0.08624770774687919,
+        0.3201419878315064,
+        0.19546428359295687
+      ]
+    },
+    {
+      "context": "psych",
+      "model": "tangent",
+      "MAE": 15.68619322728433,
+      "RMSE": 19.514358875311043,
+      "R2": -0.022047689389004255,
+      "MAE_improvement_vs_clinical": -2.938803301211838,
+      "conditional_MAE_improvement_CI": [
+        -6.242395904264371,
+        0.3533778575640321
+      ],
+      "brain_residual_r": -0.01772175882114606,
+      "brain_residual_spearman": -0.03479853479853479,
+      "conditional_r_CI": [
+        -0.3539572777038272,
+        0.30663734676846627
+      ],
+      "fold_MAE": [
+        16.401269889793973,
+        16.92952631236565,
+        13.727783479693361
+      ],
+      "fold_r": [
+        -0.31820399601757765,
+        0.19924609317417383,
+        0.21349919762186395
+      ]
+    }
+  ],
+  "curve": [
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 75,
+      "context": "clinical",
+      "model": "clinical",
+      "mean_MAE": 17.392184966716357,
+      "minimum_fold_seed_MAE": 11.088761820355424,
+      "maximum_fold_seed_MAE": 22.811985914789627,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 2.5709904259561216,
+      "active_components_min": 30
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 75,
+      "context": "clinical",
+      "model": "raw_bundle",
+      "mean_MAE": 19.36169337860364,
+      "minimum_fold_seed_MAE": 14.449292777035659,
+      "maximum_fold_seed_MAE": 23.39982057350432,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.9660132813321223,
+      "active_components_min": 30
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 75,
+      "context": "clinical",
+      "model": "closest_half",
+      "mean_MAE": 17.937287465258883,
+      "minimum_fold_seed_MAE": 14.93445752130206,
+      "maximum_fold_seed_MAE": 21.894536096254292,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.461234235128648,
+      "active_components_min": 30
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 75,
+      "context": "clinical",
+      "model": "individual_noise",
+      "mean_MAE": 18.055527573307412,
+      "minimum_fold_seed_MAE": 14.727864650980349,
+      "maximum_fold_seed_MAE": 22.680754366416277,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.5405280500855385,
+      "active_components_min": 30
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 75,
+      "context": "clinical",
+      "model": "permuted_noise",
+      "mean_MAE": 18.20268804017994,
+      "minimum_fold_seed_MAE": 14.596752219272721,
+      "maximum_fold_seed_MAE": 22.89498717505981,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.5533345403105105,
+      "active_components_min": 30
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 75,
+      "context": "clinical",
+      "model": "pearson",
+      "mean_MAE": 18.190573898059125,
+      "minimum_fold_seed_MAE": 12.268663911676194,
+      "maximum_fold_seed_MAE": 20.74356681973588,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 4.988835917851001,
+      "active_components_min": 30
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 75,
+      "context": "clinical",
+      "model": "tangent",
+      "mean_MAE": 16.522317813211586,
+      "minimum_fold_seed_MAE": 13.40747363106172,
+      "maximum_fold_seed_MAE": 20.66969756788234,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 4.989607846327811,
+      "active_components_min": 30
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 75,
+      "context": "psych",
+      "model": "clinical",
+      "mean_MAE": 16.18203232479832,
+      "minimum_fold_seed_MAE": 11.821509670946373,
+      "maximum_fold_seed_MAE": 19.49312318767199,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 2.780313513404071,
+      "active_components_min": 30
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 75,
+      "context": "psych",
+      "model": "raw_bundle",
+      "mean_MAE": 18.639011691413586,
+      "minimum_fold_seed_MAE": 15.16136651323576,
+      "maximum_fold_seed_MAE": 22.61073558844893,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 4.007522857684183,
+      "active_components_min": 30
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 75,
+      "context": "psych",
+      "model": "closest_half",
+      "mean_MAE": 17.010541102552665,
+      "minimum_fold_seed_MAE": 13.612021639454149,
+      "maximum_fold_seed_MAE": 21.062562191831745,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.5461279054610895,
+      "active_components_min": 30
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 75,
+      "context": "psych",
+      "model": "individual_noise",
+      "mean_MAE": 17.15231910933496,
+      "minimum_fold_seed_MAE": 14.050254896143507,
+      "maximum_fold_seed_MAE": 21.227469404085475,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.612852547575247,
+      "active_components_min": 30
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 75,
+      "context": "psych",
+      "model": "permuted_noise",
+      "mean_MAE": 17.21360751687969,
+      "minimum_fold_seed_MAE": 14.593497868042801,
+      "maximum_fold_seed_MAE": 21.569246845765083,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.6260256943563096,
+      "active_components_min": 30
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 75,
+      "context": "psych",
+      "model": "pearson",
+      "mean_MAE": 18.17819474821914,
+      "minimum_fold_seed_MAE": 12.264081443134478,
+      "maximum_fold_seed_MAE": 20.729997294475133,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 4.9888413960189375,
+      "active_components_min": 30
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 75,
+      "context": "psych",
+      "model": "tangent",
+      "mean_MAE": 16.513344553311814,
+      "minimum_fold_seed_MAE": 13.38579733108086,
+      "maximum_fold_seed_MAE": 20.656831711458228,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 4.989612936118128,
+      "active_components_min": 30
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 150,
+      "context": "clinical",
+      "model": "clinical",
+      "mean_MAE": 17.392184966716357,
+      "minimum_fold_seed_MAE": 11.088761820355424,
+      "maximum_fold_seed_MAE": 22.811985914789627,
+      "logical_readouts": 9,
+      "actual_fits": 0,
+      "mean_df": 2.5709904259561216,
+      "active_components_min": 31
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 150,
+      "context": "clinical",
+      "model": "raw_bundle",
+      "mean_MAE": 22.83256993302193,
+      "minimum_fold_seed_MAE": 15.480269450826796,
+      "maximum_fold_seed_MAE": 51.47826577893225,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.974956627791549,
+      "active_components_min": 31
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 150,
+      "context": "clinical",
+      "model": "closest_half",
+      "mean_MAE": 18.803236117234423,
+      "minimum_fold_seed_MAE": 14.736695563932528,
+      "maximum_fold_seed_MAE": 23.362462936286914,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.5161984162364375,
+      "active_components_min": 31
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 150,
+      "context": "clinical",
+      "model": "individual_noise",
+      "mean_MAE": 18.80565907690168,
+      "minimum_fold_seed_MAE": 14.66573931082237,
+      "maximum_fold_seed_MAE": 23.203423150488433,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.6013153641169495,
+      "active_components_min": 31
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 150,
+      "context": "clinical",
+      "model": "permuted_noise",
+      "mean_MAE": 18.90743014375149,
+      "minimum_fold_seed_MAE": 14.588916428570887,
+      "maximum_fold_seed_MAE": 23.221688156792087,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.6097134542608,
+      "active_components_min": 31
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 150,
+      "context": "clinical",
+      "model": "pearson",
+      "mean_MAE": 18.28098307820893,
+      "minimum_fold_seed_MAE": 12.196517498898698,
+      "maximum_fold_seed_MAE": 22.269525590122058,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 4.9886749589508135,
+      "active_components_min": 31
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 150,
+      "context": "clinical",
+      "model": "tangent",
+      "mean_MAE": 16.511423525835614,
+      "minimum_fold_seed_MAE": 13.381463785745671,
+      "maximum_fold_seed_MAE": 21.144749923037278,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 4.989612050094073,
+      "active_components_min": 31
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 150,
+      "context": "psych",
+      "model": "clinical",
+      "mean_MAE": 16.18203232479832,
+      "minimum_fold_seed_MAE": 11.821509670946373,
+      "maximum_fold_seed_MAE": 19.49312318767199,
+      "logical_readouts": 9,
+      "actual_fits": 0,
+      "mean_df": 2.780313513404071,
+      "active_components_min": 31
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 150,
+      "context": "psych",
+      "model": "raw_bundle",
+      "mean_MAE": 21.941616791040925,
+      "minimum_fold_seed_MAE": 15.349294941988596,
+      "maximum_fold_seed_MAE": 50.097151198616956,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 4.022886664072424,
+      "active_components_min": 31
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 150,
+      "context": "psych",
+      "model": "closest_half",
+      "mean_MAE": 18.191337642073076,
+      "minimum_fold_seed_MAE": 15.61677586731668,
+      "maximum_fold_seed_MAE": 22.33538858529212,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.606583049976181,
+      "active_components_min": 31
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 150,
+      "context": "psych",
+      "model": "individual_noise",
+      "mean_MAE": 18.151118849803797,
+      "minimum_fold_seed_MAE": 15.321149649707138,
+      "maximum_fold_seed_MAE": 22.20856073017713,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.684022066206877,
+      "active_components_min": 31
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 150,
+      "context": "psych",
+      "model": "permuted_noise",
+      "mean_MAE": 18.276061080489715,
+      "minimum_fold_seed_MAE": 14.929872349110635,
+      "maximum_fold_seed_MAE": 22.247529500076006,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.692094505039004,
+      "active_components_min": 31
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 150,
+      "context": "psych",
+      "model": "pearson",
+      "mean_MAE": 18.270845598450265,
+      "minimum_fold_seed_MAE": 12.199562436545824,
+      "maximum_fold_seed_MAE": 22.255755471944866,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 4.9886812364305255,
+      "active_components_min": 31
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 150,
+      "context": "psych",
+      "model": "tangent",
+      "mean_MAE": 16.5022427708645,
+      "minimum_fold_seed_MAE": 13.373047478415272,
+      "maximum_fold_seed_MAE": 21.13099973966378,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 4.989617211302993,
+      "active_components_min": 31
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 300,
+      "context": "clinical",
+      "model": "clinical",
+      "mean_MAE": 17.392184966716357,
+      "minimum_fold_seed_MAE": 11.088761820355424,
+      "maximum_fold_seed_MAE": 22.811985914789627,
+      "logical_readouts": 9,
+      "actual_fits": 0,
+      "mean_df": 2.5709904259561216,
+      "active_components_min": 34
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 300,
+      "context": "clinical",
+      "model": "raw_bundle",
+      "mean_MAE": 19.80330771483705,
+      "minimum_fold_seed_MAE": 15.144914703949496,
+      "maximum_fold_seed_MAE": 25.008048840983044,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.9452878426194533,
+      "active_components_min": 34
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 300,
+      "context": "clinical",
+      "model": "closest_half",
+      "mean_MAE": 18.581914940322097,
+      "minimum_fold_seed_MAE": 14.844109798434188,
+      "maximum_fold_seed_MAE": 24.58713796605335,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.57866444709119,
+      "active_components_min": 34
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 300,
+      "context": "clinical",
+      "model": "individual_noise",
+      "mean_MAE": 18.653822249217725,
+      "minimum_fold_seed_MAE": 14.446738470806862,
+      "maximum_fold_seed_MAE": 24.694163029429387,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.677919459856655,
+      "active_components_min": 34
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 300,
+      "context": "clinical",
+      "model": "permuted_noise",
+      "mean_MAE": 18.73163968238596,
+      "minimum_fold_seed_MAE": 14.583546097975809,
+      "maximum_fold_seed_MAE": 25.434914737547288,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.6808501584948297,
+      "active_components_min": 34
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 300,
+      "context": "clinical",
+      "model": "pearson",
+      "mean_MAE": 17.927699849785586,
+      "minimum_fold_seed_MAE": 12.902954583587169,
+      "maximum_fold_seed_MAE": 22.8546940070367,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 4.988264930279064,
+      "active_components_min": 34
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 300,
+      "context": "clinical",
+      "model": "tangent",
+      "mean_MAE": 16.573880268615696,
+      "minimum_fold_seed_MAE": 13.646036201969439,
+      "maximum_fold_seed_MAE": 20.389468452944985,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 4.98959300448798,
+      "active_components_min": 34
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 300,
+      "context": "psych",
+      "model": "clinical",
+      "mean_MAE": 16.18203232479832,
+      "minimum_fold_seed_MAE": 11.821509670946373,
+      "maximum_fold_seed_MAE": 19.49312318767199,
+      "logical_readouts": 9,
+      "actual_fits": 0,
+      "mean_df": 2.780313513404071,
+      "active_components_min": 34
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 300,
+      "context": "psych",
+      "model": "raw_bundle",
+      "mean_MAE": 19.232118050887507,
+      "minimum_fold_seed_MAE": 14.890590729267185,
+      "maximum_fold_seed_MAE": 24.291868007772116,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.996565747125011,
+      "active_components_min": 34
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 300,
+      "context": "psych",
+      "model": "closest_half",
+      "mean_MAE": 18.180152721744516,
+      "minimum_fold_seed_MAE": 14.900628438415689,
+      "maximum_fold_seed_MAE": 23.67735594387712,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.663006695419994,
+      "active_components_min": 34
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 300,
+      "context": "psych",
+      "model": "individual_noise",
+      "mean_MAE": 18.42050694403592,
+      "minimum_fold_seed_MAE": 14.540274865454446,
+      "maximum_fold_seed_MAE": 24.030336662076994,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.7541259493883326,
+      "active_components_min": 34
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 300,
+      "context": "psych",
+      "model": "permuted_noise",
+      "mean_MAE": 18.494826537637543,
+      "minimum_fold_seed_MAE": 14.653033135650775,
+      "maximum_fold_seed_MAE": 24.720574603778775,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 3.7571163585207117,
+      "active_components_min": 34
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 300,
+      "context": "psych",
+      "model": "pearson",
+      "mean_MAE": 17.91639296712303,
+      "minimum_fold_seed_MAE": 12.892465272665326,
+      "maximum_fold_seed_MAE": 22.8393890322451,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 4.988271900615023,
+      "active_components_min": 34
+    },
+    {
+      "training_people": 6,
+      "labels": 6,
+      "frames": 300,
+      "context": "psych",
+      "model": "tangent",
+      "mean_MAE": 16.56503632778193,
+      "minimum_fold_seed_MAE": 13.637185476383358,
+      "maximum_fold_seed_MAE": 20.37676467277485,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 4.989598181419675,
+      "active_components_min": 34
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 75,
+      "context": "clinical",
+      "model": "clinical",
+      "mean_MAE": 14.485377765720907,
+      "minimum_fold_seed_MAE": 11.665957410688032,
+      "maximum_fold_seed_MAE": 17.807526459796705,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 4.4264786251370865,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 75,
+      "context": "clinical",
+      "model": "raw_bundle",
+      "mean_MAE": 17.24867471826723,
+      "minimum_fold_seed_MAE": 13.115601748925132,
+      "maximum_fold_seed_MAE": 19.99338076990291,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 7.991168214880651,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 75,
+      "context": "clinical",
+      "model": "closest_half",
+      "mean_MAE": 14.687245396187961,
+      "minimum_fold_seed_MAE": 8.992428465184812,
+      "maximum_fold_seed_MAE": 18.365455381117197,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 6.785263167210624,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 75,
+      "context": "clinical",
+      "model": "individual_noise",
+      "mean_MAE": 14.853890998652052,
+      "minimum_fold_seed_MAE": 11.34549193547594,
+      "maximum_fold_seed_MAE": 17.67130500546936,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 7.110635480735238,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 75,
+      "context": "clinical",
+      "model": "permuted_noise",
+      "mean_MAE": 15.190223375509564,
+      "minimum_fold_seed_MAE": 11.479894847499393,
+      "maximum_fold_seed_MAE": 17.5743076267889,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 7.175029718055366,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 75,
+      "context": "clinical",
+      "model": "pearson",
+      "mean_MAE": 17.5594960743032,
+      "minimum_fold_seed_MAE": 13.391541660071956,
+      "maximum_fold_seed_MAE": 20.78404279175936,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 10.970969380610326,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 75,
+      "context": "clinical",
+      "model": "tangent",
+      "mean_MAE": 15.782856406380379,
+      "minimum_fold_seed_MAE": 13.326511051643289,
+      "maximum_fold_seed_MAE": 17.808195674084722,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 10.974687653250633,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 75,
+      "context": "psych",
+      "model": "clinical",
+      "mean_MAE": 14.093746799898112,
+      "minimum_fold_seed_MAE": 12.488676326875273,
+      "maximum_fold_seed_MAE": 15.45188158376888,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 4.938799799700006,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 75,
+      "context": "psych",
+      "model": "raw_bundle",
+      "mean_MAE": 15.495835752128524,
+      "minimum_fold_seed_MAE": 13.012047779288785,
+      "maximum_fold_seed_MAE": 19.064069129502702,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 8.15895819785099,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 75,
+      "context": "psych",
+      "model": "closest_half",
+      "mean_MAE": 13.355551138488588,
+      "minimum_fold_seed_MAE": 11.301146401993073,
+      "maximum_fold_seed_MAE": 17.942787828634025,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 7.064016568563169,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 75,
+      "context": "psych",
+      "model": "individual_noise",
+      "mean_MAE": 13.239001464980923,
+      "minimum_fold_seed_MAE": 10.550513418069947,
+      "maximum_fold_seed_MAE": 17.0105135515697,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 7.346924444357086,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 75,
+      "context": "psych",
+      "model": "permuted_noise",
+      "mean_MAE": 13.713098301951737,
+      "minimum_fold_seed_MAE": 10.89813328484481,
+      "maximum_fold_seed_MAE": 17.058312521071937,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 7.409809549211927,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 75,
+      "context": "psych",
+      "model": "pearson",
+      "mean_MAE": 17.537471067276368,
+      "minimum_fold_seed_MAE": 13.38712682102779,
+      "maximum_fold_seed_MAE": 20.745674949005437,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 10.97098561230139,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 75,
+      "context": "psych",
+      "model": "tangent",
+      "mean_MAE": 15.767466872383173,
+      "minimum_fold_seed_MAE": 13.320619766713726,
+      "maximum_fold_seed_MAE": 17.7895458265957,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 10.974700016194324,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 150,
+      "context": "clinical",
+      "model": "clinical",
+      "mean_MAE": 14.485377765720907,
+      "minimum_fold_seed_MAE": 11.665957410688032,
+      "maximum_fold_seed_MAE": 17.807526459796705,
+      "logical_readouts": 9,
+      "actual_fits": 0,
+      "mean_df": 4.4264786251370865,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 150,
+      "context": "clinical",
+      "model": "raw_bundle",
+      "mean_MAE": 17.192137956585984,
+      "minimum_fold_seed_MAE": 14.234527969009788,
+      "maximum_fold_seed_MAE": 22.31155252525295,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 7.904204804022364,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 150,
+      "context": "clinical",
+      "model": "closest_half",
+      "mean_MAE": 16.065576859528637,
+      "minimum_fold_seed_MAE": 13.588117322571033,
+      "maximum_fold_seed_MAE": 18.48971959202834,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 6.934886042416178,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 150,
+      "context": "clinical",
+      "model": "individual_noise",
+      "mean_MAE": 15.703561383601052,
+      "minimum_fold_seed_MAE": 12.9245696167556,
+      "maximum_fold_seed_MAE": 18.438210771686634,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 7.237207822188613,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 150,
+      "context": "clinical",
+      "model": "permuted_noise",
+      "mean_MAE": 15.976625826249508,
+      "minimum_fold_seed_MAE": 13.969740981729029,
+      "maximum_fold_seed_MAE": 18.28484629182719,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 7.2176001610704805,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 150,
+      "context": "clinical",
+      "model": "pearson",
+      "mean_MAE": 17.377429038200493,
+      "minimum_fold_seed_MAE": 11.950624617935151,
+      "maximum_fold_seed_MAE": 21.493159401034735,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 10.969645209223499,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 150,
+      "context": "clinical",
+      "model": "tangent",
+      "mean_MAE": 15.766077843368379,
+      "minimum_fold_seed_MAE": 13.311162686758536,
+      "maximum_fold_seed_MAE": 18.21796840894453,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 10.974724659890363,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 150,
+      "context": "psych",
+      "model": "clinical",
+      "mean_MAE": 14.093746799898112,
+      "minimum_fold_seed_MAE": 12.488676326875273,
+      "maximum_fold_seed_MAE": 15.45188158376888,
+      "logical_readouts": 9,
+      "actual_fits": 0,
+      "mean_df": 4.938799799700006,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 150,
+      "context": "psych",
+      "model": "raw_bundle",
+      "mean_MAE": 15.749569983473021,
+      "minimum_fold_seed_MAE": 12.259318313557477,
+      "maximum_fold_seed_MAE": 19.363135937072062,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 8.094468963222468,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 150,
+      "context": "psych",
+      "model": "closest_half",
+      "mean_MAE": 15.0725123318824,
+      "minimum_fold_seed_MAE": 12.365501413587218,
+      "maximum_fold_seed_MAE": 17.570272990669068,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 7.204284680764791,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 150,
+      "context": "psych",
+      "model": "individual_noise",
+      "mean_MAE": 14.766455689175343,
+      "minimum_fold_seed_MAE": 11.442283012031076,
+      "maximum_fold_seed_MAE": 17.397910415816977,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 7.48185150501236,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 150,
+      "context": "psych",
+      "model": "permuted_noise",
+      "mean_MAE": 15.110001825341092,
+      "minimum_fold_seed_MAE": 11.873810001185582,
+      "maximum_fold_seed_MAE": 17.775403450928632,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 7.469417216015184,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 150,
+      "context": "psych",
+      "model": "pearson",
+      "mean_MAE": 17.358193430136193,
+      "minimum_fold_seed_MAE": 11.948908822236332,
+      "maximum_fold_seed_MAE": 21.464847605817738,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 10.969666046362214,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 150,
+      "context": "psych",
+      "model": "tangent",
+      "mean_MAE": 15.749907006305945,
+      "minimum_fold_seed_MAE": 13.303164569800982,
+      "maximum_fold_seed_MAE": 18.196890542724358,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 10.974737414549981,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 300,
+      "context": "clinical",
+      "model": "clinical",
+      "mean_MAE": 14.485377765720907,
+      "minimum_fold_seed_MAE": 11.665957410688032,
+      "maximum_fold_seed_MAE": 17.807526459796705,
+      "logical_readouts": 9,
+      "actual_fits": 0,
+      "mean_df": 4.4264786251370865,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 300,
+      "context": "clinical",
+      "model": "raw_bundle",
+      "mean_MAE": 15.539372032479248,
+      "minimum_fold_seed_MAE": 12.344899720794999,
+      "maximum_fold_seed_MAE": 18.47970523854585,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 7.686513082990108,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 300,
+      "context": "clinical",
+      "model": "closest_half",
+      "mean_MAE": 15.76448860904097,
+      "minimum_fold_seed_MAE": 12.964039992844677,
+      "maximum_fold_seed_MAE": 20.9008003580551,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 7.036534330108047,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 300,
+      "context": "clinical",
+      "model": "individual_noise",
+      "mean_MAE": 15.323707518359534,
+      "minimum_fold_seed_MAE": 11.466032280534376,
+      "maximum_fold_seed_MAE": 18.680000817315417,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 7.195613417559266,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 300,
+      "context": "clinical",
+      "model": "permuted_noise",
+      "mean_MAE": 15.388569365846624,
+      "minimum_fold_seed_MAE": 12.627826301424413,
+      "maximum_fold_seed_MAE": 18.72065159043697,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 7.211158209667843,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 300,
+      "context": "clinical",
+      "model": "pearson",
+      "mean_MAE": 16.631760168025643,
+      "minimum_fold_seed_MAE": 12.947257595453399,
+      "maximum_fold_seed_MAE": 19.767890615517143,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 10.967193837212507,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 300,
+      "context": "clinical",
+      "model": "tangent",
+      "mean_MAE": 15.685160320402064,
+      "minimum_fold_seed_MAE": 13.736181046490266,
+      "maximum_fold_seed_MAE": 17.47057500518851,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 10.974682864028642,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 300,
+      "context": "psych",
+      "model": "clinical",
+      "mean_MAE": 14.093746799898112,
+      "minimum_fold_seed_MAE": 12.488676326875273,
+      "maximum_fold_seed_MAE": 15.45188158376888,
+      "logical_readouts": 9,
+      "actual_fits": 0,
+      "mean_df": 4.938799799700006,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 300,
+      "context": "psych",
+      "model": "raw_bundle",
+      "mean_MAE": 14.733640407029391,
+      "minimum_fold_seed_MAE": 10.686502293658506,
+      "maximum_fold_seed_MAE": 17.373204118174545,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 7.887633257233322,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 300,
+      "context": "psych",
+      "model": "closest_half",
+      "mean_MAE": 15.540373750746912,
+      "minimum_fold_seed_MAE": 10.560308564135905,
+      "maximum_fold_seed_MAE": 21.7034052139797,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 7.289558125806039,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 300,
+      "context": "psych",
+      "model": "individual_noise",
+      "mean_MAE": 15.20235508681278,
+      "minimum_fold_seed_MAE": 10.598556016765526,
+      "maximum_fold_seed_MAE": 20.170946380846587,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 7.438516619805343,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 300,
+      "context": "psych",
+      "model": "permuted_noise",
+      "mean_MAE": 15.294230127573615,
+      "minimum_fold_seed_MAE": 10.53976995522469,
+      "maximum_fold_seed_MAE": 20.12620598677274,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 7.452424643083268,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 300,
+      "context": "psych",
+      "model": "pearson",
+      "mean_MAE": 16.612709552165548,
+      "minimum_fold_seed_MAE": 12.93738048096943,
+      "maximum_fold_seed_MAE": 19.743998476189898,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 10.967217997516135,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 12,
+      "labels": 12,
+      "frames": 300,
+      "context": "psych",
+      "model": "tangent",
+      "mean_MAE": 15.664124667792047,
+      "minimum_fold_seed_MAE": 13.727639485976406,
+      "maximum_fold_seed_MAE": 17.436014022268594,
+      "logical_readouts": 9,
+      "actual_fits": 9,
+      "mean_df": 10.974695933989254,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 75,
+      "context": "clinical",
+      "model": "clinical",
+      "mean_MAE": 12.969238020668833,
+      "minimum_fold_seed_MAE": 10.863781888992593,
+      "maximum_fold_seed_MAE": 14.139840465252696,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 5.608903706647788,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 75,
+      "context": "clinical",
+      "model": "raw_bundle",
+      "mean_MAE": 15.238267988173897,
+      "minimum_fold_seed_MAE": 12.335162842340967,
+      "maximum_fold_seed_MAE": 18.180368026800018,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 11.599072031893003,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 75,
+      "context": "clinical",
+      "model": "closest_half",
+      "mean_MAE": 12.4464635859482,
+      "minimum_fold_seed_MAE": 11.291789772495935,
+      "maximum_fold_seed_MAE": 14.669432580105592,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 9.556796532477335,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 75,
+      "context": "clinical",
+      "model": "individual_noise",
+      "mean_MAE": 12.9977213414968,
+      "minimum_fold_seed_MAE": 12.164255555175018,
+      "maximum_fold_seed_MAE": 13.51043116857229,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 10.152086846910814,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 75,
+      "context": "clinical",
+      "model": "permuted_noise",
+      "mean_MAE": 13.54861437001319,
+      "minimum_fold_seed_MAE": 13.120664398774535,
+      "maximum_fold_seed_MAE": 14.067828927035224,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 10.305862883585165,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 75,
+      "context": "clinical",
+      "model": "pearson",
+      "mean_MAE": 17.48438870648285,
+      "minimum_fold_seed_MAE": 15.450931886149997,
+      "maximum_fold_seed_MAE": 19.102607980905173,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 16.952034427498074,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 75,
+      "context": "clinical",
+      "model": "tangent",
+      "mean_MAE": 15.287949866211642,
+      "minimum_fold_seed_MAE": 12.31958839320873,
+      "maximum_fold_seed_MAE": 17.481900639429856,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 16.959502679901107,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 75,
+      "context": "psych",
+      "model": "clinical",
+      "mean_MAE": 12.747389926072488,
+      "minimum_fold_seed_MAE": 10.977251656838598,
+      "maximum_fold_seed_MAE": 14.544427510098883,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 6.2599912168896195,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 75,
+      "context": "psych",
+      "model": "raw_bundle",
+      "mean_MAE": 13.212446832265135,
+      "minimum_fold_seed_MAE": 11.741042521745403,
+      "maximum_fold_seed_MAE": 14.709784330693587,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 11.862867116562741,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 75,
+      "context": "psych",
+      "model": "closest_half",
+      "mean_MAE": 11.491513968342103,
+      "minimum_fold_seed_MAE": 10.096295110612488,
+      "maximum_fold_seed_MAE": 13.284771276571059,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 9.955298334091824,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 75,
+      "context": "psych",
+      "model": "individual_noise",
+      "mean_MAE": 11.515518089637048,
+      "minimum_fold_seed_MAE": 11.145011646972414,
+      "maximum_fold_seed_MAE": 11.806443877948478,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 10.501169032115044,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 75,
+      "context": "psych",
+      "model": "permuted_noise",
+      "mean_MAE": 12.082587747410274,
+      "minimum_fold_seed_MAE": 11.76193729681824,
+      "maximum_fold_seed_MAE": 12.453301354413371,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 10.64950489673421,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 75,
+      "context": "psych",
+      "model": "pearson",
+      "mean_MAE": 17.457119040840134,
+      "minimum_fold_seed_MAE": 15.441806739529122,
+      "maximum_fold_seed_MAE": 19.071793441350128,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 16.952062791424726,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 75,
+      "context": "psych",
+      "model": "tangent",
+      "mean_MAE": 15.262809188516613,
+      "minimum_fold_seed_MAE": 12.30521127897174,
+      "maximum_fold_seed_MAE": 17.458304021944453,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 16.95952162647622,
+      "active_components_min": 35
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 150,
+      "context": "clinical",
+      "model": "clinical",
+      "mean_MAE": 12.969238020668833,
+      "minimum_fold_seed_MAE": 10.863781888992593,
+      "maximum_fold_seed_MAE": 14.139840465252696,
+      "logical_readouts": 3,
+      "actual_fits": 0,
+      "mean_df": 5.608903706647788,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 150,
+      "context": "clinical",
+      "model": "raw_bundle",
+      "mean_MAE": 14.649273715626236,
+      "minimum_fold_seed_MAE": 12.971621211392012,
+      "maximum_fold_seed_MAE": 17.79814893077464,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 11.544056138482603,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 150,
+      "context": "clinical",
+      "model": "closest_half",
+      "mean_MAE": 14.482976890908844,
+      "minimum_fold_seed_MAE": 12.730960633564855,
+      "maximum_fold_seed_MAE": 17.184335749881903,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 9.872148813617768,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 150,
+      "context": "clinical",
+      "model": "individual_noise",
+      "mean_MAE": 13.672261608651482,
+      "minimum_fold_seed_MAE": 12.446588317728612,
+      "maximum_fold_seed_MAE": 15.975077922070527,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 10.489711515358735,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 150,
+      "context": "clinical",
+      "model": "permuted_noise",
+      "mean_MAE": 13.532550649045499,
+      "minimum_fold_seed_MAE": 12.433474500648547,
+      "maximum_fold_seed_MAE": 14.919465332174578,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 10.48894376930126,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 150,
+      "context": "clinical",
+      "model": "pearson",
+      "mean_MAE": 16.979106249534656,
+      "minimum_fold_seed_MAE": 13.35150541727228,
+      "maximum_fold_seed_MAE": 19.17853262177655,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 16.949381372856482,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 150,
+      "context": "clinical",
+      "model": "tangent",
+      "mean_MAE": 15.519296133246806,
+      "minimum_fold_seed_MAE": 13.397758582202052,
+      "maximum_fold_seed_MAE": 17.5466050836484,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 16.959569510125654,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 150,
+      "context": "psych",
+      "model": "clinical",
+      "mean_MAE": 12.747389926072488,
+      "minimum_fold_seed_MAE": 10.977251656838598,
+      "maximum_fold_seed_MAE": 14.544427510098883,
+      "logical_readouts": 3,
+      "actual_fits": 0,
+      "mean_df": 6.2599912168896195,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 150,
+      "context": "psych",
+      "model": "raw_bundle",
+      "mean_MAE": 13.428851110158455,
+      "minimum_fold_seed_MAE": 12.673160672883888,
+      "maximum_fold_seed_MAE": 14.937428122427276,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 11.817502027140657,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 150,
+      "context": "psych",
+      "model": "closest_half",
+      "mean_MAE": 13.66270411814205,
+      "minimum_fold_seed_MAE": 12.304566778885155,
+      "maximum_fold_seed_MAE": 15.318411897337816,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 10.259692207914327,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 150,
+      "context": "psych",
+      "model": "individual_noise",
+      "mean_MAE": 12.974750441989523,
+      "minimum_fold_seed_MAE": 12.508087161013668,
+      "maximum_fold_seed_MAE": 13.901652791194048,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 10.833644200626859,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 150,
+      "context": "psych",
+      "model": "permuted_noise",
+      "mean_MAE": 13.369988595753279,
+      "minimum_fold_seed_MAE": 12.5456304161705,
+      "maximum_fold_seed_MAE": 14.418768519876323,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 10.830895138019963,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 150,
+      "context": "psych",
+      "model": "pearson",
+      "mean_MAE": 16.948115611183376,
+      "minimum_fold_seed_MAE": 13.345195327081745,
+      "maximum_fold_seed_MAE": 19.126538609810734,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 16.949416423410792,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 150,
+      "context": "psych",
+      "model": "tangent",
+      "mean_MAE": 15.492453120024805,
+      "minimum_fold_seed_MAE": 13.377165476227557,
+      "maximum_fold_seed_MAE": 17.522091282371953,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 16.959589046032683,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 300,
+      "context": "clinical",
+      "model": "clinical",
+      "mean_MAE": 12.969238020668833,
+      "minimum_fold_seed_MAE": 10.863781888992593,
+      "maximum_fold_seed_MAE": 14.139840465252696,
+      "logical_readouts": 3,
+      "actual_fits": 0,
+      "mean_df": 5.608903706647788,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 300,
+      "context": "clinical",
+      "model": "raw_bundle",
+      "mean_MAE": 14.341242963741388,
+      "minimum_fold_seed_MAE": 13.527475673501336,
+      "maximum_fold_seed_MAE": 14.940847304875238,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 11.077962914448918,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 300,
+      "context": "clinical",
+      "model": "closest_half",
+      "mean_MAE": 14.172123076247674,
+      "minimum_fold_seed_MAE": 13.657759828205084,
+      "maximum_fold_seed_MAE": 14.927973285525066,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 9.931205909232547,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 300,
+      "context": "clinical",
+      "model": "individual_noise",
+      "mean_MAE": 14.333405138853793,
+      "minimum_fold_seed_MAE": 14.29467270440761,
+      "maximum_fold_seed_MAE": 14.362137107891694,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 10.246445377758112,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 300,
+      "context": "clinical",
+      "model": "permuted_noise",
+      "mean_MAE": 14.11626001707784,
+      "minimum_fold_seed_MAE": 13.861184564068264,
+      "maximum_fold_seed_MAE": 14.419489728553751,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 10.30555325878633,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 300,
+      "context": "clinical",
+      "model": "pearson",
+      "mean_MAE": 16.500325096571043,
+      "minimum_fold_seed_MAE": 15.1089890504289,
+      "maximum_fold_seed_MAE": 18.09030000034572,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 16.94477656526566,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 300,
+      "context": "clinical",
+      "model": "tangent",
+      "mean_MAE": 15.71614360044523,
+      "minimum_fold_seed_MAE": 13.751694848573962,
+      "maximum_fold_seed_MAE": 16.954485917261838,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 16.959519025797523,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 300,
+      "context": "psych",
+      "model": "clinical",
+      "mean_MAE": 12.747389926072488,
+      "minimum_fold_seed_MAE": 10.977251656838598,
+      "maximum_fold_seed_MAE": 14.544427510098883,
+      "logical_readouts": 3,
+      "actual_fits": 0,
+      "mean_df": 6.2599912168896195,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 300,
+      "context": "psych",
+      "model": "raw_bundle",
+      "mean_MAE": 14.28260225686843,
+      "minimum_fold_seed_MAE": 13.396315920369272,
+      "maximum_fold_seed_MAE": 14.75544744285062,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 11.379171985389666,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 300,
+      "context": "psych",
+      "model": "closest_half",
+      "mean_MAE": 15.050216865581502,
+      "minimum_fold_seed_MAE": 13.087395246226562,
+      "maximum_fold_seed_MAE": 18.221773437692647,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 10.29776266707539,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 300,
+      "context": "psych",
+      "model": "individual_noise",
+      "mean_MAE": 14.734359141208452,
+      "minimum_fold_seed_MAE": 13.39226988797557,
+      "maximum_fold_seed_MAE": 16.687391130993113,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 10.600498333263078,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 300,
+      "context": "psych",
+      "model": "permuted_noise",
+      "mean_MAE": 14.722877338161881,
+      "minimum_fold_seed_MAE": 13.209607449675204,
+      "maximum_fold_seed_MAE": 16.746435502476952,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 10.647396243438159,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 300,
+      "context": "psych",
+      "model": "pearson",
+      "mean_MAE": 16.474613490867803,
+      "minimum_fold_seed_MAE": 15.088820009390027,
+      "maximum_fold_seed_MAE": 18.067138742981026,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 16.94481364334727,
+      "active_components_min": 36
+    },
+    {
+      "training_people": 18,
+      "labels": 18,
+      "frames": 300,
+      "context": "psych",
+      "model": "tangent",
+      "mean_MAE": 15.686193227284326,
+      "minimum_fold_seed_MAE": 13.727783479693361,
+      "maximum_fold_seed_MAE": 16.92952631236565,
+      "logical_readouts": 3,
+      "actual_fits": 3,
+      "mean_df": 16.959539533208467,
+      "active_components_min": 36
+    }
+  ],
+  "sensitivity": [
+    {
+      "model": "individual_noise",
+      "changed_frames": 75,
+      "fixed_training_frames": 300,
+      "brain_score_r": 0.7136806852691975,
+      "RMS_change": 5.557651944704635,
+      "original_score_sd": 7.5144121745692205,
+      "changed_score_sd": 6.1621741102258785
+    },
+    {
+      "model": "individual_noise",
+      "changed_frames": 150,
+      "fixed_training_frames": 300,
+      "brain_score_r": 0.8551554237657385,
+      "RMS_change": 4.080692016943448,
+      "original_score_sd": 7.5144121745692205,
+      "changed_score_sd": 5.754085460489498
+    },
+    {
+      "model": "raw_bundle",
+      "changed_frames": 75,
+      "fixed_training_frames": 300,
+      "brain_score_r": 0.668781392799147,
+      "RMS_change": 7.031122868441136,
+      "original_score_sd": 7.415571537015228,
+      "changed_score_sd": 8.852761251052595
+    },
+    {
+      "model": "raw_bundle",
+      "changed_frames": 150,
+      "fixed_training_frames": 300,
+      "brain_score_r": 0.8218040797775927,
+      "RMS_change": 4.499617920556499,
+      "original_score_sd": 7.415571537015228,
+      "changed_score_sd": 7.582464015438216
+    }
+  ],
+  "confounds": [
+    {
+      "field": "age",
+      "brain_score_r": -0.16379891655290543,
+      "VAS_r": 0.025357157228421152,
+      "constant": false
+    },
+    {
+      "field": "male",
+      "brain_score_r": null,
+      "VAS_r": null,
+      "constant": true
+    },
+    {
+      "field": "FD",
+      "brain_score_r": 0.22458066546988364,
+      "VAS_r": -0.16846080118745824,
+      "constant": false
+    },
+    {
+      "field": "censor",
+      "brain_score_r": 0.4007123623589368,
+      "VAS_r": -0.25119712117690485,
+      "constant": false
+    },
+    {
+      "field": "education",
+      "brain_score_r": 0.08468130643685676,
+      "VAS_r": -0.13699739282339238,
+      "constant": false
+    },
+    {
+      "field": "years_dx",
+      "brain_score_r": -0.2818104776679306,
+      "VAS_r": -0.017494568199803728,
+      "constant": false
+    },
+    {
+      "field": "years_symptoms",
+      "brain_score_r": -0.09145197016124568,
+      "VAS_r": -0.03334138879039463,
+      "constant": false
+    },
+    {
+      "field": "daily_med_count",
+      "brain_score_r": 0.23343288300436119,
+      "VAS_r": 0.291083751664494,
+      "constant": false
+    },
+    {
+      "field": "acute_med_count",
+      "brain_score_r": 0.028888129328400576,
+      "VAS_r": -0.4941144631729928,
+      "constant": false
+    },
+    {
+      "field": "med0",
+      "brain_score_r": -0.11222720255247699,
+      "VAS_r": 0.19808673176113129,
+      "constant": false
+    },
+    {
+      "field": "med1",
+      "brain_score_r": 0.042952270085127794,
+      "VAS_r": 0.4890855682563307,
+      "constant": false
+    },
+    {
+      "field": "med2",
+      "brain_score_r": 0.22108894148419858,
+      "VAS_r": -0.5314794081502007,
+      "constant": false
+    },
+    {
+      "field": "med3",
+      "brain_score_r": -0.1792677739893727,
+      "VAS_r": -0.07190819714616407,
+      "constant": false
+    },
+    {
+      "field": "HAMD",
+      "brain_score_r": 0.20534305404751682,
+      "VAS_r": 0.513555521922897,
+      "constant": false
+    },
+    {
+      "field": "HAMA",
+      "brain_score_r": 0.1515253662280859,
+      "VAS_r": 0.6497996144654312,
+      "constant": false
+    },
+    {
+      "field": "interview_to_task_days",
+      "available": 26,
+      "brain_score_r": -0.08618564846391774,
+      "VAS_r": 0.28037537614611185
+    }
+  ],
+  "retraining": {
+    "repeats": 200,
+    "MAE_improvement_CI": [
+      -5.112367433394927,
+      4.181022836723295
+    ],
+    "r_CI": [
+      -0.5189492359544117,
+      0.5458466253877122
+    ],
+    "scope": "participant stratified resampling with prior/scaler/readout retraining; fixed temporal cache/definition/splits"
+  },
+  "null": {
+    "repeats": 199,
+    "r_two_sided_approx_p": 0.705,
+    "MAE_improvement_one_sided_approx_p": 0.535,
+    "reduced_rank": 14,
+    "scope": "approximate wild residual null, assumes independent symmetric errors and adequate reduced linear model"
+  },
+  "timing_adjusted_descriptive_r": 0.4646382099271814,
+  "supervised_fits": 3192,
+  "primary_actual_fits": 798,
+  "logical_readouts": 882,
+  "bootstrap_fits": 1200,
+  "null_fits": 1194,
+  "math": {
+    "pooled_shrinkage_cancellation_error": 4.440892098500626e-16
+  },
+  "elapsed_seconds": 113.44329833984375,
+  "new_MRI_reads": 0,
+  "new_expert_reports": 0,
+  "new_QC_changes": 0,
+  "independent_validation": false,
+  "correction": {
+    "state": "CONTROLS_CORRECTED_ORIGINALS_RETAINED",
+    "extra_fits": 210,
+    "T75_Pearson_reused_scaled_error": 9.947598300641403e-14,
+    "original_input_values_changed": false,
+    "old_candidate_clinical_models_unchanged": true,
+    "tangent_covariance": "LedoitWolf; training-only log-Euclidean mean, 4005 off-diagonal tangent components",
+    "LW_alpha_range": [
+      0.022926616281478934,
+      0.17520664502813363
+    ]
+  },
+  "total_actual_fit_attempts": 3402,
+  "valid_supervised_fits": 3192,
+  "duration_sensitivity": [
+    {
+      "frames": 75,
+      "MAE": 11.515518089637048,
+      "improvement": 1.2318718364354397,
+      "CI": [
+        -1.1128627290160416,
+        3.7422663594301486
+      ],
+      "fold_improvement": [
+        3.399415863126469,
+        0.9140467333315038,
+        -0.6178470871516536
+      ]
+    },
+    {
+      "frames": 150,
+      "MAE": 12.974750441989524,
+      "improvement": -0.2273605159170343,
+      "CI": [
+        -2.8956381109621288,
+        2.871691685387031
+      ],
+      "fold_improvement": [
+        0.642774718904835,
+        0.2124034502663162,
+        -1.5372597169222542
+      ]
+    },
+    {
+      "frames": 300,
+      "MAE": 14.734359141208452,
+      "improvement": -1.9869692151359646,
+      "CI": [
+        -4.716713857536256,
+        0.5973015504681242
+      ],
+      "fold_improvement": [
+        -2.1429636208942315,
+        -0.6717792766955861,
+        -3.1461647478180756
+      ]
+    }
+  ],
+  "id": "emo-network-20261014",
+  "measurement": {
+    "people": 27,
+    "unique_person_length_measurements": 81,
+    "training_references": 162,
+    "label_reads_for_analysis": 0,
+    "supervised_fits": 0,
+    "rows": [
+      {
+        "outer_fold": 0,
+        "training_people": 18,
+        "frames": 75,
+        "edge_half_correlation_median": 0.42065037893408097,
+        "edge_half_correlation_min": 0.25680619285332806,
+        "bundle_half_correlation_median": 0.6977351061585706,
+        "bundle_half_correlation_min": 0.43260730385391216,
+        "bundle_half_RMS_difference": 0.18114478970776673,
+        "bootstrap_noise_fraction_median": 0.3084084149906633,
+        "positive_noise_corrected_components": 36,
+        "components": 36
+      },
+      {
+        "outer_fold": 0,
+        "training_people": 18,
+        "frames": 150,
+        "edge_half_correlation_median": 0.5801017476157802,
+        "edge_half_correlation_min": 0.4086965595241012,
+        "bundle_half_correlation_median": 0.7922135054124894,
+        "bundle_half_correlation_min": 0.45710468906220286,
+        "bundle_half_RMS_difference": 0.1418531600498268,
+        "bootstrap_noise_fraction_median": 0.26106656516704096,
+        "positive_noise_corrected_components": 36,
+        "components": 36
+      },
+      {
+        "outer_fold": 0,
+        "training_people": 18,
+        "frames": 300,
+        "edge_half_correlation_median": 0.7110245347636981,
+        "edge_half_correlation_min": 0.6102600716847023,
+        "bundle_half_correlation_median": 0.8785766754837088,
+        "bundle_half_correlation_min": 0.8049415477705963,
+        "bundle_half_RMS_difference": 0.10983263730280561,
+        "bootstrap_noise_fraction_median": 0.20239847345117387,
+        "positive_noise_corrected_components": 36,
+        "components": 36
+      },
+      {
+        "outer_fold": 1,
+        "training_people": 18,
+        "frames": 75,
+        "edge_half_correlation_median": 0.44865836098401923,
+        "edge_half_correlation_min": 0.2755461134444561,
+        "bundle_half_correlation_median": 0.6977351061585706,
+        "bundle_half_correlation_min": 0.5654372674016706,
+        "bundle_half_RMS_difference": 0.192049669623086,
+        "bootstrap_noise_fraction_median": 0.28943060185691294,
+        "positive_noise_corrected_components": 35,
+        "components": 36
+      },
+      {
+        "outer_fold": 1,
+        "training_people": 18,
+        "frames": 150,
+        "edge_half_correlation_median": 0.6050205634612458,
+        "edge_half_correlation_min": 0.4086965595241012,
+        "bundle_half_correlation_median": 0.792686137904443,
+        "bundle_half_correlation_min": 0.45710468906220286,
+        "bundle_half_RMS_difference": 0.14301985399168105,
+        "bootstrap_noise_fraction_median": 0.17816256543830747,
+        "positive_noise_corrected_components": 36,
+        "components": 36
+      },
+      {
+        "outer_fold": 1,
+        "training_people": 18,
+        "frames": 300,
+        "edge_half_correlation_median": 0.6927491026326983,
+        "edge_half_correlation_min": 0.5808176177014578,
+        "bundle_half_correlation_median": 0.8847492585919225,
+        "bundle_half_correlation_min": 0.8002600884445663,
+        "bundle_half_RMS_difference": 0.12391655459035086,
+        "bootstrap_noise_fraction_median": 0.11892342581595841,
+        "positive_noise_corrected_components": 36,
+        "components": 36
+      },
+      {
+        "outer_fold": 2,
+        "training_people": 18,
+        "frames": 75,
+        "edge_half_correlation_median": 0.4203921619974259,
+        "edge_half_correlation_min": 0.25680619285332806,
+        "bundle_half_correlation_median": 0.64734995885261,
+        "bundle_half_correlation_min": 0.43260730385391216,
+        "bundle_half_RMS_difference": 0.20454485872103476,
+        "bootstrap_noise_fraction_median": 0.25004856702826683,
+        "positive_noise_corrected_components": 36,
+        "components": 36
+      },
+      {
+        "outer_fold": 2,
+        "training_people": 18,
+        "frames": 150,
+        "edge_half_correlation_median": 0.622601891648627,
+        "edge_half_correlation_min": 0.451286459250123,
+        "bundle_half_correlation_median": 0.818869576610633,
+        "bundle_half_correlation_min": 0.5829468390684136,
+        "bundle_half_RMS_difference": 0.1517745923085267,
+        "bootstrap_noise_fraction_median": 0.17562150236871354,
+        "positive_noise_corrected_components": 36,
+        "components": 36
+      },
+      {
+        "outer_fold": 2,
+        "training_people": 18,
+        "frames": 300,
+        "edge_half_correlation_median": 0.7283049796360497,
+        "edge_half_correlation_min": 0.5808176177014578,
+        "bundle_half_correlation_median": 0.8951386518363005,
+        "bundle_half_correlation_min": 0.8002600884445663,
+        "bundle_half_RMS_difference": 0.12311478045439926,
+        "bootstrap_noise_fraction_median": 0.12423349326269795,
+        "positive_noise_corrected_components": 36,
+        "components": 36
+      }
+    ],
+    "scope": "split/within-run block sampling, not test-retest"
+  },
+  "psych_audit": {
+    "same_person_matches": 27,
+    "HAMD_available": 27,
+    "HAMA_available": 27,
+    "item_total_mismatch": 0,
+    "scope": "interview scales; not MRI contemporaneous"
+  },
+  "verification": {
+    "state": "PASS_ACTUAL_NODE_SOURCE_AND_SAVED_MODELS",
+    "valid_models": 3192,
+    "prediction_values_read": 28728,
+    "fitted_again": 0,
+    "bundle_source_error": 6.661338147750939e-16,
+    "candidate_common_actual_input_error": 0.0,
+    "model_prediction_error": 0.0,
+    "all_primary_MAE_error": 0.0,
+    "aggregate_error": 0.0,
+    "person_retraining_metric_error": 0.0,
+    "superseded_controls_retained": 210,
+    "input_source_dtype": "float64"
+  },
+  "summary": "27名纤维肌痛女性、81个采样测量、3402次实际拟合尝试（3192正式模型，210对照修正）完成。候选截短一致性略改善，但额外疼痛关联r=.106，人员重训95%[-.519,.546]；临床/心理MAE12.747，加入候选14.734。本定义停止扩展。",
+  "boundary": "原访谈VAS0–100，1间隔缺失/5超过14天保留，非MRI同期痛。核心经验Bayes已有先例，仅小样本适配；27人已开发，无重复扫描/临床独立验证。HAM-D/HAM-A同人27/27完整，调整不证明疼痛特异性。",
+  "next": "停止本采样收缩定义扩展；优先补真实患者MRI同期评分、心理/用药与治疗随访、独立人员来源，或真实重复扫描验证。旧负结果/13CoSpine留出未读/TN14停止保持。",
+  "rows": [
+    {
+      "item": "临床及共同协变量",
+      "result": "MAE 12.7474",
+      "limit": "对临床改善 +0.0000 VAS点；网络r 不适用"
+    },
+    {
+      "item": "＋原36组关系",
+      "result": "MAE 14.2826",
+      "limit": "对临床改善 -1.5352 VAS点；网络r 0.1419"
+    },
+    {
+      "item": "＋半段方差收缩（最近方法适配）",
+      "result": "MAE 15.0502",
+      "limit": "对临床改善 -2.3028 VAS点；网络r 0.0531"
+    },
+    {
+      "item": "＋个体块噪声候选",
+      "result": "MAE 14.7344",
+      "limit": "对临床改善 -1.9870 VAS点；网络r 0.1060"
+    },
+    {
+      "item": "＋错配噪声位置消融",
+      "result": "MAE 14.7229",
+      "limit": "对临床改善 -1.9755 VAS点；网络r 0.0782"
+    },
+    {
+      "item": "＋全Pearson FC",
+      "result": "MAE 16.4746",
+      "limit": "对临床改善 -3.7272 VAS点；网络r 0.1289"
+    },
+    {
+      "item": "＋LW切空间FC",
+      "result": "MAE 15.6862",
+      "limit": "对临床改善 -2.9388 VAS点；网络r -0.0177"
+    }
+  ]
+}

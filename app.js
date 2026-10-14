@@ -20172,7 +20172,7 @@ function inputInventorySection(mode) {
 
 
 
-function recentResearchSection(methods=false){return emoNetworkSection(methods)+networkLagSection(methods)+cospineCommonPhysioSection(methods)+cospineNoisePilotSection(methods)+cospineRawWindowSection(methods)+cospineTimeReadinessSection(methods)+painPriorSection(methods)+compactPainSection(methods)+painModelAdaptationSection(methods)+emo27VASSection(methods)+painReadinessSection(methods)+previousRecentResearchSection(methods);}
+function recentResearchSection(methods=false){return brainHgtGeneralizationSection(methods)+emoNetworkSection(methods)+networkLagSection(methods)+cospineCommonPhysioSection(methods)+cospineNoisePilotSection(methods)+cospineRawWindowSection(methods)+cospineTimeReadinessSection(methods)+painPriorSection(methods)+compactPainSection(methods)+painModelAdaptationSection(methods)+emo27VASSection(methods)+painReadinessSection(methods)+previousRecentResearchSection(methods);}
 
 function painReadinessSection(methods=false){
 
@@ -20260,4 +20260,11 @@ function emoNetworkSection(methods=false){
  const rows=r.rows.map(q=>`<tr><th>${escapeHTML(q.item)}</th><td>${escapeHTML(q.result)}</td><td>${escapeHTML(q.limit)}</td></tr>`).join('');
  const method=methods?'<p>固定36个组内/组间关系，16次连续块采样估计个人噪声；群体均值、尺度和收缩先验只用训练人员。原三折18/9，6/12/18个人标签、75/150/300处理位置、全部固定种子与消融保留。核心经验Bayes已有先例，本轮是患者小样本适配。</p>':'';
  return `<section class="panel emo-network-panel"><h2>Emo27：估计一致性改善，疼痛关联不足</h2><p>${escapeHTML(r.summary)}</p><p class="data-note">${escapeHTML(r.boundary)}</p>${method}<div class="paper-table-scroll" tabindex="0" role="region" aria-label="患者网络表征同预算对照"><table><thead><tr><th>方法（均含临床和心理项）</th><th>MAE，VAS点</th><th>对临床变化与关联</th></tr></thead><tbody>${rows}</tbody></table></div><p>${escapeHTML(r.next)}</p><div class="ds-foot">${evidenceLink(r.id,'查看完整报告 ↗')} ${evidenceLink(r.id+'-novelty','查看最近原论文 ↗')} ${evidenceLink(r.id+'-comparison','查看同数据对照 ↗')} ${evidenceLink(r.id+'-learning','下载完整学习曲线 ↗')} ${evidenceLink(r.id+'-curve','查看学习曲线图 ↗')} ${evidenceLink(r.id+'-stability','查看稳定性图 ↗')} ${evidenceLink(r.id+'-confounds','查看心理与临床相关 ↗')} ${evidenceLink(r.id+'-code','查看计算代码 ↗')}</div></section>`;
+}
+
+function brainHgtGeneralizationSection(methods=false){
+ const r=data.brainhgt_generalization;if(!r)return '';
+ const rows=r.mean_rows.map(q=>`<tr><th>${escapeHTML(q.dataset)}</th><td>${escapeHTML(q.model)}</td><td>${q.auc_mean.toFixed(4)} ± ${q.auc_sd.toFixed(4)}</td><td>${q.balanced_accuracy_mean.toFixed(4)}</td><td>${q.sensitivity_mean.toFixed(4)}</td><td>${q.specificity_mean.toFixed(4)}</td><td>${q.brier_mean.toFixed(4)}</td><td>${q.logloss_mean.toFixed(4)}</td></tr>`).join('');
+ const method=methods?'<p>完整作者BrainHGT与已保存OMST保持；AdamW仅改优化器，偏头痛均衡CE仅改训练类别权重，不组合。各项只有一个非默认配置，全部训练内结果决定是否进行新外折评价。原模型seed0/1复用、seed2/3/4补齐；平均AUC为各seed完整OOF AUC的算术均值，SD为初始化差异，不平均概率。</p>':'';
+ return `<section class="panel brainhgt-generalization-panel"><h2>BrainHGT泛化诊断与五种子训练比较</h2><p>${escapeHTML(r.summary)}</p><p>${escapeHTML(r.interpretation)}</p><p class="data-note">${escapeHTML(r.boundary)}</p>${method}<div class="paper-table-scroll" tabindex="0" role="region" aria-label="五种子平均AUC与完整训练条件"><table><thead><tr><th>队列</th><th>条件</th><th>平均OOF AUC ± SD</th><th>BA</th><th>敏感性</th><th>特异性</th><th>Brier↓</th><th>logloss↓</th></tr></thead><tbody>${rows}</tbody></table></div><p>${escapeHTML(r.uncertainty)}</p><p>${escapeHTML(r.next)}</p><div class="ds-foot">${evidenceLink(r.id,'查看诊断与全部结果 ↗')} ${evidenceLink(r.id+'-comparison','查看老师对照表 ↗')} ${evidenceLink(r.id+'-metrics','查看五个seed单值 ↗')} ${evidenceLink(r.id+'-inner','查看未保留的训练配置 ↗')} ${evidenceLink(r.id+'-selection','查看选轮诊断 ↗')} ${evidenceLink(r.id+'-plan','查看执行预算 ↗')}</div></section>`;
 }

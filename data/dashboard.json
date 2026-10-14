@@ -583,7 +583,7 @@
       "title": "建立连续疼痛严重度单任务比较",
       "status": "active",
       "summary": "已完成sup7的29人、sup8的15人分表探索及N82的43人独立表内回归。最新临床MAE16.1827/2.3114，联合影像17.6380/2.2252；未有可靠影像增量。",
-      "next": "停止本轮未获稳定判别增量的配置，不扩wd/dropout/选轮搜索、不接K学习曲线或结构模块。下一步仅在独立训练侧确认选轮问题，或补真实患者同期疼痛/心理/治疗及独立人员依据。",
+      "next": "结束本次有限选轮对照，不扩选轮/优化器搜索；后续结构研究单列机制与公平消融，同时补真实临床终点和独立人员。",
       "criteria": "报告MAE、RMSE、R²、Spearman及区间；缺失处理在训练折拟合，不给健康组人工赋VAS=0。",
       "depends_on": [
         "G12",
@@ -603,9 +603,9 @@
         "purpose": "已完成sup7的29人、sup8的15人分表探索及N82的43人独立表内回归。最新临床MAE16.1827/2.3114，联合影像17.6380/2.2252；未有可靠影像增量。",
         "steps": [
           "阅读完整BrainHGT、论文OMST及全部固定种子对照表。",
-          "停止本轮未获稳定判别增量的配置，不扩wd/dropout/选轮搜索、不接K学习曲线或结构模块。下一步仅在独立训练侧确认选轮问题，或补真实患者同期疼痛/心理/治疗及独立人员依据。"
+          "结束本次有限选轮对照，不扩选轮/优化器搜索；后续结构研究单列机制与公平消融，同时补真实临床终点和独立人员。"
         ],
-        "deliverable": "完整作者模型的真实疼痛开发结果、实现选择和全部负结果。"
+        "deliverable": "完整作者模型的诊断开发选轮结果、全部seed与局限。"
       }
     },
     {
@@ -666,7 +666,7 @@
           "阅读完整BrainHGT、论文OMST及全部固定种子对照表。",
           "完整BrainHGT与论文OMST四队列诊断开发已完成；原队列开发史保持，不升级独立临床验证。继续核真实终点、时点和人员独立性。"
         ],
-        "deliverable": "完整作者模型的真实疼痛开发结果、实现选择和全部负结果。"
+        "deliverable": "完整作者模型的诊断开发选轮结果、全部seed与局限。"
       }
     },
     {
@@ -675,7 +675,7 @@
       "title": "按结果调整目标，开展多数据集预测与迁移研究",
       "status": "active",
       "summary": "原K5 540拟合/45FC参考及五支持OOF已完成，未见可靠冻结整体改善。已完成训练的四项诊断已整合论文Methods、Results和Discussion：240保存头、10,560训练内概率、全部40个阶段配置与可复现附录。数值精度改善，类均衡的概率误差代价与随机对照更强的结果同时保留；原K5主分析及阴性结论不变，本次新增拟合/查询评分0。 原132人训练按用户授权QC全纳入，实际专家报告0、25原注意/文件/标签/划分保持。六内层分区人员重复，未知预训练重叠、空间/窗口/CONN差异与准确日期/临床真值/H-test缺失保留；未成立独立临床验证、完整作者复现或超越论文。 开发性论文阅读材料已整理：当前Methods、Results、Discussion保留全部主要比较，6组历史运行记录移至完整附录，原K5图及40训练配置可查。本次没有新拟合或评分；作者/伦理/许可及独立临床真值仍缺，不是提交就绪稿。 轻量静态GCN与同容量无图消融完成36次训练内开发拟合，每模型1749参数。全部18组验证AUC均值0.552338/0.532390，成对平均差0.019949；仅11/18组AUC改善、10/18组Brier改善，差值方向不一致。两方法训练AUC均约0.997426，验证明显较弱，存在过拟合。停止这一静态正边GCN假设，不扩大配置、seed或查询搜索。 2026-10-08扩大研究：原132人开发数据完成60个固定模型：线性SVM、RBF SVM、浅随机森林，分别比较FC加4协变量与仅4协变量。验证AUC均值依次0.4704/0.4595、0.5598/0.4196、0.5064/0.6579；影像森林训练AUC1.0、验证0.5064。72个SVM校准器有33个反转方向，影像SVM校准前验证AUC仅0.5058/0.5232。没有稳定影像增量，停止本轮配置搜索。CoSpine已核对39人585个疼痛试次，并完整读取首人native脑影像与事件时间轴。 2026-10-08现代方法：分层图Transformer完成54个保存模型，每个6869参数；六组44训练/44验证、三seed比较乘法衰减、加log先验、无拓扑偏置。验证AUC均值0.5871、0.5832、0.5871，训练均1.0。加log使短程头分配给两跳外的注意力从84.12%降到70.77%，但AUC未稳定改善，停止当前偏置配置搜索。 2026-10-08任务适配：NeuroSTORM的5480参数内部适配器通过真实CUDA合成前向、反向和保存重载，5173020参数编码器保持冻结。CoSpine首人T1完整读取15925248有限值，BET及两级仿射命令完成；AAL90有4区无支持、29区支持不足一半，平均覆盖64.83%。患者模型拟合0。 2026-10-08空间修复：CoSpine首人复用原T1，先按标准方向重定向并以默认170毫米去除颈部，再执行原BET-R。掩膜体积约1287毫升；同参数重新仿射配准后，AAL90平均非零覆盖由64.83%升至99.54%，零支持区由4降至0、不足一半由29降至0，最小覆盖91.43%。 2026-10-08偏置/BBR复核：CoSpine首人固定FAST偏置校正及三类组织分割完成，白质概率≥0.5得到517,792体素；复用原刚体初始化和实际白质边界，BBR命令完成。独立核对新输出9,013,248个有限值、校正算术及刚体矩阵，并查看四张私有截面图。 2026-10-08非线性/窗口复核：CoSpine首人固定FNIRT与BBR组合完成，独立支持重采样及90区计数一致；平均非零覆盖99.42%，上一阶段仿射为99.54%，两次均无零支持区。真实事件窗口复核发现，在暂定帧参考0下，20×0.8秒窗口的插值需要评分开始后的采样点，涉及3/15试次。 2026-10-08真实窗口前向复核：CoSpine首人完整230帧已映射到MNI；15个固定早期窗口和6个时间参考敏感性窗口完成21次冻结NeuroSTORM内部前向。真实时空特征全部为有限值，独立读回通过。 2026-10-08时序对照复核：三个预先指定的真实窗口完成恒定均值帧、倒序共6次冻结前向，独立输入和指标重放通过。去掉实测时间变化后，内部token时间变化仍约7.67%；池化向量的变化很小。另25个开发输入正在按原人序采集，截至记录完成1/25人的原生影像及事件输入核查。 2026-10-08新增开发空间复核：1名新增开发受试者完成空间单位副本、裁剪、FAST、初始刚体/仿射与BBR；独立数值复核和私有图像技术检查已完成，非线性映射及新模型编码尚未开展。截至记录，25人采集作业新增完成3人，3人网络超时保留失败，原作业仍在接续。 2026-10-08新增开发空间复核：1名新增开发受试者完成固定非线性映射、230帧单次空间重采样和21次冻结编码；独立核对207,604,670个BOLD值及1,941,408个缓存值。累计2人的30个主窗口缓存显示，平均池化表示的跨人相对差异约28.15%，人内窗口偏离约0.054%～0.924%。这些是表示描述，尚无疼痛预测结果。 2026-10-08新增开发空间复核：Omni-fMRI作者标准SDPA组件完成2次实际调用，完整12层编码器完成1次随机权重合成输入前向，输出CLS768和954个动态patch。官方权重已下载，但完整加载或预训练前向尚未通过，实际失败保留。新增3人完成固定裁剪、FAST与初始配准，独立读取300,145,071个空间结果值，私有6幅图已查看。 2026-10-08新增开发空间复核：新增3名开发受试者各完成1次固定BBR，复用已完成FAST和刚体矩阵。独立读回27,039,744个输出值，并核对10,074,031个源内部插值点；六幅私有BBR/刚体对照图已查看。Omni-fMRI官方特征权重349项匹配加载，完成1次合成编码器前向，CLS768和768维patch通过形状/有限值检查；完整模型缺两项未调用classifier参数，严格全模型加载失败及前向后的保存失败保留。 2026-10-08新增开发空间复核：新增3名开发受试者完成固定非线性映射、230帧单次空间重采样及63次NeuroSTORM冻结编码。独立核对622,814,010个BOLD值和5,824,224个缓存值，15幅私有空间图已查看。Omni完成1次固定真实MRI前向，CLS768及4,848个动态patch通过独立复核。累计5人75个相关主窗口中，人间均值差异占池化总离差平方和约99.9506%。 2026-10-09新增有限疼痛读出：5名健康开发受试者、75个相关试次按人留一。30个神经读出和5个协变量拟合完成并独立重放；PR评分平均MAE：协变量0.8762，平均池化3.3692，时间差分1.5627，时间注意力2.6723。三个影像残差读出均未超过协变量，本轮配置停止扩展。 2026-10-12：Emo53同条件比较完成：切空间Logistic AUROC0.5983；BrainHGT两个seed为0.4815/0.4573，BNT为0.5142/0.5256，Com-BrainTF为0.5328/0.4145。三套官方任务适配均未超过传统对照。 2026-10-12：BNT／Com此前20次，新增VanillaTF／BNT框架BrainNetCNN20次；共40拟合、80权重回读，复核重拟合0。VanillaTF 与 BNT框架BrainNetCNN完成20次固定拟合、40份选中／末轮权重回读，复核重拟合0。 VanillaTF AUROC0.7731/0.7503；BrainNetCNN 0.7637/0.7554（当前／部分对齐）。 四组新对照的平均AUROC均低于同协议BNT。 HGT/ALTER原输入核查完成但材料不齐，两者0新患者拟合；待补原数组/实际调用。 VanillaTF 与 BNT框架BrainNetCNN完成20次固定拟合、40份选中／末轮权重回读，复核重拟合0。 VanillaTF AUROC0.7731/0.7503；BrainNetCNN 0.7637/0.7554（当前／部分对齐）。",
-      "next": "停止本轮未获稳定判别增量的配置，不扩wd/dropout/选轮搜索、不接K学习曲线或结构模块。下一步仅在独立训练侧确认选轮问题，或补真实患者同期疼痛/心理/治疗及独立人员依据。",
+      "next": "结束本次有限选轮对照，不扩选轮/优化器搜索；后续结构研究单列机制与公平消融，同时补真实临床终点和独立人员。",
       "criteria": "交付按数据集/病种/终点区分的实际输入审计、运行前有限方案、全部主要方法结果和来源留出评价；独立临床验证另列。",
       "depends_on": [],
       "sources": [
@@ -881,9 +881,9 @@
         "purpose": "比较脑影像相对临床、人口学和强FC方法的增量，保留阴性与迁移失败。132人原K5训练已完成；四项后续诊断的240保存头、10,560训练内概率与全部40配置已整合论文。没有一致预训练优势，本次新增拟合和查询评分0。 训练纳入依据用户授权，实际专家报告0、原25项注意/文件/标签/划分保留；六训练内分区人员重复。预训练成员重叠未知，准确日期/诊断与同期痛/治疗反应真值及真正未开发H-test仍缺。原20未评分、Emo13失败、TN14/结构535/CLIP停止及原SPM锁保持，不成立独立临床验证。 最新分层图Transformer：分层图Transformer完成54个保存模型，每个6869参数；六组44训练/44验证、三seed比较乘法衰减、加log先验、无拓扑偏置。验证AUC均值0.5871、0.5832、0.5871，训练均1.0。加log使短程头分配给两跳外的注意力从84.12%降到70.77%，但AUC未稳定改善，停止当前偏置配置搜索。 这是原132人反复使用的开发数据和本地小型层级适配，不是BrainHGT完整复现、新独立队列或临床验证。七网络先验来自真实标准图谱，第8类为未覆盖区域而非生物学网络。54配置实际55次梯度拟合，含一次保存失败丢失的模型；失败保留，未扩大科学配置。原标签、人员划分、QC授权/专家0/25注意、旧结果和停止分支保持。 NeuroSTORM的5480参数内部适配器通过真实CUDA合成前向、反向和保存重载，5173020参数编码器保持冻结。CoSpine首人T1完整读取15925248有限值，BET及两级仿射命令完成；AAL90有4区无支持、29区支持不足一半，平均覆盖64.83%。患者模型拟合0。 内部adapter接口通过不等于新方法有效；八个空间格点不是ROI，普通bottleneck也不是LoRA。单人仿射与非零覆盖是技术观察，不是非线性标准化、专家QC、完整作者复现或独立临床验证。原132及各旧结果/停止、QC授权/专家0/25注意保持；39健康者585试次仍是39人。 CoSpine首人复用原T1，先按标准方向重定向并以默认170毫米去除颈部，再执行原BET-R。掩膜体积约1287毫升；同参数重新仿射配准后，AAL90平均非零覆盖由64.83%升至99.54%，零支持区由4降至0、不足一半由29降至0，最小覆盖91.43%。 这是1人的空间输入修复，非零覆盖不代表有效神经信号或解剖准确。未完成偏置校正、BBR或FNIRT，实际专家新增0、患者模型拟合0；不据此声称疼痛预测增量、完整作者复现或独立临床验证。原文件/标签/人员划分/QC与全部失败和停止状态保持。 CoSpine首人固定FAST偏置校正及三类组织分割完成，白质概率≥0.5得到517,792体素；复用原刚体初始化和实际白质边界，BBR命令完成。独立核对新输出9,013,248个有限值、校正算术及刚体矩阵，并查看四张私有截面图。 这是1人的输入处理，无新增预测成绩。BBR与原刚体位置变化不等于配准改善；尚未做FNIRT或新的MNI组合，因此99.54%是上一阶段仿射覆盖。实际专家新增0、患者模型拟合0、独立临床验证未完成，完整MRI留服务器。 CoSpine首人固定FNIRT与BBR组合完成，独立支持重采样及90区计数一致；平均非零覆盖99.42%，上一阶段仿射为99.54%，两次均无零支持区。真实事件窗口复核发现，在暂定帧参考0下，20×0.8秒窗口的插值需要评分开始后的采样点，涉及3/15试次。 这是1人的空间/时间输入研究，无新增预测成绩。非零覆盖和正Jacobian不等于解剖准确；时间重采样不能增加真实分辨率。实际切片参考/派生滤波仍未知，完整4D重采样、任务特征和患者拟合均未做，专家新增0、独立临床目标未完成。 CoSpine首人完整230帧已映射到MNI；15个固定早期窗口和6个时间参考敏感性窗口完成21次冻结NeuroSTORM内部前向。真实时空特征全部为有限值，独立读回通过。 这是1名健康热痛受试者的输入与表示实验，预测拟合0、专家新增0。池化向量在15窗口间变化很小，不能当作疼痛稳定性或有效性。事件插值/空间补边/整段归一化采用明确的本地设置；原切片参考与时间滤波仍未知，不能证明评分信号已排除。 三个预先指定的真实窗口完成恒定均值帧、倒序共6次冻结前向，独立输入和指标重放通过。去掉实测时间变化后，内部token时间变化仍约7.67%；池化向量的变化很小。另25个开发输入正在按原人序采集，截至记录完成1/25人的原生影像及事件输入核查。 时间对照只涉及1名健康热痛受试者，拟合0、专家新增0，不能据此归因疼痛或证明临床效用。输入核查不是MNI配准、专家QC或训练纳入；13名研究留出未读。三个独立临床目标尚未完成。 1名新增开发受试者完成空间单位副本、裁剪、FAST、初始刚体/仿射与BBR；独立数值复核和私有图像技术检查已完成，非线性映射及新模型编码尚未开展。截至记录，25人采集作业新增完成3人，3人网络超时保留失败，原作业仍在接续。 这是新增1人的技术输入推进，拟合0、专家新增0，不能证明配准改善、疼痛预测收益或临床效用。原前26开发/后13研究留出保持，留出MRI未读；三个独立临床目标尚未完成。 1名新增开发受试者完成固定非线性映射、230帧单次空间重采样和21次冻结编码；独立核对207,604,670个BOLD值及1,941,408个缓存值。累计2人的30个主窗口缓存显示，平均池化表示的跨人相对差异约28.15%，人内窗口偏离约0.054%～0.924%。这些是表示描述，尚无疼痛预测结果。 模型拟合0、留出MRI读取0、实际专家新增0；2人和30个相关窗口不能证明泛化、疼痛特异性或临床效用。Omni-fMRI组件探测因缺timm在导入阶段失败，前向调用0。三个独立临床目标尚未完成。 Omni-fMRI作者标准SDPA组件完成2次实际调用，完整12层编码器完成1次随机权重合成输入前向，输出CLS768和954个动态patch。官方权重已下载，但完整加载或预训练前向尚未通过，实际失败保留。新增3人完成固定裁剪、FAST与初始配准，独立读取300,145,071个空间结果值，私有6幅图已查看。 这是运行兼容性和输入准备，没有新疼痛预测拟合或临床成绩；新3人的BBR、非线性映射和真实编码尚未开展。实际专家新增0，原2人真实表示不重复。三个独立临床目标尚未完成。 新增3名开发受试者各完成1次固定BBR，复用已完成FAST和刚体矩阵。独立读回27,039,744个输出值，并核对10,074,031个源内部插值点；六幅私有BBR/刚体对照图已查看。Omni-fMRI官方特征权重349项匹配加载，完成1次合成编码器前向，CLS768和768维patch通过形状/有限值检查；完整模型缺两项未调用classifier参数，严格全模型加载失败及前向后的保存失败保留。 本轮没有新增真实MRI编码、疼痛预测拟合或临床成绩；BBR位移不等于配准改善，合成前向不等于疼痛收益。实际专家新增0，新3人非线性映射仍未做。研究总目标尚未完成。 新增3名开发受试者完成固定非线性映射、230帧单次空间重采样及63次NeuroSTORM冻结编码。独立核对622,814,010个BOLD值和5,824,224个缓存值，15幅私有空间图已查看。Omni完成1次固定真实MRI前向，CLS768及4,848个动态patch通过独立复核。累计5人75个相关主窗口中，人间均值差异占池化总离差平方和约99.9506%。 这是健康开发人群的空间和表示描述，没有新增疼痛预测拟合、专家报告或独立临床成绩；75个窗口不能当75名独立受试者，人间差异不等于疼痛信号。研究总目标尚未完成。 5名健康开发受试者、75个相关试次按人留一。30个神经读出和5个协变量拟合完成并独立重放；PR评分平均MAE：协变量0.8762，平均池化3.3692，时间差分1.5627，时间注意力2.6723。三个影像残差读出均未超过协变量，本轮配置停止扩展。 这是五人健康热痛的离线开发诊断，75个试次不能当75名独立受试者；未读13名研究留出、未新增专家报告或临床验证。当前比较没有强FC、随机encoder、作者prompt或内部adapter对照，不能证明完整方法优劣或论文创新。研究总目标尚未完成。",
         "steps": [
           "阅读完整BrainHGT、论文OMST及全部固定种子对照表。",
-          "停止本轮未获稳定判别增量的配置，不扩wd/dropout/选轮搜索、不接K学习曲线或结构模块。下一步仅在独立训练侧确认选轮问题，或补真实患者同期疼痛/心理/治疗及独立人员依据。"
+          "结束本次有限选轮对照，不扩选轮/优化器搜索；后续结构研究单列机制与公平消融，同时补真实临床终点和独立人员。"
         ],
-        "deliverable": "完整作者模型的真实疼痛开发结果、实现选择和全部负结果。"
+        "deliverable": "完整作者模型的诊断开发选轮结果、全部seed与局限。"
       }
     },
     {
@@ -1253,7 +1253,8 @@
         "samples": "1627人库存（1482为质控前上限）",
         "tasks": [
           "来源表征预训练",
-          "混杂与站点检查"
+          "混杂与站点检查",
+          "完整BrainHGT＋论文OMST：五初始化seed同轨迹双选轮开发对照"
         ],
         "materials": "多站点静息态 fMRI；被试与站点信息",
         "role": "混合来源",
@@ -1262,7 +1263,8 @@
         "sources": [
           "two-repairs-20260907",
           "status-20260906-evening",
-          "dataset-roles"
+          "dataset-roles",
+          "brainhgt-selection-20261014"
         ]
       },
       {
@@ -1273,7 +1275,8 @@
         "samples": "9人历史来源；头动匹配分析使用7人",
         "tasks": [
           "来源预训练",
-          "头动/站点敏感性检查"
+          "头动/站点敏感性检查",
+          "完整BrainHGT＋论文OMST：五初始化seed同轨迹双选轮开发对照"
         ],
         "materials": "静息态 fMRI；头动指标；疾病类别仅作来源说明",
         "role": "预训练来源",
@@ -1282,7 +1285,8 @@
         "sources": [
           "source-pretraining-20260908",
           "matched-source-report",
-          "dataset-roles"
+          "dataset-roles",
+          "brainhgt-selection-20261014"
         ]
       },
       {
@@ -1298,7 +1302,8 @@
           "三作者模型与同人同预算FC/协变量参照；两固定seed全部报告",
           "五模型紧凑适配与同人同预算FC/协变量参照；两固定seed全部报告",
           "冻结先验回归与临床/两种强FC/随机权重参照；原人员和两seed保留",
-          "完整BrainHGT＋论文OMST诊断开发：五初始化seed算术均值及全部单值；两项训练因素独立比较"
+          "完整BrainHGT＋论文OMST诊断开发：五初始化seed算术均值及全部单值；两项训练因素独立比较",
+          "完整BrainHGT＋论文OMST：五初始化seed同轨迹双选轮开发对照"
         ],
         "materials": "既有AAL90切空间强对照和相同划分；年龄、性别、FD/删帧齐；sup8病程12/15，sup7病程缺；药物缺",
         "role": "开发队列",
@@ -1312,7 +1317,8 @@
           "pain-model-adaptation-20261013",
           "compact-pain-20261013",
           "pain-prior-transfer-20261013",
-          "brainhgt-generalization-20261014"
+          "brainhgt-generalization-20261014",
+          "brainhgt-selection-20261014"
         ]
       },
       {
@@ -1322,7 +1328,8 @@
         "disease": "神经病理性疼痛、健康、卒中",
         "samples": "82人（43疼痛，29健康，10卒中）",
         "tasks": [
-          "历史外部测试"
+          "历史外部测试",
+          "完整BrainHGT＋论文OMST：五初始化seed同轨迹双选轮开发对照"
         ],
         "materials": "BAL140 功能连接；分组标签",
         "role": "历史外部检验",
@@ -1331,7 +1338,8 @@
         "sources": [
           "external-report",
           "record",
-          "dataset-roles"
+          "dataset-roles",
+          "brainhgt-selection-20261014"
         ]
       },
       {
@@ -1691,6 +1699,7 @@
     }
   ],
   "next_steps": [
+    "结束本次有限选轮对照，不扩选轮/优化器搜索；后续结构研究单列机制与公平消融，同时补真实临床终点和独立人员。",
     "停止本轮未获稳定判别增量的配置，不扩wd/dropout/选轮搜索、不接K学习曲线或结构模块。下一步仅在独立训练侧确认选轮问题，或补真实患者同期疼痛/心理/治疗及独立人员依据。",
     "停止本采样收缩定义扩展；优先补真实患者MRI同期评分、心理/用药与治疗随访、独立人员来源，或真实重复扫描验证。旧负结果/13CoSpine留出未读/TN14停止保持。",
     "停止本短窗时滞定义扩展。先补独立刺激时钟、场图姿态及足够报告前真实帧，或取得同人患者MRI同期程度/心理/治疗标签；不换公式追逐显著，原临床目标保持。",
@@ -1792,7 +1801,7 @@
       "section": "sources",
       "repo_path": "docs/TRAINING_RESULTS_INDEX.md",
       "format": "md",
-      "size": 284633,
+      "size": 285746,
       "exists": true,
       "modified_at": "2026-10-14",
       "public_url": "./files/training-results-index.md",
@@ -2038,7 +2047,7 @@
       "section": "sources",
       "repo_path": "docs/RECENT_RESEARCH_HISTORY_2026-09-08.md",
       "format": "md",
-      "size": 328298,
+      "size": 329411,
       "exists": true,
       "modified_at": "2026-10-14",
       "public_url": "./files/research-history-report.md",
@@ -4617,7 +4626,7 @@
       "section": "sources",
       "repo_path": "docs/PROJECT_PLAN.md",
       "format": "md",
-      "size": 426771,
+      "size": 427657,
       "exists": true,
       "modified_at": "2026-10-14",
       "public_url": "./files/archive-a181ed9eb3c49bb7.md",
@@ -42814,7 +42823,7 @@
       "description": "三个临床终点、配对评价准备、原试验读取和预训练成员来源核查；逐人真值、访视对应与独立测试仍缺。",
       "repo_path": "docs/CLINICAL_INCREMENT_DESIGN_2026-10-02.md",
       "format": "md",
-      "size": 134486,
+      "size": 135599,
       "exists": true,
       "modified_at": "2026-10-14",
       "public_url": "./files/migraine-readiness-20261002-clinical.md",
@@ -46822,11 +46831,179 @@
       "size": 205830,
       "modified_at": "2026-10-14",
       "preview_url": "./files/brainhgt-generalization-20261014-curve-figure.png"
+    },
+    {
+      "id": "brainhgt-selection-20261014",
+      "label": "BrainHGT五种子选轮对照",
+      "repo_path": "docs/BRAINHGT_SELECTION_RESULTS_2026-10-14.md",
+      "section": "reports",
+      "description": "SRPBS99与偏头痛132诊断开发；原完整模型/OMST、标签/QC/人员分区保持。五seed共享人员；无扫描同期疼痛、治疗响应或独立临床验证。",
+      "public_url": "./files/brainhgt-selection-20261014.md",
+      "exists": true,
+      "available": true,
+      "format": "md",
+      "size": 9126,
+      "modified_at": "2026-10-14",
+      "preview_url": "./previews/brainhgt-selection-20261014.json"
+    },
+    {
+      "id": "brainhgt-selection-20261014-summary",
+      "label": "两种选轮规则与五种子聚合",
+      "repo_path": "reports/brainhgt-selection-2026-10-14/summary.json",
+      "section": "reports",
+      "description": "SRPBS99与偏头痛132诊断开发；原完整模型/OMST、标签/QC/人员分区保持。五seed共享人员；无扫描同期疼痛、治疗响应或独立临床验证。",
+      "public_url": "./files/brainhgt-selection-20261014-summary.json",
+      "exists": true,
+      "available": true,
+      "format": "json",
+      "size": 18376,
+      "modified_at": "2026-10-14",
+      "preview_url": "./previews/brainhgt-selection-20261014-summary.json"
+    },
+    {
+      "id": "brainhgt-selection-20261014-metrics",
+      "label": "各seed完整OOF指标",
+      "repo_path": "reports/brainhgt-selection-2026-10-14/seed_metrics.csv",
+      "section": "reports",
+      "description": "SRPBS99与偏头痛132诊断开发；原完整模型/OMST、标签/QC/人员分区保持。五seed共享人员；无扫描同期疼痛、治疗响应或独立临床验证。",
+      "public_url": "./files/brainhgt-selection-20261014-metrics.csv",
+      "exists": true,
+      "available": true,
+      "format": "csv",
+      "size": 3743,
+      "modified_at": "2026-10-14",
+      "preview_url": "./previews/brainhgt-selection-20261014-metrics.json"
+    },
+    {
+      "id": "brainhgt-selection-20261014-comparison",
+      "label": "老师五种子条件对照表",
+      "repo_path": "reports/brainhgt-selection-2026-10-14/teacher_table.md",
+      "section": "reports",
+      "description": "SRPBS99与偏头痛132诊断开发；原完整模型/OMST、标签/QC/人员分区保持。五seed共享人员；无扫描同期疼痛、治疗响应或独立临床验证。",
+      "public_url": "./files/brainhgt-selection-20261014-comparison.md",
+      "exists": true,
+      "available": true,
+      "format": "md",
+      "size": 1688,
+      "modified_at": "2026-10-14",
+      "preview_url": "./previews/brainhgt-selection-20261014-comparison.json"
+    },
+    {
+      "id": "brainhgt-selection-20261014-means",
+      "label": "平均AUC及种子变异",
+      "repo_path": "reports/brainhgt-selection-2026-10-14/mean_metrics.csv",
+      "section": "reports",
+      "description": "SRPBS99与偏头痛132诊断开发；原完整模型/OMST、标签/QC/人员分区保持。五seed共享人员；无扫描同期疼痛、治疗响应或独立临床验证。",
+      "public_url": "./files/brainhgt-selection-20261014-means.csv",
+      "exists": true,
+      "available": true,
+      "format": "csv",
+      "size": 2338,
+      "modified_at": "2026-10-14",
+      "preview_url": "./previews/brainhgt-selection-20261014-means.json"
+    },
+    {
+      "id": "brainhgt-selection-20261014-inner",
+      "label": "全部训练内单因素指标",
+      "repo_path": "reports/brainhgt-selection-2026-10-14/inner_metrics.csv",
+      "section": "reports",
+      "description": "SRPBS99与偏头痛132诊断开发；原完整模型/OMST、标签/QC/人员分区保持。五seed共享人员；无扫描同期疼痛、治疗响应或独立临床验证。",
+      "public_url": "./files/brainhgt-selection-20261014-inner.csv",
+      "exists": true,
+      "available": true,
+      "format": "csv",
+      "size": 50108,
+      "modified_at": "2026-10-14",
+      "preview_url": "./previews/brainhgt-selection-20261014-inner.json"
+    },
+    {
+      "id": "brainhgt-selection-20261014-folds",
+      "label": "逐外折指标",
+      "repo_path": "reports/brainhgt-selection-2026-10-14/fold_metrics.csv",
+      "section": "reports",
+      "description": "SRPBS99与偏头痛132诊断开发；原完整模型/OMST、标签/QC/人员分区保持。五seed共享人员；无扫描同期疼痛、治疗响应或独立临床验证。",
+      "public_url": "./files/brainhgt-selection-20261014-folds.csv",
+      "exists": true,
+      "available": true,
+      "format": "csv",
+      "size": 11077,
+      "modified_at": "2026-10-14",
+      "preview_url": "./previews/brainhgt-selection-20261014-folds.json"
+    },
+    {
+      "id": "brainhgt-selection-20261014-selection",
+      "label": "两种选轮及实际重训轮数",
+      "repo_path": "reports/brainhgt-selection-2026-10-14/selection_epochs.csv",
+      "section": "reports",
+      "description": "SRPBS99与偏头痛132诊断开发；原完整模型/OMST、标签/QC/人员分区保持。五seed共享人员；无扫描同期疼痛、治疗响应或独立临床验证。",
+      "public_url": "./files/brainhgt-selection-20261014-selection.csv",
+      "exists": true,
+      "available": true,
+      "format": "csv",
+      "size": 943,
+      "modified_at": "2026-10-14",
+      "preview_url": "./previews/brainhgt-selection-20261014-selection.json"
+    },
+    {
+      "id": "brainhgt-selection-20261014-plan",
+      "label": "拟合前五种子选轮方案",
+      "repo_path": "docs/BRAINHGT_SELECTION_PLAN_2026-10-14.md",
+      "section": "reports",
+      "description": "SRPBS99与偏头痛132诊断开发；原完整模型/OMST、标签/QC/人员分区保持。五seed共享人员；无扫描同期疼痛、治疗响应或独立临床验证。",
+      "public_url": "./files/brainhgt-selection-20261014-plan.md",
+      "exists": true,
+      "available": true,
+      "format": "md",
+      "size": 3496,
+      "modified_at": "2026-10-14",
+      "preview_url": "./previews/brainhgt-selection-20261014-plan.json"
+    },
+    {
+      "id": "brainhgt-selection-20261014-code",
+      "label": "同轨迹双选轮代码片段",
+      "repo_path": "research-code/pain-adaptation/brainhgt_selection_changes.py",
+      "section": "reports",
+      "description": "SRPBS99与偏头痛132诊断开发；原完整模型/OMST、标签/QC/人员分区保持。五seed共享人员；无扫描同期疼痛、治疗响应或独立临床验证。",
+      "public_url": "./files/brainhgt-selection-20261014-code.py",
+      "exists": true,
+      "available": true,
+      "format": "py",
+      "size": 792,
+      "modified_at": "2026-10-14",
+      "preview_url": "./previews/brainhgt-selection-20261014-code.json"
+    },
+    {
+      "id": "brainhgt-selection-20261014-auc-figure",
+      "label": "五seed均值与全部单值图",
+      "repo_path": "reports/brainhgt-selection-2026-10-14/five_seed_auc.png",
+      "section": "reports",
+      "description": "SRPBS99与偏头痛132诊断开发；原完整模型/OMST、标签/QC/人员分区保持。五seed共享人员；无扫描同期疼痛、治疗响应或独立临床验证。",
+      "public_url": "./files/brainhgt-selection-20261014-auc-figure.png",
+      "exists": true,
+      "available": true,
+      "format": "png",
+      "size": 44877,
+      "modified_at": "2026-10-14",
+      "preview_url": "./files/brainhgt-selection-20261014-auc-figure.png"
+    },
+    {
+      "id": "brainhgt-selection-20261014-curve-figure",
+      "label": "验证logloss轨迹",
+      "repo_path": "reports/brainhgt-selection-2026-10-14/validation_logloss.png",
+      "section": "reports",
+      "description": "SRPBS99与偏头痛132诊断开发；原完整模型/OMST、标签/QC/人员分区保持。五seed共享人员；无扫描同期疼痛、治疗响应或独立临床验证。",
+      "public_url": "./files/brainhgt-selection-20261014-curve-figure.png",
+      "exists": true,
+      "available": true,
+      "format": "png",
+      "size": 91114,
+      "modified_at": "2026-10-14",
+      "preview_url": "./files/brainhgt-selection-20261014-curve-figure.png"
     }
   ],
   "focus_phase": "model",
-  "focus_title": "BrainHGT泛化诊断与五种子训练比较",
-  "focus_description": "完整BrainHGT＋OMST原条件五seed平均OOF AUC：ZAN54 0.4521±0.0617；SRPBS99 0.6292±0.0280；Emo53 0.5268±0.0719；偏头痛132 0.4888±0.0581。 AdamW平均AUC：SRPBS 0.6292→0.6103，偏头痛 0.4888→0.4832。偏头痛均衡CE为0.4974，对原条件ΔAUC +0.0086、条件95%[-0.0696,+0.0873]；特异性升至0.3905，但BA 0.4979且Brier 0.1412→0.2314。本轮没有可靠整体抗过拟合收益，停止本配置扩展。 四队列诊断开发，原人员/标签/QC/划分保持；初始化seed0–4共享人员，均值±SD不等于五个独立人群。无MRI同期疼痛、治疗响应或独立临床验证。",
+  "focus_title": "BrainHGT五种子选轮对照",
+  "focus_description": "SRPBS99：AUC选轮 0.6292±0.0280，logloss选轮 0.6518±0.0261；偏头痛132：AUC选轮 0.4888±0.0581，logloss选轮 0.4851±0.0205。 SRPBS99 ΔAUC+0.0226，条件95%区间[-0.0466,0.0906]；Δlogloss-0.1229，ΔBrier-0.0258。判别差异未获可靠支持。 偏头痛132 ΔAUC-0.0037，条件95%区间[-0.0609,0.0537]；Δlogloss-0.0260，ΔBrier-0.0032。判别差异未获可靠支持。 两队列logloss差值的固定模型条件区间均低于0，支持本批概率损失降低；Brier差值区间均跨0。偏头痛仍全部预测患者，BA为0.5、特异性为0；较小seed波动不能当有效判别。 SRPBS99与偏头痛132诊断开发；原完整模型/OMST、标签/QC/人员分区保持。五seed共享人员；无扫描同期疼痛、治疗响应或独立临床验证。",
   "next_goal_ids": [
     "G19",
     "G12",
@@ -49508,6 +49685,33 @@
           "brainhgt-generalization-20261014-curve-figure"
         ],
         "calendar_event_id": "event-ab2fee6fa08f4c2a"
+      },
+      {
+        "id": "brainhgt-selection-20261014",
+        "date": "2026-10-14",
+        "status": "completed",
+        "label": "完整作者模型／OMST／五seed／双选轮",
+        "title": "BrainHGT五种子选轮对照",
+        "summary": "SRPBS99：AUC选轮 0.6292±0.0280，logloss选轮 0.6518±0.0261；偏头痛132：AUC选轮 0.4888±0.0581，logloss选轮 0.4851±0.0205。",
+        "result": "SRPBS99 ΔAUC+0.0226，条件95%区间[-0.0466,0.0906]；Δlogloss-0.1229，ΔBrier-0.0258。判别差异未获可靠支持。 偏头痛132 ΔAUC-0.0037，条件95%区间[-0.0609,0.0537]；Δlogloss-0.0260，ΔBrier-0.0032。判别差异未获可靠支持。 两队列logloss差值的固定模型条件区间均低于0，支持本批概率损失降低；Brier差值区间均跨0。偏头痛仍全部预测患者，BA为0.5、特异性为0；较小seed波动不能当有效判别。",
+        "method": "原AAL90与人级分区、完整模型/OMST；Adam和普通CE保持，同轨迹最高AUC/最低logloss双选轮；seed0–4算术平均AUC、条件配对区间及严格回放。",
+        "boundary": "SRPBS99与偏头痛132诊断开发；原完整模型/OMST、标签/QC/人员分区保持。五seed共享人员；无扫描同期疼痛、治疗响应或独立临床验证。",
+        "next": "结束本次有限选轮对照，不扩选轮/优化器搜索；后续结构研究单列机制与公平消融，同时补真实临床终点和独立人员。",
+        "sources": [
+          "brainhgt-selection-20261014",
+          "brainhgt-selection-20261014-summary",
+          "brainhgt-selection-20261014-metrics",
+          "brainhgt-selection-20261014-comparison",
+          "brainhgt-selection-20261014-means",
+          "brainhgt-selection-20261014-inner",
+          "brainhgt-selection-20261014-folds",
+          "brainhgt-selection-20261014-selection",
+          "brainhgt-selection-20261014-plan",
+          "brainhgt-selection-20261014-code",
+          "brainhgt-selection-20261014-auc-figure",
+          "brainhgt-selection-20261014-curve-figure"
+        ],
+        "calendar_event_id": "event-b064469eb4044d13"
       }
     ]
   },
@@ -94279,7 +94483,7 @@
     "summary_source": "prt-images-20260925-summary"
   },
   "calendar": {
-    "revision": 197,
+    "revision": 198,
     "events": [
       {
         "date": "2026-09-20",
@@ -97799,6 +98003,19 @@
         ],
         "date_basis": "人工维护；Asia/Shanghai",
         "updated_at": "2026-10-14T05:35:42.967432+00:00"
+      },
+      {
+        "title": "BrainHGT五种子选轮对照",
+        "type": "work",
+        "date": "2026-10-14",
+        "time": "",
+        "description": "SRPBS99：AUC选轮 0.6292±0.0280，logloss选轮 0.6518±0.0261；偏头痛132：AUC选轮 0.4888±0.0581，logloss选轮 0.4851±0.0205。 SRPBS99与偏头痛132诊断开发；原完整模型/OMST、标签/QC/人员分区保持。五seed共享人员；无扫描同期疼痛、治疗响应或独立临床验证。",
+        "id": "event-b064469eb4044d13",
+        "sources": [
+          "brainhgt-selection-20261014"
+        ],
+        "date_basis": "人工维护；Asia/Shanghai",
+        "updated_at": "2026-10-14T07:53:02.030334+00:00"
       }
     ]
   },
@@ -132678,5 +132895,660 @@
       "shared_server_not_isolated": true,
       "server_workers_exited": true
     }
+  },
+  "brainhgt_selection": {
+    "id": "brainhgt-selection-20261014",
+    "date": "2026-10-14",
+    "title": "BrainHGT五种子选轮对照",
+    "summary": "SRPBS99：AUC选轮 0.6292±0.0280，logloss选轮 0.6518±0.0261；偏头痛132：AUC选轮 0.4888±0.0581，logloss选轮 0.4851±0.0205。",
+    "interpretation": "SRPBS99 ΔAUC+0.0226，条件95%区间[-0.0466,0.0906]；Δlogloss-0.1229，ΔBrier-0.0258。判别差异未获可靠支持。 偏头痛132 ΔAUC-0.0037，条件95%区间[-0.0609,0.0537]；Δlogloss-0.0260，ΔBrier-0.0032。判别差异未获可靠支持。 两队列logloss差值的固定模型条件区间均低于0，支持本批概率损失降低；Brier差值区间均跨0。偏头痛仍全部预测患者，BA为0.5、特异性为0；较小seed波动不能当有效判别。",
+    "boundary": "SRPBS99与偏头痛132诊断开发；原完整模型/OMST、标签/QC/人员分区保持。五seed共享人员；无扫描同期疼痛、治疗响应或独立临床验证。",
+    "next": "结束本次有限选轮对照，不扩选轮/优化器搜索；后续结构研究单列机制与公平消融，同时补真实临床终点和独立人员。",
+    "uncertainty": "2000次同人配对条件重采样，每次分别计算五seed OOF AUC再平均；不平均概率、不覆盖重训/选轮或开发历史。",
+    "mean_rows": [
+      {
+        "cohort": "srpbs",
+        "dataset": "SRPBS99",
+        "selector": "auc",
+        "people": 99,
+        "patients": 46,
+        "controls": 53,
+        "seeds": 5,
+        "auc_mean": 0.6292042657916325,
+        "auc_sd": 0.028016597804346566,
+        "ap_mean": 0.598394841809151,
+        "ap_sd": 0.031170223059812607,
+        "ba_mean": 0.5597210828547989,
+        "ba_sd": 0.01967726398058864,
+        "accuracy_mean": 0.5777777777777777,
+        "accuracy_sd": 0.020700910638302213,
+        "sensitivity_mean": 0.3043478260869565,
+        "sensitivity_sd": 0.05542412514774766,
+        "specificity_mean": 0.8150943396226416,
+        "specificity_sd": 0.06171859333507975,
+        "brier_mean": 0.2660343618365898,
+        "brier_sd": 0.014283731972027007,
+        "logloss_mean": 0.8049340170704207,
+        "logloss_sd": 0.08886075213142686,
+        "auc_delta": 0.0,
+        "auc_delta_lower": 0.0,
+        "auc_delta_upper": 0.0,
+        "ba_delta": 0.0,
+        "ba_delta_lower": 0.0,
+        "ba_delta_upper": 0.0,
+        "brier_delta": 0.0,
+        "brier_delta_lower": 0.0,
+        "brier_delta_upper": 0.0,
+        "logloss_delta": 0.0,
+        "logloss_delta_lower": 0.0,
+        "logloss_delta_upper": 0.0,
+        "positive_auc_seeds": 0
+      },
+      {
+        "cohort": "srpbs",
+        "dataset": "SRPBS99",
+        "selector": "logloss",
+        "people": 99,
+        "patients": 46,
+        "controls": 53,
+        "seeds": 5,
+        "auc_mean": 0.651763740771124,
+        "auc_sd": 0.026125752156348145,
+        "ap_mean": 0.5968347964818391,
+        "ap_sd": 0.01827550705605572,
+        "ba_mean": 0.6201394585726006,
+        "ba_sd": 0.028092459081462212,
+        "accuracy_mean": 0.6323232323232323,
+        "accuracy_sd": 0.024326453694529883,
+        "sensitivity_mean": 0.4478260869565217,
+        "sensitivity_sd": 0.0891039197039965,
+        "specificity_mean": 0.7924528301886793,
+        "specificity_sd": 0.0421899618396187,
+        "brier_mean": 0.2402531642338736,
+        "brier_sd": 0.007069044102718091,
+        "logloss_mean": 0.6820475251774876,
+        "logloss_sd": 0.021635282041162975,
+        "auc_delta": 0.02255947497949151,
+        "auc_delta_lower": -0.04661388229710483,
+        "auc_delta_upper": 0.09061371455292414,
+        "ba_delta": 0.06041837571780162,
+        "ba_delta_lower": -0.0025767034514296624,
+        "ba_delta_upper": 0.12200508830950375,
+        "brier_delta": -0.025781197602716188,
+        "brier_delta_lower": -0.05706242420687403,
+        "brier_delta_upper": 0.004938825055957866,
+        "logloss_delta": -0.1228864918929331,
+        "logloss_delta_lower": -0.2419598114655739,
+        "logloss_delta_upper": -0.01516188701906036,
+        "positive_auc_seeds": 4
+      },
+      {
+        "cohort": "migraine",
+        "dataset": "偏头痛132",
+        "selector": "auc",
+        "people": 132,
+        "patients": 111,
+        "controls": 21,
+        "seeds": 5,
+        "auc_mean": 0.48880308880308887,
+        "auc_sd": 0.05814942172977402,
+        "ap_mean": 0.8432488058968322,
+        "ap_sd": 0.018518325398253047,
+        "ba_mean": 0.49639639639639643,
+        "ba_sd": 0.005873155320002375,
+        "accuracy_mean": 0.834848484848485,
+        "accuracy_sd": 0.009877579401822188,
+        "sensitivity_mean": 0.9927927927927929,
+        "sensitivity_sd": 0.01174631064000475,
+        "specificity_mean": 0.0,
+        "specificity_sd": 0.0,
+        "brier_mean": 0.14116078988583394,
+        "brier_sd": 0.004477194600403016,
+        "logloss_mean": 0.4844750178706345,
+        "logloss_sd": 0.027611924609491353,
+        "auc_delta": 0.0,
+        "auc_delta_lower": 0.0,
+        "auc_delta_upper": 0.0,
+        "ba_delta": 0.0,
+        "ba_delta_lower": 0.0,
+        "ba_delta_upper": 0.0,
+        "brier_delta": 0.0,
+        "brier_delta_lower": 0.0,
+        "brier_delta_upper": 0.0,
+        "logloss_delta": 0.0,
+        "logloss_delta_lower": 0.0,
+        "logloss_delta_upper": 0.0,
+        "positive_auc_seeds": 0
+      },
+      {
+        "cohort": "migraine",
+        "dataset": "偏头痛132",
+        "selector": "logloss",
+        "people": 132,
+        "patients": 111,
+        "controls": 21,
+        "seeds": 5,
+        "auc_mean": 0.48511368511368513,
+        "auc_sd": 0.02045841829891399,
+        "ap_mean": 0.838322745632668,
+        "ap_sd": 0.0058377077537814575,
+        "ba_mean": 0.5,
+        "ba_sd": 0.0,
+        "accuracy_mean": 0.840909090909091,
+        "accuracy_sd": 1.2412670766236366e-16,
+        "sensitivity_mean": 1.0,
+        "sensitivity_sd": 0.0,
+        "specificity_mean": 0.0,
+        "specificity_sd": 0.0,
+        "brier_mean": 0.13798680153214507,
+        "brier_sd": 0.0027553282363211285,
+        "logloss_mean": 0.4585042608398945,
+        "logloss_sd": 0.01577931446833274,
+        "auc_delta": -0.0036894036894037363,
+        "auc_delta_lower": -0.06092288717288726,
+        "auc_delta_upper": 0.053704169578383455,
+        "ba_delta": 0.003603603603603567,
+        "ba_delta_lower": 0.0008695652173912327,
+        "ba_delta_upper": 0.00747663551401867,
+        "brier_delta": -0.0031739883536888724,
+        "brier_delta_lower": -0.007373526818409108,
+        "brier_delta_upper": 0.000679962525320021,
+        "logloss_delta": -0.025970757030740033,
+        "logloss_delta_lower": -0.053228135541439625,
+        "logloss_delta_upper": -0.001616613111323029,
+        "positive_auc_seeds": 3
+      }
+    ],
+    "metric_rows": [
+      {
+        "cohort": "srpbs",
+        "dataset": "SRPBS99",
+        "selector": "auc",
+        "seed": 0,
+        "people": 99,
+        "auc": 0.5972108285479901,
+        "ap": 0.5484490095825026,
+        "ba": 0.5520918785890074,
+        "accuracy": 0.5757575757575758,
+        "sensitivity": 0.21739130434782608,
+        "specificity": 0.8867924528301887,
+        "brier": 0.2564366641664541,
+        "logloss": 0.7192002395785947,
+        "mean_fold_auc": 0.620989898989899
+      },
+      {
+        "cohort": "srpbs",
+        "dataset": "SRPBS99",
+        "selector": "auc",
+        "seed": 1,
+        "people": 99,
+        "auc": 0.6652994257588186,
+        "ap": 0.6275030974565018,
+        "ba": 0.5795734208367515,
+        "accuracy": 0.5959595959595959,
+        "sensitivity": 0.34782608695652173,
+        "specificity": 0.8113207547169812,
+        "brier": 0.24952442708571987,
+        "logloss": 0.7408260240650272,
+        "mean_fold_auc": 0.7021212121212121
+      },
+      {
+        "cohort": "srpbs",
+        "dataset": "SRPBS99",
+        "selector": "auc",
+        "seed": 2,
+        "people": 99,
+        "auc": 0.6058244462674323,
+        "ap": 0.5894124189888982,
+        "ba": 0.5324036095159967,
+        "accuracy": 0.5454545454545454,
+        "sensitivity": 0.34782608695652173,
+        "specificity": 0.7169811320754716,
+        "brier": 0.27951025618524095,
+        "logloss": 0.8404802491806743,
+        "mean_fold_auc": 0.6766464646464646
+      },
+      {
+        "cohort": "srpbs",
+        "dataset": "SRPBS99",
+        "selector": "auc",
+        "seed": 3,
+        "people": 99,
+        "auc": 0.6324856439704676,
+        "ap": 0.610210134985404,
+        "ba": 0.578137817883511,
+        "accuracy": 0.5959595959595959,
+        "sensitivity": 0.32608695652173914,
+        "specificity": 0.8301886792452831,
+        "brier": 0.2820976951145384,
+        "logloss": 0.9405978611862875,
+        "mean_fold_auc": 0.6872121212121212
+      },
+      {
+        "cohort": "srpbs",
+        "dataset": "SRPBS99",
+        "selector": "auc",
+        "seed": 4,
+        "people": 99,
+        "auc": 0.6452009844134536,
+        "ap": 0.6163995480324486,
+        "ba": 0.5563986874487284,
+        "accuracy": 0.5757575757575758,
+        "sensitivity": 0.2826086956521739,
+        "specificity": 0.8301886792452831,
+        "brier": 0.26260276663099574,
+        "logloss": 0.78356571134152,
+        "mean_fold_auc": 0.6805050505050505
+      },
+      {
+        "cohort": "srpbs",
+        "dataset": "SRPBS99",
+        "selector": "logloss",
+        "seed": 0,
+        "people": 99,
+        "auc": 0.6365873666940115,
+        "ap": 0.5898438871810765,
+        "ba": 0.6396636587366693,
+        "accuracy": 0.6464646464646465,
+        "sensitivity": 0.5434782608695652,
+        "specificity": 0.7358490566037735,
+        "brier": 0.2406521762937586,
+        "logloss": 0.6773220586004478,
+        "mean_fold_auc": 0.7155151515151514
+      },
+      {
+        "cohort": "srpbs",
+        "dataset": "SRPBS99",
+        "selector": "logloss",
+        "seed": 1,
+        "people": 99,
+        "auc": 0.6386382280557835,
+        "ap": 0.5731919415596572,
+        "ba": 0.6027481542247745,
+        "accuracy": 0.6161616161616161,
+        "sensitivity": 0.41304347826086957,
+        "specificity": 0.7924528301886793,
+        "brier": 0.23585703360268995,
+        "logloss": 0.6644713334052245,
+        "mean_fold_auc": 0.6850909090909092
+      },
+      {
+        "cohort": "srpbs",
+        "dataset": "SRPBS99",
+        "selector": "logloss",
+        "seed": 2,
+        "people": 99,
+        "auc": 0.6242821985233798,
+        "ap": 0.590938134872171,
+        "ba": 0.6093109105824446,
+        "accuracy": 0.6262626262626263,
+        "sensitivity": 0.3695652173913043,
+        "specificity": 0.8490566037735849,
+        "brier": 0.2509545897046706,
+        "logloss": 0.7038868259983828,
+        "mean_fold_auc": 0.6813737373737373
+      },
+      {
+        "cohort": "srpbs",
+        "dataset": "SRPBS99",
+        "selector": "logloss",
+        "seed": 3,
+        "people": 99,
+        "auc": 0.6767842493847417,
+        "ap": 0.6187133601288382,
+        "ba": 0.5904429860541427,
+        "accuracy": 0.6060606060606061,
+        "sensitivity": 0.3695652173913043,
+        "specificity": 0.8113207547169812,
+        "brier": 0.2322423634296891,
+        "logloss": 0.6592132837544392,
+        "mean_fold_auc": 0.6872727272727273
+      },
+      {
+        "cohort": "srpbs",
+        "dataset": "SRPBS99",
+        "selector": "logloss",
+        "seed": 4,
+        "people": 99,
+        "auc": 0.6825266611977031,
+        "ap": 0.6114866586674529,
+        "ba": 0.6585315832649713,
+        "accuracy": 0.6666666666666666,
+        "sensitivity": 0.5434782608695652,
+        "specificity": 0.7735849056603774,
+        "brier": 0.24155965813856003,
+        "logloss": 0.7053441241289434,
+        "mean_fold_auc": 0.6997373737373737
+      },
+      {
+        "cohort": "migraine",
+        "dataset": "偏头痛132",
+        "selector": "auc",
+        "seed": 0,
+        "people": 132,
+        "auc": 0.45602745602745604,
+        "ap": 0.8457130364190425,
+        "ba": 0.4864864864864865,
+        "accuracy": 0.8181818181818182,
+        "sensitivity": 0.972972972972973,
+        "specificity": 0.0,
+        "brier": 0.14886568175164797,
+        "logloss": 0.4898255048937857,
+        "mean_fold_auc": 0.5006435006435007
+      },
+      {
+        "cohort": "migraine",
+        "dataset": "偏头痛132",
+        "selector": "auc",
+        "seed": 1,
+        "people": 132,
+        "auc": 0.42170742170742176,
+        "ap": 0.8204799856431231,
+        "ba": 0.5,
+        "accuracy": 0.8409090909090909,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "brier": 0.13800536359436277,
+        "logloss": 0.45430090931006933,
+        "mean_fold_auc": 0.4774774774774775
+      },
+      {
+        "cohort": "migraine",
+        "dataset": "偏头痛132",
+        "selector": "auc",
+        "seed": 2,
+        "people": 132,
+        "auc": 0.5735735735735736,
+        "ap": 0.8713120596345953,
+        "ba": 0.4954954954954955,
+        "accuracy": 0.8333333333333334,
+        "sensitivity": 0.990990990990991,
+        "specificity": 0.0,
+        "brier": 0.13851954965957464,
+        "logloss": 0.4635267234323837,
+        "mean_fold_auc": 0.574002574002574
+      },
+      {
+        "cohort": "migraine",
+        "dataset": "偏头痛132",
+        "selector": "auc",
+        "seed": 3,
+        "people": 132,
+        "auc": 0.4783354783354784,
+        "ap": 0.8355238757296364,
+        "ba": 0.5,
+        "accuracy": 0.8409090909090909,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "brier": 0.14122210822677358,
+        "logloss": 0.5250273818007907,
+        "mean_fold_auc": 0.4697554697554698
+      },
+      {
+        "cohort": "migraine",
+        "dataset": "偏头痛132",
+        "selector": "auc",
+        "seed": 4,
+        "people": 132,
+        "auc": 0.5143715143715144,
+        "ap": 0.843215072057763,
+        "ba": 0.5,
+        "accuracy": 0.8409090909090909,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "brier": 0.13919124619681073,
+        "logloss": 0.48969456991614335,
+        "mean_fold_auc": 0.5045045045045046
+      },
+      {
+        "cohort": "migraine",
+        "dataset": "偏头痛132",
+        "selector": "logloss",
+        "seed": 0,
+        "people": 132,
+        "auc": 0.5023595023595023,
+        "ap": 0.840877547790253,
+        "ba": 0.5,
+        "accuracy": 0.8409090909090909,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "brier": 0.13990566486317826,
+        "logloss": 0.4673428870493102,
+        "mean_fold_auc": 0.5521235521235521
+      },
+      {
+        "cohort": "migraine",
+        "dataset": "偏头痛132",
+        "selector": "logloss",
+        "seed": 1,
+        "people": 132,
+        "auc": 0.4920634920634921,
+        "ap": 0.8403849403955842,
+        "ba": 0.5,
+        "accuracy": 0.8409090909090909,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "brier": 0.13559185171052868,
+        "logloss": 0.44549685731599864,
+        "mean_fold_auc": 0.5238095238095238
+      },
+      {
+        "cohort": "migraine",
+        "dataset": "偏头痛132",
+        "selector": "logloss",
+        "seed": 2,
+        "people": 132,
+        "auc": 0.4697554697554698,
+        "ap": 0.8336540100566525,
+        "ba": 0.5,
+        "accuracy": 0.8409090909090909,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "brier": 0.13446568198645775,
+        "logloss": 0.440955910227041,
+        "mean_fold_auc": 0.4826254826254827
+      },
+      {
+        "cohort": "migraine",
+        "dataset": "偏头痛132",
+        "selector": "logloss",
+        "seed": 3,
+        "people": 132,
+        "auc": 0.5036465036465037,
+        "ap": 0.8455506020350677,
+        "ba": 0.5,
+        "accuracy": 0.8409090909090909,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "brier": 0.13945512032224336,
+        "logloss": 0.4794838862281647,
+        "mean_fold_auc": 0.4607464607464608
+      },
+      {
+        "cohort": "migraine",
+        "dataset": "偏头痛132",
+        "selector": "logloss",
+        "seed": 4,
+        "people": 132,
+        "auc": 0.4577434577434578,
+        "ap": 0.8311466278857816,
+        "ba": 0.5,
+        "accuracy": 0.8409090909090909,
+        "sensitivity": 1.0,
+        "specificity": 0.0,
+        "brier": 0.14051568877831735,
+        "logloss": 0.45924176337895783,
+        "mean_fold_auc": 0.528957528957529
+      }
+    ],
+    "cohorts": {
+      "srpbs": {
+        "dataset": "SRPBS99",
+        "seed_aucs": {
+          "auc": [
+            0.5972108285479901,
+            0.6652994257588186,
+            0.6058244462674323,
+            0.6324856439704676,
+            0.6452009844134536
+          ],
+          "logloss": [
+            0.6365873666940115,
+            0.6386382280557835,
+            0.6242821985233798,
+            0.6767842493847417,
+            0.6825266611977031
+          ]
+        },
+        "train_counts": [
+          79,
+          79,
+          79,
+          79,
+          80
+        ],
+        "query_counts": [
+          20,
+          20,
+          20,
+          20,
+          19
+        ],
+        "inner_train_counts": [
+          [
+            52,
+            53,
+            53
+          ],
+          [
+            52,
+            53,
+            53
+          ],
+          [
+            52,
+            53,
+            53
+          ],
+          [
+            52,
+            53,
+            53
+          ],
+          [
+            53,
+            53,
+            54
+          ]
+        ],
+        "inner_validation_counts": [
+          [
+            27,
+            26,
+            26
+          ],
+          [
+            27,
+            26,
+            26
+          ],
+          [
+            27,
+            26,
+            26
+          ],
+          [
+            27,
+            26,
+            26
+          ],
+          [
+            27,
+            27,
+            26
+          ]
+        ],
+        "positive_auc_seeds": 4
+      },
+      "migraine": {
+        "dataset": "偏头痛132",
+        "seed_aucs": {
+          "auc": [
+            0.45602745602745604,
+            0.42170742170742176,
+            0.5735735735735736,
+            0.4783354783354784,
+            0.5143715143715144
+          ],
+          "logloss": [
+            0.5023595023595023,
+            0.4920634920634921,
+            0.4697554697554698,
+            0.5036465036465037,
+            0.4577434577434578
+          ]
+        },
+        "train_counts": [
+          88,
+          88,
+          88
+        ],
+        "query_counts": [
+          44,
+          44,
+          44
+        ],
+        "inner_train_counts": [
+          [
+            44,
+            44
+          ],
+          [
+            44,
+            44
+          ],
+          [
+            44,
+            44
+          ]
+        ],
+        "inner_validation_counts": [
+          [
+            44,
+            44
+          ],
+          [
+            44,
+            44
+          ],
+          [
+            44,
+            44
+          ]
+        ],
+        "positive_auc_seeds": 3
+      }
+    },
+    "fits": {
+      "inner_trajectories": 105,
+      "new_final": 38,
+      "reused_auc_final": 40,
+      "reused_logloss_final": 2
+    },
+    "verification": {
+      "saved_checkpoints": 248,
+      "reused_final_records": 42,
+      "max_probability_error": 1.1920928955078125e-07,
+      "original_inner_exact_weight_reproductions": 105,
+      "max_original_weight_error": 0,
+      "independent_bootstrap_auc_error": 2.220446049250313e-16,
+      "refits_for_replay": 0
+    },
+    "clinical_goal_complete": false,
+    "capacity": {
+      "total": 3309738,
+      "trainable": 3307690
+    },
+    "worker_wall_sum_seconds": 1146.3877947330475
   }
 }

@@ -20172,7 +20172,7 @@ function inputInventorySection(mode) {
 
 
 
-function recentResearchSection(methods=false){return brainHgtGeneralizationSection(methods)+emoNetworkSection(methods)+networkLagSection(methods)+cospineCommonPhysioSection(methods)+cospineNoisePilotSection(methods)+cospineRawWindowSection(methods)+cospineTimeReadinessSection(methods)+painPriorSection(methods)+compactPainSection(methods)+painModelAdaptationSection(methods)+emo27VASSection(methods)+painReadinessSection(methods)+previousRecentResearchSection(methods);}
+function recentResearchSection(methods=false){return brainHgtSelectionSection(methods)+brainHgtGeneralizationSection(methods)+emoNetworkSection(methods)+networkLagSection(methods)+cospineCommonPhysioSection(methods)+cospineNoisePilotSection(methods)+cospineRawWindowSection(methods)+cospineTimeReadinessSection(methods)+painPriorSection(methods)+compactPainSection(methods)+painModelAdaptationSection(methods)+emo27VASSection(methods)+painReadinessSection(methods)+previousRecentResearchSection(methods);}
 
 function painReadinessSection(methods=false){
 
@@ -20267,4 +20267,11 @@ function brainHgtGeneralizationSection(methods=false){
  const rows=r.mean_rows.map(q=>`<tr><th>${escapeHTML(q.dataset)}</th><td>${escapeHTML(q.model)}</td><td>${q.auc_mean.toFixed(4)} ± ${q.auc_sd.toFixed(4)}</td><td>${q.balanced_accuracy_mean.toFixed(4)}</td><td>${q.sensitivity_mean.toFixed(4)}</td><td>${q.specificity_mean.toFixed(4)}</td><td>${q.brier_mean.toFixed(4)}</td><td>${q.logloss_mean.toFixed(4)}</td></tr>`).join('');
  const method=methods?'<p>完整作者BrainHGT与已保存OMST保持；AdamW仅改优化器，偏头痛均衡CE仅改训练类别权重，不组合。各项只有一个非默认配置，全部训练内结果决定是否进行新外折评价。原模型seed0/1复用、seed2/3/4补齐；平均AUC为各seed完整OOF AUC的算术均值，SD为初始化差异，不平均概率。</p>':'';
  return `<section class="panel brainhgt-generalization-panel"><h2>BrainHGT泛化诊断与五种子训练比较</h2><p>${escapeHTML(r.summary)}</p><p>${escapeHTML(r.interpretation)}</p><p class="data-note">${escapeHTML(r.boundary)}</p>${method}<div class="paper-table-scroll" tabindex="0" role="region" aria-label="五种子平均AUC与完整训练条件"><table><thead><tr><th>队列</th><th>条件</th><th>平均OOF AUC ± SD</th><th>BA</th><th>敏感性</th><th>特异性</th><th>Brier↓</th><th>logloss↓</th></tr></thead><tbody>${rows}</tbody></table></div><p>${escapeHTML(r.uncertainty)}</p><p>${escapeHTML(r.next)}</p><div class="ds-foot">${evidenceLink(r.id,'查看诊断与全部结果 ↗')} ${evidenceLink(r.id+'-comparison','查看老师对照表 ↗')} ${evidenceLink(r.id+'-metrics','查看五个seed单值 ↗')} ${evidenceLink(r.id+'-inner','查看未保留的训练配置 ↗')} ${evidenceLink(r.id+'-selection','查看选轮诊断 ↗')} ${evidenceLink(r.id+'-plan','查看执行预算 ↗')}</div></section>`;
+}
+
+function brainHgtSelectionSection(methods=false){
+ const r=data.brainhgt_selection;if(!r)return '';
+ const rows=r.mean_rows.map(q=>`<tr><th>${escapeHTML(q.dataset)}</th><td>${q.selector==='auc'?'最高验证AUC':'最低验证logloss'}</td><td>${q.auc_mean.toFixed(4)} ± ${q.auc_sd.toFixed(4)}</td><td>${q.ba_mean.toFixed(4)}</td><td>${q.sensitivity_mean.toFixed(4)}</td><td>${q.specificity_mean.toFixed(4)}</td><td>${q.brier_mean.toFixed(4)}</td><td>${q.logloss_mean.toFixed(4)}</td></tr>`).join('');
+ const method=methods?'<p>完整作者BrainHGT和原OMST保持，Adam与普通交叉熵保持；每条内层训练轨迹分别保存最高AUC和最低logloss检查点，精确并列取最早，各自内层轮数中位数向下取整重训外层。原AUC内层权重完全复现后复用原外层；两规则轮数相同共用权重。seed0–4全部保留，没有阈值或温度调节。</p>':'';
+ return `<section class="panel brainhgt-selection-panel"><h2>BrainHGT五种子选轮对照</h2><p>${escapeHTML(r.summary)}</p><p>${escapeHTML(r.interpretation)}</p><p class="data-note">${escapeHTML(r.boundary)}</p>${method}<div class="paper-table-scroll" tabindex="0" role="region" aria-label="五种子平均AUC与两种选轮规则"><table><thead><tr><th>队列</th><th>选轮规则</th><th>平均OOF AUC ± SD</th><th>BA</th><th>敏感性</th><th>特异性</th><th>Brier↓</th><th>logloss↓</th></tr></thead><tbody>${rows}</tbody></table></div><p>${escapeHTML(r.uncertainty)}</p><p>${escapeHTML(r.next)}</p><div class="ds-foot">${evidenceLink(r.id,'查看选轮对照报告 ↗')} ${evidenceLink(r.id+'-comparison','查看老师对照表 ↗')} ${evidenceLink(r.id+'-metrics','查看五个seed单值 ↗')} ${evidenceLink(r.id+'-inner','查看训练内指标 ↗')} ${evidenceLink(r.id+'-selection','查看选轮及重训轮数 ↗')} ${evidenceLink(r.id+'-plan','查看执行方案 ↗')}</div></section>`;
 }

@@ -1,0 +1,4 @@
+{
+  "content": "\"\"\"Executed selector logic; intact author model imported privately, not republished.\"\"\"\nimport numpy as np\n\ndef improves(selector, metric, best_metric):\n    # Strict comparisons retain earliest exact tie.\n    return metric > best_metric if selector == \"auc\" else metric < best_metric\n\ndef refit_epochs(inner_selected_epochs):\n    return int(np.median(inner_selected_epochs))\n\n# One Adam/ordinary-CE training trajectory per inner partition.\n# Save separate state_dict clones when each selector improves.\n# Refit original outer training people for each median epoch count.\n# Original AUC controls reused only after exact inner-weight reproduction.\n# Same epoch count means same deterministic model; reuse explicitly.\n# Query people never select epochs, threshold, temperature or configuration.\n",
+  "truncated": false
+}

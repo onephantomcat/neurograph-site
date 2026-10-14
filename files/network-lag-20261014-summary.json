@@ -1,0 +1,1499 @@
+{
+  "date": "2026-10-14",
+  "people": 4,
+  "trials": 60,
+  "endpoint": "subsequent experimental heat-pain PR 0-10",
+  "fits": 1960,
+  "unique_training_partitions_budgets": 196,
+  "outer_people": 4,
+  "labels_per_person": [
+    5,
+    10,
+    15
+  ],
+  "training_people": [
+    1,
+    2,
+    3
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "full_label_seed_duplicates_computed_once": true,
+  "ridge_alpha": 10.0,
+  "optimizer_steps": 0,
+  "encoder_calls": 0,
+  "expert_reports": 0,
+  "formal_QC_changes": 0,
+  "holdout_MRI_reads": 0,
+  "main": [
+    {
+      "model": "common",
+      "person_mean_MAE": 1.016802915996554,
+      "RMSE": 1.2876408443265235,
+      "improvement_vs_common": 0.0,
+      "conditional_95_CI_improvement": [
+        0.0,
+        0.0
+      ],
+      "improved_people": 0
+    },
+    {
+      "model": "candidate",
+      "person_mean_MAE": 1.0385995391680474,
+      "RMSE": 1.329308387714999,
+      "improvement_vs_common": -0.021796623171493196,
+      "conditional_95_CI_improvement": [
+        -0.04292025589735432,
+        -0.007356357265875385
+      ],
+      "improved_people": 0
+    },
+    {
+      "model": "demeaned_lag",
+      "person_mean_MAE": 1.0232747444017014,
+      "RMSE": 1.3026090414598497,
+      "improvement_vs_common": -0.00647182840514729,
+      "conditional_95_CI_improvement": [
+        -0.017156957407690243,
+        0.003537246194852711
+      ],
+      "improved_people": 1
+    },
+    {
+      "model": "no_shrink",
+      "person_mean_MAE": 1.041352153353281,
+      "RMSE": 1.3226315319740178,
+      "improvement_vs_common": -0.02454923735672679,
+      "conditional_95_CI_improvement": [
+        -0.04555551223179105,
+        -0.008827987559611256
+      ],
+      "improved_people": 0
+    },
+    {
+      "model": "symmetric_lag",
+      "person_mean_MAE": 1.0212435436164347,
+      "RMSE": 1.2969254943117483,
+      "improvement_vs_common": -0.004440627619880455,
+      "conditional_95_CI_improvement": [
+        -0.0200958749254882,
+        0.0063891035673852015
+      ],
+      "improved_people": 2
+    },
+    {
+      "model": "block_fc",
+      "person_mean_MAE": 1.06135600178714,
+      "RMSE": 1.3361664937597357,
+      "improvement_vs_common": -0.04455308579058581,
+      "conditional_95_CI_improvement": [
+        -0.09387092975466033,
+        -0.012852030415679117
+      ],
+      "improved_people": 0
+    },
+    {
+      "model": "pearson",
+      "person_mean_MAE": 1.101029885222546,
+      "RMSE": 1.3482919971217229,
+      "improvement_vs_common": -0.08422696922599188,
+      "conditional_95_CI_improvement": [
+        -0.28875556589840157,
+        0.0846203932938433
+      ],
+      "improved_people": 2
+    },
+    {
+      "model": "tangent",
+      "person_mean_MAE": 1.0143794653178821,
+      "RMSE": 1.2649762968331186,
+      "improvement_vs_common": 0.0024234506786719734,
+      "conditional_95_CI_improvement": [
+        -0.14944071443462686,
+        0.17693572549947853
+      ],
+      "improved_people": 1
+    },
+    {
+      "model": "pretrained",
+      "person_mean_MAE": 4.077160262023014,
+      "RMSE": 5.2441296733216225,
+      "improvement_vs_common": -3.06035734602646,
+      "conditional_95_CI_improvement": [
+        -6.319050425826478,
+        -0.6655906772224645
+      ],
+      "improved_people": 0
+    },
+    {
+      "model": "pretrained_candidate",
+      "person_mean_MAE": 3.966616532358244,
+      "RMSE": 5.182750408099268,
+      "improvement_vs_common": -2.9498136163616895,
+      "conditional_95_CI_improvement": [
+        -6.351577766512388,
+        -0.6317412873117785
+      ],
+      "improved_people": 0
+    }
+  ],
+  "learning_curve": [
+    {
+      "training_people": 1,
+      "labels_per_person": 5,
+      "total_training_labels": 5,
+      "model": "common",
+      "person_mean_MAE": 1.6267700283551896,
+      "minimum": 0.4259430299917915,
+      "maximum": 3.379375368020963,
+      "actual_fits": 36,
+      "mean_df": 1.650282388851659,
+      "maximum_rank": 4
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 5,
+      "total_training_labels": 5,
+      "model": "candidate",
+      "person_mean_MAE": 1.5755345333221333,
+      "minimum": 0.363387101811661,
+      "maximum": 3.173019594223518,
+      "actual_fits": 36,
+      "mean_df": 1.7900964100055252,
+      "maximum_rank": 4
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 5,
+      "total_training_labels": 5,
+      "model": "demeaned_lag",
+      "person_mean_MAE": 1.5698246889033904,
+      "minimum": 0.4720529504608215,
+      "maximum": 3.120439108269947,
+      "actual_fits": 36,
+      "mean_df": 1.8106330403758883,
+      "maximum_rank": 4
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 5,
+      "total_training_labels": 5,
+      "model": "no_shrink",
+      "person_mean_MAE": 1.5797197928681352,
+      "minimum": 0.3724702046666125,
+      "maximum": 3.1749077651637765,
+      "actual_fits": 36,
+      "mean_df": 1.7928779166036466,
+      "maximum_rank": 4
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 5,
+      "total_training_labels": 5,
+      "model": "symmetric_lag",
+      "person_mean_MAE": 1.6373884524828748,
+      "minimum": 0.48910526704441754,
+      "maximum": 3.220875993575545,
+      "actual_fits": 36,
+      "mean_df": 1.7851385982169683,
+      "maximum_rank": 4
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 5,
+      "total_training_labels": 5,
+      "model": "block_fc",
+      "person_mean_MAE": 1.6337707820755945,
+      "minimum": 0.529914417308301,
+      "maximum": 3.1806885089461665,
+      "actual_fits": 36,
+      "mean_df": 1.8074016101357049,
+      "maximum_rank": 4
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 5,
+      "total_training_labels": 5,
+      "model": "pearson",
+      "person_mean_MAE": 1.2395857663329104,
+      "minimum": 0.5113259964640924,
+      "maximum": 2.043655145743452,
+      "actual_fits": 36,
+      "mean_df": 3.9914251778093828,
+      "maximum_rank": 4
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 5,
+      "total_training_labels": 5,
+      "model": "tangent",
+      "person_mean_MAE": 1.1330207115706525,
+      "minimum": 0.44012262236683,
+      "maximum": 1.8427181835274073,
+      "actual_fits": 36,
+      "mean_df": 3.992052222157815,
+      "maximum_rank": 4
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 5,
+      "total_training_labels": 5,
+      "model": "pretrained",
+      "person_mean_MAE": 16.051175285359882,
+      "minimum": 0.75179941197035,
+      "maximum": 91.63208490685295,
+      "actual_fits": 36,
+      "mean_df": 3.8345471397216935,
+      "maximum_rank": 4
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 5,
+      "total_training_labels": 5,
+      "model": "pretrained_candidate",
+      "person_mean_MAE": 15.945535927069109,
+      "minimum": 0.7419215822315834,
+      "maximum": 90.41891983872958,
+      "actual_fits": 36,
+      "mean_df": 3.835301986988819,
+      "maximum_rank": 4
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 10,
+      "total_training_labels": 10,
+      "model": "common",
+      "person_mean_MAE": 1.5277312791695277,
+      "minimum": 0.5618442936136224,
+      "maximum": 4.013420894759299,
+      "actual_fits": 36,
+      "mean_df": 2.609292863054077,
+      "maximum_rank": 8
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 10,
+      "total_training_labels": 10,
+      "model": "candidate",
+      "person_mean_MAE": 1.4255039889153487,
+      "minimum": 0.5593040447643981,
+      "maximum": 3.3723148142819976,
+      "actual_fits": 36,
+      "mean_df": 2.912545925893956,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 10,
+      "total_training_labels": 10,
+      "model": "demeaned_lag",
+      "person_mean_MAE": 1.4823495744069608,
+      "minimum": 0.5785084741627405,
+      "maximum": 3.6893505211673814,
+      "actual_fits": 36,
+      "mean_df": 2.95801024579235,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 10,
+      "total_training_labels": 10,
+      "model": "no_shrink",
+      "person_mean_MAE": 1.4531682873383724,
+      "minimum": 0.5760862203432902,
+      "maximum": 3.488002627831786,
+      "actual_fits": 36,
+      "mean_df": 2.909254594321196,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 10,
+      "total_training_labels": 10,
+      "model": "symmetric_lag",
+      "person_mean_MAE": 1.5559812952667489,
+      "minimum": 0.5611141717898336,
+      "maximum": 3.997920961557066,
+      "actual_fits": 36,
+      "mean_df": 2.9359361039543255,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 10,
+      "total_training_labels": 10,
+      "model": "block_fc",
+      "person_mean_MAE": 1.5225419497275827,
+      "minimum": 0.5325628526268951,
+      "maximum": 3.853178948518224,
+      "actual_fits": 36,
+      "mean_df": 2.9266529967413026,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 10,
+      "total_training_labels": 10,
+      "model": "pearson",
+      "person_mean_MAE": 1.1660395251421312,
+      "minimum": 0.571269704915795,
+      "maximum": 1.9620198016328976,
+      "actual_fits": 36,
+      "mean_df": 8.975141294015542,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 10,
+      "total_training_labels": 10,
+      "model": "tangent",
+      "person_mean_MAE": 1.1154024152276896,
+      "minimum": 0.43509379899444217,
+      "maximum": 1.8454244806567446,
+      "actual_fits": 36,
+      "mean_df": 8.979261862727785,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 10,
+      "total_training_labels": 10,
+      "model": "pretrained",
+      "person_mean_MAE": 18.597865482494413,
+      "minimum": 1.2020104574493213,
+      "maximum": 103.30608915406542,
+      "actual_fits": 36,
+      "mean_df": 8.358034890447591,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 10,
+      "total_training_labels": 10,
+      "model": "pretrained_candidate",
+      "person_mean_MAE": 18.42642738787063,
+      "minimum": 1.2536678448466956,
+      "maximum": 100.81944790484809,
+      "actual_fits": 36,
+      "mean_df": 8.362629722717424,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 15,
+      "total_training_labels": 15,
+      "model": "common",
+      "person_mean_MAE": 1.4005560728054736,
+      "minimum": 0.6120167794993289,
+      "maximum": 2.6157905274173254,
+      "actual_fits": 12,
+      "mean_df": 3.3189621466092234,
+      "maximum_rank": 8
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 15,
+      "total_training_labels": 15,
+      "model": "candidate",
+      "person_mean_MAE": 1.3077375628729662,
+      "minimum": 0.604036015739307,
+      "maximum": 2.167469190351852,
+      "actual_fits": 12,
+      "mean_df": 3.760190303285709,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 15,
+      "total_training_labels": 15,
+      "model": "demeaned_lag",
+      "person_mean_MAE": 1.3559804687557022,
+      "minimum": 0.6263049713134214,
+      "maximum": 2.409667321611023,
+      "actual_fits": 12,
+      "mean_df": 3.7978659247358273,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 15,
+      "total_training_labels": 15,
+      "model": "no_shrink",
+      "person_mean_MAE": 1.3402541664266716,
+      "minimum": 0.6551208717262914,
+      "maximum": 2.2605593825857797,
+      "actual_fits": 12,
+      "mean_df": 3.7618969075600273,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 15,
+      "total_training_labels": 15,
+      "model": "symmetric_lag",
+      "person_mean_MAE": 1.39350216767318,
+      "minimum": 0.6177422438222092,
+      "maximum": 2.6215192204498448,
+      "actual_fits": 12,
+      "mean_df": 3.7835769648075956,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 15,
+      "total_training_labels": 15,
+      "model": "block_fc",
+      "person_mean_MAE": 1.3746539575622543,
+      "minimum": 0.5577873933512727,
+      "maximum": 2.5488844577172713,
+      "actual_fits": 12,
+      "mean_df": 3.7714984652554,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 15,
+      "total_training_labels": 15,
+      "model": "pearson",
+      "person_mean_MAE": 1.127175282587478,
+      "minimum": 0.49269728135761964,
+      "maximum": 1.756264512503535,
+      "actual_fits": 12,
+      "mean_df": 13.956702426502062,
+      "maximum_rank": 14
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 15,
+      "total_training_labels": 15,
+      "model": "tangent",
+      "person_mean_MAE": 1.1006587056012216,
+      "minimum": 0.5996557411548511,
+      "maximum": 1.7157601337897304,
+      "actual_fits": 12,
+      "mean_df": 13.965783036358387,
+      "maximum_rank": 14
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 15,
+      "total_training_labels": 15,
+      "model": "pretrained",
+      "person_mean_MAE": 30.076282090117942,
+      "minimum": 1.7735255271752728,
+      "maximum": 76.9726870870164,
+      "actual_fits": 12,
+      "mean_df": 12.648951406089546,
+      "maximum_rank": 14
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 15,
+      "total_training_labels": 15,
+      "model": "pretrained_candidate",
+      "person_mean_MAE": 29.760392442875208,
+      "minimum": 1.541681067344157,
+      "maximum": 75.88385791860743,
+      "actual_fits": 12,
+      "mean_df": 12.663852658821467,
+      "maximum_rank": 14
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 5,
+      "total_training_labels": 10,
+      "model": "common",
+      "person_mean_MAE": 1.1222549864018145,
+      "minimum": 0.5257348848403793,
+      "maximum": 1.9371417914451134,
+      "actual_fits": 36,
+      "mean_df": 2.907698992465112,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 5,
+      "total_training_labels": 10,
+      "model": "candidate",
+      "person_mean_MAE": 1.1336182519972082,
+      "minimum": 0.49429463646857386,
+      "maximum": 1.8022613665825717,
+      "actual_fits": 36,
+      "mean_df": 3.2088638275245955,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 5,
+      "total_training_labels": 10,
+      "model": "demeaned_lag",
+      "person_mean_MAE": 1.1341316826731167,
+      "minimum": 0.5446876157124543,
+      "maximum": 1.6995694804118395,
+      "actual_fits": 36,
+      "mean_df": 3.2573003875239985,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 5,
+      "total_training_labels": 10,
+      "model": "no_shrink",
+      "person_mean_MAE": 1.1374614580580624,
+      "minimum": 0.5169111370321064,
+      "maximum": 1.8135453268956077,
+      "actual_fits": 36,
+      "mean_df": 3.2247696012605678,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 5,
+      "total_training_labels": 10,
+      "model": "symmetric_lag",
+      "person_mean_MAE": 1.1535717301357098,
+      "minimum": 0.46041326588323006,
+      "maximum": 1.7448061652239923,
+      "actual_fits": 36,
+      "mean_df": 3.1590633530154313,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 5,
+      "total_training_labels": 10,
+      "model": "block_fc",
+      "person_mean_MAE": 1.156411604120811,
+      "minimum": 0.4599859567715835,
+      "maximum": 1.9309023365709064,
+      "actual_fits": 36,
+      "mean_df": 3.2032380328048484,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 5,
+      "total_training_labels": 10,
+      "model": "pearson",
+      "person_mean_MAE": 1.1875018071329841,
+      "minimum": 0.5008600397746883,
+      "maximum": 1.8061934531386663,
+      "actual_fits": 36,
+      "mean_df": 8.975683769138792,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 5,
+      "total_training_labels": 10,
+      "model": "tangent",
+      "person_mean_MAE": 1.0954208172296582,
+      "minimum": 0.5046405735815357,
+      "maximum": 1.6990607420414068,
+      "actual_fits": 36,
+      "mean_df": 8.979140351799723,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 5,
+      "total_training_labels": 10,
+      "model": "pretrained",
+      "person_mean_MAE": 9.467330719366746,
+      "minimum": 1.2885168730252043,
+      "maximum": 28.577250554815343,
+      "actual_fits": 36,
+      "mean_df": 6.142164254402058,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 5,
+      "total_training_labels": 10,
+      "model": "pretrained_candidate",
+      "person_mean_MAE": 8.98876081753989,
+      "minimum": 0.7226100318879884,
+      "maximum": 27.34908197910119,
+      "actual_fits": 36,
+      "mean_df": 6.235924741357083,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 10,
+      "total_training_labels": 20,
+      "model": "common",
+      "person_mean_MAE": 1.097813073942803,
+      "minimum": 0.5541636217760281,
+      "maximum": 1.6961125972410598,
+      "actual_fits": 36,
+      "mean_df": 4.0746739035396295,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 10,
+      "total_training_labels": 20,
+      "model": "candidate",
+      "person_mean_MAE": 1.149169571619967,
+      "minimum": 0.5600035589888066,
+      "maximum": 1.8057420012128464,
+      "actual_fits": 36,
+      "mean_df": 4.591631285846958,
+      "maximum_rank": 10
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 10,
+      "total_training_labels": 20,
+      "model": "demeaned_lag",
+      "person_mean_MAE": 1.1236854350464835,
+      "minimum": 0.5722314305280329,
+      "maximum": 1.799963252525972,
+      "actual_fits": 36,
+      "mean_df": 4.6081186792663305,
+      "maximum_rank": 10
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 10,
+      "total_training_labels": 20,
+      "model": "no_shrink",
+      "person_mean_MAE": 1.1418342319313062,
+      "minimum": 0.5657742162040139,
+      "maximum": 1.8423291650049811,
+      "actual_fits": 36,
+      "mean_df": 4.597138082758214,
+      "maximum_rank": 10
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 10,
+      "total_training_labels": 20,
+      "model": "symmetric_lag",
+      "person_mean_MAE": 1.1162478640765232,
+      "minimum": 0.5743580223647785,
+      "maximum": 1.719411890269971,
+      "actual_fits": 36,
+      "mean_df": 4.599179852780279,
+      "maximum_rank": 10
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 10,
+      "total_training_labels": 20,
+      "model": "block_fc",
+      "person_mean_MAE": 1.1115268953123698,
+      "minimum": 0.581551240267515,
+      "maximum": 1.7320410614885897,
+      "actual_fits": 36,
+      "mean_df": 4.570846057426456,
+      "maximum_rank": 10
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 10,
+      "total_training_labels": 20,
+      "model": "pearson",
+      "person_mean_MAE": 1.1492486124465495,
+      "minimum": 0.5237681469968678,
+      "maximum": 2.0124164443980654,
+      "actual_fits": 36,
+      "mean_df": 18.936480657545317,
+      "maximum_rank": 19
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 10,
+      "total_training_labels": 20,
+      "model": "tangent",
+      "person_mean_MAE": 1.046527397271988,
+      "minimum": 0.47007409671175704,
+      "maximum": 1.812989259913821,
+      "actual_fits": 36,
+      "mean_df": 18.951277588199375,
+      "maximum_rank": 19
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 10,
+      "total_training_labels": 20,
+      "model": "pretrained",
+      "person_mean_MAE": 9.653609802198057,
+      "minimum": 0.7280859531219974,
+      "maximum": 35.393619510962644,
+      "actual_fits": 36,
+      "mean_df": 10.60849829154306,
+      "maximum_rank": 19
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 10,
+      "total_training_labels": 20,
+      "model": "pretrained_candidate",
+      "person_mean_MAE": 9.370104162969117,
+      "minimum": 0.6220239163487188,
+      "maximum": 35.66850066769704,
+      "actual_fits": 36,
+      "mean_df": 10.856841998114353,
+      "maximum_rank": 19
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 15,
+      "total_training_labels": 30,
+      "model": "common",
+      "person_mean_MAE": 1.1123394823673471,
+      "minimum": 0.5694393201538878,
+      "maximum": 1.6711262920081593,
+      "actual_fits": 12,
+      "mean_df": 4.716421468297084,
+      "maximum_rank": 9
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 15,
+      "total_training_labels": 30,
+      "model": "candidate",
+      "person_mean_MAE": 1.1417394368383535,
+      "minimum": 0.6277861699589955,
+      "maximum": 1.7189400510964459,
+      "actual_fits": 12,
+      "mean_df": 5.359506046898509,
+      "maximum_rank": 10
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 15,
+      "total_training_labels": 30,
+      "model": "demeaned_lag",
+      "person_mean_MAE": 1.1119141972940554,
+      "minimum": 0.6291586381875526,
+      "maximum": 1.6909969919195145,
+      "actual_fits": 12,
+      "mean_df": 5.374852872829103,
+      "maximum_rank": 10
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 15,
+      "total_training_labels": 30,
+      "model": "no_shrink",
+      "person_mean_MAE": 1.1298068996099726,
+      "minimum": 0.6034924294149164,
+      "maximum": 1.7012478538460527,
+      "actual_fits": 12,
+      "mean_df": 5.366102292547694,
+      "maximum_rank": 10
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 15,
+      "total_training_labels": 30,
+      "model": "symmetric_lag",
+      "person_mean_MAE": 1.1350977382969596,
+      "minimum": 0.6789975431977989,
+      "maximum": 1.699117955887327,
+      "actual_fits": 12,
+      "mean_df": 5.380765383739089,
+      "maximum_rank": 10
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 15,
+      "total_training_labels": 30,
+      "model": "block_fc",
+      "person_mean_MAE": 1.1382159510217311,
+      "minimum": 0.6960472535639132,
+      "maximum": 1.719339305710567,
+      "actual_fits": 12,
+      "mean_df": 5.350984730411138,
+      "maximum_rank": 10
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 15,
+      "total_training_labels": 30,
+      "model": "pearson",
+      "person_mean_MAE": 1.1347502232456805,
+      "minimum": 0.5090923799269508,
+      "maximum": 1.739617235743841,
+      "actual_fits": 12,
+      "mean_df": 28.89057514694034,
+      "maximum_rank": 29
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 15,
+      "total_training_labels": 30,
+      "model": "tangent",
+      "person_mean_MAE": 1.0365702964433967,
+      "minimum": 0.5026453803602705,
+      "maximum": 1.7115793941302202,
+      "actual_fits": 12,
+      "mean_df": 28.921365426529793,
+      "maximum_rank": 29
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 15,
+      "total_training_labels": 30,
+      "model": "pretrained",
+      "person_mean_MAE": 10.372934807499483,
+      "minimum": 1.7083934687245133,
+      "maximum": 30.607961203621024,
+      "actual_fits": 12,
+      "mean_df": 14.094473437082508,
+      "maximum_rank": 29
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 15,
+      "total_training_labels": 30,
+      "model": "pretrained_candidate",
+      "person_mean_MAE": 10.01090270777293,
+      "minimum": 1.8118550542512784,
+      "maximum": 30.285365800825634,
+      "actual_fits": 12,
+      "mean_df": 14.47541866056949,
+      "maximum_rank": 29
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 5,
+      "total_training_labels": 15,
+      "model": "common",
+      "person_mean_MAE": 1.0646505294140511,
+      "minimum": 0.7661830740234182,
+      "maximum": 1.6011925326911998,
+      "actual_fits": 12,
+      "mean_df": 4.00704699607249,
+      "maximum_rank": 10
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 5,
+      "total_training_labels": 15,
+      "model": "candidate",
+      "person_mean_MAE": 1.1107100645618315,
+      "minimum": 0.7327037625848541,
+      "maximum": 1.577196595925704,
+      "actual_fits": 12,
+      "mean_df": 4.433062904989619,
+      "maximum_rank": 11
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 5,
+      "total_training_labels": 15,
+      "model": "demeaned_lag",
+      "person_mean_MAE": 1.0920564751643216,
+      "minimum": 0.7392644028149536,
+      "maximum": 1.5686724850308347,
+      "actual_fits": 12,
+      "mean_df": 4.469482980420374,
+      "maximum_rank": 11
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 5,
+      "total_training_labels": 15,
+      "model": "no_shrink",
+      "person_mean_MAE": 1.1094731267860651,
+      "minimum": 0.715234950508563,
+      "maximum": 1.5878364449324966,
+      "actual_fits": 12,
+      "mean_df": 4.446890696170814,
+      "maximum_rank": 11
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 5,
+      "total_training_labels": 15,
+      "model": "symmetric_lag",
+      "person_mean_MAE": 1.0675089332765697,
+      "minimum": 0.7667605166808881,
+      "maximum": 1.5992302421148836,
+      "actual_fits": 12,
+      "mean_df": 4.346515098568333,
+      "maximum_rank": 11
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 5,
+      "total_training_labels": 15,
+      "model": "block_fc",
+      "person_mean_MAE": 1.10177460499436,
+      "minimum": 0.7805554728749217,
+      "maximum": 1.6131823508589818,
+      "actual_fits": 12,
+      "mean_df": 4.404818895595274,
+      "maximum_rank": 11
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 5,
+      "total_training_labels": 15,
+      "model": "pearson",
+      "person_mean_MAE": 1.2068009363150822,
+      "minimum": 0.6091191674113959,
+      "maximum": 1.6649558599723029,
+      "actual_fits": 12,
+      "mean_df": 13.957815419415963,
+      "maximum_rank": 14
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 5,
+      "total_training_labels": 15,
+      "model": "tangent",
+      "person_mean_MAE": 1.0784939544568548,
+      "minimum": 0.5269758830384854,
+      "maximum": 1.5844305326068342,
+      "actual_fits": 12,
+      "mean_df": 13.965626892678827,
+      "maximum_rank": 14
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 5,
+      "total_training_labels": 15,
+      "model": "pretrained",
+      "person_mean_MAE": 3.882290560676295,
+      "minimum": 0.8567893587119692,
+      "maximum": 8.643339287206198,
+      "actual_fits": 12,
+      "mean_df": 6.629473543709179,
+      "maximum_rank": 14
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 5,
+      "total_training_labels": 15,
+      "model": "pretrained_candidate",
+      "person_mean_MAE": 3.7745651768939426,
+      "minimum": 1.2582734440164574,
+      "maximum": 7.677234111106608,
+      "actual_fits": 12,
+      "mean_df": 6.934241203788228,
+      "maximum_rank": 14
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 10,
+      "total_training_labels": 30,
+      "model": "common",
+      "person_mean_MAE": 1.0200636100714546,
+      "minimum": 0.5574178258881363,
+      "maximum": 1.636826007623669,
+      "actual_fits": 12,
+      "mean_df": 5.275998660398856,
+      "maximum_rank": 10
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 10,
+      "total_training_labels": 30,
+      "model": "candidate",
+      "person_mean_MAE": 1.0732405519114991,
+      "minimum": 0.6238866723718696,
+      "maximum": 1.6579291267245313,
+      "actual_fits": 12,
+      "mean_df": 5.923885265549944,
+      "maximum_rank": 11
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 10,
+      "total_training_labels": 30,
+      "model": "demeaned_lag",
+      "person_mean_MAE": 1.0357577313684732,
+      "minimum": 0.5753541415962055,
+      "maximum": 1.6419286857949316,
+      "actual_fits": 12,
+      "mean_df": 5.915126319462071,
+      "maximum_rank": 11
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 10,
+      "total_training_labels": 30,
+      "model": "no_shrink",
+      "person_mean_MAE": 1.074287596246896,
+      "minimum": 0.6227212477173628,
+      "maximum": 1.6855688828682294,
+      "actual_fits": 12,
+      "mean_df": 5.9202530786858665,
+      "maximum_rank": 11
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 10,
+      "total_training_labels": 30,
+      "model": "symmetric_lag",
+      "person_mean_MAE": 1.0199189222812033,
+      "minimum": 0.5981472578313178,
+      "maximum": 1.6398609430461049,
+      "actual_fits": 12,
+      "mean_df": 5.898749015991677,
+      "maximum_rank": 11
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 10,
+      "total_training_labels": 30,
+      "model": "block_fc",
+      "person_mean_MAE": 1.0447545858711917,
+      "minimum": 0.5448837716502014,
+      "maximum": 1.6415663885480323,
+      "actual_fits": 12,
+      "mean_df": 5.874020270860583,
+      "maximum_rank": 11
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 10,
+      "total_training_labels": 30,
+      "model": "pearson",
+      "person_mean_MAE": 1.130122882275656,
+      "minimum": 0.5013390817289042,
+      "maximum": 1.8100946537015448,
+      "actual_fits": 12,
+      "mean_df": 28.892853029427144,
+      "maximum_rank": 29
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 10,
+      "total_training_labels": 30,
+      "model": "tangent",
+      "person_mean_MAE": 1.016089269317329,
+      "minimum": 0.48157198180759797,
+      "maximum": 1.6898065271725509,
+      "actual_fits": 12,
+      "mean_df": 28.921940802179638,
+      "maximum_rank": 29
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 10,
+      "total_training_labels": 30,
+      "model": "pretrained",
+      "person_mean_MAE": 4.244319180278984,
+      "minimum": 0.5741385598239888,
+      "maximum": 10.085864700382361,
+      "actual_fits": 12,
+      "mean_df": 10.096535379779324,
+      "maximum_rank": 29
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 10,
+      "total_training_labels": 30,
+      "model": "pretrained_candidate",
+      "person_mean_MAE": 4.167780709419295,
+      "minimum": 0.8968693194481321,
+      "maximum": 10.056690763488497,
+      "actual_fits": 12,
+      "mean_df": 10.603780529936666,
+      "maximum_rank": 29
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 15,
+      "total_training_labels": 45,
+      "model": "common",
+      "person_mean_MAE": 1.016802915996554,
+      "minimum": 0.5593936327851426,
+      "maximum": 1.5549663461928556,
+      "actual_fits": 4,
+      "mean_df": 5.893437846473894,
+      "maximum_rank": 10
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 15,
+      "total_training_labels": 45,
+      "model": "candidate",
+      "person_mean_MAE": 1.0385995391680474,
+      "minimum": 0.5783588326466442,
+      "maximum": 1.6084395831089953,
+      "actual_fits": 4,
+      "mean_df": 6.643710470965678,
+      "maximum_rank": 11
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 15,
+      "total_training_labels": 45,
+      "model": "demeaned_lag",
+      "person_mean_MAE": 1.0232747444017014,
+      "minimum": 0.5523924007485643,
+      "maximum": 1.5762633438448144,
+      "actual_fits": 4,
+      "mean_df": 6.646034770285158,
+      "maximum_rank": 11
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 15,
+      "total_training_labels": 45,
+      "model": "no_shrink",
+      "person_mean_MAE": 1.041352153353281,
+      "minimum": 0.5635027831964805,
+      "maximum": 1.6105257206508687,
+      "actual_fits": 4,
+      "mean_df": 6.6442074396455855,
+      "maximum_rank": 11
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 15,
+      "total_training_labels": 45,
+      "model": "symmetric_lag",
+      "person_mean_MAE": 1.0212435436164347,
+      "minimum": 0.5613313908130156,
+      "maximum": 1.5835693057792748,
+      "actual_fits": 4,
+      "mean_df": 6.65329238883787,
+      "maximum_rank": 11
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 15,
+      "total_training_labels": 45,
+      "model": "block_fc",
+      "person_mean_MAE": 1.06135600178714,
+      "minimum": 0.5928510163343051,
+      "maximum": 1.575381557046529,
+      "actual_fits": 4,
+      "mean_df": 6.624687751604469,
+      "maximum_rank": 11
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 15,
+      "total_training_labels": 45,
+      "model": "pearson",
+      "person_mean_MAE": 1.101029885222546,
+      "minimum": 0.5377639295744494,
+      "maximum": 1.6688976874164099,
+      "actual_fits": 4,
+      "mean_df": 43.81409984262838,
+      "maximum_rank": 44
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 15,
+      "total_training_labels": 45,
+      "model": "tangent",
+      "person_mean_MAE": 1.0143794653178821,
+      "minimum": 0.5606511865996865,
+      "maximum": 1.5941581104359832,
+      "actual_fits": 4,
+      "mean_df": 43.874231854260806,
+      "maximum_rank": 44
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 15,
+      "total_training_labels": 45,
+      "model": "pretrained",
+      "person_mean_MAE": 4.077160262023014,
+      "minimum": 0.7377349097027834,
+      "maximum": 8.905990192276725,
+      "actual_fits": 4,
+      "mean_df": 12.598485849937497,
+      "maximum_rank": 44
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 15,
+      "total_training_labels": 45,
+      "model": "pretrained_candidate",
+      "person_mean_MAE": 3.966616532358244,
+      "minimum": 0.744988034403041,
+      "maximum": 8.974343948031814,
+      "actual_fits": 4,
+      "mean_df": 13.221219839125908,
+      "maximum_rank": 44
+    }
+  ],
+  "stability": [
+    {
+      "training_people": 1,
+      "labels_per_person": 5,
+      "minimum_query_q_correlation_to_full_budget": 0.8206023822264591,
+      "median_query_q_correlation_to_full_budget": 0.9842023770350827,
+      "positive_readout_coefficients": 21,
+      "negative_readout_coefficients": 15,
+      "fits": 36
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 10,
+      "minimum_query_q_correlation_to_full_budget": 0.9404281553216315,
+      "median_query_q_correlation_to_full_budget": 0.9861533243753954,
+      "positive_readout_coefficients": 12,
+      "negative_readout_coefficients": 24,
+      "fits": 36
+    },
+    {
+      "training_people": 1,
+      "labels_per_person": 15,
+      "minimum_query_q_correlation_to_full_budget": 0.9761265734635415,
+      "median_query_q_correlation_to_full_budget": 0.9863508971950425,
+      "positive_readout_coefficients": 6,
+      "negative_readout_coefficients": 6,
+      "fits": 12
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 5,
+      "minimum_query_q_correlation_to_full_budget": 0.9000244626596977,
+      "median_query_q_correlation_to_full_budget": 0.989695370009301,
+      "positive_readout_coefficients": 20,
+      "negative_readout_coefficients": 16,
+      "fits": 36
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 10,
+      "minimum_query_q_correlation_to_full_budget": 0.972834968635467,
+      "median_query_q_correlation_to_full_budget": 0.9967203600407648,
+      "positive_readout_coefficients": 16,
+      "negative_readout_coefficients": 20,
+      "fits": 36
+    },
+    {
+      "training_people": 2,
+      "labels_per_person": 15,
+      "minimum_query_q_correlation_to_full_budget": 0.9874431936185752,
+      "median_query_q_correlation_to_full_budget": 0.998697871416706,
+      "positive_readout_coefficients": 6,
+      "negative_readout_coefficients": 6,
+      "fits": 12
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 5,
+      "minimum_query_q_correlation_to_full_budget": 0.9234307414231452,
+      "median_query_q_correlation_to_full_budget": 0.9956703382871939,
+      "positive_readout_coefficients": 7,
+      "negative_readout_coefficients": 5,
+      "fits": 12
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 10,
+      "minimum_query_q_correlation_to_full_budget": 0.998610283203619,
+      "median_query_q_correlation_to_full_budget": 0.9994373544134014,
+      "positive_readout_coefficients": 8,
+      "negative_readout_coefficients": 4,
+      "fits": 12
+    },
+    {
+      "training_people": 3,
+      "labels_per_person": 15,
+      "minimum_query_q_correlation_to_full_budget": 0.9999999999999998,
+      "median_query_q_correlation_to_full_budget": 1.0,
+      "positive_readout_coefficients": 3,
+      "negative_readout_coefficients": 1,
+      "fits": 4
+    }
+  ],
+  "association": {
+    "raw_equal_person_r": 0.01785062593067607,
+    "adjusted_equal_person_r": 0.0038904092873215416,
+    "conditional_95_CI": [
+      -0.38901964855897453,
+      0.5660906117454907
+    ],
+    "person_signflip_p": 1.0,
+    "adjusted_r_range": [
+      -0.41202110568522166,
+      0.7545410850359899
+    ],
+    "positive_people": 1,
+    "negative_people": 3,
+    "leave_one_person_out_r": [
+      0.05399005824932455,
+      0.15005981068508809,
+      0.13215816888297713,
+      -0.31187244982584694
+    ],
+    "interval_scope": "conditional on saved nuisance fits and train-only metric estimates; does not cover retraining or method selection"
+  },
+  "confound_summary": [
+    {
+      "covariate_index": 0,
+      "constant_people": 4,
+      "mean_q_r": null,
+      "mean_PR_r": null,
+      "max_abs_q_r": null
+    },
+    {
+      "covariate_index": 1,
+      "constant_people": 4,
+      "mean_q_r": null,
+      "mean_PR_r": null,
+      "max_abs_q_r": null
+    },
+    {
+      "covariate_index": 2,
+      "constant_people": 4,
+      "mean_q_r": null,
+      "mean_PR_r": null,
+      "max_abs_q_r": null
+    },
+    {
+      "covariate_index": 3,
+      "constant_people": 0,
+      "mean_q_r": -0.2125423726661257,
+      "mean_PR_r": -0.34975399536682156,
+      "max_abs_q_r": 0.7824099754145577
+    },
+    {
+      "covariate_index": 4,
+      "constant_people": 0,
+      "mean_q_r": -0.2125664903293634,
+      "mean_PR_r": -0.3498632645882269,
+      "max_abs_q_r": 0.7824478082606948
+    },
+    {
+      "covariate_index": 5,
+      "constant_people": 0,
+      "mean_q_r": 0.18252775827896484,
+      "mean_PR_r": -0.03477834141943206,
+      "max_abs_q_r": 0.5949524580308759
+    },
+    {
+      "covariate_index": 6,
+      "constant_people": 0,
+      "mean_q_r": 0.21883364513983372,
+      "mean_PR_r": 0.22380945969871124,
+      "max_abs_q_r": 0.6287304328723322
+    },
+    {
+      "covariate_index": 7,
+      "constant_people": 0,
+      "mean_q_r": 0.03300493233464239,
+      "mean_PR_r": 0.14250612500440712,
+      "max_abs_q_r": 0.3521930636378502
+    },
+    {
+      "covariate_index": 8,
+      "constant_people": 0,
+      "mean_q_r": 0.013949334028543849,
+      "mean_PR_r": -0.07331023211353277,
+      "max_abs_q_r": 0.4645527869063335
+    },
+    {
+      "covariate_index": 9,
+      "constant_people": 0,
+      "mean_q_r": -0.051099385466975206,
+      "mean_PR_r": 0.5786444327024654,
+      "max_abs_q_r": 0.684386591555074
+    },
+    {
+      "covariate_index": 10,
+      "constant_people": 0,
+      "mean_q_r": -0.0034487028973523848,
+      "mean_PR_r": 0.4947432159424866,
+      "max_abs_q_r": 0.7499920879524041
+    }
+  ],
+  "frame_sensitivity": {
+    "mean_deleted_frame_q_correlation": 0.999033590011566,
+    "median_max_abs_change": 0.043086634690252555,
+    "maximum_abs_change": 0.13539128692810473,
+    "time_reversal_error": 2.7755575615628914e-17
+  },
+  "versions": {
+    "python": "3.12.13 (main, Jul 18 2026, 17:02:19) [Clang 22.1.3 ]",
+    "numpy": "2.2.6"
+  },
+  "elapsed_seconds": 48.25346875190735,
+  "verification": {
+    "models_read": 1960,
+    "metric_models_read": 196,
+    "fitted_again": 0,
+    "prediction_values_read": 29400,
+    "MAE_error": 0.0,
+    "weight_prediction_error": 0.0,
+    "common_transform_error": 0.0,
+    "actual_node_q_error": 8.326672684688674e-17,
+    "aggregate_error": 0.0,
+    "frame_deletion_single_position_correlations": [
+      0.9890742726675087,
+      0.9818715891507508,
+      0.9162743297606499,
+      0.7830104179140039,
+      0.7409620428356694,
+      0.6784996666952386,
+      0.7445488747680328,
+      0.8641519861378854
+    ],
+    "frame_deletion_sign_changed_trials": 46,
+    "query_q_std": 0.04294100517828907
+  },
+  "id": "network-lag-20261014",
+  "summary": "4名健康开发成员、60相关试次、1960固定预算拟合完成。候选调整后疼痛关联r=.0039，条件区间[-.3890,.5661]，1正3负；单帧删除46/60试次至少一次翻符号。最大预算共同MAE1.0168，加入候选1.0386；本定义停止扩展。",
+  "boundary": "核心反对称时滞已有先例，本轮是短窗小样本适配。只有4独立人、7–8真实帧；条件区间不含重训/方案选择，无重测或临床独立验证。温度/年龄/性别同人恒定，心理标签缺；专家/QC新增0，13研究留出MRI未读。",
+  "next": "停止本短窗时滞定义扩展。先补独立刺激时钟、场图姿态及足够报告前真实帧，或取得同人患者MRI同期程度/心理/治疗标签；不换公式追逐显著，原临床目标保持。",
+  "rows": [
+    {
+      "item": "共同协变量",
+      "result": "MAE 1.0168",
+      "limit": "对共同改善 +0.0000 PR点"
+    },
+    {
+      "item": "共同协变量＋候选指标",
+      "result": "MAE 1.0386",
+      "limit": "对共同改善 -0.0218 PR点"
+    },
+    {
+      "item": "共同协变量＋窗内中心化时滞",
+      "result": "MAE 1.0233",
+      "limit": "对共同改善 -0.0065 PR点"
+    },
+    {
+      "item": "共同协变量＋去收缩",
+      "result": "MAE 1.0414",
+      "limit": "对共同改善 -0.0245 PR点"
+    },
+    {
+      "item": "共同协变量＋对称时滞",
+      "result": "MAE 1.0212",
+      "limit": "对共同改善 -0.0044 PR点"
+    },
+    {
+      "item": "共同协变量＋24边平均FC",
+      "result": "MAE 1.0614",
+      "limit": "对共同改善 -0.0446 PR点"
+    },
+    {
+      "item": "共同协变量＋全Pearson FC",
+      "result": "MAE 1.1010",
+      "limit": "对共同改善 -0.0842 PR点"
+    },
+    {
+      "item": "共同协变量＋切空间FC",
+      "result": "MAE 1.0144",
+      "limit": "对共同改善 +0.0024 PR点"
+    },
+    {
+      "item": "共同协变量＋冻结表示",
+      "result": "MAE 4.0772",
+      "limit": "对共同改善 -3.0604 PR点"
+    },
+    {
+      "item": "共同协变量＋冻结表示＋候选",
+      "result": "MAE 3.9666",
+      "limit": "对共同改善 -2.9498 PR点"
+    }
+  ]
+}

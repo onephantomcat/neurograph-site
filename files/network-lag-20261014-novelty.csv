@@ -1,0 +1,13 @@
+﻿研究,最接近机制,原论文,代码或正式材料,已核实范围,实质差别或等价,本轮对照与判断
+Gilson 2016,非零时滞协方差＋结构约束噪声扩散模型,https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004762,https://github.com/MatthieuGilson/EC_estimation/blob/master/optimization_movie.py,原文方法与作者代码已读，代码均值中心化、0/1/2 TR协方差,本轮只投影固定24条边，不拟合结构约束模型；不是有效连接复现,demeaned_lag；不能把非零时滞当原创
+Mitra 2014/2015,BOLD时滞结构及lag threads,https://pubmed.ncbi.nlm.nih.gov/24598530/,https://doi.org/10.1073/pnas.1503960112,正式论文入口/摘要核查；PMC全文本次验证页未通过,本轮不估计亚TR峰值时滞，只有单TR相邻差项,单TR顺序存在已有基础；不推断传导
+Mijalkov 2021在线/2022卷期,延迟相关矩阵的反对称部分、帕金森网络,https://doi.org/10.1093/cercor/bhab237,https://pmc.ncbi.nlm.nih.gov/articles/PMC8805861/,正式记录、原文检索返回的方法段核查；PMC open验证码,核心代数与本候选等价。固定疼痛相关块、两帧基线、训练能量收缩是任务适配,原创时滞指标主张不成立；demeaned_lag最近方法适配
+Esfahlani/Faskowitz 2020,边共波动时间序列；全脑事件/FC,https://pmc.ncbi.nlm.nih.gov/articles/7668041/,https://github.com/brain-networks/edge-ts/blob/master/main.m,作者main.m已读：zscore与逐帧节点乘积，RSS选帧,本轮跨相邻帧反对称，无高幅度事件筛选/社区发现,symmetric_lag与block_fc；普通节点乘积不算原创
+Spisak 2019 RPN,静息FC稀疏疼痛敏感性签名，独立队列,https://www.nature.com/articles/s41467-019-13785-z,https://github.com/spisakt/RPN-signature,原文方法/外部验证段核查；21非零边/7503候选,本轮健康任务PR不同于痛阈敏感性；不调用不匹配AAL权重,强FC对照；不能借用RPN独立验证
+Mayr 2022,40患者四次扫描、动态FC与持续自发痛,https://pubmed.ncbi.nlm.nih.gov/35082250/,https://doi.org/10.1097/j.pain.0000000000002594,正式摘要核查；未声称全文或代码已读,已有个体动态疼痛网络关联；本轮四健康人单次短事件,需逐人方向；本轮无重测
+Deak 2025,38人152次扫描持续热痛、温度及连续评分,https://doi.org/10.1016/j.heliyon.2025.e42458,https://epub.ub.uni-muenchen.de/133617/1/PIIS2405844025008382.pdf,大学正式摘要与原文PDF检索段核查,原文分别考虑程度/变化/温度；本轮后续单评分、温度人内恒定,刺激与疼痛解释分开；不能称新发现
+eNeuro 2024,疼痛三叉神经病自发痛与皮层脑干动态连接,https://www.eneuro.org/content/11/7/ENEURO.0522-23.2024,https://pubmed.ncbi.nlm.nih.gov/38997145/,正式原文检索返回方法/讨论段核查,既有疼痛状态网络变化；本轮不含脑干AAL90也无患者,适用范围不同，不是外部验证
+Meta-matching 2022,大样本预训练表型表示迁移小样本,https://www.nature.com/articles/s41593-022-01059-9,https://github.com/ThomasYeoLab/CBIG,既有Excel原文证据与本地报告，官方页本次失败如实留存,本轮不学表型匹配，复用冻结体积表示作辅助,pretrained/pretrained_candidate；重叠未知
+BrainHGT/BNT,先验层级聚类/连接轮廓Transformer,https://arxiv.org/html/2511.17604,https://proceedings.neurips.cc/paper_files/paper/2022/hash/a408234a9b80604a9cf6ca518e474550-Abstract-Conference.html,原论文原值/方法、Excel及本地已核实报告,本轮是线性低容量网络指标，非新GNN/官方BrainHGT复现,OMST缺项保持；旧官方任务结果不可类比PR
+NeuroSTORM,官方冻结4D表示,https://arxiv.org/html/2506.11167v2,https://github.com/CUHK-AIM-Group/NeuroSTORM,原文方法已读；既有checkpoint/180编码证据本次核查,自有指标在真实AAL节点分支，冻结288向量只作并列辅助,pretrained_candidate去指标为pretrained；不能用pooled伪造节点
+Marek 2022,脑行为关联人数与复现性,https://www.nature.com/articles/s41586-022-04492-9,,正式原文摘要核查,大规模脑行为结果不可反推本轮四人可靠性；固定先验降低搜参自由度但不补足独立人数,仅探索，禁止临床标志物主张

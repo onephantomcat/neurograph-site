@@ -1,0 +1,365 @@
+{
+  "id": "oa-readiness-audit-20261014",
+  "title": "OA治疗反应队列：失败原因与临床对应核查",
+  "date": "2026-10-15",
+  "summary": "原56患者中29保持头动排除；27份已处理结果仍8份数值通过待审核、19份QC未通过。新逐例核查定位9份第一阶段QC停止与10份AAL90覆盖停止，未发现程序崩溃记录。",
+  "interpretation": "27份第一阶段日志均有完成标记、无既定致命错误。10份AAL90未通过者均有区域有限信号覆盖低于原0.92，其中9份FC/Fisher-z有限，1份还有FC/Fisher-z非有限；8份标准化Dice未通过，3份参考覆盖未通过，2份CSF为空且干扰项各少1列，失败项可重叠。共同出现不证明CSF导致列数差；仅凭日志不能确认可自动修复的软件缺陷。",
+  "boundary": "本轮只读现有小型日志、QC/config记录和原公开临床表；MRI新读取/预处理/编码/拟合/专家报告/QC修改/训练纳入均0。数值通过8份不等于专家确认或独立临床验证，三研究/药物组分开，旧排除与停止保持。",
+  "next": "优先核查2份CSF为空案例的原配置、已有分割及T1/功能配准证据，再核10份AAL90不足案例的缺失区域与标准化；不放宽原阈值或自动重跑。逐人基线VAS和MRI/治疗/随访日期仍须真实来源，未补齐且未审核前不启动疗效训练。",
+  "groups": [
+    {
+      "study": 1,
+      "drug": "placebo",
+      "endpoint": "2周安慰剂反应",
+      "original_patients": 17,
+      "original_responders": 8,
+      "original_nonresponders": 9,
+      "motion_excluded": 8,
+      "processed": 9,
+      "numeric_pass": 4,
+      "pass_responders": 3,
+      "pass_nonresponders": 1,
+      "stage1_not_pass": 3,
+      "aal90_not_pass": 2,
+      "not_pass_responders": 1,
+      "not_pass_nonresponders": 4,
+      "training_included": 0
+    },
+    {
+      "study": 2,
+      "drug": "duloxetine",
+      "endpoint": "3个月度洛西汀反应",
+      "original_patients": 19,
+      "original_responders": 8,
+      "original_nonresponders": 11,
+      "motion_excluded": 12,
+      "processed": 7,
+      "numeric_pass": 2,
+      "pass_responders": 1,
+      "pass_nonresponders": 1,
+      "stage1_not_pass": 2,
+      "aal90_not_pass": 3,
+      "not_pass_responders": 1,
+      "not_pass_nonresponders": 4,
+      "training_included": 0
+    },
+    {
+      "study": 2,
+      "drug": "placebo",
+      "endpoint": "3个月安慰剂反应",
+      "original_patients": 20,
+      "original_responders": 10,
+      "original_nonresponders": 10,
+      "motion_excluded": 9,
+      "processed": 11,
+      "numeric_pass": 2,
+      "pass_responders": 2,
+      "pass_nonresponders": 0,
+      "stage1_not_pass": 4,
+      "aal90_not_pass": 5,
+      "not_pass_responders": 6,
+      "not_pass_nonresponders": 3,
+      "training_included": 0
+    }
+  ],
+  "failures": [
+    {
+      "check": "confounds_columns_match_config_plus_censoring",
+      "label": "干扰项列数少于原配置预期",
+      "people": 2,
+      "overlap": true
+    },
+    {
+      "check": "native_csf_mask_nonempty",
+      "label": "原生空间脑脊液掩膜为空",
+      "people": 2,
+      "overlap": true
+    },
+    {
+      "check": "normalized_mask_dice_gt_0p75",
+      "label": "标准化脑掩膜Dice未超过原0.75要求",
+      "people": 8,
+      "overlap": true
+    },
+    {
+      "check": "aal90_coverage_or_signal",
+      "label": "AAL90有限信号覆盖低于原0.92要求",
+      "people": 10,
+      "overlap": true
+    },
+    {
+      "check": "normalized_mask_coverage_by_standard_gt_0p90",
+      "label": "标准化掩膜被参考覆盖未超过原0.90要求",
+      "people": 3,
+      "overlap": true
+    }
+  ],
+  "stages": {
+    "numeric_pass_pending_review": 8,
+    "stage1_qc": 9,
+    "aal90_coverage": 10
+  },
+  "confound_missing_columns": [
+    {
+      "actual": 67,
+      "expected": 68,
+      "shortfall": 1,
+      "csf_mask_empty": true,
+      "also_low_dice": true
+    },
+    {
+      "actual": 42,
+      "expected": 43,
+      "shortfall": 1,
+      "csf_mask_empty": true,
+      "also_low_dice": false
+    }
+  ],
+  "aal_failed_numeric_flags": {
+    "finite_FC_and_z": 9,
+    "nonfinite_FC_or_z": 1
+  },
+  "aal_failure_coverage_range": [
+    0.0,
+    0.9150141643059491
+  ],
+  "aal_failure_roi_counts": [
+    {
+      "roi": 1,
+      "people": 1
+    },
+    {
+      "roi": 2,
+      "people": 1
+    },
+    {
+      "roi": 3,
+      "people": 1
+    },
+    {
+      "roi": 4,
+      "people": 1
+    },
+    {
+      "roi": 5,
+      "people": 1
+    },
+    {
+      "roi": 6,
+      "people": 1
+    },
+    {
+      "roi": 7,
+      "people": 1
+    },
+    {
+      "roi": 8,
+      "people": 1
+    },
+    {
+      "roi": 9,
+      "people": 1
+    },
+    {
+      "roi": 10,
+      "people": 1
+    },
+    {
+      "roi": 13,
+      "people": 1
+    },
+    {
+      "roi": 14,
+      "people": 1
+    },
+    {
+      "roi": 15,
+      "people": 1
+    },
+    {
+      "roi": 16,
+      "people": 1
+    },
+    {
+      "roi": 19,
+      "people": 7
+    },
+    {
+      "roi": 20,
+      "people": 6
+    },
+    {
+      "roi": 21,
+      "people": 1
+    },
+    {
+      "roi": 22,
+      "people": 1
+    },
+    {
+      "roi": 23,
+      "people": 1
+    },
+    {
+      "roi": 24,
+      "people": 1
+    },
+    {
+      "roi": 25,
+      "people": 1
+    },
+    {
+      "roi": 26,
+      "people": 1
+    },
+    {
+      "roi": 27,
+      "people": 1
+    },
+    {
+      "roi": 28,
+      "people": 1
+    },
+    {
+      "roi": 29,
+      "people": 1
+    },
+    {
+      "roi": 30,
+      "people": 1
+    },
+    {
+      "roi": 31,
+      "people": 1
+    },
+    {
+      "roi": 32,
+      "people": 1
+    },
+    {
+      "roi": 39,
+      "people": 1
+    },
+    {
+      "roi": 40,
+      "people": 2
+    },
+    {
+      "roi": 41,
+      "people": 1
+    },
+    {
+      "roi": 42,
+      "people": 1
+    },
+    {
+      "roi": 55,
+      "people": 2
+    },
+    {
+      "roi": 56,
+      "people": 2
+    },
+    {
+      "roi": 57,
+      "people": 1
+    },
+    {
+      "roi": 58,
+      "people": 1
+    },
+    {
+      "roi": 59,
+      "people": 2
+    },
+    {
+      "roi": 60,
+      "people": 2
+    },
+    {
+      "roi": 67,
+      "people": 2
+    },
+    {
+      "roi": 69,
+      "people": 8
+    },
+    {
+      "roi": 70,
+      "people": 6
+    },
+    {
+      "roi": 71,
+      "people": 1
+    },
+    {
+      "roi": 72,
+      "people": 1
+    },
+    {
+      "roi": 73,
+      "people": 1
+    },
+    {
+      "roi": 74,
+      "people": 1
+    },
+    {
+      "roi": 83,
+      "people": 1
+    },
+    {
+      "roi": 84,
+      "people": 2
+    },
+    {
+      "roi": 87,
+      "people": 2
+    },
+    {
+      "roi": 88,
+      "people": 2
+    },
+    {
+      "roi": 89,
+      "people": 2
+    },
+    {
+      "roi": 90,
+      "people": 2
+    }
+  ],
+  "metadata": {
+    "original_people": 76,
+    "patients": 56,
+    "controls": 20,
+    "current_table_matches_held": true,
+    "outcome_complete": 56,
+    "response20percent_definition_matches": 56,
+    "individual_MRI_dates_confirmed": 0,
+    "individual_treatment_dates_confirmed": 0,
+    "individual_followup_dates_confirmed": 0,
+    "baseline_VAS_available": 0,
+    "temporal_scope": "source README supports before-treatment at cohort level, no individual dates",
+    "fresh_tree_api_status": 403,
+    "tree_scope": "previous161-path inventory has only global T1w/task-rest metadata and no sessions/scans/phenotype date table; fresh full-tree API blocked, not proof no other private file exists"
+  },
+  "verification": {
+    "queue_outcome_matches": 27,
+    "gates_reconstructed": 27,
+    "stage1_actual_log_completion": 27,
+    "stage1_actual_log_fatal": 0,
+    "original_motion_excluded_preserved": 29,
+    "original_labels_matches": 56,
+    "independent_clinical_group_counter_matches": true,
+    "server_observation_date": "2026-10-14",
+    "server_recheck_20261015": "unavailable; local connection configuration missing, not evidence of server shutdown"
+  },
+  "new_fits": 0,
+  "new_MRI_reads": 0,
+  "new_QC_decisions": 0,
+  "new_expert_reports": 0,
+  "new_inclusions": 0,
+  "clinical_goal_complete": false,
+  "evidence_collection_started": "2026-10-14"
+}

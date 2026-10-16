@@ -1,0 +1,4 @@
+{
+  "content": "\"\"\"Own compact SPD adaptation: covariance [B,90,90], confounds [B,4] -> [B].\nRank four is fixed, not searched. Initial subspace/head coordinates nest in rank16.\n\"\"\"\nimport torch\nfrom models import GeometryClassifier\n\nclass CompactGeometry(GeometryClassifier):\n    def __init__(self,seed,roi=90,rank=4,parent_rank=16):\n        assert rank<=parent_rank<=roi\n        original=GeometryClassifier('spd_log',seed,roi=roi,rank=parent_rank)\n        super().__init__('spd_log',seed,roi=roi,rank=rank)\n        mapping={(int(i),int(j)):k for k,(i,j) in enumerate(zip(original.ii,original.jj))}\n        indices=[mapping[int(i),int(j)] for i,j in zip(self.ii,self.jj)]+list(range(len(original.ii),len(original.ii)+4))\n        with torch.no_grad():\n            self.W.copy_(original.W[:,:rank])\n            self.head.weight.copy_(original.head.weight[:,indices])\n            self.head.bias.copy_(original.head.bias)\n",
+  "truncated": false
+}

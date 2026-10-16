@@ -1,0 +1,274 @@
+{
+  "state": "COMPLETE_225_REPLAYED_COMPACT_INNER_ONLY",
+  "people": 99,
+  "patients": 46,
+  "controls": 53,
+  "panels": 15,
+  "label_budgets": [
+    5,
+    10,
+    20
+  ],
+  "repeat_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "classifier_fits": 225,
+  "neural_fits": 225,
+  "referenced_original_models": 225,
+  "comparison_units": 450,
+  "linear_fits": 0,
+  "reference_fits": 0,
+  "reused_support_references": 225,
+  "outer_final_fits": 0,
+  "neural_parameters": {
+    "compact_log": 375,
+    "spd_log": 1581
+  },
+  "ranks": {
+    "compact_log": 4,
+    "spd_log": 16
+  },
+  "means": {
+    "5": {
+      "compact_log": {
+        "auc": 0.5787427757427757,
+        "auprc": 0.5905289239569051,
+        "balanced_accuracy": 0.5546910866910867,
+        "sensitivity": 0.6473504273504274,
+        "specificity": 0.462031746031746,
+        "brier": 0.2851748388164283,
+        "logloss": 0.8099581791052087,
+        "train_auc": 1.0,
+        "joint_repeat_auc_sample_sd": 0.014722826486861481,
+        "repeat_auc_min": 0.5657448107448108,
+        "repeat_auc_max": 0.6036243386243386,
+        "conditional_person_interval": [
+          0.5254157016027023,
+          0.6283280021453477
+        ]
+      },
+      "spd_log": {
+        "auc": 0.641085063085063,
+        "auprc": 0.6433474238512983,
+        "balanced_accuracy": 0.6019890109890109,
+        "sensitivity": 0.6865811965811967,
+        "specificity": 0.5173968253968253,
+        "brier": 0.2567949795699002,
+        "logloss": 0.73563594108225,
+        "train_auc": 1.0,
+        "joint_repeat_auc_sample_sd": 0.020280614619699728,
+        "repeat_auc_min": 0.615846560846561,
+        "repeat_auc_max": 0.6688726088726089,
+        "conditional_person_interval": [
+          0.5837004949614287,
+          0.6980019858912011
+        ]
+      }
+    },
+    "10": {
+      "compact_log": {
+        "auc": 0.6102360602360603,
+        "auprc": 0.6129787027203768,
+        "balanced_accuracy": 0.5812539682539682,
+        "sensitivity": 0.6366666666666667,
+        "specificity": 0.5258412698412698,
+        "brier": 0.25920751892745686,
+        "logloss": 0.7274687528542878,
+        "train_auc": 1.0,
+        "joint_repeat_auc_sample_sd": 0.011796492821012926,
+        "repeat_auc_min": 0.5967419617419617,
+        "repeat_auc_max": 0.6234106634106633,
+        "conditional_person_interval": [
+          0.5458269836510558,
+          0.6715908593610697
+        ]
+      },
+      "spd_log": {
+        "auc": 0.6854550264550263,
+        "auprc": 0.6808799416864311,
+        "balanced_accuracy": 0.6410793650793651,
+        "sensitivity": 0.6844444444444445,
+        "specificity": 0.5977142857142858,
+        "brier": 0.23771232341553622,
+        "logloss": 0.6921545404184558,
+        "train_auc": 1.0,
+        "joint_repeat_auc_sample_sd": 0.029676246797832036,
+        "repeat_auc_min": 0.6575091575091576,
+        "repeat_auc_max": 0.7284147334147335,
+        "conditional_person_interval": [
+          0.6177712556913639,
+          0.748498890621115
+        ]
+      }
+    },
+    "20": {
+      "compact_log": {
+        "auc": 0.657004884004884,
+        "auprc": 0.6523614392577012,
+        "balanced_accuracy": 0.608984126984127,
+        "sensitivity": 0.6444444444444443,
+        "specificity": 0.5735238095238095,
+        "brier": 0.2373364262968875,
+        "logloss": 0.6725569356294328,
+        "train_auc": 0.9692,
+        "joint_repeat_auc_sample_sd": 0.02443824417823256,
+        "repeat_auc_min": 0.6153418803418803,
+        "repeat_auc_max": 0.6762189662189663,
+        "conditional_person_interval": [
+          0.5808193435521641,
+          0.730523428444631
+        ]
+      },
+      "spd_log": {
+        "auc": 0.7117419617419618,
+        "auprc": 0.7101688739577009,
+        "balanced_accuracy": 0.6524737484737485,
+        "sensitivity": 0.6817094017094016,
+        "specificity": 0.6232380952380953,
+        "brier": 0.22579203951463062,
+        "logloss": 0.6575100750675933,
+        "train_auc": 1.0,
+        "joint_repeat_auc_sample_sd": 0.03940358407724957,
+        "repeat_auc_min": 0.6714733414733414,
+        "repeat_auc_max": 0.7700895400895401,
+        "conditional_person_interval": [
+          0.6403361272031629,
+          0.7785002523468727
+        ]
+      }
+    }
+  },
+  "contrasts": {
+    "5": {
+      "delta_mean_auc": -0.062342287342287375,
+      "repeat_mean_deltas": [
+        -0.07661986161986167,
+        -0.05010175010175022,
+        -0.06567155067155062,
+        -0.09506308506308503,
+        -0.024255189255189324
+      ],
+      "positive_repeats": 0,
+      "parent_mean_deltas": [
+        -0.07130647130647116,
+        -0.10805860805860812,
+        -0.017429792429792368,
+        -0.036931216931216815,
+        -0.07798534798534795
+      ],
+      "conditional_person_interval": [
+        -0.09030099207753475,
+        -0.032509371675867454
+      ]
+    },
+    "10": {
+      "delta_mean_auc": -0.07521896621896626,
+      "repeat_mean_deltas": [
+        -0.09612332112332111,
+        -0.06276149776149775,
+        -0.058487993487993606,
+        -0.10653032153032149,
+        -0.05219169719169736
+      ],
+      "positive_repeats": 0,
+      "parent_mean_deltas": [
+        -0.10079365079365088,
+        -0.0726190476190478,
+        -0.049297924297924234,
+        -0.06619047619047613,
+        -0.08719373219373217
+      ],
+      "conditional_person_interval": [
+        -0.10497451102231484,
+        -0.045084398866384184
+      ]
+    },
+    "20": {
+      "delta_mean_auc": -0.05473707773707772,
+      "repeat_mean_deltas": [
+        -0.0033048433048432635,
+        -0.04794261294261293,
+        -0.05613146113146106,
+        -0.11387260887260886,
+        -0.0524338624338625
+      ],
+      "positive_repeats": 0,
+      "parent_mean_deltas": [
+        -0.03708791208791229,
+        -0.07960927960927966,
+        -0.022924297924297843,
+        -0.05367724867724888,
+        -0.08038665038665027
+      ],
+      "conditional_person_interval": [
+        -0.08579267128773152,
+        -0.022542012677760827
+      ]
+    }
+  },
+  "learning": {
+    "compact_log": {
+      "delta_k20_minus_k5": 0.07826210826210833,
+      "conditional_person_interval": [
+        0.04141930801969511,
+        0.11545950611814614
+      ]
+    },
+    "spd_log": {
+      "delta_k20_minus_k5": 0.07065689865689884,
+      "conditional_person_interval": [
+        0.04006299470030328,
+        0.09920845519930307
+      ]
+    }
+  },
+  "valid_resamples": 2000,
+  "invalid_resamples": 0,
+  "independent_validation": false,
+  "scope_revision": "Fixed rank4 vs existing rank16 neural capacity study; current phase has no strong-linear superiority prerequisite, prior results retained.",
+  "uncertainty_scope": "Five joint support-and-initialization repeats; conditional common-person fixed-prediction intervals; correlated inner panels, no independent cohort, no retraining/development-selection coverage, three unadjusted budget contrasts.",
+  "runtime": {
+    "elapsed_seconds": 119.4259741306305,
+    "torch": "1.13.1",
+    "numpy": "1.26.0",
+    "device": "cpu",
+    "threads": 2,
+    "strict_probability_max_error": 0.0,
+    "numpy_probability_max_error": 2.220446049250313e-15,
+    "nested_initial_subspace_max_error": 0.0
+  },
+  "verification": {
+    "state": "PASS",
+    "new_models": 225,
+    "referenced_original_models": 225,
+    "comparison_units": 450,
+    "references": 225,
+    "new_reference_fits": 0,
+    "original_probabilities_exact": true,
+    "metric_max_error": 3.3306690738754696e-16,
+    "ci_max_error": 0.0,
+    "mean_max_error": 2.220446049250313e-16,
+    "sd_max_error": 0.0,
+    "whitening_max_error": 1.6479526077084472e-13,
+    "support_scaler_max_error": 0.0,
+    "reference_stationarity_per_element_max": 4.1077532807083606e-08,
+    "query_perturbation_budget_checks": 3,
+    "neural_replay_models": 225,
+    "strict_probability_max_error": 0.0,
+    "numpy_probability_max_error": 2.220446049250313e-15,
+    "refits": 0,
+    "outer_evaluations": 0
+  },
+  "id": "spd-compact-20261016",
+  "title": "SPD小样本：固定四维投影",
+  "date": "2026-10-16",
+  "scope_note": "按用户要求继续神经模型结构实验，不以传统机器学习排名限制探索。固定四维投影，不扫描维度；原SPD和已停止的正则化结果保留。",
+  "summary": "SRPBS99、原15内分区、每类5/10/20人、五次支持与初始化联合重复。新增225个四维SPD模型（375参数），引用225个原16维模型（1581参数），减少约76.28%参数；新参考/传统模型/外层最终训练及评分均为0。 紧凑4维平均内验证AUC：K5 0.5787±0.0147；K10 0.6102±0.0118；K20 0.6570±0.0244。",
+  "interpretation": "K5紧凑减原SPDΔAUC -0.0623，条件95%[-0.0903, -0.0325]，0/5联合重复正向；K10紧凑减原SPDΔAUC -0.0752，条件95%[-0.1050, -0.0451]，0/5联合重复正向；K20紧凑减原SPDΔAUC -0.0547，条件95%[-0.0858, -0.0225]，0/5联合重复正向。 固定四维压缩在三个预算均未改善平均AUC，结束本紧凑配置，不扫描维度追分。",
+  "boundary": "SD来自五个支持抽取与初始化联合重复；15内分区人员相关。三个预算比较未作多重校正，人员区间只条件于保存预测，不含重训、开发选择或独立人群。K5只有10名有标签支持者，参数更少不等于稳健few-shot或临床有效。",
+  "next": "固定四维压缩在三个预算均未改善平均AUC，结束本紧凑配置，不扫描维度追分。 本轮225新拟合完成，不自动追加秩、轮数或其他正则化；三临床终点、独立人员与跨来源验证仍待完成。"
+}

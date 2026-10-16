@@ -1,0 +1,4 @@
+{
+  "content": "\"\"\"Five fixed initialized SPD members; average probabilities on identical queries.\nRecords contain private ordered validation indices, binary labels and probabilities.\nThis helper never fits a reference, model, calibrator or mixture weight.\n\"\"\"\nimport numpy as np\n\ndef average_members(records):\n    assert len(records)==5 and sorted(r['seed'] for r in records)==list(range(5))\n    first=records[0]\n    for r in records:\n        assert all(r[k]==first[k] for k in ['k','outer','inner','repeat','validation','label'])\n    p=np.asarray([r['probabilities'] for r in sorted(records,key=lambda r:r['seed'])],dtype=np.float64)\n    assert p.ndim==2 and np.isfinite(p).all() and ((p>=0)&(p<=1)).all()\n    return p.mean(axis=0)\n",
+  "truncated": false
+}

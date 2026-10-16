@@ -1,0 +1,243 @@
+{
+  "state": "COMPLETE_300_REPLAYED_ENSEMBLE_INNER_ONLY",
+  "people": 99,
+  "patients": 46,
+  "controls": 53,
+  "panels": 15,
+  "support_panels": 75,
+  "label_budget_per_class": 5,
+  "train_n": 10,
+  "support_repeats": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "initialization_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "classifier_fits": 300,
+  "neural_fits": 300,
+  "referenced_original_models": 75,
+  "individual_members": 375,
+  "ensemble_evaluations": 75,
+  "comparison_units": 450,
+  "linear_fits": 0,
+  "reference_fits": 0,
+  "reused_support_references": 75,
+  "outer_final_fits": 0,
+  "member_parameters": 1581,
+  "ensemble_parameters": 7905,
+  "ensemble_size": 5,
+  "epochs": 200,
+  "means": {
+    "member_mean": {
+      "auc": 0.6454801790801791,
+      "auprc": 0.6546127787596643,
+      "balanced_accuracy": 0.5949291819291819,
+      "sensitivity": 0.6769059829059829,
+      "specificity": 0.5129523809523809,
+      "brier": 0.25589640442092837,
+      "logloss": 0.7288631713342226,
+      "train_auc": 1.0,
+      "support_repeat_auc_sample_sd": 0.02079689136731794,
+      "support_repeat_auc_min": 0.6227676027676028,
+      "support_repeat_auc_max": 0.6747342287342287,
+      "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+      "conditional_person_interval": [
+        0.5878293935682052,
+        0.6982554198934419
+      ]
+    },
+    "ensemble5": {
+      "auc": 0.6831245421245421,
+      "auprc": 0.6975013649565369,
+      "balanced_accuracy": 0.6296886446886447,
+      "sensitivity": 0.7412820512820513,
+      "specificity": 0.518095238095238,
+      "brier": 0.23489671241876844,
+      "logloss": 0.6663142915838001,
+      "train_auc": 1.0,
+      "support_repeat_auc_sample_sd": 0.028912004551853724,
+      "support_repeat_auc_min": 0.6469739519739519,
+      "support_repeat_auc_max": 0.723990638990639,
+      "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+      "conditional_person_interval": [
+        0.6134809715126488,
+        0.7475926577270483
+      ]
+    },
+    "historical_diagonal": {
+      "auc": 0.641085063085063,
+      "auprc": 0.6433474238512983,
+      "balanced_accuracy": 0.6019890109890109,
+      "sensitivity": 0.6865811965811967,
+      "specificity": 0.5173968253968253,
+      "brier": 0.2567949795699002,
+      "logloss": 0.73563594108225,
+      "train_auc": 1.0,
+      "support_repeat_auc_sample_sd": 0.020280614619699728,
+      "support_repeat_auc_min": 0.615846560846561,
+      "support_repeat_auc_max": 0.6688726088726089,
+      "sd_scope": "joint support-and-initialization changes",
+      "conditional_person_interval": [
+        0.5837004949614287,
+        0.6980019858912011
+      ]
+    }
+  },
+  "contrasts": {
+    "ensemble_minus_member_mean": {
+      "delta_mean_auc": 0.037644363044363006,
+      "repeat_mean_deltas": [
+        0.03653683353683357,
+        0.02420634920634912,
+        0.049256410256410255,
+        0.04071713471713467,
+        0.03750508750508741
+      ],
+      "positive_support_repeats": 5,
+      "parent_mean_deltas": [
+        0.039627594627594576,
+        0.03943833943833941,
+        0.03578754578754573,
+        0.023269841269841218,
+        0.050098494098494095
+      ],
+      "positive_parent_groups": 5,
+      "panel_mean_deltas": [
+        0.030549450549450463,
+        0.033571428571428585,
+        0.05476190476190479,
+        0.014505494505494432,
+        0.008095238095238044,
+        0.09571428571428564,
+        0.017362637362637323,
+        0.0685714285714285,
+        0.021428571428571463,
+        0.015999999999999903,
+        0.030714285714285694,
+        0.02309523809523817,
+        0.013555555555555654,
+        0.06483516483516483,
+        0.07190476190476192
+      ],
+      "positive_panels": 15,
+      "conditional_person_interval": [
+        0.022374011920630592,
+        0.05204362913616116
+      ],
+      "delta_brier": -0.020999692002159925,
+      "delta_logloss": -0.06254887975042256
+    },
+    "ensemble_minus_diagonal": {
+      "delta_mean_auc": 0.04203947903947898,
+      "repeat_mean_deltas": [
+        0.04245624745624743,
+        0.031127391127390935,
+        0.07914529914529922,
+        0.01921245421245421,
+        0.03825600325600309
+      ],
+      "positive_support_repeats": 5,
+      "parent_mean_deltas": [
+        0.055097680097680124,
+        0.016422466422466364,
+        0.07121489621489618,
+        0.006190476190476302,
+        0.061271876271876136
+      ],
+      "positive_parent_groups": 5,
+      "panel_mean_deltas": [
+        0.07362637362637359,
+        0.02619047619047621,
+        0.06547619047619047,
+        0.023076923076923106,
+        -0.023809523809523836,
+        0.04999999999999993,
+        0.036263736263736246,
+        0.09047619047619049,
+        0.08690476190476182,
+        0.023333333333333317,
+        -0.039285714285714146,
+        0.03452380952380962,
+        0.0022222222222222365,
+        0.1208791208791209,
+        0.06071428571428572
+      ],
+      "positive_panels": 13,
+      "conditional_person_interval": [
+        0.018263915966384388,
+        0.06280519454885919
+      ],
+      "delta_brier": -0.021898267151131773,
+      "delta_logloss": -0.06932164949844988
+    }
+  },
+  "variation": {
+    "mean_within_support_member_auc_sd": 0.07372116253867543,
+    "between_seed_mean_auc_sample_sd": 0.020885010114806594,
+    "seed_mean_aucs": [
+      0.6408477818477819,
+      0.6463919413919416,
+      0.6207326007326007,
+      0.6784863654863655,
+      0.6409422059422059
+    ],
+    "scope": "Observed fixed seeds and repeated supports on overlapping development people; not independent population uncertainty."
+  },
+  "valid_resamples": 2000,
+  "invalid_resamples": 0,
+  "independent_validation": false,
+  "uncertainty_scope": "Complete support x initialization crossing. SD of five support-repeat means conditional on fixed seeds; legacy diagonal SD also changes initialization. Common-person fixed-prediction intervals, correlated panels, two unadjusted contrasts, no retraining/development-selection/independent-cohort coverage.",
+  "runtime": {
+    "elapsed_seconds": 158.39171504974365,
+    "torch": "1.13.1",
+    "numpy": "1.26.0",
+    "device": "cpu",
+    "threads": 2,
+    "strict_probability_max_error": 0.0,
+    "existing_probability_max_error": 0.0,
+    "numpy_probability_max_error": 2.9976021664879227e-15
+  },
+  "verification": {
+    "state": "PASS",
+    "new_models": 300,
+    "referenced_original_models": 75,
+    "individual_members": 375,
+    "ensemble_evaluations": 75,
+    "comparison_units": 450,
+    "reused_references": 75,
+    "new_reference_fits": 0,
+    "metric_max_error": 3.3306690738754696e-16,
+    "train_auc_max_error": 0.0,
+    "ci_max_error": 0.0,
+    "mean_max_error": 1.1102230246251565e-16,
+    "sd_max_error": 0.0,
+    "variation_max_error": 0.0,
+    "mixture_probability_max_error": 0.0,
+    "train_mixture_max_error": 0.0,
+    "brier_variance_identity_max_error": 9.020562075079397e-17,
+    "whitening_max_error": 8.304468224196171e-14,
+    "support_scaler_max_error": 0.0,
+    "original_probabilities_exact": true,
+    "strict_probability_max_error": 0.0,
+    "existing_probability_max_error": 0.0,
+    "numpy_probability_max_error": 2.9976021664879227e-15,
+    "refits": 0,
+    "outer_evaluations": 0
+  },
+  "id": "spd-ensemble-20261016",
+  "title": "SPD小样本：同十人五初始化集成",
+  "date": "2026-10-16",
+  "scope_note": "保留原16维SPD，固定同一批10名支持者、五个初始化、等权概率平均；不挑种子，不混用不同支持组，不增加标签人数。原四维/R-Drop阴性结果保持。",
+  "summary": "SRPBS99、原15内分区×五组K5支持×五初始化，形成375成员。复用75个已有模型，新增300次神经训练，得到75个五成员集成；实际预测指标450项。每个集成仍只用每类5人、共10名训练者，新增参考/传统模型/外层最终训练及评分均为0。 平均内验证AUC：单成员指标均值（375项） 0.6455；同十人五成员概率平均 0.6831；原对角单成员（75项） 0.6411。",
+  "interpretation": "集成减成员指标均值（主要）ΔAUC +0.0376，条件95%[0.0224, 0.0520]，5/5支持重复正向；集成减原对角单成员（副比较）ΔAUC +0.0420，条件95%[0.0183, 0.0628]，5/5支持重复正向。 固定M5集成出现正向AUC开发信号，可保留为候选；仍需另一预算或独立来源验证，不能宣称解决小样本泛化。 集成支持重复SD为0.0289，成员指标均值为0.0208；本轮没有显示支持抽样波动减小。",
+  "boundary": "前两行SD为固定五初始化条件下的支持重复变化；历史对角SD同时改变支持与初始化。15分区人员相关，两个比较未校正，条件人员区间只基于保存预测，不包含重训、开发选择或独立人群。集成Brier/logloss相对成员指标均值的收益部分来自凸性，不等于独立校准证明。",
+  "next": "固定M5集成出现正向AUC开发信号，可保留为候选；仍需另一预算或独立来源验证，不能宣称解决小样本泛化。 本轮有限300新拟合已完成，不自动扩大K10/K20或搜索成员；三临床终点、独立人员和跨来源验证仍待完成。"
+}

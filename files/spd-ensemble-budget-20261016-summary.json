@@ -1,0 +1,632 @@
+{
+  "state": "COMPLETE_600_REPLAYED_ENSEMBLE_BUDGET_INNER_ONLY",
+  "people": 99,
+  "patients": 46,
+  "controls": 53,
+  "panels": 15,
+  "support_panels_total": 225,
+  "new_support_panels": 150,
+  "label_budgets": [
+    5,
+    10,
+    20
+  ],
+  "new_label_budgets": [
+    10,
+    20
+  ],
+  "support_repeats": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "initialization_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "classifier_fits": 600,
+  "neural_fits": 600,
+  "reused_k5_members": 375,
+  "reused_k10_k20_original_members": 150,
+  "historical_member_references": 525,
+  "individual_members": 1125,
+  "new_ensemble_evaluations": 150,
+  "reused_k5_ensembles": 75,
+  "ensemble_evaluations": 225,
+  "new_comparison_units": 900,
+  "comparison_units": 1350,
+  "linear_fits": 0,
+  "reference_fits": 0,
+  "reused_support_references": 225,
+  "current_reused_support_references": 150,
+  "outer_final_fits": 0,
+  "member_parameters": 1581,
+  "ensemble_parameters": 7905,
+  "ensemble_size": 5,
+  "epochs": 200,
+  "means": {
+    "5": {
+      "member_mean": {
+        "auc": 0.6454801790801791,
+        "auprc": 0.6546127787596643,
+        "balanced_accuracy": 0.5949291819291819,
+        "sensitivity": 0.6769059829059829,
+        "specificity": 0.5129523809523809,
+        "brier": 0.25589640442092837,
+        "logloss": 0.7288631713342226,
+        "train_auc": 1.0,
+        "support_repeat_auc_sample_sd": 0.02079689136731794,
+        "support_repeat_auc_min": 0.6227676027676028,
+        "support_repeat_auc_max": 0.6747342287342287,
+        "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+        "conditional_person_interval": [
+          0.5878293935682052,
+          0.6982554198934419
+        ]
+      },
+      "ensemble5": {
+        "auc": 0.6831245421245421,
+        "auprc": 0.6975013649565369,
+        "balanced_accuracy": 0.6296886446886447,
+        "sensitivity": 0.7412820512820513,
+        "specificity": 0.518095238095238,
+        "brier": 0.23489671241876844,
+        "logloss": 0.6663142915838001,
+        "train_auc": 1.0,
+        "support_repeat_auc_sample_sd": 0.028912004551853724,
+        "support_repeat_auc_min": 0.6469739519739519,
+        "support_repeat_auc_max": 0.723990638990639,
+        "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+        "conditional_person_interval": [
+          0.6134809715126488,
+          0.7475926577270483
+        ]
+      },
+      "historical_diagonal": {
+        "auc": 0.641085063085063,
+        "auprc": 0.6433474238512983,
+        "balanced_accuracy": 0.6019890109890109,
+        "sensitivity": 0.6865811965811967,
+        "specificity": 0.5173968253968253,
+        "brier": 0.2567949795699002,
+        "logloss": 0.73563594108225,
+        "train_auc": 1.0,
+        "support_repeat_auc_sample_sd": 0.020280614619699728,
+        "support_repeat_auc_min": 0.615846560846561,
+        "support_repeat_auc_max": 0.6688726088726089,
+        "sd_scope": "joint support-and-initialization changes",
+        "conditional_person_interval": [
+          0.5837004949614287,
+          0.6980019858912011
+        ]
+      }
+    },
+    "10": {
+      "member_mean": {
+        "auc": 0.6833864875864876,
+        "auprc": 0.6845597980309878,
+        "balanced_accuracy": 0.6287738705738706,
+        "sensitivity": 0.6749572649572649,
+        "specificity": 0.5825904761904762,
+        "brier": 0.23958775009344405,
+        "logloss": 0.6925061506024104,
+        "train_auc": 1.0,
+        "support_repeat_auc_sample_sd": 0.01679975695981095,
+        "support_repeat_auc_min": 0.6575225885225885,
+        "support_repeat_auc_max": 0.698999592999593,
+        "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+        "conditional_person_interval": [
+          0.6194737422711663,
+          0.7445181453467185
+        ]
+      },
+      "ensemble5": {
+        "auc": 0.7331282051282051,
+        "auprc": 0.7429023256663204,
+        "balanced_accuracy": 0.6618498168498169,
+        "sensitivity": 0.724017094017094,
+        "specificity": 0.5996825396825397,
+        "brier": 0.2174493595372004,
+        "logloss": 0.6269357703847965,
+        "train_auc": 1.0,
+        "support_repeat_auc_sample_sd": 0.021474354196611433,
+        "support_repeat_auc_min": 0.7037505087505088,
+        "support_repeat_auc_max": 0.7612596662596663,
+        "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+        "conditional_person_interval": [
+          0.6559623630553075,
+          0.8035188838292587
+        ]
+      },
+      "historical_diagonal": {
+        "auc": 0.6854550264550263,
+        "auprc": 0.6808799416864311,
+        "balanced_accuracy": 0.6410793650793651,
+        "sensitivity": 0.6844444444444445,
+        "specificity": 0.5977142857142858,
+        "brier": 0.23771232341553622,
+        "logloss": 0.6921545404184558,
+        "train_auc": 1.0,
+        "support_repeat_auc_sample_sd": 0.029676246797832036,
+        "support_repeat_auc_min": 0.6575091575091576,
+        "support_repeat_auc_max": 0.7284147334147335,
+        "sd_scope": "joint support-and-initialization changes",
+        "conditional_person_interval": [
+          0.6177712556913639,
+          0.748498890621115
+        ]
+      }
+    },
+    "20": {
+      "member_mean": {
+        "auc": 0.7176910866910866,
+        "auprc": 0.7152800736111093,
+        "balanced_accuracy": 0.6590249084249084,
+        "sensitivity": 0.6805641025641026,
+        "specificity": 0.6374857142857143,
+        "brier": 0.22439970735009013,
+        "logloss": 0.6542002197099018,
+        "train_auc": 1.0,
+        "support_repeat_auc_sample_sd": 0.006326270359903114,
+        "support_repeat_auc_min": 0.7086577126577127,
+        "support_repeat_auc_max": 0.7256593406593407,
+        "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+        "conditional_person_interval": [
+          0.6490061398108307,
+          0.7831948516072152
+        ]
+      },
+      "ensemble5": {
+        "auc": 0.7711794871794869,
+        "auprc": 0.7795519755598029,
+        "balanced_accuracy": 0.7081794871794872,
+        "sensitivity": 0.7554700854700854,
+        "specificity": 0.660888888888889,
+        "brier": 0.20240343192137,
+        "logloss": 0.5925183139115007,
+        "train_auc": 1.0,
+        "support_repeat_auc_sample_sd": 0.006099340676091993,
+        "support_repeat_auc_min": 0.7660826210826212,
+        "support_repeat_auc_max": 0.7817338217338216,
+        "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+        "conditional_person_interval": [
+          0.6868624045495044,
+          0.8473398628502222
+        ]
+      },
+      "historical_diagonal": {
+        "auc": 0.7117419617419618,
+        "auprc": 0.7101688739577009,
+        "balanced_accuracy": 0.6524737484737485,
+        "sensitivity": 0.6817094017094016,
+        "specificity": 0.6232380952380953,
+        "brier": 0.22579203951463062,
+        "logloss": 0.6575100750675933,
+        "train_auc": 1.0,
+        "support_repeat_auc_sample_sd": 0.03940358407724957,
+        "support_repeat_auc_min": 0.6714733414733414,
+        "support_repeat_auc_max": 0.7700895400895401,
+        "sd_scope": "joint support-and-initialization changes",
+        "conditional_person_interval": [
+          0.6403361272031629,
+          0.7785002523468727
+        ]
+      }
+    }
+  },
+  "contrasts": {
+    "5": {
+      "ensemble_minus_member_mean": {
+        "delta_mean_auc": 0.037644363044363006,
+        "repeat_mean_deltas": [
+          0.03653683353683357,
+          0.02420634920634912,
+          0.049256410256410255,
+          0.04071713471713467,
+          0.03750508750508741
+        ],
+        "positive_support_repeats": 5,
+        "parent_mean_deltas": [
+          0.039627594627594576,
+          0.03943833943833941,
+          0.03578754578754573,
+          0.023269841269841218,
+          0.050098494098494095
+        ],
+        "positive_parent_groups": 5,
+        "panel_mean_deltas": [
+          0.030549450549450463,
+          0.033571428571428585,
+          0.05476190476190479,
+          0.014505494505494432,
+          0.008095238095238044,
+          0.09571428571428564,
+          0.017362637362637323,
+          0.0685714285714285,
+          0.021428571428571463,
+          0.015999999999999903,
+          0.030714285714285694,
+          0.02309523809523817,
+          0.013555555555555654,
+          0.06483516483516483,
+          0.07190476190476192
+        ],
+        "positive_panels": 15,
+        "conditional_person_interval": [
+          0.022374011920630592,
+          0.05204362913616116
+        ],
+        "delta_brier": -0.020999692002159925,
+        "delta_logloss": -0.06254887975042256
+      },
+      "ensemble_minus_diagonal": {
+        "delta_mean_auc": 0.04203947903947898,
+        "repeat_mean_deltas": [
+          0.04245624745624743,
+          0.031127391127390935,
+          0.07914529914529922,
+          0.01921245421245421,
+          0.03825600325600309
+        ],
+        "positive_support_repeats": 5,
+        "parent_mean_deltas": [
+          0.055097680097680124,
+          0.016422466422466364,
+          0.07121489621489618,
+          0.006190476190476302,
+          0.061271876271876136
+        ],
+        "positive_parent_groups": 5,
+        "panel_mean_deltas": [
+          0.07362637362637359,
+          0.02619047619047621,
+          0.06547619047619047,
+          0.023076923076923106,
+          -0.023809523809523836,
+          0.04999999999999993,
+          0.036263736263736246,
+          0.09047619047619049,
+          0.08690476190476182,
+          0.023333333333333317,
+          -0.039285714285714146,
+          0.03452380952380962,
+          0.0022222222222222365,
+          0.1208791208791209,
+          0.06071428571428572
+        ],
+        "positive_panels": 13,
+        "conditional_person_interval": [
+          0.018263915966384388,
+          0.06280519454885919
+        ],
+        "delta_brier": -0.021898267151131773,
+        "delta_logloss": -0.06932164949844988
+      }
+    },
+    "10": {
+      "ensemble_minus_member_mean": {
+        "delta_mean_auc": 0.049741717541717564,
+        "repeat_mean_deltas": [
+          0.053725681725681707,
+          0.04622792022792033,
+          0.06226007326007332,
+          0.037684574684574756,
+          0.04881033781033772
+        ],
+        "positive_support_repeats": 5,
+        "parent_mean_deltas": [
+          0.06408424908424915,
+          0.05053113553113553,
+          0.05253357753357757,
+          0.0358571428571427,
+          0.04570248270248278
+        ],
+        "positive_parent_groups": 5,
+        "panel_mean_deltas": [
+          0.05868131868131854,
+          0.06904761904761902,
+          0.06452380952380965,
+          0.03230769230769237,
+          0.01904761904761909,
+          0.10023809523809546,
+          0.05736263736263747,
+          0.07547619047619036,
+          0.024761904761904763,
+          0.03733333333333333,
+          0.03619047619047622,
+          0.034047619047619104,
+          0.025111111111111084,
+          0.07890109890109898,
+          0.03309523809523829
+        ],
+        "positive_panels": 15,
+        "conditional_person_interval": [
+          0.03421566584105798,
+          0.06562620142954015
+        ],
+        "delta_brier": -0.022138390556243642,
+        "delta_logloss": -0.06557038021761386
+      },
+      "ensemble_minus_diagonal": {
+        "delta_mean_auc": 0.04767317867317864,
+        "repeat_mean_deltas": [
+          0.04410866910866906,
+          0.044247049247049364,
+          0.07936100936100943,
+          0.003323158323158215,
+          0.06732600732600713
+        ],
+        "positive_support_repeats": 5,
+        "parent_mean_deltas": [
+          0.05488400488400502,
+          0.05622710622710614,
+          0.06742979242979252,
+          0.024021164021163943,
+          0.035803825803825906
+        ],
+        "positive_parent_groups": 5,
+        "panel_mean_deltas": [
+          0.05274725274725278,
+          0.026190476190475986,
+          0.08571428571428574,
+          0.03296703296703296,
+          0.020238095238095277,
+          0.11547619047619051,
+          0.04395604395604402,
+          0.09880952380952368,
+          0.05952380952380942,
+          0.0411111111111111,
+          -0.00952380952380949,
+          0.04047619047619033,
+          0.02444444444444449,
+          0.06153846153846154,
+          0.021428571428571574
+        ],
+        "positive_panels": 14,
+        "conditional_person_interval": [
+          0.02757777191406548,
+          0.06819952414515895
+        ],
+        "delta_brier": -0.020262963878335816,
+        "delta_logloss": -0.06521877003365928
+      }
+    },
+    "20": {
+      "ensemble_minus_member_mean": {
+        "delta_mean_auc": 0.053488400488400444,
+        "repeat_mean_deltas": [
+          0.05335693935693919,
+          0.05742490842490844,
+          0.056074481074480875,
+          0.050891737891738065,
+          0.049693935693935654
+        ],
+        "positive_support_repeats": 5,
+        "parent_mean_deltas": [
+          0.056654456654456675,
+          0.04658730158730151,
+          0.04747252747252739,
+          0.0661693121693121,
+          0.05055840455840466
+        ],
+        "positive_parent_groups": 5,
+        "panel_mean_deltas": [
+          0.03758241758241743,
+          0.0719047619047618,
+          0.06047619047619057,
+          0.039999999999999925,
+          0.008571428571428563,
+          0.09119047619047638,
+          0.048131868131868094,
+          0.06452380952380965,
+          0.029761904761904767,
+          0.13088888888888894,
+          0.030476190476190435,
+          0.037142857142857144,
+          0.0291111111111112,
+          0.08065934065934055,
+          0.04190476190476178
+        ],
+        "positive_panels": 15,
+        "conditional_person_interval": [
+          0.03486846888130629,
+          0.07135947035922906
+        ],
+        "delta_brier": -0.021996275428720125,
+        "delta_logloss": -0.06168190579840116
+      },
+      "ensemble_minus_diagonal": {
+        "delta_mean_auc": 0.05943752543752541,
+        "repeat_mean_deltas": [
+          0.08883394383394361,
+          0.052098087098087165,
+          0.11026048026048019,
+          -0.00022181522181519142,
+          0.04621693121693127
+        ],
+        "positive_support_repeats": 4,
+        "parent_mean_deltas": [
+          0.07460317460317456,
+          0.05637973137973118,
+          0.05940170940170941,
+          0.06558201058201052,
+          0.041221001221001474
+        ],
+        "positive_parent_groups": 5,
+        "panel_mean_deltas": [
+          0.05714285714285716,
+          0.0797619047619047,
+          0.08690476190476193,
+          0.04175824175824172,
+          0.005952380952380931,
+          0.12142857142857144,
+          0.06153846153846143,
+          0.0630952380952382,
+          0.0535714285714286,
+          0.16222222222222227,
+          -0.0023809523809523725,
+          0.036904761904761885,
+          0.036666666666666736,
+          0.0703296703296703,
+          0.016666666666666607
+        ],
+        "positive_panels": 14,
+        "conditional_person_interval": [
+          0.03815251372786845,
+          0.08126257598704459
+        ],
+        "delta_brier": -0.023388607593260613,
+        "delta_logloss": -0.06499176115609262
+      }
+    }
+  },
+  "variation": {
+    "5": {
+      "mean_within_support_member_auc_sd": 0.07372116253867543,
+      "between_seed_mean_auc_sample_sd": 0.020885010114806594,
+      "seed_mean_aucs": [
+        0.6408477818477819,
+        0.6463919413919416,
+        0.6207326007326007,
+        0.6784863654863655,
+        0.6409422059422059
+      ],
+      "scope": "Observed fixed seeds and repeated supports on overlapping development people; not independent population uncertainty."
+    },
+    "10": {
+      "mean_within_support_member_auc_sd": 0.06773320750221223,
+      "between_seed_mean_auc_sample_sd": 0.02276800665517415,
+      "seed_mean_aucs": [
+        0.6804139194139193,
+        0.6801111111111112,
+        0.6636491656491657,
+        0.7221355311355311,
+        0.6706227106227106
+      ],
+      "scope": "Observed fixed seeds and repeated supports on overlapping development people; not independent population uncertainty."
+    },
+    "20": {
+      "mean_within_support_member_auc_sd": 0.07050923084062603,
+      "between_seed_mean_auc_sample_sd": 0.04028908359334139,
+      "seed_mean_aucs": [
+        0.6905238095238095,
+        0.716958078958079,
+        0.6782625152625151,
+        0.7824444444444444,
+        0.7202665852665853
+      ],
+      "scope": "Observed fixed seeds and repeated supports on overlapping development people; not independent population uncertainty."
+    }
+  },
+  "learning": {
+    "ensemble_delta_k20_minus_k5": 0.08805494505494482,
+    "ensemble_delta_conditional_interval": [
+      0.058643584597786326,
+      0.11482800183581653
+    ],
+    "advantage_delta_k20_minus_k5": 0.015844037444037437,
+    "advantage_delta_conditional_interval": [
+      0.0013317258769734665,
+      0.030283860130866626
+    ]
+  },
+  "k5_evidence_exact": true,
+  "valid_resamples": 2000,
+  "invalid_resamples": 0,
+  "independent_validation": false,
+  "uncertainty_scope": "K10/K20 are result-informed same-cohort development extensions, not independent validation. All budgets have the same support x seed crossing and common-person fixed-prediction intervals. Six budget-wise comparisons plus two descriptive learning contrasts are unadjusted. Correlated panels; no retraining/development-selection/independent-cohort coverage.",
+  "runtime": {
+    "elapsed_seconds": 450.7424867153168,
+    "torch": "1.13.1",
+    "numpy": "1.26.0",
+    "device": "cpu",
+    "threads": 2,
+    "strict_probability_max_error": 0.0,
+    "existing_probability_max_error": 0.0,
+    "numpy_probability_max_error": 3.3306690738754696e-15
+  },
+  "verification": {
+    "state": "PASS",
+    "new_models": 600,
+    "reused_k5_members": 375,
+    "reused_original_members": 150,
+    "individual_members": 1125,
+    "ensemble_evaluations": 225,
+    "comparison_units": 1350,
+    "reused_references": 225,
+    "new_reference_fits": 0,
+    "k5_metrics_predictions_exact": true,
+    "k5_summary_exact": true,
+    "learning_interval_max_error": 0.0,
+    "budgets": {
+      "5": {
+        "metric_max_error": 3.3306690738754696e-16,
+        "train_auc_max_error": 0.0,
+        "ci_max_error": 0.0,
+        "mean_max_error": 1.1102230246251565e-16,
+        "sd_max_error": 0.0,
+        "variation_max_error": 0.0,
+        "mixture_probability_max_error": 0.0,
+        "train_mixture_max_error": 0.0,
+        "brier_variance_identity_max_error": 9.020562075079397e-17,
+        "whitening_max_error": 8.304468224196171e-14,
+        "support_scaler_max_error": 0.0
+      },
+      "10": {
+        "metric_max_error": 3.3306690738754696e-16,
+        "train_auc_max_error": 0.0,
+        "ci_max_error": 0.0,
+        "mean_max_error": 2.220446049250313e-16,
+        "sd_max_error": 0.0,
+        "variation_max_error": 0.0,
+        "mixture_probability_max_error": 0.0,
+        "train_mixture_max_error": 0.0,
+        "brier_variance_identity_max_error": 9.71445146547012e-17,
+        "whitening_max_error": 1.6479526077084472e-13,
+        "support_scaler_max_error": 0.0
+      },
+      "20": {
+        "metric_max_error": 3.3306690738754696e-16,
+        "train_auc_max_error": 0.0,
+        "ci_max_error": 0.0,
+        "mean_max_error": 2.220446049250313e-16,
+        "sd_max_error": 0.0,
+        "variation_max_error": 0.0,
+        "mixture_probability_max_error": 0.0,
+        "train_mixture_max_error": 0.0,
+        "brier_variance_identity_max_error": 1.0755285551056204e-16,
+        "whitening_max_error": 1.4699352846037073e-13,
+        "support_scaler_max_error": 0.0
+      }
+    },
+    "metric_max_error": 3.3306690738754696e-16,
+    "train_auc_max_error": 0.0,
+    "ci_max_error": 0.0,
+    "mean_max_error": 2.220446049250313e-16,
+    "sd_max_error": 0.0,
+    "variation_max_error": 0.0,
+    "mixture_probability_max_error": 0.0,
+    "train_mixture_max_error": 0.0,
+    "brier_variance_identity_max_error": 1.0755285551056204e-16,
+    "whitening_max_error": 1.6479526077084472e-13,
+    "support_scaler_max_error": 0.0,
+    "strict_probability_max_error": 0.0,
+    "existing_probability_max_error": 0.0,
+    "numpy_probability_max_error": 3.3306690738754696e-15,
+    "refits": 0,
+    "outer_evaluations": 0
+  },
+  "id": "spd-ensemble-budget-20261016",
+  "title": "固定五成员SPD：三个标签预算",
+  "date": "2026-10-16",
+  "scope_note": "固定原16维SPD、五初始化和等权概率平均，只补每类10/20人的预算延伸。K5全部450条历史评价精确复用，不重训或重新推理；不调成员数/权重，不挑最佳预算或seed。",
+  "summary": "SRPBS99、原15内分区、五支持重复、五初始化。新增600神经拟合，引用K5的375成员和K10/K20原150成员，总1125成员与225集成，共1350条实际预测评价；其中本轮新增评价900条。每集成仍只用当次同2K名支持，新增参考/传统模型/外层最终训练及评分均为0。 集成平均内验证AUC：K5 0.6831±0.0289；K10 0.7331±0.0215；K20 0.7712±0.0061。",
+  "interpretation": "K5集成减成员指标均值（主要）ΔAUC +0.0376，条件95%[0.0224, 0.0520]，5/5支持重复正向；K5集成减原对角单成员（副比较）ΔAUC +0.0420，条件95%[0.0183, 0.0628]，5/5支持重复正向；K10集成减成员指标均值（主要）ΔAUC +0.0497，条件95%[0.0342, 0.0656]，5/5支持重复正向；K10集成减原对角单成员（副比较）ΔAUC +0.0477，条件95%[0.0276, 0.0682]，5/5支持重复正向；K20集成减成员指标均值（主要）ΔAUC +0.0535，条件95%[0.0349, 0.0714]，5/5支持重复正向；K20集成减原对角单成员（副比较）ΔAUC +0.0594，条件95%[0.0382, 0.0813]，4/5支持重复正向。 K10/K20在固定M5下均出现正向开发增量，可保留该策略；这仍是同队列预算延伸，不是独立泛化确认。 支持重复SD（成员指标均值→集成）：K5 0.0208→0.0289；K10 0.0168→0.0215；K20 0.0063→0.0061，不能只凭AUC升高宣称抽样稳定性改善。",
+  "boundary": "主两条件SD来自固定五初始化条件下的支持变化；历史对角SD同时改变支持和初始化。15分区人员相关，六个预算比较和两项描述性曲线差值均未校正；区间只基于保存预测，不含重训、开发选择或独立人群。概率误差下降部分来自凸性，不等于临床校准证明。",
+  "next": "K10/K20在固定M5下均出现正向开发增量，可保留该策略；这仍是同队列预算延伸，不是独立泛化确认。 本轮固定预算曲线已完成，不扫描成员/seed/权重。后续优先为固定策略的原外层分区复核，仍须明确同来源开发性质；三临床终点和独立验证要求不变。"
+}

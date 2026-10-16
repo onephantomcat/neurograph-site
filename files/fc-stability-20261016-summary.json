@@ -1,0 +1,152 @@
+{
+  "state": "COMPLETE_45_REPLAYED_INNER_ONLY",
+  "people": 99,
+  "patients": 46,
+  "controls": 53,
+  "panels": 15,
+  "classifier_fits": 45,
+  "reference_fits": 15,
+  "outer_final_fits": 0,
+  "model_coefficients": 4010,
+  "means": {
+    "uniform": {
+      "auc": 0.7375172975172976,
+      "auprc": 0.7467287464015868,
+      "balanced_accuracy": 0.6554151404151405,
+      "brier": 0.22102177812550552,
+      "logloss": 0.6550724616234707,
+      "sensitivity": 0.6594017094017095,
+      "specificity": 0.6514285714285714,
+      "train_auc": 1.0,
+      "panel_auc_sample_sd": 0.09229652627950456
+    },
+    "stability": {
+      "auc": 0.7459544159544159,
+      "auprc": 0.7551386768259355,
+      "balanced_accuracy": 0.6722649572649573,
+      "brier": 0.2202185911174759,
+      "logloss": 0.6583891733538179,
+      "sensitivity": 0.6978632478632479,
+      "specificity": 0.6466666666666665,
+      "train_auc": 1.0,
+      "panel_auc_sample_sd": 0.0922390589213069
+    },
+    "shuffled": {
+      "auc": 0.7298575498575498,
+      "auprc": 0.7350082077124157,
+      "balanced_accuracy": 0.6578815628815629,
+      "brier": 0.2242310894426535,
+      "logloss": 0.6674130948555942,
+      "sensitivity": 0.6551282051282052,
+      "specificity": 0.6606349206349206,
+      "train_auc": 1.0,
+      "panel_auc_sample_sd": 0.10300842134619531
+    }
+  },
+  "contrasts": {
+    "uniform": {
+      "delta_mean_auc": 0.008437118437118422,
+      "positive_panels": 10,
+      "parent_mean_deltas": [
+        0.005647130647130627,
+        0.01343101343101342,
+        0.009615384615384581,
+        0.013624338624338614,
+        -0.0001322751322751318
+      ],
+      "conditional_person_interval": [
+        -0.00839343548223801,
+        0.02619306012221065
+      ],
+      "valid_resamples": 2000,
+      "invalid_resamples": 0,
+      "proceed": false
+    },
+    "shuffled": {
+      "delta_mean_auc": 0.01609686609686611,
+      "positive_panels": 9,
+      "parent_mean_deltas": [
+        0.011599511599511595,
+        0.014499389499389522,
+        -0.0077838827838827935,
+        0.04854497354497358,
+        0.01362433862433865
+      ],
+      "conditional_person_interval": [
+        -0.0035849944152646094,
+        0.03727161857714223
+      ],
+      "valid_resamples": 2000,
+      "invalid_resamples": 0,
+      "proceed": false
+    }
+  },
+  "development_signal": false,
+  "replay": {
+    "models": 45,
+    "max_probability_error": 0.0,
+    "refits": 0
+  },
+  "elapsed_seconds": 17.77280044555664,
+  "versions": {
+    "numpy": "2.3.2",
+    "sklearn": "1.8.0",
+    "nilearn": "0.13.1"
+  },
+  "uncertainty_scope": "Correlated inner development panels; joint person resampling conditional on saved models; no retraining or development selection uncertainty; two unadjusted comparisons.",
+  "independent_validation": false,
+  "id": "fc-stability-20261016",
+  "title": "连接一致性加权正则：训练内三条件对照",
+  "date": "2026-10-16",
+  "summary": "SRPBS99，原15个内层训练/验证分区、三条件共45次固定拟合；不做外层最终训练或查询评分。平均内验证AUC：普通L2为0.7375，一致性加权0.7460，打乱权重0.7299。45个模型读回最大概率差0，CPU批处理约18秒。",
+  "interpretation": "没有达到预先继续标准。加权减普通ΔAUC +0.0084，条件95%[−0.0084,0.0262]、10/15分区正向；加权减打乱+0.0161，区间[−0.0036,0.0373]、9/15正向。两区间跨0，停止这组固定映射，不进入K5/K10/K20或扩参数搜索。",
+  "boundary": "15个内验证分区存在人员重叠，属于开发诊断；分区SD不是五种子SD，也不是独立重复。稳定性指同次扫描前后半段的跨人连接一致性，不是跨次重测可靠性。两项条件人员区间不覆盖重训和开发选择，未作多重比较校正。没有独立临床、小样本、扫描同期疼痛或疗效验证。",
+  "next": "本配置按拟合前标准停止。下一项模型研究应先有独立于外层分数的新机制依据，明确真实监督人数与混杂对照；真实临床终点及独立人员验证仍待补齐。",
+  "rows": [
+    {
+      "condition": "uniform",
+      "label": "普通L2正则",
+      "mean": {
+        "auc": 0.7375172975172976,
+        "auprc": 0.7467287464015868,
+        "balanced_accuracy": 0.6554151404151405,
+        "brier": 0.22102177812550552,
+        "logloss": 0.6550724616234707,
+        "sensitivity": 0.6594017094017095,
+        "specificity": 0.6514285714285714,
+        "train_auc": 1.0,
+        "panel_auc_sample_sd": 0.09229652627950456
+      }
+    },
+    {
+      "condition": "stability",
+      "label": "连接一致性加权L2",
+      "mean": {
+        "auc": 0.7459544159544159,
+        "auprc": 0.7551386768259355,
+        "balanced_accuracy": 0.6722649572649573,
+        "brier": 0.2202185911174759,
+        "logloss": 0.6583891733538179,
+        "sensitivity": 0.6978632478632479,
+        "specificity": 0.6466666666666665,
+        "train_auc": 1.0,
+        "panel_auc_sample_sd": 0.0922390589213069
+      }
+    },
+    {
+      "condition": "shuffled",
+      "label": "打乱边对应的加权L2",
+      "mean": {
+        "auc": 0.7298575498575498,
+        "auprc": 0.7350082077124157,
+        "balanced_accuracy": 0.6578815628815629,
+        "brier": 0.2242310894426535,
+        "logloss": 0.6674130948555942,
+        "sensitivity": 0.6551282051282052,
+        "specificity": 0.6606349206349206,
+        "train_auc": 1.0,
+        "panel_auc_sample_sd": 0.10300842134619531
+      }
+    }
+  ]
+}

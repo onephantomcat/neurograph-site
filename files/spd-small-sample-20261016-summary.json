@@ -1,0 +1,259 @@
+{
+  "state": "COMPLETE_450_REPLAYED_SMALL_SAMPLE_INNER_ONLY",
+  "people": 99,
+  "patients": 46,
+  "controls": 53,
+  "panels": 15,
+  "label_budgets": [
+    5,
+    10,
+    20
+  ],
+  "repeat_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "classifier_fits": 450,
+  "neural_fits": 450,
+  "linear_fits": 0,
+  "reference_fits": 225,
+  "outer_final_fits": 0,
+  "neural_parameters": 1581,
+  "means": {
+    "5": {
+      "spd_log": {
+        "auc": 0.641085063085063,
+        "auprc": 0.6433474238512983,
+        "balanced_accuracy": 0.6019890109890109,
+        "sensitivity": 0.6865811965811967,
+        "specificity": 0.5173968253968253,
+        "brier": 0.2567949795699002,
+        "logloss": 0.73563594108225,
+        "train_auc": 1.0,
+        "joint_repeat_auc_sample_sd": 0.020280614619699728,
+        "repeat_auc_min": 0.615846560846561,
+        "repeat_auc_max": 0.6688726088726089,
+        "conditional_person_interval": [
+          0.5837004949614287,
+          0.6980019858912011
+        ]
+      },
+      "rectified_linear": {
+        "auc": 0.6225413105413105,
+        "auprc": 0.6280814792115097,
+        "balanced_accuracy": 0.5994810744810743,
+        "sensitivity": 0.6510256410256411,
+        "specificity": 0.5479365079365079,
+        "brier": 0.26695157099248323,
+        "logloss": 0.7770124638578269,
+        "train_auc": 1.0,
+        "joint_repeat_auc_sample_sd": 0.01612128755981316,
+        "repeat_auc_min": 0.5956512006512007,
+        "repeat_auc_max": 0.638821733821734,
+        "conditional_person_interval": [
+          0.5690092504649945,
+          0.6721060189669698
+        ]
+      }
+    },
+    "10": {
+      "spd_log": {
+        "auc": 0.6854550264550263,
+        "auprc": 0.6808799416864311,
+        "balanced_accuracy": 0.6410793650793651,
+        "sensitivity": 0.6844444444444445,
+        "specificity": 0.5977142857142858,
+        "brier": 0.23771232341553622,
+        "logloss": 0.6921545404184558,
+        "train_auc": 1.0,
+        "joint_repeat_auc_sample_sd": 0.029676246797832036,
+        "repeat_auc_min": 0.6575091575091576,
+        "repeat_auc_max": 0.7284147334147335,
+        "conditional_person_interval": [
+          0.6177712556913639,
+          0.748498890621115
+        ]
+      },
+      "rectified_linear": {
+        "auc": 0.6578294668294669,
+        "auprc": 0.6566870821368334,
+        "balanced_accuracy": 0.6224126984126984,
+        "sensitivity": 0.6377777777777778,
+        "specificity": 0.6070476190476191,
+        "brier": 0.2503765738054073,
+        "logloss": 0.7289146855593602,
+        "train_auc": 1.0,
+        "joint_repeat_auc_sample_sd": 0.04193354834369165,
+        "repeat_auc_min": 0.6035754985754986,
+        "repeat_auc_max": 0.7121225071225071,
+        "conditional_person_interval": [
+          0.5974085700135777,
+          0.7156814066338218
+        ]
+      }
+    },
+    "20": {
+      "spd_log": {
+        "auc": 0.7117419617419618,
+        "auprc": 0.7101688739577009,
+        "balanced_accuracy": 0.6524737484737485,
+        "sensitivity": 0.6817094017094016,
+        "specificity": 0.6232380952380953,
+        "brier": 0.22579203951463062,
+        "logloss": 0.6575100750675933,
+        "train_auc": 1.0,
+        "joint_repeat_auc_sample_sd": 0.03940358407724957,
+        "repeat_auc_min": 0.6714733414733414,
+        "repeat_auc_max": 0.7700895400895401,
+        "conditional_person_interval": [
+          0.6403361272031629,
+          0.7785002523468727
+        ]
+      },
+      "rectified_linear": {
+        "auc": 0.6808054538054539,
+        "auprc": 0.6767984681624682,
+        "balanced_accuracy": 0.6365799755799756,
+        "sensitivity": 0.6462393162393163,
+        "specificity": 0.6269206349206349,
+        "brier": 0.23757637902655712,
+        "logloss": 0.6880914663479155,
+        "train_auc": 1.0,
+        "joint_repeat_auc_sample_sd": 0.04177501273768691,
+        "repeat_auc_min": 0.6454395604395605,
+        "repeat_auc_max": 0.7496418396418397,
+        "conditional_person_interval": [
+          0.6096183007107033,
+          0.7477713371701464
+        ]
+      }
+    }
+  },
+  "contrasts": {
+    "5": {
+      "delta_mean_auc": 0.018543752543752512,
+      "repeat_mean_deltas": [
+        0.01996133496133501,
+        0.02019536019536028,
+        0.021772486772486666,
+        0.030050875050874892,
+        0.0007387057387057139
+      ],
+      "positive_repeats": 5,
+      "parent_mean_deltas": [
+        0.0066239316239316,
+        0.033241758241758346,
+        0.02545787545787548,
+        0.0247354497354495,
+        0.0026597476597477465
+      ],
+      "conditional_person_interval": [
+        0.0003397221036424564,
+        0.035664151463112796
+      ]
+    },
+    "10": {
+      "delta_mean_auc": 0.02762555962555968,
+      "repeat_mean_deltas": [
+        0.01466015466015469,
+        0.05592796092796082,
+        0.035543345543345595,
+        0.016292226292226375,
+        0.01570411070411093
+      ],
+      "positive_repeats": 5,
+      "parent_mean_deltas": [
+        0.016422466422466475,
+        0.034615384615384714,
+        0.031043956043955934,
+        0.04193121693121671,
+        0.01411477411477402
+      ],
+      "conditional_person_interval": [
+        0.006600789205233374,
+        0.04703101963020743
+      ]
+    },
+    "20": {
+      "delta_mean_auc": 0.03093650793650784,
+      "repeat_mean_deltas": [
+        0.014635734635734532,
+        0.059043549043549026,
+        0.026033781033780845,
+        0.02044770044770039,
+        0.034521774521774407
+      ],
+      "positive_repeats": 5,
+      "parent_mean_deltas": [
+        0.022832722832722863,
+        0.04618437118437135,
+        0.017002442002442053,
+        0.05862433862433869,
+        0.010038665038664796
+      ],
+      "conditional_person_interval": [
+        0.01079895335778959,
+        0.05044156497956824
+      ]
+    }
+  },
+  "learning": {
+    "spd_log": {
+      "delta_k20_minus_k5": 0.07065689865689884,
+      "conditional_person_interval": [
+        0.04006299470030328,
+        0.09920845519930307
+      ]
+    },
+    "rectified_linear": {
+      "delta_k20_minus_k5": 0.05826414326414342,
+      "conditional_person_interval": [
+        0.023707349964553415,
+        0.09121256988208298
+      ]
+    }
+  },
+  "valid_resamples": 2000,
+  "invalid_resamples": 0,
+  "independent_validation": false,
+  "scope_revision": "User explicitly removes strong-linear superiority as a prerequisite for this phase; historical results retained.",
+  "uncertainty_scope": "Five joint support-and-initialization repeats; conditional common-person fixed-prediction intervals; correlated inner panels, no independent cohort, no retraining/development-selection coverage, three unadjusted budget contrasts.",
+  "runtime": {
+    "elapsed_seconds": 300.64729595184326,
+    "torch": "1.13.1",
+    "numpy": "1.26.0",
+    "device": "cpu",
+    "threads": 2,
+    "strict_probability_max_error": 0.0,
+    "numpy_probability_max_error": 3.3306690738754696e-15
+  },
+  "verification": {
+    "state": "PASS",
+    "models": 450,
+    "references": 225,
+    "metric_max_error": 3.3306690738754696e-16,
+    "ci_max_error": 0.0,
+    "mean_max_error": 2.220446049250313e-16,
+    "sd_max_error": 0.0,
+    "whitening_max_error": 1.6479526077084472e-13,
+    "support_scaler_max_error": 0.0,
+    "reference_stationarity_per_element_max": 4.1077532807083606e-08,
+    "query_perturbation_budget_checks": 3,
+    "neural_replay_models": 450,
+    "strict_probability_max_error": 0.0,
+    "numpy_probability_max_error": 3.3306690738754696e-15,
+    "refits": 0,
+    "outer_evaluations": 0
+  },
+  "id": "spd-small-sample-20261016",
+  "title": "SPD小样本：每类5／10／20人",
+  "date": "2026-10-16",
+  "scope_note": "按用户本轮要求，先推进已有神经结果和小样本策略，不以超过强线性或传统机器学习作为继续前提。本轮新增传统机器学习拟合0；历史指标及前阶段原标准保持，这属于结果知情后的新探索。",
+  "summary": "SRPBS99、原15个内分区、五次固定支持与初始化联合重复，两个1581参数神经网络各固定200轮，共450拟合和225份支持侧参考。每类5/10/20人仅使用10/20/40名有标签支持人员，外层最终拟合及评分0。 SPD平均内验证AUC：K5 0.6411±0.0203；K10 0.6855±0.0297；K20 0.7117±0.0394。",
+  "interpretation": "K5的SPD减无对数ΔAUC +0.0185，条件95%[0.0003, 0.0357]，5/5联合重复正向；K10的SPD减无对数ΔAUC +0.0276，条件95%[0.0066, 0.0470]，5/5联合重复正向；K20的SPD减无对数ΔAUC +0.0309，条件95%[0.0108, 0.0504]，5/5联合重复正向。 SPD的K20减K5为+0.0707；全部预算均已完成，不选择最高分预算或重复作为总体结果。",
+  "boundary": "五次SD包含支持抽取和初始化变化，不是纯初始化SD；15分区人员相关。条件人员区间固定已保存预测，不覆盖重训、开发选择或独立来源，三个预算比较未校正。K5从零训练只有10人；诊断开发结果不等于稳健few-shot、疼痛分级或临床验证。",
+  "next": "本轮450神经拟合已完成。后续可围绕K5的支持变化单独提出一项有限训练策略，继续以神经模型的实际指标和稳定性为阶段重点；不再以传统机器学习名次限制探索，不自动扩大本批参数。三临床终点及独立验证仍待完成。"
+}

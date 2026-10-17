@@ -1,0 +1,203 @@
+{
+  "state": "COMPLETE_OA_SOURCE_ACQUISITION_PROCESSING_CONFOUND_AUDIT",
+  "cohorts": {
+    "source76": {
+      "people": 76,
+      "patients": 56,
+      "controls": 20
+    },
+    "legacy62": {
+      "people": 62,
+      "patients": 44,
+      "controls": 18
+    },
+    "evaluated37": {
+      "people": 37,
+      "patients": 22,
+      "controls": 15
+    }
+  },
+  "header_reads": 152,
+  "header_bytes_read": 53504,
+  "full_MRI_array_reads": 0,
+  "new_model_fits": 0,
+  "new_predictions": 0,
+  "new_QC_inclusions": 0,
+  "old_models_retained": 750,
+  "old_seeds_retained": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "max_slice_spacing_float32_deviation_mm": 1.6689300537109375e-06,
+  "source_shared_json_count": 3,
+  "individual_acquisition_json_count": 0,
+  "regressor_pairs": 76,
+  "global_columns": 29,
+  "nonglobal_columns": 28,
+  "common_regressor_max_error": 0,
+  "config_slice_order_length": 33,
+  "design_ranks": {
+    "legacy62": {
+      "columns": 3,
+      "rank": 3,
+      "both_labels_each_pipeline": true,
+      "diagnosis_and_study_dummy_columns": 4,
+      "diagnosis_and_study_dummy_rank": 3
+    },
+    "evaluated37": {
+      "columns": 3,
+      "rank": 3,
+      "both_labels_each_pipeline": true,
+      "diagnosis_and_study_dummy_columns": 4,
+      "diagnosis_and_study_dummy_rank": 3
+    }
+  },
+  "common_support": [
+    {
+      "cohort": "evaluated37",
+      "raw_frames": 300,
+      "processed_frames": 280,
+      "pipeline": "dparsf_original",
+      "patients": 15,
+      "controls": 6,
+      "both_labels": true,
+      "spatial_TR": "64x64x36;3.4375x3.4375x3mm;2.5s"
+    },
+    {
+      "cohort": "evaluated37",
+      "raw_frames": 300,
+      "processed_frames": 280,
+      "pipeline": "repair_v3",
+      "patients": 6,
+      "controls": 4,
+      "both_labels": true,
+      "spatial_TR": "64x64x36;3.4375x3.4375x3mm;2.5s"
+    }
+  ],
+  "nonoverlap_people37": 6,
+  "balance37": [
+    {
+      "cohort": "evaluated37",
+      "variable": "age",
+      "patients_n": 22,
+      "controls_n": 15,
+      "patients_mean": 57.04545454545455,
+      "controls_mean": 57.46666666666667,
+      "patients_sd": 7.2471818675706645,
+      "controls_sd": 7.15009157450515,
+      "SMD_patient_minus_control": -0.05851143211480895,
+      "patients_min": 44.0,
+      "patients_max": 70.0,
+      "controls_min": 48.0,
+      "controls_max": 78.0,
+      "range_overlap_min": 48.0,
+      "range_overlap_max": 70.0
+    },
+    {
+      "cohort": "evaluated37",
+      "variable": "male",
+      "patients_n": 22,
+      "controls_n": 15,
+      "patients_mean": 0.36363636363636365,
+      "controls_mean": 0.5333333333333333,
+      "patients_sd": 0.4923659639173309,
+      "controls_sd": 0.5163977794943222,
+      "SMD_patient_minus_control": -0.33634998607300864,
+      "patients_min": 0.0,
+      "patients_max": 1.0,
+      "controls_min": 0.0,
+      "controls_max": 1.0,
+      "range_overlap_min": 0.0,
+      "range_overlap_max": 1.0
+    },
+    {
+      "cohort": "evaluated37",
+      "variable": "mean_fd",
+      "patients_n": 22,
+      "controls_n": 15,
+      "patients_mean": 0.15400746066885565,
+      "controls_mean": 0.14245282709368295,
+      "patients_sd": 0.04916956420544322,
+      "controls_sd": 0.04360351284218882,
+      "SMD_patient_minus_control": 0.24864743234355371,
+      "patients_min": 0.07792234073924999,
+      "patients_max": 0.2688835613972143,
+      "controls_min": 0.08639210140110909,
+      "controls_max": 0.2565528709983929,
+      "range_overlap_min": 0.08639210140110909,
+      "range_overlap_max": 0.2565528709983929
+    },
+    {
+      "cohort": "evaluated37",
+      "variable": "expanded_motion_flag_fraction",
+      "patients_n": 22,
+      "controls_n": 15,
+      "patients_mean": 0.026212757830404887,
+      "controls_mean": 0.02410822510822511,
+      "patients_sd": 0.027145041506001222,
+      "controls_sd": 0.035431571748574524,
+      "SMD_patient_minus_control": 0.06668049441526924,
+      "patients_min": 0.0,
+      "patients_max": 0.08571428571428572,
+      "controls_min": 0.0,
+      "controls_max": 0.1,
+      "range_overlap_min": 0.0,
+      "range_overlap_max": 0.08571428571428572
+    }
+  ],
+  "old_SPD_ensemble5_AUC": {
+    "5": 0.5284848484848486,
+    "10": 0.5484848484848486
+  },
+  "summary": "OA来源76人、历史62人及已评估37人的研究/扫描头/处理核查完成。37人中原处理16病例/10对照，修复版6病例/5对照；处理版本未与诊断完全绑定。病例研究1/2可识别，全部对照的研究编号缺失，真实采集批次仍不明。",
+  "interpretation": "现有结果可保留为同人同预算的算法开发比较；不能据此把诊断差异解释为排除来源与处理混杂的OA疾病效应，也不能作为独立临床验证。原K5/K10的SPD M5平均AUC为0.5285/0.5485，所有八项增量区间跨0，结论不变。",
+  "boundary": "原始BOLD头的空间网格与TR在两类一致；处理后帧数存在类别不对称。HC研究批次、逐人采集日期/设备标识及完整旧处理执行记录尚缺；论文/元数据/扫描头矛盾保留。25排除、旧GSR、新版QC及三个临床终点分别保留；本轮无新训练或重新计分。",
+  "next": "先整理现存逐人采集/旧处理日志，补全HC真实批次与原始帧到处理帧的对应，并核实36/40层和T1 TR矛盾。若这些记录可追溯，再在已测共同支持层上预先限定处理敏感性比较；独立验证仍需来源明确、流程一致且未参与开发的队列，不追加OA模型搜索。",
+  "id": "oa-confounds-20261017",
+  "title": "OA病例与对照：哪些比较仍然有效",
+  "scope_note": "研究与采集/处理核查 · 76来源／62历史／37已评估 · 本轮0拟合／0重计分",
+  "t1_header_time_note": "T1为3D文件，头中pixdim[4]约2.3s仅作残留时间字段记录，不能据此确认真实结构像序列TR；仍需原始协议或转换记录。",
+  "intermediate_records": 76,
+  "intermediate_to_regressor_frame_difference": 10,
+  "intermediate_counts": [
+    {
+      "label": "HC",
+      "raw_frames": 300,
+      "TRInfo_frames": 285,
+      "global_regressor_frames": 275,
+      "people": 8
+    },
+    {
+      "label": "HC",
+      "raw_frames": 300,
+      "TRInfo_frames": 290,
+      "global_regressor_frames": 280,
+      "people": 12
+    },
+    {
+      "label": "OA",
+      "raw_frames": 244,
+      "TRInfo_frames": 234,
+      "global_regressor_frames": 224,
+      "people": 1
+    },
+    {
+      "label": "OA",
+      "raw_frames": 292,
+      "TRInfo_frames": 282,
+      "global_regressor_frames": 272,
+      "people": 1
+    },
+    {
+      "label": "OA",
+      "raw_frames": 300,
+      "TRInfo_frames": 290,
+      "global_regressor_frames": 280,
+      "people": 54
+    }
+  ],
+  "intermediate_stage_note": "现存76人TRInfo记录均TR2.5s、36层；8名HC原始300→记录285→旧回归275，其余12HC及54病例300→290→280；另病例292→282→272、244→234→224各1。全部中间记录到回归少10帧，与快照首10帧一致；更早原始到该记录的10/15帧变化步骤与原始索引仍未查明。"
+}

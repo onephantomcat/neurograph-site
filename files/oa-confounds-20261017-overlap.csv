@@ -1,0 +1,11 @@
+cohort,raw_frames,processed_frames,pipeline,patients,controls,both_labels,spatial_TR
+legacy62,292,272,dparsf_original,1,0,False,64x64x36;3.4375x3.4375x3mm;2.5s
+legacy62,300,275,dparsf_original,0,6,False,64x64x36;3.4375x3.4375x3mm;2.5s
+legacy62,300,280,dparsf_original,30,7,True,64x64x36;3.4375x3.4375x3mm;2.5s
+legacy62,300,275,repair_v3,0,1,False,64x64x36;3.4375x3.4375x3mm;2.5s
+legacy62,300,280,repair_v3,13,4,True,64x64x36;3.4375x3.4375x3mm;2.5s
+evaluated37,292,272,dparsf_original,1,0,False,64x64x36;3.4375x3.4375x3mm;2.5s
+evaluated37,300,275,dparsf_original,0,4,False,64x64x36;3.4375x3.4375x3mm;2.5s
+evaluated37,300,280,dparsf_original,15,6,True,64x64x36;3.4375x3.4375x3mm;2.5s
+evaluated37,300,275,repair_v3,0,1,False,64x64x36;3.4375x3.4375x3mm;2.5s
+evaluated37,300,280,repair_v3,6,4,True,64x64x36;3.4375x3.4375x3mm;2.5s

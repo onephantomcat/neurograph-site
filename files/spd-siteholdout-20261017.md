@@ -125,3 +125,18 @@ K10 2000次共同人员抽样34有效/1966无效；K20 2000次共同人员抽样
 [拟合前方案](https://onephantomcat.github.io/neurograph-site/files/spd-siteholdout-20261017-plan.md) · [分开展示的对比表](https://onephantomcat.github.io/neurograph-site/files/spd-siteholdout-20261017-comparison.md) · [全部内层面板](https://onephantomcat.github.io/neurograph-site/files/spd-siteholdout-20261017-panels.csv) · [均值](https://onephantomcat.github.io/neurograph-site/files/spd-siteholdout-20261017-means.csv) · [主副比较](https://onephantomcat.github.io/neurograph-site/files/spd-siteholdout-20261017-contrasts.csv) · [预算匹配块](https://onephantomcat.github.io/neurograph-site/files/spd-siteholdout-20261017-paired.csv) · [全部种子](https://onephantomcat.github.io/neurograph-site/files/spd-siteholdout-20261017-seeds.csv) · [支持重复](https://onephantomcat.github.io/neurograph-site/files/spd-siteholdout-20261017-repeats.csv) · [覆盖与不适用](https://onephantomcat.github.io/neurograph-site/files/spd-siteholdout-20261017-coverage.csv) · [混杂汇总](https://onephantomcat.github.io/neurograph-site/files/spd-siteholdout-20261017-diagnostics.csv) · [聚合](https://onephantomcat.github.io/neurograph-site/files/spd-siteholdout-20261017-summary.json)
 
 <Self-Audit>每次内划分重拟合参考/尺度与模型，只用支持人；先诊断再按记录条件决定训练，不依据外层查询选参数。旧外层与内层指标分开，保留全seed/不适用/阴性，复用原SPD/评价/发布，不增hash或改QC。</Self-Audit>
+
+
+<!-- spd-conditionalshift-20261017 -->
+
+## 2026-10-17：K10/20同类跨站点偏移与总体幅度检查
+
+留站点M5 AUC（原SPD→固定权重置幅度为训练均值）：K10 0.579991→0.445619；K20 0.662737→0.481369。两预算五次支持重复均下降；幅度保留变化、形状固定在训练均值且保留四协变量时分别为0.642105、0.672033。
+
+当前判别明显依赖总体协方差幅度；去幅度并未改善站点泛化。去幅度投影形状的同类站点距离／类别内置换均值K10为1.096514、K20为1.247397，病例/对照偏移方向平均余弦仅0.081855、0.187399。存在部分站点差异，但两预算尚无足够一致的同类形状偏移支持固定条件对齐。
+
+固定权重幅度干预改变了原模型输入分布，不是形状模型重训，也不是因果调整。只幅度分量仍含原四协变量和训练形状均值截距。幅度指Ledoit-Wolf协方差的log行列式几何尺度，不能等同全脑平均BOLD或证明疼痛机制；采集、处理、头动和疾病差异仍可能交织。支持集重叠，当前99人均属开发，条件区间只覆盖固定预测，不是独立临床验证。
+
+保留原SPD及幅度信息，停止当前无依据的条件对齐。下一步优先核对幅度与ROI方差、头动及采集/处理尺度的关系和同站点病例差异，再记录一个幅度与形状分支分别正则化的有限方案；不能直接采用本轮较高的幅度分量分数作为新模型成绩。原QC、OA/ZAN/Emo阴性、CoSpine13留出、TN14停止及三临床终点要求保持。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/spd-conditionalshift-20261017.md)。

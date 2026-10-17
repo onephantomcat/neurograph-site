@@ -1,0 +1,4 @@
+{
+  "content": "{\n  \"state\": \"NOT_RUN_CONDITIONAL_TIME_MAPPING_FAILED\",\n  \"new_classifier_fits\": 0,\n  \"new_predictions\": 0,\n  \"new_AUC_results\": 0,\n  \"planned_fits_not_executed\": 500,\n  \"planned_old_head_replays_not_executed\": 250,\n  \"source_anomalies\": 8,\n  \"affected_original62\": 7,\n  \"affected_evaluated37\": 5,\n  \"old_people_retained\": 37,\n  \"old_models_retained\": 750,\n  \"old_exclusions_retained\": 25,\n  \"new_QC_exclusions\": 0,\n  \"reason\": \"Time axis contains a five-volume backstep/duplicates and mixed boundary voxels, not a uniform prefix. Postfilter cropping cannot restore a consistent raw-time window. No affected controls were dropped to make a new score.\",\n  \"HC_actual_individual_batch_confirmed\": false\n}\n",
+  "truncated": false
+}

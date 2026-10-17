@@ -1,0 +1,143 @@
+{
+  "id": "oa-early-20261017",
+  "title": "OA早期时序异常：敏感性分析暂未启动",
+  "scope_note": "76人／456中间头／八历史配置／五点全时序追踪 · 新拟合0／原750模型保持",
+  "state": "COMPLETE_PROVENANCE_AUDIT_SENSITIVITY_NOT_RUN",
+  "provenance": {
+    "state": "COMPLETE_EARLY_PROVENANCE_WITH_LEGACY_TIME_AXIS_ANOMALY",
+    "source_people": 76,
+    "header_reads": 456,
+    "stage_count": 6,
+    "config_snapshots": 8,
+    "trace_people": 76,
+    "trace_pairs": 152,
+    "matched_contiguous_people": 68,
+    "matched_contiguous_pairs": 136,
+    "anomalous_HC": 8,
+    "mixed_boundary_HC": 3,
+    "old_new_raw_comparison_HC": 8,
+    "raw_comparison_point_max_error": 0,
+    "all_anomalous_FunImg_equal_FunRaw_suffix10": true,
+    "affected_legacy62": 7,
+    "affected_evaluated37": 5,
+    "full_MRI_arrays_loaded": 0,
+    "new_model_fits": 0,
+    "new_QC_inclusions": 0,
+    "frames": [
+      {
+        "label": "HC",
+        "people": 8,
+        "raw_frames": 300,
+        "FunRaw_frames": 285,
+        "FunImg_frames": 275,
+        "time_mapping": "five_frame_backstep",
+        "FunRaw_offset_pattern": "15_then10",
+        "FunImg_offset_pattern": "25_then20"
+      },
+      {
+        "label": "HC",
+        "people": 12,
+        "raw_frames": 300,
+        "FunRaw_frames": 290,
+        "FunImg_frames": 280,
+        "time_mapping": "continuous_prefix",
+        "FunRaw_offset_pattern": "10",
+        "FunImg_offset_pattern": "20"
+      },
+      {
+        "label": "OA",
+        "people": 1,
+        "raw_frames": 244,
+        "FunRaw_frames": 234,
+        "FunImg_frames": 224,
+        "time_mapping": "continuous_prefix",
+        "FunRaw_offset_pattern": "10",
+        "FunImg_offset_pattern": "20"
+      },
+      {
+        "label": "OA",
+        "people": 1,
+        "raw_frames": 292,
+        "FunRaw_frames": 282,
+        "FunImg_frames": 272,
+        "time_mapping": "continuous_prefix",
+        "FunRaw_offset_pattern": "10",
+        "FunImg_offset_pattern": "20"
+      },
+      {
+        "label": "OA",
+        "people": 54,
+        "raw_frames": 300,
+        "FunRaw_frames": 290,
+        "FunImg_frames": 280,
+        "time_mapping": "continuous_prefix",
+        "FunRaw_offset_pattern": "10",
+        "FunImg_offset_pattern": "20"
+      }
+    ],
+    "diagnostics": [
+      {
+        "group": "eight_affected_HC",
+        "stage": "FunRaw",
+        "people": 8,
+        "point_coordinates": 5,
+        "backstep_frames": 5,
+        "mixed_boundary_people": 3,
+        "exact_whole_frame_matches_min": 284,
+        "exact_whole_frame_matches_max": 285,
+        "source_initial_offset": 15,
+        "source_later_offset": 10,
+        "source_last_frame_one_based": 295,
+        "chain_suffix10_max_error": 0,
+        "fresh_vs_old_raw_point_max_error": 0
+      },
+      {
+        "group": "eight_affected_HC",
+        "stage": "FunImg",
+        "people": 8,
+        "point_coordinates": 5,
+        "backstep_frames": 5,
+        "mixed_boundary_people": 3,
+        "exact_whole_frame_matches_min": 274,
+        "exact_whole_frame_matches_max": 275,
+        "source_initial_offset": 25,
+        "source_later_offset": 20,
+        "source_last_frame_one_based": 295,
+        "chain_suffix10_max_error": 0,
+        "fresh_vs_old_raw_point_max_error": 0
+      }
+    ],
+    "readiness": {
+      "state": "NOT_RUN_CONDITIONAL_TIME_MAPPING_FAILED",
+      "new_classifier_fits": 0,
+      "new_predictions": 0,
+      "new_AUC_results": 0,
+      "planned_fits_not_executed": 500,
+      "planned_old_head_replays_not_executed": 250,
+      "source_anomalies": 8,
+      "affected_original62": 7,
+      "affected_evaluated37": 5,
+      "old_people_retained": 37,
+      "old_models_retained": 750,
+      "old_exclusions_retained": 25,
+      "new_QC_exclusions": 0,
+      "reason": "Time axis contains a five-volume backstep/duplicates and mixed boundary voxels, not a uniform prefix. Postfilter cropping cannot restore a consistent raw-time window. No affected controls were dropped to make a new score.",
+      "HC_actual_individual_batch_confirmed": false
+    },
+    "trace_elapsed_seconds": 618.1645156890154,
+    "followup_elapsed_seconds": 10.708571883966215,
+    "primary_source_streamed_bytes": 6705145984,
+    "boundary_streamed_bytes": 1415583232,
+    "trailing_bytes_present": 152,
+    "healthy_batch_status": "protocol_phase_II_parallel_plan_only; actual archive individual batch unconfirmed"
+  },
+  "source70_outer_ensemble_auc": {
+    "5": 0.7134666666666667,
+    "10": 0.7315919191919191,
+    "20": 0.7756040404040405
+  },
+  "summary": "少5帧的8名HC并非单纯多裁一个前缀：早期FunRaw中段的原扫描偏移从15变10，出现重复；其中3例边界在五个抽样体素中混合了两个原始帧的值。work2精确继承该异常再裁前10帧。原62/37中分别涉及7/5名HC。",
+  "interpretation": "额外5帧问题已定位到早期工作输入，不属于原始采集短少。数值特征与未完整完成的原地裁除写回相符，具体执行事件仍缺日志。预定267帧共同窗无法由此建立一致原始时间轴，500拟合方案未启动，新AUC为0项；原AUC0.5285/0.5485、全部种子和阴性结果保留。",
+  "boundary": "68人有精确连续前缀对应，8名HC存在中段回跳；五点追踪不宣称全体素核对。原始两份来源在这8人的抽样点全时序相同。HC第二阶段同期采集只有协议计划线索，实际逐人批次仍未确认。未删掉5名HC凑新成绩，未改标签、25排除、QC/专家状态或临床目标。",
+  "next": "OA旧异常时序暂停新增模型；如继续OA，应从保留的原始MRI另列统一重建和真实QC复核，不能仅在旧ROI末端裁帧修复。70多AUC的SRPBS99候选另有单一初始子空间近端约束方案（375拟合，尚未启动）；推广需同终点、来源明确的未开发数据。"
+}

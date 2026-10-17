@@ -1,0 +1,4 @@
+{
+  "content": "label,people,raw_frames,FunRaw_frames,FunImg_frames,time_mapping,FunRaw_offset_pattern,FunImg_offset_pattern\nHC,8,300,285,275,five_frame_backstep,15_then10,25_then20\nHC,12,300,290,280,continuous_prefix,10,20\nOA,1,244,234,224,continuous_prefix,10,20\nOA,1,292,282,272,continuous_prefix,10,20\nOA,54,300,290,280,continuous_prefix,10,20\n",
+  "truncated": false
+}

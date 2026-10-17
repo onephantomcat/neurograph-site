@@ -1,0 +1,6 @@
+label,people,raw_frames,FunRaw_frames,FunImg_frames,time_mapping,FunRaw_offset_pattern,FunImg_offset_pattern
+HC,8,300,285,275,five_frame_backstep,15_then10,25_then20
+HC,12,300,290,280,continuous_prefix,10,20
+OA,1,244,234,224,continuous_prefix,10,20
+OA,1,292,282,272,continuous_prefix,10,20
+OA,54,300,290,280,continuous_prefix,10,20

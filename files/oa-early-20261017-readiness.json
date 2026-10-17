@@ -1,0 +1,17 @@
+{
+  "state": "NOT_RUN_CONDITIONAL_TIME_MAPPING_FAILED",
+  "new_classifier_fits": 0,
+  "new_predictions": 0,
+  "new_AUC_results": 0,
+  "planned_fits_not_executed": 500,
+  "planned_old_head_replays_not_executed": 250,
+  "source_anomalies": 8,
+  "affected_original62": 7,
+  "affected_evaluated37": 5,
+  "old_people_retained": 37,
+  "old_models_retained": 750,
+  "old_exclusions_retained": 25,
+  "new_QC_exclusions": 0,
+  "reason": "Time axis contains a five-volume backstep/duplicates and mixed boundary voxels, not a uniform prefix. Postfilter cropping cannot restore a consistent raw-time window. No affected controls were dropped to make a new score.",
+  "HC_actual_individual_batch_confirmed": false
+}

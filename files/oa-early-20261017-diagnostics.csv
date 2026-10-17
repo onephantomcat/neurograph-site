@@ -1,0 +1,3 @@
+group,stage,people,point_coordinates,backstep_frames,mixed_boundary_people,exact_whole_frame_matches_min,exact_whole_frame_matches_max,source_initial_offset,source_later_offset,source_last_frame_one_based,chain_suffix10_max_error,fresh_vs_old_raw_point_max_error
+eight_affected_HC,FunRaw,8,5,5,3,284,285,15,10,295,0,0
+eight_affected_HC,FunImg,8,5,5,3,274,275,25,20,295,0,0

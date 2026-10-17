@@ -1,0 +1,55 @@
+{
+  "state": "COMPLETE_62_LEGACY_GSR_COVARIATES_37_ELIGIBLE_INPUTS",
+  "original_people": 62,
+  "original_cases": 44,
+  "original_controls": 18,
+  "all62_covariates_complete": 62,
+  "all62_ROI_motion_FD_read": 62,
+  "legacy_GSR_people": 62,
+  "legacy_original_pipeline": 44,
+  "legacy_repair_pipeline": 18,
+  "previous_motion_exclusion_overlap": 21,
+  "legacy_motion_over20percent": 20,
+  "overlap_two_exclusions": 16,
+  "previous_only_exclusions": 5,
+  "legacy_only_exclusions": 4,
+  "total_excluded": 25,
+  "eligible_people": 37,
+  "eligible_cases": 22,
+  "eligible_controls": 15,
+  "age_range": [
+    44.0,
+    78.0
+  ],
+  "mean_fd_range": [
+    0.07792234073924999,
+    0.2688835613972143
+  ],
+  "expanded_flag_fraction_range": [
+    0.0,
+    0.1
+  ],
+  "frames_range": [
+    272,
+    280
+  ],
+  "fd_recompute_max_error": 8.881784197001252e-16,
+  "fisher_fc_vs_original_max_error": 1.0417968443476866e-07,
+  "lw_independent_relative_max_error": 1.386895452970519e-16,
+  "minimum_covariance_eigenvalue": 0.089674039135942,
+  "target_folds": 5,
+  "original_fold_repeat": 1,
+  "support_panels": 50,
+  "source_pretraining_people": 0,
+  "new_classifier_fits": 0,
+  "new_QC_database_inclusions": 0,
+  "new_expert_reports": 0,
+  "new_MRI_reads": 0,
+  "covariate_columns": [
+    "age",
+    "male",
+    "mean_FD_power_mm",
+    "expanded_FD_flag_fraction"
+  ],
+  "flag_semantics": "FD>0.5mm, preceding1/following2 frames; derived risk flag, not physical row deletion or proof of original nuisance spike regression"
+}

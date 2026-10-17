@@ -1,0 +1,88 @@
+{
+  "state": "COMPLETE_OA_ORIGINAL_INPUT_INVENTORY",
+  "packages": {
+    "62": {
+      "people": 62,
+      "cases": 44,
+      "controls": 18,
+      "unique_ids": 62,
+      "roi_order_1_to_90": true,
+      "finite_fc": true,
+      "roi_source_files": 62,
+      "roi_sources_available": 62,
+      "roi_source_bytes": 14915579,
+      "roi_timepoints_min": 272,
+      "roi_timepoints_max": 280,
+      "pipelines": {
+        "dparsf_original": 44,
+        "repair_v3": 18
+      },
+      "labels_by_study": {
+        "(0, 'HC')": 18,
+        "(1, 'Study1')": 12,
+        "(1, 'Study2')": 32
+      },
+      "has_mean_fd": false,
+      "has_censor_fraction": false,
+      "source_paths_containing_global": 44
+    },
+    "64": {
+      "people": 64,
+      "cases": 46,
+      "controls": 18,
+      "unique_ids": 64,
+      "roi_order_1_to_90": true,
+      "finite_fc": true,
+      "roi_source_files": 64,
+      "roi_sources_available": 64,
+      "roi_source_bytes": 15399053,
+      "roi_timepoints_min": 272,
+      "roi_timepoints_max": 280,
+      "pipelines": {
+        "dparsf_original": 44,
+        "repair_v3": 20
+      },
+      "labels_by_study": {
+        "(0, 'HC')": 18,
+        "(1, 'Study1')": 13,
+        "(1, 'Study2')": 33
+      },
+      "has_mean_fd": false,
+      "has_censor_fraction": false,
+      "source_paths_containing_global": 44
+    }
+  },
+  "n62_n64_overlap": 62,
+  "recent_response_queue_state": "COMPLETE_PENDING_REVIEW",
+  "recent_oa_completed": 27,
+  "recent_oa_returncodes": {
+    "0": 8,
+    "31": 19
+  },
+  "recent_oa_training_inclusion": 0,
+  "original_reprocess_state": "COMPLETE_PENDING_REVIEW",
+  "original_reprocess_keys": [
+    "state",
+    "total",
+    "current_subject",
+    "completed",
+    "updated_at"
+  ],
+  "raw_mri_reads": 0,
+  "new_inclusions": 0,
+  "new_fits": 0,
+  "full76": {
+    "total": 76,
+    "completed": 76,
+    "numeric_pass": 14,
+    "numeric_fail": 62,
+    "pass_by_type": {
+      "control": 6,
+      "patient": 8
+    },
+    "visual_pending": 76,
+    "training_inclusion_true": 0,
+    "source_T1": 76,
+    "source_BOLD": 76
+  }
+}

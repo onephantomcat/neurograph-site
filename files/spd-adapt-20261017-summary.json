@@ -1,0 +1,2501 @@
+{
+  "state": "COMPLETE_SPD_TARGET_LABEL_ADAPTATION",
+  "source_k": 20,
+  "target_label_budgets": [
+    5,
+    10
+  ],
+  "source_members": 125,
+  "source_support_panels": 25,
+  "source_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "support_repeats": 5,
+  "target_folds": {
+    "zan": 5,
+    "emo": 3
+  },
+  "head_fits": 2000,
+  "member_parameters": 1581,
+  "updated_parameters": 141,
+  "epochs": 200,
+  "learning_rate": 0.01,
+  "l2": 0.001,
+  "new_target_reference_fits": 0,
+  "new_target_scaler_fits": 0,
+  "fold_evaluations": 4800,
+  "oof_evaluations": 1200,
+  "means": {
+    "zan": {
+      "5": {
+        "fixed_member_mean": {
+          "auc": 0.517263448275862,
+          "auprc": 0.5079965684029686,
+          "balanced_accuracy": 0.518328275862069,
+          "sensitivity": 0.48576,
+          "specificity": 0.5508965517241379,
+          "brier": 0.3015460750688945,
+          "logloss": 0.8590537723746713,
+          "conditional_person_interval": [
+            0.41840409902597414,
+            0.6073314093314092
+          ],
+          "support_repeat_auc_sample_sd": 0.010971447539760572,
+          "support_repeat_aucs": [
+            0.5101793103448276,
+            0.5282758620689656,
+            0.5059862068965516,
+            0.5297655172413793,
+            0.5121103448275862
+          ]
+        },
+        "fixed_ensemble5": {
+          "auc": 0.5315862068965517,
+          "auprc": 0.5224674384988823,
+          "balanced_accuracy": 0.5481379310344827,
+          "sensitivity": 0.48800000000000004,
+          "specificity": 0.6082758620689654,
+          "brier": 0.2716361347919963,
+          "logloss": 0.7545195539769254,
+          "conditional_person_interval": [
+            0.39042769423558904,
+            0.6629531034482754
+          ],
+          "support_repeat_auc_sample_sd": 0.01153519146320277,
+          "support_repeat_aucs": [
+            0.5222068965517241,
+            0.5492413793103448,
+            0.5246896551724137,
+            0.5373793103448276,
+            0.5244137931034484
+          ]
+        },
+        "adapted_member_mean": {
+          "auc": 0.49184000000000005,
+          "auprc": 0.4853238007241647,
+          "balanced_accuracy": 0.49481931034482757,
+          "sensitivity": 0.50688,
+          "specificity": 0.48275862068965525,
+          "brier": 0.3289593431182102,
+          "logloss": 0.9602259539170317,
+          "conditional_person_interval": [
+            0.4157450486815417,
+            0.5671871719094367
+          ],
+          "support_repeat_auc_sample_sd": 0.019860904180405724,
+          "support_repeat_aucs": [
+            0.5142068965517241,
+            0.46433103448275864,
+            0.48606896551724144,
+            0.5079724137931034,
+            0.48662068965517236
+          ]
+        },
+        "adapted_ensemble5": {
+          "auc": 0.49125517241379313,
+          "auprc": 0.4959971229666413,
+          "balanced_accuracy": 0.48590344827586207,
+          "sensitivity": 0.5055999999999999,
+          "specificity": 0.46620689655172415,
+          "brier": 0.28459678864631466,
+          "logloss": 0.7853997307441997,
+          "conditional_person_interval": [
+            0.37298091630591645,
+            0.607070676691729
+          ],
+          "support_repeat_auc_sample_sd": 0.03435695672821234,
+          "support_repeat_aucs": [
+            0.5235862068965517,
+            0.43696551724137933,
+            0.494896551724138,
+            0.5169655172413793,
+            0.48386206896551726
+          ]
+        }
+      },
+      "10": {
+        "fixed_member_mean": {
+          "auc": 0.517263448275862,
+          "auprc": 0.5079965684029686,
+          "balanced_accuracy": 0.518328275862069,
+          "sensitivity": 0.48576,
+          "specificity": 0.5508965517241379,
+          "brier": 0.3015460750688945,
+          "logloss": 0.8590537723746713,
+          "conditional_person_interval": [
+            0.41840409902597414,
+            0.6073314093314092
+          ],
+          "support_repeat_auc_sample_sd": 0.010971447539760572,
+          "support_repeat_aucs": [
+            0.5101793103448276,
+            0.5282758620689656,
+            0.5059862068965516,
+            0.5297655172413793,
+            0.5121103448275862
+          ]
+        },
+        "fixed_ensemble5": {
+          "auc": 0.5315862068965517,
+          "auprc": 0.5224674384988823,
+          "balanced_accuracy": 0.5481379310344827,
+          "sensitivity": 0.48800000000000004,
+          "specificity": 0.6082758620689654,
+          "brier": 0.2716361347919963,
+          "logloss": 0.7545195539769254,
+          "conditional_person_interval": [
+            0.39042769423558904,
+            0.6629531034482754
+          ],
+          "support_repeat_auc_sample_sd": 0.01153519146320277,
+          "support_repeat_aucs": [
+            0.5222068965517241,
+            0.5492413793103448,
+            0.5246896551724137,
+            0.5373793103448276,
+            0.5244137931034484
+          ]
+        },
+        "adapted_member_mean": {
+          "auc": 0.4919062068965516,
+          "auprc": 0.48452375278468074,
+          "balanced_accuracy": 0.49187310344827584,
+          "sensitivity": 0.52416,
+          "specificity": 0.4595862068965517,
+          "brier": 0.3313735980219138,
+          "logloss": 0.9668914183461018,
+          "conditional_person_interval": [
+            0.42147420634920635,
+            0.5653683721948546
+          ],
+          "support_repeat_auc_sample_sd": 0.014707065609247836,
+          "support_repeat_aucs": [
+            0.5017931034482759,
+            0.48943448275862067,
+            0.47994482758620693,
+            0.5116137931034482,
+            0.47674482758620684
+          ]
+        },
+        "adapted_ensemble5": {
+          "auc": 0.4907586206896552,
+          "auprc": 0.49470546196869264,
+          "balanced_accuracy": 0.48805517241379315,
+          "sensitivity": 0.5568,
+          "specificity": 0.41931034482758617,
+          "brier": 0.283123511859125,
+          "logloss": 0.7776918131054884,
+          "conditional_person_interval": [
+            0.37635104405398523,
+            0.6121447280688658
+          ],
+          "support_repeat_auc_sample_sd": 0.021443729421677264,
+          "support_repeat_aucs": [
+            0.5015172413793103,
+            0.48,
+            0.48468965517241375,
+            0.5216551724137931,
+            0.46593103448275863
+          ]
+        }
+      }
+    },
+    "emo": {
+      "5": {
+        "fixed_member_mean": {
+          "auc": 0.5554985754985756,
+          "auprc": 0.597844367496898,
+          "balanced_accuracy": 0.5320854700854701,
+          "sensitivity": 0.4995555555555555,
+          "specificity": 0.5646153846153845,
+          "brier": 0.2900161201940469,
+          "logloss": 0.8146556630950755,
+          "conditional_person_interval": [
+            0.45028666666666645,
+            0.6586719191919191
+          ],
+          "support_repeat_auc_sample_sd": 0.004765761007764994,
+          "support_repeat_aucs": [
+            0.5570940170940171,
+            0.5627920227920228,
+            0.5501994301994302,
+            0.5531623931623932,
+            0.5542450142450142
+          ]
+        },
+        "fixed_ensemble5": {
+          "auc": 0.5665527065527065,
+          "auprc": 0.6022341386976712,
+          "balanced_accuracy": 0.539031339031339,
+          "sensitivity": 0.5303703703703703,
+          "specificity": 0.5476923076923077,
+          "brier": 0.2625534663099664,
+          "logloss": 0.7279051308460508,
+          "conditional_person_interval": [
+            0.42740598290598286,
+            0.7003485307285309
+          ],
+          "support_repeat_auc_sample_sd": 0.006942453509622751,
+          "support_repeat_aucs": [
+            0.5660968660968662,
+            0.5766381766381766,
+            0.5623931623931624,
+            0.5584045584045584,
+            0.5692307692307692
+          ]
+        },
+        "adapted_member_mean": {
+          "auc": 0.5053789173789174,
+          "auprc": 0.546929338297158,
+          "balanced_accuracy": 0.49854700854700856,
+          "sensitivity": 0.4515555555555556,
+          "specificity": 0.5455384615384614,
+          "brier": 0.32376036266540226,
+          "logloss": 0.9386385801959147,
+          "conditional_person_interval": [
+            0.4227131773399016,
+            0.5894623015873014
+          ],
+          "support_repeat_auc_sample_sd": 0.03176804513167111,
+          "support_repeat_aucs": [
+            0.49914529914529915,
+            0.5398290598290598,
+            0.5254131054131054,
+            0.5062108262108262,
+            0.4562962962962963
+          ]
+        },
+        "adapted_ensemble5": {
+          "auc": 0.5094017094017095,
+          "auprc": 0.5317573205641244,
+          "balanced_accuracy": 0.5125925925925926,
+          "sensitivity": 0.46518518518518515,
+          "specificity": 0.56,
+          "brier": 0.2823071794964159,
+          "logloss": 0.7879054476974744,
+          "conditional_person_interval": [
+            0.3900009661835751,
+            0.6326210826210823
+          ],
+          "support_repeat_auc_sample_sd": 0.04892493640462307,
+          "support_repeat_aucs": [
+            0.5034188034188034,
+            0.5655270655270656,
+            0.5339031339031338,
+            0.5108262108262108,
+            0.4333333333333333
+          ]
+        }
+      },
+      "10": {
+        "fixed_member_mean": {
+          "auc": 0.5554985754985756,
+          "auprc": 0.597844367496898,
+          "balanced_accuracy": 0.5320854700854701,
+          "sensitivity": 0.4995555555555555,
+          "specificity": 0.5646153846153845,
+          "brier": 0.2900161201940469,
+          "logloss": 0.8146556630950755,
+          "conditional_person_interval": [
+            0.45028666666666645,
+            0.6586719191919191
+          ],
+          "support_repeat_auc_sample_sd": 0.004765761007764994,
+          "support_repeat_aucs": [
+            0.5570940170940171,
+            0.5627920227920228,
+            0.5501994301994302,
+            0.5531623931623932,
+            0.5542450142450142
+          ]
+        },
+        "fixed_ensemble5": {
+          "auc": 0.5665527065527065,
+          "auprc": 0.6022341386976712,
+          "balanced_accuracy": 0.539031339031339,
+          "sensitivity": 0.5303703703703703,
+          "specificity": 0.5476923076923077,
+          "brier": 0.2625534663099664,
+          "logloss": 0.7279051308460508,
+          "conditional_person_interval": [
+            0.42740598290598286,
+            0.7003485307285309
+          ],
+          "support_repeat_auc_sample_sd": 0.006942453509622751,
+          "support_repeat_aucs": [
+            0.5660968660968662,
+            0.5766381766381766,
+            0.5623931623931624,
+            0.5584045584045584,
+            0.5692307692307692
+          ]
+        },
+        "adapted_member_mean": {
+          "auc": 0.5096068376068377,
+          "auprc": 0.5499060333964639,
+          "balanced_accuracy": 0.4948034188034188,
+          "sensitivity": 0.4542222222222222,
+          "specificity": 0.5353846153846153,
+          "brier": 0.31805057615644955,
+          "logloss": 0.9017072388399013,
+          "conditional_person_interval": [
+            0.42750274112943526,
+            0.5910308571428575
+          ],
+          "support_repeat_auc_sample_sd": 0.017510111502718143,
+          "support_repeat_aucs": [
+            0.5092307692307693,
+            0.5287179487179486,
+            0.5033048433048433,
+            0.5226780626780627,
+            0.48410256410256414
+          ]
+        },
+        "adapted_ensemble5": {
+          "auc": 0.5040455840455841,
+          "auprc": 0.5304631380549327,
+          "balanced_accuracy": 0.4997720797720798,
+          "sensitivity": 0.45185185185185184,
+          "specificity": 0.5476923076923077,
+          "brier": 0.27460798159631183,
+          "logloss": 0.7513435565451794,
+          "conditional_person_interval": [
+            0.3752277093596057,
+            0.6288095966679418
+          ],
+          "support_repeat_auc_sample_sd": 0.03706464016317609,
+          "support_repeat_aucs": [
+            0.48262108262108255,
+            0.5367521367521367,
+            0.4962962962962963,
+            0.5464387464387463,
+            0.4581196581196581
+          ]
+        }
+      }
+    }
+  },
+  "contrasts": {
+    "zan": {
+      "5": {
+        "ensemble5": {
+          "delta_mean_auc": -0.04033103448275854,
+          "conditional_person_interval": [
+            -0.10425338366260899,
+            0.019650842919940344
+          ],
+          "repeat_mean_deltas": [
+            0.0013793103448275223,
+            -0.11227586206896545,
+            -0.029793103448275737,
+            -0.020413793103448263,
+            -0.04055172413793112
+          ],
+          "positive_support_repeats": 1,
+          "delta_brier": 0.012960653854318382,
+          "delta_logloss": 0.03088017676727428,
+          "valid_resamples": 2000,
+          "invalid_resamples": 0
+        },
+        "member_mean": {
+          "delta_mean_auc": -0.02542344827586196,
+          "conditional_person_interval": [
+            -0.06788867694805138,
+            0.01752804383116884
+          ],
+          "repeat_mean_deltas": [
+            0.004027586206896583,
+            -0.06394482758620695,
+            -0.01991724137931017,
+            -0.021793103448275897,
+            -0.02548965517241386
+          ],
+          "positive_support_repeats": 1,
+          "delta_brier": 0.027413268049315653,
+          "delta_logloss": 0.1011721815423604,
+          "valid_resamples": 2000,
+          "invalid_resamples": 0
+        }
+      },
+      "10": {
+        "ensemble5": {
+          "delta_mean_auc": -0.04082758620689647,
+          "conditional_person_interval": [
+            -0.1436279761904766,
+            0.057668001443000765
+          ],
+          "repeat_mean_deltas": [
+            -0.020689655172413834,
+            -0.0692413793103448,
+            -0.03999999999999998,
+            -0.015724137931034443,
+            -0.058482758620689745
+          ],
+          "positive_support_repeats": 0,
+          "delta_brier": 0.011487377067128712,
+          "delta_logloss": 0.023172259128563022,
+          "valid_resamples": 2000,
+          "invalid_resamples": 0
+        },
+        "member_mean": {
+          "delta_mean_auc": -0.02535724137931039,
+          "conditional_person_interval": [
+            -0.09232820182116758,
+            0.03855476059925675
+          ],
+          "repeat_mean_deltas": [
+            -0.008386206896551673,
+            -0.038841379310344926,
+            -0.02604137931034467,
+            -0.01815172413793109,
+            -0.035365517241379374
+          ],
+          "positive_support_repeats": 0,
+          "delta_brier": 0.02982752295301927,
+          "delta_logloss": 0.10783764597143053,
+          "valid_resamples": 2000,
+          "invalid_resamples": 0
+        }
+      }
+    },
+    "emo": {
+      "5": {
+        "ensemble5": {
+          "delta_mean_auc": -0.05715099715099703,
+          "conditional_person_interval": [
+            -0.12898801242236052,
+            0.010744080435693788
+          ],
+          "repeat_mean_deltas": [
+            -0.06267806267806275,
+            -0.011111111111111072,
+            -0.028490028490028574,
+            -0.04757834757834756,
+            -0.13589743589743591
+          ],
+          "positive_support_repeats": 0,
+          "delta_brier": 0.01975371318644953,
+          "delta_logloss": 0.060000316851423596,
+          "valid_resamples": 2000,
+          "invalid_resamples": 0
+        },
+        "member_mean": {
+          "delta_mean_auc": -0.05011965811965824,
+          "conditional_person_interval": [
+            -0.10442849350649275,
+            -0.0011124975369450863
+          ],
+          "repeat_mean_deltas": [
+            -0.05794871794871792,
+            -0.022962962962962963,
+            -0.02478632478632481,
+            -0.04695156695156699,
+            -0.09794871794871784
+          ],
+          "positive_support_repeats": 0,
+          "delta_brier": 0.03374424247135538,
+          "delta_logloss": 0.1239829171008392,
+          "valid_resamples": 2000,
+          "invalid_resamples": 0
+        }
+      },
+      "10": {
+        "ensemble5": {
+          "delta_mean_auc": -0.06250712250712243,
+          "conditional_person_interval": [
+            -0.1536929436304434,
+            0.019665221674876263
+          ],
+          "repeat_mean_deltas": [
+            -0.0834757834757836,
+            -0.03988603988603989,
+            -0.0660968660968661,
+            -0.011965811965812034,
+            -0.1111111111111111
+          ],
+          "positive_support_repeats": 0,
+          "delta_brier": 0.012054515286345435,
+          "delta_logloss": 0.023438425699128573,
+          "valid_resamples": 2000,
+          "invalid_resamples": 0
+        },
+        "member_mean": {
+          "delta_mean_auc": -0.04589173789173795,
+          "conditional_person_interval": [
+            -0.11385777310924361,
+            0.01413011351909175
+          ],
+          "repeat_mean_deltas": [
+            -0.047863247863247804,
+            -0.034074074074074145,
+            -0.04689458689458692,
+            -0.030484330484330524,
+            -0.07014245014245002
+          ],
+          "positive_support_repeats": 0,
+          "delta_brier": 0.02803445596240267,
+          "delta_logloss": 0.0870515757448258,
+          "valid_resamples": 2000,
+          "invalid_resamples": 0
+        }
+      }
+    }
+  },
+  "diagnostics": [
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 0,
+      "auc": 0.5101793103448276
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 1,
+      "auc": 0.5282758620689656
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 2,
+      "auc": 0.5059862068965516
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 3,
+      "auc": 0.5297655172413793
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 4,
+      "auc": 0.5121103448275862
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 0,
+      "auc": 0.5204965517241379
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 1,
+      "auc": 0.5173517241379311
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 2,
+      "auc": 0.5160275862068966
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 3,
+      "auc": 0.5331310344827586
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 4,
+      "auc": 0.4993103448275862
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 0,
+      "auc": 0.5252965517241379
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 1,
+      "auc": 0.4836413793103448
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 2,
+      "auc": 0.5311448275862068
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 3,
+      "auc": 0.5420137931034483
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 4,
+      "auc": 0.5042206896551723
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 0,
+      "auc": 0.5222068965517241
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 1,
+      "auc": 0.5492413793103448
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 2,
+      "auc": 0.5246896551724137
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 3,
+      "auc": 0.5373793103448276
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 4,
+      "auc": 0.5244137931034484
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 0,
+      "auc": 0.538206896551724
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 1,
+      "auc": 0.534896551724138
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 2,
+      "auc": 0.5296551724137931
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 3,
+      "auc": 0.5542068965517241
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 4,
+      "auc": 0.5009655172413794
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 0,
+      "auc": 0.5142068965517241
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 1,
+      "auc": 0.46433103448275864
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 2,
+      "auc": 0.48606896551724144
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 3,
+      "auc": 0.5079724137931034
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 4,
+      "auc": 0.48662068965517236
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 0,
+      "auc": 0.49169655172413795
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 1,
+      "auc": 0.49914482758620693
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 2,
+      "auc": 0.4928551724137931
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 3,
+      "auc": 0.5025103448275862
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 4,
+      "auc": 0.4729931034482759
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 0,
+      "auc": 0.5101241379310345
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 1,
+      "auc": 0.42239999999999994
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 2,
+      "auc": 0.5480275862068965
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 3,
+      "auc": 0.4734344827586207
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 4,
+      "auc": 0.5052137931034483
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 0,
+      "auc": 0.5235862068965517
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 1,
+      "auc": 0.43696551724137933
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 2,
+      "auc": 0.494896551724138
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 3,
+      "auc": 0.5169655172413793
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 4,
+      "auc": 0.48386206896551726
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 0,
+      "auc": 0.47889655172413786
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 1,
+      "auc": 0.503448275862069
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 2,
+      "auc": 0.5006896551724138
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 3,
+      "auc": 0.5020689655172413
+    },
+    {
+      "cohort": "zan",
+      "k": 5,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 4,
+      "auc": 0.4711724137931034
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 0,
+      "auc": 0.5101793103448276
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 1,
+      "auc": 0.5282758620689656
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 2,
+      "auc": 0.5059862068965516
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 3,
+      "auc": 0.5297655172413793
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 4,
+      "auc": 0.5121103448275862
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 0,
+      "auc": 0.5204965517241379
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 1,
+      "auc": 0.5173517241379311
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 2,
+      "auc": 0.5160275862068966
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 3,
+      "auc": 0.5331310344827586
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 4,
+      "auc": 0.4993103448275862
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 0,
+      "auc": 0.5252965517241379
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 1,
+      "auc": 0.4836413793103448
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 2,
+      "auc": 0.5311448275862068
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 3,
+      "auc": 0.5420137931034483
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 4,
+      "auc": 0.5042206896551723
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 0,
+      "auc": 0.5222068965517241
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 1,
+      "auc": 0.5492413793103448
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 2,
+      "auc": 0.5246896551724137
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 3,
+      "auc": 0.5373793103448276
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 4,
+      "auc": 0.5244137931034484
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 0,
+      "auc": 0.538206896551724
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 1,
+      "auc": 0.534896551724138
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 2,
+      "auc": 0.5296551724137931
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 3,
+      "auc": 0.5542068965517241
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 4,
+      "auc": 0.5009655172413794
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 0,
+      "auc": 0.5017931034482759
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 1,
+      "auc": 0.48943448275862067
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 2,
+      "auc": 0.47994482758620693
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 3,
+      "auc": 0.5116137931034482
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 4,
+      "auc": 0.47674482758620684
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 0,
+      "auc": 0.4898758620689655
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 1,
+      "auc": 0.5059862068965516
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 2,
+      "auc": 0.4955586206896552
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 3,
+      "auc": 0.4928
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 4,
+      "auc": 0.47531034482758616
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 0,
+      "auc": 0.4867862068965518
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 1,
+      "auc": 0.4104275862068965
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 2,
+      "auc": 0.5493517241379311
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 3,
+      "auc": 0.5068137931034484
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 4,
+      "auc": 0.506151724137931
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 0,
+      "auc": 0.5015172413793103
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 1,
+      "auc": 0.48
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 2,
+      "auc": 0.48468965517241375
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 3,
+      "auc": 0.5216551724137931
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 4,
+      "auc": 0.46593103448275863
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 0,
+      "auc": 0.4813793103448276
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 1,
+      "auc": 0.5142068965517241
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 2,
+      "auc": 0.5001379310344827
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 3,
+      "auc": 0.5001379310344827
+    },
+    {
+      "cohort": "zan",
+      "k": 10,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 4,
+      "auc": 0.4579310344827586
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 0,
+      "auc": 0.5570940170940171
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 1,
+      "auc": 0.5627920227920228
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 2,
+      "auc": 0.5501994301994302
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 3,
+      "auc": 0.5531623931623932
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 4,
+      "auc": 0.5542450142450142
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 0,
+      "auc": 0.5603988603988603
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 1,
+      "auc": 0.5666666666666667
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 2,
+      "auc": 0.56
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 3,
+      "auc": 0.5272934472934473
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 4,
+      "auc": 0.5631339031339031
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 0,
+      "auc": 0.5723076923076923
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 1,
+      "auc": 0.554928774928775
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 2,
+      "auc": 0.6157264957264957
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 3,
+      "auc": 0.5334472934472935
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 4,
+      "auc": 0.5010826210826211
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 0,
+      "auc": 0.5660968660968662
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 1,
+      "auc": 0.5766381766381766
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 2,
+      "auc": 0.5623931623931624
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 3,
+      "auc": 0.5584045584045584
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 4,
+      "auc": 0.5692307692307692
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 0,
+      "auc": 0.5703703703703704
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 1,
+      "auc": 0.5774928774928776
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 2,
+      "auc": 0.5740740740740741
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 3,
+      "auc": 0.5344729344729344
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 4,
+      "auc": 0.5763532763532764
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 0,
+      "auc": 0.49914529914529915
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 1,
+      "auc": 0.5398290598290598
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 2,
+      "auc": 0.5254131054131054
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 3,
+      "auc": 0.5062108262108262
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 4,
+      "auc": 0.4562962962962963
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 0,
+      "auc": 0.5139031339031339
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 1,
+      "auc": 0.5071794871794871
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 2,
+      "auc": 0.5146438746438746
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 3,
+      "auc": 0.4806267806267806
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 4,
+      "auc": 0.5105413105413106
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 0,
+      "auc": 0.5003418803418804
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 1,
+      "auc": 0.4994871794871794
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 2,
+      "auc": 0.5303703703703704
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 3,
+      "auc": 0.4797720797720798
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 4,
+      "auc": 0.5169230769230769
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 0,
+      "auc": 0.5034188034188034
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 1,
+      "auc": 0.5655270655270656
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 2,
+      "auc": 0.5339031339031338
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 3,
+      "auc": 0.5108262108262108
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 4,
+      "auc": 0.4333333333333333
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 0,
+      "auc": 0.5196581196581197
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 1,
+      "auc": 0.5173789173789174
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 2,
+      "auc": 0.5253561253561253
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 3,
+      "auc": 0.4680911680911681
+    },
+    {
+      "cohort": "emo",
+      "k": 5,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 4,
+      "auc": 0.5165242165242165
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 0,
+      "auc": 0.5570940170940171
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 1,
+      "auc": 0.5627920227920228
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 2,
+      "auc": 0.5501994301994302
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 3,
+      "auc": 0.5531623931623932
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 4,
+      "auc": 0.5542450142450142
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 0,
+      "auc": 0.5603988603988603
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 1,
+      "auc": 0.5666666666666667
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 2,
+      "auc": 0.56
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 3,
+      "auc": 0.5272934472934473
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 4,
+      "auc": 0.5631339031339031
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 0,
+      "auc": 0.5723076923076923
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 1,
+      "auc": 0.554928774928775
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 2,
+      "auc": 0.6157264957264957
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 3,
+      "auc": 0.5334472934472935
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 4,
+      "auc": 0.5010826210826211
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 0,
+      "auc": 0.5660968660968662
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 1,
+      "auc": 0.5766381766381766
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 2,
+      "auc": 0.5623931623931624
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 3,
+      "auc": 0.5584045584045584
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 4,
+      "auc": 0.5692307692307692
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 0,
+      "auc": 0.5703703703703704
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 1,
+      "auc": 0.5774928774928776
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 2,
+      "auc": 0.5740740740740741
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 3,
+      "auc": 0.5344729344729344
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "fixed",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 4,
+      "auc": 0.5763532763532764
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 0,
+      "auc": 0.5092307692307693
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 1,
+      "auc": 0.5287179487179486
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 2,
+      "auc": 0.5033048433048433
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 3,
+      "auc": 0.5226780626780627
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "repeat",
+      "index": 4,
+      "auc": 0.48410256410256414
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 0,
+      "auc": 0.5194301994301994
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 1,
+      "auc": 0.508888888888889
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 2,
+      "auc": 0.5163532763532763
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 3,
+      "auc": 0.4856980056980057
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "source_outer",
+      "index": 4,
+      "auc": 0.5176638176638177
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 0,
+      "auc": 0.5123076923076922
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 1,
+      "auc": 0.5183475783475784
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 2,
+      "auc": 0.5297435897435898
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 3,
+      "auc": 0.4695726495726496
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "member_mean",
+      "record_type": "seed",
+      "index": 4,
+      "auc": 0.518062678062678
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 0,
+      "auc": 0.48262108262108255
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 1,
+      "auc": 0.5367521367521367
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 2,
+      "auc": 0.4962962962962963
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 3,
+      "auc": 0.5464387464387463
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "repeat",
+      "index": 4,
+      "auc": 0.4581196581196581
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 0,
+      "auc": 0.5242165242165242
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 1,
+      "auc": 0.4928774928774929
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 2,
+      "auc": 0.5227920227920227
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 3,
+      "auc": 0.45698005698005695
+    },
+    {
+      "cohort": "emo",
+      "k": 10,
+      "method": "adapted",
+      "condition": "ensemble5",
+      "record_type": "source_outer",
+      "index": 4,
+      "auc": 0.5233618233618234
+    }
+  ],
+  "elapsed_seconds": 21.78553056716919,
+  "loss": {
+    "initial_mean": 0.8423051825245571,
+    "final_mean": 0.05914892157611395,
+    "decreased": 2000
+  },
+  "runtime": {
+    "device": "cpu",
+    "threads": 2,
+    "torch": "1.13.1",
+    "numpy": "1.26.0",
+    "source_states_unchanged": 125,
+    "torch_sgd_parameter_max_error": 6.938893903907228e-17,
+    "saved_head_probability_replay_max_error": 0.0
+  },
+  "probability_diagnostics": {
+    "exact_zero_or_one": 0,
+    "constant_oof_evaluations": 0
+  },
+  "id": "spd-adapt-20261017",
+  "title": "SPD少量目标标签适配：ZAN54与Emo53",
+  "date": "2026-10-17",
+  "fold_mean_ensemble_auc": {
+    "zan": {
+      "5": {
+        "fixed": 0.5362133333333333,
+        "adapted": 0.4882133333333334
+      },
+      "10": {
+        "fixed": 0.5362133333333333,
+        "adapted": 0.4928
+      }
+    },
+    "emo": {
+      "5": {
+        "fixed": 0.5865020576131686,
+        "adapted": 0.5158847736625514
+      },
+      "10": {
+        "fixed": 0.5865020576131686,
+        "adapted": 0.507798353909465
+      }
+    }
+  },
+  "scope_note": "来源每类20人、125个既有SPD成员；冻结几何表示与来源变换，仅用目标每类5/10人更新141参数分类头。原ZAN五折、Emo三折，五次支持抽样和五seed0–4全部保留；固定模型与适配模型在同一测试人上比较。",
+  "summary": "完成2,000次目标支持集分类头适配，保存全部头；1,200项折外评价含固定/适配各600项。五成员集成AUC：ZAN固定0.5316，目标每类5人适配0.4913、10人0.4908；Emo固定0.5666，对应0.5094、0.5040。新增目标Scaler/总体参考拟合0。",
+  "interpretation": "四个集成ΔAUC均为负，条件95%区间均跨0，未见少量目标标签暖启动分类头的可靠收益。ZAN K10和Emo K5/K10五次支持重复均下降；ZAN K5仅1/5正向。八个集成/成员均值比较全部保留；Emo K5成员均值差的未校正条件区间为负。训练损失下降不代表测试改善，本轮停止此配置追加调参。",
+  "boundary": "这是已开发队列的按人交叉验证，不是全局永久留出或独立临床确认。10/20标签是每次拟合的预算，完整交叉验证使用两队列全部107人的标签进行开发与评分。只在每折支持人拟合，测试人不参与Scaler、参考、训练或选参；跨折有不同适配头。人员区间条件于已保存预测，不覆盖折间训练依赖、重训和开发选择；八个比较未校正。支持重复同时改变来源与目标支持。适配额外使用10/20个目标标签，不能称零标签迁移。",
+  "next": "停止这组分类头学习率/轮次/解冻搜索。OA下一分支以历史62人（44患者/18对照）为主要开发输入、64人为重叠敏感性版本，先从原ROI及头动记录补齐输入；旧GSR与当前无GSR分别登记，不能填零冒充FD/删帧比例。OA/HC诊断与三组治疗反应分开，保留原失败/QC状态。",
+  "oa_original": {
+    "state": "COMPLETE_OA_ORIGINAL_INPUT_INVENTORY",
+    "packages": {
+      "62": {
+        "people": 62,
+        "cases": 44,
+        "controls": 18,
+        "unique_ids": 62,
+        "roi_order_1_to_90": true,
+        "finite_fc": true,
+        "roi_source_files": 62,
+        "roi_sources_available": 62,
+        "roi_source_bytes": 14915579,
+        "roi_timepoints_min": 272,
+        "roi_timepoints_max": 280,
+        "pipelines": {
+          "dparsf_original": 44,
+          "repair_v3": 18
+        },
+        "labels_by_study": {
+          "(0, 'HC')": 18,
+          "(1, 'Study1')": 12,
+          "(1, 'Study2')": 32
+        },
+        "has_mean_fd": false,
+        "has_censor_fraction": false,
+        "source_paths_containing_global": 44
+      },
+      "64": {
+        "people": 64,
+        "cases": 46,
+        "controls": 18,
+        "unique_ids": 64,
+        "roi_order_1_to_90": true,
+        "finite_fc": true,
+        "roi_source_files": 64,
+        "roi_sources_available": 64,
+        "roi_source_bytes": 15399053,
+        "roi_timepoints_min": 272,
+        "roi_timepoints_max": 280,
+        "pipelines": {
+          "dparsf_original": 44,
+          "repair_v3": 20
+        },
+        "labels_by_study": {
+          "(0, 'HC')": 18,
+          "(1, 'Study1')": 13,
+          "(1, 'Study2')": 33
+        },
+        "has_mean_fd": false,
+        "has_censor_fraction": false,
+        "source_paths_containing_global": 44
+      }
+    },
+    "n62_n64_overlap": 62,
+    "recent_response_queue_state": "COMPLETE_PENDING_REVIEW",
+    "recent_oa_completed": 27,
+    "recent_oa_returncodes": {
+      "0": 8,
+      "31": 19
+    },
+    "recent_oa_training_inclusion": 0,
+    "original_reprocess_state": "COMPLETE_PENDING_REVIEW",
+    "original_reprocess_keys": [
+      "state",
+      "total",
+      "current_subject",
+      "completed",
+      "updated_at"
+    ],
+    "raw_mri_reads": 0,
+    "new_inclusions": 0,
+    "new_fits": 0,
+    "full76": {
+      "total": 76,
+      "completed": 76,
+      "numeric_pass": 14,
+      "numeric_fail": 62,
+      "pass_by_type": {
+        "control": 6,
+        "patient": 8
+      },
+      "visual_pending": 76,
+      "training_inclusion_true": 0,
+      "source_T1": 76,
+      "source_BOLD": 76
+    }
+  },
+  "verification": {
+    "state": "PASS",
+    "person_support_test_overlap": 0,
+    "all_people_oof_once": true,
+    "head_fits": 2000,
+    "fold_evaluations": 4800,
+    "oof_evaluations": 1200,
+    "sklearn_fold_metric_max_error": 4.440892098500626e-16,
+    "sklearn_bootstrap_max_error": 6.661338147750939e-16,
+    "fixed_oof_vs_original_probability_error": 0.0,
+    "strict_saved_head_replay_error": 0.0,
+    "torch_sgd_parameter_max_error": 6.938893903907228e-17,
+    "source_states_unchanged": 125
+  }
+}

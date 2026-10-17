@@ -1,0 +1,502 @@
+{
+  "state": "COMPLETE_FIXED_M5_ORIGINAL_OUTER_DEVELOPMENT",
+  "people": 99,
+  "patients": 46,
+  "controls": 53,
+  "panels": 5,
+  "support_panels_total": 75,
+  "label_budgets": [
+    5,
+    10,
+    20
+  ],
+  "support_repeats": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "initialization_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "classifier_fits": 375,
+  "neural_fits": 375,
+  "individual_members": 375,
+  "ensemble_evaluations": 75,
+  "comparison_units": 450,
+  "reference_fits": 75,
+  "linear_fits": 0,
+  "outer_final_fits": 375,
+  "member_parameters": 1581,
+  "ensemble_parameters": 7905,
+  "ensemble_size": 5,
+  "epochs": 200,
+  "means": {
+    "5": {
+      "member_mean": {
+        "auc": 0.6541664646464647,
+        "auprc": 0.6669757804646144,
+        "balanced_accuracy": 0.6018707070707071,
+        "sensitivity": 0.682577777777778,
+        "specificity": 0.5211636363636365,
+        "brier": 0.2502064936709027,
+        "logloss": 0.7098406694130991,
+        "train_auc": 1.0,
+        "support_repeat_auc_sample_sd": 0.0645732353170751,
+        "support_repeat_auc_min": 0.5791313131313132,
+        "support_repeat_auc_max": 0.7255757575757577,
+        "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+        "conditional_person_interval": [
+          0.5939403114097235,
+          0.7083093051066581
+        ]
+      },
+      "ensemble5": {
+        "auc": 0.7134666666666667,
+        "auprc": 0.7164694600930926,
+        "balanced_accuracy": 0.6447474747474747,
+        "sensitivity": 0.7462222222222222,
+        "specificity": 0.5432727272727272,
+        "brier": 0.22737849183735803,
+        "logloss": 0.6486541223531574,
+        "train_auc": 1.0,
+        "support_repeat_auc_sample_sd": 0.07633284158084079,
+        "support_repeat_auc_min": 0.6286464646464646,
+        "support_repeat_auc_max": 0.7986666666666666,
+        "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+        "conditional_person_interval": [
+          0.6351996729461016,
+          0.7855820680161589
+        ]
+      },
+      "diagonal_single": {
+        "auc": 0.6580888888888888,
+        "auprc": 0.6797841524794053,
+        "balanced_accuracy": 0.5878181818181818,
+        "sensitivity": 0.644,
+        "specificity": 0.5316363636363636,
+        "brier": 0.2523048665804878,
+        "logloss": 0.7145242679816443,
+        "train_auc": 1.0,
+        "support_repeat_auc_sample_sd": 0.07480623898091891,
+        "support_repeat_auc_min": 0.5717373737373739,
+        "support_repeat_auc_max": 0.7709494949494949,
+        "sd_scope": "joint support-and-initialization changes; newly trained outer diagonal",
+        "conditional_person_interval": [
+          0.5883986435786436,
+          0.721876936021372
+        ]
+      }
+    },
+    "10": {
+      "member_mean": {
+        "auc": 0.6870965656565657,
+        "auprc": 0.7047566312375086,
+        "balanced_accuracy": 0.6357777777777778,
+        "sensitivity": 0.6763555555555554,
+        "specificity": 0.5952,
+        "brier": 0.23655866863099465,
+        "logloss": 0.6862394353367786,
+        "train_auc": 1.0,
+        "support_repeat_auc_sample_sd": 0.013528041625203715,
+        "support_repeat_auc_min": 0.6647919191919192,
+        "support_repeat_auc_max": 0.6988767676767677,
+        "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+        "conditional_person_interval": [
+          0.6092219688248259,
+          0.7559976080492189
+        ]
+      },
+      "ensemble5": {
+        "auc": 0.7315919191919191,
+        "auprc": 0.7441529760687655,
+        "balanced_accuracy": 0.6657777777777778,
+        "sensitivity": 0.7195555555555556,
+        "specificity": 0.612,
+        "brier": 0.21398434064077398,
+        "logloss": 0.6204896893710974,
+        "train_auc": 1.0,
+        "support_repeat_auc_sample_sd": 0.02322699719362776,
+        "support_repeat_auc_min": 0.7100606060606061,
+        "support_repeat_auc_max": 0.7614343434343434,
+        "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+        "conditional_person_interval": [
+          0.6350766852195423,
+          0.8180614718614719
+        ]
+      },
+      "diagonal_single": {
+        "auc": 0.6898545454545455,
+        "auprc": 0.7073480520530573,
+        "balanced_accuracy": 0.6333131313131313,
+        "sensitivity": 0.6764444444444444,
+        "specificity": 0.5901818181818181,
+        "brier": 0.2377887189923488,
+        "logloss": 0.6855040598666149,
+        "train_auc": 1.0,
+        "support_repeat_auc_sample_sd": 0.02465582865665341,
+        "support_repeat_auc_min": 0.6607676767676767,
+        "support_repeat_auc_max": 0.7112727272727273,
+        "sd_scope": "joint support-and-initialization changes; newly trained outer diagonal",
+        "conditional_person_interval": [
+          0.6083761337355456,
+          0.7611894556786712
+        ]
+      }
+    },
+    "20": {
+      "member_mean": {
+        "auc": 0.712611717171717,
+        "auprc": 0.7236075072907066,
+        "balanced_accuracy": 0.6604848484848483,
+        "sensitivity": 0.6717333333333335,
+        "specificity": 0.6492363636363635,
+        "brier": 0.22408109144719626,
+        "logloss": 0.6505490919696114,
+        "train_auc": 1.0,
+        "support_repeat_auc_sample_sd": 0.015758570183592228,
+        "support_repeat_auc_min": 0.6909292929292928,
+        "support_repeat_auc_max": 0.7311757575757576,
+        "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+        "conditional_person_interval": [
+          0.6295710902708404,
+          0.7876685749675163
+        ]
+      },
+      "ensemble5": {
+        "auc": 0.7756040404040405,
+        "auprc": 0.8001278602489128,
+        "balanced_accuracy": 0.710949494949495,
+        "sensitivity": 0.7364444444444446,
+        "specificity": 0.6854545454545454,
+        "brier": 0.20219813978189283,
+        "logloss": 0.5926843669186538,
+        "train_auc": 1.0,
+        "support_repeat_auc_sample_sd": 0.015555001957878404,
+        "support_repeat_auc_min": 0.7526262626262626,
+        "support_repeat_auc_max": 0.7929292929292929,
+        "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+        "conditional_person_interval": [
+          0.6778559884559885,
+          0.8638590483590483
+        ]
+      },
+      "diagonal_single": {
+        "auc": 0.7067999999999999,
+        "auprc": 0.7210773761192749,
+        "balanced_accuracy": 0.6427676767676768,
+        "sensitivity": 0.6444444444444444,
+        "specificity": 0.641090909090909,
+        "brier": 0.22455232781990955,
+        "logloss": 0.6474704182287012,
+        "train_auc": 1.0,
+        "support_repeat_auc_sample_sd": 0.06328264464248992,
+        "support_repeat_auc_min": 0.6436363636363638,
+        "support_repeat_auc_max": 0.8028484848484849,
+        "sd_scope": "joint support-and-initialization changes; newly trained outer diagonal",
+        "conditional_person_interval": [
+          0.6220995532245533,
+          0.7815283597428665
+        ]
+      }
+    }
+  },
+  "contrasts": {
+    "5": {
+      "ensemble_minus_member_mean": {
+        "delta_mean_auc": 0.05930020202020196,
+        "repeat_mean_deltas": [
+          0.0495151515151514,
+          0.07309090909090898,
+          0.06642828282828284,
+          0.03982626262626254,
+          0.06764040404040406
+        ],
+        "positive_support_repeats": 5,
+        "parent_mean_deltas": [
+          0.048484848484848464,
+          0.08242424242424251,
+          0.043636363636363584,
+          0.07040000000000013,
+          0.05155555555555558
+        ],
+        "positive_parent_groups": 5,
+        "panel_mean_deltas": [
+          0.048484848484848464,
+          0.08242424242424251,
+          0.043636363636363584,
+          0.07040000000000013,
+          0.05155555555555558
+        ],
+        "positive_panels": 5,
+        "conditional_person_interval": [
+          0.03483723720723712,
+          0.08452480305253432
+        ],
+        "delta_brier": -0.022828001833544664,
+        "delta_logloss": -0.06118654705994164
+      },
+      "ensemble_minus_diagonal": {
+        "delta_mean_auc": 0.055377777777777706,
+        "repeat_mean_deltas": [
+          0.05690909090909069,
+          0.027717171717171696,
+          0.07565656565656564,
+          0.01719191919191909,
+          0.0994141414141414
+        ],
+        "positive_support_repeats": 5,
+        "parent_mean_deltas": [
+          0.11515151515151523,
+          0.05252525252525264,
+          0.010101010101010055,
+          0.1280000000000001,
+          -0.028888888888888964
+        ],
+        "positive_parent_groups": 4,
+        "panel_mean_deltas": [
+          0.11515151515151523,
+          0.05252525252525264,
+          0.010101010101010055,
+          0.1280000000000001,
+          -0.028888888888888964
+        ],
+        "positive_panels": 4,
+        "conditional_person_interval": [
+          0.010500400641025637,
+          0.10268204028165565
+        ],
+        "delta_brier": -0.024926374743129753,
+        "delta_logloss": -0.06587014562848681
+      }
+    },
+    "10": {
+      "ensemble_minus_member_mean": {
+        "delta_mean_auc": 0.04449535353535348,
+        "repeat_mean_deltas": [
+          0.02853737373737364,
+          0.05496969696969689,
+          0.0452686868686869,
+          0.03114343434343425,
+          0.0625575757575757
+        ],
+        "positive_support_repeats": 5,
+        "parent_mean_deltas": [
+          0.04888888888888909,
+          0.05979797979797974,
+          0.023434343434343585,
+          0.06280000000000008,
+          0.027555555555555555
+        ],
+        "positive_parent_groups": 5,
+        "panel_mean_deltas": [
+          0.04888888888888909,
+          0.05979797979797974,
+          0.023434343434343585,
+          0.06280000000000008,
+          0.027555555555555555
+        ],
+        "positive_panels": 5,
+        "conditional_person_interval": [
+          0.015441242780307673,
+          0.07092222873858162
+        ],
+        "delta_brier": -0.02257432799022066,
+        "delta_logloss": -0.06574974596568117
+      },
+      "ensemble_minus_diagonal": {
+        "delta_mean_auc": 0.04173737373737374,
+        "repeat_mean_deltas": [
+          0.05670707070707082,
+          0.05036363636363639,
+          0.04432323232323232,
+          0.0071313131313130995,
+          0.050161616161616074
+        ],
+        "positive_support_repeats": 5,
+        "parent_mean_deltas": [
+          0.11717171717171715,
+          0.056565656565656486,
+          -0.016161616161616044,
+          0.060000000000000164,
+          -0.008888888888888835
+        ],
+        "positive_parent_groups": 3,
+        "panel_mean_deltas": [
+          0.11717171717171715,
+          0.056565656565656486,
+          -0.016161616161616044,
+          0.060000000000000164,
+          -0.008888888888888835
+        ],
+        "positive_panels": 3,
+        "conditional_person_interval": [
+          0.004967129031099526,
+          0.0789473789758716
+        ],
+        "delta_brier": -0.023804378351574812,
+        "delta_logloss": -0.0650143704955175
+      }
+    },
+    "20": {
+      "ensemble_minus_member_mean": {
+        "delta_mean_auc": 0.06299232323232322,
+        "repeat_mean_deltas": [
+          0.06364040404040394,
+          0.06175353535353534,
+          0.061696969696969806,
+          0.06088484848484843,
+          0.0669858585858586
+        ],
+        "positive_support_repeats": 5,
+        "parent_mean_deltas": [
+          0.10101010101010122,
+          0.049696969696969684,
+          0.04767676767676765,
+          0.08679999999999999,
+          0.029777777777777792
+        ],
+        "positive_parent_groups": 5,
+        "panel_mean_deltas": [
+          0.10101010101010122,
+          0.049696969696969684,
+          0.04767676767676765,
+          0.08679999999999999,
+          0.029777777777777792
+        ],
+        "positive_panels": 5,
+        "conditional_person_interval": [
+          0.036711134026467425,
+          0.09005898962148945
+        ],
+        "delta_brier": -0.021882951665303435,
+        "delta_logloss": -0.05786472505095763
+      },
+      "ensemble_minus_diagonal": {
+        "delta_mean_auc": 0.06880404040404035,
+        "repeat_mean_deltas": [
+          0.07989898989898991,
+          0.0591717171717171,
+          0.10898989898989886,
+          -0.018303030303030376,
+          0.11426262626262629
+        ],
+        "positive_support_repeats": 4,
+        "parent_mean_deltas": [
+          0.14141414141414144,
+          0.05252525252525242,
+          0.030303030303030276,
+          0.08200000000000007,
+          0.03777777777777769
+        ],
+        "positive_parent_groups": 5,
+        "panel_mean_deltas": [
+          0.14141414141414144,
+          0.05252525252525242,
+          0.030303030303030276,
+          0.08200000000000007,
+          0.03777777777777769
+        ],
+        "positive_panels": 5,
+        "conditional_person_interval": [
+          0.03179201833880402,
+          0.10741728251025874
+        ],
+        "delta_brier": -0.022354188038016726,
+        "delta_logloss": -0.054786051310047434
+      }
+    }
+  },
+  "variation": {
+    "5": {
+      "mean_within_support_member_auc_sd": 0.09285444562266922,
+      "between_seed_mean_auc_sample_sd": 0.02751383900516919,
+      "seed_mean_aucs": [
+        0.6552767676767677,
+        0.6839595959595961,
+        0.6226545454545455,
+        0.6784080808080808,
+        0.6305333333333333
+      ],
+      "scope": "Observed fixed seeds and repeated supports on overlapping development people; not independent population uncertainty."
+    },
+    "10": {
+      "mean_within_support_member_auc_sd": 0.08965415686887784,
+      "between_seed_mean_auc_sample_sd": 0.023592708126607072,
+      "seed_mean_aucs": [
+        0.6681939393939393,
+        0.7156444444444445,
+        0.6654424242424243,
+        0.7091191919191918,
+        0.6770828282828282
+      ],
+      "scope": "Observed fixed seeds and repeated supports on overlapping development people; not independent population uncertainty."
+    },
+    "20": {
+      "mean_within_support_member_auc_sd": 0.07383061068838472,
+      "between_seed_mean_auc_sample_sd": 0.03920332444690132,
+      "seed_mean_aucs": [
+        0.6844282828282828,
+        0.7363434343434343,
+        0.6784929292929293,
+        0.7698585858585858,
+        0.6939353535353534
+      ],
+      "scope": "Observed fixed seeds and repeated supports on overlapping development people; not independent population uncertainty."
+    }
+  },
+  "valid_resamples": 1999,
+  "invalid_resamples": 1,
+  "independent_validation": false,
+  "aggregation": "Equal-weighted mean of five outer-fold metrics; then average all supports and initialization seeds. Not pooled OOF AUC.",
+  "uncertainty_scope": "Same cohort used for development; original outer splits are not independent validation. Six comparisons unadjusted; intervals condition on saved predictions, without retraining/development-selection/new-cohort coverage.",
+  "runtime": {
+    "elapsed_seconds": 239.87426948547363,
+    "torch": "1.13.1",
+    "numpy": "1.26.0",
+    "device": "cpu",
+    "threads": 2,
+    "strict_probability_max_error": 0.0,
+    "numpy_probability_max_error": 2.9976021664879227e-15,
+    "max_reference_residual": 3.901393376716449e-08
+  },
+  "verification": {
+    "state": "PASS",
+    "new_models": 375,
+    "new_support_references": 75,
+    "actual_prediction_evaluations": 450,
+    "outer_panels": 5,
+    "support_panels": 75,
+    "metric_max_error": 2.220446049250313e-16,
+    "train_auc_max_error": 0.0,
+    "ci_max_error": 0.0,
+    "mean_max_error": 2.220446049250313e-16,
+    "sd_max_error": 0.0,
+    "mixture_probability_max_error": 0.0,
+    "train_mixture_max_error": 0.0,
+    "brier_variance_identity_max_error": 1.3704315460216776e-16,
+    "whitening_max_error": 1.6431300764452317e-14,
+    "support_scaler_max_error": 0.0,
+    "nilearn_reference_whitening_relative_max_error": 9.506454371500754e-14,
+    "nilearn_reference_audit_recomputations": 75,
+    "valid_resamples": 1999,
+    "invalid_resamples": 1,
+    "strict_probability_max_error": 0.0,
+    "numpy_probability_max_error": 2.9976021664879227e-15,
+    "classifier_refits": 0,
+    "independent_validation": false
+  },
+  "id": "spd-outer-20261017",
+  "title": "固定五成员SPD：原外层划分复核",
+  "date": "2026-10-17",
+  "scope_note": "固定原16维SPD、五个初始化及等权概率平均，使用原五外折。每类5／10／20人、五次嵌套支持重复，全部预算和seed保留。此前已在同队列开发，本轮属于同来源外层复核。",
+  "summary": "SRPBS99（46病例／53对照），原五外折×五支持重复×三预算。新增75份仅支持侧参考、375神经训练及75集成，450条实际外测试预测评价；传统模型新增0。每个集成的五成员只用同一批2K名训练者。平均外折AUC：K5 0.7135±0.0763；K10 0.7316±0.0232；K20 0.7756±0.0156。",
+  "interpretation": "K5集成减成员指标均值（主要）ΔAUC +0.0593，条件95%[0.0348, 0.0845]，5/5支持重复正向、5/5外折正向；K5集成减对角单成员（副比较）ΔAUC +0.0554，条件95%[0.0105, 0.1027]，5/5支持重复正向、4/5外折正向；K10集成减成员指标均值（主要）ΔAUC +0.0445，条件95%[0.0154, 0.0709]，5/5支持重复正向、5/5外折正向；K10集成减对角单成员（副比较）ΔAUC +0.0417，条件95%[0.0050, 0.0789]，5/5支持重复正向、3/5外折正向；K20集成减成员指标均值（主要）ΔAUC +0.0630，条件95%[0.0367, 0.0901]，5/5支持重复正向、5/5外折正向；K20集成减对角单成员（副比较）ΔAUC +0.0688，条件95%[0.0318, 0.1074]，4/5支持重复正向、5/5外折正向。 三个预算的主要AUC增量在原外层评估中保留；可固定此候选，但尚不能认定独立泛化。 支持重复SD（成员指标均值→集成）：K5 0.0646→0.0763；K10 0.0135→0.0232；K20 0.0158→0.0156，不能由AUC增加直接推断稳定性改善。",
+  "boundary": "主估计是五外折指标等权均值，再平均全部支持与初始化；不混同跨折OOF AUC或原内层均值。五折训练池重叠，六个主副比较未校正；2000共同人员抽样区间只覆盖保存预测重加权，不覆盖重训、开发选择或独立人群。支持SD条件于固定五初始化；对角单成员SD混合支持和初始化。概率误差下降部分由凸性保证。",
+  "next": "三个预算的主要AUC增量在原外层评估中保留；可固定此候选，但尚不能认定独立泛化。 本轮固定375拟合已结束，不按外层成绩修改seed、权重、K或训练轮数。下一步整理该固定候选的独立来源与临床标签适用条件；未取得相应真实输入前不启动独立验证或新增临床终点训练。"
+}

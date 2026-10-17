@@ -73,3 +73,18 @@ K5主要比较没有得到稳定增量，结束这一固定系数配置，不继
 [拟合前方案](https://onephantomcat.github.io/neurograph-site/files/spd-proximal-20261017-plan.md) · [扩展表](https://onephantomcat.github.io/neurograph-site/files/spd-proximal-20261017-comparison.md) · [900项全部指标](https://onephantomcat.github.io/neurograph-site/files/spd-proximal-20261017-panels.csv) · [均值](https://onephantomcat.github.io/neurograph-site/files/spd-proximal-20261017-means.csv) · [六项配对比较](https://onephantomcat.github.io/neurograph-site/files/spd-proximal-20261017-contrasts.csv) · [支持/种子/几何诊断](https://onephantomcat.github.io/neurograph-site/files/spd-proximal-20261017-diagnostics.csv) · [同支持配对](https://onephantomcat.github.io/neurograph-site/files/spd-proximal-20261017-paired.csv) · [全部初始化](https://onephantomcat.github.io/neurograph-site/files/spd-proximal-20261017-seeds.csv) · [聚合](https://onephantomcat.github.io/neurograph-site/files/spd-proximal-20261017-summary.json)
 
 <Self-Audit>同人同标签预算、全部种子、预定单一改动；保存预测条件区间不覆盖开发选择与重新训练。没有用测试结果追调参数，没有将开发分数称为独立临床验证。</Self-Audit>
+
+
+<!-- spd-cosine-20261017 -->
+
+## 2026-10-17：SRPBS99余弦分类头同人同预算比较
+
+新增375个SPD余弦头模型及75个M5评价完成；原375及近端375模型保持。M5平均外折AUC（原→余弦）：K5 0.713467→0.711725；K10 0.731592→0.742275；K20 0.775604→0.778137。复用75训练侧参考，新参考／传统模型拟合0。
+
+K5主要ΔAUC -0.001741，条件95%[-0.015081, 0.011648]，3/5支持重复、2/5外折正向；K10次要ΔAUC +0.010683，条件95%[-0.008664, 0.030398]，4/5支持重复、4/5外折正向；K20次要ΔAUC +0.002533，条件95%[-0.017126, 0.021211]，3/5支持重复、3/5外折正向。三个预算M5的Brier和logloss均变差，局部AUC增加不代表概率预测整体改善。K5主要比较未获得稳定增量，结束这一固定余弦头配置，不追加温度、轮数或种子搜索。
+
+主估计为五外折指标等权均值，再平均全部支持和初始化；不更换为跨折OOF。K5 M5主要，其他预算及成员均值次要，未多重校正。2000共同99人员抽样1999有效／1缺类别无效，区间只条件于固定预测，不涵盖重训、开发选择或独立来源；五支持重复SD条件于固定五初始化。原队列已反复开发，本轮仍是开发比较。余弦头参考已有少样本方法，属于本地二分类适配，不是官方视觉任务完整复现或已证明新方法。
+
+K5主要比较未获得稳定增量，结束这一固定余弦头配置，不追加温度、轮数或种子搜索。 保留原固定SPD M5，汇总已尝试的负结果；下一模型实验须另有具体假设和有限方案，不能连续扫描直到好看。 OA旧时序问题及ZAN/Emo迁移和适配阴性保持；临床终点、QC和独立验证状态不变。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/spd-cosine-20261017.md)。

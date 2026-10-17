@@ -97,3 +97,18 @@ z为原140维特征，K=ZcZcᵀ/140、R=(K+I)⁻¹、H=I−R+11ᵀ/n、t=2y−1�
 [拟合前方案](https://onephantomcat.github.io/neurograph-site/files/spd-crossridge-20261017-plan.md) · [五模型对比表](https://onephantomcat.github.io/neurograph-site/files/spd-crossridge-20261017-comparison.md) · [全部2250面板指标](https://onephantomcat.github.io/neurograph-site/files/spd-crossridge-20261017-panels.csv) · [30行均值](https://onephantomcat.github.io/neurograph-site/files/spd-crossridge-20261017-means.csv) · [六项新减原比较](https://onephantomcat.github.io/neurograph-site/files/spd-crossridge-20261017-contrasts.csv) · [训练侧依据/全种子诊断](https://onephantomcat.github.io/neurograph-site/files/spd-crossridge-20261017-diagnostics.csv) · [同支持配对](https://onephantomcat.github.io/neurograph-site/files/spd-crossridge-20261017-paired.csv) · [全部75行种子](https://onephantomcat.github.io/neurograph-site/files/spd-crossridge-20261017-seeds.csv) · [聚合](https://onephantomcat.github.io/neurograph-site/files/spd-crossridge-20261017-summary.json)
 
 <Self-Audit>先做逐面板不将查询行用于计算的支持侧诊断，再以固定模块和375预算执行；内部自排除仅是训练损失，外test严格隔离但来源已开发。所有旧/新种子、失败、阴性及临床限制保留。</Self-Audit>
+
+
+<!-- spd-momentum-20261017 -->
+
+## 2026-10-17：SRPBS99训练核查与动量优化同人同预算比较
+
+训练核查未发现所测梯度/SGD/谱截断错误，200轮训练目标仍可下降。375正式动量模型及75个M5已完成；M5平均外折AUC（原→动量）：K5 0.713467→0.714861；K10 0.731592→0.733931；K20 0.775604→0.770586。原1875模型及15续训权重保留；复用75参考，不新增传统参照、标签或人员。
+
+K5主要ΔAUC +0.001394，条件95%[-0.011957, 0.015366]，3/5支持重复正向；ΔBrier +0.008960、Δlogloss +0.043150（负值更好）；K10次要ΔAUC +0.002339，条件95%[-0.014347, 0.019995]，3/5支持重复正向；ΔBrier +0.006722、Δlogloss +0.038284（负值更好）；K20次要ΔAUC -0.005018，条件95%[-0.020254, 0.009253]，1/5支持重复正向；ΔBrier +0.005712、Δlogloss +0.037965（负值更好）。同预算动量未满足本轮K5稳定增益与概率不恶化条件，停止此配置，保留原M5，不追加动量、学习率或轮数扫描。
+
+训练目标未充分优化不等于泛化瓶颈已证；旧支持训练AUC已全1。独立原生谱梯度/SGD核对覆盖原SPD375个，其他旧模型核查支持侧目标与梯度，不能称所有潜在错误已排除。续训仅15条原outer0/repeat0、全部五seed，不预测查询。五外折指标等权再平均全部支持/初始化，K5 M5主要，其余次要，未多重校正；2000共同99人条件预测抽样1999有效/1无效，不覆盖重训/研究选择/独立来源。本队列已开发，不是临床或独立验证。
+
+同预算动量未满足本轮K5稳定增益与概率不恶化条件，停止此配置，保留原M5，不追加动量、学习率或轮数扫描。 训练目标与外层泛化分开判断；下一步优先寻找已核实无查询重叠的表示来源或独立同终点证据，再决定模型，不以更低支持损失或最高seed继续追分。 OA旧时序、ZAN/Emo阴性、标签/QC及三临床终点保持。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/spd-momentum-20261017.md)。

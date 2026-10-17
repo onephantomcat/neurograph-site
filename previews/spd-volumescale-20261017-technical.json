@@ -1,0 +1,4 @@
+{
+  "content": "variable,maximum_error,value,people\nstandardization_max_error,0.0,,\ninput_unit_variance_max_error,2.4424906541753444e-15,,\ninput_mean_max_error,5.643633708511212e-17,,\ncovariance_diagonal_constant_max_error,1.7763568394002505e-15,,\ncovariance_reconstruction_max_error,1.4432899320127035e-15,,\nlogdet_decomposition_error,1.1102230246251565e-15,,\nmultiplicative_scale_invariance_error,0.0,,\nTR_seconds,,2.5,99\ntimepoints,,240,99\nROI_count,,90,99\n",
+  "truncated": false
+}

@@ -1,3 +1,5 @@
+> 2026-10-18输入解释更正：更正上一轮的输入解释：99人每ROI时序已在上游按样本标准差归一化，当前ROI方差为1；旧SPD步骤未再标准化不代表上游未标准化。旧log行列式主要反映收缩相关矩阵的几何体积，不能称原始BOLD幅度。旧模型、AUC和固定权重干预数值全部保持。 以下原日期记录及数值保留；当前核查与新实验见本文件末尾链接。
+
 # K10/20同类跨站点偏移与总体幅度检查
 
 2026-10-17，有限诊断完成，条件对齐模型未启动。
@@ -81,3 +83,20 @@
 [计算前方案](https://onephantomcat.github.io/neurograph-site/files/spd-conditionalshift-20261017-plan.md) · [分开对比表](https://onephantomcat.github.io/neurograph-site/files/spd-conditionalshift-20261017-comparison.md) · [聚合](https://onephantomcat.github.io/neurograph-site/files/spd-conditionalshift-20261017-summary.json) · [全部内层指标](https://onephantomcat.github.io/neurograph-site/files/spd-conditionalshift-20261017-panels.csv) · [内层均值](https://onephantomcat.github.io/neurograph-site/files/spd-conditionalshift-20261017-means.csv) · [全部内层seed](https://onephantomcat.github.io/neurograph-site/files/spd-conditionalshift-20261017-seeds.csv) · [内层重复](https://onephantomcat.github.io/neurograph-site/files/spd-conditionalshift-20261017-repeats.csv) · [全部差值](https://onephantomcat.github.io/neurograph-site/files/spd-conditionalshift-20261017-contrasts.csv) · [支持表示全部seed/面板](https://onephantomcat.github.io/neurograph-site/files/spd-conditionalshift-20261017-shift-panels.csv) · [偏移均值](https://onephantomcat.github.io/neurograph-site/files/spd-conditionalshift-20261017-shift-means.csv) · [偏移全部seed](https://onephantomcat.github.io/neurograph-site/files/spd-conditionalshift-20261017-shift-seeds.csv) · [偏移重复](https://onephantomcat.github.io/neurograph-site/files/spd-conditionalshift-20261017-shift-repeats.csv) · [资格与不适用](https://onephantomcat.github.io/neurograph-site/files/spd-conditionalshift-20261017-coverage.csv) · [幅度logit分量](https://onephantomcat.github.io/neurograph-site/files/spd-conditionalshift-20261017-diagnostics.csv)
 
 <Self-Audit>支持内条件置换与固定模型干预，外层查询不参与决定；未满足条件不训练，保留全部seed/阴性/失败。复用原SPD和评价，不改QC，不把幅度依赖解释为因果或独立临床验证。</Self-Audit>
+
+
+<!-- spd-volumescale-20261017 -->
+
+## 2026-10-18：协方差几何体积、ROI方差与流程混杂核查
+
+更正上一轮的输入解释：99人每ROI时序已在上游按样本标准差归一化，当前ROI方差为1；旧SPD步骤未再标准化不代表上游未标准化。旧log行列式主要反映收缩相关矩阵的几何体积，不能称原始BOLD幅度。旧模型、AUC和固定权重干预数值全部保持。
+
+外层M5 AUC（原SPD→几何体积/形状分支）：K10 0.731592→0.683366，Δ-0.048226，条件区间[-0.099306, -0.000256]，0/5支持重复正向；K20 0.775604→0.716735，Δ-0.058869，条件区间[-0.107376, -0.015500]，0/5支持重复正向。
+
+同站点两类差异未被现有站点、批次、年龄/性别编码和头动描述完全解释：K10/20调整后标准化病例系数0.594689/0.564954，五重复均正；OSU/CIN原几何体积病例差均正。分层置换平均尾比例约0.34/0.14，不能挑最小值声称显著；这些证据只支持有限开发实验，不排除未测混杂。
+
+几何体积不是原始ROI幅度或平均BOLD。与收缩率高度相关，疾病、网络相关结构、采集和处理影响尚不能因果区分。OLS为支持内描述，R²为样本内拟合，置换/面板/seed相互重叠。新模型同时改变标量分支和正则强度，不能把差值归因于单一因素。当前99人已开发，人员区间只覆盖固定预测，不是独立临床验证。
+
+停止当前分支正则假设，保留原SPD。下一步先用同一支持划分检查收缩估计敏感性与同站点结果稳定性，再决定一个有限的估计器因素实验；不把缺失采集记录补成一致，不继续扫描正则。 原QC、OA/ZAN/Emo阴性、CoSpine13留出、TN14停止及三个临床终点保持。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/spd-volumescale-20261017.md)。

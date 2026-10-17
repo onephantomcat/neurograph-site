@@ -1,0 +1,13 @@
+﻿field,value,people
+site,OSU,46
+site,NKN,3
+site,CIN,50
+protocol,13,49
+protocol,14,50
+policy,existing_pipeline,91
+policy,full_original_t1_no_crop,8
+batch,pilot-v6,1
+batch,pilot-v8,17
+batch,pilot-v9,73
+batch,repair,7
+batch,pilot-v7,1

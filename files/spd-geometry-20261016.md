@@ -1,3 +1,5 @@
+> 2026-10-18输入解释更正：更正上一轮的输入解释：99人每ROI时序已在上游按样本标准差归一化，当前ROI方差为1；旧SPD步骤未再标准化不代表上游未标准化。旧log行列式主要反映收缩相关矩阵的几何体积，不能称原始BOLD幅度。旧模型、AUC和固定权重干预数值全部保持。 以下原日期记录及数值保留；当前核查与新实验见本文件末尾链接。
+
 # SPD几何网络：五种子训练内对照
 
 2026-10-16，固定拟合及独立核算完成。
@@ -56,3 +58,20 @@ SPD减同参数无对数网络ΔAUC +0.0318，条件95%[0.0106, 0.0512]，5/5种
 [拟合前方案](https://onephantomcat.github.io/neurograph-site/files/spd-geometry-20261016-plan.md) · [扩展对照表](https://onephantomcat.github.io/neurograph-site/files/spd-geometry-20261016-comparison.md) · [全部180项指标](https://onephantomcat.github.io/neurograph-site/files/spd-geometry-20261016-metrics.csv) · [条件均值](https://onephantomcat.github.io/neurograph-site/files/spd-geometry-20261016-means.csv) · [三项比较](https://onephantomcat.github.io/neurograph-site/files/spd-geometry-20261016-contrasts.csv) · [五种子指标](https://onephantomcat.github.io/neurograph-site/files/spd-geometry-20261016-diagnostics.csv) · [聚合](https://onephantomcat.github.io/neurograph-site/files/spd-geometry-20261016-summary.json) · [本地适配实现](https://onephantomcat.github.io/neurograph-site/files/spd-geometry-20261016-code.py)
 
 <Self-Audit>模型因素与完整信息参照已实际运行，作者算子数值核验与患者任务效果分别报告；训练侧估计、固定预算与阴性停止保持。代码和开发实验完成不等于创新或临床目标完成。</Self-Audit>
+
+
+<!-- spd-volumescale-20261017 -->
+
+## 2026-10-18：协方差几何体积、ROI方差与流程混杂核查
+
+更正上一轮的输入解释：99人每ROI时序已在上游按样本标准差归一化，当前ROI方差为1；旧SPD步骤未再标准化不代表上游未标准化。旧log行列式主要反映收缩相关矩阵的几何体积，不能称原始BOLD幅度。旧模型、AUC和固定权重干预数值全部保持。
+
+外层M5 AUC（原SPD→几何体积/形状分支）：K10 0.731592→0.683366，Δ-0.048226，条件区间[-0.099306, -0.000256]，0/5支持重复正向；K20 0.775604→0.716735，Δ-0.058869，条件区间[-0.107376, -0.015500]，0/5支持重复正向。
+
+同站点两类差异未被现有站点、批次、年龄/性别编码和头动描述完全解释：K10/20调整后标准化病例系数0.594689/0.564954，五重复均正；OSU/CIN原几何体积病例差均正。分层置换平均尾比例约0.34/0.14，不能挑最小值声称显著；这些证据只支持有限开发实验，不排除未测混杂。
+
+几何体积不是原始ROI幅度或平均BOLD。与收缩率高度相关，疾病、网络相关结构、采集和处理影响尚不能因果区分。OLS为支持内描述，R²为样本内拟合，置换/面板/seed相互重叠。新模型同时改变标量分支和正则强度，不能把差值归因于单一因素。当前99人已开发，人员区间只覆盖固定预测，不是独立临床验证。
+
+停止当前分支正则假设，保留原SPD。下一步先用同一支持划分检查收缩估计敏感性与同站点结果稳定性，再决定一个有限的估计器因素实验；不把缺失采集记录补成一致，不继续扫描正则。 原QC、OA/ZAN/Emo阴性、CoSpine13留出、TN14停止及三个临床终点保持。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/spd-volumescale-20261017.md)。

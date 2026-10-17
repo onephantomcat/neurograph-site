@@ -1,0 +1,4 @@
+{
+  "content": "field,value,people\nsite,OSU,46\nsite,NKN,3\nsite,CIN,50\nprotocol,13,49\nprotocol,14,50\npolicy,existing_pipeline,91\npolicy,full_original_t1_no_crop,8\nbatch,pilot-v6,1\nbatch,pilot-v8,17\nbatch,pilot-v9,73\nbatch,repair,7\nbatch,pilot-v7,1\n",
+  "truncated": false
+}

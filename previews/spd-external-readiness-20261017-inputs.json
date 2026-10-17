@@ -1,0 +1,4 @@
+{
+  "content": "cohort,people,patients,controls,ts_shape,fc_shape,cov_shape,finite,constant_roi_series,unique_people,covariate_columns,covariate_semantics_match_source,new_fits\nsrpbs,99,46,53,99x240x90,99x90x90,99x4,True,0,99,age / male_indicator / mean_FD / expanded_censor_fraction,True,0\nzan,54,25,29,54x236x90,54x90x90,54x4,True,0,54,age / male_indicator / mean_FD / expanded_censor_fraction,True,0\nemo,53,27,26,53x300x90,53x90x90,53x4,True,0,53,age / male_indicator / mean_FD / expanded_censor_fraction,True,0\nmigraine,132,111,21,132x300x90,132x90x90,132x4,True,0,132,male_indicator / sex_missing / mean_FD / expanded_censor_fraction,False,0\n",
+  "truncated": false
+}

@@ -174,3 +174,18 @@ K5 原型−旧原ΔAUC +0.001612，条件95%[-0.003204, 0.007296]，2/5支持�
 [拟合前方案](https://onephantomcat.github.io/neurograph-site/files/spd-taskproto-20261017-plan.md) · [十模型对比表](https://onephantomcat.github.io/neurograph-site/files/spd-taskproto-20261017-comparison.md) · [4500面板](https://onephantomcat.github.io/neurograph-site/files/spd-taskproto-20261017-panels.csv) · [60均值](https://onephantomcat.github.io/neurograph-site/files/spd-taskproto-20261017-means.csv) · [24项主副比较](https://onephantomcat.github.io/neurograph-site/files/spd-taskproto-20261017-contrasts.csv) · [全部诊断与来源轨迹](https://onephantomcat.github.io/neurograph-site/files/spd-taskproto-20261017-diagnostics.csv) · [600同支持配对](https://onephantomcat.github.io/neurograph-site/files/spd-taskproto-20261017-paired.csv) · [全部150行种子](https://onephantomcat.github.io/neurograph-site/files/spd-taskproto-20261017-seeds.csv) · [聚合](https://onephantomcat.github.io/neurograph-site/files/spd-taskproto-20261017-summary.json)
 
 <Self-Audit>来源充分性和任务关联分别测量，原型约束只改旧原的辅助目标，源加强转化另列；保留全部种子/阴性/原身份标签QC划分，复用原组件，没有查询选参，不热改旧worker。当前阶段完成不等于独立临床目标完成。</Self-Audit>
+
+
+<!-- spd-siteholdout-20261017 -->
+
+## 2026-10-17：K10/20训练内站点留出与混杂检查
+
+训练内M5 AUC（随机留人→留站点）：K10 原SPD 0.639190→0.579991，协变量头0.525382→0.500015；K20 原SPD 0.704355→0.662737，协变量头0.514025→0.457612。
+
+K10 随机−站点ΔAUC +0.059199，条件区间未给出（有效共同人员抽样不足100次），4/5支持重复正向；K20 随机−站点ΔAUC +0.041619，条件区间[-0.027375, 0.112007]，5/5支持重复正向。两个预算留站点AUC均≥0.55：满足；两个预算随机−站点差均≥0.03且至少4/5重复为正：满足；同一混杂参照在两预算随机AUC≥0.60、转站点下降≥0.03：未满足。未同时满足训练依据，本轮不启动预定站点组平衡候选，不扩展阈值或参数搜索；不据此否定其他稳健方法。
+
+随机与站点划分的留出人员不同，比较的是同支持/同类别数预算的划分敏感性，不是同人预测差或站点因果效应。站点、年龄/性别/头动及影像分布仍可能交织；固定权重去协变量分量不等于消除影像混杂。站点比例参照在新站点退回总体比例，其AUC=0.5不证明无混杂。人员bootstrap区间仅覆盖这些固定预测；重叠支持/seed非独立，当前99已开发，不是独立验证。
+
+保留原SPD，未启动本轮预定站点组平衡候选；站点差距存在，但协变量/站点比例捷径证据未同时满足，不代表所有站点稳健方法无效。下一步优先核对影像表示中同类人员的跨站点偏移及各站点方向的稳定性，再判断是否需要条件对齐；不直接扫描站点损失或重新挑参数。 原标签/QC、OA/ZAN/Emo阴性、CoSpine13留出、TN14停止及三临床终点保持。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/spd-siteholdout-20261017.md)。

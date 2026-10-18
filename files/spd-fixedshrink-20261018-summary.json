@@ -1,0 +1,517 @@
+{
+  "id": "spd-fixedshrink-20261018",
+  "title": "本地SPDNet固定支持收缩率与近期工作对照",
+  "date": "2026-10-18",
+  "state": "COMPLETE_FIXED_SHRINK_250_AND_TEAM_TABLES",
+  "people": 99,
+  "patients": 46,
+  "controls": 53,
+  "label_budgets": [
+    10,
+    20
+  ],
+  "initialization_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "support_repeats": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "new_fits": 250,
+  "new_reference_fits": 50,
+  "member_parameters": 1581,
+  "ensemble_parameters": 7905,
+  "base_model": "本地单BiMap SPDNet任务适配（90→16，logSPD，四协变量）",
+  "changed_component": "逐人Ledoit–Wolf λ改为支持集λ中位数；网络/优化器不变",
+  "code_assistant": "Codex（GPT-6系列；当前环境未提供具体子型号）",
+  "model": {
+    "state": "COMPLETE_250_FIXED_SHRINK_50_ENSEMBLES",
+    "new_fits": 250,
+    "new_reference_fits": 50,
+    "parameters": 1581,
+    "ensemble_parameters": 7905,
+    "original_parameters": 1581,
+    "means": {
+      "10": {
+        "original": {
+          "member_mean": {
+            "auc": 0.6870965656565657,
+            "auprc": 0.7047566312375086,
+            "balanced_accuracy": 0.6357777777777778,
+            "sensitivity": 0.6763555555555554,
+            "specificity": 0.5952,
+            "brier": 0.23655866863099465,
+            "logloss": 0.6862394353367786,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.013528041625203715,
+            "support_repeat_auc_min": 0.6647919191919192,
+            "support_repeat_auc_max": 0.6988767676767677,
+            "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+            "conditional_person_interval": [
+              0.6092219688248259,
+              0.7559976080492189
+            ]
+          },
+          "ensemble5": {
+            "auc": 0.7315919191919191,
+            "auprc": 0.7441529760687655,
+            "balanced_accuracy": 0.6657777777777778,
+            "sensitivity": 0.7195555555555556,
+            "specificity": 0.612,
+            "brier": 0.21398434064077398,
+            "logloss": 0.6204896893710974,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.02322699719362776,
+            "support_repeat_auc_min": 0.7100606060606061,
+            "support_repeat_auc_max": 0.7614343434343434,
+            "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+            "conditional_person_interval": [
+              0.6350766852195423,
+              0.8180614718614719
+            ]
+          },
+          "diagonal_single": {
+            "auc": 0.6898545454545455,
+            "auprc": 0.7073480520530573,
+            "balanced_accuracy": 0.6333131313131313,
+            "sensitivity": 0.6764444444444444,
+            "specificity": 0.5901818181818181,
+            "brier": 0.2377887189923488,
+            "logloss": 0.6855040598666149,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.02465582865665341,
+            "support_repeat_auc_min": 0.6607676767676767,
+            "support_repeat_auc_max": 0.7112727272727273,
+            "sd_scope": "joint support-and-initialization changes; newly trained outer diagonal",
+            "conditional_person_interval": [
+              0.6083761337355456,
+              0.7611894556786712
+            ]
+          }
+        },
+        "fixed_shrink": {
+          "member_mean": {
+            "auc": 0.6758674747474747,
+            "auprc": 0.6915612621216646,
+            "balanced_accuracy": 0.6275313131313133,
+            "sensitivity": 0.6500444444444444,
+            "specificity": 0.6050181818181817,
+            "brier": 0.23768547951657532,
+            "logloss": 0.6838876952568542,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.010688245085220215,
+            "support_repeat_auc_min": 0.6577131313131314,
+            "support_repeat_auc_max": 0.683830303030303,
+            "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+            "conditional_person_interval": [
+              0.6081441579205108,
+              0.7410419621876441
+            ]
+          },
+          "ensemble5": {
+            "auc": 0.7345010101010101,
+            "auprc": 0.7421643523468086,
+            "balanced_accuracy": 0.6546262626262626,
+            "sensitivity": 0.7008888888888889,
+            "specificity": 0.6083636363636363,
+            "brier": 0.2133498648057822,
+            "logloss": 0.6172157443161271,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.01483003319974852,
+            "support_repeat_auc_min": 0.7118383838383838,
+            "support_repeat_auc_max": 0.7490909090909093,
+            "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+            "conditional_person_interval": [
+              0.6456274255374256,
+              0.8171645641939759
+            ]
+          },
+          "diagonal_single": {
+            "auc": 0.6811353535353536,
+            "auprc": 0.6979728723174544,
+            "balanced_accuracy": 0.6125858585858586,
+            "sensitivity": 0.6324444444444444,
+            "specificity": 0.5927272727272727,
+            "brier": 0.23875348992452344,
+            "logloss": 0.6830385218376904,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.023419672349411287,
+            "support_repeat_auc_min": 0.6525050505050505,
+            "support_repeat_auc_max": 0.7054747474747475,
+            "sd_scope": "joint support-and-initialization changes; newly trained outer diagonal",
+            "conditional_person_interval": [
+              0.6071500710116094,
+              0.7461998334998334
+            ]
+          }
+        }
+      },
+      "20": {
+        "original": {
+          "member_mean": {
+            "auc": 0.712611717171717,
+            "auprc": 0.7236075072907066,
+            "balanced_accuracy": 0.6604848484848483,
+            "sensitivity": 0.6717333333333335,
+            "specificity": 0.6492363636363635,
+            "brier": 0.22408109144719626,
+            "logloss": 0.6505490919696114,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.015758570183592228,
+            "support_repeat_auc_min": 0.6909292929292928,
+            "support_repeat_auc_max": 0.7311757575757576,
+            "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+            "conditional_person_interval": [
+              0.6295710902708404,
+              0.7876685749675163
+            ]
+          },
+          "ensemble5": {
+            "auc": 0.7756040404040405,
+            "auprc": 0.8001278602489128,
+            "balanced_accuracy": 0.710949494949495,
+            "sensitivity": 0.7364444444444446,
+            "specificity": 0.6854545454545454,
+            "brier": 0.20219813978189283,
+            "logloss": 0.5926843669186538,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.015555001957878404,
+            "support_repeat_auc_min": 0.7526262626262626,
+            "support_repeat_auc_max": 0.7929292929292929,
+            "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+            "conditional_person_interval": [
+              0.6778559884559885,
+              0.8638590483590483
+            ]
+          },
+          "diagonal_single": {
+            "auc": 0.7067999999999999,
+            "auprc": 0.7210773761192749,
+            "balanced_accuracy": 0.6427676767676768,
+            "sensitivity": 0.6444444444444444,
+            "specificity": 0.641090909090909,
+            "brier": 0.22455232781990955,
+            "logloss": 0.6474704182287012,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.06328264464248992,
+            "support_repeat_auc_min": 0.6436363636363638,
+            "support_repeat_auc_max": 0.8028484848484849,
+            "sd_scope": "joint support-and-initialization changes; newly trained outer diagonal",
+            "conditional_person_interval": [
+              0.6220995532245533,
+              0.7815283597428665
+            ]
+          }
+        },
+        "fixed_shrink": {
+          "member_mean": {
+            "auc": 0.7041147474747474,
+            "auprc": 0.7144423390938458,
+            "balanced_accuracy": 0.6495515151515152,
+            "sensitivity": 0.6434666666666669,
+            "specificity": 0.6556363636363635,
+            "brier": 0.22435494497258548,
+            "logloss": 0.6478365306324546,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.016335972026256914,
+            "support_repeat_auc_min": 0.6834747474747475,
+            "support_repeat_auc_max": 0.7234949494949495,
+            "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+            "conditional_person_interval": [
+              0.6279845828634484,
+              0.7745662939021762
+            ]
+          },
+          "ensemble5": {
+            "auc": 0.7702181818181819,
+            "auprc": 0.7869852839817751,
+            "balanced_accuracy": 0.7038585858585859,
+            "sensitivity": 0.7044444444444444,
+            "specificity": 0.7032727272727273,
+            "brier": 0.20102355721794246,
+            "logloss": 0.5878672426851804,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.020231329244306505,
+            "support_repeat_auc_min": 0.7419595959595959,
+            "support_repeat_auc_max": 0.7965252525252525,
+            "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+            "conditional_person_interval": [
+              0.676869052059052,
+              0.8572824365177306
+            ]
+          },
+          "diagonal_single": {
+            "auc": 0.704088888888889,
+            "auprc": 0.7158624194213461,
+            "balanced_accuracy": 0.6312929292929294,
+            "sensitivity": 0.6182222222222221,
+            "specificity": 0.6443636363636364,
+            "brier": 0.22468271276407062,
+            "logloss": 0.6441412583555917,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.06729167021798807,
+            "support_repeat_auc_min": 0.6329292929292929,
+            "support_repeat_auc_max": 0.8056767676767678,
+            "sd_scope": "joint support-and-initialization changes; newly trained outer diagonal",
+            "conditional_person_interval": [
+              0.6215885563782623,
+              0.7780468013468013
+            ]
+          }
+        }
+      }
+    },
+    "contrasts": [
+      {
+        "k": 10,
+        "condition": "member_mean",
+        "comparison": "fixed_shrink_minus_original",
+        "primary": false,
+        "delta_mean_auc": -0.011229090909091077,
+        "ci_lower": -0.027204180264180294,
+        "ci_upper": 0.004303996180290352,
+        "positive_support_repeats": 0,
+        "repeat_mean_deltas": [
+          -0.012517171717171816,
+          -0.012836363636363757,
+          -0.007078787878787796,
+          -0.008456565656565607,
+          -0.015256565656565635
+        ],
+        "delta_brier": 0.0011268108855806702,
+        "delta_logloss": -0.002351740079924336
+      },
+      {
+        "k": 10,
+        "condition": "ensemble5",
+        "comparison": "fixed_shrink_minus_original",
+        "primary": false,
+        "delta_mean_auc": 0.0029090909090909722,
+        "ci_lower": -0.019479324379324297,
+        "ci_upper": 0.027342193732193747,
+        "positive_support_repeats": 3,
+        "repeat_mean_deltas": [
+          0.010585858585858587,
+          -0.008080808080808133,
+          0.001777777777777767,
+          0.02260606060606063,
+          -0.012343434343434101
+        ],
+        "delta_brier": -0.0006344758349917934,
+        "delta_logloss": -0.003273945054970251
+      },
+      {
+        "k": 20,
+        "condition": "member_mean",
+        "comparison": "fixed_shrink_minus_original",
+        "primary": false,
+        "delta_mean_auc": -0.008496969696969559,
+        "ci_lower": -0.0220677258852257,
+        "ci_upper": 0.004489880772821884,
+        "positive_support_repeats": 0,
+        "repeat_mean_deltas": [
+          -0.011737373737373713,
+          -0.007680808080808066,
+          -0.00745454545454538,
+          -0.007284848484848561,
+          -0.008327272727272739
+        ],
+        "delta_brier": 0.0002738535253892227,
+        "delta_logloss": -0.0027125613371568047
+      },
+      {
+        "k": 20,
+        "condition": "ensemble5",
+        "comparison": "fixed_shrink_minus_original",
+        "primary": true,
+        "delta_mean_auc": -0.005385858585858605,
+        "ci_lower": -0.02581859436859456,
+        "ci_upper": 0.015142055127412282,
+        "positive_support_repeats": 2,
+        "repeat_mean_deltas": [
+          0.011474747474747415,
+          0.003595959595959597,
+          -0.010666666666666713,
+          -0.021010101010101034,
+          -0.01032323232323229
+        ],
+        "delta_brier": -0.001174582563950366,
+        "delta_logloss": -0.004817124233473358
+      }
+    ],
+    "verification": {
+      "state": "PASS",
+      "metric_max_error": 2.220446049250313e-16,
+      "mixture_max_error": 0.0,
+      "independent_rank_bootstrap_interval_max_error": 0.0,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1,
+      "training": {
+        "state": "PASS",
+        "recovery_max_error": 1.1102230246251565e-16,
+        "median_max_error": 0.0,
+        "feature_scale_max_error": 6.106226635438361e-16,
+        "strict_probability_max_error": 0.0,
+        "numpy_probability_max_error": 3.3306690738754696e-15,
+        "reference_residual_max": 3.767626114165655e-08,
+        "epochs_finite": 50000
+      }
+    },
+    "runtime": {
+      "elapsed_seconds": 220.64696145057678,
+      "device": "cpu",
+      "threads": 2,
+      "torch": "1.13.1",
+      "numpy": "1.26.0"
+    }
+  },
+  "diagnostics": [
+    {
+      "k": 10,
+      "support_panels": 25,
+      "support_lambda_median_mean": 0.061686067813982094,
+      "support_lambda_median_min": 0.05524754280191013,
+      "support_lambda_median_max": 0.06874969420299282,
+      "support_lambda_min_mean": 0.03918168268425267,
+      "support_lambda_min_min": 0.0342082642543019,
+      "support_lambda_min_max": 0.046862082241371894,
+      "support_lambda_max_mean": 0.0894584368802798,
+      "support_lambda_max_min": 0.07235295319939372,
+      "support_lambda_max_max": 0.10281284820444603,
+      "relative_covariance_change_mean": 0.012617561789374551,
+      "relative_covariance_change_min": 0.008913261989078752,
+      "relative_covariance_change_max": 0.015912848014219102,
+      "minimum_eigenvalue_mean": 0.0616650933675662,
+      "minimum_eigenvalue_min": 0.05507086416327392,
+      "minimum_eigenvalue_max": 0.0688051257846206,
+      "trace_max_error_mean": 2.3874235921539365e-14,
+      "trace_max_error_min": 0.0,
+      "trace_max_error_max": 2.842170943040401e-14,
+      "logdet_correlation_mean": 0.964325140202148,
+      "logdet_correlation_min": 0.9332720883219575,
+      "logdet_correlation_max": 0.9881012883198341,
+      "original_logdet_smd_mean": 0.8887285510584733,
+      "original_logdet_smd_min": 0.33076899046345243,
+      "original_logdet_smd_max": 1.8323936068474753,
+      "fixed_logdet_smd_mean": 0.964792809033016,
+      "fixed_logdet_smd_min": 0.3441184266403629,
+      "fixed_logdet_smd_max": 1.8387104153498506,
+      "lambda_smd_mean": 0.7649953490464861,
+      "lambda_smd_min": -0.0037808547477512135,
+      "lambda_smd_max": 1.9235084247255971,
+      "original_fd_r_mean": -0.2586362684848771,
+      "original_fd_r_min": -0.536538143426596,
+      "original_fd_r_max": 0.2633632882614486,
+      "fixed_fd_r_mean": -0.2938344920339457,
+      "fixed_fd_r_min": -0.5560240699185626,
+      "fixed_fd_r_max": 0.2880042429554263,
+      "original_censor_r_mean": -0.33075085020549666,
+      "original_censor_r_min": -0.6783304622300665,
+      "original_censor_r_max": 0.021039032744543825,
+      "fixed_censor_r_mean": -0.43310777053962574,
+      "fixed_censor_r_min": -0.6904435173827214,
+      "fixed_censor_r_max": -0.14068282944479732
+    },
+    {
+      "k": 20,
+      "support_panels": 25,
+      "support_lambda_median_mean": 0.06125030651268878,
+      "support_lambda_median_min": 0.05706004093968958,
+      "support_lambda_median_max": 0.06389272201329493,
+      "support_lambda_min_mean": 0.036438841960376056,
+      "support_lambda_min_min": 0.0342082642543019,
+      "support_lambda_min_max": 0.04175948437084098,
+      "support_lambda_max_mean": 0.09640935256376183,
+      "support_lambda_max_min": 0.07808679304781274,
+      "support_lambda_max_max": 0.10281284820444603,
+      "relative_covariance_change_mean": 0.012712113341747776,
+      "relative_covariance_change_min": 0.011101808775215355,
+      "relative_covariance_change_max": 0.014639141237108091,
+      "minimum_eigenvalue_mean": 0.06113689150220172,
+      "minimum_eigenvalue_min": 0.05687570754893776,
+      "minimum_eigenvalue_max": 0.06392451097209999,
+      "trace_max_error_mean": 2.5579538487363607e-14,
+      "trace_max_error_min": 1.4210854715202004e-14,
+      "trace_max_error_max": 2.842170943040401e-14,
+      "logdet_correlation_mean": 0.9604651343940254,
+      "logdet_correlation_min": 0.9346321624826588,
+      "logdet_correlation_max": 0.9760355247346876,
+      "original_logdet_smd_mean": 0.8032254690946081,
+      "original_logdet_smd_min": 0.3848602100513291,
+      "original_logdet_smd_max": 1.3202220139043401,
+      "fixed_logdet_smd_mean": 0.8733524465469032,
+      "fixed_logdet_smd_min": 0.5213423915864758,
+      "fixed_logdet_smd_max": 1.3158414656153494,
+      "lambda_smd_mean": 0.6863209590843874,
+      "lambda_smd_min": 0.22825036444616503,
+      "lambda_smd_max": 1.1539806824797483,
+      "original_fd_r_mean": -0.22610471942196222,
+      "original_fd_r_min": -0.4385447753572727,
+      "original_fd_r_max": 0.03095689979702138,
+      "fixed_fd_r_mean": -0.28371378691255983,
+      "fixed_fd_r_min": -0.46847337272796374,
+      "fixed_fd_r_max": -0.06120820476780307,
+      "original_censor_r_mean": -0.3227351130999169,
+      "original_censor_r_min": -0.5596801515298521,
+      "original_censor_r_max": -0.043387357779452344,
+      "fixed_censor_r_mean": -0.44294281345143355,
+      "fixed_censor_r_min": -0.6105988611630705,
+      "fixed_censor_r_max": -0.22586420337757654
+    }
+  ],
+  "decision": {
+    "train_fixed_shrink_model": true,
+    "reason": "SUPPORT_MEDIAN_ONLY_NUMERICALLY_VALID_POSITIVE_DEFINITE_AND_CHANGED_INPUT_ONE_PREDECLARED_ESTIMATOR_FACTOR",
+    "new_fits_planned": 250,
+    "outer_query_evaluations_for_decision": 0
+  },
+  "verification": {
+    "state": "PASS",
+    "training": {
+      "state": "PASS",
+      "metric_max_error": 2.220446049250313e-16,
+      "mixture_max_error": 0.0,
+      "independent_rank_bootstrap_interval_max_error": 0.0,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1,
+      "training": {
+        "state": "PASS",
+        "recovery_max_error": 1.1102230246251565e-16,
+        "median_max_error": 0.0,
+        "feature_scale_max_error": 6.106226635438361e-16,
+        "strict_probability_max_error": 0.0,
+        "numpy_probability_max_error": 3.3306690738754696e-15,
+        "reference_residual_max": 3.767626114165655e-08,
+        "epochs_finite": 50000
+      }
+    },
+    "diagnostic_recovery_max_error": 1.1102230246251565e-16
+  },
+  "runtime": {
+    "training": {
+      "elapsed_seconds": 220.64696145057678,
+      "device": "cpu",
+      "threads": 2,
+      "torch": "1.13.1",
+      "numpy": "1.26.0"
+    },
+    "diagnostic_seconds": 2.400635004043579
+  },
+  "stable_internal_improvement": false,
+  "independent_validation": false,
+  "summary": "250次原SPDNet固定支持收缩率训练完成。五成员集成AUC（原→固定）：K10 0.731592→0.734501，K20 0.775604→0.770218；两项差值区间均跨0。五seed成员均值K10 0.687097→0.675867，K20 0.712612→0.704115。",
+  "interpretation": "原/固定logdet仍高度相关；固定支持收缩率没有带来稳定AUC增益，不能把既有退化归结为逐人收缩率。K20集成Brier和logloss略改善，但AUC下降；不以一个指标替代另一个指标。保留原SPDNet，停止本轮配置，不继续扫描收缩率。",
+  "boundary": "当前99人（46病例/53对照）已用于模型开发；5外折×5支持重复×5初始化seed，不是125组独立人群。条件人员区间仅覆盖固定预测，不覆盖重训或研究选择。诊断、MRI时疼痛及治疗反应三个临床终点仍未完成；不改QC、CoSpine13留出或TN14停止。",
+  "next": "下一步优先检验原模型在同站点、病例对照均可评估的人员中的排序及错误是否集中于采集/处理层；先复用已有固定预测做描述与不确定性分析，不按测试结果选择新结构。若站点内信息也弱，需补充与疼痛相关的独立训练来源及可信标签，再决定预训练或模型改动。",
+  "scope_note": "原同人同支持同200步SGD与五seed；只改协方差收缩规则，因输入改变重新拟合50个支持侧几何参考/白化及特征尺度；未使用查询人估计lambda或参考。",
+  "diagnostic_summary": "50个支持面板均可恢复原经验协方差并保持正定；原矩阵重构最大误差1.11e-16。收缩率中位数不使用标签或查询人员。",
+  "focus_summary": "250次原SPDNet固定支持收缩率训练完成。五成员集成AUC（原→固定）：K10 0.731592→0.734501，K20 0.775604→0.770218；两项差值区间均跨0。五seed成员均值K10 0.687097→0.675867，K20 0.712612→0.704115。 原/固定logdet仍高度相关；固定支持收缩率没有带来稳定AUC增益，不能把既有退化归结为逐人收缩率。K20集成Brier和logloss略改善，但AUC下降；不以一个指标替代另一个指标。保留原SPDNet，停止本轮配置，不继续扫描收缩率。",
+  "decision_text": "未取得稳定提升；该配置停止，原模型保留。"
+}

@@ -1,0 +1,7 @@
+﻿k,method,people,support_people,models,new_fits,updates_per_model,member_parameters,head_l2,lr,batch,seeds,new_reference_fits,scope
+10,original,99,20,125,0,200,1581,0.001,0.01,full_support,"0,1,2,3,4",0,same people labels updates; parameters and diagnostic costs differ
+10,deep200,99,20,125,0,200,5997,0.001,0.01,full_support,"0,1,2,3,4",0,same people labels updates; parameters and diagnostic costs differ
+10,bounded200,99,20,125,125,200,5997,0.001,0.01,full_support,"0,1,2,3,4",0,same people labels updates; parameters and diagnostic costs differ
+20,original,99,40,125,0,200,1581,0.001,0.01,full_support,"0,1,2,3,4",0,same people labels updates; parameters and diagnostic costs differ
+20,deep200,99,40,125,0,200,5997,0.001,0.01,full_support,"0,1,2,3,4",0,same people labels updates; parameters and diagnostic costs differ
+20,bounded200,99,40,125,125,200,5997,0.001,0.01,full_support,"0,1,2,3,4",0,same people labels updates; parameters and diagnostic costs differ

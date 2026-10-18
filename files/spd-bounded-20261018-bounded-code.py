@@ -1,0 +1,38 @@
+"""Local diagonal-preserving normalized Hadamard cubic SPD activation [B,d,d]."""
+import torch
+from deep_model import DeepSPD
+from models import Spectral,sym
+
+class BoundedSPD(DeepSPD):
+ def activate(self,a):
+  d=a.diagonal(dim1=-2,dim2=-1);return a*(1+.25*a.square()/(d.unsqueeze(-1)*d.unsqueeze(-2)))/1.25
+ def matrix_forward(self,x):
+  for i,w in enumerate(self.projections):
+   x=sym(w.T@x@w);x=Spectral.apply(x,True) if i==2 else self.activate(x)
+  return x
+ @torch.no_grad()
+ def inspect_geometry(self,x,c=None,full=True):
+  details=[]
+  for i,w in enumerate(self.projections):
+   x=sym(w.T@x@w);v={}
+   if full:v['minimum_eigenvalue']=float(torch.linalg.eigvalsh(x).min())
+   if i<2:
+    z=self.activate(x);d=x.diagonal(dim1=-2,dim2=-1);err=z-x;ratio=torch.where(x.abs()>1e-14,err.abs()/x.abs().clamp(min=1e-14),torch.zeros_like(x));v.update(relative_change=float(err.norm()/x.norm()),maximum_element_relative_change=float(ratio.max()),diagonal_relative_error=float((z.diagonal(dim1=-2,dim2=-1)-d).abs().max()/d.abs().max()),sign_mismatches=int((torch.sign(x)!=torch.sign(z)).sum()))
+    if full:
+     mid=self.activate((x[:-1]+x[1:])*.5);avg=(self.activate(x[:-1])+self.activate(x[1:]))*.5;linear=.8*x+.2*torch.diag_embed(d);v.update(activated_minimum_eigenvalue=float(torch.linalg.eigvalsh(z).min()),midpoint_relative_error=float((mid-avg).norm()/avg.norm()),relative_nonlinear_vs_linear_shrink=float((z-linear).norm()/z.norm()))
+    x=z
+   details.append(v)
+  return dict(layers=details,orthogonality_errors=[float(abs(w.T@w-torch.eye(w.shape[1],dtype=w.dtype)).max()) for w in self.projections])
+
+def geometry_pass(g,nonlinear=False):
+ return all(r.get('minimum_eigenvalue',1)>1e-8 for r in g['layers']) and all(r['relative_change']<=.2+1e-10 and r['maximum_element_relative_change']<=.2+1e-10 and r['diagonal_relative_error']<1e-10 and r['sign_mismatches']==0 and r.get('activated_minimum_eigenvalue',1)>1e-8 and (not nonlinear or (r['midpoint_relative_error']>1e-6 and r['relative_nonlinear_vs_linear_shrink']>1e-5)) for r in g['layers'][:2]) and max(g['orthogonality_errors'])<1e-10
+
+def numpy_bounded(state,x,c):
+ import numpy as np
+ n={k:v.cpu().numpy() for k,v in state.items()}
+ for i in range(3):
+  w=n[f'projections.{i}'];x=w.T@x@w;x=(x+x.transpose(0,2,1))*.5
+  if i<2:
+   d=np.diagonal(x,axis1=-2,axis2=-1);r=x/np.sqrt(d[:,:,None]*d[:,None,:]);x=np.sqrt(d[:,:,None]*d[:,None,:])*(r+.25*r**3)/1.25
+  else:l,u=np.linalg.eigh(x);x=(u*np.log(np.maximum(l,1e-4))[:,None,:])@u.transpose(0,2,1)
+ f=x[:,n['ii'],n['jj']]*n['factor'];v=np.c_[(f-n['feature_mean'])/n['feature_rms'],c];return 1/(1+np.exp(-(v@n['head.weight'][0]+n['head.bias'][0])))

@@ -34,3 +34,18 @@ K10未通过5/125，K20未通过2/125，原因均为第二层变化>2。所有se
 [同人预算状态表](https://onephantomcat.github.io/neurograph-site/files/spd-nonlinear-20261018-comparison.md)；[全支持组合](https://onephantomcat.github.io/neurograph-site/files/spd-nonlinear-20261018-support.csv)；[全seed](https://onephantomcat.github.io/neurograph-site/files/spd-nonlinear-20261018-support-seeds.csv)；[750层几何](https://onephantomcat.github.io/neurograph-site/files/spd-nonlinear-20261018-geometry.csv)；[近期组员表](https://onephantomcat.github.io/neurograph-site/files/spd-nonlinear-20261018-recent.md)；[项目与论文下一步](https://onephantomcat.github.io/neurograph-site/files/spd-nonlinear-20261018-paper.md)；[拟合前方案](https://onephantomcat.github.io/neurograph-site/files/spd-nonlinear-20261018-plan.md)。
 
 <Self-Audit>支持人员之外无新前向/评价；保留全部种子和未通过结果，不把诊断检查计为拟合。复用原模型/指标及发布流程，没有放宽条件、追加查询搜索或升级临床结论。</Self-Audit>
+
+
+<!-- spd-bounded-20261018 -->
+
+## 2026-10-18：保持对角的有界SPD非线性：同人同预算比较
+
+与原轻量200步比较：K10 M5 0.731592→0.717891，Δ-0.013701，条件95%[-0.034813, 0.004658]，1/5支持重复正向；K20 M5 0.775604→0.762760，Δ-0.012844，条件95%[-0.033037, 0.004746]，1/5支持重复正向。同结构ReEig参照：K10 M5 0.732388→0.717891，Δ-0.014497，条件95%[-0.036208, 0.003836]，1/5支持重复正向；K20 M5 0.772776→0.762760，Δ-0.010016，条件95%[-0.031616, 0.007914]，1/5支持重复正向。
+
+主终点未满足稳定、兼顾概率指标的开发增量条件，保留原轻量模型。 本轮非线性确实生效且尺度边界在支持训练内通过；不因结果追加激活强度、层宽、轮数或种子搜索。固定候选结束，全部结果保留。
+
+本轮未训练线性收缩H的额外对照，性能差反映整个激活替换，不能单独归因非线性。原SRPBS99（46病例/53对照）已有开发历史，五外折/支持集合/seed不变。双方匹配人员、目标标签及200更新；轻量1581参数对三层5997参数，不匹配FLOPs和支持检查成本。全部250支持训练完成且条件满足后才查询。条件bootstrap只覆盖固定预测人员抽样，不覆盖重训或多轮研究选择。隐层对角保持不等于原始BOLD幅度保持；QC、OA/ZAN/Emo阴性、CoSpine13留出、TN14停止及三个临床终点要求不变。
+
+该固定激活配置不继续追分。下一步优先补齐一个真实疼痛终点的时点、上游处理及人员依据，并判断是否具备未参与开发的同终点评估条件；旧99人不重新命名独立测试。方法稿可纳入本轮正负结果，原创性与临床效度仍需单独论证。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/spd-bounded-20261018.md)。

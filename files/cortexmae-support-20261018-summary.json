@@ -1,0 +1,434 @@
+{
+  "id": "cortexmae-support-20261018",
+  "title": "CortexMAE分类头：支持内正则与SPD互补性",
+  "status": "COMPLETE_SUPPORT_DIAGNOSTICS_STOPPED_FUSION",
+  "summary": "完成100个人级内分区、2500个模型/500000次更新及全部模型重放。K10支持内五成员AUC：原头0.6192、强正则头0.6096、SPD0.7088、固定融合0.7096；K20支持内五成员AUC：原头0.6404、强正则头0.6600、SPD0.7472、固定融合0.7470。",
+  "interpretation": "强正则降低概率误差，AUC改善随预算变化；两支错误高度相关，固定融合没有稳定增量。K10融合−SPD的ΔAUC +0.0008（3/5重复正向），Δlogloss +0.0017（2/5改善）；K20融合−SPD的ΔAUC -0.0002（3/5重复正向），Δlogloss -0.0003（2/5改善）。未同时满足预定训练内继续条件，本轮停止此固定候选，新增外查询比较0，不调融合权重。",
+  "diagnostic_summary": "CortexMAE头的支持内过拟合、三档正则与固定融合检查已完成；外比较未启动",
+  "focus_summary": "完成100个人级内分区、2500个模型/500000次更新及全部模型重放。K10支持内五成员AUC：原头0.6192、强正则头0.6096、SPD0.7088、固定融合0.7096；K20支持内五成员AUC：原头0.6404、强正则头0.6600、SPD0.7472、固定融合0.7470。 强正则降低概率误差，AUC改善随预算变化；两支错误高度相关，固定融合没有稳定增量。K10融合−SPD的ΔAUC +0.0008（3/5重复正向），Δlogloss +0.0017（2/5改善）；K20融合−SPD的ΔAUC -0.0002（3/5重复正向），Δlogloss -0.0003（2/5改善）。未同时满足预定训练内继续条件，本轮停止此固定候选，新增外查询比较0，不调融合权重。",
+  "base_model": "官方CortexMAE-A424 r1冻结编码器＋本地772→1神经头；原BiMap90→16/ReEig/LogEig轻量SPD",
+  "changed_component": "仅头L2三档及固定0.25概率残差融合；每支持两折按人留出，内训练独立拟合全部尺度和SPD参考",
+  "scope_note": "50个K10/20支持，各做两折按人留出；2500新模型，外查询新评分0",
+  "method": "预训练头L2=0.001/0.1/10；固定随机头L2=10；五seed0—4、float64均衡BCE/SGD0.01/200更新均不变。100内分区各重新拟合5个原SPD成员，新增2000头和500 SPD；固定融合无新增可训练参数，按seed配对后等权平均。所有训练/推理仅用原支持内的人；内留出不进入尺度、参考或训练。",
+  "boundary": "当前为原99人开发数据上的支持内诊断。K10/20是完整支持每类人数，内训练实际每类5/10人、内留出每类5/10人，不能与上轮全支持训练的外查询AUC直接排名。支持重复和内折存在人员重叠，不是独立队列；本轮不新增置信区间或泛化声明。官方HCP检查点、424区输入及冻结池化沿用上轮；跨匿名库生物身份交集未知、DPABI/HCP处理域差异及原QC限制保留。临床三个终点仍未完成。",
+  "next": "停止当前0.25固定融合，不进入外查询选权重。下一项若继续，先在同一支持内检查768维表示的有效秩与站点/协变量占比，判断判别信息是否主要落在少数方向；仅在出现可重复结构后设计低维瓶颈神经头。独立队列与临床终点仍需另补。",
+  "fit_diagnostic": "K10原头训练AUC 1.0000／留出AUC 0.6192；L2=10留出AUC 0.6096、logloss 1.6147→0.7637；两支留出误差平均相关 0.9152；K20原头训练AUC 1.0000／留出AUC 0.6404；L2=10留出AUC 0.6600、logloss 1.2865→0.6778；两支留出误差平均相关 0.9249。高训练排序与跨人留出存在差距。正则对排序与概率误差的影响分开报告，不能将全部差距归因实现或优化。另核查100个保存尺度：训练常量特征分区0，留出出现训练未见常量值的分区0，最大内留出标准化绝对值14.7。",
+  "means": [
+    {
+      "k": 10,
+      "method": "pretrained_l2_001",
+      "condition": "member",
+      "auc": 0.61984,
+      "auprc": 0.6863806349206348,
+      "balanced_accuracy": 0.5708000000000001,
+      "brier": 0.3515233254246352,
+      "logloss": 1.6208202346074212,
+      "train_auc": 1.0,
+      "train_logloss": 0.014397272867110754
+    },
+    {
+      "k": 10,
+      "method": "pretrained_l2_001",
+      "condition": "ensemble5",
+      "auc": 0.6192,
+      "auprc": 0.6868095238095238,
+      "balanced_accuracy": 0.57,
+      "brier": 0.351140948814354,
+      "logloss": 1.6147447284171712,
+      "train_auc": 1.0,
+      "train_logloss": 0.014397259705288806
+    },
+    {
+      "k": 10,
+      "method": "pretrained_l2_01",
+      "condition": "member",
+      "auc": 0.61952,
+      "auprc": 0.6860238095238094,
+      "balanced_accuracy": 0.572,
+      "brier": 0.34577096462916773,
+      "logloss": 1.5116163374855582,
+      "train_auc": 1.0,
+      "train_logloss": 0.019391317796138053
+    },
+    {
+      "k": 10,
+      "method": "pretrained_l2_01",
+      "condition": "ensemble5",
+      "auc": 0.62,
+      "auprc": 0.6881428571428572,
+      "balanced_accuracy": 0.57,
+      "brier": 0.3454929803372938,
+      "logloss": 1.5075900126164736,
+      "train_auc": 1.0,
+      "train_logloss": 0.019391303596205597
+    },
+    {
+      "k": 10,
+      "method": "pretrained_l2_10",
+      "condition": "member",
+      "auc": 0.6095999999999999,
+      "auprc": 0.6756634920634921,
+      "balanced_accuracy": 0.566,
+      "brier": 0.2657669220035003,
+      "logloss": 0.7637408501855224,
+      "train_auc": 1.0,
+      "train_logloss": 0.2681394632110515
+    },
+    {
+      "k": 10,
+      "method": "pretrained_l2_10",
+      "condition": "ensemble5",
+      "auc": 0.6095999999999999,
+      "auprc": 0.675663492063492,
+      "balanced_accuracy": 0.5660000000000001,
+      "brier": 0.26576692183821754,
+      "logloss": 0.7637408496741106,
+      "train_auc": 1.0,
+      "train_logloss": 0.2681394631136295
+    },
+    {
+      "k": 10,
+      "method": "random_l2_10",
+      "condition": "member",
+      "auc": 0.5344,
+      "auprc": 0.6211746031746032,
+      "balanced_accuracy": 0.524,
+      "brier": 0.2939556220673554,
+      "logloss": 0.8355704331451806,
+      "train_auc": 0.9976000000000002,
+      "train_logloss": 0.3259470070017165
+    },
+    {
+      "k": 10,
+      "method": "random_l2_10",
+      "condition": "ensemble5",
+      "auc": 0.5344000000000001,
+      "auprc": 0.6211746031746032,
+      "balanced_accuracy": 0.524,
+      "brier": 0.2939556219058575,
+      "logloss": 0.835570432452445,
+      "train_auc": 0.9976,
+      "train_logloss": 0.3259470068766269
+    },
+    {
+      "k": 10,
+      "method": "spd",
+      "condition": "member",
+      "auc": 0.6553599999999999,
+      "auprc": 0.7171022222222222,
+      "balanced_accuracy": 0.6068,
+      "brier": 0.2455707558144933,
+      "logloss": 0.6979050177370968,
+      "train_auc": 1.0,
+      "train_logloss": 0.019959317533434193
+    },
+    {
+      "k": 10,
+      "method": "spd",
+      "condition": "ensemble5",
+      "auc": 0.7088,
+      "auprc": 0.7554174603174602,
+      "balanced_accuracy": 0.632,
+      "brier": 0.22277423173707286,
+      "logloss": 0.6328686823338106,
+      "train_auc": 1.0,
+      "train_logloss": 0.019953802404861876
+    },
+    {
+      "k": 10,
+      "method": "fixed_residual_025",
+      "condition": "member",
+      "auc": 0.67344,
+      "auprc": 0.7306342857142858,
+      "balanced_accuracy": 0.6056,
+      "brier": 0.2356415237790085,
+      "logloss": 0.668174278428065,
+      "train_auc": 1.0,
+      "train_logloss": 0.07507687959110886
+    },
+    {
+      "k": 10,
+      "method": "fixed_residual_025",
+      "condition": "ensemble5",
+      "auc": 0.7095999999999999,
+      "auprc": 0.7548650793650793,
+      "balanced_accuracy": 0.624,
+      "brier": 0.22281844962789502,
+      "logloss": 0.6346140923777794,
+      "train_auc": 1.0,
+      "train_logloss": 0.07507338750704264
+    },
+    {
+      "k": 20,
+      "method": "pretrained_l2_001",
+      "condition": "member",
+      "auc": 0.64024,
+      "auprc": 0.6772566203971466,
+      "balanced_accuracy": 0.6,
+      "brier": 0.3169805240177065,
+      "logloss": 1.288848875913669,
+      "train_auc": 1.0,
+      "train_logloss": 0.04788177811610547
+    },
+    {
+      "k": 20,
+      "method": "pretrained_l2_001",
+      "condition": "ensemble5",
+      "auc": 0.6404,
+      "auprc": 0.6775863943160384,
+      "balanced_accuracy": 0.5980000000000001,
+      "brier": 0.3167635965053778,
+      "logloss": 1.286470134533989,
+      "train_auc": 1.0,
+      "train_logloss": 0.04788138286069064
+    },
+    {
+      "k": 20,
+      "method": "pretrained_l2_01",
+      "condition": "member",
+      "auc": 0.64144,
+      "auprc": 0.6783446853181219,
+      "balanced_accuracy": 0.5995999999999999,
+      "brier": 0.3114935697276714,
+      "logloss": 1.210395546799033,
+      "train_auc": 1.0,
+      "train_logloss": 0.0580349314310407
+    },
+    {
+      "k": 20,
+      "method": "pretrained_l2_01",
+      "condition": "ensemble5",
+      "auc": 0.6411999999999999,
+      "auprc": 0.6782750917297357,
+      "balanced_accuracy": 0.597,
+      "brier": 0.31133659961712384,
+      "logloss": 1.208834537460599,
+      "train_auc": 1.0,
+      "train_logloss": 0.05803457325963469
+    },
+    {
+      "k": 20,
+      "method": "pretrained_l2_10",
+      "condition": "member",
+      "auc": 0.66,
+      "auprc": 0.6854727009832272,
+      "balanced_accuracy": 0.625,
+      "brier": 0.23775477926152644,
+      "logloss": 0.6778253335913983,
+      "train_auc": 0.9786,
+      "train_logloss": 0.3929384280570434
+    },
+    {
+      "k": 20,
+      "method": "pretrained_l2_10",
+      "condition": "ensemble5",
+      "auc": 0.66,
+      "auprc": 0.6854727009832273,
+      "balanced_accuracy": 0.625,
+      "brier": 0.2377547791745536,
+      "logloss": 0.6778253333272971,
+      "train_auc": 0.9786,
+      "train_logloss": 0.3929384279613874
+    },
+    {
+      "k": 20,
+      "method": "random_l2_10",
+      "condition": "member",
+      "auc": 0.5746,
+      "auprc": 0.5986401201911263,
+      "balanced_accuracy": 0.576,
+      "brier": 0.2593445790507898,
+      "logloss": 0.7219049903217958,
+      "train_auc": 0.9428,
+      "train_logloss": 0.4758786552470415
+    },
+    {
+      "k": 20,
+      "method": "random_l2_10",
+      "condition": "ensemble5",
+      "auc": 0.5746,
+      "auprc": 0.5986401201911263,
+      "balanced_accuracy": 0.576,
+      "brier": 0.2593445789774252,
+      "logloss": 0.7219049900945765,
+      "train_auc": 0.9428,
+      "train_logloss": 0.47587865514140804
+    },
+    {
+      "k": 20,
+      "method": "spd",
+      "condition": "member",
+      "auc": 0.7006399999999998,
+      "auprc": 0.7344765144349974,
+      "balanced_accuracy": 0.645,
+      "brier": 0.23116343059672434,
+      "logloss": 0.6701895747704197,
+      "train_auc": 1.0,
+      "train_logloss": 0.04055828067011722
+    },
+    {
+      "k": 20,
+      "method": "spd",
+      "condition": "ensemble5",
+      "auc": 0.7472,
+      "auprc": 0.7788811954643223,
+      "balanced_accuracy": 0.68,
+      "brier": 0.20880089165096,
+      "logloss": 0.6060087460135019,
+      "train_auc": 1.0,
+      "train_logloss": 0.04051393309951695
+    },
+    {
+      "k": 20,
+      "method": "fixed_residual_025",
+      "condition": "member",
+      "auc": 0.71328,
+      "auprc": 0.7472388972499808,
+      "balanced_accuracy": 0.6542,
+      "brier": 0.22148678185948653,
+      "logloss": 0.6367365168012574,
+      "train_auc": 1.0,
+      "train_logloss": 0.11495972340054611
+    },
+    {
+      "k": 20,
+      "method": "fixed_residual_025",
+      "condition": "ensemble5",
+      "auc": 0.747,
+      "auprc": 0.7726600470908521,
+      "balanced_accuracy": 0.693,
+      "brier": 0.2089078503333983,
+      "logloss": 0.6057389170650926,
+      "train_auc": 1.0,
+      "train_logloss": 0.114930388642598
+    }
+  ],
+  "decision": {
+    "state": "SUPPORT_ONLY_DECISION",
+    "proceed_outer": false,
+    "budgets": [
+      {
+        "k": 10,
+        "delta_auc": 0.0008000000000000007,
+        "delta_logloss": 0.0017454100439688869,
+        "auc_positive_repeats": 3,
+        "logloss_improved_repeats": 2,
+        "sufficient": false,
+        "repeat_deltas": [
+          {
+            "repeat": 0,
+            "delta_auc": 0.020000000000000018,
+            "delta_logloss": -0.0018742718426368876,
+            "delta_brier": -0.0019397489456922934
+          },
+          {
+            "repeat": 1,
+            "delta_auc": 0.052000000000000046,
+            "delta_logloss": -0.0050969594281004005,
+            "delta_brier": -0.0037330635804414813
+          },
+          {
+            "repeat": 2,
+            "delta_auc": -0.03600000000000003,
+            "delta_logloss": 0.0036672632817866813,
+            "delta_brier": 0.0026136559096688883
+          },
+          {
+            "repeat": 3,
+            "delta_auc": -0.04400000000000004,
+            "delta_logloss": 0.011191830564613925,
+            "delta_brier": 0.003687369971063531
+          },
+          {
+            "repeat": 4,
+            "delta_auc": 0.01200000000000001,
+            "delta_logloss": 0.0008391876441811164,
+            "delta_brier": -0.0004071239004879712
+          }
+        ]
+      },
+      {
+        "k": 20,
+        "delta_auc": -0.00019999999999993358,
+        "delta_logloss": -0.00026982894840927863,
+        "auc_positive_repeats": 3,
+        "logloss_improved_repeats": 2,
+        "sufficient": false,
+        "repeat_deltas": [
+          {
+            "repeat": 0,
+            "delta_auc": 0.006000000000000116,
+            "delta_logloss": -0.0035030574882779497,
+            "delta_brier": -0.0017211767161014746
+          },
+          {
+            "repeat": 1,
+            "delta_auc": -0.0129999999999999,
+            "delta_logloss": 0.002448548723569144,
+            "delta_brier": 0.0019563830480128497
+          },
+          {
+            "repeat": 2,
+            "delta_auc": 0.014000000000000123,
+            "delta_logloss": -0.007269403971870592,
+            "delta_brier": -0.002781465891061208
+          },
+          {
+            "repeat": 3,
+            "delta_auc": 0.006000000000000116,
+            "delta_logloss": 0.001577648406413834,
+            "delta_brier": 0.0008398983829719653
+          },
+          {
+            "repeat": 4,
+            "delta_auc": -0.014000000000000123,
+            "delta_logloss": 0.00539711958811917,
+            "delta_brier": 0.002241154588369154
+          }
+        ]
+      }
+    ],
+    "outer_queries_scored": 0,
+    "weight": 0.25,
+    "candidate_l2": 10.0
+  },
+  "checks": [
+    {
+      "component": "原训练更新",
+      "evidence": "合成输入上原L2更新与旧代码预测差0；仅修改显式L2项",
+      "missing": "不证明任何优化器已全局收敛"
+    },
+    {
+      "component": "人级隔离",
+      "evidence": "100内分区，各尺度/几何参考只拟合内训练；外查询特征与内留出标签扰动不改变模型预测",
+      "missing": "原99已开发使用，不能升级独立验证"
+    },
+    {
+      "component": "数值与保留",
+      "evidence": "2500保存模型全部重载并NumPy重放，最大误差2.78e-15；3600预测行独立sklearn复算",
+      "missing": "固定编码器及外部预训练不属于本次重训"
+    },
+    {
+      "component": "正则和融合身份",
+      "evidence": "作者编码器不变；本地头L2与75:25概率融合",
+      "missing": "不是作者Brainmarks注意力探针，不是训练条件残差或正交网络"
+    }
+  ],
+  "new_fits": 2500,
+  "new_reference_fits": 100,
+  "updates": 500000,
+  "code_assistant": "Codex（具体子型号环境未提供）",
+  "verification": {
+    "state": "PASS",
+    "prediction_rows": 3600,
+    "recomputed_values": 25200,
+    "maximum_metric_error": 6.661338147750939e-16,
+    "means_verified": 24,
+    "head_and_SPD_models_retained": 2500,
+    "all_models_server_numpy_replayed": 2500,
+    "max_model_replay_error": 2.7755575615628914e-15,
+    "outer_queries_scored": 0,
+    "decision_replayed": true,
+    "person_disjoint": true
+  }
+}

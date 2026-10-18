@@ -1,0 +1,18 @@
+{
+  "state": "PASS",
+  "original_Emo_bins_independently_equal": true,
+  "music_join_and_tails_independently_equal": true,
+  "old_existing_TN_direct_scans_with_score": 6,
+  "old_existing_TN_person_key_scored": 8,
+  "current_existing_TN_person_key_scored": 16,
+  "existing_TN_new_scored_people": 8,
+  "existing_TN_lost_scored_people": 0,
+  "existing_TN_shared_score_values_changed": 0,
+  "current_TN_98_scored_exact_rest_path_matches": 95,
+  "current_TN_98_scored_without_exact_rest_path": 3,
+  "current_TN_held_source_clinical_matches": 32,
+  "current_TN_held_source_unmatched": 1,
+  "TN14_not_restarted": true,
+  "new_MRI_reads": 0,
+  "new_fits": 0
+}

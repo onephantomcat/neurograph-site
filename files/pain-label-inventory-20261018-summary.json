@@ -1,0 +1,351 @@
+{
+  "id": "pain-label-inventory-20261018",
+  "state": "COMPLETE_EXISTING_LABEL_INVENTORY_NEXT_PLAN_NO_TRAINING",
+  "title": "疼痛标签库存：扫描时点与低高样本",
+  "date": "2026-10-18",
+  "new_fits": 0,
+  "new_MRI_reads": 0,
+  "new_QC_inclusions": 0,
+  "cohort_rows": 15,
+  "diagnostic_summary": "已有扫描内或近扫描评分，但还没有可直接并入Emo、且完成同流程QC的新增临床样本。",
+  "summary": "音乐队列17患者/68次近扫描VRS，0–3为24次/10人、7–10为15次/7人，仅2人两端都有。Emo另6人是1低/2中/3高，均未通过原QC。",
+  "interpretation": "DEIPP有连续同期标签但只有3人；CoSpine开发低痛仅3试次/2人。Emo任务论文采集过当时痛，实际行为包未提供回答。DS005713临床表扩至172行/98评分，但同期性仍缺、TN14保持停止。",
+  "boundary": "15条队列/分支分开报告；Emo35/65保持，其他0–10材料的0–3/7–10仅描述数值两端，不是新临床分级。重复扫描/试次不算新人；本轮MRI、训练、QC纳入均0。",
+  "next": "下一轮优先准备音乐镇痛17人四条件的近扫描连续VRS：先完成原条件/评分时间与统一影像/QC对应，再按人留出比较官方冻结模型的临床与FC增量；当前不启动训练。",
+  "focus_summary": "现有标签核查完成：15条队列/分支，音乐17人可作近扫描候选；Emo任务回答缺、DS005713新版标签增加但时点未齐。",
+  "display_rows": [
+    {
+      "cohort": "Emo静息态／访谈VAS",
+      "independent_people": "33候选／27当前患者",
+      "label": "访谈VAS0–100；当前低/中/高5/16/6",
+      "timing": "26/27有0–21天间隔；只有1人与访谈同日，分钟关系未知",
+      "tail_coverage": "未进入当前分析6人：原35/65区间1低/2中/3高",
+      "readiness": "6人均未通过原当前影像QC；立即新增纳入0",
+      "next": "不为补齐等级放宽QC；保留27人阴性及全部原分数"
+    },
+    {
+      "cohort": "Emo任务态／区块疼痛",
+      "independent_people": "同一33患者候选，不能与静息态相加",
+      "label": "论文说明扫描中区块后疼痛0–10；实际回答向量未取得",
+      "timing": "论文支持扫描内测量；公开设计文件不等于评分",
+      "tail_coverage": "实际任务疼痛低/高覆盖未知；不从访谈VAS代填",
+      "readiness": "69个MAT仅names/onsets/durations/taskduration；32/33有精确ID设计匹配",
+      "next": "等待真实逐区块回答、时间和ID对应；不恢复旧任务分支"
+    },
+    {
+      "cohort": "音乐镇痛 ds001928",
+      "independent_people": "20患者；17人四条件标签齐",
+      "label": "pic1/pic2/pim1/pim2，原论文VRS0–10；68次评分",
+      "timing": "同MRI访视、音乐/噪声前后；不是BOLD逐帧连续值，精确分钟差未齐",
+      "tail_coverage": "0–3共24次/10人；7–10共15次/7人；仅2人两端均有",
+      "readiness": "标签与条件/采集钟点可连接；统一预处理/QC未备齐",
+      "next": "下一轮主要准备队列；单独研究近扫描连续疼痛，不并入Emo"
+    },
+    {
+      "cohort": "DEIPP ds006815",
+      "independent_people": "3人／63访视；论文主分析2人",
+      "label": "扫描中连续rating_intensity；日VAS_D/WA/WW另列",
+      "timing": "189响应文件与189 BOLD名称配对；此前1人1run1225点已实对齐",
+      "tail_coverage": "有同期连续标签；本轮未解封全部189向量，不能报低高人数",
+      "readiness": "真正个人分区/作者连接输入仍缺；不能把1225点当1225人",
+      "next": "维持个体内访视/时间块；缺作者输入时该连接分支保持停止"
+    },
+    {
+      "cohort": "CoSpine ds005883",
+      "independent_people": "39健康人；26开发／13留出",
+      "label": "实验热痛强度PR与不愉快度UpR，各0–10",
+      "timing": "每刺激之后报告；不是慢性临床痛或逐帧自发痛",
+      "tail_coverage": "26开发390试次：0–3仅3次/2人；7–10为222次/26人",
+      "readiness": "已完成4人同预算负结果；26人不等于已正式纳入；留出不动",
+      "next": "不做三等级小样本扩搜，不替代慢性临床队列"
+    },
+    {
+      "cohort": "SRPBS临床 sup7/sup8",
+      "independent_people": "29／15评分患者，分表",
+      "label": "原VAS，观察范围2–100／0–8",
+      "timing": "端点、回顾窗及相对MRI时点未证实",
+      "tail_coverage": "不根据观察范围归一化或套35/65；不报合并等级",
+      "readiness": "44已有开发标签；不提供新增独立同期样本",
+      "next": "先补量表定义与时点；原分表阴性保持"
+    },
+    {
+      "cohort": "DS005713临床更新",
+      "independent_people": "当前表172人；98平均痛评分；旧来源33人",
+      "label": "平均痛0–10共98；电话随访NRS共92，分别解释",
+      "timing": "平均痛回顾窗/MRI间隔未证实；随访不能当扫描痛",
+      "tail_coverage": "98分数中0–3为16人、7–10为28人；仅95人精确列有rest路径",
+      "readiness": "旧来源按person_id连接：32/33临床、16评分；同口径旧8→新16；非训练纳入",
+      "next": "仅更新标签库存；TN14停止，不开启TN程度/疗效训练"
+    },
+    {
+      "cohort": "OA ds000208",
+      "independent_people": "56患者；原8数值通过待审核",
+      "label": "56疗效及VAS/WOMAC改善百分比；基线原始VAS缺",
+      "timing": "队列层面治疗前MRI有依据；个人基线/扫描/随访日期缺",
+      "tail_coverage": "改善百分比不是轻/中/重疼痛；不把HC当不应答者",
+      "readiness": "8待审核，29原头动排除保持；新增纳入0",
+      "next": "继续原配置与质量证据核查，不训练程度/疗效模型"
+    },
+    {
+      "cohort": "偏头痛 ds005016",
+      "independent_people": "132开发人／111患者",
+      "label": "有诊断；逐人同期痛/日记/临床结局仍缺",
+      "timing": "pain任务事件样例只有onset/duration/warm-pain条件",
+      "tail_coverage": "刺激条件不是受试者疼痛评分",
+      "readiness": "现有四方法540结果保持；不能用111诊断标签补等级",
+      "next": "补真实临床—MRI对应，不扩诊断模型"
+    },
+    {
+      "cohort": "ZAN ds007181",
+      "independent_people": "54人／25患者",
+      "label": "已有诊断，个体NRS/VAS缺",
+      "timing": "评分与MRI时点缺",
+      "tail_coverage": "不能给健康人补0或由病名生成等级",
+      "readiness": "开发诊断材料；无程度y",
+      "next": "暂不做疼痛程度拟合；不擅自重诊断为PHN"
+    },
+    {
+      "cohort": "PRT AHinCBP",
+      "independent_people": "141神经特征患者／51对照",
+      "label": "141×60任务响应可读；临床pain_avg未取得",
+      "timing": "任务不愉快度不是一周背痛；MRI—临床窗未齐",
+      "tail_coverage": "真实临床低高人数未知",
+      "readiness": "四个Figshare临床API本次仍403；不等于数据不存在",
+      "next": "等可读临床表，不用Rating列替代pain_avg，不外联"
+    },
+    {
+      "cohort": "脊髓 ds004926",
+      "independent_people": "40健康者／两访视候选",
+      "label": "实验热痛事件含rating；本轮仅读一个run样例",
+      "timing": "原文支持脊髓任务；全run评分单位/时点未完整复核",
+      "tail_coverage": "样例20行rating相同，不当20个独立评分；全队列低高数未知",
+      "readiness": "脊髓视野，不是全脑AAL90同输入；无本项目统一QC",
+      "next": "只作方法学候选，不能作为全脑慢性疼痛增量"
+    },
+    {
+      "cohort": "慢性腰痛PET/MR ds007135",
+      "independent_people": "25人员目录",
+      "label": "当前公开树仍无逐人临床评分表",
+      "timing": "临床评分—MRI时间缺",
+      "tail_coverage": "未知，不能从疾病标签制造疼痛值",
+      "readiness": "未备统一时序/FC/QC",
+      "next": "等真实临床表；不启动缺真值训练"
+    },
+    {
+      "cohort": "SRPBS-FC历史N82",
+      "independent_people": "43疼痛患者／原82人",
+      "label": "历史43真实VAS，原生BAL140 FC",
+      "timing": "量表端点、回顾窗和扫描时点未齐",
+      "tail_coverage": "不能与sup7/sup8相加；跨库个体重叠未证实",
+      "readiness": "已使用且预测阴性；不是新独立样本",
+      "next": "保留历史结果，不转换图谱或重命名独立验证"
+    },
+    {
+      "cohort": "ABIDE及一般来源库存",
+      "independent_people": "ABIDE已备972人；SRPBS混合库存另列",
+      "label": "本任务所需疼痛强度标签不在现有输入中",
+      "timing": "非疼痛监督终点",
+      "tail_coverage": "不把健康或其他诊断转为零疼痛",
+      "readiness": "一般表示/非疼痛诊断材料，不增加疼痛患者",
+      "next": "原来源角色保持"
+    }
+  ],
+  "tail_counts": [
+    {
+      "cohort": "Emo当前27",
+      "observation_unit": "独立患者",
+      "observations": 27,
+      "low_count": 5,
+      "middle_count": 16,
+      "high_count": 6,
+      "rule": "原研究分箱VAS<35／35–<65／>=65，非本队列已验证临床等级",
+      "people_with_low": "",
+      "people_with_high": "",
+      "people_with_both": ""
+    },
+    {
+      "cohort": "Emo未纳入6",
+      "observation_unit": "QC未通过患者",
+      "observations": 6,
+      "low_count": 1,
+      "middle_count": 2,
+      "high_count": 3,
+      "rule": "同原35/65，仅库存计数，新增纳入0",
+      "people_with_low": "",
+      "people_with_high": "",
+      "people_with_both": ""
+    },
+    {
+      "cohort": "Emo候选33",
+      "observation_unit": "候选患者",
+      "observations": 33,
+      "low_count": 6,
+      "middle_count": 18,
+      "high_count": 9,
+      "rule": "同原35/65；不是33个合格影像样本",
+      "people_with_low": "",
+      "people_with_high": "",
+      "people_with_both": ""
+    },
+    {
+      "cohort": "音乐实验前pi",
+      "observation_unit": "患者",
+      "observations": 20,
+      "low_count": 1,
+      "middle_count": 2,
+      "high_count": 17,
+      "rule": "描述性0–3／>3且<7／7–10，NRS实验前值，非条件标签",
+      "people_with_low": "",
+      "people_with_high": "",
+      "people_with_both": ""
+    },
+    {
+      "cohort": "音乐四条件VRS",
+      "observation_unit": "重复条件状态",
+      "observations": 68,
+      "low_count": 24,
+      "middle_count": 29,
+      "high_count": 15,
+      "rule": "描述性0–3／>3且<7／7–10；17独立患者，非临床分级",
+      "people_with_low": 10,
+      "people_with_high": 7,
+      "people_with_both": 2
+    },
+    {
+      "cohort": "CoSpine开发PR",
+      "observation_unit": "重复热痛试次",
+      "observations": 390,
+      "low_count": 3,
+      "middle_count": 165,
+      "high_count": 222,
+      "rule": "描述性0–3／>3且<7／7–10；26健康开发者，非临床分级",
+      "people_with_low": 2,
+      "people_with_high": 26,
+      "people_with_both": 2
+    },
+    {
+      "cohort": "DS005713当前平均痛",
+      "observation_unit": "有评分者",
+      "observations": 98,
+      "low_count": 16,
+      "middle_count": 54,
+      "high_count": 28,
+      "rule": "描述性0–3／>3且<7／7–10；MRI同期性未知；95精确rest路径",
+      "people_with_low": "",
+      "people_with_high": "",
+      "people_with_both": ""
+    },
+    {
+      "cohort": "DS005713旧来源有评分者",
+      "observation_unit": "旧来源内有评分者",
+      "observations": 16,
+      "low_count": 2,
+      "middle_count": 9,
+      "high_count": 5,
+      "rule": "描述性0–3／>3且<7／7–10；TN14停止",
+      "people_with_low": "",
+      "people_with_high": "",
+      "people_with_both": ""
+    }
+  ],
+  "verification": {
+    "state": "PASS",
+    "original_Emo_bins_independently_equal": true,
+    "music_join_and_tails_independently_equal": true,
+    "old_existing_TN_direct_scans_with_score": 6,
+    "old_existing_TN_person_key_scored": 8,
+    "current_existing_TN_person_key_scored": 16,
+    "existing_TN_new_scored_people": 8,
+    "existing_TN_lost_scored_people": 0,
+    "existing_TN_shared_score_values_changed": 0,
+    "current_TN_98_scored_exact_rest_path_matches": 95,
+    "current_TN_98_scored_without_exact_rest_path": 3,
+    "current_TN_held_source_clinical_matches": 32,
+    "current_TN_held_source_unmatched": 1,
+    "TN14_not_restarted": true,
+    "new_MRI_reads": 0,
+    "new_fits": 0
+  },
+  "metadata_scope": [
+    {
+      "dataset": "ds000208",
+      "held_revision": "f718509da3ac054fc9ab191c1bbdb984710a932e",
+      "current_revision": "f718509da3ac054fc9ab191c1bbdb984710a932e",
+      "unchanged": true,
+      "state": "METADATA_REFRESHED",
+      "url": "https://github.com/OpenNeuroDatasets/ds000208/tree/f718509da3ac054fc9ab191c1bbdb984710a932e"
+    },
+    {
+      "dataset": "ds001928",
+      "held_revision": "83f72d44434e9ceba4ecafa746f352dbea2ba15c",
+      "current_revision": "83f72d44434e9ceba4ecafa746f352dbea2ba15c",
+      "unchanged": true,
+      "state": "METADATA_REFRESHED",
+      "url": "https://github.com/OpenNeuroDatasets/ds001928/tree/83f72d44434e9ceba4ecafa746f352dbea2ba15c"
+    },
+    {
+      "dataset": "ds004144",
+      "held_revision": "b6e525adf7b861d5dab7e539bff19f90ce482032",
+      "current_revision": "b6e525adf7b861d5dab7e539bff19f90ce482032",
+      "unchanged": true,
+      "state": "METADATA_REFRESHED",
+      "url": "https://github.com/OpenNeuroDatasets/ds004144/tree/b6e525adf7b861d5dab7e539bff19f90ce482032"
+    },
+    {
+      "dataset": "ds004926",
+      "held_revision": "bffa92b11d6c5c1edb50fc251911f3f12e61ff68",
+      "current_revision": "bffa92b11d6c5c1edb50fc251911f3f12e61ff68",
+      "unchanged": true,
+      "state": "METADATA_REFRESHED",
+      "url": "https://github.com/OpenNeuroDatasets/ds004926/tree/bffa92b11d6c5c1edb50fc251911f3f12e61ff68"
+    },
+    {
+      "dataset": "ds005016",
+      "held_revision": "2107a0a736dbeeff2adb1bc55ca7461feb6139aa",
+      "current_revision": "2107a0a736dbeeff2adb1bc55ca7461feb6139aa",
+      "unchanged": true,
+      "state": "METADATA_REFRESHED",
+      "url": "https://github.com/OpenNeuroDatasets/ds005016/tree/2107a0a736dbeeff2adb1bc55ca7461feb6139aa"
+    },
+    {
+      "dataset": "ds005713",
+      "held_revision": "af6bd21edf6fe8349cd79ec8d48c1fa8371bb28f",
+      "current_revision": "ffccd9a0237672c21a0ead5da4ab67dbdfd7e684",
+      "unchanged": false,
+      "state": "METADATA_REFRESHED",
+      "url": "https://github.com/OpenNeuroDatasets/ds005713/tree/ffccd9a0237672c21a0ead5da4ab67dbdfd7e684"
+    },
+    {
+      "dataset": "ds005883",
+      "held_revision": "037ed267e7f7f2024a5fe3d0e8fb4759f7f67bdd",
+      "current_revision": "037ed267e7f7f2024a5fe3d0e8fb4759f7f67bdd",
+      "unchanged": true,
+      "state": "METADATA_REFRESHED",
+      "url": "https://github.com/OpenNeuroDatasets/ds005883/tree/037ed267e7f7f2024a5fe3d0e8fb4759f7f67bdd"
+    },
+    {
+      "dataset": "ds006815",
+      "held_revision": "24cf6ccd0b84956f96ccf950d908461bd64a9e14",
+      "current_revision": "24cf6ccd0b84956f96ccf950d908461bd64a9e14",
+      "unchanged": true,
+      "state": "METADATA_REFRESHED",
+      "url": "https://github.com/OpenNeuroDatasets/ds006815/tree/24cf6ccd0b84956f96ccf950d908461bd64a9e14"
+    },
+    {
+      "dataset": "ds007135",
+      "held_revision": "63a0b1520937935aa1de117c4587fdc0c1ab02fd",
+      "current_revision": "63a0b1520937935aa1de117c4587fdc0c1ab02fd",
+      "unchanged": true,
+      "state": "METADATA_REFRESHED",
+      "url": "https://github.com/OpenNeuroDatasets/ds007135/tree/63a0b1520937935aa1de117c4587fdc0c1ab02fd"
+    },
+    {
+      "dataset": "ds007181",
+      "held_revision": "2499c3d0f3dca9b3e84b8faf01e7838374dcc621",
+      "current_revision": "2499c3d0f3dca9b3e84b8faf01e7838374dcc621",
+      "unchanged": true,
+      "state": "METADATA_REFRESHED",
+      "url": "https://github.com/OpenNeuroDatasets/ds007181/tree/2499c3d0f3dca9b3e84b8faf01e7838374dcc621"
+    }
+  ]
+}

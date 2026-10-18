@@ -1,0 +1,7 @@
+﻿model,state,reason,source
+CortexMAE-A424 r1,SELECTED_AND_RUN,具体HCP-YA配置/日志/权重args及缩放齐全，现有424区时序兼容；默认r1事前选定。,https://github.com/MedARC-AI/CortexMAE
+BrainLM256,PREVIOUS_BRANCH_STOPPED,具体权重级训练来源/实际缩放不明，上轮五seed技术成功不替代这些材料。,https://onephantomcat.github.io/neurograph-site/#evidence?source=brainlm-scaling-20261018-comparison
+Brain-JEPA,PREVIOUS_NEGATIVE_STOP_RETAINED,旧99人来源内实际比较及时间网格适配均已阴性；不重复包装为新模型，不扩旧查询。,https://github.com/Eric-LRL/Brain-JEPA
+NeuroMamba,OPERATOR_DIFFERENCE_RETAINED,既有Aurora门控算子与上游不同、预处理也不同；技术前向不能冒称官方原样。,https://github.com/Transconnectome/NeuroMamba
+BrainPFN,NOT_SELECTED,公开接口为FC400回归，非当前诊断分类；本轮未取得可核的预训练论文内容。HAL访问挑战未绕过。,https://github.com/carloalbertobarbano/BrainPFN
+BrainHarmony,NOT_SELECTED,本轮README未给可操作的检查点及完整输入处理依据；不以多模态名称代替材料。,https://github.com/hzlab/Brain-Harmony

@@ -1,0 +1,95 @@
+# CortexMAE-A424：固定预训练迁移与随机对照
+
+完成500个神经分类头、100000次更新及全部保存头重放。五成员集成AUC：K10预训练0.6048、随机0.4722、原SPD0.7316；K20预训练0.6652、随机0.5528、原SPD0.7756。
+
+相对同结构固定随机编码器，K10集成AUC提高0.1326、5/5支持重复正向；K20集成AUC提高0.1125、5/5支持重复正向。两个预算的条件区间均排除0。两预算仍低于原SPD集成，本轮不替换轻量SPD主线。 全部seed和阴性保留，停止该配置。
+
+基于模型：官方CortexMAE-A424 r1（mae_vit_base，768维、12层、HCP-YA预训练）＋本地单层神经分类头
+
+本轮改动：冻结官方编码器和固定随机编码器；原人级K10/20支持与五头seed；原轻量SPD预测配对复用
+
+|模型|K|口径|AUC|AP|BA|Brier|logloss|支持重复SD|对SPD的Δ|Δ条件区间|
+|---|---|---|---|---|---|---|---|---|---|---|
+|官方CortexMAE冻结预训练＋本地神经头|10|五seed成员均值|0.603635|0.598477|0.569624|0.343707|1.437231|0.032882|-0.083462|[-0.153584, -0.011501]|
+|官方CortexMAE冻结预训练＋本地神经头|10|五成员集成|0.604808|0.599756|0.573293|0.343488|1.434400|0.032614|-0.126784|[-0.207091, -0.039666]|
+|同结构冻结随机编码器＋相同神经头|10|五seed成员均值|0.470646|0.505250|0.476032|0.398767|1.474211|0.042906|-0.216451|[-0.307699, -0.113088]|
+|同结构冻结随机编码器＋相同神经头|10|五成员集成|0.472238|0.507078|0.476667|0.398428|1.471596|0.043587|-0.259354|[-0.363332, -0.142063]|
+|原轻量SPD五seed（复用保存预测）|10|五seed成员均值|0.687097|0.704757|0.635778|0.236559|0.686239|0.013528|参照|不适用|
+|原轻量SPD五seed（复用保存预测）|10|五成员集成|0.731592|0.744153|0.665778|0.213984|0.620490|0.023227|参照|不适用|
+|官方CortexMAE冻结预训练＋本地神经头|20|五seed成员均值|0.665698|0.654869|0.575018|0.294263|0.988409|0.008199|-0.046914|[-0.126233, +0.030609]|
+|官方CortexMAE冻结预训练＋本地神经头|20|五成员集成|0.665244|0.653582|0.576404|0.294099|0.987191|0.006793|-0.110360|[-0.197491, -0.021986]|
+|同结构冻结随机编码器＋相同神经头|20|五seed成员均值|0.553003|0.564791|0.527681|0.326221|1.032980|0.044971|-0.159609|[-0.257535, -0.055988]|
+|同结构冻结随机编码器＋相同神经头|20|五成员集成|0.552764|0.567086|0.528404|0.325983|1.031771|0.044737|-0.222840|[-0.331206, -0.102967]|
+|原轻量SPD五seed（复用保存预测）|20|五seed成员均值|0.712612|0.723608|0.660485|0.224081|0.650549|0.015759|参照|不适用|
+|原轻量SPD五seed（复用保存预测）|20|五成员集成|0.775604|0.800128|0.710949|0.202198|0.592684|0.015555|参照|不适用|
+
+|K|比较|ΔAUC|条件95区间|正向支持重复|逐重复差|
+|---|---|---|---|---|---|
+|10|预训练−固定随机，五成员|+0.132570|[+0.032053,+0.230453]|5/5|[0.15933333333333333, 0.0820202020202021, 0.10727272727272735, 0.11830303030303019, 0.19591919191919194]|
+|20|预训练−固定随机，五成员|+0.112481|[+0.013499,+0.211004]|5/5|[0.16179797979797983, 0.031070707070707138, 0.13305050505050509, 0.12109090909090903, 0.1153939393939395]|
+
+原99人（46病例/53对照）反复参与过开发，不是独立验证。HCP-YA检查点与SRPBS目标队列按已声明来源成员排除；缺跨匿名库身份映射，不能证明生物个体交集为零。图谱与原SPD不同；只在预训练对随机的同输入比较中识别预训练贡献。条件bootstrap不覆盖重训、选方法或新队列。原体积DPABI与HCP处理差异、最小ROI 1体素/每人2区少于5体素、既有QC及临床终点缺口保留。
+
+## 支持拟合与查询误差
+
+预训练头在K10/20的支持AUC均为1.0，查询Brier为0.3435/0.2941，原SPD为0.2140/0.2022；新模型的查询概率误差更大。支持集排序接近满分没有带来查询增量，不能据此认定唯一原因或概括所有预训练模型。
+
+## 官方方法与本地适配
+
+作者模型原样、strict=True全键加载；官方逐ROI扫描zscore、float16存储、推理线性TR重采样、逐帧标准化及clip±3；37个16帧块固定均值池化。本地772→1神经头，仅支持集拟合尺度，均衡BCE/SGD .01/权重衰减 .001/200更新；没有早停或查询选参。
+
+编码器85389312参数冻结，分类头773参数；同结构随机编码器唯一固定seed20261018。五个head seed不等于五个预训练编码器，也不覆盖随机编码器初始化不确定性。原SPD每成员1581可训练参数/AAL90，本轮424区768维，与原SPD的差不能单独归因预训练。
+
+本轮头、池化和更新预算均为本地适配，不是作者Brainmarks注意力探针原样评测，不能与论文任务分数横向排名。编码器使用FP32推理（作者接口支持amp=False），头使用FP64。
+
+官方HCP预训练100轮为外部现成权重，本轮未重训预训练任务。选用A424消融，不冒称论文旗舰flat-map。作者论文总体未展示超越FC的稳定trait预测，不因规模承诺疼痛收益。
+
+官方当前依赖Torch>=2.8；服务器因旧Ubuntu使用Python3.10/Torch2.5.1/CUDA11.8，本地CPU2.9.1五合成seed交叉一致性已实际通过。原始模型算子未改；namespace/数组加载、全扫描37块均值及分类头是本地适配。
+
+## 来源与输入核查
+
+|component|state|evidence|missing|source|
+|---|---|---|---|---|
+|具体预训练来源|CHECKPOINT_CONFIG_AND_ARGS_MATCH|官方默认A424 r1，嵌入args与同目录config/log对应；train_dataset=hcp-train，100轮，seed5401。分片00000—01799及每轮200000样本不等于独立人数。|未提供跨匿名库生物身份映射；不报个体交集已证明为0。|https://huggingface.co/medarc/CortexMAE/tree/main/subcortical/a424_lr3e-4_1/pretrain|
+|人员重叠核查|DECLARED_DATASET_MEMBERSHIP_EXCLUDED|当前99人均为SRPBS1600成员；所选权重仅列HCP-YA，声明来源无交集。|这是队列成员层面的排除，生物个体跨库交集未知；当前仍为开发比较。|https://github.com/MedARC-AI/CortexMAE|
+|脑区输入|ATLAS_VOXEL_AND_AFFINE_MATCH|424标签；缓存提取图谱与官方上游体积图谱逐体素、仿射及标签顺序一致，99×240×424全部有限且非恒定。|体积与作者HCP表面/原生处理不同；既有小ROI和QC限制保留。|https://raw.githubusercontent.com/emergelab/hierarchical-brain-networks/master/brainmaps/A424+2mm.nii.gz|
+|归一化及时间轴|AUTHOR_TRANSFORMS_REUSED|扫描内ROI zscore→float16→float32→TR2.5到TR1线性插值→逐帧样本std标准化→clip±3；600帧取37×16，尾8帧按作者规则丢弃。|作者注明预训练pchip、推理线性，沿推理规则；逐块/全扫描均值池化为本地固定选择。|https://github.com/MedARC-AI/CortexMAE/blob/a2919e9f4018b16093c4e7b3114b814ef2132dab/src/cortex_mae/inference.py|
+|严格权重加载|STRICT_ALL_KEYS_MATCH|完整模型98614786参数，编码器85389312参数；缺失键0、额外键0，epoch99。|选用作者A424消融变体；不是论文旗舰flat-map输入或完整原任务复现。|https://proceedings.mlr.press/v306/lane26a.html|
+|GPU兼容前向|FIVE_SEED_CPU_GPU_CHECK_PASS|CPU2.9.1/GPU2.5.1+cu118五合成seed，最大特征差1.132e-06，重复误差0；预处理差4.768e-07。|GPU2.5.1/Python3.10低于作者当前声明的Torch>=2.8/Python>=3.11；旧Ubuntu兼容适配，五seed交叉前向验证，不是官方依赖环境原样复现。|https://onephantomcat.github.io/neurograph-site/#evidence?source=cortexmae-transfer-20261018-technical|
+|同人同预算|ALL_500_HEADS_REPLAYED|原5外折×5支持重复×K10/20×5头seed，两臂500头；每头200次更新，保存后全部NumPy重放；原SPD250相关模型预测复用。|匹配人员、标签、更新及seed数；不匹配外部预训练成本、推理FLOPs或参数。|https://onephantomcat.github.io/neurograph-site/#evidence?source=cortexmae-transfer-20261018-plan|
+|历史分支与全部结果|NEGATIVES_AND_FAILURES_RETAINED|BrainLM来源不全继续停止；旧Brain-JEPA/NeuroMamba/FMM阴性或实现差异保留。当前18均值、18配对、30seed、900支持外折行全部提供。|不挑最佳seed，不按查询结果再选窗口/编码器/融合。|https://onephantomcat.github.io/neurograph-site/#evidence?source=cortexmae-transfer-20261018-candidates|
+
+## 候选与停止分支
+
+|model|state|reason|source|
+|---|---|---|---|
+|CortexMAE-A424 r1|SELECTED_AND_RUN|具体HCP-YA配置/日志/权重args及缩放齐全，现有424区时序兼容；默认r1事前选定。|https://github.com/MedARC-AI/CortexMAE|
+|BrainLM256|PREVIOUS_BRANCH_STOPPED|具体权重级训练来源/实际缩放不明，上轮五seed技术成功不替代这些材料。|https://onephantomcat.github.io/neurograph-site/#evidence?source=brainlm-scaling-20261018-comparison|
+|Brain-JEPA|PREVIOUS_NEGATIVE_STOP_RETAINED|旧99人来源内实际比较及时间网格适配均已阴性；不重复包装为新模型，不扩旧查询。|https://github.com/Eric-LRL/Brain-JEPA|
+|NeuroMamba|OPERATOR_DIFFERENCE_RETAINED|既有Aurora门控算子与上游不同、预处理也不同；技术前向不能冒称官方原样。|https://github.com/Transconnectome/NeuroMamba|
+|BrainPFN|NOT_SELECTED|公开接口为FC400回归，非当前诊断分类；本轮未取得可核的预训练论文内容。HAL访问挑战未绕过。|https://github.com/carloalbertobarbano/BrainPFN|
+|BrainHarmony|NOT_SELECTED|本轮README未给可操作的检查点及完整输入处理依据；不以多模态名称代替材料。|https://github.com/hzlab/Brain-Harmony|
+
+## 全部失败及停止记录
+
+|stage|state|detail|
+|---|---|---|
+|本机隔离环境初次解析|INSTALLER_STOPPED_RETAINED|初次uv自动解析到不需要的Torch下载，仅结束已核实属于本任务的安装进程；随后no-deps安装四个小包成功，无共享环境修改。|
+|服务器首次环境安装|FAILED_RETAINED_EXIT1|旧pip将typing-extensions元数据名字判不一致，退回源码后找不到flit_core；更新隔离环境pip并保留原日志后完成针对性重试。|
+|模型训练|COMPLETE_NO_FAILED_HEAD|500预定神经头完成并全部重放；没有删除seed或补跑挑结果。|
+|旧BrainLM256|STOPPED_PROVENANCE_UNRESOLVED|来源/实际缩放不明；原五seed源码差异及三失效样例保留原报告。|
+|本地只读文件查询|SHELL_PARSE_ERROR_RETAINED|一次PowerShell中使用了不支持的花括号文件展开，解析失败，无文件执行或修改；改用目录rg。|
+|服务器第二次安装下载线路|OWN_INSTALLER_INTERRUPTED_RETAINED|双源解析为CUDA依赖选择了慢速PyPI线路；只中断本任务已核实PID的安装器，保留缓存/日志，改为官方PyTorch单源安装GPU核心，再安装少量纯Python依赖。未运行患者训练或改变配置。|
+|服务器第三次安装及离线收尾|NETWORK_INTERRUPTION_RETAINED_OFFLINE_COMPLETED|Triton超时后由pip续传成功；NumPy下载耗时8分09秒，随后仍有慢依赖。保留全部完成的官方wheel，仅中断本任务安装器；补齐相同版本的PyPI文件后离线安装，未修改患者方案。备用官方Triton文件保留，服务器未使用替换版。|
+|备用小依赖下载|SSL_METADATA_FAILURE_RETAINED|备用批量下载的wadler-lindig PyPI元数据发生SSL EOF，已完成文件保留；直接访问同一PyPI来源补齐fsspec及wadler-lindig。NumPy采用服务器已完成文件，并结束不再需要的本任务备用下载。未修改科学配置或共享环境。|
+|本机依赖目录链接|SYMLINK_FAILED_JUNCTION_SUCCEEDED|Windows符号链接权限不足，未创建链接；改用目录junction成功，不修改依赖目录。|
+
+## 完整结果与下一步
+
+停止这一固定CortexMAE配置，不根据查询分数追加窗口、池化或融合权重。下一项先在支持集内部核查分类头正则化及与SPD的互补信息；有训练内依据后，再另定一次固定收缩残差融合比较。独立诊断、扫描同期疼痛与治疗随访仍分别需要合适数据。
+
+[全部均值](https://onephantomcat.github.io/neurograph-site/files/cortexmae-transfer-20261018-means.csv)、[全部配对](https://onephantomcat.github.io/neurograph-site/files/cortexmae-transfer-20261018-pairs.csv)、[全部seed](https://onephantomcat.github.io/neurograph-site/files/cortexmae-transfer-20261018-seeds.csv)、[全部支持/外折指标](https://onephantomcat.github.io/neurograph-site/files/cortexmae-transfer-20261018-supports.csv)、[技术核查](https://onephantomcat.github.io/neurograph-site/files/cortexmae-transfer-20261018-technical.json)、[预定方案](https://onephantomcat.github.io/neurograph-site/files/cortexmae-transfer-20261018-plan.md)、[近期组员表](https://onephantomcat.github.io/neurograph-site/files/cortexmae-transfer-20261018-recent.md)。逐人预测、模型和输入仅私有保留。
+
+官方依据：[作者代码](https://github.com/MedARC-AI/CortexMAE)、[权重及同目录config/log](https://huggingface.co/medarc/CortexMAE/tree/main/subcortical/a424_lr3e-4_1/pretrain)、[论文](https://proceedings.mlr.press/v306/lane26a.html)。
+
+<Self-Audit>现成作者编码器原样加载；只用各支持集拟合尺度和分类头，全部同人窗口同分区。复用既有SPD预测与评价实现；500保存头独立NumPy重放。所有配置事前写定，完成后停止；未把队列成员排除写成生物身份交集证明，未升级独立验证或QC。</Self-Audit>

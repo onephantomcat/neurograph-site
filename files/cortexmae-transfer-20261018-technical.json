@@ -1,0 +1,134 @@
+{
+  "state": "OFFICIAL_ENCODER_AND_MATCHED_COMPARISON_VERIFIED",
+  "strict": true,
+  "missing_keys": [],
+  "unexpected_keys": [],
+  "config_binding": {
+    "state": "ALL_PUBLIC_CONFIG_FIELDS_MATCH",
+    "fields": 57,
+    "different_keys": [],
+    "checkpoint_extra_keys": [
+      "lr"
+    ]
+  },
+  "model_parameters": 98614786,
+  "encoder_parameters": 85389312,
+  "cpu_synthetic_seeds": [
+    {
+      "seed": 0,
+      "shape": [
+        1,
+        768
+      ],
+      "finite": true,
+      "repeat_max_error": 0.0,
+      "two_forward_seconds": 5.222326300001441
+    },
+    {
+      "seed": 1,
+      "shape": [
+        1,
+        768
+      ],
+      "finite": true,
+      "repeat_max_error": 0.0,
+      "two_forward_seconds": 3.3354708000006212
+    },
+    {
+      "seed": 2,
+      "shape": [
+        1,
+        768
+      ],
+      "finite": true,
+      "repeat_max_error": 0.0,
+      "two_forward_seconds": 3.3443929000022763
+    },
+    {
+      "seed": 3,
+      "shape": [
+        1,
+        768
+      ],
+      "finite": true,
+      "repeat_max_error": 0.0,
+      "two_forward_seconds": 3.64930269999968
+    },
+    {
+      "seed": 4,
+      "shape": [
+        1,
+        768
+      ],
+      "finite": true,
+      "repeat_max_error": 0.0,
+      "two_forward_seconds": 3.244244699999399
+    }
+  ],
+  "gpu_synthetic": {
+    "state": "FIVE_SEED_CPU_GPU_CHECK_PASS",
+    "python": "3.10.13",
+    "torch": "2.5.1+cu118",
+    "cuda": "11.8",
+    "device": "NVIDIA GeForce GTX 1080 Ti",
+    "cpu_gpu_max_errors": [
+      8.344650268554688e-07,
+      8.940696716308594e-07,
+      1.1324882507324219e-06,
+      8.344650268554688e-07,
+      1.0728836059570312e-06
+    ],
+    "repeat_errors": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "preprocess_cross_runtime_max_error": 4.76837158203125e-07,
+    "author_declared_min_torch": "2.8.0",
+    "author_declared_min_python": "3.11",
+    "local_runtime_compatibility_adaptation": true
+  },
+  "atlas": {
+    "state": "ATLAS_VOXEL_AND_AFFINE_MATCH",
+    "shape": [
+      91,
+      109,
+      91
+    ],
+    "affine_max_error": 0.0,
+    "same_labels": true,
+    "nonzero_labels": 424
+  },
+  "head_parameters": 773,
+  "all_head_replays": 500,
+  "max_head_replay_error": 3.3306690738754696e-16,
+  "encoding_seconds": 659.189079284668,
+  "peak_GPU_allocated_bytes": 581697024,
+  "all_clips": 7326,
+  "frozen_encoder_count": 2,
+  "random_encoder_seed": 20261018,
+  "random_encoder_seed_uncertainty_covered": false,
+  "official_pretraining_seed": 5401,
+  "head_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "new_patient_fits": 500,
+  "official_model_source_modified": false,
+  "official_full_data_pipeline_reproduction": false,
+  "random_loader_check": {
+    "state": "PRETRAINED_AND_RANDOM_LOADERS_DISTINCT",
+    "parameters": 85389312,
+    "all_frozen": true,
+    "weight_max_difference": 0.1416303813457489,
+    "random_seed": 20261018
+  },
+  "official_encoder": true,
+  "official_downstream_probe": false,
+  "downstream_scheme": "Frozen encoder, fixed scan pooling and local neural head; not end-to-end finetuning or the original Brainmarks probe."
+}

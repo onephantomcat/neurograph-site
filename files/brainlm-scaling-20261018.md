@@ -67,3 +67,18 @@
 [来源证据表](https://onephantomcat.github.io/neurograph-site/files/brainlm-scaling-20261018-source-evidence.csv)；[五seed实测](https://onephantomcat.github.io/neurograph-site/files/brainlm-scaling-20261018-scaling-seeds.csv)；[失效样例](https://onephantomcat.github.io/neurograph-site/files/brainlm-scaling-20261018-scaling-failures.csv)；[全部技术记录](https://onephantomcat.github.io/neurograph-site/files/brainlm-scaling-20261018-technical.json)；[条件性方案](https://onephantomcat.github.io/neurograph-site/files/brainlm-scaling-20261018-plan.md)。
 
 <Self-Audit>真实运行原始缩放语句及官方冻结权重，仅用合成输入；未用查询统计、标签或AUC选择处理。一般来源与检查点出处分列，公开提问和作者确认分列；旧组件、全部seed、失败和阴性均保留。</Self-Audit>
+
+
+<!-- cortexmae-transfer-20261018 -->
+
+## 2026-10-18：CortexMAE-A424：固定预训练迁移与随机对照
+
+完成500个神经分类头、100000次更新及全部保存头重放。五成员集成AUC：K10预训练0.6048、随机0.4722、原SPD0.7316；K20预训练0.6652、随机0.5528、原SPD0.7756。
+
+相对同结构固定随机编码器，K10集成AUC提高0.1326、5/5支持重复正向；K20集成AUC提高0.1125、5/5支持重复正向。两个预算的条件区间均排除0。两预算仍低于原SPD集成，本轮不替换轻量SPD主线。 全部seed和阴性保留，停止该配置。
+
+原99人（46病例/53对照）反复参与过开发，不是独立验证。HCP-YA检查点与SRPBS目标队列按已声明来源成员排除；缺跨匿名库身份映射，不能证明生物个体交集为零。图谱与原SPD不同；只在预训练对随机的同输入比较中识别预训练贡献。条件bootstrap不覆盖重训、选方法或新队列。原体积DPABI与HCP处理差异、最小ROI 1体素/每人2区少于5体素、既有QC及临床终点缺口保留。
+
+停止这一固定CortexMAE配置，不根据查询分数追加窗口、池化或融合权重。下一项先在支持集内部核查分类头正则化及与SPD的互补信息；有训练内依据后，再另定一次固定收缩残差融合比较。独立诊断、扫描同期疼痛与治疗随访仍分别需要合适数据。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/cortexmae-transfer-20261018.md)。

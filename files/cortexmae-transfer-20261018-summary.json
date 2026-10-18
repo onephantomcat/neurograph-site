@@ -1,0 +1,983 @@
+{
+  "id": "cortexmae-transfer-20261018",
+  "title": "CortexMAE-A424：固定预训练迁移与随机对照",
+  "date": "2026-10-18",
+  "state": "COMPLETE_MATCHED_COMPARISON",
+  "people": 99,
+  "new_fits": 500,
+  "new_reference_fits": 0,
+  "base_model": "官方CortexMAE-A424 r1（mae_vit_base，768维、12层、HCP-YA预训练）＋本地单层神经分类头",
+  "changed_component": "冻结官方编码器和固定随机编码器；原人级K10/20支持与五头seed；原轻量SPD预测配对复用",
+  "code_assistant": "Codex（GPT-6系列；具体子型号环境未提供）",
+  "summary": "完成500个神经分类头、100000次更新及全部保存头重放。五成员集成AUC：K10预训练0.6048、随机0.4722、原SPD0.7316；K20预训练0.6652、随机0.5528、原SPD0.7756。",
+  "interpretation": "相对同结构固定随机编码器，K10集成AUC提高0.1326、5/5支持重复正向；K20集成AUC提高0.1125、5/5支持重复正向。两个预算的条件区间均排除0。两预算仍低于原SPD集成，本轮不替换轻量SPD主线。 全部seed和阴性保留，停止该配置。",
+  "boundary": "原99人（46病例/53对照）反复参与过开发，不是独立验证。HCP-YA检查点与SRPBS目标队列按已声明来源成员排除；缺跨匿名库身份映射，不能证明生物个体交集为零。图谱与原SPD不同；只在预训练对随机的同输入比较中识别预训练贡献。条件bootstrap不覆盖重训、选方法或新队列。原体积DPABI与HCP处理差异、最小ROI 1体素/每人2区少于5体素、既有QC及临床终点缺口保留。",
+  "next": "停止这一固定CortexMAE配置，不根据查询分数追加窗口、池化或融合权重。下一项先在支持集内部核查分类头正则化及与SPD的互补信息；有训练内依据后，再另定一次固定收缩残差融合比较。独立诊断、扫描同期疼痛与治疗随访仍分别需要合适数据。",
+  "method": "作者模型原样、strict=True全键加载；官方逐ROI扫描zscore、float16存储、推理线性TR重采样、逐帧标准化及clip±3；37个16帧块固定均值池化。本地772→1神经头，仅支持集拟合尺度，均衡BCE/SGD .01/权重衰减 .001/200更新；没有早停或查询选参。",
+  "focus_summary": "完成500个神经分类头、100000次更新及全部保存头重放。五成员集成AUC：K10预训练0.6048、随机0.4722、原SPD0.7316；K20预训练0.6652、随机0.5528、原SPD0.7756。 相对同结构固定随机编码器，K10集成AUC提高0.1326、5/5支持重复正向；K20集成AUC提高0.1125、5/5支持重复正向。两个预算的条件区间均排除0。两预算仍低于原SPD集成，本轮不替换轻量SPD主线。 全部seed和阴性保留，停止该配置。",
+  "diagnostic_summary": "官方A424权重及来源核查通过；500神经头、五seed与全部阴性保留。",
+  "scope_note": "同人、同监督预算和每头更新次数；原SPD250模型复用，外部预训练成本另列。",
+  "checks": [
+    {
+      "component": "具体预训练来源",
+      "state": "CHECKPOINT_CONFIG_AND_ARGS_MATCH",
+      "evidence": "官方默认A424 r1，嵌入args与同目录config/log对应；train_dataset=hcp-train，100轮，seed5401。分片00000—01799及每轮200000样本不等于独立人数。",
+      "missing": "未提供跨匿名库生物身份映射；不报个体交集已证明为0。",
+      "source": "https://huggingface.co/medarc/CortexMAE/tree/main/subcortical/a424_lr3e-4_1/pretrain"
+    },
+    {
+      "component": "人员重叠核查",
+      "state": "DECLARED_DATASET_MEMBERSHIP_EXCLUDED",
+      "evidence": "当前99人均为SRPBS1600成员；所选权重仅列HCP-YA，声明来源无交集。",
+      "missing": "这是队列成员层面的排除，生物个体跨库交集未知；当前仍为开发比较。",
+      "source": "https://github.com/MedARC-AI/CortexMAE"
+    },
+    {
+      "component": "脑区输入",
+      "state": "ATLAS_VOXEL_AND_AFFINE_MATCH",
+      "evidence": "424标签；缓存提取图谱与官方上游体积图谱逐体素、仿射及标签顺序一致，99×240×424全部有限且非恒定。",
+      "missing": "体积与作者HCP表面/原生处理不同；既有小ROI和QC限制保留。",
+      "source": "https://raw.githubusercontent.com/emergelab/hierarchical-brain-networks/master/brainmaps/A424+2mm.nii.gz"
+    },
+    {
+      "component": "归一化及时间轴",
+      "state": "AUTHOR_TRANSFORMS_REUSED",
+      "evidence": "扫描内ROI zscore→float16→float32→TR2.5到TR1线性插值→逐帧样本std标准化→clip±3；600帧取37×16，尾8帧按作者规则丢弃。",
+      "missing": "作者注明预训练pchip、推理线性，沿推理规则；逐块/全扫描均值池化为本地固定选择。",
+      "source": "https://github.com/MedARC-AI/CortexMAE/blob/a2919e9f4018b16093c4e7b3114b814ef2132dab/src/cortex_mae/inference.py"
+    },
+    {
+      "component": "严格权重加载",
+      "state": "STRICT_ALL_KEYS_MATCH",
+      "evidence": "完整模型98614786参数，编码器85389312参数；缺失键0、额外键0，epoch99。",
+      "missing": "选用作者A424消融变体；不是论文旗舰flat-map输入或完整原任务复现。",
+      "source": "https://proceedings.mlr.press/v306/lane26a.html"
+    },
+    {
+      "component": "GPU兼容前向",
+      "state": "FIVE_SEED_CPU_GPU_CHECK_PASS",
+      "evidence": "CPU2.9.1/GPU2.5.1+cu118五合成seed，最大特征差1.132e-06，重复误差0；预处理差4.768e-07。",
+      "missing": "GPU2.5.1/Python3.10低于作者当前声明的Torch>=2.8/Python>=3.11；旧Ubuntu兼容适配，五seed交叉前向验证，不是官方依赖环境原样复现。",
+      "source": "https://onephantomcat.github.io/neurograph-site/#evidence?source=cortexmae-transfer-20261018-technical"
+    },
+    {
+      "component": "同人同预算",
+      "state": "ALL_500_HEADS_REPLAYED",
+      "evidence": "原5外折×5支持重复×K10/20×5头seed，两臂500头；每头200次更新，保存后全部NumPy重放；原SPD250相关模型预测复用。",
+      "missing": "匹配人员、标签、更新及seed数；不匹配外部预训练成本、推理FLOPs或参数。",
+      "source": "https://onephantomcat.github.io/neurograph-site/#evidence?source=cortexmae-transfer-20261018-plan"
+    },
+    {
+      "component": "历史分支与全部结果",
+      "state": "NEGATIVES_AND_FAILURES_RETAINED",
+      "evidence": "BrainLM来源不全继续停止；旧Brain-JEPA/NeuroMamba/FMM阴性或实现差异保留。当前18均值、18配对、30seed、900支持外折行全部提供。",
+      "missing": "不挑最佳seed，不按查询结果再选窗口/编码器/融合。",
+      "source": "https://onephantomcat.github.io/neurograph-site/#evidence?source=cortexmae-transfer-20261018-candidates"
+    }
+  ],
+  "means": [
+    {
+      "method": "pretrained",
+      "k": 10,
+      "condition": "member_mean",
+      "auc": 0.6036347474747472,
+      "auprc": 0.5984771053068784,
+      "balanced_accuracy": 0.5696242424242426,
+      "sensitivity": 0.5874666666666668,
+      "specificity": 0.5517818181818183,
+      "brier": 0.3437071939668851,
+      "logloss": 1.4372307762320997,
+      "train_auc": 1.0,
+      "support_repeat_auc_sample_sd": 0.03288199907979007,
+      "support_repeat_auc_min": 0.5780727272727273,
+      "support_repeat_auc_max": 0.6523757575757575,
+      "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+      "conditional_person_interval": [
+        0.5137377690936514,
+        0.6870883280423279
+      ]
+    },
+    {
+      "method": "pretrained",
+      "k": 10,
+      "condition": "ensemble5",
+      "auc": 0.6048080808080808,
+      "auprc": 0.5997561334758962,
+      "balanced_accuracy": 0.5732929292929293,
+      "sensitivity": 0.5902222222222222,
+      "specificity": 0.5563636363636363,
+      "brier": 0.3434882670244946,
+      "logloss": 1.4343999861274015,
+      "train_auc": 1.0,
+      "support_repeat_auc_sample_sd": 0.032614242399058815,
+      "support_repeat_auc_min": 0.5812727272727273,
+      "support_repeat_auc_max": 0.6535959595959596,
+      "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+      "conditional_person_interval": [
+        0.5144564256005433,
+        0.6890757943291276
+      ]
+    },
+    {
+      "method": "pretrained",
+      "k": 10,
+      "condition": "diagonal_single",
+      "auc": 0.6027838383838384,
+      "auprc": 0.5985592272345626,
+      "balanced_accuracy": 0.5670303030303031,
+      "sensitivity": 0.5813333333333334,
+      "specificity": 0.5527272727272726,
+      "brier": 0.34366890755469454,
+      "logloss": 1.4356259035148835,
+      "train_auc": 1.0,
+      "support_repeat_auc_sample_sd": 0.033496050352929616,
+      "support_repeat_auc_min": 0.5719797979797979,
+      "support_repeat_auc_max": 0.6535959595959596,
+      "sd_scope": "joint support-and-initialization changes; newly trained outer diagonal",
+      "conditional_person_interval": [
+        0.5136457120881364,
+        0.6865160672660672
+      ]
+    },
+    {
+      "method": "pretrained",
+      "k": 20,
+      "condition": "member_mean",
+      "auc": 0.6656977777777779,
+      "auprc": 0.6548691320314438,
+      "balanced_accuracy": 0.5750181818181819,
+      "sensitivity": 0.5536,
+      "specificity": 0.5964363636363637,
+      "brier": 0.29426300683585155,
+      "logloss": 0.9884092288890806,
+      "train_auc": 1.0,
+      "support_repeat_auc_sample_sd": 0.008199398197610522,
+      "support_repeat_auc_min": 0.6527474747474749,
+      "support_repeat_auc_max": 0.6735878787878788,
+      "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+      "conditional_person_interval": [
+        0.5635274213445498,
+        0.7573044534942183
+      ]
+    },
+    {
+      "method": "pretrained",
+      "k": 20,
+      "condition": "ensemble5",
+      "auc": 0.6652444444444445,
+      "auprc": 0.6535822967729055,
+      "balanced_accuracy": 0.5764040404040405,
+      "sensitivity": 0.5564444444444444,
+      "specificity": 0.5963636363636362,
+      "brier": 0.2940992584961098,
+      "logloss": 0.9871912504108868,
+      "train_auc": 1.0,
+      "support_repeat_auc_sample_sd": 0.006792590956990501,
+      "support_repeat_auc_min": 0.655979797979798,
+      "support_repeat_auc_max": 0.6731515151515152,
+      "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+      "conditional_person_interval": [
+        0.5628605289356795,
+        0.7566810851846566
+      ]
+    },
+    {
+      "method": "pretrained",
+      "k": 20,
+      "condition": "diagonal_single",
+      "auc": 0.6676606060606061,
+      "auprc": 0.655712971556212,
+      "balanced_accuracy": 0.5757777777777777,
+      "sensitivity": 0.5515555555555555,
+      "specificity": 0.5999999999999999,
+      "brier": 0.2942588075020233,
+      "logloss": 0.9885841111007052,
+      "train_auc": 1.0,
+      "support_repeat_auc_sample_sd": 0.011726993445373375,
+      "support_repeat_auc_min": 0.6517373737373737,
+      "support_repeat_auc_max": 0.6814343434343435,
+      "sd_scope": "joint support-and-initialization changes; newly trained outer diagonal",
+      "conditional_person_interval": [
+        0.566866571752668,
+        0.7596176045973946
+      ]
+    },
+    {
+      "method": "random",
+      "k": 10,
+      "condition": "member_mean",
+      "auc": 0.4706456565656566,
+      "auprc": 0.5052499100345438,
+      "balanced_accuracy": 0.47603232323232303,
+      "sensitivity": 0.5083555555555557,
+      "specificity": 0.4437090909090909,
+      "brier": 0.398766559942057,
+      "logloss": 1.474210909327108,
+      "train_auc": 1.0,
+      "support_repeat_auc_sample_sd": 0.04290641523739331,
+      "support_repeat_auc_min": 0.4219151515151516,
+      "support_repeat_auc_max": 0.5390020202020201,
+      "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+      "conditional_person_interval": [
+        0.402763055860806,
+        0.5387890689794537
+      ]
+    },
+    {
+      "method": "random",
+      "k": 10,
+      "condition": "ensemble5",
+      "auc": 0.47223838383838385,
+      "auprc": 0.5070775698520797,
+      "balanced_accuracy": 0.47666666666666674,
+      "sensitivity": 0.5093333333333333,
+      "specificity": 0.444,
+      "brier": 0.3984283672468264,
+      "logloss": 1.4715960217810307,
+      "train_auc": 1.0,
+      "support_repeat_auc_sample_sd": 0.04358727223616654,
+      "support_repeat_auc_min": 0.42193939393939395,
+      "support_repeat_auc_max": 0.5415353535353535,
+      "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+      "conditional_person_interval": [
+        0.403654835148017,
+        0.5394841444058022
+      ]
+    },
+    {
+      "method": "random",
+      "k": 10,
+      "condition": "diagonal_single",
+      "auc": 0.4701212121212121,
+      "auprc": 0.5041149786783946,
+      "balanced_accuracy": 0.4722222222222222,
+      "sensitivity": 0.5044444444444445,
+      "specificity": 0.44000000000000006,
+      "brier": 0.398693955364025,
+      "logloss": 1.473654793941361,
+      "train_auc": 1.0,
+      "support_repeat_auc_sample_sd": 0.04596681705953364,
+      "support_repeat_auc_min": 0.4136363636363637,
+      "support_repeat_auc_max": 0.5415353535353535,
+      "sd_scope": "joint support-and-initialization changes; newly trained outer diagonal",
+      "conditional_person_interval": [
+        0.4014687075550712,
+        0.5385940141482449
+      ]
+    },
+    {
+      "method": "random",
+      "k": 20,
+      "condition": "member_mean",
+      "auc": 0.5530028282828282,
+      "auprc": 0.5647907001934352,
+      "balanced_accuracy": 0.5276808080808082,
+      "sensitivity": 0.5136888888888889,
+      "specificity": 0.5416727272727269,
+      "brier": 0.3262208599592597,
+      "logloss": 1.0329797221966486,
+      "train_auc": 0.99972,
+      "support_repeat_auc_sample_sd": 0.04497101057190035,
+      "support_repeat_auc_min": 0.5062666666666668,
+      "support_repeat_auc_max": 0.6270828282828284,
+      "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+      "conditional_person_interval": [
+        0.4752059248506538,
+        0.6318450312650314
+      ]
+    },
+    {
+      "method": "random",
+      "k": 20,
+      "condition": "ensemble5",
+      "auc": 0.5527636363636365,
+      "auprc": 0.5670859503642786,
+      "balanced_accuracy": 0.5284040404040404,
+      "sensitivity": 0.5164444444444445,
+      "specificity": 0.5403636363636364,
+      "brier": 0.32598260319001027,
+      "logloss": 1.0317705479897636,
+      "train_auc": 0.9997,
+      "support_repeat_auc_sample_sd": 0.04473673720272134,
+      "support_repeat_auc_min": 0.5041616161616161,
+      "support_repeat_auc_max": 0.6249090909090909,
+      "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+      "conditional_person_interval": [
+        0.47503338434470016,
+        0.6320280780947447
+      ]
+    },
+    {
+      "method": "random",
+      "k": 20,
+      "condition": "diagonal_single",
+      "auc": 0.550379797979798,
+      "auprc": 0.5637971495595334,
+      "balanced_accuracy": 0.5320404040404041,
+      "sensitivity": 0.5164444444444445,
+      "specificity": 0.5476363636363636,
+      "brier": 0.32653789430850677,
+      "logloss": 1.0323582656265131,
+      "train_auc": 0.9997,
+      "support_repeat_auc_sample_sd": 0.04550056794702327,
+      "support_repeat_auc_min": 0.4981010101010101,
+      "support_repeat_auc_max": 0.6228888888888888,
+      "sd_scope": "joint support-and-initialization changes; newly trained outer diagonal",
+      "conditional_person_interval": [
+        0.46996090336134455,
+        0.6293987988862988
+      ]
+    },
+    {
+      "method": "original_spd",
+      "k": 10,
+      "condition": "member_mean",
+      "auc": 0.6870965656565657,
+      "auprc": 0.7047566312375086,
+      "balanced_accuracy": 0.6357777777777778,
+      "sensitivity": 0.6763555555555554,
+      "specificity": 0.5952,
+      "brier": 0.23655866863099465,
+      "logloss": 0.6862394353367786,
+      "train_auc": 1.0,
+      "support_repeat_auc_sample_sd": 0.013528041625203715,
+      "support_repeat_auc_min": 0.6647919191919192,
+      "support_repeat_auc_max": 0.6988767676767677,
+      "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+      "conditional_person_interval": [
+        0.6092219688248259,
+        0.7559976080492189
+      ]
+    },
+    {
+      "method": "original_spd",
+      "k": 10,
+      "condition": "ensemble5",
+      "auc": 0.7315919191919191,
+      "auprc": 0.7441529760687655,
+      "balanced_accuracy": 0.6657777777777778,
+      "sensitivity": 0.7195555555555556,
+      "specificity": 0.612,
+      "brier": 0.21398434064077398,
+      "logloss": 0.6204896893710974,
+      "train_auc": 1.0,
+      "support_repeat_auc_sample_sd": 0.02322699719362776,
+      "support_repeat_auc_min": 0.7100606060606061,
+      "support_repeat_auc_max": 0.7614343434343434,
+      "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+      "conditional_person_interval": [
+        0.6350766852195423,
+        0.8180614718614719
+      ]
+    },
+    {
+      "method": "original_spd",
+      "k": 10,
+      "condition": "diagonal_single",
+      "auc": 0.6898545454545455,
+      "auprc": 0.7073480520530573,
+      "balanced_accuracy": 0.6333131313131313,
+      "sensitivity": 0.6764444444444444,
+      "specificity": 0.5901818181818181,
+      "brier": 0.2377887189923488,
+      "logloss": 0.6855040598666149,
+      "train_auc": 1.0,
+      "support_repeat_auc_sample_sd": 0.02465582865665341,
+      "support_repeat_auc_min": 0.6607676767676767,
+      "support_repeat_auc_max": 0.7112727272727273,
+      "sd_scope": "joint support-and-initialization changes; newly trained outer diagonal",
+      "conditional_person_interval": [
+        0.6083761337355456,
+        0.7611894556786712
+      ]
+    },
+    {
+      "method": "original_spd",
+      "k": 20,
+      "condition": "member_mean",
+      "auc": 0.712611717171717,
+      "auprc": 0.7236075072907066,
+      "balanced_accuracy": 0.6604848484848483,
+      "sensitivity": 0.6717333333333335,
+      "specificity": 0.6492363636363635,
+      "brier": 0.22408109144719626,
+      "logloss": 0.6505490919696114,
+      "train_auc": 1.0,
+      "support_repeat_auc_sample_sd": 0.015758570183592228,
+      "support_repeat_auc_min": 0.6909292929292928,
+      "support_repeat_auc_max": 0.7311757575757576,
+      "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+      "conditional_person_interval": [
+        0.6295710902708404,
+        0.7876685749675163
+      ]
+    },
+    {
+      "method": "original_spd",
+      "k": 20,
+      "condition": "ensemble5",
+      "auc": 0.7756040404040405,
+      "auprc": 0.8001278602489128,
+      "balanced_accuracy": 0.710949494949495,
+      "sensitivity": 0.7364444444444446,
+      "specificity": 0.6854545454545454,
+      "brier": 0.20219813978189283,
+      "logloss": 0.5926843669186538,
+      "train_auc": 1.0,
+      "support_repeat_auc_sample_sd": 0.015555001957878404,
+      "support_repeat_auc_min": 0.7526262626262626,
+      "support_repeat_auc_max": 0.7929292929292929,
+      "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+      "conditional_person_interval": [
+        0.6778559884559885,
+        0.8638590483590483
+      ]
+    },
+    {
+      "method": "original_spd",
+      "k": 20,
+      "condition": "diagonal_single",
+      "auc": 0.7067999999999999,
+      "auprc": 0.7210773761192749,
+      "balanced_accuracy": 0.6427676767676768,
+      "sensitivity": 0.6444444444444444,
+      "specificity": 0.641090909090909,
+      "brier": 0.22455232781990955,
+      "logloss": 0.6474704182287012,
+      "train_auc": 1.0,
+      "support_repeat_auc_sample_sd": 0.06328264464248992,
+      "support_repeat_auc_min": 0.6436363636363638,
+      "support_repeat_auc_max": 0.8028484848484849,
+      "sd_scope": "joint support-and-initialization changes; newly trained outer diagonal",
+      "conditional_person_interval": [
+        0.6220995532245533,
+        0.7815283597428665
+      ]
+    }
+  ],
+  "contrasts": [
+    {
+      "method": "pretrained",
+      "reference": "random",
+      "k": 10,
+      "condition": "member_mean",
+      "delta_auc": 0.1329890909090906,
+      "ci_lower": 0.034303825063825066,
+      "ci_upper": 0.23116630010281533,
+      "positive_support_repeats": 5,
+      "repeat_deltas": [
+        0.1598747474747474,
+        0.08418585858585859,
+        0.10281616161616158,
+        0.12332121212121216,
+        0.19474747474747467
+      ],
+      "delta_brier": -0.055059365975171914,
+      "delta_logloss": -0.03698013309500836,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1
+    },
+    {
+      "method": "pretrained",
+      "reference": "random",
+      "k": 10,
+      "condition": "ensemble5",
+      "delta_auc": 0.13256969696969695,
+      "ci_lower": 0.0320528453106184,
+      "ci_upper": 0.23045341313778803,
+      "positive_support_repeats": 5,
+      "repeat_deltas": [
+        0.15933333333333333,
+        0.0820202020202021,
+        0.10727272727272735,
+        0.11830303030303019,
+        0.19591919191919194
+      ],
+      "delta_brier": -0.05494010022233181,
+      "delta_logloss": -0.03719603565362917,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1
+    },
+    {
+      "method": "pretrained",
+      "reference": "random",
+      "k": 10,
+      "condition": "diagonal_single",
+      "delta_auc": 0.13266262626262632,
+      "ci_lower": 0.031152878834128893,
+      "ci_upper": 0.23278748011248024,
+      "positive_support_repeats": 5,
+      "repeat_deltas": [
+        0.17387878787878785,
+        0.0777575757575758,
+        0.09923232323232312,
+        0.12056565656565665,
+        0.19187878787878787
+      ],
+      "delta_brier": -0.055025047809330485,
+      "delta_logloss": -0.03802889042647739,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1
+    },
+    {
+      "method": "pretrained",
+      "reference": "original_spd",
+      "k": 10,
+      "condition": "member_mean",
+      "delta_auc": -0.08346181818181853,
+      "ci_lower": -0.15358385925548673,
+      "ci_upper": -0.011501085858585761,
+      "positive_support_repeats": 0,
+      "repeat_deltas": [
+        -0.10714747474747488,
+        -0.07347878787878803,
+        -0.08671919191919186,
+        -0.10346262626262626,
+        -0.046501010101010154
+      ],
+      "delta_brier": 0.10714852533589045,
+      "delta_logloss": 0.7509913408953212,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1
+    },
+    {
+      "method": "pretrained",
+      "reference": "original_spd",
+      "k": 10,
+      "condition": "ensemble5",
+      "delta_auc": -0.12678383838383833,
+      "ci_lower": -0.20709058795235255,
+      "ci_upper": -0.03966637529137518,
+      "positive_support_repeats": 0,
+      "repeat_deltas": [
+        -0.1362020202020202,
+        -0.12808080808080802,
+        -0.1279999999999999,
+        -0.1337979797979798,
+        -0.10783838383838373
+      ],
+      "delta_brier": 0.1295039263837206,
+      "delta_logloss": 0.8139102967563041,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1
+    },
+    {
+      "method": "pretrained",
+      "reference": "original_spd",
+      "k": 10,
+      "condition": "diagonal_single",
+      "delta_auc": -0.08707070707070708,
+      "ci_lower": -0.16356965402322557,
+      "ci_upper": -0.0077307805042179855,
+      "positive_support_repeats": 0,
+      "repeat_deltas": [
+        -0.07325252525252512,
+        -0.08197979797979793,
+        -0.09375757575757582,
+        -0.12868686868686863,
+        -0.05767676767676766
+      ],
+      "delta_brier": 0.10588018856234574,
+      "delta_logloss": 0.7501218436482686,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1
+    },
+    {
+      "method": "random",
+      "reference": "original_spd",
+      "k": 10,
+      "condition": "member_mean",
+      "delta_auc": -0.21645090909090914,
+      "ci_lower": -0.3076993002799667,
+      "ci_upper": -0.11308805511948375,
+      "positive_support_repeats": 0,
+      "repeat_deltas": [
+        -0.26702222222222227,
+        -0.15766464646464662,
+        -0.18953535353535345,
+        -0.22678383838383842,
+        -0.24124848484848482
+      ],
+      "delta_brier": 0.16220789131106236,
+      "delta_logloss": 0.7879714739903295,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1
+    },
+    {
+      "method": "random",
+      "reference": "original_spd",
+      "k": 10,
+      "condition": "ensemble5",
+      "delta_auc": -0.2593535353535353,
+      "ci_lower": -0.3633320944795945,
+      "ci_upper": -0.14206272917247692,
+      "positive_support_repeats": 0,
+      "repeat_deltas": [
+        -0.29553535353535354,
+        -0.21010101010101012,
+        -0.23527272727272724,
+        -0.25210101010101,
+        -0.30375757575757567
+      ],
+      "delta_brier": 0.1844440266060524,
+      "delta_logloss": 0.8511063324099333,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1
+    },
+    {
+      "method": "random",
+      "reference": "original_spd",
+      "k": 10,
+      "condition": "diagonal_single",
+      "delta_auc": -0.2197333333333334,
+      "ci_lower": -0.3167183484725151,
+      "ci_upper": -0.11115669085816142,
+      "positive_support_repeats": 0,
+      "repeat_deltas": [
+        -0.24713131313131298,
+        -0.15973737373737373,
+        -0.19298989898989893,
+        -0.24925252525252528,
+        -0.24955555555555553
+      ],
+      "delta_brier": 0.16090523637167622,
+      "delta_logloss": 0.788150734074746,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1
+    },
+    {
+      "method": "pretrained",
+      "reference": "random",
+      "k": 20,
+      "condition": "member_mean",
+      "delta_auc": 0.11269494949494974,
+      "ci_lower": 0.01139652347652328,
+      "ci_upper": 0.21255139730639708,
+      "positive_support_repeats": 5,
+      "repeat_deltas": [
+        0.1624282828282827,
+        0.0256646464646465,
+        0.13132929292929296,
+        0.12492525252525255,
+        0.11912727272727275
+      ],
+      "delta_brier": -0.03195785312340815,
+      "delta_logloss": -0.044570493307568015,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1
+    },
+    {
+      "method": "pretrained",
+      "reference": "random",
+      "k": 20,
+      "condition": "ensemble5",
+      "delta_auc": 0.11248080808080807,
+      "ci_lower": 0.013498909331409317,
+      "ci_upper": 0.21100406907906905,
+      "positive_support_repeats": 5,
+      "repeat_deltas": [
+        0.16179797979797983,
+        0.031070707070707138,
+        0.13305050505050509,
+        0.12109090909090903,
+        0.1153939393939395
+      ],
+      "delta_brier": -0.03188334469390047,
+      "delta_logloss": -0.0445792975788768,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1
+    },
+    {
+      "method": "pretrained",
+      "reference": "random",
+      "k": 20,
+      "condition": "diagonal_single",
+      "delta_auc": 0.1172808080808081,
+      "ci_lower": 0.01758275890775891,
+      "ci_upper": 0.2181470072751323,
+      "positive_support_repeats": 5,
+      "repeat_deltas": [
+        0.17789898989898983,
+        0.0288484848484849,
+        0.13084848484848488,
+        0.12088888888888893,
+        0.127919191919192
+      ],
+      "delta_brier": -0.03227908680648345,
+      "delta_logloss": -0.04377415452580791,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1
+    },
+    {
+      "method": "pretrained",
+      "reference": "original_spd",
+      "k": 20,
+      "condition": "member_mean",
+      "delta_auc": -0.046913939393939064,
+      "ci_lower": -0.12623279100529106,
+      "ci_upper": 0.030609279886780073,
+      "positive_support_repeats": 0,
+      "repeat_deltas": [
+        -0.03641212121212134,
+        -0.07842828282828274,
+        -0.020468686868686747,
+        -0.060662626262626196,
+        -0.03859797979797974
+      ],
+      "delta_brier": 0.07018191538865529,
+      "delta_logloss": 0.33786013691946915,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1
+    },
+    {
+      "method": "pretrained",
+      "reference": "original_spd",
+      "k": 20,
+      "condition": "ensemble5",
+      "delta_auc": -0.11035959595959599,
+      "ci_lower": -0.1974914307914309,
+      "ci_upper": -0.021986348782475032,
+      "positive_support_repeats": 0,
+      "repeat_deltas": [
+        -0.10278787878787876,
+        -0.13694949494949493,
+        -0.08284848484848484,
+        -0.1231919191919193,
+        -0.10602020202020201
+      ],
+      "delta_brier": 0.09190111871421697,
+      "delta_logloss": 0.39450688349223306,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1
+    },
+    {
+      "method": "pretrained",
+      "reference": "original_spd",
+      "k": 20,
+      "condition": "diagonal_single",
+      "delta_auc": -0.03913939393939381,
+      "ci_lower": -0.12122395743145739,
+      "ci_upper": 0.04105443181818191,
+      "positive_support_repeats": 2,
+      "repeat_deltas": [
+        -0.012848484848484887,
+        -0.0820202020202021,
+        0.023939393939393816,
+        -0.14129292929292936,
+        0.01652525252525261
+      ],
+      "delta_brier": 0.06970647968211377,
+      "delta_logloss": 0.341113692872004,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1
+    },
+    {
+      "method": "random",
+      "reference": "original_spd",
+      "k": 20,
+      "condition": "member_mean",
+      "delta_auc": -0.1596088888888888,
+      "ci_lower": -0.2575348645798647,
+      "ci_upper": -0.05598780657251268,
+      "positive_support_repeats": 0,
+      "repeat_deltas": [
+        -0.19884040404040404,
+        -0.10409292929292924,
+        -0.1517979797979797,
+        -0.18558787878787875,
+        -0.1577252525252525
+      ],
+      "delta_brier": 0.10213976851206344,
+      "delta_logloss": 0.38243063022703716,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1
+    },
+    {
+      "method": "random",
+      "reference": "original_spd",
+      "k": 20,
+      "condition": "ensemble5",
+      "delta_auc": -0.22284040404040406,
+      "ci_lower": -0.3312063963813963,
+      "ci_upper": -0.10296718016415829,
+      "positive_support_repeats": 0,
+      "repeat_deltas": [
+        -0.2645858585858586,
+        -0.16802020202020207,
+        -0.21589898989898992,
+        -0.24428282828282832,
+        -0.2214141414141415
+      ],
+      "delta_brier": 0.12378446340811744,
+      "delta_logloss": 0.43908618107110986,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1
+    },
+    {
+      "method": "random",
+      "reference": "original_spd",
+      "k": 20,
+      "condition": "diagonal_single",
+      "delta_auc": -0.1564202020202019,
+      "ci_lower": -0.26085961130372903,
+      "ci_upper": -0.049957984771220126,
+      "positive_support_repeats": 0,
+      "repeat_deltas": [
+        -0.19074747474747472,
+        -0.110868686868687,
+        -0.10690909090909106,
+        -0.2621818181818183,
+        -0.11139393939393938
+      ],
+      "delta_brier": 0.10198556648859722,
+      "delta_logloss": 0.3848878473978119,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1
+    }
+  ],
+  "technical": {
+    "state": "OFFICIAL_ENCODER_AND_MATCHED_COMPARISON_VERIFIED",
+    "strict": true,
+    "missing_keys": [],
+    "unexpected_keys": [],
+    "config_binding": {
+      "state": "ALL_PUBLIC_CONFIG_FIELDS_MATCH",
+      "fields": 57,
+      "different_keys": [],
+      "checkpoint_extra_keys": [
+        "lr"
+      ]
+    },
+    "model_parameters": 98614786,
+    "encoder_parameters": 85389312,
+    "cpu_synthetic_seeds": [
+      {
+        "seed": 0,
+        "shape": [
+          1,
+          768
+        ],
+        "finite": true,
+        "repeat_max_error": 0.0,
+        "two_forward_seconds": 5.222326300001441
+      },
+      {
+        "seed": 1,
+        "shape": [
+          1,
+          768
+        ],
+        "finite": true,
+        "repeat_max_error": 0.0,
+        "two_forward_seconds": 3.3354708000006212
+      },
+      {
+        "seed": 2,
+        "shape": [
+          1,
+          768
+        ],
+        "finite": true,
+        "repeat_max_error": 0.0,
+        "two_forward_seconds": 3.3443929000022763
+      },
+      {
+        "seed": 3,
+        "shape": [
+          1,
+          768
+        ],
+        "finite": true,
+        "repeat_max_error": 0.0,
+        "two_forward_seconds": 3.64930269999968
+      },
+      {
+        "seed": 4,
+        "shape": [
+          1,
+          768
+        ],
+        "finite": true,
+        "repeat_max_error": 0.0,
+        "two_forward_seconds": 3.244244699999399
+      }
+    ],
+    "gpu_synthetic": {
+      "state": "FIVE_SEED_CPU_GPU_CHECK_PASS",
+      "python": "3.10.13",
+      "torch": "2.5.1+cu118",
+      "cuda": "11.8",
+      "device": "NVIDIA GeForce GTX 1080 Ti",
+      "cpu_gpu_max_errors": [
+        8.344650268554688e-07,
+        8.940696716308594e-07,
+        1.1324882507324219e-06,
+        8.344650268554688e-07,
+        1.0728836059570312e-06
+      ],
+      "repeat_errors": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "preprocess_cross_runtime_max_error": 4.76837158203125e-07,
+      "author_declared_min_torch": "2.8.0",
+      "author_declared_min_python": "3.11",
+      "local_runtime_compatibility_adaptation": true
+    },
+    "atlas": {
+      "state": "ATLAS_VOXEL_AND_AFFINE_MATCH",
+      "shape": [
+        91,
+        109,
+        91
+      ],
+      "affine_max_error": 0.0,
+      "same_labels": true,
+      "nonzero_labels": 424
+    },
+    "head_parameters": 773,
+    "all_head_replays": 500,
+    "max_head_replay_error": 3.3306690738754696e-16,
+    "encoding_seconds": 659.189079284668,
+    "peak_GPU_allocated_bytes": 581697024,
+    "all_clips": 7326,
+    "frozen_encoder_count": 2,
+    "random_encoder_seed": 20261018,
+    "random_encoder_seed_uncertainty_covered": false,
+    "official_pretraining_seed": 5401,
+    "head_seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "new_patient_fits": 500,
+    "official_model_source_modified": false,
+    "official_full_data_pipeline_reproduction": false,
+    "random_loader_check": {
+      "state": "PRETRAINED_AND_RANDOM_LOADERS_DISTINCT",
+      "parameters": 85389312,
+      "all_frozen": true,
+      "weight_max_difference": 0.1416303813457489,
+      "random_seed": 20261018
+    },
+    "official_encoder": true,
+    "official_downstream_probe": false,
+    "downstream_scheme": "Frozen encoder, fixed scan pooling and local neural head; not end-to-end finetuning or the original Brainmarks probe."
+  },
+  "verification": {
+    "state": "PASS",
+    "scope": "Matched partitions, metrics recalculated and all 500 saved heads replayed; development only."
+  },
+  "official_versions": {
+    "code": "a2919e9f4018b16093c4e7b3114b814ef2132dab",
+    "huggingface": "6b687aee7ce8a921f8ddf042c23e73b6c01acf99",
+    "checkpoint": "subcortical/a424_lr3e-4_1/pretrain/checkpoint-last.pth"
+  },
+  "independent_validation": false,
+  "fit_diagnostic": "预训练头在K10/20的支持AUC均为1.0，查询Brier为0.3435/0.2941，原SPD为0.2140/0.2022；新模型的查询概率误差更大。支持集排序接近满分没有带来查询增量，不能据此认定唯一原因或概括所有预训练模型。"
+}

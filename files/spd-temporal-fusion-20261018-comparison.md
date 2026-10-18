@@ -43,3 +43,18 @@ K20的时序与SPD残差相关0.711，低于两个SPD的0.895；但时序单独M
 同原99人、五外折×五支持重复和K10/20标签；主要双方均10专家×200更新=2000更新/支持。异构11730与同构15810参数，不等FLOPs或优化器；原M5只有1000更新，单列背景。pair的成员均值是五个双专家配对的平均AUC，不是单网络成绩。所有99人已有开发历史；区间仅覆盖固定预测人员抽样，不覆盖重训或多轮研究选择。时序摘要受滤波、头动和采集流程影响；支持置乱敏感性不证明疼痛相关或与FC条件独立。诊断不代替同期疼痛/疗效；OA/ZAN/Emo阴性、CoSpine13留出、TN14停止和QC边界不变。
 
 [全部种子](https://onephantomcat.github.io/neurograph-site/files/spd-temporal-fusion-20261018-model-seeds.csv)；[全部1500评价](https://onephantomcat.github.io/neurograph-site/files/spd-temporal-fusion-20261018-model-panels.csv)；[全部配对](https://onephantomcat.github.io/neurograph-site/files/spd-temporal-fusion-20261018-model-paired.csv)；[计算前方案](https://onephantomcat.github.io/neurograph-site/files/spd-temporal-fusion-20261018-plan.md)。
+
+
+<!-- brainlm-fc-audit-20261018 -->
+
+## 2026-10-18：BrainLM＋FC：官方权重、A424与人员来源核查
+
+已找到官方256维/4层/4头候选，安全张量检查通过；当前99人的真实A424与旧512特征仍可逐人对应。FMM论文具体权重身份、逐检查点预训练来源/人员排除和可复用缩放依据仍未核实，作者模型前向也未通过现有环境兼容检查。
+
+本轮完成接入核查，新患者训练0、未产生新AUC。条件尚未满足，未启动K10/20比较；没有以512维旧适配、随机权重或90→424补零替代官方方法。历史79人FMM阴性与全部种子记录保留。
+
+官方来源、结构相符、权重严格加载、真实人级输入、预训练无重叠和临床效度是不同结论。公开资料未列SRPBS不等于逐人无重叠已证实；未证实也不等于发现泄露。99人已有开发历史，旧79单基础seed/三外折OOF与当前五seed/K10/20指标分开。没有重读MRI、改QC/纳入、删ROI、重启旧停止实验或联系作者。
+
+需要明确到候选检查点的预训练数据范围、可用人员排除依据与输入缩放记录，并完成作者模块兼容前向；随后才能判断是否批准一次固定的小样本适配。当前不自动恢复旧512结构的few-shot搜索，也不因缺文件而换成另一预训练模型。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/brainlm-fc-audit-20261018.md)。

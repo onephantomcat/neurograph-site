@@ -1,0 +1,25 @@
+{
+  "state": "SAFE_TENSOR_AND_CONFIGURATION_INSPECTION_PASS",
+  "checkpoint": "BrainLM official 2023-06-06-22_15_00-checkpoint-1400",
+  "bytes": 30471369,
+  "tensors": 124,
+  "finite": true,
+  "layers": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "hidden_size": 256,
+  "heads": 4,
+  "regions": 424,
+  "frames": 200,
+  "time_patch": 20,
+  "tensor_elements": 7607724,
+  "coordinate_labels": 424,
+  "exact_FMM_checkpoint_binding_proven": false,
+  "author_model_forward_state": "NOT_EXECUTED_DEPENDENCY_ABI_MISMATCH",
+  "target_people_processed": 0,
+  "new_training": 0,
+  "limitation": "Safe tensor inspection only; author model strict-load and synthetic forward not completed due to existing dependency ABI mismatch."
+}

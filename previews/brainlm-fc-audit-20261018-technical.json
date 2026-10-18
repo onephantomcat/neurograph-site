@@ -1,0 +1,4 @@
+{
+  "content": "{\n  \"state\": \"SAFE_TENSOR_AND_CONFIGURATION_INSPECTION_PASS\",\n  \"checkpoint\": \"BrainLM official 2023-06-06-22_15_00-checkpoint-1400\",\n  \"bytes\": 30471369,\n  \"tensors\": 124,\n  \"finite\": true,\n  \"layers\": [\n    0,\n    1,\n    2,\n    3\n  ],\n  \"hidden_size\": 256,\n  \"heads\": 4,\n  \"regions\": 424,\n  \"frames\": 200,\n  \"time_patch\": 20,\n  \"tensor_elements\": 7607724,\n  \"coordinate_labels\": 424,\n  \"exact_FMM_checkpoint_binding_proven\": false,\n  \"author_model_forward_state\": \"NOT_EXECUTED_DEPENDENCY_ABI_MISMATCH\",\n  \"target_people_processed\": 0,\n  \"new_training\": 0,\n  \"limitation\": \"Safe tensor inspection only; author model strict-load and synthetic forward not completed due to existing dependency ABI mismatch.\"\n}\n",
+  "truncated": false
+}

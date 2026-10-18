@@ -1,0 +1,4 @@
+{
+  "content": "model,parameters,new_fits,updates_per_fit,optimizer,learning_rate,device,scope\nclinical_ordinal,15,15,200,AdamW,0.001,CPU2,local compact task adaptation\nclinical_regression,14,15,200,AdamW,0.001,CPU2,local compact task adaptation\nnode_mlp_ordinal,1759,15,200,AdamW,0.001,CPU2,local compact task adaptation\nnode_mlp_regression,1758,15,200,AdamW,0.001,CPU2,local compact task adaptation\ngcn_ordinal,1759,15,200,AdamW,0.001,CPU2,local compact task adaptation\ngcn_regression,1758,15,200,AdamW,0.001,CPU2,local compact task adaptation\ntemporal_cnn_ordinal,1855,15,200,AdamW,0.001,CPU2,local compact task adaptation\ntemporal_cnn_regression,1854,15,200,AdamW,0.001,CPU2,local compact task adaptation\nroi_transformer_ordinal,5151,15,200,AdamW,0.001,CPU2,local compact task adaptation\nroi_transformer_regression,5150,15,200,AdamW,0.001,CPU2,local compact task adaptation\n",
+  "truncated": false
+}

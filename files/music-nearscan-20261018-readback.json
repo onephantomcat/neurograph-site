@@ -1,0 +1,25 @@
+{
+  "state": "RAW_CONTENT_READBACK_COMPLETE_WITH_PROFILE_FAILURES",
+  "original_validator_state": "RAW_READBACK_FAILED",
+  "original_validator_failure_retained": true,
+  "files": 85,
+  "all_source_arrays_readable": true,
+  "readable_files": 85,
+  "expected_profile_pass_files": 84,
+  "source_profile_exception_files": 1,
+  "T1_files": 17,
+  "BOLD_files": 68,
+  "BOLD_released_frame_counts": {
+    "100": 67,
+    "97": 1
+  },
+  "BOLD_TR_seconds": [
+    3.0
+  ],
+  "expected_BOLD_frames": 100,
+  "expected_BOLD_TR_seconds": 3,
+  "source_MRI_modified": false,
+  "QC_thresholds_changed": false,
+  "unexpected_profile_cannot_enter_common_set": true,
+  "scope": "Array readability and the original input profile are separate checks; every included person must still pass all four original numeric QC and actual image review. No expert approval or model result is implied."
+}

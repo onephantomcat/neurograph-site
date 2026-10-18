@@ -1,5 +1,7 @@
 existing_QC_failure,failed_scans
+aal90_coverage_or_signal,6
 censor_fraction_lte_0p20,1
 confounds_columns_match_config_plus_censoring,2
 native_wm_mask_nonempty,2
-normalized_mask_coverage_by_standard_gt_0p90,2
+normalized_mask_coverage_by_standard_gt_0p90,3
+normalized_mask_dice_gt_0p75,2

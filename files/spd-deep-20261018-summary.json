@@ -1,0 +1,1359 @@
+{
+  "id": "spd-deep-20261018",
+  "title": "三层SPDNet与轻量模型：结构和官方训练参考对照",
+  "date": "2026-10-18",
+  "state": "COMPLETE_500_DEEP_MODELS_AND_OFFICIAL_REFERENCE",
+  "people": 99,
+  "patients": 46,
+  "controls": 53,
+  "new_fits": 500,
+  "new_reference_fits": 0,
+  "base_model": "本地单BiMap SPDNet（90→16，1581参数）",
+  "changed_component": "三BiMap 90→48→24→16；前两层ReEig；5997参数",
+  "code_assistant": "Codex（GPT-6系列；当前环境未提供具体子型号）",
+  "model": {
+    "state": "COMPLETE_500_DEEP_100_ENSEMBLES",
+    "new_fits": 500,
+    "new_reference_fits": 0,
+    "member_parameters": {
+      "original": 1581,
+      "deep200": 5997,
+      "light500": 1581,
+      "deep500": 5997
+    },
+    "means": {
+      "10": {
+        "original": {
+          "member_mean": {
+            "auc": 0.6870965656565657,
+            "auprc": 0.7047566312375086,
+            "balanced_accuracy": 0.6357777777777778,
+            "sensitivity": 0.6763555555555554,
+            "specificity": 0.5952,
+            "brier": 0.23655866863099465,
+            "logloss": 0.6862394353367786,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.013528041625203715,
+            "support_repeat_auc_min": 0.6647919191919192,
+            "support_repeat_auc_max": 0.6988767676767677,
+            "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+            "conditional_person_interval": [
+              0.6092219688248259,
+              0.7559976080492189
+            ]
+          },
+          "ensemble5": {
+            "auc": 0.7315919191919191,
+            "auprc": 0.7441529760687655,
+            "balanced_accuracy": 0.6657777777777778,
+            "sensitivity": 0.7195555555555556,
+            "specificity": 0.612,
+            "brier": 0.21398434064077398,
+            "logloss": 0.6204896893710974,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.02322699719362776,
+            "support_repeat_auc_min": 0.7100606060606061,
+            "support_repeat_auc_max": 0.7614343434343434,
+            "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+            "conditional_person_interval": [
+              0.6350766852195423,
+              0.8180614718614719
+            ]
+          },
+          "diagonal_single": {
+            "auc": 0.6898545454545455,
+            "auprc": 0.7073480520530573,
+            "balanced_accuracy": 0.6333131313131313,
+            "sensitivity": 0.6764444444444444,
+            "specificity": 0.5901818181818181,
+            "brier": 0.2377887189923488,
+            "logloss": 0.6855040598666149,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.02465582865665341,
+            "support_repeat_auc_min": 0.6607676767676767,
+            "support_repeat_auc_max": 0.7112727272727273,
+            "sd_scope": "joint support-and-initialization changes; newly trained outer diagonal",
+            "conditional_person_interval": [
+              0.6083761337355456,
+              0.7611894556786712
+            ]
+          }
+        },
+        "deep200": {
+          "member_mean": {
+            "auc": 0.6887870707070707,
+            "auprc": 0.7071410731713726,
+            "balanced_accuracy": 0.6376242424242424,
+            "sensitivity": 0.6754666666666668,
+            "specificity": 0.5997818181818182,
+            "brier": 0.23627135563581128,
+            "logloss": 0.68530055998652,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.012824965577619977,
+            "support_repeat_auc_min": 0.6667353535353534,
+            "support_repeat_auc_max": 0.6988686868686869,
+            "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+            "conditional_person_interval": [
+              0.6123818018424153,
+              0.7579497333173648
+            ]
+          },
+          "ensemble5": {
+            "auc": 0.7323878787878787,
+            "auprc": 0.7437801702864655,
+            "balanced_accuracy": 0.6719999999999999,
+            "sensitivity": 0.7240000000000001,
+            "specificity": 0.6199999999999999,
+            "brier": 0.21421799544722805,
+            "logloss": 0.6208637534037638,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.02717326945361369,
+            "support_repeat_auc_min": 0.7060000000000001,
+            "support_repeat_auc_max": 0.7674747474747475,
+            "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+            "conditional_person_interval": [
+              0.639140448995449,
+              0.8172268500481
+            ]
+          },
+          "diagonal_single": {
+            "auc": 0.6897939393939393,
+            "auprc": 0.7067656058729331,
+            "balanced_accuracy": 0.631090909090909,
+            "sensitivity": 0.672,
+            "specificity": 0.5901818181818181,
+            "brier": 0.23788774044477282,
+            "logloss": 0.6851030143930751,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.02279555802266612,
+            "support_repeat_auc_min": 0.6637373737373737,
+            "support_repeat_auc_max": 0.7112727272727273,
+            "sd_scope": "joint support-and-initialization changes; newly trained outer diagonal",
+            "conditional_person_interval": [
+              0.6047743293743294,
+              0.7616772133422133
+            ]
+          }
+        }
+      },
+      "20": {
+        "original": {
+          "member_mean": {
+            "auc": 0.712611717171717,
+            "auprc": 0.7236075072907066,
+            "balanced_accuracy": 0.6604848484848483,
+            "sensitivity": 0.6717333333333335,
+            "specificity": 0.6492363636363635,
+            "brier": 0.22408109144719626,
+            "logloss": 0.6505490919696114,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.015758570183592228,
+            "support_repeat_auc_min": 0.6909292929292928,
+            "support_repeat_auc_max": 0.7311757575757576,
+            "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+            "conditional_person_interval": [
+              0.6295710902708404,
+              0.7876685749675163
+            ]
+          },
+          "ensemble5": {
+            "auc": 0.7756040404040405,
+            "auprc": 0.8001278602489128,
+            "balanced_accuracy": 0.710949494949495,
+            "sensitivity": 0.7364444444444446,
+            "specificity": 0.6854545454545454,
+            "brier": 0.20219813978189283,
+            "logloss": 0.5926843669186538,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.015555001957878404,
+            "support_repeat_auc_min": 0.7526262626262626,
+            "support_repeat_auc_max": 0.7929292929292929,
+            "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+            "conditional_person_interval": [
+              0.6778559884559885,
+              0.8638590483590483
+            ]
+          },
+          "diagonal_single": {
+            "auc": 0.7067999999999999,
+            "auprc": 0.7210773761192749,
+            "balanced_accuracy": 0.6427676767676768,
+            "sensitivity": 0.6444444444444444,
+            "specificity": 0.641090909090909,
+            "brier": 0.22455232781990955,
+            "logloss": 0.6474704182287012,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.06328264464248992,
+            "support_repeat_auc_min": 0.6436363636363638,
+            "support_repeat_auc_max": 0.8028484848484849,
+            "sd_scope": "joint support-and-initialization changes; newly trained outer diagonal",
+            "conditional_person_interval": [
+              0.6220995532245533,
+              0.7815283597428665
+            ]
+          }
+        },
+        "deep200": {
+          "member_mean": {
+            "auc": 0.7133680808080807,
+            "auprc": 0.7264360670510929,
+            "balanced_accuracy": 0.660460606060606,
+            "sensitivity": 0.6722666666666668,
+            "specificity": 0.6486545454545453,
+            "brier": 0.22386450635657773,
+            "logloss": 0.6502605202162769,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.015043544889166437,
+            "support_repeat_auc_min": 0.6942707070707069,
+            "support_repeat_auc_max": 0.7298707070707071,
+            "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+            "conditional_person_interval": [
+              0.6301181557331558,
+              0.7875298312005454
+            ]
+          },
+          "ensemble5": {
+            "auc": 0.7727757575757574,
+            "auprc": 0.7963587788697182,
+            "balanced_accuracy": 0.700868686868687,
+            "sensitivity": 0.7275555555555556,
+            "specificity": 0.6741818181818182,
+            "brier": 0.20227285110069382,
+            "logloss": 0.5928891613995482,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.014904084730670774,
+            "support_repeat_auc_min": 0.7526060606060606,
+            "support_repeat_auc_max": 0.7913131313131313,
+            "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+            "conditional_person_interval": [
+              0.6751242004027718,
+              0.8603544557294557
+            ]
+          },
+          "diagonal_single": {
+            "auc": 0.7064363636363638,
+            "auprc": 0.7223097535343149,
+            "balanced_accuracy": 0.6463636363636364,
+            "sensitivity": 0.644,
+            "specificity": 0.6487272727272727,
+            "brier": 0.2252147516641171,
+            "logloss": 0.6493280701852013,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.05781614993359173,
+            "support_repeat_auc_min": 0.6518989898989899,
+            "support_repeat_auc_max": 0.7967878787878788,
+            "sd_scope": "joint support-and-initialization changes; newly trained outer diagonal",
+            "conditional_person_interval": [
+              0.6208693373293374,
+              0.7822378278665779
+            ]
+          }
+        },
+        "light500": {
+          "member_mean": {
+            "auc": 0.7113519191919191,
+            "auprc": 0.7234818069737471,
+            "balanced_accuracy": 0.6518989898989899,
+            "sensitivity": 0.6656888888888889,
+            "specificity": 0.638109090909091,
+            "brier": 0.24059645678637454,
+            "logloss": 0.7403647893726261,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.013938870023824266,
+            "support_repeat_auc_min": 0.6920161616161618,
+            "support_repeat_auc_max": 0.722610101010101,
+            "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+            "conditional_person_interval": [
+              0.6309327659685995,
+              0.7836050092798414
+            ]
+          },
+          "ensemble5": {
+            "auc": 0.767240404040404,
+            "auprc": 0.7881320574429965,
+            "balanced_accuracy": 0.7046868686868687,
+            "sensitivity": 0.7355555555555557,
+            "specificity": 0.6738181818181819,
+            "brier": 0.20497054827407937,
+            "logloss": 0.6097769228240596,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.016753721830810156,
+            "support_repeat_auc_min": 0.7382828282828283,
+            "support_repeat_auc_max": 0.7801818181818183,
+            "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+            "conditional_person_interval": [
+              0.6732475335775335,
+              0.8527465286796537
+            ]
+          },
+          "diagonal_single": {
+            "auc": 0.7072525252525252,
+            "auprc": 0.7253081153987242,
+            "balanced_accuracy": 0.641090909090909,
+            "sensitivity": 0.644,
+            "specificity": 0.6381818181818182,
+            "brier": 0.24423489580108487,
+            "logloss": 0.7433646667425949,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.060964236222175755,
+            "support_repeat_auc_min": 0.6580808080808082,
+            "support_repeat_auc_max": 0.8052727272727273,
+            "sd_scope": "joint support-and-initialization changes; newly trained outer diagonal",
+            "conditional_person_interval": [
+              0.6207213439976542,
+              0.7816928774928775
+            ]
+          }
+        },
+        "deep500": {
+          "member_mean": {
+            "auc": 0.7112630303030303,
+            "auprc": 0.7254129133325108,
+            "balanced_accuracy": 0.6546303030303031,
+            "sensitivity": 0.6709333333333335,
+            "specificity": 0.6383272727272727,
+            "brier": 0.2397950417250541,
+            "logloss": 0.736575480166769,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.014538569807226127,
+            "support_repeat_auc_min": 0.6935757575757576,
+            "support_repeat_auc_max": 0.7234101010101008,
+            "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+            "conditional_person_interval": [
+              0.6303654459701518,
+              0.7846020857274039
+            ]
+          },
+          "ensemble5": {
+            "auc": 0.7665171717171718,
+            "auprc": 0.7872454674897401,
+            "balanced_accuracy": 0.6952323232323233,
+            "sensitivity": 0.7315555555555556,
+            "specificity": 0.6589090909090909,
+            "brier": 0.20548301147167564,
+            "logloss": 0.6104942267245681,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.018743036526204324,
+            "support_repeat_auc_min": 0.7382828282828283,
+            "support_repeat_auc_max": 0.7826262626262626,
+            "sd_scope": "support repeats conditional on the fixed five initialization seeds",
+            "conditional_person_interval": [
+              0.6720700080638314,
+              0.852429748822606
+            ]
+          },
+          "diagonal_single": {
+            "auc": 0.702270707070707,
+            "auprc": 0.717865847003205,
+            "balanced_accuracy": 0.6473535353535353,
+            "sensitivity": 0.6568888888888889,
+            "specificity": 0.6378181818181818,
+            "brier": 0.2452728457107298,
+            "logloss": 0.7463542917875111,
+            "train_auc": 1.0,
+            "support_repeat_auc_sample_sd": 0.05518341216956093,
+            "support_repeat_auc_min": 0.6560202020202021,
+            "support_repeat_auc_max": 0.7927676767676768,
+            "sd_scope": "joint support-and-initialization changes; newly trained outer diagonal",
+            "conditional_person_interval": [
+              0.6146201968764714,
+              0.7774442205942206
+            ]
+          }
+        }
+      }
+    },
+    "contrasts": [
+      {
+        "k": 10,
+        "candidate": "deep200",
+        "reference": "original",
+        "condition": "member_mean",
+        "scope": "depth_matched_200_updates",
+        "primary": false,
+        "delta_mean_auc": 0.0016905050505049424,
+        "ci_lower": -0.0019967416842417264,
+        "ci_upper": 0.005479342562199822,
+        "positive_support_repeats": 3,
+        "repeat_mean_deltas": [
+          0.0016848484848482892,
+          -4.848484848496426e-05,
+          0.0019434343434342471,
+          0.004880808080808041,
+          -8.08080808079037e-06
+        ],
+        "delta_brier": -0.00028731299518336417,
+        "delta_logloss": -0.0009388753502586056
+      },
+      {
+        "k": 10,
+        "candidate": "deep200",
+        "reference": "original",
+        "condition": "ensemble5",
+        "scope": "depth_matched_200_updates",
+        "primary": false,
+        "delta_mean_auc": 0.0007959595959595722,
+        "ci_lower": -0.006930555555555501,
+        "ci_upper": 0.010355375180375149,
+        "positive_support_repeats": 3,
+        "repeat_mean_deltas": [
+          -0.00804040404040407,
+          0.0019797979797979703,
+          -0.004060606060605987,
+          0.00806060606060599,
+          0.006040404040404179
+        ],
+        "delta_brier": 0.00023365480645407,
+        "delta_logloss": 0.0003740640326663769
+      },
+      {
+        "k": 20,
+        "candidate": "deep200",
+        "reference": "original",
+        "condition": "member_mean",
+        "scope": "depth_matched_200_updates",
+        "primary": false,
+        "delta_mean_auc": 0.0007563636363636661,
+        "ci_lower": -0.0033549109370161314,
+        "ci_upper": 0.004820615014615152,
+        "positive_support_repeats": 3,
+        "repeat_mean_deltas": [
+          -0.0024040404040404084,
+          -0.0013050505050504757,
+          0.0033414141414140897,
+          0.0021050505050504986,
+          0.0020444444444444043
+        ],
+        "delta_brier": -0.00021658509061853182,
+        "delta_logloss": -0.0002885717533345211
+      },
+      {
+        "k": 20,
+        "candidate": "deep200",
+        "reference": "original",
+        "condition": "ensemble5",
+        "scope": "depth_matched_200_updates",
+        "primary": true,
+        "delta_mean_auc": -0.0028282828282830685,
+        "ci_lower": -0.00988613398946735,
+        "ci_upper": 0.003025854700854706,
+        "positive_support_repeats": 0,
+        "repeat_mean_deltas": [
+          -0.0022222222222222365,
+          -0.0016161616161616266,
+          -2.0202020202031434e-05,
+          -0.002000000000000113,
+          -0.008282828282828225
+        ],
+        "delta_brier": 7.471131880099069e-05,
+        "delta_logloss": 0.000204794480894388
+      },
+      {
+        "k": 20,
+        "candidate": "deep500",
+        "reference": "light500",
+        "condition": "member_mean",
+        "scope": "depth_matched_author_reference_1000_updates",
+        "primary": false,
+        "delta_mean_auc": -8.888888888880508e-05,
+        "ci_lower": -0.005182244409185433,
+        "ci_upper": 0.004804294668294679,
+        "positive_support_repeats": 3,
+        "repeat_mean_deltas": [
+          -0.0036363636363636598,
+          0.0007999999999998009,
+          0.001559595959595872,
+          0.001171717171717268,
+          -0.0003393939393940837
+        ],
+        "delta_brier": -0.0008014150613204485,
+        "delta_logloss": -0.003789309205857072
+      },
+      {
+        "k": 20,
+        "candidate": "deep500",
+        "reference": "light500",
+        "condition": "ensemble5",
+        "scope": "depth_matched_author_reference_1000_updates",
+        "primary": false,
+        "delta_mean_auc": -0.0007232323232321258,
+        "ci_lower": -0.00820051793444651,
+        "ci_upper": 0.00656755463127993,
+        "positive_support_repeats": 3,
+        "repeat_mean_deltas": [
+          -0.012101010101009946,
+          0.0024444444444442492,
+          0.0,
+          0.0020202020202021442,
+          0.004020202020202035
+        ],
+        "delta_brier": 0.0005124631975962635,
+        "delta_logloss": 0.0007173039005085036
+      },
+      {
+        "k": 20,
+        "candidate": "light500",
+        "reference": "original",
+        "condition": "member_mean",
+        "scope": "training_recipe_and_budget_differ",
+        "primary": false,
+        "delta_mean_auc": -0.0012597979797979164,
+        "ci_lower": -0.010663725977725835,
+        "ci_upper": 0.00830041847041852,
+        "positive_support_repeats": 2,
+        "repeat_mean_deltas": [
+          -0.004056565656565758,
+          -0.008565656565656554,
+          0.0010868686868689137,
+          -0.002242424242424268,
+          0.007478787878787974
+        ],
+        "delta_brier": 0.016515365339178273,
+        "delta_logloss": 0.08981569740301465
+      },
+      {
+        "k": 20,
+        "candidate": "light500",
+        "reference": "original",
+        "condition": "ensemble5",
+        "scope": "training_recipe_and_budget_differ",
+        "primary": false,
+        "delta_mean_auc": -0.008363636363636573,
+        "ci_lower": -0.024980855104491505,
+        "ci_upper": 0.006649303439078996,
+        "positive_support_repeats": 0,
+        "repeat_mean_deltas": [
+          -0.0001818181818182829,
+          -0.012747474747474619,
+          -0.014343434343434325,
+          -0.008080808080808133,
+          -0.006464646464646506
+        ],
+        "delta_brier": 0.0027724084921865455,
+        "delta_logloss": 0.017092555905405815
+      },
+      {
+        "k": 20,
+        "candidate": "deep500",
+        "reference": "deep200",
+        "condition": "member_mean",
+        "scope": "training_recipe_and_budget_differ",
+        "primary": false,
+        "delta_mean_auc": -0.0021050505050503876,
+        "ci_lower": -0.011078065619565718,
+        "ci_upper": 0.007513367003366899,
+        "positive_support_repeats": 1,
+        "repeat_mean_deltas": [
+          -0.0052888888888890095,
+          -0.006460606060606278,
+          -0.000694949494949304,
+          -0.0031757575757574985,
+          0.005094949494949486
+        ],
+        "delta_brier": 0.015930535368476356,
+        "delta_logloss": 0.0863149599504921
+      },
+      {
+        "k": 20,
+        "candidate": "deep500",
+        "reference": "deep200",
+        "condition": "ensemble5",
+        "scope": "training_recipe_and_budget_differ",
+        "primary": false,
+        "delta_mean_auc": -0.00625858585858563,
+        "ci_lower": -0.02160442520442522,
+        "ci_upper": 0.008779572952300245,
+        "positive_support_repeats": 1,
+        "repeat_mean_deltas": [
+          -0.010060606060605992,
+          -0.008686868686868743,
+          -0.014323232323232293,
+          -0.004060606060605876,
+          0.005838383838383754
+        ],
+        "delta_brier": 0.0032101603709818183,
+        "delta_logloss": 0.01760506532501993
+      }
+    ],
+    "verification": {
+      "state": "PASS",
+      "metric_max_error": 3.3306690738754696e-16,
+      "mixture_max_error": 0.0,
+      "independent_rank_bootstrap_interval_max_error": 0.0,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1,
+      "training": {
+        "state": "PASS",
+        "initial_logit_max_error": 1.970645868709653e-15,
+        "strict_probability_max_error": 0.0,
+        "numpy_probability_max_error": 7.327471962526033e-15,
+        "initial_feature_scale_max_error": 9.992007221626409e-16,
+        "max_orthogonality_error": 1.6653345369377348e-15,
+        "epochs_finite": 175000,
+        "gradient_updates": 300000
+      },
+      "author_operators": {
+        "state": "PASS",
+        "author_commit": "527110a2209e918785075738b81c4ab091664e61",
+        "scope": "Actual MATLAB author three-layer operators and Manopt projection/retraction on synthetic nondegenerate matrices; not original-task training",
+        "errors": {
+          "output": 1.2212453270876722e-15,
+          "dx": 9.71445146547012e-17,
+          "GW1": 2.886579864025407e-15,
+          "S1": 3.3306690738754696e-16,
+          "GW2": 2.7547408798511697e-15,
+          "S2": 1.3877787807814457e-17,
+          "GW3": 2.220446049250313e-15,
+          "S3": 1.214306433183765e-17
+        }
+      }
+    },
+    "runtime": {
+      "state": "COMPLETE_500_DEEP_100_ENSEMBLES",
+      "started_at": 1792301316.4740722,
+      "pid": 7798,
+      "fits": 500,
+      "replayed": 500,
+      "ensembles": 100,
+      "updates": 300000,
+      "new_reference_fits": 0,
+      "current": null,
+      "finished_at": 1792305808.8066845,
+      "elapsed_seconds": 4492.332612514496,
+      "runtime": {
+        "deep200": 1458.565039396286,
+        "light500": 500.02798533439636,
+        "deep500": 2533.734468460083
+      },
+      "torch": "1.13.1",
+      "numpy": "1.26.0",
+      "device": "cpu",
+      "threads": 2
+    }
+  },
+  "geometry": {
+    "observed_initial_final_checks": 1125,
+    "observed_clipped_eigenvalues": 0,
+    "minimum_preclip_eigenvalue": 0.1809081031999887,
+    "collapse_logit_max_error": 4.085620730620576e-14,
+    "input_bounds": {
+      "state": "PASS",
+      "panels": [
+        {
+          "k": 10,
+          "outer": 0,
+          "repeat": 0,
+          "panel": 1,
+          "support_input_minimum_eigenvalue": 0.1108859118733915,
+          "query_input_minimum_eigenvalue": 0.0875231228113503,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 0,
+          "repeat": 0,
+          "panel": 2,
+          "support_input_minimum_eigenvalue": 0.10668223553924054,
+          "query_input_minimum_eigenvalue": 0.09807601850578036,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 0,
+          "repeat": 1,
+          "panel": 4,
+          "support_input_minimum_eigenvalue": 0.11674120675726642,
+          "query_input_minimum_eigenvalue": 0.08979310916747878,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 0,
+          "repeat": 1,
+          "panel": 5,
+          "support_input_minimum_eigenvalue": 0.11624274564473815,
+          "query_input_minimum_eigenvalue": 0.09157555691975011,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 0,
+          "repeat": 2,
+          "panel": 7,
+          "support_input_minimum_eigenvalue": 0.1101258800498504,
+          "query_input_minimum_eigenvalue": 0.08413575398248858,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 0,
+          "repeat": 2,
+          "panel": 8,
+          "support_input_minimum_eigenvalue": 0.10409126701875639,
+          "query_input_minimum_eigenvalue": 0.08964459833379865,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 0,
+          "repeat": 3,
+          "panel": 10,
+          "support_input_minimum_eigenvalue": 0.10704430015377975,
+          "query_input_minimum_eigenvalue": 0.09580627769416901,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 0,
+          "repeat": 3,
+          "panel": 11,
+          "support_input_minimum_eigenvalue": 0.09572105881409221,
+          "query_input_minimum_eigenvalue": 0.09423766020441728,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 0,
+          "repeat": 4,
+          "panel": 13,
+          "support_input_minimum_eigenvalue": 0.10770502681065397,
+          "query_input_minimum_eigenvalue": 0.0898907589415178,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 0,
+          "repeat": 4,
+          "panel": 14,
+          "support_input_minimum_eigenvalue": 0.10812676739198104,
+          "query_input_minimum_eigenvalue": 0.0935844014393855,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 1,
+          "repeat": 0,
+          "panel": 16,
+          "support_input_minimum_eigenvalue": 0.11806784244264489,
+          "query_input_minimum_eigenvalue": 0.098859376779669,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 1,
+          "repeat": 0,
+          "panel": 17,
+          "support_input_minimum_eigenvalue": 0.09534500807742262,
+          "query_input_minimum_eigenvalue": 0.10349705255855937,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 1,
+          "repeat": 1,
+          "panel": 19,
+          "support_input_minimum_eigenvalue": 0.11538441439899348,
+          "query_input_minimum_eigenvalue": 0.0983766209815738,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 1,
+          "repeat": 1,
+          "panel": 20,
+          "support_input_minimum_eigenvalue": 0.11492736080383792,
+          "query_input_minimum_eigenvalue": 0.11171809197464846,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 1,
+          "repeat": 2,
+          "panel": 22,
+          "support_input_minimum_eigenvalue": 0.09873524547543627,
+          "query_input_minimum_eigenvalue": 0.10699499153234192,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 1,
+          "repeat": 2,
+          "panel": 23,
+          "support_input_minimum_eigenvalue": 0.09529950292723761,
+          "query_input_minimum_eigenvalue": 0.10414116190218917,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 1,
+          "repeat": 3,
+          "panel": 25,
+          "support_input_minimum_eigenvalue": 0.12141591269443092,
+          "query_input_minimum_eigenvalue": 0.09978169691714611,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 1,
+          "repeat": 3,
+          "panel": 26,
+          "support_input_minimum_eigenvalue": 0.10116052398714181,
+          "query_input_minimum_eigenvalue": 0.10511988442698349,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 1,
+          "repeat": 4,
+          "panel": 28,
+          "support_input_minimum_eigenvalue": 0.11422614757076476,
+          "query_input_minimum_eigenvalue": 0.10175227115441211,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 1,
+          "repeat": 4,
+          "panel": 29,
+          "support_input_minimum_eigenvalue": 0.09646928570893833,
+          "query_input_minimum_eigenvalue": 0.10844736391491615,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 2,
+          "repeat": 0,
+          "panel": 31,
+          "support_input_minimum_eigenvalue": 0.107515226271099,
+          "query_input_minimum_eigenvalue": 0.08940918533721279,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 2,
+          "repeat": 0,
+          "panel": 32,
+          "support_input_minimum_eigenvalue": 0.10966473403494727,
+          "query_input_minimum_eigenvalue": 0.09475546101094888,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 2,
+          "repeat": 1,
+          "panel": 34,
+          "support_input_minimum_eigenvalue": 0.09541546538847834,
+          "query_input_minimum_eigenvalue": 0.08394576425932777,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 2,
+          "repeat": 1,
+          "panel": 35,
+          "support_input_minimum_eigenvalue": 0.09604333527294932,
+          "query_input_minimum_eigenvalue": 0.09594685248934963,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 2,
+          "repeat": 2,
+          "panel": 37,
+          "support_input_minimum_eigenvalue": 0.11318271481272253,
+          "query_input_minimum_eigenvalue": 0.08960244503835324,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 2,
+          "repeat": 2,
+          "panel": 38,
+          "support_input_minimum_eigenvalue": 0.10919874655481157,
+          "query_input_minimum_eigenvalue": 0.09483003546577914,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 2,
+          "repeat": 3,
+          "panel": 40,
+          "support_input_minimum_eigenvalue": 0.10474503017422555,
+          "query_input_minimum_eigenvalue": 0.09396223499889854,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 2,
+          "repeat": 3,
+          "panel": 41,
+          "support_input_minimum_eigenvalue": 0.09643417120491478,
+          "query_input_minimum_eigenvalue": 0.09447903616038626,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 2,
+          "repeat": 4,
+          "panel": 43,
+          "support_input_minimum_eigenvalue": 0.10703981214336616,
+          "query_input_minimum_eigenvalue": 0.08390512734006407,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 2,
+          "repeat": 4,
+          "panel": 44,
+          "support_input_minimum_eigenvalue": 0.1083893520781287,
+          "query_input_minimum_eigenvalue": 0.0925204690362034,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 3,
+          "repeat": 0,
+          "panel": 46,
+          "support_input_minimum_eigenvalue": 0.0957408911611953,
+          "query_input_minimum_eigenvalue": 0.1024404885532528,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 3,
+          "repeat": 0,
+          "panel": 47,
+          "support_input_minimum_eigenvalue": 0.09051956482334116,
+          "query_input_minimum_eigenvalue": 0.10251882476474118,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 3,
+          "repeat": 1,
+          "panel": 49,
+          "support_input_minimum_eigenvalue": 0.10824131752091101,
+          "query_input_minimum_eigenvalue": 0.10062427088328957,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 3,
+          "repeat": 1,
+          "panel": 50,
+          "support_input_minimum_eigenvalue": 0.08618731275150383,
+          "query_input_minimum_eigenvalue": 0.10312187110932225,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 3,
+          "repeat": 2,
+          "panel": 52,
+          "support_input_minimum_eigenvalue": 0.11271281088252615,
+          "query_input_minimum_eigenvalue": 0.10337891008277202,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 3,
+          "repeat": 2,
+          "panel": 53,
+          "support_input_minimum_eigenvalue": 0.09693059670317503,
+          "query_input_minimum_eigenvalue": 0.1049532187037084,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 3,
+          "repeat": 3,
+          "panel": 55,
+          "support_input_minimum_eigenvalue": 0.09755904602893439,
+          "query_input_minimum_eigenvalue": 0.10214551325375099,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 3,
+          "repeat": 3,
+          "panel": 56,
+          "support_input_minimum_eigenvalue": 0.09274225536593318,
+          "query_input_minimum_eigenvalue": 0.10661893436815029,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 3,
+          "repeat": 4,
+          "panel": 58,
+          "support_input_minimum_eigenvalue": 0.11374911451830194,
+          "query_input_minimum_eigenvalue": 0.09759859367870953,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 3,
+          "repeat": 4,
+          "panel": 59,
+          "support_input_minimum_eigenvalue": 0.11322234223605629,
+          "query_input_minimum_eigenvalue": 0.10286728554536989,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 4,
+          "repeat": 0,
+          "panel": 61,
+          "support_input_minimum_eigenvalue": 0.1227210848090291,
+          "query_input_minimum_eigenvalue": 0.11247421246178008,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 4,
+          "repeat": 0,
+          "panel": 62,
+          "support_input_minimum_eigenvalue": 0.12199335447610778,
+          "query_input_minimum_eigenvalue": 0.11022996773832969,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 4,
+          "repeat": 1,
+          "panel": 64,
+          "support_input_minimum_eigenvalue": 0.11056802962801604,
+          "query_input_minimum_eigenvalue": 0.10404468647398038,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 4,
+          "repeat": 1,
+          "panel": 65,
+          "support_input_minimum_eigenvalue": 0.1100437905423632,
+          "query_input_minimum_eigenvalue": 0.10727021812746712,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 4,
+          "repeat": 2,
+          "panel": 67,
+          "support_input_minimum_eigenvalue": 0.11799343752471604,
+          "query_input_minimum_eigenvalue": 0.10965098116809216,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 4,
+          "repeat": 2,
+          "panel": 68,
+          "support_input_minimum_eigenvalue": 0.09973962938905558,
+          "query_input_minimum_eigenvalue": 0.1139506082361738,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 4,
+          "repeat": 3,
+          "panel": 70,
+          "support_input_minimum_eigenvalue": 0.1187886783696638,
+          "query_input_minimum_eigenvalue": 0.10208046378293409,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 4,
+          "repeat": 3,
+          "panel": 71,
+          "support_input_minimum_eigenvalue": 0.10833304027791517,
+          "query_input_minimum_eigenvalue": 0.10830436984899325,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 10,
+          "outer": 4,
+          "repeat": 4,
+          "panel": 73,
+          "support_input_minimum_eigenvalue": 0.12197155159712222,
+          "query_input_minimum_eigenvalue": 0.1107647227673551,
+          "epsilon": 0.0001
+        },
+        {
+          "k": 20,
+          "outer": 4,
+          "repeat": 4,
+          "panel": 74,
+          "support_input_minimum_eigenvalue": 0.11501391331229685,
+          "query_input_minimum_eigenvalue": 0.11032742304254109,
+          "epsilon": 0.0001
+        }
+      ],
+      "minimum_support_eigenvalue": 0.08618731275150383,
+      "minimum_query_eigenvalue": 0.08390512734006407,
+      "scope": "Post-training descriptor; not a tuning or selection input",
+      "seconds": 4.878942012786865
+    }
+  },
+  "method_origins": [
+    {
+      "component": "原论文任务/框架",
+      "official": "MATLAB；AFEW七分类",
+      "local": "PyTorch；SRPBS病例/对照二分类",
+      "identity": "本地任务适配，非官方原任务复现",
+      "source": "https://github.com/zhiwu-huang/SPDNet"
+    },
+    {
+      "component": "三层算子顺序",
+      "official": "BiMap-ReEig-BiMap-ReEig-BiMap-LogEig",
+      "local": "相同块顺序；末Log保留数值下限",
+      "identity": "官方方法参考；本地数值实现",
+      "source": "https://github.com/zhiwu-huang/SPDNet/blob/master/spdnet_init_afew.m"
+    },
+    {
+      "component": "维度",
+      "official": "400→200→100→50",
+      "local": "90→48→24→16；末维16与轻量相同",
+      "identity": "本地适配；参数5997对1581，非等参数",
+      "source": "https://github.com/zhiwu-huang/SPDNet/blob/master/spdnet_init_afew.m"
+    },
+    {
+      "component": "ReEig阈值",
+      "official": "epsilon=1e-4",
+      "local": "前两ReEig同1e-4；末Log下限1e-4是本地保护",
+      "identity": "官方阈值参考；不扫描",
+      "source": "https://github.com/zhiwu-huang/SPDNet/blob/master/spdnet/vl_myforbackward.m"
+    },
+    {
+      "component": "初始化",
+      "official": "随机矩阵乘积SVD初始化",
+      "local": "嵌套正交初始化；三层乘积及头对齐原单层",
+      "identity": "本地公平比较适配，非作者初始化",
+      "source": "https://github.com/zhiwu-huang/SPDNet/blob/master/spdnet_init_afew.m"
+    },
+    {
+      "component": "投影优化",
+      "official": "Manopt Stiefel egrad2rgrad及QR retraction，lr=.01",
+      "local": "自写相同几何更新；三层算子及一步更新MATLAB数值对照",
+      "identity": "官方方法参考；已做合成核验，非原任务训练",
+      "source": "https://github.com/zhiwu-huang/SPDNet/blob/master/spdnet_train_afew.m"
+    },
+    {
+      "component": "主比较训练",
+      "official": "作者示例500epoch/batch30",
+      "local": "深浅均原200步全批；头L2 .001",
+      "identity": "本地同更新预算结构比较",
+      "source": "https://onephantomcat.github.io/neurograph-site/#evidence?source=spd-outer-20261017-plan"
+    },
+    {
+      "component": "补充训练",
+      "official": "500epoch；shuffle；batch30；lr .01",
+      "local": "K20深浅均500epoch，30+10两batch/轮，1000更新，无验证选轮",
+      "identity": "官方训练方式参考适配；双方预算匹配",
+      "source": "https://github.com/zhiwu-huang/SPDNet/blob/master/spdnet_afew.m"
+    },
+    {
+      "component": "weight decay实际行为",
+      "official": "配置声明.0005；accumulate_gradients未使用",
+      "local": "500轮臂无头L2；200步臂沿用头L2 .001",
+      "identity": "按实际代码行为；跨训练方案多个因素不同",
+      "source": "https://github.com/zhiwu-huang/SPDNet/blob/master/spdnet_train_afew.m"
+    },
+    {
+      "component": "输入/特征",
+      "official": "AFEW提供SPD；末50×50完整展平",
+      "local": "逐人LW全协方差、支持白化，16×16上三角136维sqrt2，支持均值/RMS",
+      "identity": "本地脑影像适配；保持现有输入解释更正",
+      "source": "https://onephantomcat.github.io/neurograph-site/#evidence?source=spd-geometry-20261016"
+    },
+    {
+      "component": "分类头/精度",
+      "official": "7类softmax；原实现精度和初始化",
+      "local": "136特征＋4协变量，带偏置二分类BCE；float64",
+      "identity": "本地适配；未宣称原封训练",
+      "source": "https://onephantomcat.github.io/neurograph-site/#evidence?source=spd-deep-20261018"
+    },
+    {
+      "component": "评价",
+      "official": "AFEW原train/val集及7类错误率",
+      "local": "原99人五外折×五支持重复×五seed；成员均值/M5/配对区间",
+      "identity": "本地开发评价；不是独立临床验证",
+      "source": "https://onephantomcat.github.io/neurograph-site/#evidence?source=spd-deep-20261018-plan"
+    }
+  ],
+  "training_budgets": [
+    {
+      "arm": "original",
+      "k": 10,
+      "people": 99,
+      "support_per_class": 10,
+      "support_people": 20,
+      "outer_folds": 5,
+      "support_repeats": 5,
+      "seeds": "0,1,2,3,4",
+      "models": 125,
+      "new_models": 0,
+      "epochs": 200,
+      "updates_per_member": 200,
+      "batch_description": "20",
+      "head_l2": 0.001,
+      "member_parameters": 1581,
+      "ensemble_parameters": 7905,
+      "new_reference_fits": 0,
+      "model_execution_seconds_sum": 69.27550116658676,
+      "scope": "同训练方式深浅比较可比；跨方式预算不同；秒数为该组成员执行和读回之和，原参照为历史成本"
+    },
+    {
+      "arm": "deep200",
+      "k": 10,
+      "people": 99,
+      "support_per_class": 10,
+      "support_people": 20,
+      "outer_folds": 5,
+      "support_repeats": 5,
+      "seeds": "0,1,2,3,4",
+      "models": 125,
+      "new_models": 125,
+      "epochs": 200,
+      "updates_per_member": 200,
+      "batch_description": "20",
+      "head_l2": 0.001,
+      "member_parameters": 5997,
+      "ensemble_parameters": 29985,
+      "new_reference_fits": 0,
+      "model_execution_seconds_sum": 531.2345037590712,
+      "scope": "同训练方式深浅比较可比；跨方式预算不同；秒数为该组成员执行和读回之和，原参照为历史成本"
+    },
+    {
+      "arm": "original",
+      "k": 20,
+      "people": 99,
+      "support_per_class": 20,
+      "support_people": 40,
+      "outer_folds": 5,
+      "support_repeats": 5,
+      "seeds": "0,1,2,3,4",
+      "models": 125,
+      "new_models": 0,
+      "epochs": 200,
+      "updates_per_member": 200,
+      "batch_description": "40",
+      "head_l2": 0.001,
+      "member_parameters": 1581,
+      "ensemble_parameters": 7905,
+      "new_reference_fits": 0,
+      "model_execution_seconds_sum": 96.06981662090402,
+      "scope": "同训练方式深浅比较可比；跨方式预算不同；秒数为该组成员执行和读回之和，原参照为历史成本"
+    },
+    {
+      "arm": "deep200",
+      "k": 20,
+      "people": 99,
+      "support_per_class": 20,
+      "support_people": 40,
+      "outer_folds": 5,
+      "support_repeats": 5,
+      "seeds": "0,1,2,3,4",
+      "models": 125,
+      "new_models": 125,
+      "epochs": 200,
+      "updates_per_member": 200,
+      "batch_description": "40",
+      "head_l2": 0.001,
+      "member_parameters": 5997,
+      "ensemble_parameters": 29985,
+      "new_reference_fits": 0,
+      "model_execution_seconds_sum": 909.2829858963378,
+      "scope": "同训练方式深浅比较可比；跨方式预算不同；秒数为该组成员执行和读回之和，原参照为历史成本"
+    },
+    {
+      "arm": "light500",
+      "k": 20,
+      "people": 99,
+      "support_per_class": 20,
+      "support_people": 40,
+      "outer_folds": 5,
+      "support_repeats": 5,
+      "seeds": "0,1,2,3,4",
+      "models": 125,
+      "new_models": 125,
+      "epochs": 500,
+      "updates_per_member": 1000,
+      "batch_description": "30+10",
+      "head_l2": 0,
+      "member_parameters": 1581,
+      "ensemble_parameters": 7905,
+      "new_reference_fits": 0,
+      "model_execution_seconds_sum": 494.66700137918815,
+      "scope": "同训练方式深浅比较可比；跨方式预算不同；秒数为该组成员执行和读回之和，原参照为历史成本"
+    },
+    {
+      "arm": "deep500",
+      "k": 20,
+      "people": 99,
+      "support_per_class": 20,
+      "support_people": 40,
+      "outer_folds": 5,
+      "support_repeats": 5,
+      "seeds": "0,1,2,3,4",
+      "models": 125,
+      "new_models": 125,
+      "epochs": 500,
+      "updates_per_member": 1000,
+      "batch_description": "30+10",
+      "head_l2": 0,
+      "member_parameters": 5997,
+      "ensemble_parameters": 29985,
+      "new_reference_fits": 0,
+      "model_execution_seconds_sum": 2519.633215856971,
+      "scope": "同训练方式深浅比较可比；跨方式预算不同；秒数为该组成员执行和读回之和，原参照为历史成本"
+    }
+  ],
+  "summary": "主比较（双方200步）：K10 M5 0.731592→0.732388，Δ+0.000796，条件95%[-0.006931, 0.010355]，3/5支持重复正向；K20 M5 0.775604→0.772776，Δ-0.002828，条件95%[-0.009886, 0.003026]，0/5支持重复正向。补充比较（双方500轮/1000更新）：K20 M5 0.767240→0.766517，Δ-0.000723，条件95%[-0.008201, 0.006568]，3/5支持重复正向。",
+  "interpretation": "主比较未形成稳定、兼顾概率指标的增益，保留原轻量模型；本轮深度/训练配置完成后停止，不追加层宽、阈值、轮数或种子搜索。 所测初始化/终态ReEig均未触发，三层输出与乘积单投影数值一致；结合正交投影及输入特征值下界，本轮主要是过参数化的优化比较，不能称增加了有效非线性表达能力。",
+  "boundary": "当前SRPBS99（46病例/53对照）已有开发历史；相同人员、原五外折、支持集合和seed，不是独立验证。主比较匹配标签及200更新；补充深浅比较匹配500轮/1000更新；跨训练方式预算/L2/批次不同，参数与FLOPs也不相等。条件人员区间仅针对固定预测，未覆盖重训或研究选择。QC、OA/ZAN/Emo阴性、CoSpine13留出、TN14停止及三个临床终点保持。",
+  "next": "不根据查询成绩继续加层或调整ReEig阈值。下一步先结合支持内输入谱与已有按站点诊断，确定是否需要改变有生物依据的表示或补充疼痛相关独立训练来源；新方案需与本轮的纯参数化效果分开。",
+  "scope_note": "主比较K10/20；500轮补充仅K20。原逐人LW、原支持参考/Scaler、四协变量、头/终维不变；嵌套初始化是本地适配。官方原任务训练0，新增BrainHGT训练0。",
+  "diagnostic_summary": "新增500模型和300000梯度更新；复用原250参照及50原参考。1125项三层初始/终态几何检查；实际MATLAB作者三层算子与QR更新合成对照通过。",
+  "focus_summary": "主比较（双方200步）：K10 M5 0.731592→0.732388，Δ+0.000796，条件95%[-0.006931, 0.010355]，3/5支持重复正向；K20 M5 0.775604→0.772776，Δ-0.002828，条件95%[-0.009886, 0.003026]，0/5支持重复正向。补充比较（双方500轮/1000更新）：K20 M5 0.767240→0.766517，Δ-0.000723，条件95%[-0.008201, 0.006568]，3/5支持重复正向。",
+  "decision_text": "主比较未形成稳定、兼顾概率指标的增益，保留原轻量模型；本轮深度/训练配置完成后停止，不追加层宽、阈值、轮数或种子搜索。 所测初始化/终态ReEig均未触发，三层输出与乘积单投影数值一致；结合正交投影及输入特征值下界，本轮主要是过参数化的优化比较，不能称增加了有效非线性表达能力。",
+  "stable_internal_improvement": false,
+  "independent_validation": false,
+  "verification": {
+    "state": "PASS",
+    "evaluation": {
+      "state": "PASS",
+      "metric_max_error": 3.3306690738754696e-16,
+      "mixture_max_error": 0.0,
+      "independent_rank_bootstrap_interval_max_error": 0.0,
+      "valid_resamples": 1999,
+      "invalid_resamples": 1,
+      "training": {
+        "state": "PASS",
+        "initial_logit_max_error": 1.970645868709653e-15,
+        "strict_probability_max_error": 0.0,
+        "numpy_probability_max_error": 7.327471962526033e-15,
+        "initial_feature_scale_max_error": 9.992007221626409e-16,
+        "max_orthogonality_error": 1.6653345369377348e-15,
+        "epochs_finite": 175000,
+        "gradient_updates": 300000
+      },
+      "author_operators": {
+        "state": "PASS",
+        "author_commit": "527110a2209e918785075738b81c4ab091664e61",
+        "scope": "Actual MATLAB author three-layer operators and Manopt projection/retraction on synthetic nondegenerate matrices; not original-task training",
+        "errors": {
+          "output": 1.2212453270876722e-15,
+          "dx": 9.71445146547012e-17,
+          "GW1": 2.886579864025407e-15,
+          "S1": 3.3306690738754696e-16,
+          "GW2": 2.7547408798511697e-15,
+          "S2": 1.3877787807814457e-17,
+          "GW3": 2.220446049250313e-15,
+          "S3": 1.214306433183765e-17
+        }
+      }
+    }
+  }
+}

@@ -16,3 +16,18 @@
 当前99人（46病例/53对照）已用于模型开发；5外折×5支持重复×5初始化seed，不是125组独立人群。条件人员区间仅覆盖固定预测，不覆盖重训或研究选择。诊断、MRI时疼痛及治疗反应三个临床终点仍未完成；不改QC、CoSpine13留出或TN14停止。
 
 [近期全部工作表](https://onephantomcat.github.io/neurograph-site/files/spd-fixedshrink-20261018-recent.md)；[完整成员均值](https://onephantomcat.github.io/neurograph-site/files/spd-fixedshrink-20261018-model-means.csv)；[全部种子](https://onephantomcat.github.io/neurograph-site/files/spd-fixedshrink-20261018-model-seeds.csv)；[每折每支持指标](https://onephantomcat.github.io/neurograph-site/files/spd-fixedshrink-20261018-model-panels.csv)。
+
+
+<!-- spd-deep-20261018 -->
+
+## 2026-10-18：三层SPDNet与轻量模型：结构和官方训练参考对照
+
+主比较（双方200步）：K10 M5 0.731592→0.732388，Δ+0.000796，条件95%[-0.006931, 0.010355]，3/5支持重复正向；K20 M5 0.775604→0.772776，Δ-0.002828，条件95%[-0.009886, 0.003026]，0/5支持重复正向。补充比较（双方500轮/1000更新）：K20 M5 0.767240→0.766517，Δ-0.000723，条件95%[-0.008201, 0.006568]，3/5支持重复正向。
+
+主比较未形成稳定、兼顾概率指标的增益，保留原轻量模型；本轮深度/训练配置完成后停止，不追加层宽、阈值、轮数或种子搜索。 所测初始化/终态ReEig均未触发，三层输出与乘积单投影数值一致；结合正交投影及输入特征值下界，本轮主要是过参数化的优化比较，不能称增加了有效非线性表达能力。
+
+当前SRPBS99（46病例/53对照）已有开发历史；相同人员、原五外折、支持集合和seed，不是独立验证。主比较匹配标签及200更新；补充深浅比较匹配500轮/1000更新；跨训练方式预算/L2/批次不同，参数与FLOPs也不相等。条件人员区间仅针对固定预测，未覆盖重训或研究选择。QC、OA/ZAN/Emo阴性、CoSpine13留出、TN14停止及三个临床终点保持。
+
+不根据查询成绩继续加层或调整ReEig阈值。下一步先结合支持内输入谱与已有按站点诊断，确定是否需要改变有生物依据的表示或补充疼痛相关独立训练来源；新方案需与本轮的纯参数化效果分开。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/spd-deep-20261018.md)。

@@ -1,0 +1,25 @@
+{
+  "state": "CONDITION_ADJACENCY_SUPPORTED_TIMESTAMPS_AND_ONE_WASHOUT_DEVIATION_UNRESOLVED",
+  "people": 17,
+  "scans": 68,
+  "score_matches": 68,
+  "unique_scan_paths": 68,
+  "pre_post_condition_order_verified_people": 17,
+  "structural_between_second_and_third_people": 16,
+  "structural_after_fourth_people": 1,
+  "washout_full_protocol_not_verified_people": 1,
+  "first_condition_counts": {
+    "pre-music": 11,
+    "pre-control": 6
+  },
+  "between_pre_end_and_post_start_seconds": {
+    "minimum": 428.0,
+    "maximum": 928.0
+  },
+  "exact_rating_timestamps_available": false,
+  "exact_rating_scan_intervals_available": false,
+  "pi_before_experiment_supported_by_dictionary": true,
+  "pi_exact_timestamp_available": false,
+  "primary_endpoint": "condition-matched scan-adjacent VRS0-10",
+  "patient_fits": 0
+}

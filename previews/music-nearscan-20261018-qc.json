@@ -1,0 +1,4 @@
+{
+  "content": "condition,candidate_scans,processed_scans,numeric_pass,QC_not_passed,technical_failed,pending_scans\npre-control,17,0,0,0,0,17\npost-control,17,0,0,0,0,17\npre-music,17,1,1,0,0,16\npost-music,17,0,0,0,0,17\n",
+  "truncated": false
+}

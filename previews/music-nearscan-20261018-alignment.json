@@ -1,0 +1,4 @@
+{
+  "content": "{\n  \"state\": \"CONDITION_ADJACENCY_SUPPORTED_TIMESTAMPS_AND_ONE_WASHOUT_DEVIATION_UNRESOLVED\",\n  \"people\": 17,\n  \"scans\": 68,\n  \"score_matches\": 68,\n  \"unique_scan_paths\": 68,\n  \"pre_post_condition_order_verified_people\": 17,\n  \"structural_between_second_and_third_people\": 16,\n  \"structural_after_fourth_people\": 1,\n  \"washout_full_protocol_not_verified_people\": 1,\n  \"first_condition_counts\": {\n    \"pre-music\": 11,\n    \"pre-control\": 6\n  },\n  \"between_pre_end_and_post_start_seconds\": {\n    \"minimum\": 428.0,\n    \"maximum\": 928.0\n  },\n  \"exact_rating_timestamps_available\": false,\n  \"exact_rating_scan_intervals_available\": false,\n  \"pi_before_experiment_supported_by_dictionary\": true,\n  \"pi_exact_timestamp_available\": false,\n  \"primary_endpoint\": \"condition-matched scan-adjacent VRS0-10\",\n  \"patient_fits\": 0\n}\n",
+  "truncated": false
+}

@@ -1,0 +1,39 @@
+{
+  "state": "PASS_OFFICIAL_FROZEN_REGRESSOR_SYNTHETIC_ONLY",
+  "parameters": 11081864,
+  "trainable_parameters": 0,
+  "patient_gradient_steps": 0,
+  "patient_contexts": 0,
+  "synthetic_contexts": 2,
+  "estimators": 4,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "same_context_reconstruction_error": 0.0,
+  "single_query_isolation_error": 0.0,
+  "weight_bytes": 44390977,
+  "official_weight_repo": "Prior-Labs/TabPFN-v2-reg",
+  "official_weight_revision": "4972a65a1b30806315c6f92499959ffbfc69a673",
+  "official_weight_file": "tabpfn-v2-regressor.ckpt",
+  "tabpfn": "2.0.9",
+  "torch": "2.13.0+cu130",
+  "numpy": "2.5.1",
+  "feature_interface_counterexamples": {
+    "state": "PASS_SYNTHETIC_GEOMETRY_COUNTEREXAMPLES",
+    "patient_contexts": 0,
+    "patient_gradient_steps": 0,
+    "training_people": 3,
+    "correlated_training_states": 12,
+    "held_query_states": 4,
+    "original_AAL90_edges": 4005,
+    "pc_count": 2,
+    "held_person_signal_and_labels_changed_training_feature_error": 0.0,
+    "clinical_features_unchanged_under_FC_shuffle": true,
+    "four_conditions_match_same_donor_person": true,
+    "real_patient_model_launched": false
+  }
+}

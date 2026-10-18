@@ -1,0 +1,27 @@
+{
+  "pipeline": "Existing DPABI10.0 / unified segmentation / AAL90 / noGSR / unsmoothed FC",
+  "existing_QC_policy": "srpbs_fc_essential_v2_no_min_duration",
+  "minimum_usable_minutes": null,
+  "short_scan_reliability_validated": false,
+  "TR_seconds": 3,
+  "expected_released_frames": 100,
+  "additional_dummy_removal": 0,
+  "slice_timing": false,
+  "filter_Hz": [
+    0.01,
+    0.1
+  ],
+  "motion_translation_mm_strictly_less_than": 3,
+  "motion_rotation_degrees_strictly_less_than": 3,
+  "FD_spike_threshold_mm": 0.5,
+  "censor_previous_frames": 1,
+  "censor_later_frames": 2,
+  "maximum_expanded_censor_fraction": 0.2,
+  "normalized_mask_Dice_strictly_greater_than": 0.75,
+  "normalized_mask_covered_by_standard_strictly_greater_than": 0.9,
+  "minimum_AAL90_ROI_coverage": 0.92,
+  "other_existing_finiteness_rank_signal_and_registration_checks_preserved": true,
+  "QC_thresholds_changed": false,
+  "expert_reports_added": 0,
+  "patient_gradient_steps": 0
+}

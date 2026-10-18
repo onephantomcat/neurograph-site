@@ -31,3 +31,18 @@
 当前SRPBS99（46病例/53对照）已有开发历史；相同人员、原五外折、支持集合和seed，不是独立验证。主比较匹配标签及200更新；补充深浅比较匹配500轮/1000更新；跨训练方式预算/L2/批次不同，参数与FLOPs也不相等。条件人员区间仅针对固定预测，未覆盖重训或研究选择。QC、OA/ZAN/Emo阴性、CoSpine13留出、TN14停止及三个临床终点保持。
 
 [全部30项种子](https://onephantomcat.github.io/neurograph-site/files/spd-deep-20261018-model-seeds.csv)；[全部900模型评价](https://onephantomcat.github.io/neurograph-site/files/spd-deep-20261018-model-panels.csv)；[官方与本地适配逐项表](https://onephantomcat.github.io/neurograph-site/files/spd-deep-20261018-origins.csv)；[实际预算](https://onephantomcat.github.io/neurograph-site/files/spd-deep-20261018-budgets.csv)。
+
+
+<!-- spd-nonlinear-20261018 -->
+
+## 2026-10-18：非线性SPD支持验证与项目论文缺口
+
+250个支持组合全部有非线性、正定且梯度有限；243个通过全部条件，7个第二层相对改变量>2（K10为5/125，K20为2/125），最大3.272392。按计算前方案停止此固定候选，新增监督拟合0、查询前向/新AUC0。
+
+真正非线性已经生效，但中位对角尺度未控制少数大元素的逐层放大；不是数值崩溃，也未测到性能下降。保留原轻量模型和旧三层结果，未执行计划中的250次匹配训练，不调整系数或放宽上限重试。
+
+全部判断仅用原K10/20的50个人级支持集合与五seed；每集合20/40人，组合相互重叠，250不代表250人或250次训练。尺度使用支持初始化对角的下中位数，随后固定。当前SRPBS99持续是开发数据；旧条件区间不覆盖重训及研究选择。输入已逐ROI标准化，几何量不等于原始BOLD幅度。QC、三临床终点、全部旧阴性/停止与CoSpine13留出保持。
+
+下一步先验证对角保持、尺度有界的相关形状非线性，并补齐一个真实疼痛终点的时点/处理和人员依据；本轮不启动第二候选。项目和论文缺口见专项表，独立诊断、同期疼痛、疗效及H-test仍未完成。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/spd-nonlinear-20261018.md)。

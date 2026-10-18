@@ -1,0 +1,374 @@
+{
+  "state": "AUTHOR_STATEMENTS_REPLAYED_DIFFERENCE_CONFIRMED",
+  "scaling_checks": {
+    "state": "AUTHOR_STATEMENTS_REPLAYED_DIFFERENCE_CONFIRMED",
+    "seed_rows": [
+      {
+        "seed": 0,
+        "state": "PASS",
+        "source_expression_max_error": 0.0,
+        "formula_max_difference": 2.138972317936515,
+        "canonical_unit_scaling_error": 1.3322676295501878e-15,
+        "published_unit_scaling_difference": 9.343978647030966,
+        "encoder_feature_max_difference": 0.03355377912521362,
+        "source_output_shape": [
+          200,
+          424
+        ],
+        "patient_samples": 0
+      },
+      {
+        "seed": 1,
+        "state": "PASS",
+        "source_expression_max_error": 0.0,
+        "formula_max_difference": 2.2405758738197346,
+        "canonical_unit_scaling_error": 1.3322676295501878e-15,
+        "published_unit_scaling_difference": 8.981879113610056,
+        "encoder_feature_max_difference": 0.035944223403930664,
+        "source_output_shape": [
+          200,
+          424
+        ],
+        "patient_samples": 0
+      },
+      {
+        "seed": 2,
+        "state": "PASS",
+        "source_expression_max_error": 0.0,
+        "formula_max_difference": 2.4024620772342513,
+        "canonical_unit_scaling_error": 1.3322676295501878e-15,
+        "published_unit_scaling_difference": 9.594510813968729,
+        "encoder_feature_max_difference": 0.03338974714279175,
+        "source_output_shape": [
+          200,
+          424
+        ],
+        "patient_samples": 0
+      },
+      {
+        "seed": 3,
+        "state": "PASS",
+        "source_expression_max_error": 0.0,
+        "formula_max_difference": 2.1639615006614106,
+        "canonical_unit_scaling_error": 8.881784197001252e-16,
+        "published_unit_scaling_difference": 8.689448726899228,
+        "encoder_feature_max_difference": 0.03350013494491577,
+        "source_output_shape": [
+          200,
+          424
+        ],
+        "patient_samples": 0
+      },
+      {
+        "seed": 4,
+        "state": "PASS",
+        "source_expression_max_error": 0.0,
+        "formula_max_difference": 2.50000305747844,
+        "canonical_unit_scaling_error": 8.881784197001252e-16,
+        "published_unit_scaling_difference": 8.87819562242639,
+        "encoder_feature_max_difference": 0.025844454765319824,
+        "source_output_shape": [
+          200,
+          424
+        ],
+        "patient_samples": 0
+      }
+    ],
+    "expected_failures": [
+      {
+        "test": "wrong_intermediate_orientation",
+        "state": "EXPECTED_FAILURE_RECORDED",
+        "exception": "ValueError",
+        "message": "operands could not be broadcast together with shapes (424,200) (424,) "
+      },
+      {
+        "test": "one_zero_IQR",
+        "state": "NONFINITE_RECORDED",
+        "nonfinite_elements": 200
+      },
+      {
+        "test": "all_zero_IQR",
+        "state": "NONFINITE_RECORDED",
+        "nonfinite_elements": 84800
+      }
+    ],
+    "source_line_numbers": [
+      239,
+      297,
+      298
+    ],
+    "source_statements": [
+      "recording_mean_subtracted3 = np.copy(dat_arr.T)",
+      "recording_mean_subtracted3 = recording_mean_subtracted3 - recording_mean_subtracted3.mean(axis=0)",
+      "recording_mean_subtracted3 = recording_mean_subtracted3 - data_median_per_voxel / IQR"
+    ],
+    "missing_keys": [],
+    "unexpected_keys": [],
+    "strict": true,
+    "actual_checkpoint_preprocessing_identified": false,
+    "synthetic_statistics": true,
+    "target_data_read": false,
+    "new_patient_fits": 0,
+    "new_AUC": 0,
+    "scope": "Synthetic source-statement and feature sensitivity checks; not an estimate of clinical effect or proof of the historical pretraining transform."
+  },
+  "prior_strict_forward": {
+    "state": "STRICT_LOAD_AND_SYNTHETIC_FORWARD_PASS",
+    "missing_keys": [],
+    "unexpected_keys": [],
+    "strict": true,
+    "parameters": 5047724,
+    "encoder_parameters": 3167248,
+    "tensor_elements": 7607724,
+    "mask_ratio": 0.0,
+    "device": "cpu",
+    "threads": 2,
+    "seeds": [
+      {
+        "seed": 0,
+        "state": "PASS",
+        "output_shape": [
+          1,
+          256
+        ],
+        "finite": true,
+        "repeat_max_error": 0.0,
+        "zero_input_max_change": 0.08535033464431763,
+        "forward_seconds": 1.6433085999997274,
+        "full_pretraining_mask_ratio": 0.2,
+        "full_forward_loss": 1.0313817262649536,
+        "full_forward_logits_shape": [
+          1,
+          424,
+          10,
+          20
+        ]
+      },
+      {
+        "seed": 1,
+        "state": "PASS",
+        "output_shape": [
+          1,
+          256
+        ],
+        "finite": true,
+        "repeat_max_error": 0.0,
+        "zero_input_max_change": 0.08915650844573975,
+        "forward_seconds": 1.0462592000003497,
+        "full_pretraining_mask_ratio": 0.2,
+        "full_forward_loss": 1.0063265562057495,
+        "full_forward_logits_shape": [
+          1,
+          424,
+          10,
+          20
+        ]
+      },
+      {
+        "seed": 2,
+        "state": "PASS",
+        "output_shape": [
+          1,
+          256
+        ],
+        "finite": true,
+        "repeat_max_error": 0.0,
+        "zero_input_max_change": 0.07986587285995483,
+        "forward_seconds": 0.7402939999992668,
+        "full_pretraining_mask_ratio": 0.2,
+        "full_forward_loss": 1.0342305898666382,
+        "full_forward_logits_shape": [
+          1,
+          424,
+          10,
+          20
+        ]
+      },
+      {
+        "seed": 3,
+        "state": "PASS",
+        "output_shape": [
+          1,
+          256
+        ],
+        "finite": true,
+        "repeat_max_error": 0.0,
+        "zero_input_max_change": 0.09659850597381592,
+        "forward_seconds": 2.1188222999990103,
+        "full_pretraining_mask_ratio": 0.2,
+        "full_forward_loss": 1.0137649774551392,
+        "full_forward_logits_shape": [
+          1,
+          424,
+          10,
+          20
+        ]
+      },
+      {
+        "seed": 4,
+        "state": "PASS",
+        "output_shape": [
+          1,
+          256
+        ],
+        "finite": true,
+        "repeat_max_error": 0.0,
+        "zero_input_max_change": 0.11297500133514404,
+        "forward_seconds": 1.0536538999986078,
+        "full_pretraining_mask_ratio": 0.2,
+        "full_forward_loss": 1.0094512701034546,
+        "full_forward_logits_shape": [
+          1,
+          424,
+          10,
+          20
+        ]
+      }
+    ],
+    "python": "3.12.13",
+    "versions": {
+      "torch": "2.5.1+cpu",
+      "transformers": "4.40.2",
+      "tokenizers": "0.19.1",
+      "numpy": "1.26.4",
+      "safetensors": "0.4.5"
+    },
+    "target_people_processed": 0,
+    "new_fits": 0,
+    "official_code_changed": false,
+    "checkpoint_changed": false,
+    "scope": "FMM author BrainLM module; architecture-compatible official 256 checkpoint, exact FMM paper checkpoint unbound. Synthetic feasibility, not clinical performance.",
+    "source_scaling_check": {
+      "state": "STATIC_SOURCE_AND_SYNTHETIC_FORMULA_CHECK_COMPLETE",
+      "training_args_unpickled": false,
+      "checkpoint_training_args_contains_dataset_fields": false,
+      "formula_in_official_toolkit": "centered_signal - median / IQR",
+      "usual_robust_formula": "(centered_signal - median) / IQR",
+      "synthetic_formula_max_difference": 2.4000000000000004,
+      "implementation_intent_discrepancy": true,
+      "checkpoint_binding_unresolved": true
+    },
+    "prior_failure": {
+      "state": "NOT_EXECUTED_ABI_MISMATCH",
+      "preserved": true,
+      "source": "https://onephantomcat.github.io/neurograph-site/#evidence?source=brainlm-fc-audit-20261018-technical"
+    },
+    "author_code_comparison": [
+      {
+        "file": "modeling_brainlm.py",
+        "identical": false,
+        "diff_lines": 19
+      },
+      {
+        "file": "configuration_brainlm.py",
+        "identical": true,
+        "diff_lines": 0
+      }
+    ],
+    "author_code_choice": "本轮直接运行FMM_TC作者随附的BrainLM模块，未改作者代码。与BrainLM主仓公开模块对照：config完全相同；modeling只有临时变量改名与初始化调用_initialize_weights改为_init_weights两处差异。完整官方权重strict=True加载后全部键匹配。这是FMM作者的代码版本选择，不宣称两个仓库文件完全相同。"
+  },
+  "source_review": {
+    "state": "PUBLIC_HISTORY_AND_DISCUSSIONS_REVIEWED",
+    "issues": [
+      {
+        "issue": 3,
+        "title": "Pre-trained model provided on github is different from the one on HuggingFace, which one is the best?",
+        "state": "closed",
+        "comment_count": 1,
+        "collaborator_comments": 1,
+        "url": "https://github.com/vandijklab/BrainLM/issues/3"
+      },
+      {
+        "issue": 6,
+        "title": "Is this model agnostic to the kind of fMRI pre-processing?",
+        "state": "open",
+        "comment_count": 7,
+        "collaborator_comments": 3,
+        "url": "https://github.com/vandijklab/BrainLM/issues/6"
+      },
+      {
+        "issue": 8,
+        "title": "How to Access Sample Dataset Mentioned in 'brainlm_tutorial.ipynb'",
+        "state": "closed",
+        "comment_count": 1,
+        "collaborator_comments": 1,
+        "url": "https://github.com/vandijklab/BrainLM/issues/8"
+      },
+      {
+        "issue": 9,
+        "title": "Subset of datasets",
+        "state": "closed",
+        "comment_count": 1,
+        "collaborator_comments": 1,
+        "url": "https://github.com/vandijklab/BrainLM/issues/9"
+      },
+      {
+        "issue": 11,
+        "title": "Incompatibility of Newly Released Large Parameter Models (650M & 111M) with Existing Code",
+        "state": "open",
+        "comment_count": 7,
+        "collaborator_comments": 0,
+        "url": "https://github.com/vandijklab/BrainLM/issues/11"
+      },
+      {
+        "issue": 19,
+        "title": "Data Preprocessing Code Typo Issue",
+        "state": "open",
+        "comment_count": 0,
+        "collaborator_comments": 0,
+        "url": "https://github.com/vandijklab/BrainLM/issues/19"
+      },
+      {
+        "issue": 22,
+        "title": "Please double check our inference code",
+        "state": "open",
+        "comment_count": 0,
+        "collaborator_comments": 0,
+        "url": "https://github.com/vandijklab/BrainLM/issues/22"
+      },
+      {
+        "issue": 23,
+        "title": "A424 robust scaling stats — request for pretraining median/IQR arrays",
+        "state": "open",
+        "comment_count": 0,
+        "collaborator_comments": 0,
+        "url": "https://github.com/vandijklab/BrainLM/issues/23"
+      }
+    ],
+    "initial_script_defaults": [
+      {
+        "file": "initial_train.py",
+        "column_default": "Voxelwise_RobustScaler_Normalized_Recording",
+        "line": 65
+      },
+      {
+        "file": "initial_continue_train_same_wandb.py",
+        "column_default": "Subtract_Mean_Divide_Global_STD_Normalized_Recording",
+        "line": 60
+      }
+    ],
+    "normalization_toolkit_history": [
+      {
+        "revision": "a584f7a9d5378d4249dd03fc3fe4e486ebb8a1b8",
+        "date": "2024-04-14T06:43:57Z",
+        "message": "updated prepoc file + readme"
+      },
+      {
+        "revision": "f65e5acdfeb4ab06bad4f10663250eedfcbe20be",
+        "date": "2024-04-04T07:33:33Z",
+        "message": "prep pipeline for pub release"
+      }
+    ],
+    "exact_checkpoint_dataset_recovered": false,
+    "exact_checkpoint_scaler_recovered": false,
+    "source_exclusion_established": false,
+    "outreach_sent": false,
+    "first_fetch_failure": {
+      "state": "PRESERVED",
+      "action": "GET issue19 comments",
+      "returncode": 1,
+      "detail": "Initial gh process failed without stderr exposed in original exception; the issue endpoint reports zero comments. Cached metadata resumed, no mutation."
+    }
+  },
+  "patient_comparison_started": false
+}

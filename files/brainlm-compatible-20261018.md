@@ -60,3 +60,18 @@ train.py默认Voxelwise_RobustScaler列；公开工具实际表达式为centered
 [全部技术记录](https://onephantomcat.github.io/neurograph-site/files/brainlm-compatible-20261018-technical.json)；[旧79人完整阴性](https://onephantomcat.github.io/neurograph-site/files/fmm-results-20260925.md)；[条件性比较方案](https://onephantomcat.github.io/neurograph-site/files/brainlm-compatible-20261018-plan.md)。
 
 <Self-Audit>仅合成输入，没有患者数据拟合或查询选择；复用作者模块及既有检查点，原seed、失败、阴性和并行结果完整保留。没有把环境成功或预训练来源描述升级为临床验证。</Self-Audit>
+
+
+<!-- brainlm-scaling-20261018 -->
+
+## 2026-10-18：BrainLM256：训练来源追溯与缩放语句实测
+
+已追溯14次仓库提交及8项公开讨论。作者已有回复支持一般预训练来源为UKB，但未明确绑定256检查点；缩放笔误问题19与统计量请求23均为0回复，后者针对13M，不能充当256来源证明。
+
+缩放运算差异已用实际源码语句和官方冻结权重核实。仍无法认定该检查点当时采用哪种输入列、预训练人员及缩放统计，患者同人同预算比较未启动，未产生新AUC。上轮严格加载与前向成功、旧训练seed、阴性和失败均保留。
+
+公开脚本可执行与历史训练实际流程是不同证据。原始工具未改；规范公式只作为合成诊断对照，不能冒称官方纠正。0回复不等于作者承认错误或数据确实未保存。UKB一般来源说明不能替代检查点成员排除；没有证据断言已经泄露。全部新数据为合成，原99人开发属性、QC/纳入和并行疼痛研究保持。
+
+本轮公开来源追溯已收尾。患者分支需要检查点对应的数据范围及查询排除依据、实际输入列、原缩放统计和运算确认；获得这些实际材料后再执行原定K10/20同人同预算比较。当前不继续改公式后试患者成绩，也不将HF512或大模型当作同一256版本。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/brainlm-scaling-20261018.md)。

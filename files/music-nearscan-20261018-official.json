@@ -6,13 +6,6 @@
   "patient_contexts": 0,
   "synthetic_contexts": 2,
   "estimators": 4,
-  "seeds": [
-    0,
-    1,
-    2,
-    3,
-    4
-  ],
   "same_context_reconstruction_error": 0.0,
   "single_query_isolation_error": 0.0,
   "weight_bytes": 44390977,
@@ -35,5 +28,15 @@
     "clinical_features_unchanged_under_FC_shuffle": true,
     "four_conditions_match_same_donor_person": true,
     "real_patient_model_launched": false
-  }
+  },
+  "planned_patient_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "synthetic_seeds_run": [
+    0
+  ]
 }

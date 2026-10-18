@@ -15,6 +15,16 @@
   "tabpfn": "2.0.9",
   "torch": "2.13.0+cu130",
   "numpy": "2.5.1",
+  "planned_patient_seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "synthetic_seeds_run": [
+    0
+  ],
   "feature_interface_counterexamples": {
     "state": "PASS_SYNTHETIC_GEOMETRY_COUNTEREXAMPLES",
     "patient_contexts": 0,
@@ -28,15 +38,5 @@
     "clinical_features_unchanged_under_FC_shuffle": true,
     "four_conditions_match_same_donor_person": true,
     "real_patient_model_launched": false
-  },
-  "planned_patient_seeds": [
-    0,
-    1,
-    2,
-    3,
-    4
-  ],
-  "synthetic_seeds_run": [
-    0
-  ]
+  }
 }

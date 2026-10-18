@@ -27,3 +27,18 @@
 本轮未训练线性收缩H的额外对照，性能差反映整个激活替换，不能单独归因非线性。原SRPBS99（46病例/53对照）已有开发历史，五外折/支持集合/seed不变。双方匹配人员、目标标签及200更新；轻量1581参数对三层5997参数，不匹配FLOPs和支持检查成本。全部250支持训练完成且条件满足后才查询。条件bootstrap只覆盖固定预测人员抽样，不覆盖重训或多轮研究选择。隐层对角保持不等于原始BOLD幅度保持；QC、OA/ZAN/Emo阴性、CoSpine13留出、TN14停止及三个临床终点要求不变。
 
 [全部种子](https://onephantomcat.github.io/neurograph-site/files/spd-bounded-20261018-model-seeds.csv)；[全部900项新旧评价](https://onephantomcat.github.io/neurograph-site/files/spd-bounded-20261018-model-panels.csv)；[全部配对](https://onephantomcat.github.io/neurograph-site/files/spd-bounded-20261018-model-paired.csv)；[支持几何](https://onephantomcat.github.io/neurograph-site/files/spd-bounded-20261018-geometry.csv)；[拟合前方案](https://onephantomcat.github.io/neurograph-site/files/spd-bounded-20261018-plan.md)。
+
+
+<!-- spd-temporal-fusion-20261018 -->
+
+## 2026-10-18：SPD与时序网络融合：同人同预算比较
+
+K10 同构十SPD 0.723867→异构融合 0.672816，Δ-0.051051，条件95%[-0.120626, 0.017610]，0/5支持重复正向；K20 同构十SPD 0.755103→异构融合 0.724505，Δ-0.030598，条件95%[-0.102651, 0.043424]，2/5支持重复正向。
+
+这次等权异构融合没有达到稳定、兼顾概率指标的增量条件。固定配置结束，保留原轻量SPD。 不追加查询选权重、lag或种子搜索。
+
+同原99人、五外折×五支持重复和K10/20标签；主要双方均10专家×200更新=2000更新/支持。异构11730与同构15810参数，不等FLOPs或优化器；原M5只有1000更新，单列背景。pair的成员均值是五个双专家配对的平均AUC，不是单网络成绩。所有99人已有开发历史；区间仅覆盖固定预测人员抽样，不覆盖重训或多轮研究选择。时序摘要受滤波、头动和采集流程影响；支持置乱敏感性不证明疼痛相关或与FC条件独立。诊断不代替同期疼痛/疗效；OA/ZAN/Emo阴性、CoSpine13留出、TN14停止和QC边界不变。
+
+结束本轮固定融合配置，整理异构与同构同预算的完整正负结果。下一步先核实一个未参与开发、临床终点和处理可比的评估队列；原BrainLM＋FC方案须先解决真实atlas输入、检查点及无查询人员重叠依据，不能用补零或旧全训练池权重冒充小样本官方复现。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/spd-temporal-fusion-20261018.md)。

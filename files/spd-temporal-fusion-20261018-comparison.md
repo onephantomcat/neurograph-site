@@ -1,0 +1,45 @@
+# SPD与时序网络融合：同人同预算比较
+
+K10 同构十SPD 0.723867→异构融合 0.672816，Δ-0.051051，条件95%[-0.120626, 0.017610]，0/5支持重复正向；K20 同构十SPD 0.755103→异构融合 0.724505，Δ-0.030598，条件95%[-0.102651, 0.043424]，2/5支持重复正向。
+
+这次等权异构融合没有达到稳定、兼顾概率指标的增量条件。固定配置结束，保留原轻量SPD。 不追加查询选权重、lag或种子搜索。
+
+pair成员均值指五个双专家配对平均AUC；对应集成实际十专家。单模型组对应五专家。
+
+|每类K|模型|单网络或配对均值AUC|最终集成AUC|Brier|logloss|专家数|总更新/支持|
+|---:|---|---:|---:|---:|---:|---:|---:|
+|10|原SPD M5（背景，1000更新）|0.687097|0.731592|0.213984|0.620490|5|1000|
+|10|新增SPD M5，seed5..9|0.660270|0.702133|0.228275|0.656346|5|1000|
+|10|本地时序网络M5，seed0..4|0.584501|0.581758|0.303696|0.948815|5|1000|
+|10|同构十SPD专家（2000更新）|0.695454|0.723867|0.218172|0.629851|10|2000|
+|10|异构5SPD＋5时序（2000更新）|0.663230|0.672816|0.229921|0.652224|10|2000|
+|20|原SPD M5（背景，1000更新）|0.712612|0.775604|0.202198|0.592684|5|1000|
+|20|新增SPD M5，seed5..9|0.681240|0.713022|0.221199|0.640568|5|1000|
+|20|本地时序网络M5，seed0..4|0.627171|0.629677|0.280226|0.878849|5|1000|
+|20|同构十SPD专家（2000更新）|0.722759|0.755103|0.209048|0.609164|10|2000|
+|20|异构5SPD＋5时序（2000更新）|0.707880|0.724505|0.209731|0.604524|10|2000|
+
+|K|候选|参照|口径|ΔAUC|条件95%区间|正向支持重复|ΔBrier|Δlogloss|范围|
+|---:|---|---|---|---:|---|---:|---:|---:|---|
+|10|heterogeneous_pair|same_spd_pair|member_mean|-0.032224|[-0.090953, 0.030255]|0/5|+0.009439|+0.019115|matched_people_labels_10_experts_2000_updates|
+|10|heterogeneous_pair|same_spd_pair|ensemble5|-0.051051|[-0.120626, 0.017610]|0/5|+0.011749|+0.022372|matched_people_labels_10_experts_2000_updates|
+|10|heterogeneous_pair|original|member_mean|-0.023867|[-0.081052, 0.035126]|1/5|+0.001925|-0.007907|extra_5_experts_1000_updates|
+|10|heterogeneous_pair|original|ensemble5|-0.058776|[-0.128757, 0.012906]|0/5|+0.015937|+0.031734|extra_5_experts_1000_updates|
+|10|same_spd_pair|original|member_mean|+0.008357|[-0.014035, 0.029547]|4/5|-0.007514|-0.027022|extra_5_experts_1000_updates|
+|10|same_spd_pair|original|ensemble5|-0.007725|[-0.037335, 0.023130]|2/5|+0.004187|+0.009362|extra_5_experts_1000_updates|
+|10|temporal|original|member_mean|-0.102596|[-0.194040, -0.004476]|0/5|+0.078964|+0.334078|matched_people_labels_5_experts_1000_updates_different_optimizer|
+|10|temporal|original|ensemble5|-0.149834|[-0.259736, -0.033674]|0/5|+0.089711|+0.328326|matched_people_labels_5_experts_1000_updates_different_optimizer|
+|20|heterogeneous_pair|same_spd_pair|member_mean|-0.014879|[-0.077893, 0.051441]|2/5|-0.001344|-0.007808|matched_people_labels_10_experts_2000_updates|
+|20|heterogeneous_pair|same_spd_pair|ensemble5|-0.030598|[-0.102651, 0.043424]|2/5|+0.000683|-0.004640|matched_people_labels_10_experts_2000_updates|
+|20|heterogeneous_pair|original|member_mean|-0.004732|[-0.070041, 0.060714]|2/5|-0.006182|-0.023975|extra_5_experts_1000_updates|
+|20|heterogeneous_pair|original|ensemble5|-0.051099|[-0.127200, 0.027097]|1/5|+0.007533|+0.011839|extra_5_experts_1000_updates|
+|20|same_spd_pair|original|member_mean|+0.010147|[-0.012818, 0.033051]|4/5|-0.004837|-0.016167|extra_5_experts_1000_updates|
+|20|same_spd_pair|original|ensemble5|-0.020501|[-0.048552, 0.005407]|0/5|+0.006850|+0.016480|extra_5_experts_1000_updates|
+|20|temporal|original|member_mean|-0.085441|[-0.188689, 0.022874]|0/5|+0.067491|+0.305870|matched_people_labels_5_experts_1000_updates_different_optimizer|
+|20|temporal|original|ensemble5|-0.145927|[-0.260110, -0.021650]|0/5|+0.078028|+0.286165|matched_people_labels_5_experts_1000_updates_different_optimizer|
+
+K20的时序与SPD残差相关0.711，低于两个SPD的0.895；但时序单独M5只有0.629677。不同错误未带来足够有效判别；十SPD也未超过原五SPD的0.775604。这是固定摘要网络和等权配置的阴性，不否定所有融合方法。
+
+同原99人、五外折×五支持重复和K10/20标签；主要双方均10专家×200更新=2000更新/支持。异构11730与同构15810参数，不等FLOPs或优化器；原M5只有1000更新，单列背景。pair的成员均值是五个双专家配对的平均AUC，不是单网络成绩。所有99人已有开发历史；区间仅覆盖固定预测人员抽样，不覆盖重训或多轮研究选择。时序摘要受滤波、头动和采集流程影响；支持置乱敏感性不证明疼痛相关或与FC条件独立。诊断不代替同期疼痛/疗效；OA/ZAN/Emo阴性、CoSpine13留出、TN14停止和QC边界不变。
+
+[全部种子](https://onephantomcat.github.io/neurograph-site/files/spd-temporal-fusion-20261018-model-seeds.csv)；[全部1500评价](https://onephantomcat.github.io/neurograph-site/files/spd-temporal-fusion-20261018-model-panels.csv)；[全部配对](https://onephantomcat.github.io/neurograph-site/files/spd-temporal-fusion-20261018-model-paired.csv)；[计算前方案](https://onephantomcat.github.io/neurograph-site/files/spd-temporal-fusion-20261018-plan.md)。

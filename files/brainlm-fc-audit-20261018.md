@@ -33,3 +33,18 @@ BrainLM正式论文方法段与README主要描述UKB训练、HCP外部评价；�
 [完整核查表](https://onephantomcat.github.io/neurograph-site/files/brainlm-fc-audit-20261018-comparison.md)；[全部检查](https://onephantomcat.github.io/neurograph-site/files/brainlm-fc-audit-20261018-checks.csv)；[历史79人指标](https://onephantomcat.github.io/neurograph-site/files/brainlm-fc-audit-20261018-history.csv)；[历史9个选轮记录](https://onephantomcat.github.io/neurograph-site/files/brainlm-fc-audit-20261018-history-selections.csv)；[近期工作](https://onephantomcat.github.io/neurograph-site/files/brainlm-fc-audit-20261018-recent.md)；[条件方案](https://onephantomcat.github.io/neurograph-site/files/brainlm-fc-audit-20261018-plan.md)。
 
 <Self-Audit>复用真实历史和当前缓存，不改原人级划分、QC或旧停止；全seed与阴性保留。新核查与已训练结果分开，预训练人员交集未知没有伪造为0。</Self-Audit>
+
+
+<!-- brainlm-compatible-20261018 -->
+
+## 2026-10-18：BrainLM256：严格加载、合成前向与缩放补查
+
+独立Python3.12.13环境已配置，Torch2.5.1+cpu、Transformers4.40.2。官方256维检查点严格加载FMM作者BrainLM模块，缺失键/额外键均0；合成seed0—4的编码与完整重建前向全部通过，重复特征误差0。
+
+技术兼容问题已解决；具体检查点的训练数据、无查询人员重叠依据及输入缩放仍未充分核实。新患者训练未启动，未产生新AUC；保留旧79人阴性、原240项训练seed及上轮ABI失败。
+
+本轮是官方权重技术接入验证：作者网络与权重未改，CPU环境、mask=0编码及固定噪声属于本地推理设置；完整重建使用检查点原mask=0.2。合成数据无临床标签，不能证明疼痛预测有效、预训练充分或FMM原任务复现。来源未明不等于已发现泄露，库名不同也不证明个体交集为0。原99人为开发数据，QC、纳入、停止分支和并行疼痛研究均保持。
+
+先取得检查点级训练来源说明、可用人员排除依据和实际输入列/缩放统计；公开代码的缩放分歧要先确认。满足后沿原同人K10/20、seed0—4和固定预算比较FC、FC＋冻结预训练、FC＋冻结随机。当前停止患者分支，独立环境可继续用于合成验证。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/brainlm-compatible-20261018.md)。

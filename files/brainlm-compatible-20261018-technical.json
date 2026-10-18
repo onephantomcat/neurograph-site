@@ -1,0 +1,155 @@
+{
+  "state": "STRICT_LOAD_AND_SYNTHETIC_FORWARD_PASS",
+  "missing_keys": [],
+  "unexpected_keys": [],
+  "strict": true,
+  "parameters": 5047724,
+  "encoder_parameters": 3167248,
+  "tensor_elements": 7607724,
+  "mask_ratio": 0.0,
+  "device": "cpu",
+  "threads": 2,
+  "seeds": [
+    {
+      "seed": 0,
+      "state": "PASS",
+      "output_shape": [
+        1,
+        256
+      ],
+      "finite": true,
+      "repeat_max_error": 0.0,
+      "zero_input_max_change": 0.08535033464431763,
+      "forward_seconds": 1.6433085999997274,
+      "full_pretraining_mask_ratio": 0.2,
+      "full_forward_loss": 1.0313817262649536,
+      "full_forward_logits_shape": [
+        1,
+        424,
+        10,
+        20
+      ]
+    },
+    {
+      "seed": 1,
+      "state": "PASS",
+      "output_shape": [
+        1,
+        256
+      ],
+      "finite": true,
+      "repeat_max_error": 0.0,
+      "zero_input_max_change": 0.08915650844573975,
+      "forward_seconds": 1.0462592000003497,
+      "full_pretraining_mask_ratio": 0.2,
+      "full_forward_loss": 1.0063265562057495,
+      "full_forward_logits_shape": [
+        1,
+        424,
+        10,
+        20
+      ]
+    },
+    {
+      "seed": 2,
+      "state": "PASS",
+      "output_shape": [
+        1,
+        256
+      ],
+      "finite": true,
+      "repeat_max_error": 0.0,
+      "zero_input_max_change": 0.07986587285995483,
+      "forward_seconds": 0.7402939999992668,
+      "full_pretraining_mask_ratio": 0.2,
+      "full_forward_loss": 1.0342305898666382,
+      "full_forward_logits_shape": [
+        1,
+        424,
+        10,
+        20
+      ]
+    },
+    {
+      "seed": 3,
+      "state": "PASS",
+      "output_shape": [
+        1,
+        256
+      ],
+      "finite": true,
+      "repeat_max_error": 0.0,
+      "zero_input_max_change": 0.09659850597381592,
+      "forward_seconds": 2.1188222999990103,
+      "full_pretraining_mask_ratio": 0.2,
+      "full_forward_loss": 1.0137649774551392,
+      "full_forward_logits_shape": [
+        1,
+        424,
+        10,
+        20
+      ]
+    },
+    {
+      "seed": 4,
+      "state": "PASS",
+      "output_shape": [
+        1,
+        256
+      ],
+      "finite": true,
+      "repeat_max_error": 0.0,
+      "zero_input_max_change": 0.11297500133514404,
+      "forward_seconds": 1.0536538999986078,
+      "full_pretraining_mask_ratio": 0.2,
+      "full_forward_loss": 1.0094512701034546,
+      "full_forward_logits_shape": [
+        1,
+        424,
+        10,
+        20
+      ]
+    }
+  ],
+  "python": "3.12.13",
+  "versions": {
+    "torch": "2.5.1+cpu",
+    "transformers": "4.40.2",
+    "tokenizers": "0.19.1",
+    "numpy": "1.26.4",
+    "safetensors": "0.4.5"
+  },
+  "target_people_processed": 0,
+  "new_fits": 0,
+  "official_code_changed": false,
+  "checkpoint_changed": false,
+  "scope": "FMM author BrainLM module; architecture-compatible official 256 checkpoint, exact FMM paper checkpoint unbound. Synthetic feasibility, not clinical performance.",
+  "source_scaling_check": {
+    "state": "STATIC_SOURCE_AND_SYNTHETIC_FORMULA_CHECK_COMPLETE",
+    "training_args_unpickled": false,
+    "checkpoint_training_args_contains_dataset_fields": false,
+    "formula_in_official_toolkit": "centered_signal - median / IQR",
+    "usual_robust_formula": "(centered_signal - median) / IQR",
+    "synthetic_formula_max_difference": 2.4000000000000004,
+    "implementation_intent_discrepancy": true,
+    "checkpoint_binding_unresolved": true
+  },
+  "prior_failure": {
+    "state": "NOT_EXECUTED_ABI_MISMATCH",
+    "preserved": true,
+    "source": "https://onephantomcat.github.io/neurograph-site/#evidence?source=brainlm-fc-audit-20261018-technical"
+  },
+  "author_code_comparison": [
+    {
+      "file": "modeling_brainlm.py",
+      "identical": false,
+      "diff_lines": 19
+    },
+    {
+      "file": "configuration_brainlm.py",
+      "identical": true,
+      "diff_lines": 0
+    }
+  ],
+  "author_code_choice": "本轮直接运行FMM_TC作者随附的BrainLM模块，未改作者代码。与BrainLM主仓公开模块对照：config完全相同；modeling只有临时变量改名与初始化调用_initialize_weights改为_init_weights两处差异。完整官方权重strict=True加载后全部键匹配。这是FMM作者的代码版本选择，不宣称两个仓库文件完全相同。"
+}

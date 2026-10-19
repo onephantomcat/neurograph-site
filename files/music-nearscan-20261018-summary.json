@@ -1,9 +1,9 @@
 {
   "id": "music-nearscan-20261018",
   "title": "音乐镇痛：扫描对应与统一处理",
-  "date": "2026-10-18",
+  "date": "2026-10-19",
   "state": "RUNNING",
-  "observed_at": "2026-10-18T15:19:06.258663+00:00",
+  "observed_at": "2026-10-19T10:29:58.026426+00:00",
   "new_fits": 0,
   "new_QC_inclusions": 0,
   "candidate_people": 17,
@@ -11,19 +11,19 @@
   "raw_files_complete": 85,
   "raw_files_total": 85,
   "raw_total_bytes": 5073529888,
-  "processed_scans": 14,
+  "processed_scans": 23,
   "numeric_pass_scans": 3,
-  "numeric_QC_not_passed_scans": 11,
-  "technical_failed_scans": 0,
-  "private_visual_viewed_scans": 13,
+  "numeric_QC_not_passed_scans": 19,
+  "technical_failed_scans": 1,
+  "private_visual_viewed_scans": 22,
   "eligible_common_people": 0,
   "patient_comparison": null,
   "diagnostic_summary": "68次条件VRS可对应扫描；精确评分时间仍缺，发现1例结构像次序偏离论文流程。",
-  "summary": "已核实17人68次评分与条件/扫描路径，11人先音乐、6人先对照；16人结构像位于第二、第三次静息扫描之间，1人在第四次之后。原始文件已完整获取85/85；统一处理完成14/68，机器QC通过3，QC未通过11，技术失败0。 进入处理前的逐扫描读取已执行14次扫描；85个原始数组已实际读回且内容可读；1个源文件不符合预定输入规格，保留原检查失败。其中1次BOLD为97帧/TR3秒，与预定100帧不符，保持排除，不补帧或改原影像。 已修复1次QC接口错误，原失败记录保留；阈值未改。",
+  "summary": "已核实17人68次评分与条件/扫描路径，11人先音乐、6人先对照；16人结构像位于第二、第三次静息扫描之间，1人在第四次之后。原始文件已完整获取85/85；统一处理完成23/68，机器QC通过3，QC未通过19，技术失败1。 进入处理前的逐扫描读取已执行24次扫描；85个原始数组已实际读回且内容可读；1个源文件不符合预定输入规格，保留原检查失败。其中1次BOLD为97帧/TR3秒，与预定100帧不符，保持排除，不补帧或改原影像。 已修复1次QC接口错误，原失败记录保留；阈值未改。 另有1次扫描的组织分割图为空，被原解剖输出检查拒绝；技术失败和输出完整保留，未重试，也未进入后续空间处理。其余未处理扫描继续执行原流程。",
   "interpretation": "当前尚未形成经原数值QC与实际图像查看的四条件共同人集，患者模型比较未启动，未产生新的MAE或影像增量结论。",
   "boundary": "评分与扫描的精确分钟间隔缺失；1人的完整洗脱流程未核实。17人/68状态不能算68人，VRS近扫描连续强度不等于临床分级。原QC阈值、Emo阴性、CoSpine留出和TN14停止保持；技术QC/图像查看不冒充专家报告或临床验证。",
-  "next": "接续当前原处理队列，保留97帧源输入排除；待68个扫描终态和私有图像查看完成，以全部四条件均满足原100帧/TR3及原QC的真实共同人集执行C/I/S五seed。不放宽QC，不重启TN14。",
-  "focus_summary": "已核实17人68次评分与条件/扫描路径，11人先音乐、6人先对照；16人结构像位于第二、第三次静息扫描之间，1人在第四次之后。原始文件已完整获取85/85；统一处理完成14/68，机器QC通过3，QC未通过11，技术失败0。 进入处理前的逐扫描读取已执行14次扫描；85个原始数组已实际读回且内容可读；1个源文件不符合预定输入规格，保留原检查失败。其中1次BOLD为97帧/TR3秒，与预定100帧不符，保持排除，不补帧或改原影像。 已修复1次QC接口错误，原失败记录保留；阈值未改。 当前尚未形成经原数值QC与实际图像查看的四条件共同人集，患者模型比较未启动，未产生新的MAE或影像增量结论。",
+  "next": "接续尚未处理的扫描；组织图为空的原技术失败保留并排除，不重试。97帧源输入按原100帧要求排除。待68个扫描终态与要求的实际图像查看完成，按四条件共同人集执行C/I/S五seed；人数不足则不比较。不放宽QC，不重启TN14。",
+  "focus_summary": "已核实17人68次评分与条件/扫描路径，11人先音乐、6人先对照；16人结构像位于第二、第三次静息扫描之间，1人在第四次之后。原始文件已完整获取85/85；统一处理完成23/68，机器QC通过3，QC未通过19，技术失败1。 进入处理前的逐扫描读取已执行24次扫描；85个原始数组已实际读回且内容可读；1个源文件不符合预定输入规格，保留原检查失败。其中1次BOLD为97帧/TR3秒，与预定100帧不符，保持排除，不补帧或改原影像。 已修复1次QC接口错误，原失败记录保留；阈值未改。 另有1次扫描的组织分割图为空，被原解剖输出检查拒绝；技术失败和输出完整保留，未重试，也未进入后续空间处理。其余未处理扫描继续执行原流程。 当前尚未形成经原数值QC与实际图像查看的四条件共同人集，患者模型比较未启动，未产生新的MAE或影像增量结论。",
   "display_rows": [
     {
       "stage": "评分与采集次序",
@@ -42,8 +42,8 @@
     },
     {
       "stage": "统一预处理与QC",
-      "result": "14/68完成；数值通过3次",
-      "limit": "实际查看13次；共同人数0"
+      "result": "23/68完成；数值通过3次",
+      "limit": "实际查看22次；共同人数0"
     },
     {
       "stage": "官方模型比较",
@@ -58,23 +58,41 @@
   "raw_content_readable_files": 85,
   "source_profile_exception_files": 1,
   "source_profile_blocked_outcomes": 0,
-  "MRI_processing_outcomes": 14,
+  "MRI_processing_outcomes": 23,
+  "anatomical_failure_aggregate": {
+    "excluded_scans": 1,
+    "failure_reason": "original_anatomical_tissue_maps_nonempty_requirement_failed",
+    "empty_tissue_map_counts": {
+      "3": 1
+    },
+    "original_failure_retained": true,
+    "scan_retried": false,
+    "downstream_processing_allowed_for_failed_scan": false
+  },
   "QC_failure_reasons": [
     {
       "reason": "aal90_coverage_or_signal",
-      "scans": 6
+      "scans": 10
     },
     {
-      "reason": "censor_fraction_lte_0p20",
+      "reason": "anatomical_all_tissue_maps_nonempty",
       "scans": 1
     },
     {
-      "reason": "confounds_columns_match_config_plus_censoring",
+      "reason": "censor_fraction_lte_0p20",
       "scans": 2
     },
     {
+      "reason": "confounds_columns_match_config_plus_censoring",
+      "scans": 4
+    },
+    {
+      "reason": "native_csf_mask_nonempty",
+      "scans": 1
+    },
+    {
       "reason": "native_wm_mask_nonempty",
-      "scans": 2
+      "scans": 3
     },
     {
       "reason": "normalized_mask_coverage_by_standard_gt_0p90",
@@ -82,7 +100,7 @@
     },
     {
       "reason": "normalized_mask_dice_gt_0p75",
-      "scans": 2
+      "scans": 4
     }
   ],
   "source_readback": {
@@ -110,8 +128,8 @@
     "unexpected_profile_cannot_enter_common_set": true,
     "scope": "Array readability and the original input profile are separate checks; every included person must still pass all four original numeric QC and actual image review. No expert approval or model result is implied."
   },
-  "observed_at_local": "2026-10-18 23:19（北京时间）",
-  "staging_verified_scans": 14,
+  "observed_at_local": "2026-10-19 18:29（北京时间）",
+  "staging_verified_scans": 24,
   "retained_technical_error_attempts": 1,
   "status_note": "以下为已记录的阶段状态；本轮尚未全部完成。"
 }

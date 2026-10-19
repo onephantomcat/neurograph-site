@@ -1,5 +1,5 @@
 condition,candidate_scans,processed_scans,numeric_pass,QC_not_passed,technical_failed,pending_scans
-pre-control,17,4,1,3,0,13
-post-control,17,4,0,4,0,13
-pre-music,17,3,1,2,0,14
-post-music,17,3,1,2,0,14
+pre-control,17,6,1,4,1,11
+post-control,17,5,0,5,0,12
+pre-music,17,6,1,5,0,11
+post-music,17,6,1,5,0,11

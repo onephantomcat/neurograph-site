@@ -1,0 +1,71 @@
+{
+  "id": "cortexmae-rank-20261020",
+  "title": "CortexMAE有效秩与站点关联：PCA8保留方差但未去混杂",
+  "new_fits": 0,
+  "summary": "完成原100个支持内训练分区的有效秩与混杂诊断：两编码器200行分区统计、1600行PC统计，新增预测器拟合0。预训练有效秩约5.36/7.43；固定PCA8保留98.60%/91.20%方差。",
+  "interpretation": "PCA8后的站点解释方差比例未下降，不能将降维当作去站点。预训练表示的有效秩高于固定随机编码器，低秩本身也不等于更好的疼痛表示。",
+  "boundary": "原99人仍为开发数据；每内训练仅10/20人，中心化秩上界9/19。分区重叠，描述性投影及置换不构成混杂因果解释、独立显著性或临床验证；一个站点仅3人。",
+  "next": "下一项仅保留固定PCA8神经头作为支持内容量消融候选，不宣称去混杂；不扫描维度、层、融合权重或外查询。本轮未启动新预测训练。音乐继续等待原QC与既有比较流程。",
+  "diagnostic_summary": "原100个人级支持内训练分区；每内训练10/20人；两冻结编码器；199次训练内行置换；新增预测器拟合0。",
+  "focus_summary": "完成原100个支持内训练分区的有效秩与混杂诊断：两编码器200行分区统计、1600行PC统计，新增预测器拟合0。预训练有效秩约5.36/7.43；固定PCA8保留98.60%/91.20%方差。",
+  "display_metrics": [
+    {
+      "k": 10,
+      "encoder": "pretrained",
+      "effective_rank": 5.3597205872805285,
+      "rank_bound": 9,
+      "top8": 0.9859865447857463,
+      "site_r2": 0.22094817712220605,
+      "site_adj": 0.08727824603115338,
+      "joint_adj": 0.1999865520800736,
+      "pca8_site": 0.22276397069707787
+    },
+    {
+      "k": 10,
+      "encoder": "random",
+      "effective_rank": 4.05042072096827,
+      "rank_bound": 9,
+      "top8": 0.9880127500430379,
+      "site_r2": 0.16773380001612118,
+      "site_adj": 0.0230624295357486,
+      "joint_adj": 0.07241555635327464,
+      "pca8_site": 0.16796198841415275
+    },
+    {
+      "k": 20,
+      "encoder": "pretrained",
+      "effective_rank": 7.425796489007154,
+      "rank_bound": 19,
+      "top8": 0.9120304825814007,
+      "site_r2": 0.14677710521936227,
+      "site_adj": 0.06894487093402434,
+      "joint_adj": 0.1988104345337992,
+      "pca8_site": 0.15436860566229643
+    },
+    {
+      "k": 20,
+      "encoder": "random",
+      "effective_rank": 5.145208923391022,
+      "rank_bound": 19,
+      "top8": 0.9278214289155273,
+      "site_r2": 0.0975227578009281,
+      "site_adj": 0.014801620769644969,
+      "joint_adj": 0.08730456837885443,
+      "pca8_site": 0.09857878653403608
+    }
+  ],
+  "verification": {
+    "state": "PASS",
+    "rows": 200,
+    "projection_comparisons": 1000,
+    "pca_projection_comparisons": 1000,
+    "svd_vs_gram_max_difference": 1.4210854715202004e-14,
+    "direct_least_squares_vs_projection_max_difference": 1.887379141862766e-15,
+    "pca_svd_vs_gram_max_difference": 2.220446049250313e-15,
+    "new_predictor_fits": 0,
+    "new_query_evaluations": 0
+  },
+  "scope": "support-only descriptive diagnostics; no new independent or clinical validation",
+  "completed_date": "2026-10-20",
+  "analysis_date": "2026-10-19"
+}

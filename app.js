@@ -36,7 +36,7 @@ let refreshTimer;
 const escapeHTML = (value) => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const statusNames = {done:'已完成', active:'进行中', blocked:'受阻', planned:'计划中', deferred:'暂缓'};
 const stateNames = {PASS:'数值通过', FAILED:'技术失败', EXCLUDED:'质控排除', REPAIR_PENDING:'待复核', RUNNING:'运行中', COMPLETE:'批次结束', COMPLETE_WITH_FAILURES:'批次结束 · 有未通过', HALTED_GLOBAL_FAULT:'全局暂停', PENDING:'待处理'};
-const viewNames = {overview:'项目总览', calendar:'项目日历', history:'研究历程', workflow:'项目流程', goals:'计划与目标', datasets:'数据与结果', evidence:'报告与证据'};
+const viewNames = {overview:'项目总览', calendar:'项目日历', history:'研究历程', workflow:'项目流程', goals:'计划与目标', datasets:'数据与结果', evidence:'报告与证据', conclusions:'研究结论索引'};
 const resolveView = value => { const name=value.split('?')[0]; return name === 'ds005713' ? 'history' : name === 'methods' ? 'datasets' : (viewNames[name] ? name : 'overview'); };
 let data = null;
 let loading = false;
@@ -404,7 +404,7 @@ function workflowPage() {
     ${workflowFigure('workflow-roadmap', '多模态与 Agent 规划', '多模态融合和 Agent 系统尚未实现；图中虚线表示后续扩展。Agent 分工为此前建议方案；瞳孔需先论证，三维场景重建列远期。', '<ol><li>多模态输入：既有 T1 / 静息态 fMRI 与临床量表基础，瞳孔信号和病历文本为扩展规划。</li><li>融合：核对匿名 ID、采集时点和缺失模态，再比较单模态、简单融合与复杂模型。</li><li>Agent 协作：数据 Agent 整理库存；质控 Agent 提交异常；实验 Agent 执行既定比较；证据 Agent 汇总有出处的结果。</li><li>工具：复用预处理脚本、QC 网页、训练程序和项目记录；既有脚本不等同于 Agent 系统。</li><li>人工决策：研究者负责视觉审核、标签定义、实验方案和结论确认。</li><li>输出与应用：分类、连续严重度、脑连接解释及研究报告；独立验证支持后再评估复杂 GNN、LLM 与 EMR/PACS。</li></ol>')}
     <div class="workflow-sources"><span>图示依据</span>${evidenceLink('meeting-20260908', '会议核对与行动 ↗')}${evidenceLink('hospital-requirements', '医院需求草案 ↗')}${evidenceLink('original-plan', '实施路线 ↗')}${evidenceLink('record', '最新研究记录 ↗')}<button class="text-link" data-goal="G19">扩展目标 G19 ↗</button><a class="text-link" href="#goals">完整计划 ↗</a></div>`;
 }
-function goalsPage() {
+function goalsListPage() {
   const counts = goalCounts();
   $('#view-goals').innerHTML = `<div class="page-heading"><div><h1>计划与目标</h1></div><div class="muted">整理于 ${escapeHTML(data.reviewed_at)}</div></div>${studentWorkflowPanel(true)}<details class="objective student-technical"><summary>查看完整研究目标与拟议指标</summary><p>${escapeHTML(data.objective)}</p></details><div class="filter-toolbar"><div class="filter-chips" aria-label="按状态筛选"><button data-filter="all">全部 <b>${data.goals.length}</b></button>${Object.entries(statusNames).map(([s,label])=>`<button data-filter="${s}">${label} <b>${counts[s]}</b></button>`).join('')}</div><div class="search-row"><label class="search"><span aria-hidden="true">⌕</span><input id="goal-search" type="search" placeholder="搜索目标或关键词" value="${escapeHTML(query)}" aria-label="搜索目标"></label><select id="phase-filter" aria-label="按阶段筛选"><option value="all">全部阶段</option>${taskPhases().map(p=>`<option value="${p.id}">${escapeHTML(phaseTitle(p))}</option>`).join('')}</select></div></div><div id="goal-results"></div>`;
   $('#goal-search').addEventListener('input', event => {query=event.target.value; goalResults();});
@@ -599,8 +599,9 @@ function showView(next) {
   document.title = viewNames[view] + ' · fMRI 研究进度';
   if (data) renderView();
 }
-function renderView() { ({overview,calendar:calendarPage,history:researchHistoryPage,workflow:workflowPage,goals:goalsPage,datasets:datasetsPage,evidence:evidencePage})[view](); archiveRoute(); }
+function renderView() { ({overview,calendar:calendarPage,history:researchHistoryPage,workflow:workflowPage,goals:goalsPage,datasets:datasetsPage,evidence:evidencePage,conclusions:conclusionsPage})[view](); archiveRoute(); }
 function openDialog(eyebrow, content) {
+  $('#detail-dialog').classList.remove('report-dialog');
   $('#dialog-eyebrow').textContent=eyebrow;
   $('#dialog-body').innerHTML=content;
   if (!$('#detail-dialog').open) $('#detail-dialog').showModal();
@@ -637,7 +638,7 @@ async function openSource(id) {
     if(!response.ok)throw new Error();
     const preview=await response.json();
     if(requestId===sourceRequest && $('#source-content')) {
-      $('#source-content').innerHTML=linkedReport(preview.content,source)+(preview.truncated ? '<p class="notice">仅预览前200 KB。请下载公开文件查看完整数据。</p>' : '');
+      ReportReader.mount(source,preview);
     }
   } catch {if(requestId===sourceRequest && $('#source-content'))$('#source-content').textContent='无法读取该文件。';}
 }

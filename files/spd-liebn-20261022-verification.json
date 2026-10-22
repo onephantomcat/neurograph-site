@@ -1,0 +1,38 @@
+{
+  "state": "PASS",
+  "metrics_rows": 1200,
+  "metric_values": 8400,
+  "means": 8,
+  "seeds": 20,
+  "max_metric_difference": 3.3306690738754696e-16,
+  "decision": {
+    "budgets": [
+      {
+        "k": 10,
+        "delta_auc": -0.0008000000000000007,
+        "delta_logloss": 0.004581317936051299,
+        "auc_positive_repeats": 1,
+        "logloss_improved_repeats": 0,
+        "sufficient": false
+      },
+      {
+        "k": 20,
+        "delta_auc": 0.0021999999999999355,
+        "delta_logloss": 0.0026609654625047606,
+        "auc_positive_repeats": 4,
+        "logloss_improved_repeats": 1,
+        "sufficient": false
+      }
+    ],
+    "proceed_outer": false,
+    "outer_queries_scored": 0
+  },
+  "saved_model_audit": {
+    "state": "ALL_SAVED_MODELS_NUMPY_REPLAY_PASSED",
+    "models": 500,
+    "person_partition_prediction_vectors": 1000,
+    "max_probability_difference": 7.882583474838611e-15,
+    "preprocessing_sidecars": 100,
+    "old_models_retrained": 0
+  }
+}

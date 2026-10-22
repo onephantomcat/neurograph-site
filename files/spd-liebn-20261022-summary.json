@@ -1,0 +1,111 @@
+{
+  "id": "spd-liebn-20261022",
+  "date": "2026-10-22",
+  "title": "SPDNet＋LieBN：同人同预算支持内比较",
+  "summary": "完成500个新模型、100000次更新，原500个轻量SPD模型不重训。K10支持内五成员AUC：轻量SPD 0.7088→LieBN 0.7080（Δ-0.0008）；logloss 0.632869→0.637450；K20支持内五成员AUC：轻量SPD 0.7472→LieBN 0.7494（Δ+0.0022）；logloss 0.606009→0.608670。",
+  "interpretation": "当前AIM LieBN候选未同时满足两预算的预定支持内继续条件，停止该候选，不开展外查询比较，也不据结果追加动量、几何度量、深度或权重搜索。",
+  "boundary": "SRPBS99为既有诊断开发队列，46病例/53对照。每预算50个重叠内分区，不能当50个独立队列。K为完整支持每类人数，二折内训练总10/20人。外查询评分新增0；诊断AUC不替代扫描同期疼痛、治疗反应或临床验证。",
+  "next": "保留现有轻量SPD主线；下一模型候选为已依据有效秩诊断预定的固定PCA8 CortexMAE神经头容量消融，仅支持内部比较，未在本轮启动。独立人员、临床真值与三终点缺口继续单列。",
+  "method": "当前基础为本地单BiMap SPDNet（90→16）。本轮只在16维SPD投影后直接加入作者AIM LieBN，随后用原LogEig、136维加权上三角＋4协变量、线性单logit头；实际1838参数，对照1581。原人级分区、seed0–4、均衡BCE、SGD.01、头L2.001和每模型200更新保持；新SPD偏置用RiemannianSGD。不是官方原任务/训练配方复现。",
+  "diagnostic_summary": "100个人级内分区、seed0–4、500个新模型；原500个SPD保存预测复用；全部种子与阴性保留",
+  "new_fits": 500,
+  "new_updates": 100000,
+  "display_metrics": [
+    {
+      "k": 10,
+      "method": "spd",
+      "condition": "ensemble5",
+      "auc": 0.7088,
+      "auprc": 0.7554174603174602,
+      "balanced_accuracy": 0.632,
+      "brier": 0.22277423173707286,
+      "logloss": 0.6328686823338106,
+      "train_auc": 1.0,
+      "train_logloss": 0.019953802404861876,
+      "parameters": 1581,
+      "delta_auc": 0.0
+    },
+    {
+      "k": 10,
+      "method": "spd_liebn_aim",
+      "condition": "ensemble5",
+      "auc": 0.708,
+      "auprc": 0.7553619047619048,
+      "balanced_accuracy": 0.6300000000000001,
+      "brier": 0.224848416539717,
+      "logloss": 0.6374500002698619,
+      "train_auc": 1.0,
+      "train_logloss": 0.013248575068503536,
+      "parameters": 1838,
+      "delta_auc": -0.0008000000000000229
+    },
+    {
+      "k": 20,
+      "method": "spd",
+      "condition": "ensemble5",
+      "auc": 0.7472,
+      "auprc": 0.7788811954643223,
+      "balanced_accuracy": 0.68,
+      "brier": 0.20880089165096,
+      "logloss": 0.6060087460135019,
+      "train_auc": 1.0,
+      "train_logloss": 0.04051393309951695,
+      "parameters": 1581,
+      "delta_auc": 0.0
+    },
+    {
+      "k": 20,
+      "method": "spd_liebn_aim",
+      "condition": "ensemble5",
+      "auc": 0.7493999999999998,
+      "auprc": 0.7795151115911952,
+      "balanced_accuracy": 0.681,
+      "brier": 0.20950859834891375,
+      "logloss": 0.6086697114760066,
+      "train_auc": 1.0,
+      "train_logloss": 0.02453661999248207,
+      "parameters": 1838,
+      "delta_auc": 0.0021999999999998687
+    }
+  ],
+  "decision": {
+    "budgets": [
+      {
+        "k": 10,
+        "delta_auc": -0.0008000000000000007,
+        "delta_logloss": 0.004581317936051299,
+        "auc_positive_repeats": 1,
+        "logloss_improved_repeats": 0,
+        "sufficient": false
+      },
+      {
+        "k": 20,
+        "delta_auc": 0.0021999999999999355,
+        "delta_logloss": 0.0026609654625047606,
+        "auc_positive_repeats": 4,
+        "logloss_improved_repeats": 1,
+        "sufficient": false
+      }
+    ],
+    "proceed_outer": false,
+    "outer_queries_scored": 0
+  },
+  "verification_summary": "合成前后向和单人/批量查询一致性通过；全部500模型、1000个概率向量独立NumPy回放最大差7.88e-15；1200行指标（8400项值）及8均值独立复算最大差3.33e-16。",
+  "official": {
+    "url": "https://github.com/GitZH-Chen/LieBN",
+    "version": "ff2e6a5276360ab862b38e827f6640233cf665d2",
+    "layer": "LieBN_SPDNet/spd/LieBN.py:LieBatchNormSPD",
+    "metric": "AIM",
+    "paper": "ICLR 2024",
+    "original_optimizer": "Riemannian AMSGRAD lr=.005, weight_decay=0",
+    "original_epochs": 200,
+    "original_batch_size": 30
+  },
+  "compute": {
+    "cpu_threads": 2,
+    "gpu_cards": 0,
+    "training_seconds": 983.2249732017517,
+    "retained_models": 500,
+    "retained_bytes": 12870500
+  }
+}

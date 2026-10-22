@@ -1,0 +1,6 @@
+kind,stage,status,detail
+technical_preparation,official_source,network_failure_retained_resolved,Git clone stalled and proxied API SSL EOF; versioned official sources then obtained through verified direct HTTPS. No patient fit started at this point.
+technical_preparation,dependencies,network_failure_retained_resolved,Server dependency download stalled; local official-index wheels downloaded and installed offline in isolated task target. Mirror relative URL and403 retained.
+scientific,all_500_models,completed_no_failed_fit,"All planned seeds0-4 retained, none excluded."
+scientific,support_decision,negative_stopped,Both-budget predeclared continuation criterion not met; no new outer query scoring or post-result grid search.
+delivery,recent_work_export,corrected,"Historical CSV UTF-8 BOM initially produced a different date field name; corrected BOM-aware reading, retained all32 old rows and added2. Dependent workbook input was unavailable until this correction. Scientific results unchanged."

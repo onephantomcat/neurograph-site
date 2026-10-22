@@ -150,3 +150,100 @@ main{max-width:1510px}
   .clinical-endpoints dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-bottom:12px}
   .latest-studies{grid-template-columns:minmax(0,1fr)}
 }
+
+.sidebar nav svg{display:block;width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+/* Desktop refinement inspired by Primer's hierarchy and Tabler's spacing. */
+@media(min-width:1000px){
+  :root{--canvas:#f5f7fb;--ink:#1c344d;--muted:#65758a;--line:#dde5ef;--radius:10px}
+  body{font-size:14px;line-height:1.75}
+  .sidebar{width:224px;padding:26px 16px 20px;border-right:1px solid var(--line);background:#fff}
+  .shell{margin-left:224px}
+  .brand.project-brand{gap:11px;margin-bottom:25px;padding:0 5px}
+  .brand.project-brand img{width:44px;height:44px;flex-shrink:0}
+  .brand.project-brand strong{font-size:21px;letter-spacing:-.4px}
+  .brand.project-brand small{font-size:11px;margin-top:4px;color:#697a8d}
+  .sidebar nav{gap:4px}
+  .sidebar nav .nav-group{font-size:11px;padding:20px 12px 7px;color:#77869a;letter-spacing:.6px}
+  .sidebar nav a{min-height:42px;padding:10px 12px;gap:12px;border-radius:7px;color:#52677e;font-size:13px;font-weight:500;transition:background .15s,color .15s}
+  .sidebar nav a:hover{background:#f2f5fa;color:#22496e}
+  .sidebar nav a.active{background:#eaf2fd;color:#075fbb;box-shadow:inset 3px 0 #075fbb;font-weight:650}
+  .sidebar nav a>span{display:inline-flex;width:19px;height:19px;align-items:center;justify-content:center;flex:0 0 19px;color:inherit}
+  .sidebar nav svg{display:block;width:19px;height:19px;stroke:currentColor;fill:none;stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+  .sidebar nav b{margin-left:auto;font-size:10px;white-space:nowrap;padding:2px 5px;background:#e7effa;color:#31679d}
+  .side-bottom{padding-top:20px;color:#7a8797;font-size:11px}
+  .topbar{min-height:62px;padding:12px 34px;border-bottom:1px solid var(--line);box-shadow:none}
+  .topbar>div:first-child{display:flex;align-items:center;gap:13px}
+  .topbar>div:first-child::before{content:'NeuroGraph /';font-family:var(--display);font-size:13px;color:#8a99aa;font-weight:400}
+  .topbar strong{font-size:13px;color:#4f637b}
+  .top-actions{gap:10px}.top-actions>span{margin-right:7px;color:#718297;font-size:11px}
+  main{max-width:1510px;margin-inline:auto;padding:30px 34px 34px}
+  .page-heading{align-items:flex-end;margin-bottom:24px}
+  .page-heading h1{font-size:30px;line-height:1.3;letter-spacing:-.7px;color:#193654}
+  .page-heading .eyebrow{color:#7890a7;letter-spacing:1px;font-size:10px}
+  .page-heading p{margin-top:8px;color:#6e8096}
+  .overview-date{font-family:var(--mono);font-size:11px;padding:6px 0;color:#79899c}
+  .panel{border-radius:10px;border-color:#dde5ef;box-shadow:0 1px 2px #18324904}
+  .overview-lead{gap:22px;grid-template-columns:minmax(0,1.7fr) minmax(290px,1fr)}
+  .current-focus{padding:26px 28px;border-left:3px solid #075fbb}
+  .current-focus h2{font-size:23px;line-height:1.5;margin:9px 0 14px}
+  .current-focus>.reading-current-note{max-width:66ch;font-size:14px;line-height:1.95;color:#4c637a}
+  .current-focus .ds-foot{justify-content:flex-start;gap:10px;margin-top:18px}
+  .current-focus .ds-foot>.text-link{margin-left:7px}
+  .current-focus details summary{font-size:12px;color:#5d7792}
+  .current-focus details summary:hover{color:#075fbb}
+  .clinical-endpoints{background:#f8faff;padding:26px;border-color:#d9e4f2}
+  .clinical-endpoints h2{font-size:20px;line-height:1.55;margin:8px 0}
+  .clinical-endpoints dl{margin:20px 0 16px}
+  .clinical-endpoints dl>div{padding:13px 0;border-top:1px solid #e0e8f3}
+  .clinical-endpoints dt{display:flex;align-items:center;gap:9px;font-size:13px}
+  .clinical-endpoints dt::before{content:'';width:7px;height:7px;flex-shrink:0;border:1.5px solid #819aba;border-radius:50%;background:#f8faff}
+  .clinical-endpoints dd{margin:5px 0 0 16px;font-size:12px;line-height:1.8;color:#667d96}
+  .work-summary{padding:14px 20px;margin-top:20px;border-radius:9px;gap:10px 26px}
+  .work-summary>span+span{border-left:1px solid #dde5ef;padding-left:24px}
+  .work-summary strong{font-size:20px;font-weight:550}
+  #view-overview>.section-heading{margin:30px 0 15px}
+  .section-heading h2{font-size:18px;letter-spacing:-.2px}
+  .latest-studies{gap:20px;align-items:stretch}
+  .latest-studies>.panel{display:flex;flex-direction:column;padding:24px}
+  .latest-study h2{font-size:18px;line-height:1.6;margin-bottom:13px}
+  .latest-study .study-conclusion{font-size:13px;line-height:1.9}
+  .latest-study .ds-foot{padding-top:16px;margin-top:auto}
+  .study-meta{font-size:11px;margin-bottom:11px;color:#71869d}
+  .study-meta>span{padding:2px 8px;border:1px solid #dfe7f0;border-radius:5px;background:#f7f9fc;color:#647d96}
+  .goal-card{padding:21px;box-shadow:0 1px 2px #18324904;transition:border-color .15s,box-shadow .15s}
+  .goal-card:hover{border-color:#a9c6e6;box-shadow:0 3px 10px #18324908;transform:none}
+  .goal-card h3{line-height:1.7;margin-top:10px;color:#294c70}
+  .goal-card p{line-height:1.9;color:#61758c}
+  .goal-bottom{padding-top:13px;border-top:1px solid #e5ebf3;font-size:11px;color:#7b8b9c}
+  .overview-routes{border-radius:9px}
+  .overview-routes a{padding:19px 21px;gap:6px}
+  .overview-routes a strong{font-size:14px;color:#355d85}
+  .overview-routes a span{font-size:12px;color:#74869a}
+  .research-sections{padding:4px;border:1px solid #dce5f0;border-radius:8px;background:#eef3f9;gap:4px}
+  .research-sections a{min-width:112px;justify-content:center;padding:9px 18px;border:0;border-radius:5px;font-size:13px;color:#6e8297}
+  .research-sections a[aria-current=page]{background:#fff;color:#075fbb;box-shadow:0 1px 4px #203c5a0c}
+  .paper-table-scroll table,.reading-table table{font-variant-numeric:tabular-nums;font-size:13px}
+  .paper-table-scroll thead th,.reading-table thead th{background:#f3f6fb;color:#5e7690;font-weight:550;border-bottom:1px solid #d8e3ef}
+  .paper-table-scroll td,.reading-table td{text-align:right;font-family:var(--mono);font-size:12px}
+  .paper-table-scroll tbody tr:hover,.reading-table tbody tr:hover{background:#f5f9fe}
+  .paper-table-scroll th,.paper-table-scroll td,.reading-table th,.reading-table td{padding-top:12px;padding-bottom:12px}
+  .history-toolbar{padding:18px 20px;border-radius:9px;gap:14px}
+  .history-toolbar .search{align-items:stretch;text-align:left}
+  .history-toolbar label{font-size:11px;gap:6px}
+  .history-toolbar input,.history-toolbar select{height:38px;border-color:#d8e2ed;font-size:13px}
+  .research-timeline{background:transparent;border:0;border-radius:0;padding:0}
+  .research-timeline>article{position:relative;grid-template-columns:110px minmax(0,1fr);gap:24px;padding:0 0 20px;border:0}
+  .research-timeline>article>time{font-family:var(--mono);font-size:11px;line-height:1.7;color:#7a8da1;padding:20px 16px 0 0}
+  .research-timeline>article>div{padding:22px 24px;border:1px solid #dde5ef;border-radius:9px;background:#fff}
+  .research-timeline>article::before{display:block;content:'';position:absolute;left:109px;top:24px;width:7px;height:7px;border:2px solid #86a8d0;border-radius:50%;background:var(--canvas);z-index:1}
+  .research-timeline>article:not(:last-child)::after{display:block;content:'';position:absolute;left:112px;top:31px;bottom:-25px;width:1px;background:#dce5f0}
+  .research-timeline h3{font-size:16px;margin:10px 0 12px;line-height:1.65;color:#294b6d}
+  .research-timeline .badge{font-size:10px;font-weight:500;line-height:1.6;max-width:100%;background:#f0f4f9;color:#657d96}
+  .research-timeline p,.research-timeline dd{font-size:13px;line-height:1.9;color:#5e738a}
+  .research-timeline .history-outcome{margin-top:14px;padding-top:14px;color:#365f86}
+  .research-timeline details{padding:0;border:0;background:transparent;margin-top:12px}
+  .research-timeline details[open]{padding:16px 18px;background:#f7faff;border:1px solid #e2ebf5;border-radius:7px}
+  .research-disclosure{border-radius:9px}
+  .research-disclosure>summary:hover{color:#075fbb}
+  footer{margin-top:34px;border-color:#e1e8f1;color:#8a97a7;font-size:11px}
+}

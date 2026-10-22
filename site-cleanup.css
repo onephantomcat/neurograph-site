@@ -68,3 +68,85 @@
 .reading-routes a{align-items:flex-start;min-width:0;min-height:0}
 .reading-routes a>span{display:block;width:auto;line-height:1.6}
 .reading-grid{align-items:start}
+
+/* Progress browsing: current work, recent conclusions, then historical context. */
+.sidebar{overflow-y:auto}
+.sidebar nav .nav-group{display:block;padding:15px 11px 5px;color:#66788c;font-size:11px;letter-spacing:.5px}
+.sidebar nav .nav-group:first-child{padding-top:0}
+.brand.project-brand{margin-bottom:18px}
+main{max-width:1510px}
+.view{min-width:0}
+.panel{box-shadow:none}
+.page-heading .muted{font-size:13px;margin-top:7px}
+.overview-lead{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(270px,1fr);gap:20px;align-items:start}
+.overview-lead>.panel{min-width:0;margin:0}
+.current-focus{padding:25px 27px}
+.current-focus h2{font-size:24px;line-height:1.45;letter-spacing:-.3px}
+.current-focus>.reading-current-note{font-size:14px;line-height:1.85;color:#425b75}
+.current-focus .focus-observed{font-size:11px;color:#62778d;margin:12px 0 0}
+.current-focus .focus-boundary{font-size:13px;line-height:1.8;color:#76521c;background:#fff7e9;border-left:2px solid #cc9b4d;padding:11px 13px;margin:15px 0}
+.current-focus details{margin-top:13px;padding-top:11px}
+.current-focus details p{font-size:13px;line-height:1.9;margin:12px 0;white-space:pre-line}
+.current-focus .ds-foot{margin-top:16px}
+.clinical-endpoints{padding:25px 24px;background:#f0f5fc;border-color:#d8e4f3}
+.clinical-endpoints h2{font-size:20px;line-height:1.5;margin:7px 0 8px}
+.clinical-endpoints>p{font-size:12px;color:#516b85}
+.clinical-endpoints dl{margin:17px 0}
+.clinical-endpoints dl>div{padding:12px 0;border-top:1px solid #d7e2f0}
+.clinical-endpoints dt{font-size:13px;font-weight:650;color:#244d76}
+.clinical-endpoints dd{font-size:12px;margin:4px 0 0;color:#516b85;line-height:1.7}
+.work-summary{display:flex;align-items:center;flex-wrap:wrap;gap:10px 26px;margin:18px 0 30px;padding:16px 20px;border:1px solid var(--line);border-radius:9px;background:white;font-size:12px;color:#4e647c}
+.work-summary strong{font-family:var(--display);font-size:19px;color:#25476b;font-weight:600;margin-right:4px;font-variant-numeric:tabular-nums}
+.work-summary small{font-size:11px;color:#6a7787;margin-left:auto}
+#view-overview>.section-heading{margin:28px 0 14px}
+.latest-studies{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}
+.latest-studies>.panel{min-width:0;padding:23px;margin:0}
+.study-meta{display:flex;align-items:center;flex-wrap:wrap;gap:12px;color:#62778d;font-size:11px;margin-bottom:10px}
+.study-meta time{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.study-meta span{border-left:1px solid #c6d3e3;padding-left:12px}
+.latest-study h2{font-size:18px;line-height:1.6;margin:0 0 12px}
+.latest-study .study-conclusion{font-size:13px;line-height:1.85;color:#334f6b}
+.latest-study details{border-top:1px solid var(--line);margin-top:15px;padding-top:12px}
+.latest-study summary{font-size:12px;color:var(--teal);cursor:pointer}
+.latest-study details p{font-size:13px;line-height:1.85;margin-top:12px}
+.latest-study details .data-note{font-size:12px;color:#61758a}
+.latest-study .ds-foot{display:flex;flex-wrap:wrap;gap:12px 20px;margin-top:16px}
+.latest-boundary{font-size:12px;line-height:1.85;margin:13px 0 26px;color:#697a8e}
+.next-grid{align-items:start;gap:16px}
+.goal-card{min-width:0;align-self:start}
+.goal-card h3{font-size:15px;line-height:1.65}
+.goal-card p{font-size:13px;line-height:1.85;min-height:0;margin-bottom:18px}
+.goal-bottom{font-size:11px;line-height:1.7;align-items:flex-start;gap:12px;flex-wrap:wrap}
+.goal-bottom>span:last-child{color:var(--teal)}
+.overview-routes{margin-bottom:28px}
+.overview-routes a{padding:18px 20px;transition:background .15s}
+.overview-routes a:focus-visible{outline:2px solid var(--teal);outline-offset:-3px}
+.overview-results p,.priority-grid p{font-size:13px;line-height:1.85}
+.history-toolbar{display:flex;align-items:flex-end;flex-wrap:wrap;gap:14px;margin:16px 0 25px;padding:18px;background:white;border:1px solid var(--line);border-radius:10px}
+.history-toolbar label{display:flex;flex-direction:column;gap:7px;color:#516b83;font-size:12px;min-width:0}
+.history-toolbar .search{flex:1;min-width:220px;border:0;padding:0;background:transparent}
+.history-toolbar input,.history-toolbar select{height:39px;border:1px solid #cdd9e7;background:white;border-radius:6px;padding:8px 11px;color:var(--ink);font-size:13px;min-width:0;width:100%}
+.history-toolbar .data-note{font-size:12px;padding-bottom:9px;margin-left:auto}
+.research-timeline>article{padding-bottom:24px}
+.research-timeline>article>div{display:block;min-width:0;padding:19px 22px;border:1px solid var(--line);border-radius:10px;background:white}
+.research-timeline h3{font-size:16px;line-height:1.65}
+.research-timeline .badge{display:inline-block;max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.research-timeline p{font-size:13px;line-height:1.85}
+.research-timeline details{background:#f6f9fd}
+.research-timeline details dl{margin:14px 0}
+.archived-focus{padding:16px 20px;margin-bottom:22px}
+.archived-focus>summary{cursor:pointer;color:#41617f;font-size:13px}
+.archived-focus h2{font-size:17px;margin-top:16px}
+.archived-focus>p{font-size:13px;line-height:1.9}
+.history-outcome{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);color:#254e76}
+.history-more{display:block;margin:0 auto 28px;background:white;border:1px solid var(--line);padding:10px 24px}
+@media(max-width:1150px){
+  .overview-lead{grid-template-columns:minmax(0,1.5fr) minmax(250px,1fr)}
+  .work-summary small{margin-left:0;flex-basis:100%}
+  .latest-studies{gap:14px}.latest-studies>.panel{padding:20px}
+}
+@media(max-width:900px){
+  .overview-lead{grid-template-columns:minmax(0,1fr)}
+  .clinical-endpoints dl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-bottom:12px}
+  .latest-studies{grid-template-columns:minmax(0,1fr)}
+}

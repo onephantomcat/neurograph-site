@@ -1,0 +1,61 @@
+{
+  "state": "PASS",
+  "metrics_rows": 3600,
+  "metric_values": 25200,
+  "means": 24,
+  "seeds": 60,
+  "max_metric_difference": 6.661338147750939e-16,
+  "prior_rank_max_difference": 4.440892098500626e-16,
+  "decision": {
+    "comparisons": [
+      {
+        "k": 10,
+        "reference": "pretrained_l2_10",
+        "delta_auc": -0.0031999999999999364,
+        "delta_logloss": 0.0023958192686022394,
+        "auc_positive_repeats": 1,
+        "logloss_improved_repeats": 1,
+        "sufficient": false
+      },
+      {
+        "k": 10,
+        "reference": "spd",
+        "delta_auc": -0.10239999999999996,
+        "delta_logloss": 0.13326798660890232,
+        "auc_positive_repeats": 0,
+        "logloss_improved_repeats": 0,
+        "sufficient": false
+      },
+      {
+        "k": 20,
+        "reference": "pretrained_l2_10",
+        "delta_auc": -0.006400000000000028,
+        "delta_logloss": 0.004051736404750006,
+        "auc_positive_repeats": 1,
+        "logloss_improved_repeats": 2,
+        "sufficient": false
+      },
+      {
+        "k": 20,
+        "reference": "spd",
+        "delta_auc": -0.09359999999999999,
+        "delta_logloss": 0.07586832371854517,
+        "auc_positive_repeats": 0,
+        "logloss_improved_repeats": 0,
+        "sufficient": false
+      }
+    ],
+    "promising_for_next_comparison": false,
+    "outer_queries_scored": 0,
+    "outer_not_authorized_this_run": true
+  },
+  "saved_model_audit": {
+    "state": "PASS",
+    "models": 500,
+    "probability_vectors": 1000,
+    "updates_independently_recomputed": 100000,
+    "original_scalers_matched": 500,
+    "max_difference": 2.6645352591003757e-15,
+    "elapsed_seconds": 8.476393222808838
+  }
+}

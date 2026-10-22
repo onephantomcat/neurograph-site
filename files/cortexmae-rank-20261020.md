@@ -65,3 +65,18 @@ K10/20是完整支持每类人数；原支持内二折使实际内训练每类5/
 会议清单核对近三年ICML、NeurIPS、MICCAI、AAAI正式页面，其中CortexMAE已正式发表于[ICML 2026/PMLR](https://proceedings.mlr.press/v306/lane26a.html)，可用于当前汇报。另整理FMM_TC、DiffeoCFM、Brain-DiT、Brain-JEPA及BrainHGT的方法依据与本地适配边界，见[会议论文汇报提纲](https://onephantomcat.github.io/neurograph-site/files/cortexmae-rank-20261020-conference.txt)。取得PDF不等于逐附录精读完成，会议接收也不替代本地疼痛或临床验证。
 
 <Self-Audit>仅内训练人进入尺度/PCA/投影，原人员、标签、QC和划分保持，外查询新评价0。描述性混杂关联不当因果，PCA不冒称去站点；复用冻结缓存及原分区，无MRI读取、编码或预测器拟合。音乐原QC与TN14停止保持。</Self-Audit>
+
+
+<!-- cortexmae-pca8-20261022 -->
+
+## 2026-10-22：CortexMAE固定PCA8头：同人同预算容量消融
+
+完成500个PCA8新头、100000次更新，原分类头和SPD保存结果复用。K10支持内五成员AUC：强正则原头0.6096→PCA8 0.6064（Δ-0.0032），轻量SPD 0.7088；K20支持内五成员AUC：强正则原头0.6600→PCA8 0.6536（Δ-0.0064），轻量SPD 0.7472。
+
+固定PCA8在两个预算下的AUC均低于强正则原头，Brier和logloss均变差，且未达到轻量SPD。未满足预定支持内继续条件，停止本候选，不开展外查询或追加维度、L2、深度、融合权重搜索。
+
+SRPBS99诊断开发队列，46病例/53对照；K为完整支持每类人数，二折内训练实际总10/20人。每预算50个重叠内分区，不能当独立队列。外查询新评分0。原HCP预训练来源/跨匿名库人员身份未知、DPABI处理域差异和QC局限保持；诊断AUC不替代MRI同期痛、疗效或临床验证。
+
+保留现有轻量SPD；停止当前CortexMAE的PCA8头及追加容量/融合搜索。下一步优先补齐独立诊断验证队列和扫描同期痛、治疗随访的真实标签与时间对应，已有跨队列阴性结果分列；本轮未启动新队列或新模型。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/cortexmae-pca8-20261022.md)。

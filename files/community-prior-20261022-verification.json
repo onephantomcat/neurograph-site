@@ -1,0 +1,19 @@
+{
+  "state": "PASS",
+  "new_saved_models": 45,
+  "all_seeds": 5,
+  "epochs": 4500,
+  "max_probability_error": 0.0,
+  "independent_metrics": {
+    "state": "PASS",
+    "models": 45,
+    "independent_metrics": 360,
+    "max_metric_error": 4.286763355398904e-08,
+    "all_seed_means_and_sd": true,
+    "decision_recomputed": true,
+    "scored_outer_query": 0
+  },
+  "fit_replay": 0,
+  "original_prior_and_prototypes_preserved": true,
+  "new_outer_scores": 0
+}

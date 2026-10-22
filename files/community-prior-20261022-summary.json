@@ -1,0 +1,138 @@
+{
+  "id": "community-prior-20261022",
+  "title": "BrainHGT社区先验适配：同人同预算有限实验",
+  "date": "2026-10-22",
+  "new_fits": 45,
+  "epochs": 4500,
+  "decision": "STOP_CURRENT_ADAPTER",
+  "summary": "45个模型、五seed、4500轮完成。原完整模型/真实方向适配/乱序对照的内层AUC分别为0.6901/0.6905/0.6902；真实方向相对原模型ΔAUC +0.0004，相对乱序+0.0003。",
+  "interpretation": "未满足拟合前的继续条件，停止当前16参数先验适配，不看新外查询，不追加rank/强度/学习率搜索。",
+  "boundary": "SRPBS99诊断开发，仅原outer0外训练79人的三个内折，训练52/53、验证27/26；五seed共享人员，验证参与选轮，非OOF、非K-shot、非独立H-test。原外查询20人新评分0；无MRI同期痛、治疗反应或新增专家临床验证。",
+  "method": "完整作者BrainHGT与原AAL90/OMST/展平encoder/先验乘法/Entmax保持，只给Dice乘数增加固定解剖基的16个受界系数。三组CPU两线程、普通CE、100轮、同人同seed同选轮；乱序仅作用新增方向。历史GPU参照不能隔设备直接归因，所以新增同设备完整模型匹配参照。",
+  "verification_summary": "软件起点/梯度检查使用原outer0训练部分固定3人的输入（未优化或选参，外查询人0），五seed十组检查通过。45个保存模型严格加载和原型/成员/选轮核对通过；概率回放最大差0。独立sklearn复算45组主要指标最大差4.29e-08，全部seed汇总和继续决定复算通过，复核重拟合0。",
+  "diagnostic_summary": "SRPBS99原outer0三个内折、五种子、三组CPU匹配，新增16参数社区先验基适配。",
+  "next": "保留完整模型、全部种子和本次阴性；优先真实状态痛输入/独立诊断或随访终点可用性，有新机制依据前不重开本先验系数搜索。",
+  "display_metrics": [
+    {
+      "name": "完整BrainHGT／CPU匹配参照",
+      "parameters": 3309738,
+      "auc": 0.6901404151404151,
+      "auc_sd": 0.016669503687658717,
+      "delta_auc": 0.0,
+      "ba": 0.5957570207570207,
+      "brier": 0.27334515040857343,
+      "logloss": 0.8658244499752676
+    },
+    {
+      "name": "真实社区先验方向适配",
+      "parameters": 3309754,
+      "auc": 0.6905372405372405,
+      "auc_sd": 0.017374012367563467,
+      "delta_auc": 0.0003968253968253954,
+      "ba": 0.5937728937728938,
+      "brier": 0.274271267929281,
+      "logloss": 0.8677738842266776
+    },
+    {
+      "name": "乱序方向／同容量对照",
+      "parameters": 3309754,
+      "auc": 0.6902014652014652,
+      "auc_sd": 0.018257502791976972,
+      "delta_auc": 6.105006105006083e-05,
+      "ba": 0.5943833943833944,
+      "brier": 0.27518728595045544,
+      "logloss": 0.8707661307423411
+    }
+  ],
+  "comparisons": [
+    {
+      "control": "original",
+      "pairs": [
+        {
+          "seed": 0,
+          "delta_auc": 0.0,
+          "delta_logloss": 0.009449076446055082
+        },
+        {
+          "seed": 1,
+          "delta_auc": -0.001984126984127199,
+          "delta_logloss": -0.0052639293344661775
+        },
+        {
+          "seed": 2,
+          "delta_auc": 0.0,
+          "delta_logloss": -0.0011597642432652489
+        },
+        {
+          "seed": 3,
+          "delta_auc": 0.001984126984126977,
+          "delta_logloss": 0.006924171977618521
+        },
+        {
+          "seed": 4,
+          "delta_auc": 0.001984126984126977,
+          "delta_logloss": -0.00020238358889290708
+        }
+      ],
+      "mean_delta_auc": 0.000396825396825351,
+      "mean_delta_logloss": 0.001949434251409854,
+      "positive_seeds": 2
+    },
+    {
+      "control": "shuffled",
+      "pairs": [
+        {
+          "seed": 0,
+          "delta_auc": -0.001984126984126977,
+          "delta_logloss": -0.004086056515197001
+        },
+        {
+          "seed": 1,
+          "delta_auc": -0.001984126984127199,
+          "delta_logloss": -0.006212605281825656
+        },
+        {
+          "seed": 2,
+          "delta_auc": 0.00366300366300365,
+          "delta_logloss": -0.009743117805985246
+        },
+        {
+          "seed": 3,
+          "delta_auc": 0.001984126984126977,
+          "delta_logloss": 0.004667568423159518
+        },
+        {
+          "seed": 4,
+          "delta_auc": 0.0,
+          "delta_logloss": 0.00041297860153099997
+        }
+      ],
+      "mean_delta_auc": 0.0003357753357752902,
+      "mean_delta_logloss": -0.002992246515663477,
+      "positive_seeds": 2
+    }
+  ],
+  "assignment_seed_dispersion": {
+    "original": 0.0002218196023022756,
+    "guided": 0.0002236997679574415,
+    "shuffled": 0.00022410345263779163
+  },
+  "new_outer_scores": 0,
+  "basis_description": {
+    "rank": 2,
+    "atlas_singular_values": [
+      5.295425818364786,
+      3.7843666710508024,
+      3.4792986439444005,
+      3.270520260008578,
+      3.1273274404420532,
+      2.496615459071845,
+      2.3194624156702144,
+      1.8552739592532057
+    ],
+    "retained_atlas_frobenius_fraction": 0.4706996159701466,
+    "roi_rows_nonzero_basis": 90,
+    "roi_rows_total": 90,
+    "patient_features_used": false
+  }
+}

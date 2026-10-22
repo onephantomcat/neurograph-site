@@ -1,0 +1,4 @@
+{
+  "content": "category,stage,description\ntechnical,before_fits,既有传输包装器的日志位置最初指向旧任务；已改成本任务目录。第一次普通账号读取原私有目录被拒，后沿已授权管理通道以原计算账号执行，未放宽目录权限。\ntechnical,before_fits,管理命令默认Python3.6不支持text参数，改用项目已有明确Python路径；没有安装或替换环境。\ntechnical,before_fits,首个tar命令只有前段带管理身份，后段被拒；改为整个本任务命令同一身份，再执行软件检查。无科学拟合重试。\nscientific,complete,未满足拟合前的继续条件，停止当前16参数先验适配，不看新外查询，不追加rank/强度/学习率搜索。\nunexecuted,scope,原其余外折内部与所有新外查询均未执行；无临床效用、新状态痛或疗效结果。\ntechnical,publication,旧报告预览URL带缓存查询串，Windows不能将查询串作为文件名。发布助手按URL路径生成文件后续同一发布；不重训、不改科学结果。\ntechnical,verification_environment,捆绑Python环境缺少scikit-learn；改用本机已有NumPy2.3.2/scikit-learn1.8.0独立复算，未新增依赖或改变训练环境。\n",
+  "truncated": false
+}

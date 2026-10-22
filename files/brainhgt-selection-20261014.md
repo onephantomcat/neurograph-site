@@ -99,3 +99,18 @@ Adam lr1e-4、wd1e-4、普通CE、batch32、每内层100轮。同一训练轨迹
 方法依据：[BrainHGT作者论文](https://arxiv.org/html/2511.17604)、[固定作者源码](https://github.com/null-cks/BrainHGT/tree/4f411fab1163e24f0b54e9cb398fbfe5928ce833)、[logloss定义](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)。
 
 <Self-Audit>仅内层训练侧选择，原人/标签/QC/模型核心/停止状态保持；复用作者模型、原图、指标与传输，全部固定seed/负结果保留。无新增hash/contract/gate、Goal、自动化或作者联系。本阶段完成不等于原三临床终点与独立验证完成。</Self-Audit>
+
+
+<!-- community-prior-20261022 -->
+
+## 2026-10-22：BrainHGT社区先验适配：同人同预算有限实验
+
+45个模型、五seed、4500轮完成。原完整模型/真实方向适配/乱序对照的内层AUC分别为0.6901/0.6905/0.6902；真实方向相对原模型ΔAUC +0.0004，相对乱序+0.0003。
+
+未满足拟合前的继续条件，停止当前16参数先验适配，不看新外查询，不追加rank/强度/学习率搜索。
+
+SRPBS99诊断开发，仅原outer0外训练79人的三个内折，训练52/53、验证27/26；五seed共享人员，验证参与选轮，非OOF、非K-shot、非独立H-test。原外查询20人新评分0；无MRI同期痛、治疗反应或新增专家临床验证。
+
+保留完整模型、全部种子和本次阴性；优先真实状态痛输入/独立诊断或随访终点可用性，有新机制依据前不重开本先验系数搜索。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/community-prior-20261022.md)。

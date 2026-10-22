@@ -47,3 +47,18 @@ ROI共享是常见参数共享设计，只是本地结构任务适配，不称�
 [拟合前方案](https://onephantomcat.github.io/neurograph-site/files/brainhgt-shared-encoder-20261014-plan.md)、[全部seed指标](https://onephantomcat.github.io/neurograph-site/files/brainhgt-shared-encoder-20261014-metrics.csv)、[均值与差值区间](https://onephantomcat.github.io/neurograph-site/files/brainhgt-shared-encoder-20261014-means.csv)、[全部新内层指标](https://onephantomcat.github.io/neurograph-site/files/brainhgt-shared-encoder-20261014-inner.csv)、[保留决定](https://onephantomcat.github.io/neurograph-site/files/brainhgt-shared-encoder-20261014-decisions.csv)、[逐外折](https://onephantomcat.github.io/neurograph-site/files/brainhgt-shared-encoder-20261014-folds.csv)、[外层重训轮数](https://onephantomcat.github.io/neurograph-site/files/brainhgt-shared-encoder-20261014-selection.csv)、[必要代码片段](https://onephantomcat.github.io/neurograph-site/files/brainhgt-shared-encoder-20261014-code.py)。
 
 方法来源：[作者模型固定版本](https://github.com/null-cks/BrainHGT/blob/4f411fab1163e24f0b54e9cb398fbfe5928ce833/source/models/BrainHGT/components/clustering.py)、[BrainHGT原论文](https://arxiv.org/html/2511.17604)、[Deep Sets](https://arxiv.org/abs/1703.06114)。它们支持方法身份，不提供本项目疼痛增量证据。
+
+
+<!-- community-prior-20261022 -->
+
+## 2026-10-22：BrainHGT社区先验适配：同人同预算有限实验
+
+45个模型、五seed、4500轮完成。原完整模型/真实方向适配/乱序对照的内层AUC分别为0.6901/0.6905/0.6902；真实方向相对原模型ΔAUC +0.0004，相对乱序+0.0003。
+
+未满足拟合前的继续条件，停止当前16参数先验适配，不看新外查询，不追加rank/强度/学习率搜索。
+
+SRPBS99诊断开发，仅原outer0外训练79人的三个内折，训练52/53、验证27/26；五seed共享人员，验证参与选轮，非OOF、非K-shot、非独立H-test。原外查询20人新评分0；无MRI同期痛、治疗反应或新增专家临床验证。
+
+保留完整模型、全部种子和本次阴性；优先真实状态痛输入/独立诊断或随访终点可用性，有新机制依据前不重开本先验系数搜索。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/community-prior-20261022.md)。

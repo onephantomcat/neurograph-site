@@ -1,0 +1,62 @@
+{
+  "state": "PASS",
+  "model_verification": {
+    "state": "PASS",
+    "saved_models": 236,
+    "all_model_records": 300,
+    "all_seed_rows": 75,
+    "mean_rows": 15,
+    "independent_ridge": "sklearn SVD versus server dual solve",
+    "errors": {
+      "scale": 2.365191376085818e-13,
+      "coefficient": 1.6227253915590545e-15,
+      "prediction": 2.5757174171303632e-14,
+      "metric": 0.0,
+      "summary": 0.0
+    },
+    "decision_recomputed": "STOP_FIXED_FD_HRF_CONFIGURATION",
+    "private_model_bytes": 73309624,
+    "verification_only_refits": 236,
+    "research_search_fits": 0
+  },
+  "input_verification": {
+    "state": "PASS",
+    "independent_method": "gamma CDF and weighted residualized-HRF scalar projection; no original GLM solver imported",
+    "features_reconstructed": 420,
+    "deleted_predictions_reconstructed": 922,
+    "max_beta_error": 5.417888360170764e-14,
+    "max_deletion_prediction_error": 2.042810365310288e-14,
+    "new_fits": 0
+  },
+  "complete_frame_verification": {
+    "state": "PASS",
+    "positions": 922,
+    "independent_beta_error": 2.2620794126737565e-14,
+    "model_refits": 0,
+    "primary_scores_changed": false,
+    "corrected_stability": [
+      {
+        "model": "uniform",
+        "median_trial_max_change": 0.5779615481907898,
+        "largest_trial_max_change": 4.382737722492175,
+        "median_trial_RMS_change": 0.2690550421284596,
+        "deleted_positions": 461
+      },
+      {
+        "model": "weighted",
+        "median_trial_max_change": 0.5782962557990317,
+        "largest_trial_max_change": 4.295352873831724,
+        "median_trial_RMS_change": 0.2680380923644825,
+        "deleted_positions": 461
+      }
+    ]
+  },
+  "historical_overlap": {
+    "state": "PASS",
+    "historical_duplicate_control_solves": 56,
+    "max_prediction_difference": 2.6645352591003757e-15,
+    "new_distinct_protocol_solves": 180,
+    "note": "Completed duplicate numerical solves retained; no retrospective deletion or new search."
+  },
+  "scope": "Numerical consistency, not clinical validation"
+}

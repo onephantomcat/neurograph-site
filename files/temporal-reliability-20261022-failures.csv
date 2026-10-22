@@ -1,0 +1,6 @@
+type,phase,outcome
+verification_precision,input_audit,Initial independent audit retained float32 percent-change arithmetic and failed its numerical assertion; corrected to explicit float64 matching the scientific interface. Models unchanged.
+diagnostic_correction,frame_omission,Initial GLM-row omission kept both baseline frames. Added omission from baseline membership too; retained both analyses and all 922 corrected positions. Primary scores unchanged.
+historical_duplicate_controls,budget_review,"56 of 236 unique Ridge solves duplicated saved historical same-alpha control protocols; all compared, max prediction difference 2.665e-15. Retained rather than relabelled as new evidence."
+literature_access,sources,PMC initial open returned a browser challenge; later indexed primary article text was readable. Nature direct open cookie redirect and Aperture timeout retained; no claim of reading unavailable full texts.
+scientific_stop,fixed_FD_HRF,No scientific fit failures or retries. Primary MAE and omission sensitivity did not support FD weighting. Stop fixed weight/HRF configuration without window/scale/delay search.

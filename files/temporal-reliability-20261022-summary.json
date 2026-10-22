@@ -1,0 +1,1055 @@
+{
+  "id": "temporal-reliability-20261022",
+  "title": "报告前时间可靠性与试次疼痛读出",
+  "date": "2026-10-22",
+  "new_fits": 236,
+  "distinct_new_protocol_solves": 180,
+  "historical_duplicate_control_solves": 56,
+  "verification_only_solves": 236,
+  "nominal_records": 300,
+  "unique_model_bytes": 73309624,
+  "decision": "STOP_FIXED_FD_HRF_CONFIGURATION",
+  "summary": "4人60次热痛试次、236次唯一Ridge求解完成，五seed的300条记录全部保留。满预算共同协变量/等权响应/FD加权/乱序/FC的MAE为1.0168/1.0072/1.0088/1.0078/1.0144。",
+  "interpretation": "FD加权未优于等权或乱序，删单帧最大预测变化中位数仍约0.58个PR点，未满足原定继续条件，停止这一固定HRF/FD设置。",
+  "boundary": "4名健康开发成员，三人训练、一人留出；PR0–10是4秒刺激后的试次报告，并非MRI逐时刻患者疼痛。每窗7–8个实测帧、最晚源距报告至少1.112秒；独立刺激时钟、畸变/生理校正和局部配准限制保持。13人研究留出未读，专家/QC变更/独立临床验证0。",
+  "method": "固定4秒事件与canonical HRF、常量及线性时间，90区各拟合三系数。FD仅按既有0.5毫米参考尺度作软降权，全部帧保留；乱序只打乱窗内权重与采集位置的对应。三条响应路线同90维读出；共同23、响应113、FC4118个监督系数含截距。所有尺度/FC参考/Ridge alpha10只在同3训练人拟合；每人5/10/15标签、seed0–4，不选HRF或窗口。",
+  "verification_summary": "420个响应特征和922个原设计删行预测独立残差投影复算；完整删帧922位置再次核对。236保存模型以独立sklearn SVD求解复算，预测最大差2.58e-14；300模型记录/75seed/15均值及停止结论复算。56次求解与旧对照重复、180次为不同新协议，重复实际计入耗时和预算，未删除。",
+  "diagnostic_summary": "CoSpine原4人60试次、报告前7–8真实帧、三种HRF响应同维度比较；15标签为主，5/10标签全部保留。",
+  "next": "保留全部种子与本次阴性，停止当前短窗HRF/FD适配；下一步只核对能提供更长报告前采集、独立刺激时钟或真实患者MRI同期评分的输入，不用现有13人留出或调参追分。",
+  "display_metrics": [
+    {
+      "name": "共同协变量",
+      "parameters": 23,
+      "mae": 1.016802915996554,
+      "mae_sd": 0.0,
+      "rmse": 1.2876408443265233,
+      "r": 0.172017912545446
+    },
+    {
+      "name": "共同＋等权HRF响应",
+      "parameters": 113,
+      "mae": 1.0072206335160871,
+      "mae_sd": 0.0,
+      "rmse": 1.2829776131638482,
+      "r": 0.3450890586772593
+    },
+    {
+      "name": "共同＋FD加权HRF响应",
+      "parameters": 113,
+      "mae": 1.0087721616576584,
+      "mae_sd": 0.0,
+      "rmse": 1.284093334483984,
+      "r": 0.34875916574632226
+    },
+    {
+      "name": "共同＋乱序FD加权响应",
+      "parameters": 113,
+      "mae": 1.0078324003865018,
+      "mae_sd": 0.0059811809938594435,
+      "rmse": 1.285546453974374,
+      "r": 0.33851789774157953
+    },
+    {
+      "name": "共同＋切空间FC",
+      "parameters": 4118,
+      "mae": 1.0143794653178821,
+      "mae_sd": 0.0,
+      "rmse": 1.2649762968331184,
+      "r": 0.032606619377889244
+    }
+  ],
+  "comparisons": [
+    {
+      "comparator": "common",
+      "delta_MAE": -0.008030754338895468,
+      "improved_people": 2,
+      "improved_seeds": 5,
+      "all_seed_deltas": [
+        -0.008030754338895552,
+        -0.008030754338895552,
+        -0.008030754338895552,
+        -0.008030754338895552,
+        -0.008030754338895552
+      ],
+      "conditional_person_95_CI": [
+        -0.09689934173309775,
+        0.0867319794573228
+      ]
+    },
+    {
+      "comparator": "uniform",
+      "delta_MAE": 0.0015515281415712234,
+      "improved_people": 1,
+      "improved_seeds": 0,
+      "all_seed_deltas": [
+        0.0015515281415712234,
+        0.0015515281415712234,
+        0.0015515281415712234,
+        0.0015515281415712234,
+        0.0015515281415712234
+      ],
+      "conditional_person_95_CI": [
+        -0.010843213019870762,
+        0.011114160732856343
+      ]
+    },
+    {
+      "comparator": "shuffled",
+      "delta_MAE": 0.0009397612711566136,
+      "improved_people": 1,
+      "improved_seeds": 3,
+      "all_seed_deltas": [
+        -0.0009315792510238285,
+        0.01132888268681731,
+        -0.0030212363771318085,
+        0.0003333005748178408,
+        -0.0030105612776964996
+      ],
+      "conditional_person_95_CI": [
+        -0.013941240068397264,
+        0.010173631566766917
+      ]
+    },
+    {
+      "comparator": "tangent",
+      "delta_MAE": -0.005607303660223717,
+      "improved_people": 2,
+      "improved_seeds": 5,
+      "all_seed_deltas": [
+        -0.0056073036602237725,
+        -0.0056073036602237725,
+        -0.0056073036602237725,
+        -0.0056073036602237725,
+        -0.0056073036602237725
+      ],
+      "conditional_person_95_CI": [
+        -0.1426332956110625,
+        0.1217237261960219
+      ]
+    }
+  ],
+  "stability": [
+    {
+      "model": "uniform",
+      "median_trial_max_change": 0.5779615481907898,
+      "largest_trial_max_change": 4.382737722492175,
+      "median_trial_RMS_change": 0.2690550421284596,
+      "deleted_positions": 461
+    },
+    {
+      "model": "weighted",
+      "median_trial_max_change": 0.5782962557990317,
+      "largest_trial_max_change": 4.295352873831724,
+      "median_trial_RMS_change": 0.2680380923644825,
+      "deleted_positions": 461
+    }
+  ],
+  "fixed_baseline_design_row_stability": [
+    {
+      "model": "uniform",
+      "median_trial_max_change": 0.5779615481907898,
+      "largest_trial_max_change": 4.382737722492175,
+      "median_trial_RMS_change": 0.26904147436946657,
+      "deleted_positions": 461
+    },
+    {
+      "model": "weighted",
+      "median_trial_max_change": 0.5782962557990317,
+      "largest_trial_max_change": 4.295352873831724,
+      "median_trial_RMS_change": 0.26802856403516456,
+      "deleted_positions": 461
+    }
+  ],
+  "timing": {
+    "frames": [
+      7.0,
+      8.0
+    ],
+    "report_gap": [
+      1.1119999999799575,
+      7.222999999980004
+    ],
+    "baseline_gap": [
+      0.038999999979992594,
+      2.550000000010016
+    ],
+    "condition": [
+      8.582254458098925,
+      10.674374132175831
+    ],
+    "weighted_condition": [
+      8.712993340309907,
+      11.990392991639695
+    ],
+    "effective_frames": [
+      6.871824462434342,
+      7.999998354253858
+    ],
+    "relative_weight_change": [
+      0.0004535618038778229,
+      0.3482846275977117
+    ],
+    "max_FD": [
+      0.02119685000000001,
+      0.7764687100000001
+    ],
+    "onset_to_report": [
+      15.999000000000002,
+      20.748999999999995
+    ],
+    "first_relative": [
+      -8.019999999999982,
+      -5.413999999999987
+    ],
+    "last_relative": [
+      9.91700000000003,
+      12.489000000000033
+    ]
+  },
+  "confounds": [
+    {
+      "covariate": "trial_order",
+      "mean_within_person_PR_r": -0.3497539953668216,
+      "range": [
+        -0.9806845892900773,
+        0.012301695782628071
+      ]
+    },
+    {
+      "covariate": "onset",
+      "mean_within_person_PR_r": -0.3498632645882269,
+      "range": [
+        -0.9807119410559608,
+        0.012186272643424714
+      ]
+    },
+    {
+      "covariate": "mean_FD",
+      "mean_within_person_PR_r": 0.5786444327024654,
+      "range": [
+        0.5690951595947324,
+        0.6034109725146238
+      ]
+    },
+    {
+      "covariate": "max_FD",
+      "mean_within_person_PR_r": 0.4947432159424866,
+      "range": [
+        0.25821001414134265,
+        0.6172470779628946
+      ]
+    }
+  ],
+  "means": [
+    {
+      "budget": 5,
+      "model": "common",
+      "MAE": 1.0667421029982358,
+      "MAE_seed_SD": 0.06546964147190294,
+      "RMSE": 1.32504971887511,
+      "mean_within_person_r": 0.355436387093427
+    },
+    {
+      "budget": 5,
+      "model": "uniform",
+      "MAE": 1.1303393705796427,
+      "MAE_seed_SD": 0.07059019916210833,
+      "RMSE": 1.3687933521880786,
+      "mean_within_person_r": 0.26241099404544277
+    },
+    {
+      "budget": 5,
+      "model": "weighted",
+      "MAE": 1.1231930502315204,
+      "MAE_seed_SD": 0.07089114017718003,
+      "RMSE": 1.360307881597523,
+      "mean_within_person_r": 0.26240440631836226
+    },
+    {
+      "budget": 5,
+      "model": "shuffled",
+      "MAE": 1.1305482023702793,
+      "MAE_seed_SD": 0.07342721061424975,
+      "RMSE": 1.3747467863604985,
+      "mean_within_person_r": 0.25643323571828175
+    },
+    {
+      "budget": 5,
+      "model": "tangent",
+      "MAE": 1.0692338056085358,
+      "MAE_seed_SD": 0.04837906607677384,
+      "RMSE": 1.3193493691822158,
+      "mean_within_person_r": 0.03647589398145516
+    },
+    {
+      "budget": 10,
+      "model": "common",
+      "MAE": 1.0103512335242442,
+      "MAE_seed_SD": 0.01794267898542829,
+      "RMSE": 1.2652093946658272,
+      "mean_within_person_r": 0.3088613067125025
+    },
+    {
+      "budget": 10,
+      "model": "uniform",
+      "MAE": 1.0431075092047404,
+      "MAE_seed_SD": 0.11230573151913546,
+      "RMSE": 1.2810733452236234,
+      "mean_within_person_r": 0.3304577743128306
+    },
+    {
+      "budget": 10,
+      "model": "weighted",
+      "MAE": 1.044978084868307,
+      "MAE_seed_SD": 0.1105031515363685,
+      "RMSE": 1.283991332335904,
+      "mean_within_person_r": 0.33139075263992446
+    },
+    {
+      "budget": 10,
+      "model": "shuffled",
+      "MAE": 1.0463119037349076,
+      "MAE_seed_SD": 0.11302561066602901,
+      "RMSE": 1.285446741448369,
+      "mean_within_person_r": 0.3198889307265391
+    },
+    {
+      "budget": 10,
+      "model": "tangent",
+      "MAE": 1.0268434061822185,
+      "MAE_seed_SD": 0.03978152591470796,
+      "RMSE": 1.2839630896228575,
+      "mean_within_person_r": 0.06796946596530705
+    },
+    {
+      "budget": 15,
+      "model": "common",
+      "MAE": 1.016802915996554,
+      "MAE_seed_SD": 0.0,
+      "RMSE": 1.2876408443265233,
+      "mean_within_person_r": 0.172017912545446
+    },
+    {
+      "budget": 15,
+      "model": "uniform",
+      "MAE": 1.0072206335160871,
+      "MAE_seed_SD": 0.0,
+      "RMSE": 1.2829776131638482,
+      "mean_within_person_r": 0.3450890586772593
+    },
+    {
+      "budget": 15,
+      "model": "weighted",
+      "MAE": 1.0087721616576584,
+      "MAE_seed_SD": 0.0,
+      "RMSE": 1.284093334483984,
+      "mean_within_person_r": 0.34875916574632226
+    },
+    {
+      "budget": 15,
+      "model": "shuffled",
+      "MAE": 1.0078324003865018,
+      "MAE_seed_SD": 0.0059811809938594435,
+      "RMSE": 1.285546453974374,
+      "mean_within_person_r": 0.33851789774157953
+    },
+    {
+      "budget": 15,
+      "model": "tangent",
+      "MAE": 1.0143794653178821,
+      "MAE_seed_SD": 0.0,
+      "RMSE": 1.2649762968331184,
+      "mean_within_person_r": 0.032606619377889244
+    }
+  ],
+  "all_seeds": [
+    {
+      "budget": 5,
+      "seed": 0,
+      "model": "common",
+      "MAE": 0.9952448303203851,
+      "RMSE": 1.2164690202468789,
+      "mean_within_person_r": 0.5393561448073974,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 0,
+      "model": "uniform",
+      "MAE": 1.195314868903762,
+      "RMSE": 1.4683856270110167,
+      "mean_within_person_r": 0.31508338597727936,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 0,
+      "model": "weighted",
+      "MAE": 1.19235776293177,
+      "RMSE": 1.4648098624946835,
+      "mean_within_person_r": 0.31771032217052814,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 0,
+      "model": "shuffled",
+      "MAE": 1.1910477217647153,
+      "RMSE": 1.474282810115203,
+      "mean_within_person_r": 0.31354364129279577,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 0,
+      "model": "tangent",
+      "MAE": 1.0130076944570532,
+      "RMSE": 1.255693987819866,
+      "mean_within_person_r": 0.12281801664827136,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 1,
+      "model": "common",
+      "MAE": 1.1101311543075385,
+      "RMSE": 1.420119400883995,
+      "mean_within_person_r": 0.07210709421868902,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 1,
+      "model": "uniform",
+      "MAE": 1.097580805951121,
+      "RMSE": 1.338935467073088,
+      "mean_within_person_r": 0.13008507605074016,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 1,
+      "model": "weighted",
+      "MAE": 1.0851621354624035,
+      "RMSE": 1.3211390560569798,
+      "mean_within_person_r": 0.14119771491522193,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 1,
+      "model": "shuffled",
+      "MAE": 1.0894729917365786,
+      "RMSE": 1.335170437304049,
+      "mean_within_person_r": 0.11299249927388702,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 1,
+      "model": "tangent",
+      "MAE": 1.079586538728113,
+      "RMSE": 1.3409039718365292,
+      "mean_within_person_r": -0.0023541111169278206,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 2,
+      "model": "common",
+      "MAE": 1.0885756036142296,
+      "RMSE": 1.3475536992570658,
+      "mean_within_person_r": 0.38181323254614163,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 2,
+      "model": "uniform",
+      "MAE": 1.1460272767725164,
+      "RMSE": 1.3383967043731322,
+      "mean_within_person_r": 0.2770681215779081,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 2,
+      "model": "weighted",
+      "MAE": 1.151297140327077,
+      "RMSE": 1.342955703086883,
+      "mean_within_person_r": 0.27431005621167637,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 2,
+      "model": "shuffled",
+      "MAE": 1.1398329569634138,
+      "RMSE": 1.3375097581197477,
+      "mean_within_person_r": 0.2692045596823923,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 2,
+      "model": "tangent",
+      "MAE": 1.1428876301853985,
+      "RMSE": 1.3759527106312435,
+      "mean_within_person_r": -0.02742473945314261,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 3,
+      "model": "common",
+      "MAE": 1.139356935387159,
+      "RMSE": 1.3621099572194928,
+      "mean_within_person_r": 0.4394837588642627,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 3,
+      "model": "uniform",
+      "MAE": 1.025013064501988,
+      "RMSE": 1.2610228451969179,
+      "mean_within_person_r": 0.4095074374122093,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 3,
+      "model": "weighted",
+      "MAE": 1.0183155402858912,
+      "RMSE": 1.255105074329864,
+      "mean_within_person_r": 0.405559052438784,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 3,
+      "model": "shuffled",
+      "MAE": 1.0275354944442987,
+      "RMSE": 1.2638303166740805,
+      "mean_within_person_r": 0.4144516935010274,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 3,
+      "model": "tangent",
+      "MAE": 1.0434520096969684,
+      "RMSE": 1.3013724967242613,
+      "mean_within_person_r": 0.04849697405323004,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 4,
+      "model": "common",
+      "MAE": 1.0004019913618676,
+      "RMSE": 1.2789965167681163,
+      "mean_within_person_r": 0.34442170503064423,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 4,
+      "model": "uniform",
+      "MAE": 1.1877608367688266,
+      "RMSE": 1.4372261172862388,
+      "mean_within_person_r": 0.1803109492090772,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 4,
+      "model": "weighted",
+      "MAE": 1.1688326721504596,
+      "RMSE": 1.4175297120192036,
+      "mean_within_person_r": 0.17324488585560083,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 4,
+      "model": "shuffled",
+      "MAE": 1.204851846942392,
+      "RMSE": 1.4629406095894129,
+      "mean_within_person_r": 0.1719737848413064,
+      "unique_fits": 4
+    },
+    {
+      "budget": 5,
+      "seed": 4,
+      "model": "tangent",
+      "MAE": 1.0672351549751458,
+      "RMSE": 1.3228236788991792,
+      "mean_within_person_r": 0.040843329775844844,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 0,
+      "model": "common",
+      "MAE": 1.0255723611753722,
+      "RMSE": 1.2886201457402444,
+      "mean_within_person_r": 0.16995220771590824,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 0,
+      "model": "uniform",
+      "MAE": 1.168593390809285,
+      "RMSE": 1.4200303113660846,
+      "mean_within_person_r": 0.2733098900012201,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 0,
+      "model": "weighted",
+      "MAE": 1.1628056394892763,
+      "RMSE": 1.4176420732461417,
+      "mean_within_person_r": 0.2946040071632169,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 0,
+      "model": "shuffled",
+      "MAE": 1.167615080326427,
+      "RMSE": 1.425343116117359,
+      "mean_within_person_r": 0.2590881113016589,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 0,
+      "model": "tangent",
+      "MAE": 0.9682909947908456,
+      "RMSE": 1.2403383460573827,
+      "mean_within_person_r": 0.2345458555266906,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 1,
+      "model": "common",
+      "MAE": 1.0314802753108814,
+      "RMSE": 1.3100051169884204,
+      "mean_within_person_r": 0.18797213974867855,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 1,
+      "model": "uniform",
+      "MAE": 1.068532120450717,
+      "RMSE": 1.3176097321744116,
+      "mean_within_person_r": 0.31386697828595783,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 1,
+      "model": "weighted",
+      "MAE": 1.0714400225151886,
+      "RMSE": 1.3169506539066709,
+      "mean_within_person_r": 0.3032243676409566,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 1,
+      "model": "shuffled",
+      "MAE": 1.0746156333076944,
+      "RMSE": 1.3195856265983148,
+      "mean_within_person_r": 0.2842211455435115,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 1,
+      "model": "tangent",
+      "MAE": 1.0643666055481769,
+      "RMSE": 1.3311924762174316,
+      "mean_within_person_r": 0.07440792939008725,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 2,
+      "model": "common",
+      "MAE": 1.0031381937281107,
+      "RMSE": 1.2416126936392038,
+      "mean_within_person_r": 0.40900057909772575,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 2,
+      "model": "uniform",
+      "MAE": 0.9446753400617842,
+      "RMSE": 1.2005689349895532,
+      "mean_within_person_r": 0.37589145661056994,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 2,
+      "model": "weighted",
+      "MAE": 0.9489307123668062,
+      "RMSE": 1.210315858574969,
+      "mean_within_person_r": 0.38162108822854535,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 2,
+      "model": "shuffled",
+      "MAE": 0.9400494493245188,
+      "RMSE": 1.202600292151668,
+      "mean_within_person_r": 0.3797360891875273,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 2,
+      "model": "tangent",
+      "MAE": 1.0156102076129647,
+      "RMSE": 1.2625717445374918,
+      "mean_within_person_r": 0.05355247992572265,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 3,
+      "model": "common",
+      "MAE": 1.003941273912834,
+      "RMSE": 1.2562008084506961,
+      "mean_within_person_r": 0.3935404880656663,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 3,
+      "model": "uniform",
+      "MAE": 0.9096505483683537,
+      "RMSE": 1.0960825890519228,
+      "mean_within_person_r": 0.5053026067333269,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 3,
+      "model": "weighted",
+      "MAE": 0.9116062345951393,
+      "RMSE": 1.0946355716711154,
+      "mean_within_person_r": 0.5032618942848248,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 3,
+      "model": "shuffled",
+      "MAE": 0.9165829498384763,
+      "RMSE": 1.101395212145119,
+      "mean_within_person_r": 0.5044539158669437,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 3,
+      "model": "tangent",
+      "MAE": 1.0223920031994718,
+      "RMSE": 1.2768515833933975,
+      "mean_within_person_r": 0.07904248953889673,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 4,
+      "model": "common",
+      "MAE": 0.9876240634940224,
+      "RMSE": 1.2296082085105717,
+      "mean_within_person_r": 0.38384111893453376,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 4,
+      "model": "uniform",
+      "MAE": 1.1240861463335619,
+      "RMSE": 1.3710751585361443,
+      "mean_within_person_r": 0.1839179399330782,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 4,
+      "model": "weighted",
+      "MAE": 1.1301078153751236,
+      "RMSE": 1.3804125042806232,
+      "mean_within_person_r": 0.17424240588207862,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 4,
+      "model": "shuffled",
+      "MAE": 1.1326964058774214,
+      "RMSE": 1.3783094602293844,
+      "mean_within_person_r": 0.17194539173305423,
+      "unique_fits": 4
+    },
+    {
+      "budget": 10,
+      "seed": 4,
+      "model": "tangent",
+      "MAE": 1.0635572197596337,
+      "RMSE": 1.308861297908584,
+      "mean_within_person_r": -0.10170142455486192,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 0,
+      "model": "common",
+      "MAE": 1.016802915996554,
+      "RMSE": 1.2876408443265233,
+      "mean_within_person_r": 0.172017912545446,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 0,
+      "model": "uniform",
+      "MAE": 1.0072206335160871,
+      "RMSE": 1.2829776131638482,
+      "mean_within_person_r": 0.3450890586772593,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 0,
+      "model": "weighted",
+      "MAE": 1.0087721616576584,
+      "RMSE": 1.284093334483984,
+      "mean_within_person_r": 0.34875916574632226,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 0,
+      "model": "shuffled",
+      "MAE": 1.0097037409086822,
+      "RMSE": 1.2865213085371254,
+      "mean_within_person_r": 0.3318623769087857,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 0,
+      "model": "tangent",
+      "MAE": 1.0143794653178821,
+      "RMSE": 1.2649762968331184,
+      "mean_within_person_r": 0.032606619377889244,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 1,
+      "model": "common",
+      "MAE": 1.016802915996554,
+      "RMSE": 1.2876408443265233,
+      "mean_within_person_r": 0.172017912545446,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 1,
+      "model": "uniform",
+      "MAE": 1.0072206335160871,
+      "RMSE": 1.2829776131638482,
+      "mean_within_person_r": 0.3450890586772593,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 1,
+      "model": "weighted",
+      "MAE": 1.0087721616576584,
+      "RMSE": 1.284093334483984,
+      "mean_within_person_r": 0.34875916574632226,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 1,
+      "model": "shuffled",
+      "MAE": 0.9974432789708411,
+      "RMSE": 1.274356555340176,
+      "mean_within_person_r": 0.34213470955436504,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 1,
+      "model": "tangent",
+      "MAE": 1.0143794653178821,
+      "RMSE": 1.2649762968331184,
+      "mean_within_person_r": 0.032606619377889244,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 2,
+      "model": "common",
+      "MAE": 1.016802915996554,
+      "RMSE": 1.2876408443265233,
+      "mean_within_person_r": 0.172017912545446,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 2,
+      "model": "uniform",
+      "MAE": 1.0072206335160871,
+      "RMSE": 1.2829776131638482,
+      "mean_within_person_r": 0.3450890586772593,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 2,
+      "model": "weighted",
+      "MAE": 1.0087721616576584,
+      "RMSE": 1.284093334483984,
+      "mean_within_person_r": 0.34875916574632226,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 2,
+      "model": "shuffled",
+      "MAE": 1.0117933980347902,
+      "RMSE": 1.2917918550984533,
+      "mean_within_person_r": 0.3420161175259111,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 2,
+      "model": "tangent",
+      "MAE": 1.0143794653178821,
+      "RMSE": 1.2649762968331184,
+      "mean_within_person_r": 0.032606619377889244,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 3,
+      "model": "common",
+      "MAE": 1.016802915996554,
+      "RMSE": 1.2876408443265233,
+      "mean_within_person_r": 0.172017912545446,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 3,
+      "model": "uniform",
+      "MAE": 1.0072206335160871,
+      "RMSE": 1.2829776131638482,
+      "mean_within_person_r": 0.3450890586772593,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 3,
+      "model": "weighted",
+      "MAE": 1.0087721616576584,
+      "RMSE": 1.284093334483984,
+      "mean_within_person_r": 0.34875916574632226,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 3,
+      "model": "shuffled",
+      "MAE": 1.0084388610828405,
+      "RMSE": 1.2876303056555212,
+      "mean_within_person_r": 0.3404471006268631,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 3,
+      "model": "tangent",
+      "MAE": 1.0143794653178821,
+      "RMSE": 1.2649762968331184,
+      "mean_within_person_r": 0.032606619377889244,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 4,
+      "model": "common",
+      "MAE": 1.016802915996554,
+      "RMSE": 1.2876408443265233,
+      "mean_within_person_r": 0.172017912545446,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 4,
+      "model": "uniform",
+      "MAE": 1.0072206335160871,
+      "RMSE": 1.2829776131638482,
+      "mean_within_person_r": 0.3450890586772593,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 4,
+      "model": "weighted",
+      "MAE": 1.0087721616576584,
+      "RMSE": 1.284093334483984,
+      "mean_within_person_r": 0.34875916574632226,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 4,
+      "model": "shuffled",
+      "MAE": 1.0117827229353549,
+      "RMSE": 1.2874322452405942,
+      "mean_within_person_r": 0.3361291840919728,
+      "unique_fits": 4
+    },
+    {
+      "budget": 15,
+      "seed": 4,
+      "model": "tangent",
+      "MAE": 1.0143794653178821,
+      "RMSE": 1.2649762968331184,
+      "mean_within_person_r": 0.032606619377889244,
+      "unique_fits": 4
+    }
+  ],
+  "elapsed_seconds": 34.72847390174866,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "deterministic_duplicate_references": 64,
+  "music_common_people_observed": 0,
+  "clinical_validation": 0,
+  "new_MRI_reads": 0,
+  "holdout_reads": 0
+}

@@ -1,0 +1,4 @@
+phase,type,outcome
+literature,arxiv_version_404,"BrainMAE v2 HTML unavailable; v1 HTML and formal abstract opened, no runtime replacement"
+science,fixed_budget_completed,45 SSL models and 120 heads completed; no scientific fit failures or automatic retries; all five seeds retained
+decision,STOP_FIXED_CROSS_HALF_SSL_AND_ADAPTER,未同时满足预定判别、概率误差和种子方向条件，停止当前跨半程恢复/有限适配配置，不追加来源、步数、窗口或瓶颈搜索。

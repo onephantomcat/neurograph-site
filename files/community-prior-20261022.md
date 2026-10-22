@@ -94,3 +94,18 @@ SRPBS99诊断开发，仅原outer0外训练79人的三个内折，训练52/53、
 [同条件对比](https://onephantomcat.github.io/neurograph-site/files/community-prior-20261022-comparison.md)、[全部种子](https://onephantomcat.github.io/neurograph-site/files/community-prior-20261022-seeds.csv)、[全部模型指标](https://onephantomcat.github.io/neurograph-site/files/community-prior-20261022-metrics.csv)、[拟合前方案](https://onephantomcat.github.io/neurograph-site/files/community-prior-20261022-plan.md)、[技术失败与停止](https://onephantomcat.github.io/neurograph-site/files/community-prior-20261022-failures.csv)。
 
 <Self-Audit>全部训练变换和监督在原允许训练人内，外查询新评分0；新增适配不冒称独立临床验证或原创。复用原模型、划分、指标和发布组件，未修改并发任务/标签/QC/停止边界；未新增Goal/自动化/hash/contract/gate或外部消息。</Self-Audit>
+
+
+<!-- train-side-ssl-20261022 -->
+
+## 2026-10-22：训练侧跨半程自监督与有限适配
+
+45个训练侧自监督模型、120个下游读出完成。有限适配下随机/同半自重建/同人跨半/人间错配的AUC为0.5605/0.4905/0.5584/0.5430；全五seed与阴性均保留。
+
+未同时满足预定判别、概率误差和种子方向条件，停止当前跨半程恢复/有限适配配置，不追加来源、步数、窗口或瓶颈搜索。
+
+SRPBS诊断开发，仅原outer0训练79人的三个内折：每折52/53训练、27/26验证。自监督U=当前训练人52/53，下游K为相同人员，验证人不加入无标签学习。不是99人OOF、K-shot或独立H-test；原外查询20人新评分0，无MRI同期痛/治疗反应/新增临床验证。
+
+保留全部自监督/下游权重和负结果，停止本固定目标与适配搜索；下一步优先可比较独立人员及真实MRI同期评分或治疗随访输入，不用新查询挑目标。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/train-side-ssl-20261022.md)。

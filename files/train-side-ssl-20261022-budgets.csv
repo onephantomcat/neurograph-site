@@ -1,0 +1,7 @@
+component,models,steps_per_model,total_steps,people_per_fit,labels_used,parameters
+self_SSL,15,60,900,52/53 current inner training,0,4328685
+cross_SSL,15,60,900,52/53 current inner training,0,4328685
+shuffled_SSL,15,60,900,52/53 current inner training,0,4328685
+random_encoder_states,15,0,0,0 SSL people,0,0
+frozen_encoder_head,60,200,12000,same 52/53,52/53 per fit,8290
+frozen_encoder_adapter_head,60,200,12000,same 52/53,52/53 per fit,12650

@@ -1,0 +1,28 @@
+{
+  "state": "PASS",
+  "saved_source_states": 60,
+  "trained_sources": 45,
+  "readouts": 120,
+  "source_steps_audited": 2700,
+  "source_label_arguments": 0,
+  "inner_validation_pretraining_overlap": 0,
+  "outer_query_pretraining_overlap": 0,
+  "outer_query_scores": 0,
+  "errors": {
+    "source_target_scale": 0.0,
+    "cached_representation": 0.0,
+    "head_probability": 0.0,
+    "head_numpy_logit": 9.41307977342376e-06,
+    "feature_scaling": 0.0
+  },
+  "independent_metric_error": 4.440892098500626e-16,
+  "retention": {
+    "source_bytes": 983217460,
+    "readout_bytes": 5749284,
+    "source_files": 60,
+    "readout_files": 120
+  },
+  "cached_control_models": 9,
+  "cached_control_replay_error": 0.0,
+  "refits": 0
+}

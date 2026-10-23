@@ -1,0 +1,12 @@
+# 方法依据与适用限制
+
+- [Jensen等，Pain2016，PMID26871535](https://pubmed.ncbi.nlm.nih.gov/26871535/)：实际核对可读原摘要，患者和健康者共同激活涉及丘脑、ACC、岛叶及小脑。本轮取前三类的AAL90粗粒度双侧子集，未使用原ALE体素权重；没有把激活元分析当FC诊断性能证据。双侧完整AAL区是本地适配选择，不是逐体素复现。
+- [Mouraux等，NeuroImage2011作者PDF](https://iannettilab.net/pdfs/a_multisensory_investigation_into_the_pain_matrix.pdf)：实际打开正文，摘要/引言及研究结论说明这些反应大量涉及显著性和非伤害性过程。因此本轮只称疼痛相关区域先验，不称疼痛特异标志物、NPS或确定的疼痛网络。
+- [RankNet原始论文，ICML2005](https://www.microsoft.com/en-us/research/publication/learning-to-rank-using-gradient-descent/)：成对logistic排序已有方法，本轮不是新损失，训练排序改善不保证留出AUC。排序分数的softmax值未单独校准，Brier/logloss作为误差对照，不宣称临床概率。
+- [NERVE，MICCAI2026正式摘要](https://papers.miccai.org/miccai-2026/0708-Paper3895.html)：已有网络身份和解剖分块思想。本轮没有双线性tokenizer、MAE或作者的发育队列预训练，不冒称NERVE复现或机制原创。
+
+Jensen/Duerden的PubMed/PMC正文和EuropePMC XML部分请求失败，范围仅上述可读摘要；不声称元分析全文精读。AAL名称核对来自项目已用标准图谱包的Node_AAL90，输入沿既有ROI1..90顺序；本轮未读取新患者MRI或重新配准。
+
+主先验6区：INS.L/R、ACG.L/R、THA.L/R。拟合前种子20261023选择的6区对照为SFGmed.L/R、SOG.L/R、PUT.L/R，两组都是两个皮层双侧对加一个皮层下核团双侧对。对照区域也可能与疼痛相关，单一对照不能证明特异性。LSRA已整合全图信息，选定位置的表征不是纯局部活动；AAL整块岛叶和前扣带不能区分所有亚区。
+
+与旧失败的差别：不调Dice16系数、不解冻原型、不叠标签平滑；不重开跨半SSL。本轮使用已有诊断监督源，读出位置在LSRA节点层，增加标量残差并统一成对排序。与历史SSL的来源和损失都不同，不能用跨阶段差值归因单因素；三路内部只改区域池化。

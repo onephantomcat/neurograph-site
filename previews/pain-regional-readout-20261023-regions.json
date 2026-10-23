@@ -1,0 +1,4 @@
+{
+  "content": "variant,roi_name,column_zero_based,column_one_based\npain,INS.L,28,29\npain,INS.R,29,30\npain,ACG.L,30,31\npain,ACG.R,31,32\npain,THA.L,76,77\npain,THA.R,77,78\ncontrol,SFGmed.L,22,23\ncontrol,SFGmed.R,23,24\ncontrol,SOG.L,48,49\ncontrol,SOG.R,49,50\ncontrol,PUT.L,72,73\ncontrol,PUT.R,73,74\n",
+  "truncated": false
+}

@@ -1,0 +1,4 @@
+{
+  "content": "stage,status,count,description\nscientific_fits,fixed_budget_completed,0,45 new heads completed; no automatic retry\nreference,reused_not_refitted,15,Existing supervised source checkpoints reused\nprepublication_summary,objective_field_corrected,1,Frozen reference rank loss was initially a placeholder zero; recovered actual identical first-step objective; AUC and predictions unchanged\nliterature,partial_fulltext_access,1,Some PubMed/PMC/EuropePMC requests blocked or returned error; accessible primary abstracts and author PDF used; no claim of all full texts read\n",
+  "truncated": false
+}

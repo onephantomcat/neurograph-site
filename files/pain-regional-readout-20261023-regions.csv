@@ -1,0 +1,13 @@
+variant,roi_name,column_zero_based,column_one_based
+pain,INS.L,28,29
+pain,INS.R,29,30
+pain,ACG.L,30,31
+pain,ACG.R,31,32
+pain,THA.L,76,77
+pain,THA.R,77,78
+control,SFGmed.L,22,23
+control,SFGmed.R,23,24
+control,SOG.L,48,49
+control,SOG.R,49,50
+control,PUT.L,72,73
+control,PUT.R,73,74

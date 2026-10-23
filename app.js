@@ -363,6 +363,7 @@ function executionPanel() {
 }
 function overview() {
   const counts=goalCounts(), c=data.clinical;
+  const donePercent=ratioPercent(counts.done,data.goals.length);
   const inventory=data.pretrained_pain?.input_inventory;
   const focusStudy=Object.values(data).find(item => item && typeof item==='object' && item.focus_summary===data.focus_description);
   const focusSummary=taskPreview(focusStudy?.summary || data.focus_description, 200);
@@ -374,12 +375,12 @@ function overview() {
     ['疼痛任务',data.prt_classification?.summary || data.prt_modality?.summary]
   ].filter(([,summary])=>summary);
   $('#view-overview').innerHTML=`
-    <div class="page-heading"><div><span class="eyebrow">NEUROGRAPH · 疼痛 fMRI 研究</span><h1>项目总览</h1><p class="muted">当前工作、最近结论与尚待完成的验证。</p></div><span class="overview-date">记录整理于 ${escapeHTML(data.reviewed_at)}</span></div>
+    <div class="page-heading overview-hero"><div><span class="eyebrow">NEUROGRAPH · 疼痛 fMRI 研究</span><h1>项目总览</h1><p class="muted">当前工作、最近结论与尚待完成的验证。</p></div><span class="overview-date">记录整理于 ${escapeHTML(data.reviewed_at)}</span></div>
     <div class="overview-lead">
       <section class="panel current-focus"><span class="eyebrow">当前工作 · 已记录的阶段状态</span><h2>${escapeHTML(data.focus_title)}</h2><p class="reading-current-note">${escapeHTML(focusSummary)}</p>${focusStudy?.observed_at_local?`<p class="focus-observed">本项核查 ${escapeHTML(focusStudy.observed_at_local)}</p>`:''}<p class="focus-boundary">${escapeHTML(focusBoundary)}</p><div class="ds-foot"><a class="button primary" href="#goals">查看计划</a><a class="button" href="#datasets?tab=results">查看全部结果</a>${focusStudy?.id ? evidenceLink(focusStudy.id,'处理报告 ↗') : ''}</div><details class="stage-record"><summary>完整处理记录与限制</summary><p>${escapeHTML(data.focus_description)}</p>${focusStudy?.boundary?`<p class="data-note">${escapeHTML(focusStudy.boundary)}</p>`:''}</details><details><summary>此前训练阶段与审核边界</summary><p>${escapeHTML(inventory?.summary || data.focus_description)}</p><p class="data-note">${escapeHTML(inventory?.boundary || '内部开发结果与独立验证分别记录。')}</p>${inventory?.normalization_block_diagnostic?.manuscript_integration?evidenceLink('migraine-normalization-20261007-manuscript-appendix','训练完整表 ↗'):''}</details></section>
       <aside class="panel clinical-endpoints" aria-label="三个临床终点的验证状态"><span class="eyebrow">研究总目标</span><h2>独立临床验证尚未完成</h2><p>阶段实验完成与临床有效性分别判断。</p><dl><div><dt>辅助诊断</dt><dd>已有开发比较，独立患者验证待完成。</dd></div><div><dt>扫描同期疼痛</dt><dd>需核实评分含义、时点与扫描对应。</dd></div><div><dt>治疗反应</dt><dd>需真实治疗、随访与结局标签。</dd></div></dl><a class="text-link" href="#goals">查看目标与缺口 ↗</a></aside>
     </div>
-    <div class="work-summary" aria-label="任务清单状态"><span><strong>${counts.done} / ${data.goals.length}</strong> 项任务已完成</span><span><strong>${counts.active}</strong> 项进行中</span><span><strong>${counts.blocked}</strong> 项受阻</span><small>完成项包含阴性实验，不代表临床验证完成。</small></div>
+    <div class="work-summary" aria-label="任务清单状态"><div class="work-ring" style="--value:${donePercent}" role="img" aria-label="任务完成度 ${donePercent}%"><span><strong>${donePercent}%</strong><small>完成度</small></span></div><div class="work-metrics"><div class="work-metric"><span class="work-metric-label">已完成</span><span class="work-metric-value">${counts.done}<small>/ ${data.goals.length}</small></span></div><div class="work-metric"><span class="work-metric-label">进行中</span><span class="work-metric-value">${counts.active}</span></div><div class="work-metric"><span class="work-metric-label">受阻</span><span class="work-metric-value">${counts.blocked}</span></div></div><small class="work-note">完成项包含阴性实验，不代表临床验证完成。</small></div>
     ${sectionTitle('最近研究结论','<a class="text-link" href="#history">全部研究历程 ↗</a>')}
     <div class="latest-studies">${boundedTuningOverview()}
     ${trainSideSSLOverview()}
@@ -398,6 +399,7 @@ function overview() {
     ${researchDisclosure('历史执行与样本口径','按各自核查时间阅读；页面刷新不代表重新核查远端',executionPanel()+queuePanel()+`<div class="panel clinical-strip"><h2>候选样本与训练接入</h2><p>${c.inventory} 人元数据；候选上限 ${c.classification_candidates} 人，数值通过 ${c.numeric_pass} 人，人工确认 ${c.visual_accepted} 人，训练接入 ${c.training_ready} 人。</p><p class="data-note">快照 ${timeText(c.progress_as_of)}，不计为本轮新增人数。${escapeHTML(c.note)}</p></div>`)}
     ${researchDisclosure('前期成果','DS005713 来源包与早期迁移实验',dsSpotlight())}`;
 }
+
 function workflowFigure(name, title, description, transcript) {
   return `<article class="workflow-figure" aria-labelledby="${name}-title"><div class="workflow-figure-heading"><div><h2 id="${name}-title">${title}</h2><p>${description}</p></div><div class="workflow-actions"><a class="button" href="./${name}.svg" target="_blank" rel="noopener" aria-label="放大查看${title}（新标签页）">放大查看 ↗</a><a class="button" href="./${name}.png" download>下载 PNG</a><a class="text-link" href="./${name}.svg" download>SVG</a></div></div><div class="workflow-image-scroll" tabindex="0" role="region" aria-label="${title}，窄屏可横向滚动"><img src="./${name}.svg" alt="${description}" width="1440" height="${name === 'workflow-execution' ? 1060 : 1200}" aria-describedby="${name}-text"></div><details class="workflow-transcript" id="${name}-text"><summary>阅读流程文字</summary>${transcript}</details></article>`;
 }
@@ -705,6 +707,8 @@ async function refresh() {
 $('#refresh-button').addEventListener('click', refresh);
 showView(view);
 refresh();
+/* Reading progress is independent of research data. */
+(()=>{const bar=document.createElement('div');bar.id='scroll-progress';bar.setAttribute('aria-hidden','true');document.body.append(bar);let frame=0;const paint=()=>{const span=document.documentElement.scrollHeight-window.innerHeight;const ratio=span>0?Math.min(1,Math.max(0,window.scrollY/span)):0;bar.style.width=(ratio*100).toFixed(2)+'%';frame=0;};const queue=()=>{if(!frame)frame=requestAnimationFrame(paint);};addEventListener('scroll',queue,{passive:true});addEventListener('resize',queue,{passive:true});paint();})();
 document.addEventListener('visibilitychange',()=>{if(!document.hidden && Date.now()-lastSuccess>=REFRESH_INTERVAL_MS)refresh();});
 function fewshotGeometrySection(mode) {
   const g=data.pretrained_pain?.geometry_result;if(!g)return '';
@@ -1153,7 +1157,7 @@ function cortexPCASection(methods=false){
 
 function communityPriorOverview(){
  const r=data.community_prior;if(!r)return '';
- return `<section class="panel community-prior-overview"><h2>BrainHGT社区先验适配</h2><p>${escapeHTML(r.summary)}</p><p>${escapeHTML(r.interpretation)}</p><div class="ds-foot">${evidenceLink(r.id,'完整报告 ↗')} ${evidenceLink(r.id+'-comparison','三组对比 ↗')}</div></section>`;
+ return `<section class="panel latest-study community-prior-overview"><div class="study-meta"><span>支持内开发比较</span></div><h2>BrainHGT社区先验适配</h2><p>${escapeHTML(r.summary)}</p><p>${escapeHTML(r.interpretation)}</p><div class="ds-foot">${evidenceLink(r.id,'完整报告 ↗')} ${evidenceLink(r.id+'-comparison','三组对比 ↗')}</div></section>`;
 }
 function communityPriorSection(methods=false){
  const r=data.community_prior;if(!r)return '';
@@ -1163,7 +1167,7 @@ function communityPriorSection(methods=false){
 
 function temporalReliabilityOverview(){
  const r=data.temporal_reliability;if(!r)return '';
- return `<section class="panel temporal-reliability-overview"><h2>报告前时间可靠性与疼痛读出</h2><p>${escapeHTML(r.summary)}</p><p>${escapeHTML(r.interpretation)}</p><div class="ds-foot">${evidenceLink(r.id,'完整报告 ↗')} ${evidenceLink(r.id+'-comparison','同条件对比 ↗')}</div></section>`;
+ return `<section class="panel latest-study temporal-reliability-overview"><div class="study-meta"><span>支持内开发比较</span></div><h2>报告前时间可靠性与疼痛读出</h2><p>${escapeHTML(r.summary)}</p><p>${escapeHTML(r.interpretation)}</p><div class="ds-foot">${evidenceLink(r.id,'完整报告 ↗')} ${evidenceLink(r.id+'-comparison','同条件对比 ↗')}</div></section>`;
 }
 function temporalReliabilitySection(methods=false){
  const r=data.temporal_reliability;if(!r)return '';
@@ -1173,7 +1177,7 @@ function temporalReliabilitySection(methods=false){
 
 function trainSideSSLOverview(){
  const r=data.train_side_ssl;if(!r)return '';
- return `<section class="panel train-side-ssl-overview"><h2>训练侧自监督与有限适配</h2><p>${escapeHTML(r.summary)}</p><p>${escapeHTML(r.interpretation)}</p><div class="ds-foot">${evidenceLink(r.id,'完整报告 ↗')} ${evidenceLink(r.id+'-comparison','八路对比 ↗')}</div></section>`;
+ return `<section class="panel latest-study train-side-ssl-overview"><div class="study-meta"><span>支持内开发比较</span></div><h2>训练侧自监督与有限适配</h2><p>${escapeHTML(r.summary)}</p><p>${escapeHTML(r.interpretation)}</p><div class="ds-foot">${evidenceLink(r.id,'完整报告 ↗')} ${evidenceLink(r.id+'-comparison','八路对比 ↗')}</div></section>`;
 }
 function trainSideSSLSection(methods=false){
  const r=data.train_side_ssl;if(!r)return '';
@@ -1183,7 +1187,7 @@ function trainSideSSLSection(methods=false){
 
 function boundedTuningOverview(){
  const r=data.brainhgt_bounded_tuning;if(!r)return '';
- return `<section class="panel bounded-tuning-overview"><h2>BrainHGT标签平滑与社区原型调优</h2><p>${escapeHTML(r.summary)}</p><p>${escapeHTML(r.interpretation)}</p><p class="data-note">${escapeHTML(r.boundary)}</p><div class="ds-foot">${evidenceLink(r.id,'完整报告 ↗')} ${evidenceLink(r.id+'-comparison','三组对比 ↗')}</div></section>`;
+ return `<section class="panel latest-study bounded-tuning-overview"><div class="study-meta"><span>支持内开发比较</span></div><h2>BrainHGT标签平滑与社区原型调优</h2><p>${escapeHTML(r.summary)}</p><p>${escapeHTML(r.interpretation)}</p><p class="data-note">${escapeHTML(r.boundary)}</p><div class="ds-foot">${evidenceLink(r.id,'完整报告 ↗')} ${evidenceLink(r.id+'-comparison','三组对比 ↗')}</div></section>`;
 }
 function boundedTuningSection(methods=false){
  const r=data.brainhgt_bounded_tuning;if(!r)return '';

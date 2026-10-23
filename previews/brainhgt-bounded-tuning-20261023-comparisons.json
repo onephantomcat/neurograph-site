@@ -1,0 +1,4 @@
+{
+  "content": "variant,delta_auc,delta_logloss,delta_brier,delta_ba,auc_positive_seeds,logloss_improved_seeds,brier_improved_seeds\nlabel_smoothing,0.002564102564102555,-0.036695804956832626,0.006836352212939845,-0.00940170940170939,4,4,1\ntrainable_centers,-0.0025641025641025992,-0.0533690719597939,-0.005263982035403658,0.003907203907203916,1,5,4\n",
+  "truncated": false
+}

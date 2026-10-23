@@ -1,0 +1,4 @@
+{
+  "content": "# 方法依据与旧失败区别\n\n[标签平滑原始分析，NeurIPS2019](https://papers.nips.cc/paper/8717-when-does-label-smoothing-help)研究软目标对过度自信、泛化和校准的影响；它不保证在本项目改善，不能称新算法。只在训练损失临时计算软目标，原标签和硬标签评价不变。\n\n[作者原型实现](https://github.com/null-cks/BrainHGT/blob/4f411fab1163e24f0b54e9cb398fbfe5928ce833/source/models/BrainHGT/components/clustering.py)默认freeze_centers=True，原型为随机初始化。q_proj本来就可学习，所以不能声称原模型社区完全固定；解冻也同时影响q_proj输入和社区残差，不是只改变查询。这里仅在模型实例上切换requires_grad，不修改作者核心源码。\n\n这与AdamW、均衡CE、最低logloss选轮、ROI共享encoder不同。标签平滑不是样本类别权重；解冻原型不是调Dice空间先验的16系数；二者均未使用自监督、外部预训练或时间窗口。旧停止范围保留，不将普通训练策略称疼痛特异机制。\n",
+  "truncated": false
+}

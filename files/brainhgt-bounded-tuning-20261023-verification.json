@@ -1,0 +1,23 @@
+{
+  "state": "PASS",
+  "new_fits": 30,
+  "reused_reference_models": 15,
+  "metric_rows": 45,
+  "seed_rows": 15,
+  "max_probability_replay_error": 0.0,
+  "max_logit_replay_error": 0.0,
+  "max_record_metric_error": 0.0,
+  "max_initial_logit_error": 0.0,
+  "prototype_dice_unchanged": true,
+  "train_validation_overlap": 0,
+  "new_outer_query_scores": 0,
+  "new_model_weight_bytes": 397891772,
+  "scientific_seconds": 1849.1730844974518,
+  "scientific_failures": 0,
+  "loss_and_gradient_formula_verified": true,
+  "finite_trial_finished_without_auto_extension": true,
+  "max_independent_metric_error": 2.220446049250313e-16,
+  "independent_metrics_location": "existing_local_statistics_runtime",
+  "verification_technical_failures": 1,
+  "unavailable_runtime_probes": 1
+}

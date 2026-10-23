@@ -1,0 +1,4 @@
+{
+  "content": "stage,status,count,description\nscientific_fitting,fixed_budget_completed,0,30 fits completed; all retained; no automatic retry\nhistorical_reference,reused_not_refitted,15,CPU matched original weights and 100-epoch curves reused\ninitial_verification,missing_sklearn,1,Server training runtime lacks sklearn; no refit; replay there then independently verify small private predictions in existing local statistics runtime\nalternate_runtime_probe,missing_sklearn,1,Existing second server environment also lacks sklearn; no package installed\n",
+  "truncated": false
+}

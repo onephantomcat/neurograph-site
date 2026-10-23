@@ -361,47 +361,6 @@ function executionPanel() {
     <div class="ds-foot">${evidenceLink(execution.source, '核查记录 ↗')}<a class="text-link" href="#history">研究历程 ↗</a><span>自动监控关闭；此处数字不会随页面刷新自动变更。</span></div>
   </article>`;
 }
-// Keep the home screen focused on navigation; retain original detail sections.
-function compactOverview(root, counts) {
-  root.classList.add('overview-home');
-  const heading=root.querySelector(':scope > .page-heading');
-  heading.classList.remove('overview-hero');
-  heading.querySelector('.muted').textContent='选择一个入口，详细进展按需展开。';
-  const reports=[...root.querySelectorAll('.latest-studies > .latest-study')].flatMap(card=>{
-    const button=card.querySelector('[data-source]');
-    const source=data.sources.find(item=>item.id===button?.dataset.source);
-    if(!source || (window.NEUROGRAPH_PUBLIC && !source.public_url))return [];
-    const record=Object.values(data).find(item=>item && typeof item==='object' && item.id===source.id);
-    return [{source,title:card.querySelector('h2').textContent,date:record?.date || ''}];
-  }).slice(0,3);
-  const icon=paths=>`<svg viewBox="0 0 24 24" aria-hidden="true">${paths}</svg>`;
-  const boardIcon=icon('<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 4v16M5 8h2m4 0h2m4 0h2M5 12h2m4 0h2"/>');
-  const indexIcon=icon('<path d="M4 4h16v16H4zM8 8h8M8 12h5M8 16h8"/>');
-  const reportIcon=icon('<path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9zM14 3v6h6M8 13h8M8 17h6"/>');
-  const entries=document.createElement('section');
-  entries.className='home-entry-grid';entries.setAttribute('aria-label','常用入口');
-  entries.innerHTML=`<a class="home-entry home-entry-link" data-home-entry="board" href="#goals?mode=board"><span class="home-entry-icon">${boardIcon}</span><h2>任务看板</h2><p>看任务状态，找当前要做的事。</p><small>${data.goals.length} 项任务 · ${counts.active} 项进行中</small><span class="home-entry-action">打开看板 ↗</span></a><a class="home-entry home-entry-link" data-home-entry="conclusions" href="#conclusions"><span class="home-entry-icon">${indexIcon}</span><h2>研究结论索引</h2><p>按研究问题查找结论和依据。</p><small>${conclusionRecords(data).length} 条代表性记录</small><span class="home-entry-action">查看结论 ↗</span></a><section class="home-entry home-reports" data-home-entry="reports" aria-label="最近报告"><div class="home-report-heading"><span class="home-entry-icon">${reportIcon}</span><h2>最近报告</h2></div><div class="home-report-list">${reports.length?reports.map(report=>`<button type="button" data-source="${escapeHTML(report.source.id)}" title="${escapeHTML(report.title)}"><span>${escapeHTML(report.title)}</span>${report.date?`<time>${escapeHTML(report.date)}</time>`:''}<i aria-hidden="true">↗</i></button>`).join(''):'<p>当前没有可公开的报告。</p>'}</div><a class="home-entry-action" href="#evidence">全部报告 ↗</a></section>`;
-  const note=document.createElement('p');note.className='home-research-note';
-  note.textContent='独立临床验证尚未完成；实验结果按各报告范围解释。';
-  const definitions=[['当前工作与临床目标','home-current'],['研究结论与完整指标','home-findings'],['任务安排与研究资料','home-planning'],['流程与历史资料','home-history']];
-  const sections=definitions.map(([title,id])=>{
-    const details=document.createElement('details');details.className='home-disclosure';details.id=id;
-    details.innerHTML=`<summary><strong>${title}</strong><span>展开查看</span></summary><div class="home-detail-content"></div>`;
-    details.addEventListener('toggle',()=>{details.querySelector('summary span').textContent=details.open?'收起详情':'展开查看';});
-    return details;
-  });
-  let group=0;
-  for(const node of [...root.children]) {
-    if(node===heading)continue;
-    const title=node.classList.contains('section-heading')?node.querySelector('h2')?.textContent:'';
-    if(title==='最近研究结论')group=1;
-    if(title==='下一步')group=2;
-    if(node.classList.contains('workflow-teaser'))group=3;
-    sections[group].querySelector('.home-detail-content').append(node);
-  }
-  root.replaceChildren(heading,entries,note,...sections);
-}
-
 function overview() {
   const counts=goalCounts(), c=data.clinical;
   const donePercent=ratioPercent(counts.done,data.goals.length);
@@ -439,7 +398,6 @@ function overview() {
     <article class="workflow-teaser"><div><span class="eyebrow">研究流程</span><h2>从影像处理到模型评价</h2><p>查看当前路线、历史流程与后续扩展。</p></div><a class="button" href="#workflow">查看流程图 ↗</a></article>
     ${researchDisclosure('历史执行与样本口径','按各自核查时间阅读；页面刷新不代表重新核查远端',executionPanel()+queuePanel()+`<div class="panel clinical-strip"><h2>候选样本与训练接入</h2><p>${c.inventory} 人元数据；候选上限 ${c.classification_candidates} 人，数值通过 ${c.numeric_pass} 人，人工确认 ${c.visual_accepted} 人，训练接入 ${c.training_ready} 人。</p><p class="data-note">快照 ${timeText(c.progress_as_of)}，不计为本轮新增人数。${escapeHTML(c.note)}</p></div>`)}
     ${researchDisclosure('前期成果','DS005713 来源包与早期迁移实验',dsSpotlight())}`;
-  compactOverview($('#view-overview'), counts);
 }
 
 function workflowFigure(name, title, description, transcript) {

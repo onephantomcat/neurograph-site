@@ -1,0 +1,4 @@
+{
+  "content": "{\n  \"state\": \"PASS\",\n  \"new_fits\": 15,\n  \"reused_models\": 15,\n  \"new_model_bytes\": 198932598,\n  \"seconds\": 771.5458681583405,\n  \"max_probability_replay_error\": 0.0,\n  \"max_logit_replay_error\": 0.0,\n  \"max_initial_logit_error\": 0.0,\n  \"max_training_metric_error\": 0.0,\n  \"train_validation_overlap\": 0,\n  \"outer_query_new_scores\": 0,\n  \"new_batches\": 3000,\n  \"prototype_and_dice_unchanged\": true,\n  \"scientific_fit_failures\": 0,\n  \"max_independent_metric_error\": 2.220446049250313e-16,\n  \"independent_metrics\": 240,\n  \"bootstrap_replicates\": 2000,\n  \"bootstrap_limit\": \"Fixed saved selected models; same fold-label person draws across methods and initializations; no retraining, new subsets, selection correction or independent clinical test.\"\n}\n",
+  "truncated": false
+}

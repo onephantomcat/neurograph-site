@@ -1,0 +1,7 @@
+stage,status,detail
+collection,corrected_retained,Initial current_ids key assumption in feature NPZ failed; use existing canonical site manifest keyed by verified person ID.
+command_preparation,corrected_retained,Literal Windows glob searches and missing preview helper path failed; corrected using actual paths; no scientific run.
+science,saved_results_only,"No new fit, forward, image read or outer query scoring; all historical negative branches retained."
+inference,unresolved,"No comparable training-person learning curve; no causal attribution of site, FD, model size or label errors."
+reader_assets,corrected_retained,Initial history tests lacked the new brief. Source reader assets were incrementally updated; live and public versions lack this feature and were preserved.
+sparse_checkout,corrected_retained,13 committed historical report artifacts materialized after source evidence tests failed. No historical science or tests modified.

@@ -57,3 +57,18 @@ CPU两线程实际30.163秒，包含源前向、缓存及45头训练，不是隔
 本有限阶段完成，研究总目标与独立临床验证未完成。训练内多次开发和来源检查点选择的偏差不能由五seed消除。
 
 [全部二十项种子](https://onephantomcat.github.io/neurograph-site/files/pain-regional-readout-20261023-seeds.csv)、[全部六十项模型指标](https://onephantomcat.github.io/neurograph-site/files/pain-regional-readout-20261023-metrics.csv)、[四组均值](https://onephantomcat.github.io/neurograph-site/files/pain-regional-readout-20261023-means.csv)、[三组配对差值](https://onephantomcat.github.io/neurograph-site/files/pain-regional-readout-20261023-comparisons.csv)、[区域名单](https://onephantomcat.github.io/neurograph-site/files/pain-regional-readout-20261023-regions.csv)、[新增模型模块](https://onephantomcat.github.io/neurograph-site/files/pain-regional-readout-20261023-code.py)、[执行说明](https://onephantomcat.github.io/neurograph-site/files/pain-regional-readout-20261023-reproduction.md)、[复核](https://onephantomcat.github.io/neurograph-site/files/pain-regional-readout-20261023-verification.json)、[拟合前方案](https://onephantomcat.github.io/neurograph-site/files/pain-regional-readout-20261023-plan.md)、[方法依据](https://onephantomcat.github.io/neurograph-site/files/pain-regional-readout-20261023-literature.md)、[失败与更正](https://onephantomcat.github.io/neurograph-site/files/pain-regional-readout-20261023-failures.csv)。
+
+
+<!-- brainhgt-failure-attribution-20261024 -->
+
+## 2026-10-24：BrainHGT失败归因与下一轮样本量实验方案
+
+复用8种方法、120份保存模型记录。原模型第10轮训练AUC0.9990、验证0.6249；社区先验错误排序交并比0.9913；疼痛残差损伤210、挽救137个原排序。原模型同站点/跨站点配对AUC0.6952/0.6893。
+
+主要瓶颈是当前监督表示在52/53名训练人上迅速记忆、向新人员泛化不足；尚不能把原因唯一归为参数量。社区改动几乎不改变错误排序，区域残差改动较大却净损伤原正确排序。同站点与跨站点配对AUC接近，不支持把站点当本轮首要解释；关联分析不排除站点、头动或未测混杂。
+
+SRPBS诊断开发，仅原outer0训练79人（37患者/42对照）、3内折、5初始化。120模型记录、3160条重复预测观测，不是3160名独立人员。全部来源检查点曾由当前内验证选轮；非99人完整OOF或独立验证。原20外查询新评分0，标签/QC、CoSpine13人留出和TN14停止不变。
+
+下一轮只建议完整原BrainHGT的两档训练人数响应实验：26人与52/53人，保持原验证人、5初始化、200更新和100次验证机会；原15个全量模型复用，最多新15个半量模型。该方案尚未启动；本轮新训练、前向及外查询评分均为0。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/brainhgt-failure-attribution-20261024.md)。

@@ -1,0 +1,19 @@
+{
+  "state": "PASS",
+  "unique_people": 79,
+  "unique_models": 120,
+  "prediction_rows": 3160,
+  "seed_rows": 40,
+  "macro_pair_decomposition_max_error": 1.1102230246251565e-16,
+  "duplicate_reference_probability_max_error": 1.1920928955078125e-07,
+  "new_fits": 0,
+  "new_forward_passes": 0,
+  "new_outer_query_scores": 0,
+  "mri_reads": 0,
+  "source_membership_matches": true,
+  "no_learning_curve_claim": true,
+  "independent_scalar_models": 120,
+  "max_scalar_metric_error": 1.1102230246251565e-16,
+  "bootstrap_replicates": 2000,
+  "bootstrap_unit": "person, stratified by existing inner fold and label; fixed saved models and five initializations; no retraining or selection correction"
+}

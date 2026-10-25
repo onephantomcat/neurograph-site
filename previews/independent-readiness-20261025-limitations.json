@@ -1,0 +1,4 @@
+{
+  "content": "item,status,detail\nindependent_ready,not_ready,0 verified ready; not a claim that all stored people were used.\nDS005713,metadata_candidate_only,\"135 exact-key candidates; QC33 pending,23patient10HC; complete identity/use/QC still unresolved.\"\nmusic,negative_terminal,\"68 outcomes:7 numerical pass,56 QC failures,5 technical failures; complete4-condition people0; patient contexts0.\"\nheld_metadata,scope_limited,Held clinical/tree metadata dated20261018; current server/QC rechecked20261025; no full disk or all online revision sweep.\nparent,stop_preserved,\"STOP_FIXED_SUPERVISED_MIXUP; CI crosses0; no new parameter search, scores or training.\"\n",
+  "truncated": false
+}

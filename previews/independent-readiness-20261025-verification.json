@@ -1,0 +1,4 @@
+{
+  "content": "{\n  \"state\": \"PASS\",\n  \"mature_cohorts\": 4,\n  \"cohort_person_records_per_retained_initialization\": 338,\n  \"not_a_cross_dataset_unique_person_count\": true,\n  \"retained_initializations_checked\": [\n    2,\n    3,\n    4\n  ],\n  \"original20_exposure_verified\": 20,\n  \"independent_table_and_tree_join_people\": 135,\n  \"current_QC_candidate_people\": 33,\n  \"current_QC_pending_people\": 33,\n  \"all_current_candidate_training_inclusion_false\": true,\n  \"music_outcomes_total\": 68,\n  \"music_common_people\": 0,\n  \"new_fits\": 0,\n  \"new_predictions\": 0,\n  \"new_MRI_or_FC_array_reads\": 0,\n  \"holdout_rating_reads\": 0,\n  \"new_QC_inclusions\": 0\n}\n",
+  "truncated": false
+}

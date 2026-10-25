@@ -55,3 +55,18 @@ OA实时队列仍为COMPLETE_PENDING_REVIEW，27条完成记录returncode为0的
 依据：[既有人员/终点/时点核查](https://onephantomcat.github.io/neurograph-site/#evidence?source=pain-readiness-20261012)、[四队列已开发记录](https://onephantomcat.github.io/neurograph-site/#evidence?source=compact-pain-20261013)、[当前SPD外层结果](https://onephantomcat.github.io/neurograph-site/#evidence?source=spd-outer-20261017)、[OA原聚合](https://onephantomcat.github.io/neurograph-site/#evidence?source=oa-readiness-audit-20261014)。历史资料按表中证据日期解释，未联网刷新所有源数据版本。
 
 <Self-Audit>只读已有缓存/状态，新增拟合、预测、MRI读取、纳入与临床验证0。没有把可读数组当独立验证，未改标签/QC/原结果；复用既有人员和方案证据，新增仅为本次可用性判断。</Self-Audit>
+
+
+<!-- independent-readiness-20261025 -->
+
+## 2026-10-25：现有人员能否支持独立诊断验证
+
+现有成熟队列中，SRPBS99、ZAN54、Emo53、偏头痛132全员已有历史模型预测；SRPBS原20人也已使用。目前可直接用于未参与开发、任务可比较的独立诊断验证人数为0。
+
+不是没有潜在新人员：DS005713现持有快照有135个旧33来源键以外、同时具临床/分组和rest路径的条目（97patient/38HC），其中33条在当前QC目录为23/10且全部待确认。它们仍需核清身份、既往使用及输入，不能写成135名或33名合格独立测试者。
+
+本轮仅元数据与历史使用核查，新训练/模型预测/MRI及FC数组读取/留出评分/新增QC纳入均0。不同病因的patient/HC可研究外部运输，不能直接等同同病种确诊验证；命名空间键不重合不证明生物身份独立。旧失败、原分区、标签、QC、TN14停止和CoSpine留出保持。
+
+先对齐DS005713当前33条待确认记录的原person_id、首访视、分组、全部既往使用与QC输出来源；不重处理、不评分，也不恢复TN14。只有形成未参与开发且双类/输入可比的真实名单后，才考虑一次复用15原模型＋15混合模型的零新增训练外部评估；当前不执行。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/independent-readiness-20261025.md)。

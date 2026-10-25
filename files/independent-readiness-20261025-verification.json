@@ -1,0 +1,23 @@
+{
+  "state": "PASS",
+  "mature_cohorts": 4,
+  "cohort_person_records_per_retained_initialization": 338,
+  "not_a_cross_dataset_unique_person_count": true,
+  "retained_initializations_checked": [
+    2,
+    3,
+    4
+  ],
+  "original20_exposure_verified": 20,
+  "independent_table_and_tree_join_people": 135,
+  "current_QC_candidate_people": 33,
+  "current_QC_pending_people": 33,
+  "all_current_candidate_training_inclusion_false": true,
+  "music_outcomes_total": 68,
+  "music_common_people": 0,
+  "new_fits": 0,
+  "new_predictions": 0,
+  "new_MRI_or_FC_array_reads": 0,
+  "holdout_rating_reads": 0,
+  "new_QC_inclusions": 0
+}

@@ -1,0 +1,29 @@
+{
+  "state": "PASS",
+  "independently_reconstructed_remaining_keys": 102,
+  "prior33_disjoint": true,
+  "baseline_original_QC_exclusions": 100,
+  "automatic_exclusions": 99,
+  "recovery_exclusion": 1,
+  "identity_duplicate_holds": 2,
+  "hold_groups": {
+    "patient": 2
+  },
+  "cross_person_shared_BOLD_groups": 1,
+  "current_tree_BOLD_blob_records_for_holds": 1,
+  "raw_rest_and_T1_file_presence_keys": 102,
+  "raw_array_readability_not_newly_tested": true,
+  "related_visits": 138,
+  "followup_status_counts": {
+    "automatic_QC_excluded": 31,
+    "AAL90_excluded": 3,
+    "redundant_visit_hold": 2
+  },
+  "original135_QC_exclusions": 133,
+  "original135_identity_holds": 2,
+  "current_eligible_people": 0,
+  "new_training": 0,
+  "new_predictions": 0,
+  "new_MRI_or_FC_array_reads": 0,
+  "new_QC_decisions": 0
+}

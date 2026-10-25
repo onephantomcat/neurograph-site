@@ -1,0 +1,170 @@
+{
+  "candidate_keys": 102,
+  "groups": {
+    "patient": 74,
+    "HC": 28
+  },
+  "eligible_people": 0,
+  "excluded_by_original_QC": 100,
+  "identity_hold_keys": 2,
+  "identity_hold_groups": {
+    "patient": 2
+  },
+  "baseline_status_counts": {
+    "EXCLUDED_EXISTING_AUTOMATIC_QC": 99,
+    "HOLD_IDENTITY_DUPLICATE_NO_QC": 2,
+    "EXCLUDED_EXISTING_RECOVERY_QC": 1
+  },
+  "group_status_counts": {
+    "patient": {
+      "EXCLUDED_EXISTING_AUTOMATIC_QC": 72,
+      "HOLD_IDENTITY_DUPLICATE_NO_QC": 2
+    },
+    "HC": {
+      "EXCLUDED_EXISTING_AUTOMATIC_QC": 27,
+      "EXCLUDED_EXISTING_RECOVERY_QC": 1
+    }
+  },
+  "related_visits": 138,
+  "baseline_visits": 102,
+  "followup_visits": 36,
+  "followup_people": 36,
+  "visit_status_counts": {
+    "baseline": {
+      "EXCLUDED_EXISTING_AUTOMATIC_QC": 99,
+      "HOLD_IDENTITY_DUPLICATE_NO_QC": 2,
+      "EXCLUDED_EXISTING_RECOVERY_QC": 1
+    },
+    "followup": {
+      "EXCLUDED_EXISTING_AUTOMATIC_QC": 31,
+      "EXCLUDED_EXISTING_AAL90_COVERAGE": 3,
+      "HOLD_REDUNDANT_VISIT_NO_QC": 2
+    }
+  },
+  "original_failed_gate_people": {
+    "censor_fraction_lte_0p20": 90,
+    "confounds_full_column_rank": 21,
+    "usable_minutes_gte_5": 57,
+    "motion_translation_lt_3mm": 5,
+    "normalized_mask_coverage_by_standard_gt_0p90": 9,
+    "normalized_mask_dice_gt_0p75": 13,
+    "confounds_columns_match_config_plus_censoring": 2,
+    "motion_rotation_lt_3deg": 6
+  },
+  "raw_baseline_rest_present": 102,
+  "raw_baseline_T1_present": 102,
+  "baseline_staging_identity_matches": 99,
+  "baseline_config_identity_matches": 99,
+  "raw_payload_not_newly_validated": true,
+  "old_to_current_field_matches": {
+    "age": 102,
+    "sex": 102,
+    "clinical_finding": 102
+  },
+  "absolute_MRI_date_keys": 0,
+  "checked_saved_membership_lists": [
+    {
+      "key": "source36",
+      "evidence": "原36扫描/33人来源manifest",
+      "DS005713_person_keys": 33,
+      "remaining102_matched": 0,
+      "identity_hold2_matched": 0,
+      "scope": "saved_named_members_only_not_global_unused_proof"
+    },
+    {
+      "key": "classification",
+      "evidence": "旧classification人员manifest",
+      "DS005713_person_keys": 28,
+      "remaining102_matched": 0,
+      "identity_hold2_matched": 0,
+      "scope": "saved_named_members_only_not_global_unused_proof"
+    },
+    {
+      "key": "regression",
+      "evidence": "旧regression人员manifest",
+      "DS005713_person_keys": 14,
+      "remaining102_matched": 0,
+      "identity_hold2_matched": 0,
+      "scope": "saved_named_members_only_not_global_unused_proof"
+    },
+    {
+      "key": "fit_ds005713_source",
+      "evidence": "2026-09-08实际fit_subject_ids：ds005713_source",
+      "DS005713_person_keys": 33,
+      "remaining102_matched": 0,
+      "identity_hold2_matched": 0,
+      "scope": "saved_named_members_only_not_global_unused_proof"
+    },
+    {
+      "key": "source_ds005713_source",
+      "evidence": "2026-09-09保存source_ids：ds005713_source",
+      "DS005713_person_keys": 33,
+      "remaining102_matched": 0,
+      "identity_hold2_matched": 0,
+      "scope": "saved_named_members_only_not_global_unused_proof"
+    },
+    {
+      "key": "fit_ds005713_to_srpbs_source",
+      "evidence": "2026-09-08实际fit_subject_ids：ds005713_to_srpbs_source",
+      "DS005713_person_keys": 33,
+      "remaining102_matched": 0,
+      "identity_hold2_matched": 0,
+      "scope": "saved_named_members_only_not_global_unused_proof"
+    },
+    {
+      "key": "source_ds005713_to_srpbs_source",
+      "evidence": "2026-09-09保存source_ids：ds005713_to_srpbs_source",
+      "DS005713_person_keys": 33,
+      "remaining102_matched": 0,
+      "identity_hold2_matched": 0,
+      "scope": "saved_named_members_only_not_global_unused_proof"
+    }
+  ],
+  "global_unused_people_certified": 0,
+  "identity_hold_shared_BOLD_groups": 1,
+  "current_tree_distinct_BOLD_blob_records_for_hold2": 1,
+  "current_catalog_matches": 0,
+  "current_ds005713_SQLite_decisions": 0,
+  "original33_exclusions_retained": 33,
+  "original135_total_QC_excluded": 133,
+  "original135_identity_hold_keys": 2,
+  "original135_eligible": 0,
+  "observed_at": "2026-10-25T11:49:10.800841+00:00",
+  "id": "ds005713-remaining-audit-20261025",
+  "title": "DS005713剩余102候选的人员与输入QC核查",
+  "date": "2026-10-25",
+  "state": "COMPLETE_REMAINING102_100QC_EXCLUDED_2IDENTITY_HOLD_NO_SCORING",
+  "summary": "剩余102个候选登记键（74patient/28HC）当前可用于独立验证0：100条已有原QC排除，2条patient为原跨人员身份重复HOLD。结合此前33条，原135候选为133条原QC排除、2条身份待核，可直接验证仍0。",
+  "interpretation": "2条HOLD记录涉及同一组跨人员重复BOLD对象，不能当作2名独立验证人，也没有合格HC可组成病例/对照测试集。文件路径存在、旧成员清单未命中，都不能解除原身份和QC限制。",
+  "details": "102个基线BOLD及对应T1文件在服务器均可找到，本轮未新读头或数组。138个关联访视仍来自原102个登记键；36随访中31原自动QC排除、3原AAL90覆盖排除、2原重复访视HOLD，无现成替代输入。",
+  "boundary": "仅读既有metadata、配置、源文件存在/大小、原报告、保存成员、Git/annex对象记录与SQLite；训练/前向/预测、MRI头/数组与FC数组读取、QC决定/纳入及专家报告均0。原阈值、原33排除、TN14与CoSpine留出保持；不把登记键或重复访视当作已证独立生物个体。",
+  "next": "结束当前135候选池的独立诊断验证准备，原30权重条件评估不执行。2条身份HOLD需来源方澄清人员与扫描归属后才能重新讨论；当前不合并身份、不选一个登记冒充新患者、不恢复排除者，也不训练或评分。后续若继续，应另行核查新的合格来源。",
+  "decision": "CLOSE_CURRENT135_NO_EVALUATION_OR_TRAINING",
+  "new_fits": 0,
+  "new_forward_passes": 0,
+  "new_predictions": 0,
+  "new_MRI_reads": 0,
+  "new_FC_array_reads": 0,
+  "new_QC_inclusions": 0,
+  "new_expert_reports": 0,
+  "clinical_validation": false,
+  "diagnostic_summary": "只读核对剩余102键、138访视、原失败报告和保存成员，100原QC排除、2身份HOLD。",
+  "method": "原成员/访视表、staging/配置/原marker与QC报告、文件存在/大小、Git及annex对象和SQLite逐项重连；不读MRI/FC数组或调用模型。",
+  "verification_summary": "独立csv/openpyxl核对102集合与原33互斥、100排除/2HOLD、138访视及36随访，原共享BOLD对象与现有Git记录对应。",
+  "display_metrics": [
+    {
+      "group": "原patient",
+      "people": 74,
+      "eligible": 0,
+      "excluded": 72,
+      "identity_hold": 2
+    },
+    {
+      "group": "原HC",
+      "people": 28,
+      "eligible": 0,
+      "excluded": 28,
+      "identity_hold": 0
+    }
+  ]
+}

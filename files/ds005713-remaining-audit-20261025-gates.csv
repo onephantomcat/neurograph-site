@@ -1,0 +1,9 @@
+original_failed_gate,baseline_keys,unit,overlap
+censor_fraction_lte_0p20,90,distinct_baseline_keys_per_gate,Counts overlap; do not sum as people
+confounds_full_column_rank,21,distinct_baseline_keys_per_gate,Counts overlap; do not sum as people
+usable_minutes_gte_5,57,distinct_baseline_keys_per_gate,Counts overlap; do not sum as people
+motion_translation_lt_3mm,5,distinct_baseline_keys_per_gate,Counts overlap; do not sum as people
+normalized_mask_coverage_by_standard_gt_0p90,9,distinct_baseline_keys_per_gate,Counts overlap; do not sum as people
+normalized_mask_dice_gt_0p75,13,distinct_baseline_keys_per_gate,Counts overlap; do not sum as people
+confounds_columns_match_config_plus_censoring,2,distinct_baseline_keys_per_gate,Counts overlap; do not sum as people
+motion_rotation_lt_3deg,6,distinct_baseline_keys_per_gate,Counts overlap; do not sum as people

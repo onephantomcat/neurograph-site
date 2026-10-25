@@ -1,0 +1,3 @@
+visit,records,automatic_QC_excluded,recovery_QC_excluded,AAL90_coverage_excluded,identity_hold,redundant_visit_hold,eligible
+baseline,102,99,1,0,2,0,0
+followup,36,31,0,3,0,2,0

@@ -1,0 +1,4 @@
+{
+  "content": "{\n  \"state\": \"PASS\",\n  \"independently_reconstructed_remaining_keys\": 102,\n  \"prior33_disjoint\": true,\n  \"baseline_original_QC_exclusions\": 100,\n  \"automatic_exclusions\": 99,\n  \"recovery_exclusion\": 1,\n  \"identity_duplicate_holds\": 2,\n  \"hold_groups\": {\n    \"patient\": 2\n  },\n  \"cross_person_shared_BOLD_groups\": 1,\n  \"current_tree_BOLD_blob_records_for_holds\": 1,\n  \"raw_rest_and_T1_file_presence_keys\": 102,\n  \"raw_array_readability_not_newly_tested\": true,\n  \"related_visits\": 138,\n  \"followup_status_counts\": {\n    \"automatic_QC_excluded\": 31,\n    \"AAL90_excluded\": 3,\n    \"redundant_visit_hold\": 2\n  },\n  \"original135_QC_exclusions\": 133,\n  \"original135_identity_holds\": 2,\n  \"current_eligible_people\": 0,\n  \"new_training\": 0,\n  \"new_predictions\": 0,\n  \"new_MRI_or_FC_array_reads\": 0,\n  \"new_QC_decisions\": 0\n}\n",
+  "truncated": false
+}

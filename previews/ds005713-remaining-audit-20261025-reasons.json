@@ -1,0 +1,4 @@
+{
+  "content": "reason,keys,patients,HC,exclusive_primary,meaning\nORIGINAL_AUTOMATIC_QC_EXCLUDED,99,72,27,True,原自动QC排除，与当前原报告false项和完成marker相符\nORIGINAL_RECOVERY_QC_EXCLUDED,1,0,1,True,旧恢复后71/190扩展删帧，原20%要求仍未满足\nCROSS_PERSON_BOLD_IDENTITY_HOLD,2,2,0,True,原hold_identity_duplicate，涉及同一跨人员BOLD对象；无现成处理/QC资格\n",
+  "truncated": false
+}

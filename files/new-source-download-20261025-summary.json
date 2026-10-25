@@ -1,0 +1,42 @@
+{
+  "id": "new-source-download-20261025",
+  "title": "新疼痛数据来源核查与小样本下载尝试",
+  "date": "2026-10-25",
+  "state": "THREE_SOURCES_REVIEWED_ONE_CANDIDATE_MRI_ACCESS_BLOCKED",
+  "summary": "核查3个新来源：DS008919有27名慢性腰痛患者、25名对照，基线BOLD与T1同时列出的候选为51名（27患者/24对照）。已取得三套根元数据及8份示例侧车；官方影像入口在本机与服务器均返回403，新增MRI下载0，可直接独立验证仍0。",
+  "interpretation": "DS008919值得保留为下一步数据候选；51名只是清单中的输入配对上限，尚无影像可读性、人员独立性或QC结论。DS007907只有PET/T1，DS008783为咀嚼肌定量MRI，均不适用于当前全脑静息FC模型。",
+  "details": "DS008919完整清单1795项、148份BOLD/149份T1，含重复访视，总列出27.16 GiB；51名基线的T1/BOLD/静息反向编码及侧车约7.85 GiB。预选2人首次访视、6份影像及侧车共324.52 MiB，未下载成功。",
+  "boundary": "本轮仅下载和读取来源元数据、完整文件清单及示例侧车；MRI文件/头/数组、预处理、FC、训练、预测、QC决定与新增训练纳入均0。保留全部访问失败；原QC、标签、分区、TN14停止与CoSpine留出不变。",
+  "next": "当前三来源核查到此结束。优先解决DS008919官方影像403访问问题；取得文件后先完成2人技术可读性与原流程适配核查，再决定全量获取。未取得新影像前不启动预处理、模型训练或评分，不扩展模型参数搜索。",
+  "method": "官方三套参与者字段/版本说明、完整S3清单和两人侧车；本机及原服务器核对匿名影像下载入口，保持两人有限预算。",
+  "diagnostic_summary": "3来源核查／1个静息FC候选／影像访问403／新MRI0／无训练预测",
+  "verification_summary": "三套完整清单、15份标签版本元数据与main一致，组别及基线配对独立重算；403与错误路径回执保留，MRI可读性及QC未做。",
+  "display_metrics": [
+    {
+      "dataset": "DS008919",
+      "people": "27患者/25对照",
+      "input": "全脑静息BOLD及T1；基线51份人级配对候选",
+      "decision": "优先候选；影像403，待可读性、独立性与QC核查",
+      "url": "https://openneuro.org/datasets/ds008919/versions/1.0.0"
+    },
+    {
+      "dataset": "DS007907",
+      "people": "125患者/22对照",
+      "input": "PET、T1；完整清单无BOLD",
+      "decision": "不用于当前全脑静息FC模型",
+      "url": "https://openneuro.org/datasets/ds007907/versions/1.0.2"
+    },
+    {
+      "dataset": "DS008783",
+      "people": "42患者/42对照",
+      "input": "咀嚼肌定量MRI；完整清单无BOLD",
+      "decision": "不用于当前全脑静息FC模型",
+      "url": "https://openneuro.org/datasets/ds008783/versions/1.0.0"
+    }
+  ],
+  "new_fits": 0,
+  "new_predictions": 0,
+  "actual_MRI_downloads": 0,
+  "eligible_independent_people": 0,
+  "listed_baseline_pairs": 51
+}

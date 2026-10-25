@@ -1,0 +1,13 @@
+{
+  "state": "PASS_METADATA_AND_INVENTORY_ONLY",
+  "datasets": 3,
+  "complete_listings": 3,
+  "tagged_metadata_files": 15,
+  "groups_match_description": true,
+  "baseline_pairs": 51,
+  "actual_MRI_downloads": 0,
+  "new_fits": 0,
+  "new_predictions": 0,
+  "eligible_independent_people": 0,
+  "all_access_failures_retained": true
+}

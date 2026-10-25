@@ -1,0 +1,32 @@
+{
+  "state": "PASS",
+  "new_fits": 30,
+  "reused_models": 15,
+  "replay_error": 0.0,
+  "scale_error": 0.0,
+  "gradient_error": 5.551115123125783e-17,
+  "objective_error": 1.1102230246251565e-16,
+  "max_final_gradient": 2.575280000707836e-07,
+  "source_unchanged": true,
+  "source_probability_error": 4.172325134277344e-07,
+  "pre_cache_error": 5.960464477539063e-08,
+  "new_head_bytes": 234460,
+  "synthetic": {
+    "state": "PASS",
+    "finite_difference_error": 6.902282998627607e-12,
+    "autograd_error": 8.326672684688674e-17,
+    "synthetic_parameters": 257,
+    "training_only_interface": true
+  },
+  "runtime": {
+    "python": "3.10.20",
+    "numpy": "1.26.4",
+    "scipy": "1.14.1",
+    "torch": "2.4.1+cu121"
+  },
+  "all_converged": true,
+  "max_independent_metric_error": 2.220446049250313e-16,
+  "independent_metrics": 360,
+  "bootstrap_replicates": 2000,
+  "bootstrap_limit": "Fixed saved source/checkpoints and fitted heads only; no retraining, source selection correction, cumulative development correction or independent clinical test."
+}

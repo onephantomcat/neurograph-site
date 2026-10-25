@@ -1,0 +1,4 @@
+{
+  "content": "{\n  \"state\": \"PASS_SAVED_PREDICTION_METRICS\",\n  \"models\": 30,\n  \"cohort_model_records\": 90,\n  \"per_seed_method_and_difference_rows\": 45,\n  \"model_person_scores\": 7170,\n  \"new_fits\": 0,\n  \"independent_sklearn_metric_max_error\": 2.220446049250313e-16,\n  \"independent_pair_auc_max_error\": 1.1102230246251565e-16,\n  \"bootstrap_sklearn_checks\": 270,\n  \"bootstrap_max_error\": 8.881784197001252e-16,\n  \"paired_resamples_per_cohort\": 2000,\n  \"bootstrap_rng\": \"SeedSequence([20261025,cohort_index])\",\n  \"no_individual_data_public\": true\n}\n",
+  "truncated": false
+}

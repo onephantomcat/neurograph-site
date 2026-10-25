@@ -1,0 +1,4 @@
+{
+  "content": "{\n  \"state\": \"PASS\",\n  \"independent_scalar_models\": 30,\n  \"person_omission_sklearn_recomputations\": 2370,\n  \"site_subset_sklearn_records\": 90,\n  \"trajectory_rows\": 100,\n  \"max_independent_error\": 3.3306690738754696e-16,\n  \"source_primary_mean_seed_final_and_decision_preserved\": true,\n  \"new_fits\": 0,\n  \"new_forward_passes\": 0,\n  \"new_outer_query_scores\": 0,\n  \"mri_reads\": 0,\n  \"private_person_rows_not_for_publication\": 79\n}\n",
+  "truncated": false
+}

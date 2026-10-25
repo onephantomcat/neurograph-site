@@ -1,0 +1,4 @@
+{
+  "content": "stage,status,detail\npreparation,path_corrected,\"Prior script is analyze.py, not analysis.py; used the actual existing file. No models or data were modified.\"\ndiagnostic,negative_findings_retained,OSU only 2/5 initialization gains; early trajectory only 2/5; one all100 trajectory seed is negative; Brier worsens for 45/79 people. NKN AUC uses only 2 eligible people and 1 pair/fold/initialization.\ndecision,parent_stop_retained,Original selected AUC interval crosses zero; fixed-model diagnostics do not change the prespecified stopping decision.\nscience,completed_without_fitting,\"No new training, forward passes, MRI reads, external predictions, new bootstrap claims or automatic retries.\"\n",
+  "truncated": false
+}

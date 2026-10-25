@@ -1,0 +1,30 @@
+{
+  "omission_distribution": {
+    "cases": 79,
+    "minimum": 0.015628815628815573,
+    "q25": 0.019801352493660183,
+    "median": 0.020276945276945346,
+    "q75": 0.021031746031746058,
+    "maximum": 0.025885225885225814,
+    "positive": 79,
+    "zero": 0,
+    "negative": 0,
+    "all_person_omissions": 79
+  },
+  "concentration": {
+    "people": 79,
+    "positive_contribution_people": 46,
+    "negative_contribution_people": 18,
+    "zero_contribution_people": 15,
+    "positive_contribution_total": 0.02997557997557997,
+    "negative_contribution_total": -0.009554334554334555,
+    "net_delta_auc": 0.020421245421245418,
+    "top16_positive_contribution_share": 0.6369653767820775,
+    "top_count_used": 16,
+    "brier_improved_people": 34,
+    "brier_worsened_people": 45,
+    "classification_error_improved_people": 17,
+    "classification_error_worsened_people": 17
+  },
+  "person_level_rows_public": false
+}

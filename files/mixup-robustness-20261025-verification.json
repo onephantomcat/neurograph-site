@@ -1,0 +1,14 @@
+{
+  "state": "PASS",
+  "independent_scalar_models": 30,
+  "person_omission_sklearn_recomputations": 2370,
+  "site_subset_sklearn_records": 90,
+  "trajectory_rows": 100,
+  "max_independent_error": 3.3306690738754696e-16,
+  "source_primary_mean_seed_final_and_decision_preserved": true,
+  "new_fits": 0,
+  "new_forward_passes": 0,
+  "new_outer_query_scores": 0,
+  "mri_reads": 0,
+  "private_person_rows_not_for_publication": 79
+}

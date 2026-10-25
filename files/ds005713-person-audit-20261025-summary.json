@@ -1,0 +1,145 @@
+{
+  "candidate_people": 33,
+  "groups": {
+    "patient": 23,
+    "HC": 10
+  },
+  "eligible_people": 0,
+  "excluded_people": 33,
+  "insufficient_only_people": 0,
+  "identity_staging_and_author_map_matches": 33,
+  "baseline_visits": 33,
+  "followup_visits": 14,
+  "followup_people": 14,
+  "total_related_visits": 47,
+  "baseline_stage1_2_pass": 33,
+  "baseline_AAL90_coverage_fail": 33,
+  "minimum_coverage_range": [
+    0.37,
+    0.9106858054226475
+  ],
+  "required_coverage": 0.92,
+  "maximum_original_disposition_rounding_error": 4.992024571492948e-10,
+  "legacy_visual_status": {
+    "HUMAN_PASS_RESEARCHER_CONFIRMED_2026-08-24": 33
+  },
+  "current_SQLite_decisions": {
+    "PENDING": 33
+  },
+  "current_training_inclusion_true": 0,
+  "old_to_current_field_matches": {
+    "age": 33,
+    "sex": 33,
+    "clinical_finding": 33
+  },
+  "prior_clinical_evidence_status": {
+    "observed_current_release": 13,
+    "archival_public_snapshot_pending_author_confirmation": 20
+  },
+  "followup_coverage_excluded": 3,
+  "followup_automatic_excluded": 11,
+  "saved_membership_checks": [
+    {
+      "key": "source36",
+      "evidence": "原FC来源36扫描/33人manifest",
+      "scope": "source_package",
+      "DS005713_person_keys": 33,
+      "candidate_people_matched": 0,
+      "candidate_people_not_matched": 33,
+      "interpretation": "No direct candidate membership in this checked list; not proof of globally unseen people"
+    },
+    {
+      "key": "classification",
+      "evidence": "旧classification开发manifest",
+      "scope": "supervised_development",
+      "DS005713_person_keys": 28,
+      "candidate_people_matched": 0,
+      "candidate_people_not_matched": 33,
+      "interpretation": "No direct candidate membership in this checked list; not proof of globally unseen people"
+    },
+    {
+      "key": "regression",
+      "evidence": "旧regression开发manifest",
+      "scope": "supervised_development",
+      "DS005713_person_keys": 14,
+      "candidate_people_matched": 0,
+      "candidate_people_not_matched": 33,
+      "interpretation": "No direct candidate membership in this checked list; not proof of globally unseen people"
+    },
+    {
+      "key": "ds005713_source",
+      "evidence": "2026-09-08实际保存fit_subject_ids：ds005713_source",
+      "scope": "saved_pretraining_fit_members",
+      "DS005713_person_keys": 33,
+      "candidate_people_matched": 0,
+      "candidate_people_not_matched": 33,
+      "interpretation": "No direct candidate membership in this checked list; not proof of globally unseen people"
+    },
+    {
+      "key": "ds005713_to_srpbs_source",
+      "evidence": "2026-09-08实际保存fit_subject_ids：ds005713_to_srpbs_source",
+      "scope": "saved_pretraining_fit_members",
+      "DS005713_person_keys": 33,
+      "candidate_people_matched": 0,
+      "candidate_people_not_matched": 33,
+      "interpretation": "No direct candidate membership in this checked list; not proof of globally unseen people"
+    },
+    {
+      "key": "optimization_ds005713_source",
+      "evidence": "2026-09-09保存source_ids：ds005713_source",
+      "scope": "saved_optimization_source_members",
+      "DS005713_person_keys": 33,
+      "candidate_people_matched": 0,
+      "candidate_people_not_matched": 33,
+      "interpretation": "No direct candidate membership in this checked list; not proof of globally unseen people"
+    },
+    {
+      "key": "optimization_ds005713_to_srpbs_source",
+      "evidence": "2026-09-09保存source_ids：ds005713_to_srpbs_source",
+      "scope": "saved_optimization_source_members",
+      "DS005713_person_keys": 33,
+      "candidate_people_matched": 0,
+      "candidate_people_not_matched": 33,
+      "interpretation": "No direct candidate membership in this checked list; not proof of globally unseen people"
+    }
+  ],
+  "global_unused_people_certified": 0,
+  "observed_at": "2026-10-25T10:05:05.005213+00:00",
+  "id": "ds005713-person-audit-20261025",
+  "title": "DS005713原33条候选的人员与QC来源核对",
+  "date": "2026-10-25",
+  "state": "COMPLETE_ALL33_EXCLUDED_EXISTING_AAL90_COVERAGE_NO_SCORING",
+  "summary": "原33条候选最终可用0人、按原AAL90覆盖要求排除33人（23patient/10HC）。最低脑区覆盖为0.3700—0.9107，均低于原0.92要求；不执行上轮针对这33人的条件评估方案。",
+  "interpretation": "网页PENDING来自当前审核数据库，不能覆盖历史处置：33人原Stage1/2数值检查及2026-08-24研究者图像确认均有记录，但AAL90覆盖失败已明确排除。保留原确认和排除，不重新审批或降低阈值。",
+  "details": "33人均为原人员表中的基线，另有14次明确映射到其中14人的随访，仍是33人；随访3次覆盖失败、11次自动QC排除。7份已核对的来源/监督/预训练及优化成员清单与这33人均无直接交集；完整跨库身份和全历史未开发证明仍未建立。",
+  "boundary": "仅只读已有配置、源路径/成员表、原报告、Git版本及SQLite；新增训练/前向/预测、MRI或FC数组读取、QC决定/训练纳入和专家报告均0。匿名键与访视对应不等于真实生物身份无重叠；QC明确排除33人不代表其他独立性缺口已解决。TN14及原全部停止状态保持。",
+  "next": "结束这33人的独立验证准备，原条件方案对本33不执行；不靠随访、补零、删ROI或改变原覆盖要求恢复。其他102条路径候选和新来源本轮未审计，不预报其可用人数。下一步若继续，只能另行核查新的输入来源和真实独立性依据，先不训练或评分。",
+  "new_fits": 0,
+  "new_forward_passes": 0,
+  "new_predictions": 0,
+  "new_MRI_reads": 0,
+  "new_FC_array_reads": 0,
+  "new_QC_inclusions": 0,
+  "new_expert_reports": 0,
+  "clinical_validation": false,
+  "decision": "CLOSE_CURRENT33_NO_EVALUATION_OR_TRAINING",
+  "diagnostic_summary": "只读核对原33条人员/访视、7份保存成员清单和QC四层来源，全部33已有AAL90覆盖排除。",
+  "method": "33人身份/源路径与原配置、47访视/marker/处置、原覆盖元数据、旧研究者确认、当前SQLite与保存fit/source成员逐项连接；不读数组或调用模型。",
+  "verification_summary": "独立csv/openpyxl/Decimal与SQLite读取核对33排除、47访视、7清单及新旧审核来源；年龄/性别/诊断原字段各33/33一致。",
+  "display_metrics": [
+    {
+      "group": "原patient",
+      "people": 23,
+      "eligible": 0,
+      "excluded": 23,
+      "reason": "原AAL90最低覆盖<0.92"
+    },
+    {
+      "group": "原HC",
+      "people": 10,
+      "eligible": 0,
+      "excluded": 10,
+      "reason": "原AAL90最低覆盖<0.92"
+    }
+  ]
+}

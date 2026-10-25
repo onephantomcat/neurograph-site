@@ -1,0 +1,4 @@
+{
+  "content": "{\n  \"state\": \"PASS\",\n  \"independent_baseline_rows\": 33,\n  \"author_mapped_related_visits\": 47,\n  \"linked_followups\": 14,\n  \"baseline_existing_AAL90_coverage_exclusions\": 33,\n  \"followup_AAL90_coverage_exclusions\": 3,\n  \"followup_automatic_QC_exclusions\": 11,\n  \"legacy_researcher_visual_confirmation_matches\": 33,\n  \"current_SQLite_decisions_for_candidate_subjects\": 0,\n  \"saved_membership_lists_checked\": 7,\n  \"candidate_membership_hits_in_checked_lists\": 0,\n  \"metadata_age_sex_diagnosis_matches_each\": 33,\n  \"eligible_people\": 0,\n  \"excluded_people\": 33,\n  \"insufficient_only_people\": 0,\n  \"new_training\": 0,\n  \"new_model_prediction\": 0,\n  \"new_MRI_or_FC_array_reads\": 0,\n  \"new_QC_decisions\": 0\n}\n",
+  "truncated": false
+}

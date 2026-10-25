@@ -1,0 +1,21 @@
+{
+  "state": "PASS",
+  "independent_baseline_rows": 33,
+  "author_mapped_related_visits": 47,
+  "linked_followups": 14,
+  "baseline_existing_AAL90_coverage_exclusions": 33,
+  "followup_AAL90_coverage_exclusions": 3,
+  "followup_automatic_QC_exclusions": 11,
+  "legacy_researcher_visual_confirmation_matches": 33,
+  "current_SQLite_decisions_for_candidate_subjects": 0,
+  "saved_membership_lists_checked": 7,
+  "candidate_membership_hits_in_checked_lists": 0,
+  "metadata_age_sex_diagnosis_matches_each": 33,
+  "eligible_people": 0,
+  "excluded_people": 33,
+  "insufficient_only_people": 0,
+  "new_training": 0,
+  "new_model_prediction": 0,
+  "new_MRI_or_FC_array_reads": 0,
+  "new_QC_decisions": 0
+}

@@ -1,0 +1,33 @@
+# DS005713原33候选最终对比
+
+原33条候选最终可用0人、按原AAL90覆盖要求排除33人（23patient/10HC）。最低脑区覆盖为0.3700—0.9107，均低于原0.92要求；不执行上轮针对这33人的条件评估方案。
+
+|原分组|候选人数|可用于独立验证|按原QC排除|主要原因|
+|---|---:|---:|---:|---|
+|原patient|23|0|23|原AAL90最低覆盖<0.92|
+|原HC|10|0|10|原AAL90最低覆盖<0.92|
+|合计|33|0|33|原AAL90覆盖要求未达到|
+
+
+|证据层次|记录数|原状态|解释|
+|---|---:|---|---|
+|原Stage1/2|33|PASS|历史数值检查，不保证AAL90脑区覆盖|
+|原研究者查看确认|33|HUMAN_PASS_RESEARCHER_CONFIRMED_2026-08-24|原78扫描批量确认中这33条有明确对应；不是本轮新专家报告|
+|原AAL90覆盖处置|33|EXCLUDED_BELOW_0P92|独立于Stage1/2与图像确认，全部33低于原0.92要求|
+|当前SQLite审核键|33|PENDING|未有新系统决定，不撤销/转移旧确认，也不覆盖原覆盖失败|
+|当前training_inclusion true|0|UNCHANGED|本轮不批准或改变纳入|
+|最终可用于本次独立验证|0|NOT_AVAILABLE|33人已因原AAL90覆盖要求被排除|
+
+
+|已核对的成员证据|DS005713人员键数|本33人命中|范围|
+|---|---:|---:|---|
+|原FC来源36扫描/33人manifest|33|0|source_package|
+|旧classification开发manifest|28|0|supervised_development|
+|旧regression开发manifest|14|0|supervised_development|
+|2026-09-08实际保存fit_subject_ids：ds005713_source|33|0|saved_pretraining_fit_members|
+|2026-09-08实际保存fit_subject_ids：ds005713_to_srpbs_source|33|0|saved_pretraining_fit_members|
+|2026-09-09保存source_ids：ds005713_source|33|0|saved_optimization_source_members|
+|2026-09-09保存source_ids：ds005713_to_srpbs_source|33|0|saved_optimization_source_members|
+
+
+仅只读已有配置、源路径/成员表、原报告、Git版本及SQLite；新增训练/前向/预测、MRI或FC数组读取、QC决定/训练纳入和专家报告均0。匿名键与访视对应不等于真实生物身份无重叠；QC明确排除33人不代表其他独立性缺口已解决。TN14及原全部停止状态保持。

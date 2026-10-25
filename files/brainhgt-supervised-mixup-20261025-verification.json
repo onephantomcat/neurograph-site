@@ -1,0 +1,41 @@
+{
+  "state": "PASS",
+  "new_fits": 15,
+  "reused_models": 15,
+  "new_model_bytes": 397808922,
+  "seconds": 2538.041808605194,
+  "max_probability_replay_error": 0.0,
+  "max_logit_replay_error": 0.0,
+  "max_initial_logit_error": 0.0,
+  "max_training_metric_error": 0.0,
+  "max_mixed_ce_error": 1.1958542034395947e-07,
+  "max_logit_gradient_error": 5.6641839773184655e-09,
+  "new_batches": 3000,
+  "new_updates": 3000,
+  "new_validation_opportunities": 1500,
+  "old_selected_replays": 15,
+  "new_selected_replays": 15,
+  "new_final_replays": 15,
+  "old_final_weight_available": false,
+  "membership_rng_selection_and_eval_mix_checked": true,
+  "prototype_and_dice_unchanged": true,
+  "outer_query_new_scores": 0,
+  "scientific_fit_failures": 0,
+  "runtime": {
+    "python": "3.10.20",
+    "numpy": "1.26.4",
+    "torch": "2.4.1+cu121"
+  },
+  "max_independent_metric_error": 2.220446049250313e-16,
+  "independent_metrics": 360,
+  "supports_primary": false,
+  "bootstrap_replicates": 2000,
+  "decision": "STOP_FIXED_SUPERVISED_MIXUP",
+  "bootstrap_limit": "Conditional on saved selected models; no retraining, validation selection correction, all research choices or independent clinical test.",
+  "local_metrics_runtime": {
+    "python": "3.13.5",
+    "numpy": "2.3.2",
+    "sklearn": "1.8.0"
+  },
+  "synthetic_verification": "{\"state\": \"PASS\", \"soft_target_loss_error\": 2.220446049250313e-16, \"manual_feature_gradient_error\": 3.469446951953614e-18, \"disabled_author_forward_error\": 0.0, \"eval_mix_blocked\": true, \"embedding_gradient_max\": 0.000415609945775941, \"frozen_prototype_gradient_absent\": true, \"lambda_endpoints_checked\": true, \"new_parameters\": 0}\n"
+}

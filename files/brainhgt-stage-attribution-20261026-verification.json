@@ -1,0 +1,19 @@
+{
+  "state": "PASS_FROZEN_STAGE_DIAGNOSTICS",
+  "new_fits": 0,
+  "new_updates": 0,
+  "reused_models": 15,
+  "stage_records": 165,
+  "intervention_records": 45,
+  "model_person_forwards": 3555,
+  "independent_metric_and_cka_max_error": 2.6645352591003757e-15,
+  "independent_centered_score_relative_error": 9.13257896316094e-15,
+  "input_fc_gram_relative_error": 1.00277780940486e-15,
+  "bootstrap_sklearn_max_error": 2.220446049250313e-16,
+  "bootstrap_replicates": 2000,
+  "max_reference_probability_error": 4.172325134277344e-07,
+  "embedding_min_rank": 90,
+  "embedding_smallest_singular_value": 0.40307114887654805,
+  "changed_state_tensors": 0,
+  "MRI_reads": 0
+}

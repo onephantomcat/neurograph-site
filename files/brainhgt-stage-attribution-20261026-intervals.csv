@@ -1,0 +1,13 @@
+comparison,kind,delta_auc,positive_seeds,lower95,upper95
+embedding_flat_minus_fc,fixed_diagnostic_score,-0.002869352869352859,1,-0.016667429792429734,0.01092796092796089
+lsra_flat_minus_embedding_flat,fixed_diagnostic_score,0.005616605616605708,4,-0.022439713064713096,0.032631257631257626
+encoder_first32_minus_lsra_flat,fixed_diagnostic_score,0.03272283272283272,5,-0.06261065323565324,0.12780982905982888
+encoder_second32_minus_encoder_first32,fixed_diagnostic_score,3.0525030524919394e-05,2,-0.012090964590964658,0.011630036630036589
+encoder_reconstruction_minus_encoder_second32,fixed_diagnostic_score,0.000366300366300365,1,-0.0023809523809523725,0.00357677045177041
+community_flat_minus_encoder_reconstruction,fixed_diagnostic_score,0.001984126984127088,3,-0.008424908424908395,0.013065476190476143
+community_mean_minus_community_flat,fixed_diagnostic_score,-0.000366300366300365,0,-0.00219780219780219,0.0
+classifier_hidden_minus_community_mean,fixed_diagnostic_score,0.0033882783882783762,4,-0.00366300366300365,0.010318223443223511
+logit_minus_classifier_hidden,fixed_diagnostic_score,0.01175213675213671,4,0.002960164835164825,0.023473748473748394
+lsra_mean_minus_lsra_flat,fixed_diagnostic_score,-0.031746031746031744,0,-0.10046779609279607,0.03624542124542116
+training_template_topology_minus_original,frozen_intervention_native_probability,0.0,0,0.0,0.0
+identity_community_encoder_minus_original,frozen_intervention_native_probability,-0.20372405372405372,0,-0.3385538766788766,-0.060802045177045204

@@ -1,0 +1,23 @@
+{
+  "state": "PASS_GEOMETRY_REGULARIZATION_REPLAY_AND_INDEPENDENT_METRICS",
+  "new_fits": 15,
+  "reused_models": 15,
+  "new_updates": 3000,
+  "selection_opportunities": 1500,
+  "independent_metrics_records": 45,
+  "max_independent_metric_error": 3.3306690738754696e-16,
+  "max_probability_replay_error": 0.0,
+  "max_logit_replay_error": 0.0,
+  "max_independent_cka_error": 2.6535251573811536e-07,
+  "max_independent_total_loss_error": 4.025126842943649e-08,
+  "max_denominator_relative_error": 2.6554819405069355e-07,
+  "bootstrap_sklearn_max_error": 4.440892098500626e-16,
+  "bootstrap_replicates": 2000,
+  "initial_logits_exact": true,
+  "auxiliary_gradient_first_layer_only": true,
+  "all_membership_batches_and_selection_checked": true,
+  "clamped_batches": 0,
+  "scientific_fit_failures": 0,
+  "outer_query_new_scores": 0,
+  "MRI_reads": 0
+}

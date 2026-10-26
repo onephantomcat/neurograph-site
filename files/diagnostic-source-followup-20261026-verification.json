@@ -1,0 +1,44 @@
+{
+  "state": "PASS_METADATA_SOURCE_TIMING_REVIEW",
+  "requests": 19,
+  "received_bytes": 1532033,
+  "request_limit": 20,
+  "byte_limit": 25165824,
+  "root_files_compared": 5,
+  "root_files_unchanged": 5,
+  "metadata_people": 52,
+  "group_counts": {
+    "control": 25,
+    "patient": 27
+  },
+  "tags": [
+    "1.0.0"
+  ],
+  "current_tree_entries": 2590,
+  "current_tree_truncated": false,
+  "tabular_file_count": 1,
+  "clinical_named_paths": 0,
+  "protocol_files": 1,
+  "protocol_bytes": 532976,
+  "protocol_pages": 18,
+  "protocol_pages_visually_reviewed": [
+    11,
+    12,
+    13
+  ],
+  "supplement_docx_valid": false,
+  "supplement_zip_obtained": false,
+  "restricted_parent_requests": 2,
+  "ds005713_original_qc_excluded": 133,
+  "ds005713_identity_hold": 2,
+  "ds008919_prior_baseline_input_pair_candidates": 51,
+  "ready_independent_diagnostic_people": 0,
+  "new_mri_downloads": 0,
+  "new_mri_or_roi_or_fc_reads": 0,
+  "new_preprocessing": 0,
+  "new_qc_decisions": 0,
+  "new_training": 0,
+  "new_model_forwards": 0,
+  "new_predictions": 0,
+  "new_contacts": 0
+}

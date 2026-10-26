@@ -1,0 +1,12 @@
+{
+  "state": "COMPLETE_METADATA_SOURCE_FOLLOWUP",
+  "request_budget_used": 19,
+  "request_budget_limit": 20,
+  "total_received_bytes": 1532033,
+  "ready_people": 0,
+  "candidate_upper_bound": 51,
+  "all_scientific_execution_counts": 0,
+  "author_contact_sent": false,
+  "original_exclusions_preserved": true,
+  "goal_complete": false
+}

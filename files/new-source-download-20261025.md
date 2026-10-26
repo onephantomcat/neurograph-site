@@ -1,3 +1,5 @@
+> 2026-10-26补查：协议支持计划先问卷后MRI，论文支持同访视采集；实际逐人评分/时差仍未取得，就绪0。详见[当前补查报告](https://onephantomcat.github.io/neurograph-site/files/diagnostic-source-followup-20261026.md)。以下保留原时点记录。
+
 # 新疼痛数据来源核查与小样本下载尝试
 
 2026-10-25。**核查3个新来源：DS008919有27名慢性腰痛患者、25名对照，基线BOLD与T1同时列出的候选为51名（27患者/24对照）。已取得三套根元数据及8份示例侧车；官方影像入口在本机与服务器均返回403，新增MRI下载0，可直接独立验证仍0。**
@@ -54,3 +56,17 @@ DS007907虽有125名患者与22名对照，但完整1481项清单及作者说明
 来源：[DS008919作者说明](https://github.com/OpenNeuroDatasets/ds008919/blob/1.0.0/README)、[DS007907作者说明](https://github.com/OpenNeuroDatasets/ds007907/blob/1.0.2/README.md)、[DS008783作者说明](https://github.com/OpenNeuroDatasets/ds008783/blob/1.0.0/README.md)、[OpenNeuro下载文档](https://docs.openneuro.org/user_guide.html)。
 
 <Self-Audit>复用原HTTP/SSH访问和发布流程；普通CSV、文件清单和版本元数据检查足够，本轮不新增hash、contract、baseline机制或gate。没有接触查询预测、训练、原QC或纳入决定；个体元数据和访问细节留私有。</Self-Audit>
+
+<!-- diagnostic-source-followup-20261026 -->
+
+## 2026-10-26：独立诊断来源与真实评分时点补查
+
+独立诊断就绪人数仍为0。DS008919的51人仍是旧基线影像配对候选上限；新增证据确认同访视问卷/MRI及计划先问卷后扫描，未取得逐人临床表和实际时间差。
+
+CLBP/HC诊断组别已有；诊断验证仍缺可访问影像、原QC及独立身份/开发史核对。原始痛评分和实际时间差另属痛强度终点缺口，不作为二分类诊断的额外前提。
+
+本次只读公开元数据、论文与注册协议；19次请求、1,532,033字节。MRI下载/数组读取、预处理、QC改判、训练、模型前向、预测和作者联系均0。DS005713原133QC排除与2身份HOLD、既往开发队列、CoSpine13、TN14停止保持；三个临床终点仍未完成。
+
+优先澄清官方影像403；入口恢复后可按原计划作2人获取/处理可行性检查，不必等待痛评分。独立诊断验证仍需核身份/开发史与原QC；原始条目、访视对应和实际时间差另行补齐以判断痛强度终点。来源问题清单已备，尚未联系作者；暂不新增训练、预测或同79人搜索。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/diagnostic-source-followup-20261026.md)。

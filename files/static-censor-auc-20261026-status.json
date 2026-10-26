@@ -1,0 +1,21 @@
+{
+  "state": "COMPLETE_STATIC_CENSOR_AUC_REVIEW",
+  "new_fits": 15,
+  "reused_models": 15,
+  "updates": 3000,
+  "validation_opportunities": 1500,
+  "seconds": 2442.3072890429758,
+  "main_worker_cpu_threads": 2,
+  "GPU": 0,
+  "scientific_fit_failures": 0,
+  "scientific_retries": 0,
+  "new_fc": 0,
+  "new_omst": 0,
+  "reference_new_forwards": 0,
+  "reference_saved_predictions": 15,
+  "new_selected_checkpoint_replays": 15,
+  "new_final_checkpoint_replays": 15,
+  "outer_query_new_scores": 0,
+  "MRI_reads": 0,
+  "new_model_bytes": 397816238
+}

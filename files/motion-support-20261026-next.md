@@ -1,3 +1,5 @@
+> 2026-10-26执行后补充：固定输入AUC对照15新/15复用已完成，结论及全部种子见[结果报告](https://onephantomcat.github.io/neurograph-site/files/static-censor-auc-20261026.md)。下文保留此前阶段或执行前的原记录。
+
 > 2026-10-26执行后补充：阶段A已完成52新FC/52图及27复用；阶段B模型训练仍未启动。详见[输入测量结果](https://onephantomcat.github.io/neurograph-site/files/static-censor-input-20261026.md)。下文保留执行前原方案。
 
 # 唯一后续候选：已有异常帧标记对静态FC与OMST的影响
@@ -44,3 +46,18 @@
 如果继续，只运行原定最多15新完整BrainHGT、复用15原参照的单配置直接AUC对照，原人/seed/200更新/100选轮不变；不加模块、几何损失或重加权。本轮阶段B未启动，不能把输入变化或QC–FC方向写成AUC改善。
 
 [完整报告](https://onephantomcat.github.io/neurograph-site/files/static-censor-input-20261026.md)。
+
+
+<!-- static-censor-auc-20261026 -->
+
+## 2026-10-26：固定去帧输入的完整BrainHGT AUC对照
+
+原输入AUC 0.690140，固定去帧输入0.687851，差-0.002289；2/5种子提高，配对条件95%区间[-0.018653, +0.013951]。
+
+未满足预列开发增量要求，结束这个固定输入配置。Brier差-0.004933、logloss差-0.008598，均按新减原计算，越低越好。全部种子与末轮结果保留；没有挑最高分作为结论。
+
+仅原79人开发对照，三内折×五种子，共15新模型及15复用参照。条件区间不覆盖重训、选轮或累计开发选择；无新增独立验证、MRI同期程度或疗效证据。原20/CoSpine13/其他队列新评分0，QC、标签、划分及TN14停止状态保持。
+
+停止这个固定去帧输入配置，不扩大删帧阈值或模型搜索；下一步只复用现有预测核对站点及头动分组中的配对错误，判断改动影响是否集中在少数开发人员，不新增训练或查询评分。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/static-censor-auc-20261026.md)。

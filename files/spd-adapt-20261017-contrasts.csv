@@ -1,4 +1,4 @@
-﻿cohort,k,comparison,delta_mean_auc,positive_support_repeats,delta_brier,delta_logloss,valid_resamples,invalid_resamples,ci_lower,ci_upper
+cohort,k,comparison,delta_mean_auc,positive_support_repeats,delta_brier,delta_logloss,valid_resamples,invalid_resamples,ci_lower,ci_upper
 zan,5,ensemble5,-0.04033103448275854,1,0.012960653854318382,0.03088017676727428,2000,0,-0.10425338366260899,0.019650842919940344
 zan,5,member_mean,-0.02542344827586196,1,0.027413268049315653,0.1011721815423604,2000,0,-0.06788867694805138,0.01752804383116884
 zan,10,ensemble5,-0.04082758620689647,0,0.011487377067128712,0.023172259128563022,2000,0,-0.1436279761904766,0.057668001443000765

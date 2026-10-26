@@ -1,4 +1,4 @@
-﻿k,outer,repeat,seed,step,layer,minimum_eigenvalue,relative_change,maximum_element_relative_change,diagonal_relative_error,sign_mismatches,activated_minimum_eigenvalue,midpoint_relative_error,relative_nonlinear_vs_linear_shrink
+k,outer,repeat,seed,step,layer,minimum_eigenvalue,relative_change,maximum_element_relative_change,diagonal_relative_error,sign_mismatches,activated_minimum_eigenvalue,midpoint_relative_error,relative_nonlinear_vs_linear_shrink
 10,0,0,0,0,1,0.219500143777191,0.13122123985632825,0.19999999999999848,1.0436174281588748e-16,0,0.4178876929091021,0.0064314134010880816,0.012995568637043067
 10,0,0,0,0,2,0.5285034654910131,0.0928333418053265,0.19999999997228762,0.0,0,0.6443599416214741,0.0027055633326655737,0.005718096361211878
 10,0,0,0,0,3,0.7622120086195411,,,,,,,

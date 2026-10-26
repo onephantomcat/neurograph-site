@@ -1,4 +1,4 @@
-﻿model,true_bin,predicted_bin,count
+model,true_bin,predicted_bin,count
 clinical__raw__argmax,0,0,0
 clinical__raw__argmax,0,1,5
 clinical__raw__argmax,0,2,0

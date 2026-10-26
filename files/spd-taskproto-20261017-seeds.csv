@@ -1,4 +1,4 @@
-﻿k,seed,method,auc,train_auc
+k,seed,method,auc,train_auc
 5,0,taskproto,0.6520080808080807,1.0
 5,1,taskproto,0.686820202020202,1.0
 5,2,taskproto,0.6238181818181818,1.0

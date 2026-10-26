@@ -1,4 +1,4 @@
-﻿component,state,evidence,missing,source
+component,state,evidence,missing,source
 FMM作者版本与权重,SOURCE_VERIFIED_WEIGHT_UNBOUND,FMM作者仍未给出具体权重映射。BrainLM问题3的协作者回复仅指向HF；当前HF三个变体没有此256配置，回复不能证明GitHub256与HF等价。,精确FMM权重绑定仍缺；不因问题被关闭就认定相同。,https://github.com/vandijklab/BrainLM/issues/3#issuecomment-2105738282
 官方256维候选,STRICT_LOAD_PASS,官方256维/4层/4头检查点，strict=True加载完整网络，缺失/额外键0；参数5047724，encoder参数3167248，124张量元素7607724。,FMM论文没有明确绑定该文件；官方来源与精确论文权重身份分开。,https://github.com/vandijklab/BrainLM/tree/eded39c86c27e03f5ead1d6a14311e92d1305e5e/pretrained_models/2023-06-06-22_15_00-checkpoint-1400
 公开HF权重,VARIANTS_DISTINGUISHED,old_13M为512维/4层/4头；111M为768维/12层/12头，650M为另一大模型,不能用投影成256维或换大模型冒称同一官方检查点,https://huggingface.co/vandijklab/brainlm/tree/4c54e0cccf920d9d6af7c647cb866fc19c60cf26

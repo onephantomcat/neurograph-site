@@ -91,7 +91,6 @@ PCA8后的站点解释方差比例未下降，不能将降维当作去站点。�
 
 [完整报告](https://onephantomcat.github.io/neurograph-site/files/cortexmae-rank-20261020.md)。
 
-
 <!-- cortexmae-pca8-20261022 -->
 
 ## 2026-10-22：CortexMAE固定PCA8头：同人同预算容量消融

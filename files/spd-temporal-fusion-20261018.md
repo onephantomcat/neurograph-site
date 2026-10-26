@@ -63,7 +63,6 @@ K20的时序与SPD残差相关0.711，低于两个SPD的0.895；但时序单独M
 
 [完整报告](https://onephantomcat.github.io/neurograph-site/files/brainlm-fc-audit-20261018.md)。
 
-
 <!-- brainlm-compatible-20261018 -->
 
 ## 2026-10-18：BrainLM256：严格加载、合成前向与缩放补查
@@ -107,7 +106,6 @@ K20的时序与SPD残差相关0.711，低于两个SPD的0.895；但时序单独M
 停止这一固定CortexMAE配置，不根据查询分数追加窗口、池化或融合权重。下一项先在支持集内部核查分类头正则化及与SPD的互补信息；有训练内依据后，再另定一次固定收缩残差融合比较。独立诊断、扫描同期疼痛与治疗随访仍分别需要合适数据。
 
 [完整报告](https://onephantomcat.github.io/neurograph-site/files/cortexmae-transfer-20261018.md)。
-
 
 <!-- temporal-reliability-20261022 -->
 

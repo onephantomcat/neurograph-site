@@ -1,4 +1,4 @@
-﻿cohort,k,method,condition,record_type,index,auc
+cohort,k,method,condition,record_type,index,auc
 zan,5,fixed,member_mean,repeat,0,0.5101793103448276
 zan,5,fixed,member_mean,repeat,1,0.5282758620689656
 zan,5,fixed,member_mean,repeat,2,0.5059862068965516

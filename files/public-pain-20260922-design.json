@@ -1,0 +1,56 @@
+{
+  "started_local": "2026-09-22T21:05:53+0800",
+  "source_revision": "7a69b3746c4d2e01d826974923ddd633a720fae4",
+  "participants": 33,
+  "target": "Emo-Fibro patient interview VAS 0-100; not simultaneous scan pain",
+  "methods": {
+    "train_mean": [],
+    "train_median": [],
+    "clinical": [
+      "clinical"
+    ],
+    "global_fc": [
+      "global_fc"
+    ],
+    "whole_fc": [
+      "fc"
+    ],
+    "clinical_plus_fc": [
+      "clinical",
+      "fc"
+    ]
+  },
+  "alphas": [
+    0.01,
+    0.1,
+    1.0,
+    10.0,
+    100.0
+  ],
+  "outer_folds": 5,
+  "repeats": 5,
+  "inner_folds": 3,
+  "seed": 20260922,
+  "clinical_features": [
+    "1_age",
+    "1_yr_study",
+    "1_fm_dx_t"
+  ],
+  "preprocessing": "training-only z-score, divide each block by sqrt(p); equal block weight in combined model",
+  "selection": "minimum participant-weighted inner OOF MAE; no clipping; all methods identical outer splits",
+  "inference": "paired subject bootstrap of mean repeated-OOF absolute errors, 2000 draws; conditional on these fits",
+  "limitations": [
+    "n=33, single cohort, no external validation",
+    "third-party derivatives, own image QC not reproduced",
+    "interview VAS not scan-time VAS",
+    "exploratory prediction, not clinical grading or drug recommendation"
+  ],
+  "libraries": {
+    "python": "3.12.13",
+    "numpy": "2.5.1",
+    "scipy": "1.18.0",
+    "sklearn": "1.9.0"
+  },
+  "state": "COMPLETE_VERIFIED",
+  "completed_local": "2026-09-22T21:06:09+0800"
+}

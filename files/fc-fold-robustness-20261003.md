@@ -56,13 +56,13 @@ AUC_within等于按每折病例数×对照数加权的折AUC；R_cross是来自�
 
 作者的[TLPO论文当前HTML稿](https://arxiv.org/html/1801.09386v2)讨论合并不同交叉验证轮次预测时的AUC可比性及折均值方法；本文实际读取的是2024年v2稿，关联正式论文发表于2019年。[2025年Science Advances研究](https://pubmed.ncbi.nlm.nih.gov/41313770/)的PubMed摘要和图注说明LOOCV中的分布偏差及重平衡方法。本项目用三折分层和每类平衡训练权重，不把LOOCV结论直接套作本实验已证实的偏差，也没有实施TLPO或重平衡新训练。
 
-本次分解是对当前结果的解释性补充。与近期疼痛预训练论文的病种、输入、公开队列重用及独立临床边界继续见[既有文献比较](migraine-input-pilot-20261002-literature.md)；没有形成新的预训练优势结论。
+本次分解是对当前结果的解释性补充。与近期疼痛预训练论文的病种、输入、公开队列重用及独立临床边界继续见[既有文献比较](LITERATURE_COMPARISON_2026-10-02.md)；没有形成新的预训练优势结论。
 
 ## 复核与下载
 
 保存预测、标签和既有按人划分用于复算，四份实际输入与已有服务器归档原字节相等。病例—对照直接排序与scikit-learn ROC AUC、折内加权与精确分解分别核对，最大数值差为1.11×10⁻¹⁶；全部原合并逐抽样AUC、Brier及四项ΔAUC重现。原6516头的独立概率复算误差0作为来源证据保留，本次未重新拟合或将逐人预测公开。
 
-[聚合JSON](fc-fold-robustness-20261003-summary.json) · [四项配对汇总CSV](fc-fold-robustness-20261003-paired.csv) · [逐折/抽样方法AUC](fc-fold-robustness-20261003-folds.csv) · [分析图PNG](fc-fold-robustness-20261003-figure.png) · [分析图PDF](fc-fold-robustness-20261003-pdf.pdf)
+[聚合JSON](../reports/fc-fold-robustness-2026-10-03/summary.json) · [四项配对汇总CSV](../reports/fc-fold-robustness-2026-10-03/paired_summary.csv) · [逐折/抽样方法AUC](../reports/fc-fold-robustness-2026-10-03/fold_draw_auc.csv) · [分析图PNG](../reports/fc-fold-robustness-2026-10-03/fold_consistency.png) · [分析图PDF](../reports/fc-fold-robustness-2026-10-03/fold_consistency.pdf)
 
 图中每个点是一个方法对照的折—支持抽样聚合差值，不是一个患者。三折和五次支持的相关性、两队列已参与开发、Emo原失败与细区覆盖、身份/预训练重叠未知及临床缺口全部保留。没有新增评分、QC纳入、专家确认或临床验证。原20、TN14、结构535和其他暂停范围不变。
 
@@ -71,4 +71,4 @@ AUC_within等于按每折病例数×对照数加权的折AUC；R_cross是来自�
 
 10月4日保存选参复查：改用联合参考后，SRPBS有10/15个相关折—抽样单元改变α或λ，Emo有9/15个改变；协变量2,640个配对概率值完全相同。参考对照反映整个流程，不能把AUC差全部归因于参考几何；原主要指标与区间保持，没有新拟合或临床验证。
 
-SRPBS的α/λ分别改变3/15、9/15，Emo分别为7/15、8/15；次数来自相互相关的原折—支持抽样，不作独立显著性检验。权重和为1控制平均损失尺度，λ仍定义在每个训练加权标准化后的坐标中。原联合减目标参考ΔAUC分别为−0.0004和−0.0553，两项原配对区间均跨零；不将整项差值归因于单一几何或正则机制。 [完整报告与PNG/SVG图](fc-reference-selection-20261004.md)。
+SRPBS的α/λ分别改变3/15、9/15，Emo分别为7/15、8/15；次数来自相互相关的原折—支持抽样，不作独立显著性检验。权重和为1控制平均损失尺度，λ仍定义在每个训练加权标准化后的坐标中。原联合减目标参考ΔAUC分别为−0.0004和−0.0553，两项原配对区间均跨零；不将整项差值归因于单一几何或正则机制。 [完整报告与PNG/SVG图](FC_REFERENCE_SELECTION_REVIEW_2026-10-04.md)。

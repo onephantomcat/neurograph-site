@@ -1,4 +1,4 @@
-﻿key,variant,seed,train_people,query_people,epochs_run
+key,variant,seed,train_people,query_people,epochs_run
 fixed_seed0_outer0_final,fixed,0,79,20,10
 fixed_seed0_outer1_final,fixed,0,79,20,1
 fixed_seed0_outer2_final,fixed,0,79,20,21

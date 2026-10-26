@@ -1,4 +1,4 @@
-﻿source,k,seed,method,auc,train_auc,expert_seeds,record_type,condition,auprc,balanced_accuracy,sensitivity,specificity,brier,logloss,train_logloss,scope
+source,k,seed,method,auc,train_auc,expert_seeds,record_type,condition,auprc,balanced_accuracy,sensitivity,specificity,brier,logloss,train_logloss,scope
 https://onephantomcat.github.io/neurograph-site/#evidence?source=spd-proximal-20261017-seeds,5,0,original,0.6552767676767677,1.0,,,,,,,,,,,
 https://onephantomcat.github.io/neurograph-site/#evidence?source=spd-proximal-20261017-seeds,5,0,proximal,0.6556808080808081,1.0,,,,,,,,,,,
 https://onephantomcat.github.io/neurograph-site/#evidence?source=spd-proximal-20261017-seeds,5,1,original,0.6839595959595961,1.0,,,,,,,,,,,

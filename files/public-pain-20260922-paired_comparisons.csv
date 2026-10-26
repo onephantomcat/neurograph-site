@@ -1,0 +1,5 @@
+method,comparator,delta_mae,ci95_low,ci95_high,independent_patients,bootstrap_draws,scope
+global_fc,train_mean,0.12583124671586737,-0.0834326929041504,0.3614941080619051,33,2000,"conditional on fixed repeated OOF predictions, not external validation"
+whole_fc,train_mean,0.46282442847046934,-0.31097381010616276,1.387914378157329,33,2000,"conditional on fixed repeated OOF predictions, not external validation"
+clinical_plus_fc,clinical,0.23534675276611938,-0.09883647651516538,0.7157718640777021,33,2000,"conditional on fixed repeated OOF predictions, not external validation"
+whole_fc,global_fc,0.336993181754602,-0.2926335290519909,1.079575695260205,33,2000,"conditional on fixed repeated OOF predictions, not external validation"

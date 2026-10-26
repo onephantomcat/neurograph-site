@@ -1,4 +1,4 @@
-﻿k,outer,repeat,panel,pair,eligible,reason
+k,outer,repeat,panel,pair,eligible,reason
 10,0,0,1,0,True,ELIGIBLE
 20,0,0,2,0,False,FEWER_THAN_TWO_IN_SITE_CLASS_GROUP
 20,0,0,2,1,True,ELIGIBLE

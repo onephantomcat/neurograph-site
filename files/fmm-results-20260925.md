@@ -93,7 +93,6 @@ AUC衡量患者分数高于健康者的排序能力，不是准确率百分比�
 
 [完整报告](https://onephantomcat.github.io/neurograph-site/files/brainlm-fc-audit-20261018.md)。
 
-
 <!-- brainlm-compatible-20261018 -->
 
 ## 2026-10-18：BrainLM256：严格加载、合成前向与缩放补查

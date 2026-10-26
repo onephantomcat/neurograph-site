@@ -1,4 +1,4 @@
-﻿cohort,independent_people,label,timing,tail_coverage,readiness,next
+cohort,independent_people,label,timing,tail_coverage,readiness,next
 Emo静息态／访谈VAS,33候选／27当前患者,访谈VAS0–100；当前低/中/高5/16/6,26/27有0–21天间隔；只有1人与访谈同日，分钟关系未知,未进入当前分析6人：原35/65区间1低/2中/3高,6人均未通过原当前影像QC；立即新增纳入0,不为补齐等级放宽QC；保留27人阴性及全部原分数
 Emo任务态／区块疼痛,同一33患者候选，不能与静息态相加,论文说明扫描中区块后疼痛0–10；实际回答向量未取得,论文支持扫描内测量；公开设计文件不等于评分,实际任务疼痛低/高覆盖未知；不从访谈VAS代填,69个MAT仅names/onsets/durations/taskduration；32/33有精确ID设计匹配,等待真实逐区块回答、时间和ID对应；不恢复旧任务分支
 音乐镇痛 ds001928,20患者；17人四条件标签齐,pic1/pic2/pim1/pim2，原论文VRS0–10；68次评分,同MRI访视、音乐/噪声前后；不是BOLD逐帧连续值，精确分钟差未齐,0–3共24次/10人；7–10共15次/7人；仅2人两端均有,标签与条件/采集钟点可连接；统一预处理/QC未备齐,下一轮主要准备队列；单独研究近扫描连续疼痛，不并入Emo

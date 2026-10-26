@@ -1,4 +1,4 @@
-﻿model,outer,seed,parameters,initial_train_loss,last_dropout_train_loss,final_eval_train_loss,minimum_train_loss,train_ordinal_mae,train_vas_mae,numpy_forward_error,seconds
+model,outer,seed,parameters,initial_train_loss,last_dropout_train_loss,final_eval_train_loss,minimum_train_loss,train_ordinal_mae,train_vas_mae,numpy_forward_error,seconds
 clinical_ordinal,0,0,15,0.4401059298095956,0.35617103219066043,0.3559196935676897,0.35617103219066043,0.3333333333333333,,1.1102230246251565e-16,2.193488700000671
 clinical_ordinal,0,1,15,0.4747287673289439,0.3607453346671518,0.36041693842570666,0.3607453346671518,0.3888888888888889,,1.1102230246251565e-16,0.3245284000004176
 clinical_ordinal,0,2,15,0.5553364585897557,0.40928867357117876,0.4088337014103798,0.40928867357117876,0.3888888888888889,,1.1102230246251565e-16,0.17680699999982608

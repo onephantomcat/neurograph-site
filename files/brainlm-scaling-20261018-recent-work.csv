@@ -1,4 +1,4 @@
-﻿date,work,base_model,changed_component,scope,result,status,compute,evidence,code_assistant
+date,work,base_model,changed_component,scope,result,status,compute,evidence,code_assistant
 2026-10-16,SPD几何网络：五种子训练内对照,本地单BiMap SPDNet任务适配（90→16，logSPD，四协变量）,单BiMap 90→16矩阵对数；同参数无对数对照,SRPBS99原15内分区；非原五外折成绩,内验证：logSPD .7291；无log .6973,确定本地SPD主线；仍为开发结果,150神经拟合；另30既有线性参照,https://onephantomcat.github.io/neurograph-site/#evidence?source=spd-geometry-20261016-comparison,历史工作；本次仅整理，未追认作者模型
 2026-10-16,SPD小样本：Dropout与预测一致性,本地单BiMap SPDNet任务适配（90→16，logSPD，四协变量）,K5支持内加Dropout或预测一致性,SRPBS99原15内分区；非原五外折成绩,内验证原 .6411；Dropout .6420；一致性 .6425,小变化未形成稳定改善，停止,150新模型；引用75原模型,https://onephantomcat.github.io/neurograph-site/#evidence?source=spd-rdrop-20261016-comparison,历史工作；本次仅整理，未追认作者模型
 2026-10-16,SPD小样本：固定四维投影,本地单BiMap SPDNet任务适配（90→16，logSPD，四协变量）,投影维度固定16→4，参数1581→375,SRPBS99原15内分区；非原五外折成绩,四维内验证K5 .5787／K10 .6102／K20 .6570,容量下降后退化，停止,225新模型；引用225原模型,https://onephantomcat.github.io/neurograph-site/#evidence?source=spd-compact-20261016-comparison,历史工作；本次仅整理，未追认作者模型

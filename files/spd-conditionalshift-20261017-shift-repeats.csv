@@ -1,4 +1,4 @@
-﻿k,representation,repeat,available_outer_folds,distance2,null_mean_distance2,distance_ratio,permutation_tail,class_shift_cosine
+k,representation,repeat,available_outer_folds,distance2,null_mean_distance2,distance_ratio,permutation_tail,class_shift_cosine
 10,full_log,0,4,54.920639375476455,47.37662645262356,1.1603031615903792,0.023,0.15106217920189066
 10,full_log,1,4,53.01483340501297,48.29633672455762,1.099125227646718,0.07375,0.10857366704010385
 10,full_log,2,3,56.41524900557297,49.70183798295536,1.1352280003747528,0.013333333333333334,0.13848860502708735

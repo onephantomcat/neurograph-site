@@ -17,6 +17,6 @@
 
 成人偏头痛继续原全132候选输入和四方法有限比较，不用本次文献阅读替代真实实验。独立临床部分仍需取得相同人员的可运行MRI、真实终点、准确时间及身份证据：诊断需要可比患者/对照输入，疼痛程度需要扫描同期患者评分，治疗预测只使用治疗前可获得的输入。治疗后变化相关可以另行报告，不能据此改写治疗前预测目标。
 
-本轮新增模型拟合、专家QC确认、训练纳入和独立临床验证均为0。保留TN14、结构535及其他停止/暂停决定，不修改原标签、QC或划分。DEIPP的真实评分读取与少数患者密集访视范围另见[10月4日临床来源记录](unseen-clinical-sources-20261004.md)；它不补足跨人诊断或治疗反应验证。
+本轮新增模型拟合、专家QC确认、训练纳入和独立临床验证均为0。保留TN14、结构535及其他停止/暂停决定，不修改原标签、QC或划分。DEIPP的真实评分读取与少数患者密集访视范围另见[10月4日临床来源记录](UNSEEN_CLINICAL_SOURCE_AUDIT_2026-10-04.md)；它不补足跨人诊断或治疗反应验证。
 
-完整证据见[强FC迁移条件](fc-transfer-conditions-20261002.md)、[逐折补充分析](fc-fold-robustness-20261003.md)、[文献比较](migraine-input-pilot-20261002-literature.md)和[临床增量设计](migraine-readiness-20261002-clinical.md)。
+完整证据见[强FC迁移条件](FC_TRANSFER_CONDITIONS_RESULTS_2026-10-02.md)、[逐折补充分析](FC_FOLD_ROBUSTNESS_2026-10-03.md)、[文献比较](LITERATURE_COMPARISON_2026-10-02.md)和[临床增量设计](CLINICAL_INCREMENT_DESIGN_2026-10-02.md)。

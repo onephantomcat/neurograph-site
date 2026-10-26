@@ -1,4 +1,4 @@
-﻿k,method,comparison,delta_auc,conditional_lower,conditional_upper,positive_support_repeats,repeat_deltas,primary,delta_brier,delta_logloss
+k,method,comparison,delta_auc,conditional_lower,conditional_upper,positive_support_repeats,repeat_deltas,primary,delta_brier,delta_logloss
 10,spd,person_matched_minus_site,0.05919940476190466,,,4,"[0.11166666666666658, 0.01827876984126975, -0.04511408730158728, 0.07702380952380938, 0.09002976190476186]",,,
 10,amplitude_fixed,person_matched_minus_site,0.10658531746031741,,,5,"[0.21541666666666665, 0.01899801587301586, 0.021626984126984106, 0.1198015873015873, 0.1517757936507937]",,,
 10,amplitude_only,person_matched_minus_site,0.03533333333333322,,,3,"[0.08020833333333333, 0.06388888888888888, -0.08080357142857153, -0.03341269841269845, 0.107202380952381]",,,

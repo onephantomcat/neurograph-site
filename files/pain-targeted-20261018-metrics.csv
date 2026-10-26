@@ -1,4 +1,4 @@
-﻿model,seed,people,representation,posterior,decision,ordinal_mae,accuracy,macro_f1,balanced_accuracy,quadratic_kappa,low_recall,middle_recall,high_recall,high_to_low_rate,rps,nll,low_precision,middle_precision,high_precision
+model,seed,people,representation,posterior,decision,ordinal_mae,accuracy,macro_f1,balanced_accuracy,quadratic_kappa,low_recall,middle_recall,high_recall,high_to_low_rate,rps,nll,low_precision,middle_precision,high_precision
 clinical__raw__argmax,0,27,clinical,raw,argmax,0.4074074074074074,0.5925925925925926,0.24806201550387597,0.3333333333333333,0.0,0.0,1.0,0.0,0.0,0.1614433746361799,0.961949867657466,0.0,0.5925925925925926,0.0
 clinical__raw__argmax,1,27,clinical,raw,argmax,0.4444444444444444,0.5555555555555556,0.2380952380952381,0.3125,-0.006211180124223725,0.0,0.9375,0.0,0.0,0.16106363352283307,0.9567164479221074,0.0,0.5769230769230769,0.0
 clinical__raw__argmax,2,27,clinical,raw,argmax,0.4074074074074074,0.5925925925925926,0.24806201550387597,0.3333333333333333,0.0,0.0,1.0,0.0,0.0,0.1621854365100854,0.9674904306032212,0.0,0.5925925925925926,0.0

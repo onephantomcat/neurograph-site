@@ -1,4 +1,4 @@
-﻿k,outer,repeat,seed,support_people,permutation_covariance_max_error,permutation_lag_relative_change,initial_bce,minimum_gradient_norm,minimum_feature_scale,parameters
+k,outer,repeat,seed,support_people,permutation_covariance_max_error,permutation_lag_relative_change,initial_bce,minimum_gradient_norm,minimum_feature_scale,parameters
 10,0,0,0,20,1.6653345369377348e-15,0.9929898720537543,0.7205478544757782,0.01696771808650007,0.07068472356884896,765
 10,0,0,1,20,1.6653345369377348e-15,0.9929898720537543,0.680010503978749,0.018926341463653098,0.07068472356884896,765
 10,0,0,2,20,1.6653345369377348e-15,0.9929898720537543,0.7296648817566566,0.024408176193331084,0.07068472356884896,765

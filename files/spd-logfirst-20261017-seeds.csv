@@ -1,4 +1,4 @@
-﻿k,seed,method,auc,train_auc
+k,seed,method,auc,train_auc
 5,0,original,0.6552767676767677,1.0
 5,0,logfirst,0.6449373737373737,1.0
 5,1,original,0.6839595959595961,1.0

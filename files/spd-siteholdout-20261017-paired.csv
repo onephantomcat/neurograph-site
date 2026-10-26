@@ -1,4 +1,4 @@
-﻿k,block,outer,repeat,heldout_site,method,person_matched_auc,site_auc,delta_auc,train_n,test_n,same_test_people
+k,block,outer,repeat,heldout_site,method,person_matched_auc,site_auc,delta_auc,train_n,test_n,same_test_people
 10,0,0,0,CIN,spd,0.65,0.5,0.15000000000000002,11,9,False
 10,1,0,0,OSU,spd,0.4666666666666667,0.7333333333333333,-0.2666666666666666,9,11,False
 10,4,0,1,CIN,spd,0.8,0.5333333333333333,0.2666666666666667,12,8,False

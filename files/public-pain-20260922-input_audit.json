@@ -1,0 +1,32 @@
+{
+  "source_repository": "https://github.com/TulaneMBB/ImageNomer",
+  "revision": "7a69b3746c4d2e01d826974923ddd633a720fae4",
+  "dataset": "ds004144",
+  "representation": "published Power264 resting Pearson FC, upper triangle",
+  "patients": 33,
+  "features": 34716,
+  "clinical_features": [
+    "1_age",
+    "1_yr_study",
+    "1_fm_dx_t"
+  ],
+  "target": "interview VAS 0-100",
+  "target_min": 7.0,
+  "target_max": 76.0,
+  "feature_min": -0.8205605790717788,
+  "feature_max": 0.9506027289393111,
+  "exact_duplicate_rows": 0,
+  "nonfinite_values": 0,
+  "missing_labels": 0,
+  "feature_level_checks": "PASS",
+  "raw_image_qc": "NOT_REPRODUCED_FOR_THIS_DERIVATIVE",
+  "visual_review": "NOT_AVAILABLE_FROM_FC_ONLY",
+  "primary_aal90_training_inclusion": false,
+  "scope": "Separate exploratory derivative experiment; not a replacement for the pending AAL90 image pipeline.",
+  "author_demo_not_reused": [
+    "health-control zero imputation",
+    "mixing resting/task rows in random splits",
+    "provided PCA and prediction weights"
+  ],
+  "preprocessing_limit": "Notebook starts from external ROI time series and shows a 0.01-0.15 Hz filter; complete image preprocessing/motion provenance is not reproduced."
+}

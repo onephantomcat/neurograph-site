@@ -176,7 +176,6 @@ SRPBS99诊断开发，仅原outer0外训练79人的三个内折，训练52/53、
 
 [完整报告](https://onephantomcat.github.io/neurograph-site/files/community-prior-20261022.md)。
 
-
 <!-- train-side-ssl-20261022 -->
 
 ## 2026-10-22：训练侧跨半程自监督与有限适配
@@ -190,7 +189,6 @@ SRPBS诊断开发，仅原outer0训练79人的三个内折：每折52/53训练�
 保留全部自监督/下游权重和负结果，停止本固定目标与适配搜索；下一步优先可比较独立人员及真实MRI同期评分或治疗随访输入，不用新查询挑目标。
 
 [完整报告](https://onephantomcat.github.io/neurograph-site/files/train-side-ssl-20261022.md)。
-
 
 <!-- brainhgt-bounded-tuning-20261023 -->
 
@@ -266,7 +264,6 @@ SRPBS诊断开发，仅原outer0训练79人（37患者/42对照）、3内折、5
 
 [完整报告](https://onephantomcat.github.io/neurograph-site/files/brainhgt-linear-probe-20261025.md)。
 
-
 <!-- brainhgt-supervised-mixup-20261025 -->
 
 ## 2026-10-25：BrainHGT固定位置监督表征混合
@@ -280,7 +277,6 @@ AUC在五个初始化中均提高，平均Brier与logloss也下降，出现一�
 停止当前固定监督表征混合，不追加alpha、层位、混合概率、轮数或seed。现有证据仍不足以指定某个模块为唯一瓶颈，后续须有新的机制或可比较数据依据，不顺次叠加旧失败配置。
 
 [完整报告](https://onephantomcat.github.io/neurograph-site/files/brainhgt-supervised-mixup-20261025.md)。
-
 
 <!-- mixup-robustness-20261025 -->
 
@@ -325,7 +321,6 @@ AUC在五个初始化中均提高，平均Brier与logloss也下降，出现一�
 结束这33人的独立验证准备，原条件方案对本33不执行；不靠随访、补零、删ROI或改变原覆盖要求恢复。其他102条路径候选和新来源本轮未审计，不预报其可用人数。下一步若继续，只能另行核查新的输入来源和真实独立性依据，先不训练或评分。
 
 [完整报告](https://onephantomcat.github.io/neurograph-site/files/ds005713-person-audit-20261025.md)。
-
 
 <!-- ds005713-remaining-audit-20261025 -->
 

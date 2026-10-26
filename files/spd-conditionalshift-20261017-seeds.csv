@@ -1,4 +1,4 @@
-﻿k,method,split,seed,auc
+k,method,split,seed,auc
 10,spd,person_matched,0,0.6301180555555557
 10,spd,person_matched,1,0.6333263888888888
 10,spd,person_matched,2,0.5707142857142857

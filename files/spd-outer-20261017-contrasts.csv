@@ -1,4 +1,4 @@
-﻿k,comparison,delta_mean_auc,positive_support_repeats,positive_outer_folds,ci_lower,ci_upper,delta_brier,delta_logloss
+k,comparison,delta_mean_auc,positive_support_repeats,positive_outer_folds,ci_lower,ci_upper,delta_brier,delta_logloss
 5,ensemble_minus_member_mean,0.05930020202020196,5,5,0.03483723720723712,0.08452480305253432,-0.022828001833544664,-0.06118654705994164
 5,ensemble_minus_diagonal,0.055377777777777706,5,4,0.010500400641025637,0.10268204028165565,-0.024926374743129753,-0.06587014562848681
 10,ensemble_minus_member_mean,0.04449535353535348,5,5,0.015441242780307673,0.07092222873858162,-0.02257432799022066,-0.06574974596568117

@@ -1,4 +1,4 @@
-﻿k,outer,repeat,seed,other_expert,expert_seeds,residual_correlation,prediction_disagreement,original_brier,other_brier,cross_error_moment,pair_brier,mixture_mse_identity_error,scope
+k,outer,repeat,seed,other_expert,expert_seeds,residual_correlation,prediction_disagreement,original_brier,other_brier,cross_error_moment,pair_brier,mixture_mse_identity_error,scope
 10,0,0,0,extra_spd,SPD0+SPD5,0.8892631357389501,0.3,0.2442104351838515,0.2556945821786606,0.22021543001458882,0.23508396934792244,2.7755575615628914e-17,Post-hoc descriptive fixed predictions; no selected weights or causal inference.
 10,0,0,1,extra_spd,SPD1+SPD6,0.9071649555381371,0.35,0.15656370076138695,0.3299267523710427,0.2073358968888693,0.22529056172754203,5.551115123125783e-17,Post-hoc descriptive fixed predictions; no selected weights or causal inference.
 10,0,0,2,extra_spd,SPD2+SPD7,0.9306597086799507,0.3,0.21204974197594567,0.21919068467238492,0.19734361833210218,0.20648191582813374,0.0,Post-hoc descriptive fixed predictions; no selected weights or causal inference.

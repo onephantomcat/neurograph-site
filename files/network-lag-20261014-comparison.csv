@@ -1,4 +1,4 @@
-﻿数据集/终点,论文原值,已有方法/协议,本地结果,可比范围与限制,原文来源
+数据集/终点,论文原值,已有方法/协议,本地结果,可比范围与限制,原文来源
 ABIDE作者CC200,BNT表1 AUROC .802±.010；Vanilla .764±.012；BrainNetCNN .749±.024,同1009作者数组/seed划分,BNT当前.783560/部分对齐.778630；Vanilla .773148/.750340；BrainNetCNN .763733/.755405,原文/本地分别列；两个协议多因素差异、BrainNetCNN eval随机，非完整原协议一致,https://proceedings.neurips.cc/paper_files/paper/2022/file/a408234a9b80604a9cf6ca518e474550-Paper-Conference.pdf
 ABIDE作者CC200,Com-BrainTF AUROC .796±.038；BrainHGT .7665±.0145,Com作者原类；BrainHGT原OMST缺,Com .771552/.761341；BrainHGT原任务0拟合，成绩缺项,不同HGT论文协议/图输入不可相减；不填0分数,https://arxiv.org/html/2307.10181 ; https://arxiv.org/html/2511.17604
 Emo53诊断,数据论文没有同53人同协议的HGT/BNT/Com疼痛诊断原值,同AAL90/同人三折切空间和官方任务适配,切空间.5983；HGT .4815/.4573；BNT .5142/.5256；Com .5328/.4145,与ABIDE原文不可比；诊断不代替程度,https://doi.org/10.5281/zenodo.6554870

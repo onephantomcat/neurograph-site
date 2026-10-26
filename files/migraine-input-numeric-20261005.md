@@ -17,4 +17,4 @@
 
 当前来源参数与真实训练人员仍有缺口，准确临床日期、扫描时疼痛和治疗反应真值仍未取得，H-test未建立。候选标签、划分、原worker、固定窗口/池化和随机编码器保持；没有新增模型选择、人员排除、分类拟合或专家意见。继续完成全132共同输入及必要身份/访视/质量核查，再执行原K5四方法540拟合（60最终480内层）/45训练参考。诊断、同期疼痛、治疗反应的独立临床增量和论文终稿仍待完成。
 
-[聚合JSON](migraine-input-numeric-20261005-summary.json)；[原有限比较方案](migraine-readiness-20261002-protocol.md)；[此前58人完整输入复核](migraine-batch-inputs-20261003.md)；[临床增量设计](migraine-readiness-20261002-clinical.md)。
+[聚合JSON](../reports/migraine-input-numeric-2026-10-05/summary.json)；[原有限比较方案](MIGRAINE_FINITE_PROTOCOL_2026-10-02.md)；[此前58人完整输入复核](MIGRAINE_BATCH_INPUTS_2026-10-03.md)；[临床增量设计](CLINICAL_INCREMENT_DESIGN_2026-10-02.md)。

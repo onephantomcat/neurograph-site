@@ -1,4 +1,4 @@
-﻿k,outer,repeat,panel,representation,seed,eligible_pairs,distance2,null_mean_distance2,distance_ratio,permutation_tail,class_shift_cosine
+k,outer,repeat,panel,representation,seed,eligible_pairs,distance2,null_mean_distance2,distance_ratio,permutation_tail,class_shift_cosine
 10,0,0,1,full_log,,1,55.12091276887741,42.93180446318145,1.2839179125617561,0.002,0.2509182772202188
 10,0,1,4,full_log,,1,51.07457477387771,44.06825009150076,1.1589880394122622,0.002,0.17719740079617444
 10,0,2,7,full_log,,1,60.35375270181173,53.18867607520774,1.1347105653931433,0.004,0.1373439818648198

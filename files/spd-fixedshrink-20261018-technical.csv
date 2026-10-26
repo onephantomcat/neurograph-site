@@ -1,4 +1,4 @@
-﻿check,maximum_error
+check,maximum_error
 recovery_max_error,1.1102230246251565e-16
 median_max_error,0.0
 feature_scale_max_error,6.106226635438361e-16

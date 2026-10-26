@@ -30,4 +30,4 @@
 
 来源：[官方模型仓库固定版本](https://huggingface.co/zxcvb20001/NeuroSTORM/tree/90ab5a43b07c54482af900a0df31545f7c0644af)；[实际发布checkpoint](https://huggingface.co/zxcvb20001/NeuroSTORM/blob/90ab5a43b07c54482af900a0df31545f7c0644af/pretraining/pt_neurostorm_mae_5ds.ckpt)；[当前消费的数据划分与采样源码](https://github.com/CUHK-AIM-Group/NeuroSTORM/blob/d43114c97deaf3e53ea051d2512b36ef8fcb748d/datasets/data_module.py)。本次网页版checkpoint入口读取失败后，官方模型API元数据成功读回；没有把失败页面当作checkpoint内容。
 
-[聚合JSON](neurostorm-checkpoint-provenance-20261004-summary.json)；[原有限比较方案](migraine-readiness-20261002-protocol.md)；[临床增量设计](migraine-readiness-20261002-clinical.md)。
+[聚合JSON](../reports/neurostorm-checkpoint-provenance-2026-10-04/summary.json)；[原有限比较方案](MIGRAINE_FINITE_PROTOCOL_2026-10-02.md)；[临床增量设计](CLINICAL_INCREMENT_DESIGN_2026-10-02.md)。

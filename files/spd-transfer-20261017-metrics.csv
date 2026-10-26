@@ -1,4 +1,4 @@
-﻿cohort,k,repeat,seed,outer,inner,condition,source_train_n,target_n,auc,auprc,brier,balanced_accuracy,logloss,sensitivity,specificity,source_train_auc,parameters,member_count,probability_min,probability_max,exact_zero_probabilities,exact_one_probabilities
+cohort,k,repeat,seed,outer,inner,condition,source_train_n,target_n,auc,auprc,brier,balanced_accuracy,logloss,sensitivity,specificity,source_train_auc,parameters,member_count,probability_min,probability_max,exact_zero_probabilities,exact_one_probabilities
 zan,5,0,0,0,0,member,10,54,0.4896551724137931,0.4535857907077515,0.30453823726326334,0.48758620689655174,0.8305527400702809,0.32,0.6551724137931034,1.0,1581,1,0.05963222493192832,0.8606144837206453,0,0
 emo,5,0,0,0,0,member,10,53,0.6509971509971509,0.6926580582402565,0.23756517487429346,0.6232193732193732,0.6697108584628589,0.5925925925925926,0.6538461538461539,1.0,1581,1,0.12085876171312906,0.8098941168174116,0,0
 zan,5,0,1,0,0,member,10,54,0.4496551724137931,0.44442016311577787,0.3107140039330693,0.4524137931034483,0.8576954203427893,0.56,0.3448275862068966,1.0,1581,1,0.07641696845197433,0.9524821387623259,0,0

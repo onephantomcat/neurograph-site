@@ -1,4 +1,4 @@
-﻿component,official,local,identity,source
+component,official,local,identity,source
 原论文任务/框架,MATLAB；AFEW七分类,PyTorch；SRPBS病例/对照二分类,本地任务适配，非官方原任务复现,https://github.com/zhiwu-huang/SPDNet
 三层算子顺序,BiMap-ReEig-BiMap-ReEig-BiMap-LogEig,相同块顺序；末Log保留数值下限,官方方法参考；本地数值实现,https://github.com/zhiwu-huang/SPDNet/blob/master/spdnet_init_afew.m
 维度,400→200→100→50,90→48→24→16；末维16与轻量相同,本地适配；参数5997对1581，非等参数,https://github.com/zhiwu-huang/SPDNet/blob/master/spdnet_init_afew.m

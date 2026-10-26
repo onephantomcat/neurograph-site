@@ -1,4 +1,4 @@
-﻿k,outer,repeat,condition,reference_auc,candidate_auc,delta_auc
+k,outer,repeat,condition,reference_auc,candidate_auc,delta_auc
 10,0,0,member_mean,0.7535353535353535,0.6646464646464646,-0.0888888888888889
 10,0,1,member_mean,0.6181818181818182,0.5616161616161616,-0.0565656565656566
 10,0,2,member_mean,0.5111111111111111,0.4262626262626263,-0.08484848484848478

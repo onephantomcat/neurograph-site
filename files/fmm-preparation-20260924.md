@@ -54,7 +54,6 @@
 
 [完整报告](https://onephantomcat.github.io/neurograph-site/files/brainlm-fc-audit-20261018.md)。
 
-
 <!-- brainlm-compatible-20261018 -->
 
 ## 2026-10-18：BrainLM256：严格加载、合成前向与缩放补查

@@ -1,4 +1,4 @@
-﻿k,split,seed,amplitude_logit_coefficient,amplitude_logit_sd,total_logit_sd,logit_change_rms,probability_change_mean_absolute
+k,split,seed,amplitude_logit_coefficient,amplitude_logit_sd,total_logit_sd,logit_change_rms,probability_change_mean_absolute
 10,person_matched,0,3.7504889600840863,0.553273635409576,1.112636539722057,0.61162914544852,0.09657187978562254
 10,person_matched,1,4.228626728059357,0.6079734132779345,1.0158528856400821,0.6804131622318272,0.10851809785562616
 10,person_matched,2,3.4124368252090442,0.49245922341632226,0.9719868764739917,0.5481726711965822,0.08737655630361915

@@ -1,4 +1,4 @@
-﻿k,method,seed,auc,train_auc
+k,method,seed,auc,train_auc
 10,original,0,0.6681939393939393,1.0
 10,original,1,0.7156444444444445,1.0
 10,original,2,0.6654424242424243,1.0

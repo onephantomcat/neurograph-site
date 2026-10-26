@@ -1,4 +1,4 @@
-﻿k,panel,outer,repeat,variable,pearson,spearman,workflow_residual_pearson,constant_variable
+k,panel,outer,repeat,variable,pearson,spearman,workflow_residual_pearson,constant_variable
 10,1,0,0,raw_log_geomean_variance,-0.8364246841995561,-0.7338345864661654,-0.881906084726543,False
 10,1,0,0,raw_log_mean_variance,-0.8351654338783455,-0.7533834586466165,-0.8723935619739316,False
 10,1,0,0,input_variance_mean,,,,True

@@ -15,7 +15,7 @@
 | Seminowicz 2020，偏头痛 | 111/35 | ds005016，当前开发来源 |
 | Filimonova 2025，三叉神经痛 | 111/48 | ds005713，既有来源；TN14等停止边界保持 |
 
-五个OpenNeuro来源已经被本项目使用或用于当前开发，不构成五个新增独立验证队列。论文人数不是我们当前处理/QC后的分母；偏头痛继续原同设备132名候选方案，不因论文总数并回已排除设备混杂的对照。三个OpenPain来源没有因此获得可运行影像、临床配对或独立身份确认。[本项目来源角色](multidataset-goal-20261002.md)。
+五个OpenNeuro来源已经被本项目使用或用于当前开发，不构成五个新增独立验证队列。论文人数不是我们当前处理/QC后的分母；偏头痛继续原同设备132名候选方案，不因论文总数并回已排除设备混杂的对照。三个OpenPain来源没有因此获得可运行影像、临床配对或独立身份确认。[本项目来源角色](MULTIDATASET_RESEARCH_PLAN_2026-10-02.md)。
 
 作者采用FreeSurfer 7.4.1、68个皮层区及五类结构指标，按研究估计效应并进行随机效应汇总。原文QC排除56/219,640个皮层**测量值**，不是排除56名患者；保留219,584个测量值。一个未报性别者保留在主组分析、未进入性别分层。组间ICV调整和全组测量异常值规则服务于这项结构研究，不能直接照搬为本项目预测流程的训练内拟合或患者纳入规则。
 
@@ -45,6 +45,6 @@ ICV调整后的皮层体积68区，以及调整前后各32个皮层下体积，�
 
 本项目已观察到FC加入既有结构特征没有稳定增量；本轮文献不能替代那项比较，也不据此恢复结构535头搜索。继续完成当前132名候选输入和有限四方法对照。真正独立的诊断、同期程度和治疗反应仍需准确真值/时间、临床参照、身份与H-test；群体结构差异不能补齐这些证据。
 
-可下载：[聚合JSON](chronic-pain-ipd-20261004-summary.json)、[队列交叉表](chronic-pain-ipd-20261004-cohorts.csv)、[效应方向复核](chronic-pain-ipd-20261004-directions.csv)、[原表指标计数](chronic-pain-ipd-20261004-metrics.csv)。
+可下载：[聚合JSON](../reports/chronic-pain-ipd-review-2026-10-04/summary.json)、[队列交叉表](../reports/chronic-pain-ipd-review-2026-10-04/cohort_crosswalk.csv)、[效应方向复核](../reports/chronic-pain-ipd-review-2026-10-04/effect_direction.csv)、[原表指标计数](../reports/chronic-pain-ipd-review-2026-10-04/reported_metric_counts.csv)。
 
 原始依据：[官方补充ZIP](https://pmc-oa-opendata.s3.amazonaws.com/PMC13148768.1/fcag146_supplementary_data.zip)、[作者代码读取版本](https://github.com/lokeryan/ChronicPainIPD/tree/d81138d3bc2bd0455c701187ca4ff41e7ad54b97)。全文为CC BY 4.0。GitHub匿名API首次读取遇到403限额，随后正常Git读取成功；初次终端打印因GBK编码中断，改用UTF-8后读取成功，源XML未更改。

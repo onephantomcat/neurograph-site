@@ -22,4 +22,4 @@
 
 继续全132共同输入及必要质量、身份/访视核查后，执行原K5四方法540拟合/45训练参考。准确临床时间、诊断参考、同期疼痛和治疗反应真值、实际预训练成员、预测时已知临床参照和未参与开发H-test仍缺；论文终稿和完整目标未完成。原标签/QC/划分、原20未评分、Emo13失败/窄覆盖、TN14/结构535/CLIP停止和所有失败证据保留。
 
-[聚合JSON](migraine-input-information-20261005-summary.json)；[原47人时间信息](migraine-temporal-audit-20261004.md)；[原48人协方差](migraine-covariance-numeric-20261004.md)；[88人技术查看](migraine-input-view-20261005.md)；[原有限方案](migraine-readiness-20261002-protocol.md)。
+[聚合JSON](../reports/migraine-input-information-2026-10-05/summary.json)；[原47人时间信息](MIGRAINE_TEMPORAL_INFORMATION_AUDIT_2026-10-04.md)；[原48人协方差](MIGRAINE_COVARIANCE_NUMERIC_2026-10-04.md)；[88人技术查看](MIGRAINE_INPUT_VIEW_2026-10-05.md)；[原有限方案](MIGRAINE_FINITE_PROTOCOL_2026-10-02.md)。

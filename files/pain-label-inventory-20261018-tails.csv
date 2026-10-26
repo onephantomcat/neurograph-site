@@ -1,4 +1,4 @@
-﻿cohort,observation_unit,observations,low_count,middle_count,high_count,rule,people_with_low,people_with_high,people_with_both
+cohort,observation_unit,observations,low_count,middle_count,high_count,rule,people_with_low,people_with_high,people_with_both
 Emo当前27,独立患者,27,5,16,6,原研究分箱VAS<35／35–<65／>=65，非本队列已验证临床等级,,,
 Emo未纳入6,QC未通过患者,6,1,2,3,同原35/65，仅库存计数，新增纳入0,,,
 Emo候选33,候选患者,33,6,18,9,同原35/65；不是33个合格影像样本,,,

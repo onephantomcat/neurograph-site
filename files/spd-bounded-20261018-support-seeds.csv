@@ -1,4 +1,4 @@
-﻿k,seed,checks,passed,maximum_snapshot_element_relative_change,minimum_final_midpoint_error
+k,seed,checks,passed,maximum_snapshot_element_relative_change,minimum_final_midpoint_error
 10,0,25,25,0.19999999999999984,0.0022416945736056727
 10,1,25,25,0.19999999999999968,0.0021894331775863174
 10,2,25,25,0.19999999999999998,0.0020168597049131307

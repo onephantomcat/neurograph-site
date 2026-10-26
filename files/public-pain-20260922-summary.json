@@ -1,0 +1,159 @@
+{
+  "design": {
+    "started_local": "2026-09-22T21:05:53+0800",
+    "source_revision": "7a69b3746c4d2e01d826974923ddd633a720fae4",
+    "participants": 33,
+    "target": "Emo-Fibro patient interview VAS 0-100; not simultaneous scan pain",
+    "methods": {
+      "train_mean": [],
+      "train_median": [],
+      "clinical": [
+        "clinical"
+      ],
+      "global_fc": [
+        "global_fc"
+      ],
+      "whole_fc": [
+        "fc"
+      ],
+      "clinical_plus_fc": [
+        "clinical",
+        "fc"
+      ]
+    },
+    "alphas": [
+      0.01,
+      0.1,
+      1.0,
+      10.0,
+      100.0
+    ],
+    "outer_folds": 5,
+    "repeats": 5,
+    "inner_folds": 3,
+    "seed": 20260922,
+    "clinical_features": [
+      "1_age",
+      "1_yr_study",
+      "1_fm_dx_t"
+    ],
+    "preprocessing": "training-only z-score, divide each block by sqrt(p); equal block weight in combined model",
+    "selection": "minimum participant-weighted inner OOF MAE; no clipping; all methods identical outer splits",
+    "inference": "paired subject bootstrap of mean repeated-OOF absolute errors, 2000 draws; conditional on these fits",
+    "limitations": [
+      "n=33, single cohort, no external validation",
+      "third-party derivatives, own image QC not reproduced",
+      "interview VAS not scan-time VAS",
+      "exploratory prediction, not clinical grading or drug recommendation"
+    ],
+    "libraries": {
+      "python": "3.12.13",
+      "numpy": "2.5.1",
+      "scipy": "1.18.0",
+      "sklearn": "1.9.0"
+    },
+    "state": "COMPLETE_VERIFIED",
+    "completed_local": "2026-09-22T21:06:09+0800"
+  },
+  "metrics": [
+    {
+      "method": "clinical",
+      "mae": 17.293450054004023,
+      "rmse": 20.740112281730397,
+      "r2": -0.10696241748274185,
+      "spearman": -0.3905254212559105
+    },
+    {
+      "method": "clinical_plus_fc",
+      "mae": 17.528796806770142,
+      "rmse": 20.879273663697575,
+      "r2": -0.12265603764205486,
+      "spearman": -0.35644149817304727
+    },
+    {
+      "method": "global_fc",
+      "mae": 17.241207228758515,
+      "rmse": 20.507718679080263,
+      "r2": -0.08135456253889535,
+      "spearman": -0.2772248360767266
+    },
+    {
+      "method": "train_mean",
+      "mae": 17.115375982042647,
+      "rmse": 20.45274367122245,
+      "r2": -0.07553053288216649,
+      "spearman": -0.29373906416511836
+    },
+    {
+      "method": "train_median",
+      "mae": 17.445454545454545,
+      "rmse": 20.7266632416937,
+      "r2": -0.10549330685634502,
+      "spearman": -0.26451433283710946
+    },
+    {
+      "method": "whole_fc",
+      "mae": 17.578200410513116,
+      "rmse": 21.103776456334536,
+      "r2": -0.14606997405846184,
+      "spearman": -0.2799702994291773
+    }
+  ],
+  "paired": [
+    {
+      "method": "global_fc",
+      "comparator": "train_mean",
+      "delta_mae": 0.12583124671586737,
+      "ci95_low": -0.0834326929041504,
+      "ci95_high": 0.3614941080619051,
+      "independent_patients": 33,
+      "bootstrap_draws": 2000,
+      "scope": "conditional on fixed repeated OOF predictions, not external validation"
+    },
+    {
+      "method": "whole_fc",
+      "comparator": "train_mean",
+      "delta_mae": 0.46282442847046934,
+      "ci95_low": -0.31097381010616276,
+      "ci95_high": 1.387914378157329,
+      "independent_patients": 33,
+      "bootstrap_draws": 2000,
+      "scope": "conditional on fixed repeated OOF predictions, not external validation"
+    },
+    {
+      "method": "clinical_plus_fc",
+      "comparator": "clinical",
+      "delta_mae": 0.23534675276611938,
+      "ci95_low": -0.09883647651516538,
+      "ci95_high": 0.7157718640777021,
+      "independent_patients": 33,
+      "bootstrap_draws": 2000,
+      "scope": "conditional on fixed repeated OOF predictions, not external validation"
+    },
+    {
+      "method": "whole_fc",
+      "comparator": "global_fc",
+      "delta_mae": 0.336993181754602,
+      "ci95_low": -0.2926335290519909,
+      "ci95_high": 1.079575695260205,
+      "independent_patients": 33,
+      "bootstrap_draws": 2000,
+      "scope": "conditional on fixed repeated OOF predictions, not external validation"
+    }
+  ],
+  "verification": {
+    "state": "PASS",
+    "final_models": 100,
+    "inner_fits": 1500,
+    "constant_predictions": 50,
+    "participants": 33,
+    "outer_test_occurrences_per_participant_per_method": 5,
+    "all_inner_and_outer_participant_sets_disjoint": true,
+    "training_only_scalers": true,
+    "independent_sklearn_final_models_checked": 100,
+    "max_sklearn_prediction_difference": 1.1368683772161603e-13,
+    "saved_model_replays": 100,
+    "max_replay_difference": 0.0,
+    "image_qc_or_visual_approval_claimed": false
+  }
+}

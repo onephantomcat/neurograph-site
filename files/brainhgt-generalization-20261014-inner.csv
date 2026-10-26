@@ -1,4 +1,4 @@
-﻿cohort,dataset,variant,seed,outer,inner,selected_epoch,train_auc,validation_auc,validation_ba,validation_brier,validation_logloss,validation_sensitivity,validation_specificity
+cohort,dataset,variant,seed,outer,inner,selected_epoch,train_auc,validation_auc,validation_ba,validation_brier,validation_logloss,validation_sensitivity,validation_specificity
 zan,ZAN54,original,0,0,0,1,0.9538461538461539,0.5178571428571429,0.42857142857142855,0.2506498665132872,0.6944472662256519,0.8571428571428571,0.0
 zan,ZAN54,original,0,0,1,2,0.9,0.6041666666666666,0.5,0.25276172617348613,0.6986815648842281,1.0,0.0
 zan,ZAN54,original,0,0,2,2,0.9615384615384616,0.5306122448979592,0.5,0.2504970349058227,0.694147740221518,0.0,1.0

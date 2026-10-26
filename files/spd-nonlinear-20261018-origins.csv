@@ -1,4 +1,4 @@
-﻿component,official,local,identity,source
+component,official,local,identity,source
 基础结构,Huang/Van Gool SPDNet：BiMap-ReEig-LogEig,90→48→24→16；原自写PyTorch/float64,官方框架参考；本地维度与实现,https://github.com/zhiwu-huang/SPDNet
 非线性依据,2026研究已有正系数Hadamard及替代激活,F(A)=A+0.25 A⊙A⊙A/s²；本地三次残差，不是作者激活复现,已有家族的本地适配；不宣称原创已成立,https://www.esann.org/sites/default/files/proceedings/2026/ES2026-312.pdf
 尺度/正负,原ReEig阈值1e-4,每层支持初始化对角下中位数s；固定0.25；奇次项保留符号,本地支持内设计；未用查询调参,https://onephantomcat.github.io/neurograph-site/#evidence?source=spd-nonlinear-20261018-plan

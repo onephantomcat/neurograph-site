@@ -110,7 +110,6 @@ SRPBS诊断开发，仅原outer0训练79人的三个内折：每折52/53训练�
 
 [完整报告](https://onephantomcat.github.io/neurograph-site/files/train-side-ssl-20261022.md)。
 
-
 <!-- brainhgt-bounded-tuning-20261023 -->
 
 ## 2026-10-23：BrainHGT标签平滑与社区原型调优

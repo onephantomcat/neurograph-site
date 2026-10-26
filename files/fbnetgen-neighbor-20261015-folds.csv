@@ -1,4 +1,4 @@
-﻿key,variant,seed,phase,train_people,query_people,epochs_run,selected_epoch,auc,ap,ba,accuracy,sensitivity,specificity,brier,logloss,prevalence,predicted_positive
+key,variant,seed,phase,train_people,query_people,epochs_run,selected_epoch,auc,ap,ba,accuracy,sensitivity,specificity,brier,logloss,prevalence,predicted_positive
 fixed_seed0_outer0_final,fixed,0,final,79,20,10,10,0.6161616161616161,0.5935918475134161,0.4292929292929293,0.45,0.2222222222222222,0.6363636363636364,0.2391085642417657,0.6544231050763941,0.45,0.3
 fixed_seed0_outer1_final,fixed,0,final,79,20,1,1,0.47474747474747475,0.5657882241215575,0.6111111111111112,0.65,0.2222222222222222,1.0,0.28549428767674356,0.8919398167851463,0.45,0.1
 fixed_seed0_outer2_final,fixed,0,final,79,20,21,21,0.6262626262626263,0.5461500974658869,0.5858585858585859,0.6,0.4444444444444444,0.7272727272727273,0.26233281650906687,0.8294573484828964,0.45,0.35

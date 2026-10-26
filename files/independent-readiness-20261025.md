@@ -100,7 +100,6 @@ OA源队列仍COMPLETE_PENDING_REVIEW，当前27处理记录的返回码0为8、
 
 [完整报告](https://onephantomcat.github.io/neurograph-site/files/ds005713-person-audit-20261025.md)。
 
-
 <!-- ds005713-remaining-audit-20261025 -->
 
 ## 2026-10-25：DS005713剩余102候选的人员与输入QC核查

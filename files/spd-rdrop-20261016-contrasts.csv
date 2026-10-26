@@ -1,4 +1,4 @@
-﻿comparison,delta_mean_auc,positive_repeats,ci_lower,ci_upper,positive_parent_groups,positive_panels,delta_brier,delta_logloss
+comparison,delta_mean_auc,positive_repeats,ci_lower,ci_upper,positive_parent_groups,positive_panels,delta_brier,delta_logloss
 rdrop_minus_dropout,0.0005343915343914762,5,-0.000770728262855283,0.0017561874581484337,2,6,2.3614007248984326e-05,0.000311361970205315
 dropout_minus_original,0.0008652828652828904,3,-0.0011804275540421376,0.003103954184993031,4,10,1.2584452513675348e-05,8.168805423558467e-05
 rdrop_minus_original,0.0013996743996743666,3,-0.0009619707771466174,0.0038123995736428894,5,10,3.6198459762659674e-05,0.00039305002444089965

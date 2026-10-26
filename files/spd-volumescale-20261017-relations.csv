@@ -1,4 +1,4 @@
-﻿k,variable,panels,constant_panels,pearson,pearson_estimable_panels,spearman,spearman_estimable_panels,workflow_residual_pearson,workflow_residual_pearson_estimable_panels
+k,variable,panels,constant_panels,pearson,pearson_estimable_panels,spearman,spearman_estimable_panels,workflow_residual_pearson,workflow_residual_pearson_estimable_panels
 10,age,25,0,0.4627233262662143,25,0.4377462064989398,25,0.347377953574982,25
 10,censor_fraction,25,0,-0.3307508502054966,25,-0.33587965141911913,25,-0.28779861022198566,25
 10,correlation_logdet,25,0,1.0,25,1.0,25,1.0,25

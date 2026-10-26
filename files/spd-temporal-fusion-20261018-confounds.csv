@@ -1,4 +1,4 @@
-﻿k,outer,repeat,lag,covariate,pearson_r,defined,site_eta_squared,note
+k,outer,repeat,lag,covariate,pearson_r,defined,site_eta_squared,note
 10,0,0,1,age,-0.1374078538629939,True,0.0011240605190966535,"Support-only global lag mean; descriptive, no feature or weight selection."
 10,0,0,1,sex_equal_2,-0.44537087354907484,True,0.0011240605190966535,"Support-only global lag mean; descriptive, no feature or weight selection."
 10,0,0,1,mean_fd,-0.030352880980225344,True,0.0011240605190966535,"Support-only global lag mean; descriptive, no feature or weight selection."

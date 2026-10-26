@@ -1,4 +1,4 @@
-﻿model,condition,true_bin,predicted_bin,count
+model,condition,true_bin,predicted_bin,count
 clinical_ordinal,ensemble5,0,0,0
 clinical_ordinal,ensemble5,0,1,5
 clinical_ordinal,ensemble5,0,2,0

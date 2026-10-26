@@ -1,4 +1,4 @@
-﻿cohort,variant,seed,outer,inner,selected_auc_epoch,min_logloss_epoch,selected_logloss,minimum_logloss,last_logloss,last_train_auc,last_validation_auc,epochs
+cohort,variant,seed,outer,inner,selected_auc_epoch,min_logloss_epoch,selected_logloss,minimum_logloss,last_logloss,last_train_auc,last_validation_auc,epochs
 zan,adamw,0,0,0,1,2,0.6944579343759094,0.6904642863927373,2.255962404584129,1.0,0.25,100
 zan,adamw,0,0,1,2,4,0.6983688500394954,0.6846067346004255,1.6714233464509127,1.0,0.4791666666666667,100
 zan,adamw,0,0,2,2,2,0.6940923866205272,0.6940923866205272,1.851703738539179,1.0,0.4489795918367347,100

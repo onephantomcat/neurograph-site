@@ -1,4 +1,4 @@
-﻿cohort,outer,seed,auc_refit_epoch,logloss_refit_epoch,same_refit
+cohort,outer,seed,auc_refit_epoch,logloss_refit_epoch,same_refit
 srpbs,0,0,10,5,False
 srpbs,0,1,12,5,False
 srpbs,0,2,18,6,False

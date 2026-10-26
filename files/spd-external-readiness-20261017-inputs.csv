@@ -1,4 +1,4 @@
-﻿cohort,people,patients,controls,ts_shape,fc_shape,cov_shape,finite,constant_roi_series,unique_people,covariate_columns,covariate_semantics_match_source,new_fits
+cohort,people,patients,controls,ts_shape,fc_shape,cov_shape,finite,constant_roi_series,unique_people,covariate_columns,covariate_semantics_match_source,new_fits
 srpbs,99,46,53,99x240x90,99x90x90,99x4,True,0,99,age / male_indicator / mean_FD / expanded_censor_fraction,True,0
 zan,54,25,29,54x236x90,54x90x90,54x4,True,0,54,age / male_indicator / mean_FD / expanded_censor_fraction,True,0
 emo,53,27,26,53x300x90,53x90x90,53x4,True,0,53,age / male_indicator / mean_FD / expanded_censor_fraction,True,0

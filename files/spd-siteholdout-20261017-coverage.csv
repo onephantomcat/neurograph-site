@@ -1,4 +1,4 @@
-﻿k,outer,repeat,panel,heldout_site,eligible,reason,train_controls,train_cases,test_controls,test_cases
+k,outer,repeat,panel,heldout_site,eligible,reason,train_controls,train_cases,test_controls,test_cases
 10,0,0,1,CIN,True,ELIGIBLE,6,5,4,5
 10,0,0,1,OSU,True,ELIGIBLE,4,5,6,5
 20,0,0,2,CIN,True,ELIGIBLE,12,13,8,7

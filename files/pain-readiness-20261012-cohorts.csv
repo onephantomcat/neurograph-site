@@ -1,4 +1,4 @@
-﻿id,name,people,endpoint,identity,time,FC,covariates,validation,next
+id,name,people,endpoint,identity,time,FC,covariates,validation,next
 emo,Emo-Fibro,66候选；现有AAL90为27患者/26对照,诊断；患者访谈VAS0–100,53人与临床组别逐行一致；27患者与公开Power264的同人VAS一致,27患者26人有访谈至MRI任务天数和MRI钟点；缺精确评分至rest间隔,AAL90切空间及现成Pearson；Power264另流程；同人CC200未备齐,年龄、教育、确诊/症状病程、药物状态/用药数量均27/27；原4项混杂参照已持有,已开发；无独立H-test,可先准备27人访谈VAS的同人FC/临床对照；不改称同期痛，不重搜53人诊断模型
 srpbs,SRPBS临床,99人；46患者中44有VAS，sup7=29/sup8=15,异质Pain/HC；分表VAS探索,现有99主表及44患者表匹配；HC零值不作程度目标,施测时间/回顾窗未证实；观察范围不能确定量表端点,既有AAL90切空间强对照和相同划分,年龄、性别、FD/删帧齐；sup8病程12/15，sup7病程缺；药物缺,99/96及79子集均已开发,保留分表原始单位和负结果，补施测定义，不跨表直接合并VAS
 zan,ZAN ds007181,54：25患者/29健康,ZAN/HC诊断开发,影像和组别/年龄/性别可对应,NRS/VAS、病程及评分与扫描间隔仍缺,AAL90时序/FC与既有对照,年龄、性别、FD/删帧已齐,已开发；7T与来源差异保留,不开展程度或疗效拟合；ZAN不自动等于PHN

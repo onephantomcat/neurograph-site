@@ -1,4 +1,4 @@
-﻿test,state,exception,message,nonfinite_elements
+test,state,exception,message,nonfinite_elements
 wrong_intermediate_orientation,EXPECTED_FAILURE_RECORDED,ValueError,"operands could not be broadcast together with shapes (424,200) (424,) ",
 one_zero_IQR,NONFINITE_RECORDED,,,200
 all_zero_IQR,NONFINITE_RECORDED,,,84800

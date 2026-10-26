@@ -1,4 +1,4 @@
-﻿block,k,outer,repeat,panel,heldout_site,split,method,condition,seed,train_n,validation_n,auc,auprc,brier,balanced_accuracy,logloss,sensitivity,specificity,seconds,train_auc
+block,k,outer,repeat,panel,heldout_site,split,method,condition,seed,train_n,validation_n,auc,auprc,brier,balanced_accuracy,logloss,sensitivity,specificity,seconds,train_auc
 0,10,0,0,1,CIN,site,spd,member,0,11,9,0.4,0.6444444444444445,0.3306916228081358,0.575,0.8921865311841523,0.4,0.75,1.699650424066931,1.0
 0,10,0,0,1,CIN,site,image_component,member,0,11,9,0.45,0.6587301587301587,0.32910133911665296,0.575,0.8835487666885844,0.4,0.75,0.0,
 0,10,0,0,1,CIN,site,covariates,member,0,11,9,0.5,0.5926190476190476,0.2556693935657399,0.425,0.7062579138540827,0.6,0.25,0.0,

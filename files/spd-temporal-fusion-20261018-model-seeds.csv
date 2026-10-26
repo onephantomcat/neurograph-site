@@ -1,4 +1,4 @@
-﻿k,method,seed,auc,train_auc,expert_seeds
+k,method,seed,auc,train_auc,expert_seeds
 10,original,0,0.6681939393939393,1.0,0
 10,original,1,0.7156444444444445,1.0,1
 10,original,2,0.6654424242424243,1.0,2

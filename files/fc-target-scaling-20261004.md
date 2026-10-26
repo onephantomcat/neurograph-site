@@ -99,7 +99,7 @@ srpbs79：K5目标参考自适应AUC 0.7088，原策略0.7260，配对差-0.0172
 
 ## 方法和证据
 
-[首次新拟合前方案](fc-target-scaling-20261004-plan.md)记录了这个事后分析的范围。沿原按人三外层、五个支持排列、K5/K10、α=0/0.25/0.5、四λ和两参考，不增加查询驱动配置。原来源单独及α=0模型复用，概率与参数核对；正来源质量模型才实际重新训练。
+[首次新拟合前方案](FC_TARGET_SCALING_SENSITIVITY_PLAN_2026-10-04.md)记录了这个事后分析的范围。沿原按人三外层、五个支持排列、K5/K10、α=0/0.25/0.5、四λ和两参考，不增加查询驱动配置。原来源单独及α=0模型复用，概率与参数核对；正来源质量模型才实际重新训练。
 
 μ、s只取该训练折目标支持者的类平衡估计。内层验证支持者与外层查询均不参与；最终模型以外层全部支持者估计。沿原训练参考，在同一参考和折内，各α共享尺度。原坐标斜率γ、截距a对应增广惩罚λ/2{Σ(sⱼγⱼ)²+(a+μ·γ)²}；截距也受罚，固定均值同样必要。来源单独仍只使用来源，不引入目标数据。
 
@@ -109,7 +109,7 @@ srpbs79：K5目标参考自适应AUC 0.7088，原策略0.7260，配对差-0.0172
 
 原6516头迁移结论、7290头复算、结构/CLIP/67维阴性、TN14与结构535停止、原标签/QC/划分全部保留。本轮没有偏头痛候选分类、编码器训练或新临床验证。完整132候选与诊断、同期疼痛程度、治疗反应的临床条件仍需分别补齐。
 
-下载：[全部聚合和区间](fc-target-scaling-20261004-summary.json)、[全部68条件的新旧差值](fc-target-scaling-20261004-differences.csv)、[PNG](fc-target-scaling-20261004-figure.png)、[SVG](fc-target-scaling-20261004-svg.svg)。原来源：[原双向迁移结果](fc-transfer-conditions-20261002.md)、[保存目标复算](fc-objective-review-20261004.md)。
+下载：[全部聚合和区间](../reports/fc-target-scaling-2026-10-04/summary.json)、[全部68条件的新旧差值](../reports/fc-target-scaling-2026-10-04/policy_differences.csv)、[PNG](../reports/fc-target-scaling-2026-10-04/conditions.png)、[SVG](../reports/fc-target-scaling-2026-10-04/conditions.svg)。原来源：[原双向迁移结果](FC_TRANSFER_CONDITIONS_RESULTS_2026-10-02.md)、[保存目标复算](FC_OBJECTIVE_REVIEW_2026-10-04.md)。
 
 <!-- target-scaling-final-objective-evidence -->
 ## 新拟合与优化目标的独立复核

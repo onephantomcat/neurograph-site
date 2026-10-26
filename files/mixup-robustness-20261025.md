@@ -117,7 +117,6 @@ CIN原36人，OSU40人，NKN3人。OSU点差平均为正但仅2/5初始化正向
 
 [完整报告](https://onephantomcat.github.io/neurograph-site/files/ds005713-person-audit-20261025.md)。
 
-
 <!-- ds005713-remaining-audit-20261025 -->
 
 ## 2026-10-25：DS005713剩余102候选的人员与输入QC核查

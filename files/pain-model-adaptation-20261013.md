@@ -99,9 +99,9 @@ seed0/1，编码器Adam学习率1e-4、协变量分支1e-3、weight_decay1e-4、
 
 下一步最多一个低参数适配假设，先用训练内曲线/实际输入依据明确容量与正则问题，同时继续补真实同期评分、随访和独立人员来源。不能从低于强FC直接跳到无限网络搜索。Emo27/Emo B/TN14等原停止保持，CoSpine13留出MRI未读；ZAN不重新命名PHN，SRPBS异质Pain/HC标签不改称扫描当时是否痛。
 
-来源：[拟合前方案](https://onephantomcat.github.io/neurograph-site/files/pain-model-adaptation-20261013-plan.md)、[既有队列人员/终点核查](https://onephantomcat.github.io/neurograph-site/files/pain-readiness-20261012.md)、[前次Emo作者模型适配](https://onephantomcat.github.io/neurograph-site/files/emo-official-20261012.md)。本轮原始证据为真实保存拟合、成员记录及独立回放，公开仅聚合材料。
+来源：[拟合前方案](PAIN_MODEL_ADAPTATION_PLAN_2026-10-13.md)、[既有队列人员/终点核查](PAIN_DATA_READINESS_2026-10-12.md)、[前次Emo作者模型适配](EMO_OFFICIAL_MODELS_2026-10-12.md)。本轮原始证据为真实保存拟合、成员记录及独立回放，公开仅聚合材料。
 
 <Self-Audit>同人同原划分、训练侧缩放/参考、固定预算及全部负结果保持；不读外层选参、不重训旧模型或添加独立临床声明。复用作者类、保存回放、配对评价和已有发布事务，自己的可公开适配器通过等价检查；没有新增hash/contract/gate/Goal/自动化或修改QC。</Self-Audit>
 
 
-[全部模型AUROC与条件区间图](https://onephantomcat.github.io/neurograph-site/files/pain-model-adaptation-20261013-figure.png)，[可复用的协变量适配器源码](https://github.com/onephantomcat/Fmri/blob/main/research-code/pain-adaptation/portable_adapter.py)。
+[全部模型AUROC与条件区间图](../reports/pain-model-adaptation-2026-10-13/auc.png)，[可复用的协变量适配器源码](../research-code/pain-adaptation/portable_adapter.py)。

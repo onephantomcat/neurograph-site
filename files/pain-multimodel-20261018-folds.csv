@@ -1,4 +1,4 @@
-﻿model,condition,outer,test_people,ordinal_mae,accuracy,macro_f1,balanced_accuracy,quadratic_kappa,low_recall,middle_recall,high_recall,high_to_low_rate,rps,nll
+model,condition,outer,test_people,ordinal_mae,accuracy,macro_f1,balanced_accuracy,quadratic_kappa,low_recall,middle_recall,high_recall,high_to_low_rate,rps,nll
 clinical_ordinal,ensemble5,0,9,0.5555555555555556,0.4444444444444444,0.34848484848484845,0.5333333333333333,0.4,1.0,0.6,0.0,0.0,0.18140171760711243,1.0377417282546144
 clinical_ordinal,ensemble5,1,9,0.5555555555555556,0.4444444444444444,0.20512820512820515,0.26666666666666666,0.08163265306122447,0.0,0.8,0.0,0.0,0.19547299218528857,1.0963803135616061
 clinical_ordinal,ensemble5,2,9,0.3333333333333333,0.6666666666666666,0.26666666666666666,0.3333333333333333,0.0,0.0,1.0,0.0,0.0,0.12259210883179672,0.798646215437528

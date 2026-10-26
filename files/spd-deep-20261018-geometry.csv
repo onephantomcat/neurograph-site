@@ -1,4 +1,4 @@
-﻿arm,k,outer,repeat,seed,phase,layer1_clipped,layer2_clipped,layer3_clipped,layer1_minimum_eigenvalue,layer2_minimum_eigenvalue,layer3_minimum_eigenvalue,collapse_logit_max_error,max_layer_orthogonality_error,effective_orthogonality_error
+arm,k,outer,repeat,seed,phase,layer1_clipped,layer2_clipped,layer3_clipped,layer1_minimum_eigenvalue,layer2_minimum_eigenvalue,layer3_minimum_eigenvalue,collapse_logit_max_error,max_layer_orthogonality_error,effective_orthogonality_error
 deep200,10,0,0,0,initial_support,0,0,0,0.219500143777191,0.3793321862622753,0.4711183784574216,1.4155343563970746e-15,8.881784197001252e-16,8.881784197001252e-16
 deep200,10,0,0,0,final_support,0,0,0,0.21716034115642283,0.37802930827459436,0.45446747727622283,1.3766765505351941e-14,1.1102230246251565e-15,8.881784197001252e-16
 deep200,10,0,0,0,final_query,0,0,0,0.2254999883249229,0.37233802754332307,0.42605800946891353,1.3100631690576847e-14,1.1102230246251565e-15,8.881784197001252e-16

@@ -1,4 +1,4 @@
-﻿component,state,evidence,missing,source
+component,state,evidence,missing,source
 具体预训练来源,CHECKPOINT_CONFIG_AND_ARGS_MATCH,官方默认A424 r1，嵌入args与同目录config/log对应；train_dataset=hcp-train，100轮，seed5401。分片00000—01799及每轮200000样本不等于独立人数。,未提供跨匿名库生物身份映射；不报个体交集已证明为0。,https://huggingface.co/medarc/CortexMAE/tree/main/subcortical/a424_lr3e-4_1/pretrain
 人员重叠核查,DECLARED_DATASET_MEMBERSHIP_EXCLUDED,当前99人均为SRPBS1600成员；所选权重仅列HCP-YA，声明来源无交集。,这是队列成员层面的排除，生物个体跨库交集未知；当前仍为开发比较。,https://github.com/MedARC-AI/CortexMAE
 脑区输入,ATLAS_VOXEL_AND_AFFINE_MATCH,424标签；缓存提取图谱与官方上游体积图谱逐体素、仿射及标签顺序一致，99×240×424全部有限且非恒定。,体积与作者HCP表面/原生处理不同；既有小ROI和QC限制保留。,https://raw.githubusercontent.com/emergelab/hierarchical-brain-networks/master/brainmaps/A424+2mm.nii.gz

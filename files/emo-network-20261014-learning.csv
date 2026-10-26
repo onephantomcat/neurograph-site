@@ -1,4 +1,4 @@
-﻿training_people,labels,frames,context,model,mean_MAE,minimum_fold_seed_MAE,maximum_fold_seed_MAE,logical_readouts,actual_fits,mean_df,active_components_min
+training_people,labels,frames,context,model,mean_MAE,minimum_fold_seed_MAE,maximum_fold_seed_MAE,logical_readouts,actual_fits,mean_df,active_components_min
 6,6,75,clinical,clinical,17.392184966716357,11.088761820355424,22.811985914789627,9,9,2.5709904259561216,30
 6,6,75,clinical,raw_bundle,19.36169337860364,14.449292777035659,23.39982057350432,9,9,3.9660132813321223,30
 6,6,75,clinical,closest_half,17.937287465258883,14.93445752130206,21.894536096254292,9,9,3.461234235128648,30

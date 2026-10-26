@@ -1,0 +1,15 @@
+{
+  "state": "PASS",
+  "final_models": 100,
+  "inner_fits": 1500,
+  "constant_predictions": 50,
+  "participants": 33,
+  "outer_test_occurrences_per_participant_per_method": 5,
+  "all_inner_and_outer_participant_sets_disjoint": true,
+  "training_only_scalers": true,
+  "independent_sklearn_final_models_checked": 100,
+  "max_sklearn_prediction_difference": 1.1368683772161603e-13,
+  "saved_model_replays": 100,
+  "max_replay_difference": 0.0,
+  "image_qc_or_visual_approval_claimed": false
+}

@@ -1,4 +1,4 @@
-﻿arm,k,outer,repeat,seed,updates,epochs,first_epoch_support_bce,last_epoch_support_bce,minimum_support_bce,initial_projection1_gradient_norm,initial_projection2_gradient_norm,initial_projection3_gradient_norm
+arm,k,outer,repeat,seed,updates,epochs,first_epoch_support_bce,last_epoch_support_bce,minimum_support_bce,initial_projection1_gradient_norm,initial_projection2_gradient_norm,initial_projection3_gradient_norm
 deep200,10,0,0,0,200,200,0.6703889881037428,0.037056224647034904,0.037056224647034904,0.1673171814221464,0.1214879021621021,0.07385837015470778
 deep200,10,0,0,1,200,200,0.691126026125108,0.04013803714419948,0.04013803714419948,0.1585000863102599,0.11618732916658858,0.06629140338677705
 deep200,10,0,0,2,200,200,0.667839728874397,0.03623381163355133,0.03623381163355133,0.16022009279017618,0.11209277415757604,0.06855356488004422

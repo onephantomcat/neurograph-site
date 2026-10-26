@@ -1,4 +1,4 @@
-﻿model,member,fold,people,mae,bias
+model,member,fold,people,mae,bias
 clinical_regression,ensemble5,0,9,11.80438797950437,-7.122365605759062
 clinical_regression,ensemble5,1,9,13.710039989229472,5.789804628397587
 clinical_regression,ensemble5,2,9,12.978287688160018,-0.9244050400130371

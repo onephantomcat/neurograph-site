@@ -33,4 +33,4 @@
 
 PMC正文和原补充链接曾返回浏览器验证页；本轮从另一官方出版社入口成功读回后续论文全文，没有绕过验证或将HTML当DOCX。原协议补充正文仍未成功取得，相关访问失败保留。
 
-[聚合JSON](migraine-clinical-registry-20261004-summary.json)；[人员与访视核查](migraine-identity-visits-20261004.md)；[临床增量设计](migraine-readiness-20261002-clinical.md)。
+[聚合JSON](../reports/migraine-clinical-registry-2026-10-04/summary.json)；[人员与访视核查](MIGRAINE_IDENTITY_VISIT_AUDIT_2026-10-04.md)；[临床增量设计](CLINICAL_INCREMENT_DESIGN_2026-10-02.md)。

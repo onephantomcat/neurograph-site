@@ -1,4 +1,4 @@
-﻿model,outer,test_people,ordinal_mae,accuracy,macro_f1,balanced_accuracy,quadratic_kappa,low_recall,middle_recall,high_recall,high_to_low_rate,rps,nll
+model,outer,test_people,ordinal_mae,accuracy,macro_f1,balanced_accuracy,quadratic_kappa,low_recall,middle_recall,high_recall,high_to_low_rate,rps,nll
 clinical__raw__argmax,0,9,0.4444444444444444,0.5555555555555556,0.2380952380952381,0.3333333333333333,0.0,0.0,1.0,0.0,0.0,0.16879293545738028,0.9648487889091015
 clinical__raw__argmax,1,9,0.4444444444444444,0.5555555555555556,0.2380952380952381,0.3333333333333333,0.0,0.0,1.0,0.0,0.0,0.18048116569613162,1.0394928138661401
 clinical__raw__argmax,2,9,0.3333333333333333,0.6666666666666666,0.26666666666666666,0.3333333333333333,0.0,0.0,1.0,0.0,0.0,0.13352926642046667,0.8724550614990539

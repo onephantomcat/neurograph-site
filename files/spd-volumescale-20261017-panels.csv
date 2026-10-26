@@ -1,4 +1,4 @@
-﻿k,panel,outer,repeat,seed,estimable,exchangeable_people,exchangeable_strata,all_present_major_sites_exchangeable,observed_statistic,permutation_tail,null_sd
+k,panel,outer,repeat,seed,estimable,exchangeable_people,exchangeable_strata,all_present_major_sites_exchangeable,observed_statistic,permutation_tail,null_sd
 10,1,0,0,0,True,18,3,True,0.4203611770574236,0.314,0.3959314875941616
 10,1,0,0,1,True,18,3,True,0.4203611770574236,0.286,0.38880682205209716
 10,1,0,0,2,True,18,3,True,0.4203611770574236,0.297,0.39454958354063824

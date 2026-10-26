@@ -1,4 +1,4 @@
-﻿component,state,evidence,missing,source
+component,state,evidence,missing,source
 FMM作者版本与权重,SOURCE_VERIFIED_WEIGHT_UNBOUND,当前作者commit仍为d68a776e9f7ee2b4518f9b056a3263668577547a；教程加载pretrained_models/brainlm，本仓库未含模型权重或明确外部文件映射,需论文所用检查点的确切标识、对应预训练数据与预处理记录,https://github.com/Shef-AIRE/FMM_TC/tree/d68a776e9f7ee2b4518f9b056a3263668577547a
 官方256维候选,SAFE_TENSOR_INSPECTION_PASS,BrainLM官方旧checkpoint-1400：256维/4层/4头、424区/200点/patch20；30471369字节，124张量均有限，配置与主要形状相符,不能由配置相符证明它就是FMM论文所用权重；未冒称严格模型加载或前向成功,https://github.com/vandijklab/BrainLM/tree/eded39c86c27e03f5ead1d6a14311e92d1305e5e/pretrained_models/2023-06-06-22_15_00-checkpoint-1400
 公开HF权重,VARIANTS_DISTINGUISHED,old_13M为512维/4层/4头；111M为768维/12层/12头，650M为另一大模型,不能用投影成256维或换大模型冒称同一官方检查点,https://huggingface.co/vandijklab/brainlm/tree/4c54e0cccf920d9d6af7c647cb866fc19c60cf26

@@ -90,7 +90,6 @@ AUC在五个初始化中均提高，平均Brier与logloss也下降，出现一�
 
 [完整报告](https://onephantomcat.github.io/neurograph-site/files/brainhgt-supervised-mixup-20261025.md)。
 
-
 <!-- brainhgt-stage-attribution-20261026 -->
 
 ## 2026-10-26：BrainHGT逐阶段归因：主要突变位于32维监督压缩

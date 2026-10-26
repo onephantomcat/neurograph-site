@@ -1,0 +1,1 @@
+{"content": "existing_QC_failure,failed_scans\naal90_coverage_or_signal,10\nanatomical_all_tissue_maps_nonempty,1\ncensor_fraction_lte_0p20,2\nconfounds_columns_match_config_plus_censoring,4\nnative_csf_mask_nonempty,1\nnative_wm_mask_nonempty,3\nnormalized_mask_coverage_by_standard_gt_0p90,3\nnormalized_mask_dice_gt_0p75,4\n", "truncated": false}

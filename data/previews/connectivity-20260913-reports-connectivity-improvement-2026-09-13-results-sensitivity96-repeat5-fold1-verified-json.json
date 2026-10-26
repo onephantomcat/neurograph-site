@@ -1,1 +1,1 @@
-{"content": "{\r\n  \"status\": \"PASS\",\r\n  \"methods\": [\r\n    \"lw_fc\",\r\n    \"lw_tangent\",\r\n    \"node_strength180\"\r\n  ]\r\n}\n", "truncated": false}
+{"content": "{\n  \"status\": \"PASS\",\n  \"methods\": [\n    \"lw_fc\",\n    \"lw_tangent\",\n    \"node_strength180\"\n  ]\n}\n", "truncated": false}

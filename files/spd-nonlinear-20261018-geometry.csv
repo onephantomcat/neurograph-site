@@ -1,4 +1,4 @@
-﻿k,outer,repeat,seed,layer,minimum_eigenvalue,activated_minimum_eigenvalue,relative_change,midpoint_relative_error,scale,log_clipped_eigenvalues
+k,outer,repeat,seed,layer,minimum_eigenvalue,activated_minimum_eigenvalue,relative_change,midpoint_relative_error,scale,log_clipped_eigenvalues
 10,0,0,0,1,0.219500143777191,0.37794340785349245,0.304688714861386,0.042349446417567035,1.7886864553521988,
 10,0,0,0,2,0.5057000906428213,0.6087305607878885,0.7935314468547885,0.14965035300540316,2.2460453417351074,
 10,0,0,0,3,0.7967193642517121,,,,,0

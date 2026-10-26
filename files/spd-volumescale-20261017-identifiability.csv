@@ -1,4 +1,4 @@
-﻿k,panel,outer,repeat,site_protocol_exactly_linked,workflow_rank,nuisance_rank,unique_processing_batches,all_tr_equal
+k,panel,outer,repeat,site_protocol_exactly_linked,workflow_rank,nuisance_rank,unique_processing_batches,all_tr_equal
 10,1,0,0,True,4,8,2,True
 20,2,0,0,True,5,9,2,True
 10,4,0,1,True,5,9,4,True

@@ -1,4 +1,4 @@
-﻿k,outer,repeat,candidate,reference,condition,reference_auc,candidate_auc,delta_auc
+k,outer,repeat,candidate,reference,condition,reference_auc,candidate_auc,delta_auc
 10,0,0,heterogeneous_pair,same_spd_pair,member_mean,0.7171717171717172,0.5656565656565655,-0.1515151515151517
 10,0,1,heterogeneous_pair,same_spd_pair,member_mean,0.6848484848484848,0.6828282828282829,-0.002020202020201922
 10,0,2,heterogeneous_pair,same_spd_pair,member_mean,0.597979797979798,0.4686868686868687,-0.12929292929292924

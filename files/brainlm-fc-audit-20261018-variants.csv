@@ -1,4 +1,4 @@
-﻿model,hidden_size,num_hidden_layers,num_attention_heads,num_brain_voxels,num_timepoints_per_voxel,timepoint_patching_size,image_size,identity
+model,hidden_size,num_hidden_layers,num_attention_heads,num_brain_voxels,num_timepoints_per_voxel,timepoint_patching_size,image_size,identity
 official256,256,4,4,424,200,20,224,Architecture candidate; not bound to FMM paper
 old_13M,512,4,4,424,200,20,224,Distinct public variant; not interchangeable
 vitmae111M,768,12,12,,,,"[432, 432]",Distinct public variant; not interchangeable

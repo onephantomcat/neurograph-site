@@ -1,4 +1,4 @@
-﻿outer,representation,seed,parameters,trainable_parameters,gradient_steps,seconds,official_balance_api_error
+outer,representation,seed,parameters,trainable_parameters,gradient_steps,seconds,official_balance_api_error
 0,clinical,0,7244554,0,0,2.491028100001131,2.2879990901891745e-08
 0,clinical,1,7244554,0,0,0.7843360000006214,3.709641632765326e-08
 0,clinical,2,7244554,0,0,0.9096306999999797,2.3038637941841245e-08

@@ -1,4 +1,4 @@
-﻿model,parameters,new_fits,updates_per_fit,optimizer,learning_rate,device,scope
+model,parameters,new_fits,updates_per_fit,optimizer,learning_rate,device,scope
 clinical_ordinal,15,15,200,AdamW,0.001,CPU2,local compact task adaptation
 clinical_regression,14,15,200,AdamW,0.001,CPU2,local compact task adaptation
 node_mlp_ordinal,1759,15,200,AdamW,0.001,CPU2,local compact task adaptation

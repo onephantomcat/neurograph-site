@@ -1,4 +1,4 @@
-﻿cohort,k,repeat,target_fold,source_outer,seed,initial_bce,final_bce,head_parameter_change
+cohort,k,repeat,target_fold,source_outer,seed,initial_bce,final_bce,head_parameter_change
 zan,5,0,0,0,0,0.7429193013015909,0.032416424180296624,0.8290517652695815
 zan,10,0,0,0,0,0.8975606888509917,0.07385780510102569,1.0420051493452802
 zan,5,0,1,0,0,1.0346504872849054,0.03278715730995345,0.9688979124604772

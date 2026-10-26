@@ -1,4 +1,4 @@
-﻿cohort,k,record_type,repeat,condition,auc,auprc,balanced_accuracy,sensitivity,specificity,brier,logloss,source_train_auc,seed,outer,inner,within_support_auc_sd,mean_member_auc,ensemble_auc,delta_auc
+cohort,k,record_type,repeat,condition,auc,auprc,balanced_accuracy,sensitivity,specificity,brier,logloss,source_train_auc,seed,outer,inner,within_support_auc_sd,mean_member_auc,ensemble_auc,delta_auc
 zan,5,support_repeat,0,member_mean,0.5054344827586206,0.5009443384971948,0.4950344827586207,0.608,0.38206896551724134,0.3111298437244111,0.886174867924165,1.0,,,,,,,
 zan,5,support_repeat,1,member_mean,0.5086344827586207,0.49581903828965046,0.5067862068965517,0.5584,0.45517241379310347,0.3078949500244934,0.8620139392389743,1.0,,,,,,,
 zan,5,support_repeat,2,member_mean,0.5218758620689655,0.5052240845110687,0.5209931034482758,0.45439999999999997,0.5875862068965517,0.2920774563103696,0.8169086869701944,1.0,,,,,,,

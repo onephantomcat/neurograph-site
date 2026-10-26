@@ -265,8 +265,8 @@ TabPFN固定配置，内层只作开发诊断，没有以它选seed/配置或替
 
 保留两项失败与对应原件：最初合成low_memory批query与单query误差5.918741226196289e-05，未通过1e-5容差；改训练上下文缓存＋逐条查询后重复/批次/其他query改变检查差0，患者上下文启动前修复、容差不变。旧Emo切空间特征列在临床后，新接口曾把FC列放前，兼容断言失败；只重排列为旧序，不重拟合参考/SVD，已完成24内层/2最终Pearson模型原件直接复用，原失败和26模型均保留，最终模型没有覆盖。
 
-新依赖安装在服务器本任务隔离overlay，原Torch共享环境不修改；仅GPU1固定Python批处理，无其他worker热改或重启。权重、上下文、逐人评分/预测和模型参数私有。公开代码仅自己的适配器；[许可证](https://onephantomcat.github.io/neurograph-site/files/pain-prior-transfer-20261013-license.txt)随公开适配资料提供。
+新依赖安装在服务器本任务隔离overlay，原Torch共享环境不修改；仅GPU1固定Python批处理，无其他worker热改或重启。权重、上下文、逐人评分/预测和模型参数私有。公开代码仅自己的适配器；[许可证](../research-code/pain-adaptation/TabPFN_LICENSE.txt)随公开适配资料提供。
 
-[拟合前方案](https://onephantomcat.github.io/neurograph-site/files/pain-prior-transfer-20261013-plan.md) · [完整聚合](https://onephantomcat.github.io/neurograph-site/files/pain-prior-transfer-20261013-summary.json) · [全部75项指标](https://onephantomcat.github.io/neurograph-site/files/pain-prior-transfer-20261013-metrics.csv) · [MAE区间图](https://onephantomcat.github.io/neurograph-site/files/pain-prior-transfer-20261013-figure.png) · [自有适配器](https://onephantomcat.github.io/neurograph-site/files/pain-prior-transfer-20261013-adapter.py)
+[拟合前方案](PAIN_PRIOR_TRANSFER_PLAN_2026-10-13.md) · [完整聚合](../reports/pain-prior-transfer-2026-10-13/summary.json) · [全部75项指标](../reports/pain-prior-transfer-2026-10-13/metrics.csv) · [MAE区间图](../reports/pain-prior-transfer-2026-10-13/mae.png) · [自有适配器](../research-code/pain-adaptation/pain_prior_adapter.py)
 
 <Self-Audit>泄露：原人级划分，训练側参考/SVD/填补/选择，来源为官方合成先验；目标队列仍有开发选择史。过拟合：冻结参数不等于验证有效，保留全部种子/随机消融/负结果及临床/强FC比较，停止无依据扩搜。复用旧ROI、Emo已保存对照、评价及发布组件；无新增hash/contract/gate，MRI同期及独立临床验证仍缺。</Self-Audit>

@@ -1,4 +1,4 @@
-﻿record_type,repeat,condition,auc,auprc,balanced_accuracy,sensitivity,specificity,brier,logloss,train_auc,seed,outer,inner,within_support_auc_sd,mean_member_auc,ensemble_auc,delta_auc
+record_type,repeat,condition,auc,auprc,balanced_accuracy,sensitivity,specificity,brier,logloss,train_auc,seed,outer,inner,within_support_auc_sd,mean_member_auc,ensemble_auc,delta_auc
 support_repeat,0,member_mean,0.6539006919006919,0.6589080886568269,0.6044542124542125,0.630940170940171,0.577968253968254,0.2508242012290074,0.7169595433239043,1.0,,,,,,,
 support_repeat,1,member_mean,0.6227676027676028,0.6341685393541202,0.5926324786324786,0.6817094017094018,0.5035555555555555,0.263527343645285,0.7502211049886585,1.0,,,,,,,
 support_repeat,2,member_mean,0.6747342287342287,0.6824695401485288,0.6064713064713064,0.7034188034188034,0.5095238095238095,0.24746503030636097,0.7074852491817769,1.0,,,,,,,

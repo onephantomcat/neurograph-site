@@ -1,4 +1,4 @@
-﻿k,site,variable,eligible_support_panels,mean_difference,mean_smd
+k,site,variable,eligible_support_panels,mean_difference,mean_smd
 10,OSU,censor_fraction,22,0.0016125000000000015,0.06964543963794124
 10,OSU,logdet,22,0.08856868511824367,0.8810798353179077
 10,OSU,mean_fd,22,0.01735885642560569,0.49065266517966516

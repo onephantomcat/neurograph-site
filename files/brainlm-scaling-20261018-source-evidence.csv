@@ -1,4 +1,4 @@
-﻿item,evidence_type,status,comments,collaborator_comments,finding,source_url
+item,evidence_type,status,comments,collaborator_comments,finding,source_url
 issue3,public_discussion,closed,1,1,协作者只指向HF下载，未绑定GitHub256,https://github.com/vandijklab/BrainLM/issues/3
 issue6,public_discussion,open,7,3,协作者说明UKB统一处理；不同归一化的微调恢复尚未实测,https://github.com/vandijklab/BrainLM/issues/6
 issue8,public_discussion,closed,1,1,协作者说明UKB数据不能分享，建议开放HCP,https://github.com/vandijklab/BrainLM/issues/8

@@ -1,4 +1,4 @@
-﻿k,covariate,defined_checks,undefined_checks,median_absolute_r,maximum_absolute_r,maximum_site_eta_squared,scope
+k,covariate,defined_checks,undefined_checks,median_absolute_r,maximum_absolute_r,maximum_site_eta_squared,scope
 10,age,100,0,0.13927963321975753,0.49555189869654415,0.4864953094505143,Descriptive support-only global lag mean; not adjusted or causal.
 10,sex_equal_2,100,0,0.338702174894507,0.7160877172288034,0.4864953094505143,Descriptive support-only global lag mean; not adjusted or causal.
 10,mean_fd,100,0,0.14915427332233155,0.5656896965993872,0.4864953094505143,Descriptive support-only global lag mean; not adjusted or causal.

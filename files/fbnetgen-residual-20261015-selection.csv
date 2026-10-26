@@ -1,4 +1,4 @@
-﻿key,variant,seed,train_people,query_people,epochs_run,effective_coefficient_1,effective_coefficient_2,effective_coefficient_3
+key,variant,seed,train_people,query_people,epochs_run,effective_coefficient_1,effective_coefficient_2,effective_coefficient_3
 identity_seed0_outer0_final,identity,0,79,20,43,0.0,0.0,0.0
 identity_seed0_outer1_final,identity,0,79,20,26,0.0,0.0,0.0
 identity_seed0_outer2_final,identity,0,79,20,9,0.0,0.0,0.0

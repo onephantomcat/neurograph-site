@@ -1,4 +1,4 @@
-﻿k,split,part,variable,blocks,finite_smd,zero_within_class_variance,mean_smd,median_smd,mean_absolute_smd,mean_case_control_difference,zero_variance_nonzero_class_difference
+k,split,part,variable,blocks,finite_smd,zero_within_class_variance,mean_smd,median_smd,mean_absolute_smd,mean_case_control_difference,zero_variance_nonzero_class_difference
 10,site,train,age,43,43,0,0.35998366253334446,0.476346148241646,0.7401705707365973,4.891666666666666,0
 10,site,train,sex_code2,43,43,0,0.1250590451017398,0.0,0.7329602950031688,0.04086378737541528,0
 10,site,train,mean_fd,43,43,0,0.15241205538778158,0.11643506868461911,0.7191561603817426,0.0043481226026186575,0

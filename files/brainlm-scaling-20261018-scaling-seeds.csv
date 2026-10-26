@@ -1,4 +1,4 @@
-﻿seed,state,source_expression_max_error,formula_max_difference,canonical_unit_scaling_error,published_unit_scaling_difference,encoder_feature_max_difference,source_output_shape,patient_samples
+seed,state,source_expression_max_error,formula_max_difference,canonical_unit_scaling_error,published_unit_scaling_difference,encoder_feature_max_difference,source_output_shape,patient_samples
 0,PASS,0.0,2.138972317936515,1.3322676295501878e-15,9.343978647030966,0.03355377912521362,"[200, 424]",0
 1,PASS,0.0,2.2405758738197346,1.3322676295501878e-15,8.981879113610056,0.035944223403930664,"[200, 424]",0
 2,PASS,0.0,2.4024620772342513,1.3322676295501878e-15,9.594510813968729,0.03338974714279175,"[200, 424]",0

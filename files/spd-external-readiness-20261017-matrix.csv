@@ -1,4 +1,4 @@
-﻿key,name,people,endpoint,inputs,prior_use,decision,limitations,evidence_date,strict_independent_confirmation_ready
+key,name,people,endpoint,inputs,prior_use,decision,limitations,evidence_date,strict_independent_confirmation_ready
 srpbs,SRPBS99／历史79＋20,99：46病例／53对照,异质Pain/HC，分表VAS不能混作统一疼痛终点,99×240×90；年龄/男性/FD/删帧比例,当前SPD开发及原五外折已评价全99人,当前来源；不作外部测试,旧79/20与当前99同人同序；原20已全部进入当前外层test。总库存1627及9人旧来源包不等于新增疼痛测试者。,2026-10-17,False
 zan,ZAN · ds007181,54：25 ZAN／29 HC,带状疱疹相关神经痛/HC；不是自动确诊PHN,54×236×90；四协变量与来源同义,已做多来源、作者模型、紧凑模型和BrainHGT开发,可准备固定SPD跨病因外部探索；优先候选,7T及采集/去噪差异；没有VAS/NRS同期程度；跨库生物身份未建立；已开发，不是全新H-test。,2026-10-17,False
 emo,Emo-Fibro · ds004144,53：27 FM／26 HC,纤维肌痛/HC；访谈VAS另任务,53×300×90；四协变量与来源同义,诊断及27患者访谈VAS多轮开发,可准备固定SPD跨病因外部探索；次要候选,不把访谈VAS当MRI同期痛；原13失败/覆盖限制保留；与音乐队列人员去重仍未建立。,2026-10-17,False

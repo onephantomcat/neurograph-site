@@ -56,7 +56,7 @@
 
 十个OpenNeuro仓库重新读取当前版本，九个与持有版本相同，DS005713有实质临床文件更新；[版本与范围](https://onephantomcat.github.io/neurograph-site/files/pain-label-inventory-20261018-metadata.csv)。PRT四个Figshare API本次仍403，不代表数据不存在。Emo最新Zenodo仍7032997/1.2；没有下载MRIQC大型图包或完整MRI。脊髓候选仅一个事件样例实际读取，不能外推40人评分已可训练；偏头痛task-pain样例只有条件，没有数值回答，不能用warm/pain当主观痛。
 
-原Emo区间用另一套逐行计数独立复核；音乐条件/时点键唯一、80路径对应、68评分及两端独立人数另读回复核；新版TN原8评分不变及95精确rest路径逐项核对。见[聚合复核](https://onephantomcat.github.io/neurograph-site/files/pain-label-inventory-20261018-verification.json)。第一次库存脚本把原Emo无前缀ID错当带命名空间ID，出现0匹配，修正为已保存的原sub-ID后才发布；设计包原先假定33全有，实读只有32精确匹配，按实际报告。TN旧6扫描与8个人级口径明确分开，未混用分母。失败记录留私有，没有按评分选人或改变原文件。
+原Emo区间用另一套逐行计数独立复核；音乐条件/时点键唯一、80路径对应、68评分及两端独立人数另读回复核；新版TN原8评分不变及95精确rest路径逐项核对。见[聚合复核](https://onephantomcat.github.io/neurograph-site/files/pain-label-inventory-20261018-verification.json)。第一次库存脚本把原Emo无前缀ID错当带命名空间ID，出现0匹配，修正为已保存的原[个体编号已省略]后才发布；设计包原先假定33全有，实读只有32精确匹配，按实际报告。TN旧6扫描与8个人级口径明确分开，未混用分母。失败记录留私有，没有按评分选人或改变原文件。
 
 原训练/预测阴性不变；本轮新增标签库存不是同期性、训练纳入、预训练无重叠或临床有效的证明。原QC、CoSpine留出、TN14停止、三个临床终点及独立验证要求保持。公开仅聚合，不发布逐人评分/映射、影像或QC材料。
 

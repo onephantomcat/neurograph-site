@@ -1,4 +1,4 @@
-﻿k,representation,distance2,null_mean_distance2,distance_ratio,permutation_tail,class_shift_cosine,eligible_support_panels
+k,representation,distance2,null_mean_distance2,distance_ratio,permutation_tail,class_shift_cosine,eligible_support_panels
 10,full_log,55.749238965229424,48.94976056791599,1.1380419700365032,0.04892,0.1261641570950613,21
 10,full_shape,54.66865459009242,47.97579497006877,1.1389610402618617,0.02605,0.12186873849146887,21
 10,global_amplitude,0.01200649305707784,0.010821839976080265,1.2039563452400373,0.4891,0.5,21

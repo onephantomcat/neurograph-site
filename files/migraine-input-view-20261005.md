@@ -17,4 +17,4 @@
 
 全132人必要共同输入、身份/访视及质量核查仍待完成；随后执行原K5四方法540拟合（60最终、480内层）/45训练参考。准确临床时间、同期疼痛与治疗反应真值、实际预训练成员对应和独立H-test仍缺，临床增量验证和论文终稿未完成。已发布报告不改变这些完成状态。
 
-[聚合JSON](migraine-input-view-20261005-summary.json)；[此前88人数值复核](migraine-input-numeric-20261005.md)；[批次输入报告](migraine-batch-inputs-20261003.md)；[原有限比较方案](migraine-readiness-20261002-protocol.md)。
+[聚合JSON](../reports/migraine-input-view-2026-10-05/summary.json)；[此前88人数值复核](MIGRAINE_INPUT_NUMERIC_2026-10-05.md)；[批次输入报告](MIGRAINE_BATCH_INPUTS_2026-10-03.md)；[原有限比较方案](MIGRAINE_FINITE_PROTOCOL_2026-10-02.md)。

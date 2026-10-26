@@ -1,4 +1,4 @@
-﻿k,comparison,delta_mean_auc,positive_support_repeats,delta_brier,delta_logloss,ci_lower,ci_upper
+k,comparison,delta_mean_auc,positive_support_repeats,delta_brier,delta_logloss,ci_lower,ci_upper
 5,spd_minus_frozen_random_geometry_ensemble5,0.00969696969696976,4,0.0012393929855505914,0.0104394740503857,-0.009333333333333306,0.028671328671328822
 5,spd_minus_frozen_random_geometry_member_mean,0.0072727272727272085,4,-0.00242508374797884,-0.0033262344902964536,-0.007018387314439751,0.022574248120300542
 5,spd_minus_covariates_ensemble5,0.07030303030303037,3,-0.0021959262135430313,0.04688686255411034,-0.042324074074074146,0.1803648809523811

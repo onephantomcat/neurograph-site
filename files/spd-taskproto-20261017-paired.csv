@@ -1,4 +1,4 @@
-﻿comparison,k,condition,outer,repeat,reference_auc,candidate_auc,delta_auc
+comparison,k,condition,outer,repeat,reference_auc,candidate_auc,delta_auc
 taskproto_minus_original,5,member_mean,0,0,0.5696969696969697,0.5696969696969697,0.0
 taskproto_minus_original,5,member_mean,0,1,0.7636363636363637,0.7636363636363636,-1.1102230246251565e-16
 taskproto_minus_original,5,member_mean,0,2,0.4707070707070707,0.4666666666666667,-0.004040404040404011

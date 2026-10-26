@@ -1,0 +1,32 @@
+/* The established blue/white shell stays intact; only the reading hierarchy changes. */
+.research-brief{display:grid;gap:.45rem;margin:.75rem 0;min-width:0;font-size:1rem;line-height:1.65}
+.research-brief>div{display:grid;grid-template-columns:5.2em minmax(0,1fr);gap:.75rem;align-items:start;min-width:0}
+.research-brief dt{color:#43536b;font-weight:600;margin:0}
+.research-brief dd{color:#172b46;margin:0;min-width:0;overflow-wrap:anywhere;word-break:normal}
+.research-brief .brief-impact dd{font-weight:600}
+.brief-scope{margin:.65rem 0;color:#526174;font-size:.9rem;line-height:1.6}
+.brief-notes{margin-top:.8rem;min-width:0;border-top:1px solid #dce5ef;padding-top:.25rem}
+.brief-notes>summary{min-height:44px;display:list-item;align-content:center;cursor:pointer;color:#075fbb;font-weight:600;padding:.6rem .2rem;line-height:1.5;overflow-wrap:anywhere}
+.brief-notes>summary:focus-visible{outline:3px solid #2563eb;outline-offset:3px;border-radius:4px}
+.brief-notes[open]>summary{margin-bottom:.6rem}
+.brief-notes p,.brief-original dd{line-height:1.7;overflow-wrap:anywhere}
+.brief-original{display:grid;gap:.5rem}.brief-original dt{font-weight:600}.brief-original dd{margin:0 0 .6rem}
+.research-timeline .research-brief>div{padding:0;border:0;box-shadow:none;background:none}
+.research-timeline article[data-research-brief] h3{margin-bottom:.45rem}
+.calendar-event .research-brief{font-size:.94rem}
+.calendar-event .research-brief>div{grid-template-columns:4.7em minmax(0,1fr);gap:.6rem}
+.report-brief{border:1px solid #dce5ef;border-radius:10px;padding:1rem;margin:1rem 0;background:#f7faff}
+.report-brief h3{margin-top:0}
+.brief-inline{margin:.8rem 0}
+.paper-baseline-note{display:grid;gap:.65rem;margin-top:.6rem;border-left:3px solid #a9bfdc;padding:.65rem .85rem;background:#f5f8fc;font-size:.9rem;font-weight:400;line-height:1.6;overflow-wrap:anywhere}
+.paper-baseline-note strong{display:block;font-weight:600;color:#304c70}
+.paper-baseline-note p{margin:.3rem 0;font-weight:400}
+.paper-baseline-note small{display:block;color:#526174;font-size:.85rem}
+@media(max-width:600px){
+ .sidebar .nav-group{display:none}
+ .research-brief{font-size:.96rem;gap:.6rem}
+ .research-brief>div,.calendar-event .research-brief>div{grid-template-columns:4.7em minmax(0,1fr);gap:.55rem}
+ .brief-notes>summary{padding-block:.65rem}
+ .report-brief{padding:.8rem}
+}
+@media(prefers-reduced-motion:reduce){.brief-notes *{scroll-behavior:auto}}

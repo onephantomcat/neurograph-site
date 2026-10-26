@@ -1,4 +1,4 @@
-﻿k,seed,checks,passed,failed,maximum_layer2_relative_change,minimum_gradient_norm
+k,seed,checks,passed,failed,maximum_layer2_relative_change,minimum_gradient_norm
 10,0,25,22,3,2.3589573016042604,0.04425574951976697
 10,1,25,23,2,3.272392089023206,0.04480728735455195
 10,2,25,25,0,1.961582683439608,0.049113329674358816

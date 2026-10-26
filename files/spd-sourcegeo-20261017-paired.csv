@@ -1,4 +1,4 @@
-﻿comparison,k,condition,outer,repeat,reference_auc,candidate_auc,delta_auc
+comparison,k,condition,outer,repeat,reference_auc,candidate_auc,delta_auc
 sourcegeo_minus_frozen_random,5,member_mean,0,0,0.5838383838383838,0.5878787878787879,0.004040404040404066
 sourcegeo_minus_frozen_random,5,member_mean,0,1,0.7393939393939394,0.7373737373737373,-0.002020202020202033
 sourcegeo_minus_frozen_random,5,member_mean,0,2,0.5090909090909091,0.501010101010101,-0.008080808080808133

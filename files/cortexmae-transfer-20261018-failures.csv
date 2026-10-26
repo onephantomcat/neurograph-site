@@ -1,4 +1,4 @@
-﻿stage,state,detail
+stage,state,detail
 本机隔离环境初次解析,INSTALLER_STOPPED_RETAINED,初次uv自动解析到不需要的Torch下载，仅结束已核实属于本任务的安装进程；随后no-deps安装四个小包成功，无共享环境修改。
 服务器首次环境安装,FAILED_RETAINED_EXIT1,旧pip将typing-extensions元数据名字判不一致，退回源码后找不到flit_core；更新隔离环境pip并保留原日志后完成针对性重试。
 模型训练,COMPLETE_NO_FAILED_HEAD,500预定神经头完成并全部重放；没有删除seed或补跑挑结果。

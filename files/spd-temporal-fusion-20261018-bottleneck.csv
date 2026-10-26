@@ -1,4 +1,4 @@
-﻿k,method,support_train_auc,member_mean_auc,ensemble5_auc,ensemble_minus_member,interpretation
+k,method,support_train_auc,member_mean_auc,ensemble5_auc,ensemble_minus_member,interpretation
 10,original,1.0,0.6870965656565657,0.7315919191919191,0.04449535353535339,"Supports fit perfectly; no stable depth/nonlinearity gain. Ensemble benefit is descriptive, not proof of a unique cause."
 10,deep200,1.0,0.6887870707070707,0.7323878787878787,0.04360080808080802,"Supports fit perfectly; no stable depth/nonlinearity gain. Ensemble benefit is descriptive, not proof of a unique cause."
 10,bounded200,1.0,0.6810424242424243,0.7178909090909091,0.0368484848484848,"Supports fit perfectly; no stable depth/nonlinearity gain. Ensemble benefit is descriptive, not proof of a unique cause."

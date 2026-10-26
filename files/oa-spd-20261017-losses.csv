@@ -1,4 +1,4 @@
-﻿k,outer,repeat,seed,method,initial_bce,final_bce,train_auc,trainable_parameters,total_parameters
+k,outer,repeat,seed,method,initial_bce,final_bce,train_auc,trainable_parameters,total_parameters
 5,0,0,0,spd,0.7050945084269382,0.020970162502347046,1.0,1581,1581
 5,0,0,0,frozen_random_geometry,0.7050945084269383,0.040715986257059,1.0,141,1581
 5,0,0,0,covariates,0.6962033163128465,0.6305907217069258,0.76,5,5

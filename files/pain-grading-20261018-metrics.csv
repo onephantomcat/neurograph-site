@@ -1,4 +1,4 @@
-﻿model,seed,people,ordinal_mae,accuracy,macro_f1,balanced_accuracy,quadratic_kappa,low_recall,middle_recall,high_recall,high_to_low_rate,rps,nll,vas_mae,vas_rmse,vas_r2
+model,seed,people,ordinal_mae,accuracy,macro_f1,balanced_accuracy,quadratic_kappa,low_recall,middle_recall,high_recall,high_to_low_rate,rps,nll,vas_mae,vas_rmse,vas_r2
 clinical_ordinal,0,27,0.37037037037037035,0.6296296296296297,0.36507936507936506,0.39999999999999997,0.17177914110429449,0.2,1.0,0.0,0.0,0.16147804887762746,0.9527980256798961,,,
 clinical_ordinal,1,27,0.4074074074074074,0.5925925925925926,0.24806201550387597,0.3333333333333333,0.0,0.0,1.0,0.0,0.0,0.16212152823599368,0.9559901100933681,,,
 clinical_ordinal,2,27,0.4074074074074074,0.5925925925925926,0.24806201550387597,0.3333333333333333,0.0,0.0,1.0,0.0,0.0,0.16170506779319777,0.9544582918393681,,,

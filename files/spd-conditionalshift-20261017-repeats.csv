@@ -1,4 +1,4 @@
-﻿k,method,split,condition,repeat,auc,available_outer_folds
+k,method,split,condition,repeat,auc,available_outer_folds
 10,spd,person_matched,member_mean,0,0.6429583333333333,4
 10,spd,person_matched,member_mean,1,0.5844444444444445,4
 10,spd,person_matched,member_mean,2,0.5542261904761905,4

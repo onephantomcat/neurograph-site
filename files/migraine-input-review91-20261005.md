@@ -21,4 +21,4 @@ Nilearn 0.13.1、scikit-learn 1.8.0、NumPy 2.3.2。协方差实际计算约1.25
 
 全132人必要共同输入、专家质量及身份/访视核查尚未完成；随后按原K5四方法540拟合/45训练参考执行。准确诊断参考、扫描同期疼痛与治疗真值、预测时已知临床参照、实际预训练成员及未参与开发H-test仍缺，论文终稿和完整研究目标未完成。强FC解释保留已有受控和阴性证据，不按查询成绩扩搜。原20未评分、Emo13失败/窄非专家覆盖、TN14/结构535/CLIP停止、全部失败和临床许可限制保持。
 
-[聚合JSON](migraine-input-review91-20261005-summary.json)；[88人时间与协方差](migraine-input-information-20261005.md)；[88人技术查看](migraine-input-view-20261005.md)；[原有限方案](migraine-readiness-20261002-protocol.md)。
+[聚合JSON](../reports/migraine-input-review91-2026-10-05/summary.json)；[88人时间与协方差](MIGRAINE_INPUT_INFORMATION_2026-10-05.md)；[88人技术查看](MIGRAINE_INPUT_VIEW_2026-10-05.md)；[原有限方案](MIGRAINE_FINITE_PROTOCOL_2026-10-02.md)。

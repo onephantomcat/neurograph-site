@@ -1,4 +1,4 @@
-﻿asset,people,shape,identity_mapping,state,minimum_roi_voxels,under5_roi_per_person,maximum_analysis_zero_rois
+asset,people,shape,identity_mapping,state,minimum_roi_voxels,under5_roi_per_person,maximum_analysis_zero_rois
 真实A424时序,99,240×424/人,"Explicit removal of SRPBS1600 namespace, bijective across all 99",LIVE_NUMERIC_READ_PASS,1,2,3
 旧512预训练特征,99,99×512,Same 99 people after explicit namespace mapping,LIVE_FINITE_READ_PASS,,,
 旧512随机特征,99,99×512,Same 99 people after explicit namespace mapping,LIVE_FINITE_READ_PASS,,,

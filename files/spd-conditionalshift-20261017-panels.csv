@@ -1,4 +1,4 @@
-﻿k,outer,repeat,panel,block,heldout_site,split,method,condition,seed,auc,auprc,brier,balanced_accuracy,logloss,sensitivity,specificity
+k,outer,repeat,panel,block,heldout_site,split,method,condition,seed,auc,auprc,brier,balanced_accuracy,logloss,sensitivity,specificity
 10,0,0,1,0,CIN,site,spd,member,0,0.4,0.6444444444444445,0.3306916228081358,0.575,0.8921865311841523,0.4,0.75
 10,0,0,1,0,CIN,site,amplitude_fixed,member,0,0.45,0.5726190476190476,0.2928744144328053,0.325,0.7874443685809478,0.4,0.25
 10,0,0,1,0,CIN,site,amplitude_only,member,0,0.5,0.7311111111111112,0.2839387277899491,0.7,0.7981997481815782,0.4,1.0

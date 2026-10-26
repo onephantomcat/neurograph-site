@@ -55,7 +55,6 @@ K10 同构十SPD 0.723867→异构融合 0.672816，Δ-0.051051，条件95%[-0.1
 
 [完整报告](https://onephantomcat.github.io/neurograph-site/files/spd-temporal-fusion-20261018.md)。
 
-
 <!-- spd-liebn-20261022 -->
 
 ## 2026-10-22：SPDNet＋LieBN：同人同预算支持内比较

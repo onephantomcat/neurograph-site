@@ -128,7 +128,7 @@
         ]
       }
     },
-    "interpretation": "Three healthy first-person real windows, two constructed temporal controls with fixed learned positions/scan scale/encoder. Dynamic differences are descriptive representation diagnostics, not pain labels, causal contribution, independent person evidence, new trained model or novelty. Mean-repeat permits sub-int8-step float values to preserve per-voxel temporal means; no requantization."
+    "interpretation": "Three healthy first-person real windows, two constructed temporal controls with fixed learned positions/scan scale/encoder. Dynamic differences are descriptive representation diagnostics, not pain labels, causal contribution, independent person evidence, new trained model or novelty. Mean-repeat permits [个体编号已省略]-step float values to preserve per-voxel temporal means; no requantization."
   },
   "independent_review": {
     "state": "COMPLETE_COUNTERFACTUAL_INPUT_AND_METRIC_REVIEW",

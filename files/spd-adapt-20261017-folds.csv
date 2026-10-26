@@ -1,4 +1,4 @@
-﻿cohort,k,repeat,target_fold,source_outer,seed,method,condition,test_people,support_people,auc,auprc,brier,balanced_accuracy,logloss,sensitivity,specificity
+cohort,k,repeat,target_fold,source_outer,seed,method,condition,test_people,support_people,auc,auprc,brier,balanced_accuracy,logloss,sensitivity,specificity
 zan,5,0,0,0,0,adapted,member,11,10,0.5,0.49682539682539684,0.32027283914268845,0.3666666666666667,0.9172540269108382,0.4,0.3333333333333333
 zan,5,0,0,0,0,fixed,member,11,10,0.5666666666666667,0.5342857142857143,0.28334192422952925,0.65,0.792855591765339,0.8,0.5
 zan,10,0,0,0,0,adapted,member,11,20,0.5666666666666667,0.5059523809523809,0.2902165010574496,0.6666666666666666,0.8645303797536026,1.0,0.3333333333333333

@@ -1,0 +1,29 @@
+{
+  "observed_at": "2026-10-05T17:42:14.861752+08:00",
+  "completed_at": "2026-10-05T15:33:23.011312+08:00",
+  "title": "DEIPP：一份结构影像初始阶段完成，四个输出已数值复核",
+  "summary": "10月5日有效许可配置后，一份结构影像的FreeSurfer初始阶段正常结束，实际耗时1331.36秒（约22.19分钟）。随后独立读取四个320×320×320输出，共131,072,000个数值全部有限；空间坐标及线性变换矩阵有限，原文件未改变。完整MRI继续保留服务器，本机没有下载完整结构影像。",
+  "boundary": "当前仅一份初始阶段完成，完整结构流程仍0；专家确认、QC纳入、临床拟合和独立验证均0。实际FreeSurfer7.3.2与作者7.2的差异保留，不能称完整作者复现。此前缺许可失败记录保留；当前许可缺口已解除，许可内容不公开。同访视静息参考、作者模板对象对应、后续处理与最终删帧、准确日期及临床真值仍待核实。",
+  "licensed": true,
+  "completed_initial_structural_stages": 1,
+  "completed_author_workflows": 0,
+  "elapsed_seconds": 1331.3585164546967,
+  "saved_outputs_independently_read": 4,
+  "shape_per_output": [
+    320,
+    320,
+    320
+  ],
+  "total_finite_values": 131072000,
+  "spatial_coordinates_and_transform_finite": true,
+  "source_files_unchanged": true,
+  "actual_freesurfer_version": "7.3.2",
+  "author_freesurfer_version": "7.2",
+  "software_version_adaptation": true,
+  "expert_reviews": 0,
+  "qc_inclusions": 0,
+  "classifier_fits": 0,
+  "independent_clinical_validations": 0,
+  "whole_mri_copies_to_local": 0,
+  "prior_license_failure_preserved": true
+}

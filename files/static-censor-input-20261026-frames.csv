@@ -1,0 +1,7 @@
+group,people,retained_minimum,retained_median,retained_maximum
+all,79,196.0,235.0,240.0
+flagged,52,196.0,228.0,236.0
+reused,27,240.0,240.0,240.0
+inner0_train,52,197.0,235.5,240.0
+inner1_train,53,196.0,236.0,240.0
+inner2_train,53,196.0,232.0,240.0

@@ -1,0 +1,16 @@
+{
+  "state": "INPUT_MEASUREMENT_VERIFIED_NO_MODEL_TRAINING",
+  "new_scientific_fc": 52,
+  "new_scientific_omst": 52,
+  "reused_people": 27,
+  "independent_fc_checks": 52,
+  "independent_graph_checks": 52,
+  "seconds": 66.97837826190516,
+  "main_worker_cpu_threads": 2,
+  "main_worker_GPU": 0,
+  "verification_BLAS_threads_explicitly_limited": false,
+  "new_models": 0,
+  "new_predictions": 0,
+  "new_fits": 0,
+  "MRI_reads": 0
+}

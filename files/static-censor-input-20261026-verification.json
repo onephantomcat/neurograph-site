@@ -1,0 +1,18 @@
+{
+  "state": "PASS_INDEPENDENT_FC_GRAPH_AND_TRAINING_EDGE_AUDIT",
+  "scientific_new_fc": 52,
+  "scientific_new_omst": 52,
+  "independent_fc_checks": 52,
+  "independent_graph_efficiency_checks": 52,
+  "reused_people": 27,
+  "max_float64_FC_vs_float32_saved_error": 2.9800810041891168e-08,
+  "max_graph_efficiency_or_cost_error": 5.551115123125783e-17,
+  "max_binary_BFS_hop_error": 0.0,
+  "max_edge_set_jaccard_error": 0.0,
+  "max_projection_edge_association_error": 3.0808688933348094e-15,
+  "new_fits": 0,
+  "new_predictions": 0,
+  "new_models": 0,
+  "MRI_reads": 0,
+  "new_QC_decisions": 0
+}

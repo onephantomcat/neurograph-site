@@ -1,0 +1,1 @@
+{"content": "{\n  \"state\": \"PASS_INDEPENDENT_SCALAR_RECOUNT\",\n  \"saved_records\": 30,\n  \"reused_person_rows\": 790,\n  \"max_error\": 1.3877787807814457e-17,\n  \"rescued\": 236,\n  \"lost\": 170,\n  \"delta_auc\": 0.0257020757020757,\n  \"new_predictions\": 0,\n  \"new_fits\": 0,\n  \"all_five_seeds\": true\n}\n", "truncated": false}

@@ -1,0 +1,5 @@
+table,label,people,sites,timing_confirmed,scale_endpoints_confirmed,vas_n,vas_min,vas_max,vas_zero,vas_positive,sfmpq2_n,sfmpq2_min,sfmpq2_max,sfmpq2_zero,sfmpq2_positive,duration_years_n,duration_years_min,duration_years_max,duration_years_zero,duration_years_positive
+sup7,HC,19,"NKN,OSU",0,0,19,0.0,30.0,17,2,19,0.0,4.0,17,2,0,,,0,0
+sup7,Pain,24,"NKN,OSU",0,0,24,2.0,100.0,0,24,24,3.0,204.0,0,24,0,,,0,0
+sup8,HC,23,CIN,0,0,22,0.0,5.0,21,1,0,,,0,0,23,0.0,0.0,23,0
+sup8,Pain,13,CIN,0,0,12,0.0,8.0,3,9,0,,,0,0,9,1.5,30.0,0,9

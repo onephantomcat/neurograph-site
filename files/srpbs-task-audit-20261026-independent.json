@@ -1,0 +1,12 @@
+{
+  "state": "PASS_INDEPENDENT_SCALAR_RECOUNT",
+  "saved_records": 30,
+  "reused_person_rows": 790,
+  "max_error": 1.3877787807814457e-17,
+  "rescued": 236,
+  "lost": 170,
+  "delta_auc": 0.0257020757020757,
+  "new_predictions": 0,
+  "new_fits": 0,
+  "all_five_seeds": true
+}

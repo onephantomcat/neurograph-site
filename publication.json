@@ -1,9 +1,9 @@
 {
-  "exported_at": "2026-10-26T14:44:52+08:00",
-  "published_sources": 3133,
+  "exported_at": "2026-10-26T15:34:24+08:00",
+  "published_sources": 3147,
   "withheld_sources": 44,
   "redacted_sources": 79,
-  "files": 6476,
+  "files": 6504,
   "source_repository": "onephantomcat/Fmri",
-  "source_revision": "ba7837a433c71252e01a5e63c50032605dacdccb"
+  "source_revision": "552b29ca92a93b321f9ec4a4b74b82018f9dca61"
 }

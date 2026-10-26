@@ -6318,3 +6318,18 @@ TN14保持停止；历史审核不等于新增训练纳入。
 仅SRPBS原outer0的79人反复开发池，非99人完整OOF、未开发H-test或临床验证。原3内折训练52/53与验证26/27，验证按原100次机会选轮；五seed共享人员。人员区间条件于保存选中模型，不覆盖重训、100选轮或累计研究选择。
 
 [完整几何保持实验报告](https://onephantomcat.github.io/neurograph-site/files/brainhgt-geometry-20261026.md)；[执行前唯一配置方案](https://onephantomcat.github.io/neurograph-site/files/brainhgt-geometry-20261026-plan.md)。
+
+
+<!-- geometry-crosscohort-20261026 -->
+
+## 2026-10-26　BrainHGT几何保持的跨队列固定权重复核
+
+- 模型：15个固定几何保持BrainHGT，原45条记录复用
+- 数据：ZAN54、Emo53、偏头痛132，均有开发使用史
+- 工作：零训练，仅新增3585模型—人评分，原参照不重算。
+- 性能变化：固定15个几何保持选中模型，复用原45条模型—队列预测记录，零新增训练、3585次新评分。ZAN54 0.4112→0.4560（Δ+0.0448，4/5种子正向）；Emo53 0.5918→0.5659（Δ-0.0259，0/5种子正向）；偏头痛132 0.6116→0.5808（Δ-0.0309，1/5种子正向）。 迁移AUC方向不一致：ZAN点值提高，Emo和偏头痛下降，没有三个队列共同支持。停止本几何保持配置的跨病因推广及追加适配，不按最好队列改结论。三个队列概率误差均值下降仍完整保留，但不能替代AUC排序收益。
+- 修改板块：固定权重迁移评价，未加模块或参数
+
+三个目标队列均有既往开发/历史查询，病因、设备与类别先验不同；不是新H-test、同病种独立临床验证、MRI同期疼痛程度或疗效证据。未重新证明跨库生物身份/访视完全无重叠。条件区间仅固定保存模型，不覆盖源重训/100选轮/累计研究选择或多重比较。
+
+[完整跨队列复核报告](https://onephantomcat.github.io/neurograph-site/files/geometry-crosscohort-20261026.md)；[评分前有限方案](https://onephantomcat.github.io/neurograph-site/files/geometry-crosscohort-20261026-plan.md)。

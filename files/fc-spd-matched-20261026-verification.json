@@ -1,0 +1,17 @@
+{
+  "state": "PASS_INDEPENDENT_FIXED_FIT_READBACK",
+  "neural_fits": 15,
+  "linear_fits": 3,
+  "reused_brainhgt": 15,
+  "model_records": 33,
+  "independent_metric_max_error": 3.3306690738754696e-16,
+  "independent_numpy_prediction_max_error": 1.1102230246251565e-14,
+  "independent_train_scaler_max_error": 2.120525977034049e-14,
+  "linear_gradient_max": 7.318554433885602e-08,
+  "max_reference_stationarity": 6.909200415022349e-08,
+  "bootstrap_replicates": 2000,
+  "bootstrap_sklearn_max_error": 4.440892098500626e-16,
+  "all_membership_epochs_presentations_checked": true,
+  "new_MRI_reads": 0,
+  "new_brainhgt_fits": 0
+}

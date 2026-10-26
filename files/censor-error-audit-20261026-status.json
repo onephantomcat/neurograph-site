@@ -1,0 +1,19 @@
+{
+  "state": "COMPLETE_SAVED_CENSOR_ERROR_AUDIT",
+  "people": 79,
+  "selected_prediction_records": 30,
+  "pair_cells": 31,
+  "leave_one_out_people": 79,
+  "independent_full_auc_checks": 2370,
+  "new_fits": 0,
+  "new_updates": 0,
+  "new_model_forwards": 0,
+  "new_predictions": 0,
+  "model_loads": 0,
+  "new_fc": 0,
+  "new_omst": 0,
+  "MRI_reads": 0,
+  "outer_query_new_scores": 0,
+  "proposed_future_training_forward_batches_max": 30,
+  "future_plan_started": false
+}

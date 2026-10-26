@@ -1,0 +1,21 @@
+{
+  "state": "PASS_TRAINING_METADATA_ONLY",
+  "original_people": 79,
+  "training_parts": 3,
+  "train_n": [
+    52,
+    53,
+    53
+  ],
+  "unique_training_union": 79,
+  "no_validation_predictions_read": true,
+  "new_classifier_fits": 0,
+  "new_preprocessors_fitted": 0,
+  "new_predictions": 0,
+  "new_model_forwards": 0,
+  "new_fc": 0,
+  "new_omst": 0,
+  "MRI_reads": 0,
+  "new_QC_decisions": 0,
+  "new_labels": 0
+}

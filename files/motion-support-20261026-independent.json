@@ -1,0 +1,9 @@
+{
+  "state": "PASS_INDEPENDENT_SCALAR_TRAINING_METADATA",
+  "comparisons": 6,
+  "max_smd_or_rank_error": 4.527628272299467e-16,
+  "max_reweighted_mass_error": 1.7763568394002505e-15,
+  "new_fits": 0,
+  "new_predictions": 0,
+  "no_saved_predictions_read": true
+}

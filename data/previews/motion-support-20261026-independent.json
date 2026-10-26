@@ -1,0 +1,1 @@
+{"content": "{\n  \"state\": \"PASS_INDEPENDENT_SCALAR_TRAINING_METADATA\",\n  \"comparisons\": 6,\n  \"max_smd_or_rank_error\": 4.527628272299467e-16,\n  \"max_reweighted_mass_error\": 1.7763568394002505e-15,\n  \"new_fits\": 0,\n  \"new_predictions\": 0,\n  \"no_saved_predictions_read\": true\n}\n", "truncated": false}

@@ -1,0 +1,29 @@
+{
+  "state": "PASS_INDEPENDENT_NETWORK_PAIR_READBACK",
+  "new_neural_fits": 30,
+  "reused_reference_models": 33,
+  "model_records": 63,
+  "selected_final_prediction_records": 60,
+  "independent_metric_max_error": 3.3306690738754696e-16,
+  "independent_numpy_probability_max_error": 1.1391197329846392e-07,
+  "independent_numpy_logit_max_error": 3.624985663863711e-07,
+  "torch_selected_final_replay_max_error": 0.0,
+  "all_initial_parameters_and_batch_orders_matched": true,
+  "all_membership_updates_and_selection_checked": true,
+  "bootstrap_replicates": 2000,
+  "bootstrap_sklearn_max_error": 4.440892098500626e-16,
+  "reference_metrics_unchanged": true,
+  "group_sizes": [
+    13,
+    12,
+    5,
+    8,
+    15,
+    9,
+    16,
+    12
+  ],
+  "new_outer_scores": 0,
+  "new_MRI_reads": 0,
+  "new_QC_decisions": 0
+}

@@ -1,0 +1,36 @@
+"""Supervised signed-FC bilinear network-pair encoder; no NERVE pretraining."""
+import math
+import numpy as np
+import torch
+
+class NetworkPair(torch.nn.Module):
+    def __init__(self, assignment):
+        super().__init__()
+        a=torch.as_tensor(assignment,dtype=torch.long)
+        assert a.shape==(90,) and set(a.tolist())==set(range(8))
+        self.register_buffer('assignment',a.clone())
+        self.register_buffer('membership',torch.nn.functional.one_hot(a,8).float())
+        self.register_buffer('pairs',torch.triu_indices(8,8))
+        self.P=torch.nn.Parameter(torch.randn(90,8)/math.sqrt(90/8))
+        self.head=torch.nn.Linear(36*8,2)
+    def tokens(self,fc):
+        # u[n,a,k] = P[n,k] if ROI n is in network a, otherwise zero.
+        u=self.P[:,None,:]*self.membership[:,:,None]
+        v=(fc@u.reshape(90,64)).reshape(-1,90,8,8)
+        full=torch.einsum('nak,bnck->back',u,v)
+        return full[:,self.pairs[0],self.pairs[1],:]
+    def forward(self,fc):
+        return self.head(self.tokens(fc).flatten(1))
+
+def numpy_logits(state,fc):
+    """Independent explicit FC-block projection, float64 accumulation."""
+    a=np.asarray(state['assignment']);p=np.asarray(state['P'],dtype=np.float64)
+    fc=np.asarray(fc,dtype=np.float64);tokens=[]
+    for left in range(8):
+        ii=np.flatnonzero(a==left)
+        for right in range(left,8):
+            jj=np.flatnonzero(a==right)
+            block=fc[:,ii,:][:,:,jj]
+            tokens.append(np.stack([p[ii,k]@block@p[jj,k] for k in range(8)],axis=-1))
+    features=np.stack(tokens,axis=1).reshape(len(fc),288)
+    return features@np.asarray(state['head.weight'],dtype=np.float64).T+state['head.bias']

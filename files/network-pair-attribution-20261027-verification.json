@@ -1,0 +1,37 @@
+{
+  "server": {
+    "state": "PASS_FIXED_CHECKPOINT_ATTRIBUTION",
+    "models_loaded": 30,
+    "snapshots": 90,
+    "new_fits": 0,
+    "new_optimizer_steps": 0,
+    "new_probe_fits": 0,
+    "identity_and_original_selection_checked": true,
+    "selected_final_probability_max_error": 1.1391197340948622e-07,
+    "linear_FC_expansion_max_error": 4.551914400963142e-15,
+    "compensated_standardization_score_max_error": 1.1102230246251565e-15,
+    "constant_centering_AUC_difference": 0.0,
+    "training_label_permutations": 199,
+    "permutations_used_for_prediction": false,
+    "new_outer_or_crosscohort_scores": 0,
+    "synthetic": {
+      "state": "PASS_ANALYTIC_DIAGNOSTICS",
+      "linear_expansion_max_error": 4.440892098500626e-16,
+      "p_gradient_finite_difference_max_error": 5.130174063339155e-12
+    }
+  },
+  "independent_local": {
+    "state": "PASS_INDEPENDENT_LOCAL_CONGRUENCE_REVIEW",
+    "snapshots": 90,
+    "new_fits": 0,
+    "updates": 0,
+    "independent_feature_and_gradient_stat_max_error": 4.618527782440651e-14,
+    "selected_final_probability_max_error": 1.1391197340948622e-07,
+    "training_FC_centering_compensated_score_max_error": 1.2212453270876722e-15,
+    "centered_training_token_mean_max_error": 2.262341257726734e-16,
+    "head_gradient_decomposition_max_error": 3.3306690738754696e-16,
+    "training_FC_centering_pairwise_distance_max_error": 4.547473508864641e-13,
+    "all_sample_ranks_equal_train_n_minus_one": true,
+    "new_centered_model_fitted_or_scored": false
+  }
+}

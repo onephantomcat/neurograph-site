@@ -1,0 +1,3 @@
+phase,snapshots,opposed_snapshots,combined_opposes_ce_snapshots,median_weighted_aux_to_ce_norm,median_ce_aux_cosine,mean_cka
+selected,15,13,5,1.4264637849236639,-0.2775247795508932,0.5113130688667298
+final,15,15,15,5.52110477988108,-0.43369451207691867,0.7250311255455018

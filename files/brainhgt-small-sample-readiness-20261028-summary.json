@@ -1,0 +1,75 @@
+{
+  "id": "brainhgt-small-sample-readiness-20261028",
+  "title": "BrainHGT小样本准备：概率恶化更一致，K10方案尚未训练",
+  "date": "2026-10-28",
+  "summary": "零新增训练，复核原版、旧几何和固定切空间目标45模型的4500轮曲线，并读取新目标15模型的30个选轮/末轮状态。固定25→100轮，新目标验证AUC0.6760→0.6734，五种子方向不一致；验证logloss1.0084→1.3426，五种子均恶化。",
+  "interpretation": "更一致的问题是后期概率质量恶化，不能把选轮0.7304到末轮0.6734的全部差距解释成持续AUC崩塌。局部梯度有冲突，但属于整训练集eval快照，不证明辅助项有害或实际Adam更新出错。保留原0.7304及停止结论；下一有限问题是K10同预算比较，不追加模块。",
+  "details": "仅对原52/53训练人员进行30次eval前向，计算第一Linear的CE及0.1×辅助几何梯度；没有optimizer、参数更新、验证/外查询前向、新参考或MRI读取。既有验证预测只用于重算和描述。K10支持设计已生成，参考/scaler和36模型均未拟合。",
+  "method": "复用三方法每模型100轮曲线，固定1/10/25/50/75/100轮及25→100窗口；新/旧几何共30条选轮到末轮排序变化，所有种子保留。梯度检查为新目标15模型×选轮/末轮，辅助仍只进第一Linear。小样本方案借鉴旧SPD的K预算与原型/迁移阴性，几何参考只许当前支持人。",
+  "boundary": "仅原SRPBS79人已反复开发池、原三内折；验证参与原选轮。本轮没有新增K5/K10/K20成绩，36模型只是拟议先导。固定轮次和梯度为开发后描述，不给因果、独立泛化或新类别元学习结论；重复人员/配对不增加样本量。",
+  "next": "建议先做每类10人的有限先导：原3内折×3支持抽样×2初始化×原版/固定目标两条件=最多36模型，各200更新；9个支持侧参考/scaler只用各20人。当前仅准备成员与方案，尚未训练；K5/K20不自动扩展。全部支持与初始化、阴性和原停止状态保留。",
+  "verification_summary": "4500曲线、30条排序漂移、30梯度状态和27份嵌套支持设计核对通过；其中9份K10。独立指标误差2.22e-16，训练回放概率差1.19e-07、logit差1.91e-06，保存CKA差5.96e-08；权重保持，训练/参考拟合0、验证新前向0。",
+  "diagnostic_summary": "零新增训练／概率恶化五种子一致／K10方案未训练",
+  "decision": "READ_ONLY_REVIEW_COMPLETE_K10_DESIGN_ONLY",
+  "new_fits": 0,
+  "updates": 0,
+  "training_forwards": 30,
+  "validation_forwards": 0,
+  "proposed_models": 36,
+  "display_metrics": [
+    {
+      "variant": "brainhgt",
+      "label": "原BrainHGT",
+      "models": 15,
+      "train_auc25": 1.0,
+      "auc25": 0.6579059829059829,
+      "auc100": 0.6547924297924297,
+      "delta_auc": -0.0031135531135532135,
+      "logloss25": 1.1269657234855963,
+      "logloss100": 1.591188054995837
+    },
+    {
+      "variant": "geometry",
+      "label": "旧LSRA几何",
+      "models": 15,
+      "train_auc25": 1.0,
+      "auc25": 0.6673687423687423,
+      "auc100": 0.6706959706959706,
+      "delta_auc": 0.0033272283272283154,
+      "logloss25": 1.0237883239873986,
+      "logloss100": 1.3771002928385085
+    },
+    {
+      "variant": "tangent_target",
+      "label": "固定切空间目标",
+      "models": 15,
+      "train_auc25": 1.0,
+      "auc25": 0.6759768009768012,
+      "auc100": 0.6734126984126984,
+      "delta_auc": -0.002564102564102888,
+      "logloss25": 1.0084432804455379,
+      "logloss100": 1.3426380947108358
+    }
+  ],
+  "gradient_means": [
+    {
+      "phase": "selected",
+      "snapshots": 15,
+      "opposed_snapshots": 13,
+      "combined_opposes_ce_snapshots": 5,
+      "median_weighted_aux_to_ce_norm": 1.4264637849236639,
+      "median_ce_aux_cosine": -0.2775247795508932,
+      "mean_cka": 0.5113130688667298
+    },
+    {
+      "phase": "final",
+      "snapshots": 15,
+      "opposed_snapshots": 15,
+      "combined_opposes_ce_snapshots": 15,
+      "median_weighted_aux_to_ce_norm": 5.52110477988108,
+      "median_ce_aux_cosine": -0.43369451207691867,
+      "mean_cka": 0.7250311255455018
+    }
+  ],
+  "independent_clinical_validation": false
+}

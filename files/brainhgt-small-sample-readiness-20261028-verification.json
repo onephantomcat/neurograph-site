@@ -1,0 +1,23 @@
+{
+  "state": "PASS_ZERO_UPDATE_SMALL_SAMPLE_REVIEW",
+  "new_fits": 0,
+  "updates": 0,
+  "new_references": 0,
+  "training_forwards": 30,
+  "new_validation_forwards": 0,
+  "weights_unchanged": true,
+  "curve_rows": 4500,
+  "drift_rows": 30,
+  "gradient_snapshots": 30,
+  "support_designs": 27,
+  "K10_support_designs": 9,
+  "all_supports_balanced_nested_and_within_original_training": true,
+  "independent_metric_max_error": 2.220446049250313e-16,
+  "gradient_summary_algebra_max_error": 9.992007221626409e-16,
+  "max_train_probability_replay_error": 1.1920928955078125e-07,
+  "max_train_logit_replay_error": 1.9073486328125e-06,
+  "max_saved_CKA_error": 5.960464477539063e-08,
+  "new_MRI_reads": 0,
+  "new_QC_decisions": 0,
+  "planned_models_not_trained": 36
+}

@@ -7,13 +7,15 @@
   <link rel="stylesheet" href="./neurograph.css">
   <link rel="stylesheet" href="./archive-ui.css">
   <link rel="stylesheet" href="./site-cleanup.css?v=20261023-restore">
+  <link rel="stylesheet" href="./guidance.css?v=20261028-guidance">
+  <script src="./guidance.js?v=20261028-guidance" defer></script>
   <link rel="stylesheet" href="./research-workbench.css?v=20261028-reading">
   <script src="./research-core.js?v=20261028-diagram-tools" defer></script>
   <script src="./research-workbench.js?v=20261028-reading" defer></script>
   <script src="./public-site.js" defer></script>
   <script src="./archive-ui.js?v=20261028-reading" defer></script>
   <script src="./architecture-loader.js?v=20261028-reading" defer></script>
-  <script src="./app.js?v=20261028-reading" defer></script>
+  <script src="./app.js?v=20261028-guidance" defer></script>
   <link rel="stylesheet" href="./research-briefs.css?v=20261028-reading">
   <script src="./research-briefs-data.js?v=20261028-reading" defer></script>
   <script src="./research-briefs.js?v=20261028-reading" defer></script>
@@ -27,6 +29,7 @@
       <a href="#overview" data-view="overview"><span aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>项目总览</a>
       <a href="#calendar" data-view="calendar"><span aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 11h18M8 15h2M14 15h2"/></svg></span>项目日历</a>
       <a href="#history" data-view="history"><span aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>研究历程</a>
+      <a href="#guidance" data-view="guidance"><span aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="2" y="7" width="6" height="10" rx="1.5"/><rect x="16" y="7" width="6" height="10" rx="1.5"/><path d="M8 12h8m-3-3 3 3-3 3"/></svg></span>导师建议</a>
       <span class="nav-group">工作安排</span>
       <a href="#workflow" data-view="workflow"><span aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><rect x="8" y="3" width="8" height="5" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/><rect x="14" y="16" width="7" height="5" rx="1"/><path d="M12 8v4M6.5 16v-4h11v4"/></svg></span>项目流程</a>
       <a href="#goals" data-view="goals"><span aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></span>计划与目标 <b id="goal-nav-count"></b></a>
@@ -47,6 +50,7 @@
       <section id="view-overview" class="view"><div class="loading">正在读取…</div></section>
       <section id="view-calendar" class="view" hidden></section>
       <section id="view-history" class="view" hidden></section>
+      <section id="view-guidance" class="view" hidden data-research-brief="guidance"></section>
       <section id="view-workflow" class="view" hidden></section>
       <section id="view-goals" class="view" hidden></section>
       <section id="view-datasets" class="view" hidden></section>

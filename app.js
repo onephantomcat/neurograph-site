@@ -37,7 +37,7 @@ let refreshTimer;
 const escapeHTML = (value) => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const statusNames = {done:'已完成', active:'进行中', blocked:'受阻', planned:'计划中', deferred:'暂缓'};
 const stateNames = {PASS:'数值通过', FAILED:'技术失败', EXCLUDED:'质控排除', REPAIR_PENDING:'待复核', RUNNING:'运行中', COMPLETE:'批次结束', COMPLETE_WITH_FAILURES:'批次结束 · 有未通过', HALTED_GLOBAL_FAULT:'全局暂停', PENDING:'待处理'};
-const viewNames = {overview:'项目总览', calendar:'项目日历', history:'研究历程', workflow:'项目流程', goals:'计划与目标', datasets:'数据与结果', evidence:'报告与证据', conclusions:'研究结论索引', architectures:'模型架构'};
+const viewNames = {overview:'项目总览', calendar:'项目日历', history:'研究历程', guidance:'导师建议', workflow:'项目流程', goals:'计划与目标', datasets:'数据与结果', evidence:'报告与证据', conclusions:'研究结论索引', architectures:'模型架构'};
 const resolveView = value => { const name=value.split('?')[0]; return name === 'ds005713' ? 'history' : name === 'methods' ? 'datasets' : (viewNames[name] ? name : 'overview'); };
 let data = null;
 let loading = false;
@@ -659,7 +659,7 @@ function renderView() {
     return;
   }
   if(view!=='architectures')ResearchWorkbench.close();
-  ({overview,calendar:calendarPage,history:researchHistoryPage,workflow:workflowPage,goals:goalsPage,datasets:datasetsPage,evidence:evidencePage,conclusions:conclusionsPage,architectures:()=>ArchitectureLibrary.show()})[view]();
+  ({overview,calendar:calendarPage,history:researchHistoryPage,guidance:()=>GuidanceTimeline.show(data),workflow:workflowPage,goals:goalsPage,datasets:datasetsPage,evidence:evidencePage,conclusions:conclusionsPage,architectures:()=>ArchitectureLibrary.show()})[view]();
   archiveRoute();
   if(view==='datasets')ResearchWorkbench.routeDataset().catch(error=>{$('#research-content').insertAdjacentHTML('afterbegin',`<p role="alert">${escapeHTML(error.message)}</p>`);});
 }

@@ -27,6 +27,10 @@
     if(day)params.set('date',day);
     return '#'+(selected?'architectures':'datasets')+'?'+params;
   }
-  const api={targets,href};root.ResearchCore=api;
+  function recentModels(items,index){
+    const models=new Map(index.models.map(item=>[item.id,item]));
+    return [...items].sort((a,b)=>(Date.parse(models.get(b.id)?.lastModified)||0)-(Date.parse(models.get(a.id)?.lastModified)||0)||a.id.localeCompare(b.id));
+  }
+  const api={targets,href,recentModels};root.ResearchCore=api;
   if(typeof module!=='undefined')module.exports=api;
 })(globalThis);

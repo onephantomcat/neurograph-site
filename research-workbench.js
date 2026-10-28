@@ -8,7 +8,7 @@
   const esc=value=>String(value??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;');
   const get=selector=>panel.querySelector(selector);
   function json(path) {
-    if(!cache.has(path))cache.set(path,fetch(new URL(path,base)).then(response=>{
+    if(!cache.has(path))cache.set(path,fetch(new URL(path,base),{cache:'no-cache'}).then(response=>{
       if(!response.ok)throw new Error(`研究记录读取失败（${response.status}）`);
       return response.json();
     }).catch(error=>{cache.delete(path);throw error;}));

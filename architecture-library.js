@@ -6,7 +6,7 @@
   const figures = {full:'原框架已核对', partial:'框架需补全', none:'自行绘制流程', not_verified:'原图尚未核实'};
   const roleNames = {input:'输入', preprocess:'预处理', encoder:'特征编码', fusion:'信息融合', head:'预测', loss:'训练目标', evaluation:'评价', output:'输出'};
   let root, base, index, paper, selected, selectedVersion, variantId, mode = 'current', zoom = 1, sequence = 0, engine;
-  let proposals = {}, references = [];
+  let proposals = {}, references = [], diagramObserver;
   const cache = new Map();
   const $ = selector => root.querySelector(selector);
   const variant = () => core.activeVariant(paper,variantId);
@@ -119,7 +119,7 @@
     $('#architecture-paper').innerHTML = `<article class="architecture-card"><header><span class="eyebrow">${paper.id} · ${esc(kinds[paper.kind])} · ${esc(paper.year)}</span><h2>${esc(paper.name)}</h2><p class="architecture-title">${esc(paper.title)}</p><p>${esc(paper.summary)}</p><div class="architecture-tags"><span>${coverage[reading.coverage]}</span><span>${figures[reading.figure.status]}</span>${citation}</div></header>
       <div class="architecture-io"><div><strong>输入</strong><p>${esc(analysis.input)}</p></div><span aria-hidden="true">→</span><div><strong>输出</strong><p>${esc(analysis.output)}</p></div></div>
       <details class="architecture-analysis"><summary>论文方法、创新与核查依据</summary><h3>训练或估计</h3><p>${esc(analysis.training)}</p><h3>推理或使用</h3><p>${esc(analysis.inference)}</p><h3>论文创新</h3><ul>${analysis.innovations.map(item=>`<li>${esc(item)}</li>`).join('')}</ul><h3>限制与项目关联</h3><ul>${analysis.limitations.map(item=>`<li>${esc(item)}</li>`).join('')}</ul><p>${esc(analysis.projectRelation)}</p><h3>原框架图及重绘范围</h3><p>${esc(reading.figure.label)} · ${esc(reading.figure.explanation)}</p><p>${esc(reading.figure.completion)}</p><ul>${reading.files.map(file=>`<li>${esc(file.name)} · ${esc(file.locator)}<br>${esc(file.detail)}</li>`).join('')}</ul></details>
-      ${originalFigures()}<h3>交互模块图</h3><div class="architecture-diagram-tools"><label>结构版本<select id="architecture-version" aria-label="结构版本"><option value="current" ${mode==='current'?'selected':''}>项目改动与本机提议</option><option value="paper" ${mode==='paper'?'selected':''}>论文原版</option></select></label>${paper.variants?.length?`<label>项目方案<select id="architecture-variant" aria-label="项目方案">${paper.variants.map(item=>`<option value="${esc(item.id)}" ${item.id===variant().id?'selected':''}>${esc(item.label)}</option>`).join('')}</select></label>`:''}<div class="architecture-actions"><button type="button" data-action="zoom-out" aria-label="缩小架构图">−</button><button type="button" data-action="zoom-reset">${Math.round(zoom*100)}%</button><button type="button" data-action="zoom-in" aria-label="放大架构图">＋</button><button type="button" data-action="download-graph">下载 Mermaid 图</button></div></div>
+      ${originalFigures()}<h3>交互模块图</h3><div class="architecture-diagram-tools"><label>结构版本<select id="architecture-version" aria-label="结构版本"><option value="current" ${mode==='current'?'selected':''}>项目改动与本机提议</option><option value="paper" ${mode==='paper'?'selected':''}>论文原版</option></select></label>${paper.variants?.length?`<label>项目方案<select id="architecture-variant" aria-label="项目方案">${paper.variants.map(item=>`<option value="${esc(item.id)}" ${item.id===variant().id?'selected':''}>${esc(item.label)}</option>`).join('')}</select></label>`:''}<div class="architecture-actions"><button type="button" data-action="zoom-out" aria-label="缩小架构图">−</button><button type="button" data-action="zoom-reset" aria-label="适合窗口">适合窗口</button><output id="architecture-zoom" aria-label="架构图缩放比例"></output><button type="button" data-action="zoom-in" aria-label="放大架构图">＋</button><button type="button" data-action="download-graph">下载 Mermaid 图</button></div></div>
       ${paper.variants?.length?'<p class="architecture-muted">按所选方案标出改动位置；未登记模块保留论文说明。平行实验分别查看，版本箭头不代表方案累计叠加。</p>':''}
       <div class="architecture-legend">${Object.entries(core.states).map(([state,label])=>`<span class="architecture-state ${state}">${label}</span>`).join('')}</div><div class="architecture-diagram-scroll" tabindex="0" aria-label="架构图，可左右滚动"><div id="architecture-diagram" aria-busy="true"><p>正在绘制模块图…</p></div></div><div class="architecture-module-list" aria-label="选择架构模块">${visibleModules().map(module=>{const version=moduleSnapshot(module);return `<button type="button" data-module="${module.id}" class="${version.state}" aria-expanded="false" aria-controls="architecture-module-detail">${esc(module.label)}<small>${core.states[version.state]}</small></button>`;}).join('')}</div><details id="architecture-module-detail" class="architecture-module-detail"><summary>模块详情 <span id="architecture-module-name">请选择模块</span></summary><div id="architecture-module-body"></div></details></article>`;
     if (moduleId) selectModule(moduleId, false, versionId);
@@ -154,7 +154,14 @@
     const result = await mermaid.render('architecture-svg-'+Date.now(), core.graph(currentPaper,mode,paperProposals(),variant()));
     if (target !== $('#architecture-diagram') || token !== sequence) return;
     target.innerHTML = result.svg; target.setAttribute('aria-busy','false');
-    const svg = target.querySelector('svg'); svg.setAttribute('aria-label',`${currentPaper.name}模块架构`); svg.style.width = `${zoom*100}%`;
+    const svg = target.querySelector('svg'); svg.setAttribute('aria-label',`${currentPaper.name}模块架构`);
+    applyZoom();
+    if (diagramObserver) diagramObserver.disconnect();
+    const frame = target.parentElement;
+    diagramObserver = new ResizeObserver(()=>{
+      if (!root.hidden && frame.isConnected && frame.clientWidth) applyZoom();
+    });
+    diagramObserver.observe(frame);
     for (const module of visibleModules()) {
       const node = [...svg.querySelectorAll('.node')].find(item=>item.id.startsWith(svg.id+'-flowchart-'+module.id+'-'));
       if (!node) throw new Error('图形缺少模块：'+module.id);
@@ -163,6 +170,19 @@
       node.addEventListener('keydown',event=>{if (event.key==='Enter' || event.key===' ') {event.preventDefault();selectModule(module.id,true);}});
       node.classList.toggle('is-selected',selected===module.id);
     }
+  }
+  function applyZoom() {
+    const target = $('#architecture-diagram'), svg = target.querySelector('svg');
+    const frame = target.parentElement, padding = getComputedStyle(target);
+    const width = frame.clientWidth-parseFloat(padding.paddingLeft)-parseFloat(padding.paddingRight);
+    const height = frame.clientHeight-parseFloat(padding.paddingTop)-parseFloat(padding.paddingBottom);
+    const box = svg.viewBox.baseVal;
+    const size = core.diagramSize(box.width,box.height,width,height,zoom);
+    svg.style.width = `${size.width}px`;
+    svg.style.height = `${size.height}px`;
+    $('#architecture-zoom').textContent = `${Math.round(size.scale*100)}%`;
+    root.querySelector('[data-action="zoom-out"]').disabled = zoom<=0.25;
+    root.querySelector('[data-action="zoom-in"]').disabled = zoom>=4;
   }
   function renderPrompt() {
     $('#architecture-ref-count').textContent = String(references.length);
@@ -223,9 +243,12 @@
     if (name==='download-graph') download(paper.id+'-architecture.mmd',core.graph(paper,mode,paperProposals(),variant()),'text/plain');
     if (name==='discard-proposal') {const next=structuredClone(proposals); delete next[paper.id][variant().id][selected]; selectedVersion=undefined; await persist(next);status('已移除本机提议');}
     if (name.startsWith('zoom-')) {
-      zoom = name==='zoom-reset'?1:Math.max(0.5,Math.min(2.5,zoom+(name==='zoom-in'?0.25:-0.25)));
-      $('#architecture-diagram svg').style.width=`${zoom*100}%`;
-      root.querySelector('[data-action="zoom-reset"]').textContent=Math.round(zoom*100)+'%';
+      zoom = name==='zoom-reset'?1:Math.max(0.25,Math.min(4,zoom+(name==='zoom-in'?0.25:-0.25)));
+      applyZoom();
+      if (name==='zoom-reset') {
+        const frame = $('#architecture-diagram').parentElement;
+        frame.scrollTop=0; frame.scrollLeft=0;
+      }
     }
   }
   let initializing;

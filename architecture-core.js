@@ -56,7 +56,14 @@
       '', '请保留每个模块的 original，新增 revisions（日期、原因、可解释参数、实施证据），明确 implemented/proposed 与 modified/added/removed。',
       '同时核查 connections、训练与推理流程，运行 build_architectures.py 和相关测试，再同步 Fmri。'].join('\n');
   }
-  const api = {states, versions, snapshot, reference, activeVariant, visibleModules, graph, prompt};
+  function diagramSize(graphWidth, graphHeight, availableWidth, availableHeight, zoom = 1) {
+    if (![graphWidth,graphHeight,availableWidth,availableHeight,zoom].every(value=>Number.isFinite(value) && value>0)) {
+      throw new RangeError('架构图与显示区域的尺寸必须为正数');
+    }
+    const scale = Math.min(1,availableWidth/graphWidth,availableHeight/graphHeight)*zoom;
+    return {width:graphWidth*scale,height:graphHeight*scale,scale};
+  }
+  const api = {states, versions, snapshot, reference, activeVariant, visibleModules, graph, prompt, diagramSize};
   root.ArchitectureCore = api;
   if (typeof module !== 'undefined') module.exports = api;
 })(globalThis);

@@ -1,0 +1,5 @@
+variant,phase,train_fixed_FC_CKA
+original,selected,0.40026530706220204
+original,final,0.25740110129117966
+tangent_target,selected,0.774233341217041
+tangent_target,final,0.998798731300566

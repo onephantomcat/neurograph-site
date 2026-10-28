@@ -1,0 +1,15 @@
+{
+  "preparation_failure_count": 1,
+  "neural_fit_failure_count": 0,
+  "neural_refits": 0,
+  "old_reference_iteration_cap": 30,
+  "repaired_reference_iteration_cap": 200,
+  "reference_tolerance_unchanged": 1e-07,
+  "reference_unique_support_groups": 9,
+  "production_reference_solve_attempts": 10,
+  "verification_only_reference_recomputations": 9,
+  "first_failed_support_converged_at": 32,
+  "validation_used_to_choose_numerical_cap": false,
+  "full_teacher_used": false,
+  "all_supports_and_initializations_retained": true
+}

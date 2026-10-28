@@ -175,8 +175,8 @@ function researchHistoryPage() {
   $('#view-history').innerHTML = `<div class="page-heading"><div><h1>近期研究历程</h1></div><a class="button primary" href="/api/source/research-history-report" download="RECENT_RESEARCH_HISTORY.md">下载近期历程</a></div>
     <div class="history-meta">截至 ${escapeHTML(recent.as_of)} · 以下为历史记录，最近执行核查见总览。</div>
     <details class="history-focus archived-focus"><summary>此前阶段摘要（历史记录）</summary><h2>${escapeHTML(recent.focus)}</h2><p>${escapeHTML(recent.summary)}</p><div class="ds-foot"><a class="text-link" href="/qc">QC 审核 ↗</a><a class="text-link" href="#overview">执行状态 ↗</a></div></details>
-    ${sectionTitle('近期进展')}
-    <div class="history-toolbar"><label class="search">搜索历程<input id="history-search" type="search" placeholder="方法、数据集、结论或限制" value="${escapeHTML(historyBrowse.query)}"></label><label>月份<select id="history-month"><option value="all">全部月份</option>${[...new Set(recent.milestones.map(m=>historyDay(m).slice(0,7)).filter(Boolean))].sort().reverse().map(month=>`<option value="${escapeHTML(month)}">${escapeHTML(month)}</option>`).join('')}</select></label><label>顺序<select id="history-order"><option value="newest">最近在前</option><option value="oldest">最早在前</option></select></label><span id="history-results-count" class="data-note" role="status"></span></div>
+    ${sectionTitle('模型与结果')}
+    <details class="history-search-drawer"><summary>搜索与筛选 <span id="history-results-count" class="data-note" role="status"></span></summary><div class="history-toolbar"><label class="search">搜索历程<input id="history-search" type="search" placeholder="模型、数据集或结果" value="${escapeHTML(historyBrowse.query)}"></label><label>月份<select id="history-month"><option value="all">全部月份</option>${[...new Set(recent.milestones.map(m=>historyDay(m).slice(0,7)).filter(Boolean))].sort().reverse().map(month=>`<option value="${escapeHTML(month)}">${escapeHTML(month)}</option>`).join('')}</select></label><label>顺序<select id="history-order"><option value="newest">最近在前</option><option value="oldest">最早在前</option></select></label></div></details>
     <div id="history-records" class="timeline research-timeline"></div><button id="history-more" class="button history-more">再显示24条记录</button>
     <details class="panel research-disclosure"><summary><strong>DS005713 前期成果</strong><span>样本处置、早期指标与关键节点</span></summary><div class="research-disclosure-body"><div class="history-chapter"><h2>DS005713 前期成果</h2><a class="text-link" href="/api/source/ds-stage-report" download="DS005713_STAGE_REPORT.md">下载 DS005713 摘要</a></div>
     <div class="history-meta">记录截至 ${escapeHTML(history.as_of)} · 扫描数与人数分别统计。</div>
@@ -653,7 +653,7 @@ function showView(next) {
 }
 
 function renderView() {
-  if(['calendar','datasets','architectures'].includes(view)&&!ResearchWorkbench.ready){
+  if(['calendar','datasets','architectures','history'].includes(view)&&!ResearchWorkbench.ready){
     const requested=view;$('#view-'+view).innerHTML='<p role="status">正在读取模型与数据集索引…</p>';
     ResearchWorkbench.load().then(()=>{if(view===requested)renderView();}).catch(error=>{$('#view-'+requested).textContent=error.message;});
     return;

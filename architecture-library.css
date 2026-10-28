@@ -37,3 +37,12 @@
 .architecture-diagram-frame>.architecture-legend{align-items:center;gap:7px 10px;margin:0;padding:8px 10px;border-top:1px solid #e5edf5;background:#fafdff;line-height:1.5}
 .architecture-diagram-frame .architecture-legend .architecture-state{display:inline-flex;align-items:center;gap:5px;border:0;border-radius:0;padding:0;background:transparent;color:#526b84;font-size:11px;white-space:nowrap}
 .architecture-legend .architecture-state i{width:7px;height:7px;border-radius:50%;background:var(--node-color);flex-shrink:0}
+.architecture-catalog-filter{border-bottom:1px solid #dce6ef;padding:0 12px;background:#f8fbff}
+#view-architectures .architecture-catalog-filter>summary{font-size:13px;min-height:34px;padding:8px 0;box-sizing:border-box}
+.architecture-catalog-filter>summary span{font-size:11px;color:#657e98;font-weight:400}
+#view-architectures .architecture-catalog-filter .architecture-filters{display:grid;grid-template-columns:1fr;gap:9px;margin:0;padding:0 0 12px}
+#view-architectures .architecture-catalog-filter label{font-size:12px;gap:4px;width:auto;grid-column:auto}
+#view-architectures .architecture-catalog-filter input,#view-architectures .architecture-catalog-filter select{font-size:12px!important;min-height:34px;padding:7px}
+.architecture-catalog>#architecture-count{padding:10px 12px;font-size:11px}
+.architecture-intro{padding:6px 14px;gap:8px}.architecture-intro>span{padding-top:8px;font-size:13px}
+#view-architectures .architecture-intro summary{font-size:12px;min-height:32px;padding:8px 0}

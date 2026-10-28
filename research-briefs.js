@@ -45,13 +45,16 @@ const ResearchBriefs = (() => {
   }
 
   function historyCard(m) {
-    const b = copy.history[recordKey(m)];
-    if (!b) return originalHistory(m);
+    const b = copy.history[recordKey(m)]||copy.legacy[`${m.date}|${m.title}`]||{};
+    const item=ResearchWorkbench.forRecord(m);
+    const modelIds=item?.executionModelIds?.length?item.executionModelIds:item?.modelIds;
+    const models=modelIds?.map(id=>{const model=ResearchWorkbench.index.models.find(row=>row.id===id);return `<a href="${esc(ResearchWorkbench.href(item,id))}">${esc(model.name)}</a>`;}).join(' · ')||esc(b.model||'数据与资料整理');
+    const datasets=item?.datasetIds.map(id=>ResearchWorkbench.datasetLink(id,item)).join(' · ')||esc(b.dataset||'数据编号待核定');
+    const numeric=item?.resultRows.some(row=>Number.isFinite(row.auc)||Object.keys(row.otherMetrics).length);
     const links = (m.sources || []).map((id,i)=>evidenceLink(id,`依据 ${i+1} ↗`)).join(' ');
-    return `<article data-research-brief="history"><time>${esc(m.date)}</time><div><h3>${esc(b.title || m.title)}</h3>${fields(b)}<details class="brief-notes"><summary>参数、完整记录与依据</summary>${b.title?`<p>${esc(m.title)}</p>`:''}${m.label?`<p>${esc(m.label)}</p>`:''}<dl class="brief-original">${m.summary && m.summary!==m.result?`<dt>原摘要</dt><dd>${esc(m.summary)}</dd>`:''}<dt>原结果</dt><dd>${esc(m.result)}</dd><dt>具体方法</dt><dd>${esc(m.method)}</dd><dt>限制</dt><dd>${esc(m.boundary)}</dd><dt>下一步</dt><dd>${esc(m.next)}</dd></dl><div class="history-sources">${links}</div></details></div></article>`;
+    return `<article data-research-brief="history"><time>${esc(m.date)}</time><div><h3 class="history-models">${models}</h3><div class="history-dataset-ids">${datasets}</div>${numeric?ResearchWorkbench.resultTable(item):`<p class="history-result-text">${esc(b.impact||m.result||m.summary||m.detail||'结果见原记录')}</p>`}${numeric&&m.label?`<p class="history-result-verdict">${esc(m.label)}</p>`:''}${item?.resultRows.some(row=>Number.isFinite(row.auc))?ResearchWorkbench.baselineHTML(item.baselineIds):''}<details class="brief-notes"><summary>工作、完整结果与依据</summary><h4>${esc(m.title)}</h4>${b.action?`<p>工作：${esc(b.action)}</p>`:''}${b.dataset?`<p>数据口径：${esc(b.dataset)}</p>`:''}${b.impact?`<p>${esc(b.impact)}</p>`:''}<dl class="brief-original">${m.summary&&m.summary!==m.result?`<dt>原摘要</dt><dd>${esc(m.summary)}</dd>`:''}<dt>原结果</dt><dd>${esc(m.result||m.detail)}</dd><dt>具体方法</dt><dd>${esc(m.method)}</dd><dt>限制</dt><dd>${esc(m.boundary||b.scope)}</dd><dt>下一步</dt><dd>${esc(m.next)}</dd></dl><div class="history-sources">${links}</div></details></div></article>`;
   }
 
-  let originalHistory;
   function sectionBrief(node) {
     for (const p of node.querySelectorAll(':scope > p, :scope > div > p')) {
       if (p.closest('details') || p.closest('[data-research-brief]')) continue;
@@ -146,12 +149,8 @@ const ResearchBriefs = (() => {
       if (article.dataset.researchBrief) continue;
       const title=article.querySelector('h3')?.textContent;
       const date=article.querySelector('time')?.textContent;
-      const b=copy.legacy[`${date}|${title}`];
-      if (!b) continue;
-      article.dataset.researchBrief='legacy';
-      const content=article.querySelector(':scope > div');
-      const p=content?.querySelector(':scope > p');if(p)p.remove();
-      content?.querySelector('h3')?.insertAdjacentHTML('afterend',fields(b));
+      const record=snapshot()?.ds005713_history.milestones.find(item=>item.date===date&&item.title===title);
+      if(record)article.outerHTML=historyCard(record);
     }
     const link=root.querySelector('a[download="RECENT_RESEARCH_HISTORY.md"]');
     if (link) {
@@ -187,7 +186,7 @@ const ResearchBriefs = (() => {
   }
 
   function install() {
-    if(typeof historyRecord==='function') {originalHistory=historyRecord;historyRecord=historyCard;}
+    if(typeof historyRecord==='function')historyRecord=historyCard;
     if(typeof updateHistoryRecords==='function') {
       updateHistoryRecords=function(){
         const all=data.research_history.milestones,needle=historyBrowse.query.trim().toLowerCase();

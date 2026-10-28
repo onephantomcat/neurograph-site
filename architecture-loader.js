@@ -1,7 +1,7 @@
 (() => {
   'use strict';
   const base = new URL('.', document.currentScript.src);
-  const version = '20261028-diagram-fit';
+  const version = '20261028-inspector';
   let loading;
   const script = name => new Promise((resolve, reject) => {
     const element = document.createElement('script');

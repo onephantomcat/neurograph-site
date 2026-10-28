@@ -33,7 +33,7 @@ const ResearchBriefs = (() => {
 
   function annotateRemainingAuc(root) {
     for(const node of root.querySelectorAll('p, td')) {
-      if(node.dataset.paperBaseline || node.closest('details, [data-research-brief], .research-brief, .paper-baseline-note, .source-content'))continue;
+      if(node.dataset.paperBaseline || node.closest('details, [data-research-brief], .research-brief, .paper-baseline-note, .source-content, #research-inspector'))continue;
       const text=node.textContent;
       if(!/(?:AUC|AUROC)[^。；]*\d|百分点/i.test(text))continue;
       const context=text+' '+(node.closest('section, article')?.querySelector('h2, h3')?.textContent || '');

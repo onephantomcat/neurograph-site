@@ -547,7 +547,7 @@ function datasetRegistryStatusClass(status) {
   return ({'已整理':'done','已评估':'done','部分可用':'active','待补文件':'blocked'}[status] || 'planned');
 }
 function datasetRegistryRows(rows) {
-  return rows.map(row => `<tr>
+  return rows.map(row => `<tr data-dataset="${escapeHTML(row.id)}">
     <th scope="row"><strong>${escapeHTML(row.name)}</strong><small>${escapeHTML(row.id)} · ${escapeHTML(row.source)}</small></th>
     <td data-label="疾病或对象">${escapeHTML(row.disease)}</td>
     <td data-label="样本量（当前口径）">${escapeHTML(row.samples)}</td>
@@ -651,7 +651,17 @@ function showView(next) {
   if (data) renderView();
 }
 
-function renderView() { ({overview,calendar:calendarPage,history:researchHistoryPage,workflow:workflowPage,goals:goalsPage,datasets:datasetsPage,evidence:evidencePage,conclusions:conclusionsPage,architectures:()=>ArchitectureLibrary.show()})[view](); archiveRoute(); }
+function renderView() {
+  if(['calendar','datasets','architectures'].includes(view)&&!ResearchWorkbench.ready){
+    const requested=view;$('#view-'+view).innerHTML='<p role="status">正在读取模型与数据集索引…</p>';
+    ResearchWorkbench.load().then(()=>{if(view===requested)renderView();}).catch(error=>{$('#view-'+requested).textContent=error.message;});
+    return;
+  }
+  if(view!=='architectures')ResearchWorkbench.close();
+  ({overview,calendar:calendarPage,history:researchHistoryPage,workflow:workflowPage,goals:goalsPage,datasets:datasetsPage,evidence:evidencePage,conclusions:conclusionsPage,architectures:()=>ArchitectureLibrary.show()})[view]();
+  archiveRoute();
+  if(view==='datasets')ResearchWorkbench.routeDataset().catch(error=>{$('#research-content').insertAdjacentHTML('afterbegin',`<p role="alert">${escapeHTML(error.message)}</p>`);});
+}
 function openDialog(eyebrow, content) {
   $('#detail-dialog').classList.remove('report-dialog');
   $('#dialog-eyebrow').textContent=eyebrow;

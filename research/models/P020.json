@@ -1,0 +1,1 @@
+{"model":{"id":"P020","name":"Prototypical Networks","paperId":"P020","kind":"method","coverage":"abstract_only"},"activities":[{"id":"paper-P020","origin":"paper","title":"Prototypical Networks：原论文方法与实验","date":null,"modelIds":["P020"],"datasetIds":[],"sourceIds":[],"eventIds":[],"tags":["小样本","迁移"],"variants":{},"modules":{}}]}

@@ -118,7 +118,7 @@ function calendarPage() {
   $('#calendar-today').addEventListener('click',()=>{calendarUI.selected=shanghaiDay();calendarUI.month=calendarUI.selected.slice(0,7);clearCalendarRoute();calendarPage();$('#calendar-today').focus();});
 }
 
-function clearCalendarRoute() { history.replaceState(null,'','#calendar'); }
+function clearCalendarRoute() { const params=new URLSearchParams({date:calendarUI.selected,type:calendarUI.type});history.replaceState(null,'','#calendar?'+params); }
 
 function filteredEvents() {
   const q=calendarUI.query.toLocaleLowerCase().trim();
@@ -126,7 +126,7 @@ function filteredEvents() {
 }
 
 function eventCard(event) {
-  return `<article class="calendar-event ${escapeHTML(event.type)}"><div class="event-card-meta"><span class="event-kind ${escapeHTML(event.type)}">${eventTypes[event.type]}</span><span>${event.date?escapeHTML(event.date)+(event.time?' '+escapeHTML(event.time):' · 钟点未记录'):'日期待定'}</span>${event.editable?`<button class="text-link event-edit" data-event-edit="${escapeHTML(event.id)}">编辑</button>`:''}</div><h3>${escapeHTML(event.title)}</h3><details><summary>记录详情与日期依据</summary><p class="event-description">${escapeHTML(event.description)}</p><small>${escapeHTML(event.date_basis||'人工记录')}</small></details><div class="event-sources">${event.sources.map(id=>{const s=sourceById(id);return s?evidenceLink(id,s.label+' ↗'):'';}).join('')}</div></article>`;
+  return `<article data-calendar-event="${escapeHTML(event.id)}" class="calendar-event ${escapeHTML(event.type)}"><div class="event-card-meta"><span class="event-kind ${escapeHTML(event.type)}">${eventTypes[event.type]}</span><span>${event.date?escapeHTML(event.date)+(event.time?' '+escapeHTML(event.time):' · 钟点未记录'):'日期待定'}</span>${event.editable?`<button class="text-link event-edit" data-event-edit="${escapeHTML(event.id)}">编辑</button>`:''}</div><h3>${escapeHTML(event.title)}</h3>${ResearchWorkbench.eventLinks(event)}<details><summary>记录详情与日期依据</summary><p class="event-description">${escapeHTML(event.description)}</p><small>${escapeHTML(event.date_basis||'人工记录')}</small></details><div class="event-sources">${event.sources.map(id=>{const s=sourceById(id);return s?evidenceLink(id,s.label+' ↗'):'';}).join('')}</div></article>`;
 }
 
 function renderCalendarResults() {
@@ -137,10 +137,12 @@ function renderCalendarResults() {
   const cells=monthDays(calendarUI.month).map(day=>{
     const daily=events.filter(e=>e.date===day);
     const types=[...new Set(daily.map(e=>e.type))];
-    return `<button class="calendar-day ${day.startsWith(calendarUI.month)?'':'outside'} ${day===shanghaiDay()?'today':''}" data-calendar-day="${day}" aria-pressed="${day===calendarUI.selected}" aria-label="${day}，${daily.length}条记录${daily.length?'，'+escapeHTML(daily.map(e=>eventTypes[e.type]+':'+e.title).join('；')):''}"><span class="day-number">${Number(day.slice(8))}</span><span class="day-preview">${daily.slice(0,2).map(e=>`<span class="day-event ${e.type}">${escapeHTML(e.title)}</span>`).join('')}${daily.length>2?`<small>另 ${daily.length-2} 条</small>`:''}</span><span class="day-dots">${types.map(t=>`<i class="${t}"></i>`).join('')}${daily.length?`<small>${daily.length}</small>`:''}</span></button>`;
+    const linked=ResearchWorkbench.targets(daily), names=[...new Set(linked.flatMap(item=>item.modelIds.map(id=>ResearchWorkbench.index.models.find(model=>model.id===id).name)))];
+    return `<button class="calendar-day ${day.startsWith(calendarUI.month)?'':'outside'} ${day===shanghaiDay()?'today':''}" data-calendar-day="${day}" aria-pressed="${day===calendarUI.selected}" aria-label="${day}，${daily.length}条记录${daily.length?'，'+escapeHTML(daily.map(e=>eventTypes[e.type]+':'+e.title).join('；')):''}"><span class="day-number">${Number(day.slice(8))}</span><span class="day-preview">${daily.slice(0,2).map(e=>`<span class="day-event ${e.type}">${escapeHTML(e.title)}</span>`).join('')}${daily.length>2?`<small>另 ${daily.length-2} 条</small>`:''}${linked.length?`<small class="calendar-target-hint">${escapeHTML(names.join('、')||'数据集')} · ${linked.length===1?'直接查看':'选择 '+linked.length+' 项'}</small>`:''}</span><span class="day-dots">${types.map(t=>`<i class="${t}"></i>`).join('')}${daily.length?`<small>${daily.length}</small>`:''}</span></button>`;
   }).join('');
   const empty='<div class="empty"><h3>暂无记录</h3><p>可切换日期或类型，也可以新增日程。</p></div>';
   $('#calendar-results').innerHTML=`<div class="calendar-summary" role="status">${calendarUI.month} · ${dated.length} 条已定日期记录 · ${pending.length} 条待定</div>${calendarUI.mode==='month'?`<div class="calendar-layout"><div class="month-panel"><div class="weekdays" aria-hidden="true">${['一','二','三','四','五','六','日'].map(d=>`<span>周${d}</span>`).join('')}</div><div class="calendar-grid" role="group" aria-label="${calendarUI.month}月历">${cells}</div></div><aside class="day-agenda" aria-label="当天记录"><h2>${calendarUI.selected} <small>${selected.length} 条</small></h2>${selected.map(eventCard).join('')||empty}</aside></div>`:`<div class="month-agenda"><h2>${calendarUI.month} 月度记录</h2>${dated.map(eventCard).join('')||empty}</div>`}<details class="undated-panel" open><summary>待定安排与未约定 DDL <span>${pending.length}</span></summary><p>以下行动项没有明确日期，未强行放入某一天。</p><div class="undated-grid">${pending.map(eventCard).join('')||'<p>当前筛选下没有待定安排。</p>'}</div></details>`;
+  const routed=routeParams().get('event');if(routed)ResearchWorkbench.glow(document.querySelector(`[data-calendar-event="${CSS.escape(routed)}"]`));
 }
 
 function editCalendarEvent(id) {
@@ -170,11 +172,16 @@ function editCalendarEvent(id) {
 
 document.addEventListener('click',event=>{
   const button=event.target.closest('button');if(!button)return;
-  if(button.dataset.calendarDay){calendarUI.selected=button.dataset.calendarDay;calendarUI.month=calendarUI.selected.slice(0,7);clearCalendarRoute();$('#calendar-month').value=calendarUI.month;renderCalendarResults();$(`[data-calendar-day="${calendarUI.selected}"]`)?.focus();}
+  if(button.dataset.calendarDay){calendarUI.selected=button.dataset.calendarDay;calendarUI.month=calendarUI.selected.slice(0,7);clearCalendarRoute();$('#calendar-month').value=calendarUI.month;renderCalendarResults();if(!ResearchWorkbench.activateDay(filteredEvents().filter(item=>item.date===calendarUI.selected),calendarUI.selected))$(`[data-calendar-day="${calendarUI.selected}"]`)?.focus();}
   if(button.dataset.monthStep){const [y,m]=calendarUI.month.split('-').map(Number);calendarUI.month=new Date(Date.UTC(y,m-1+Number(button.dataset.monthStep),1)).toISOString().slice(0,7);calendarUI.selected=calendarUI.month+'-01';clearCalendarRoute();calendarPage();$(`[data-month-step="${button.dataset.monthStep}"]`).focus();}
   if(button.dataset.eventType){calendarUI.type=button.dataset.eventType;clearCalendarRoute();document.querySelectorAll('[data-event-type]').forEach(b=>b.setAttribute('aria-pressed',b===button));renderCalendarResults();}
   if(button.dataset.calendarMode){calendarUI.mode=button.dataset.calendarMode;document.querySelectorAll('[data-calendar-mode]').forEach(b=>b.setAttribute('aria-pressed',b===button));renderCalendarResults();}
   if(button.dataset.eventEdit)editCalendarEvent(button.dataset.eventEdit);
+});
+
+document.addEventListener('research-day-choice',event=>{
+  const {day,items}=event.detail;
+  openDialog(day+' · 选择模型与数据集',`<h2>${escapeHTML(day)} 的关联活动</h2><div class="research-calendar-choice">${items.map(item=>`<a href="${escapeHTML(item.href)}"><strong>${escapeHTML(item.title)}</strong><span>${escapeHTML(item.models)}</span><small>${escapeHTML(item.datasets)}</small></a>`).join('')}</div>`);
 });
 
 document.addEventListener('keydown',event=>{

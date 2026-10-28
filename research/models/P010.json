@@ -1,0 +1,1 @@
+{"model":{"id":"P010","name":"Pediatric headache","paperId":"P010","kind":"model","coverage":"partial_text"},"activities":[{"id":"paper-P010","origin":"paper","title":"Pediatric headache：原论文方法与实验","date":null,"modelIds":["P010"],"datasetIds":[],"sourceIds":[],"eventIds":[],"tags":["迁移","训练方法"],"variants":{},"modules":{}}]}

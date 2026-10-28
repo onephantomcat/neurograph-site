@@ -21,15 +21,39 @@
       const records=library.records, requested=new URLSearchParams(location.hash.split('?')[1]||'').get('node');
       if(requested && !records.some(item=>item.id===requested))throw new Error('未找到该建议节点，请从历史记录中选择。');
       host.innerHTML=`<header class="page-heading"><div><span class="eyebrow">MEETINGS & DIRECTION</span><h1>导师建议</h1><p>按记录日期回看方向要求，点击节点查看详细说明。</p></div><a class="button" href="#evidence?section=meetings">会议原文与总结 ↗</a></header>
-        <section class="guidance-workspace" aria-label="方向建议时间线"><div class="guidance-toolbar"><div><strong>建议预览</strong><span>${records.length} 次记录${records.length?' · '+esc(records[0].date)+' 至 '+esc(records.at(-1).date):''}</span></div><div class="guidance-controls"><button type="button" data-guidance-move="earlier" aria-label="向左查看较早建议">← 较早</button><button type="button" data-guidance-move="later" aria-label="向右查看较新建议">较新 →</button><button type="button" data-guidance-latest>最新</button></div></div>
-        <p class="guidance-hint">左右滑动查看历史；箭头仅表示时间先后，建议是否执行请查看研究记录。</p>
-        <div class="guidance-scroll" tabindex="0" aria-label="左右滑动的日期节点"><ol class="guidance-flow">${records.map((item,index)=>`<li data-guidance-position="${index}"><button type="button" class="guidance-node" data-guidance-id="${esc(item.id)}" aria-controls="guidance-detail" aria-expanded="false"><span class="guidance-date"><time datetime="${esc(item.date)}">${esc(item.date)}</time><small>${kinds[item.kind]}</small></span><strong>${esc(item.title)}</strong><ul>${item.preview.map(text=>`<li>${esc(text)}</li>`).join('')}</ul><span class="guidance-node-foot">${esc(scopes[item.sourceScope])}<span aria-hidden="true">展开 ↓</span></span></button>${index<records.length-1?'<span class="guidance-arrow" aria-hidden="true">→</span>':''}</li>`).join('')}</ol></div>
-        <section id="guidance-detail" class="guidance-detail" role="region" aria-labelledby="guidance-detail-title" hidden></section>
-        ${records.length?'':'<p>尚未登记已核查的会议或课堂建议。</p>'}</section>`;
+        <section class="guidance-workspace" aria-label="方向建议时间线">
+        <div class="guidance-scroll" tabindex="0" role="region" aria-label="可拖动、滑动或使用方向键浏览的建议流程图"><ol class="guidance-flow">${records.map((item,index)=>`<li data-guidance-position="${index}"><button type="button" class="guidance-node" data-guidance-id="${esc(item.id)}" aria-controls="guidance-detail" aria-expanded="false"><span class="guidance-date"><time datetime="${esc(item.date)}">${esc(item.date)}</time><small>${kinds[item.kind]}</small></span><strong>${esc(item.title)}</strong><ul>${item.preview.map(text=>`<li>${esc(text)}</li>`).join('')}</ul><span class="guidance-node-foot">${esc(scopes[item.sourceScope])}<span aria-hidden="true">展开 ↓</span></span></button>${index<records.length-1?'<span class="guidance-arrow" aria-hidden="true">→</span>':''}</li>`).join('')}</ol></div>
+        ${records.length?'':'<p>尚未登记已核查的会议或课堂建议。</p>'}</section>
+        <section id="guidance-detail" class="guidance-detail" role="region" aria-labelledby="guidance-detail-title" hidden></section>`;
       const scroll=host.querySelector('.guidance-scroll'), detail=host.querySelector('#guidance-detail');
       const buttons=[...host.querySelectorAll('[data-guidance-id]')];
       const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
       const behavior=reduced?'instant':'smooth';
+      let pan, suppressClick=false;
+      scroll.addEventListener('pointerdown',event=>{
+        if(event.pointerType!=='mouse'||event.button!==0)return;
+        suppressClick=false;pan={id:event.pointerId,x:event.clientX,y:event.clientY,left:scroll.scrollLeft,active:false};
+      });
+      scroll.addEventListener('pointermove',event=>{
+        if(!pan||pan.id!==event.pointerId)return;
+        const dx=event.clientX-pan.x,dy=event.clientY-pan.y;
+        if(!pan.active && Math.abs(dx)>6 && Math.abs(dx)>Math.abs(dy)){pan.active=true;scroll.setPointerCapture(event.pointerId);scroll.classList.add('is-panning');}
+        if(pan.active){event.preventDefault();scroll.scrollLeft=pan.left-dx;}
+      });
+      const finishPan=event=>{
+        if(!pan||pan.id!==event.pointerId)return;
+        suppressClick=pan.active;pan=undefined;scroll.classList.remove('is-panning');
+        if(scroll.hasPointerCapture(event.pointerId))scroll.releasePointerCapture(event.pointerId);
+      };
+      scroll.addEventListener('pointerup',finishPan);scroll.addEventListener('pointercancel',finishPan);
+      scroll.addEventListener('pointerleave',event=>{if(pan&&!pan.active)finishPan(event);});
+      scroll.addEventListener('click',event=>{if(suppressClick){event.preventDefault();event.stopPropagation();suppressClick=false;}},true);
+      scroll.addEventListener('wheel',event=>{
+        if(event.ctrlKey||Math.abs(event.deltaX)>=Math.abs(event.deltaY))return;
+        const scale=event.deltaMode===1?16:event.deltaMode===2?scroll.clientWidth:1;
+        const next=Math.max(0,Math.min(scroll.scrollWidth-scroll.clientWidth,scroll.scrollLeft+event.deltaY*scale));
+        if(Math.abs(next-scroll.scrollLeft)>1){event.preventDefault();scroll.scrollLeft=next;}
+      },{passive:false});
       const select=(id,focus=false)=>{
         const item=records.find(entry=>entry.id===id);
         if(!item)throw new Error('未登记的建议节点');
@@ -54,12 +78,14 @@
       host.onclick=event=>{
         const node=event.target.closest('[data-guidance-id]');
         if(node){if(node.getAttribute('aria-expanded')==='true')close();else select(node.dataset.guidanceId);}
-        const move=event.target.closest('[data-guidance-move]');
-        if(move)scroll.scrollBy({left:(move.dataset.guidanceMove==='earlier'?-1:1)*scroll.clientWidth*.85,behavior});
-        if(event.target.closest('[data-guidance-latest]')&&records.length)select(records.at(-1).id,true);
         if(event.target.closest('[data-guidance-close]')){const selected=buttons.find(button=>button.getAttribute('aria-expanded')==='true');close();selected?.focus({preventScroll:true});}
       };
       host.onkeydown=event=>{
+        if(event.target===scroll && ['ArrowLeft','ArrowRight','Home','End'].includes(event.key)){
+          event.preventDefault();
+          if(event.key==='Home'||event.key==='End')scroll.scrollTo({left:event.key==='Home'?0:scroll.scrollWidth,behavior});
+          else scroll.scrollBy({left:(event.key==='ArrowLeft'?-1:1)*scroll.clientWidth*.7,behavior});
+        }
         const node=event.target.closest('[data-guidance-id]');
         if(event.key==='Escape' && !detail.hidden){const selected=buttons.find(button=>button.getAttribute('aria-expanded')==='true');close();selected?.focus({preventScroll:true});}
         if(node && ['ArrowLeft','ArrowRight','Home','End'].includes(event.key)){
@@ -67,14 +93,8 @@
           buttons[next].focus({preventScroll:true});buttons[next].scrollIntoView({inline:'center',block:'nearest',behavior});
         }
       };
-      const edges=()=>{
-        host.querySelector('[data-guidance-move="earlier"]').disabled=scroll.scrollLeft<=1;
-        host.querySelector('[data-guidance-move="later"]').disabled=scroll.scrollLeft+scroll.clientWidth>=scroll.scrollWidth-1;
-      };
-      scroll.addEventListener('scroll',edges,{passive:true});
       if(requested)select(requested);
       else scroll.scrollLeft=scroll.scrollWidth;
-      requestAnimationFrame(edges);
     } catch(error) {
       if(token!==sequence)return;
       host.innerHTML=`<h1>导师建议</h1><p role="alert">${esc(error.message)}</p><a href="#guidance">浏览全部建议</a> <button type="button" id="guidance-retry">重新读取</button>`;

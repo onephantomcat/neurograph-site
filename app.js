@@ -745,8 +745,6 @@ async function refresh() {
     $('#goal-nav-count').textContent=data.goals.filter(g=>g.status==='done').length+'/'+data.goals.length;
     $('#sync-state').textContent=window.NEUROGRAPH_PUBLIC ? '公开快照 · '+data.reviewed_at : !data.remote.enabled ? '本地记录 · 按需核查' : (data.remote.stale ? (data.remote.refreshing?'连接中…':'数据待更新') : '● 已同步');
     $('#sync-state').className=data.remote.stale?'sync-stale':'sync-live';
-    $('#footer-time').textContent=(window.NEUROGRAPH_PUBLIC ? '公开版本生成 ' : '本地读取 ')+timeText(data.served_at);
-    $('#collection-policy').textContent=window.NEUROGRAPH_PUBLIC ? '各结果按报告日期阅读 · 此站不运行训练或远端采集' : data.remote.enabled ? '本地记录 30 分钟刷新 · 远端队列 30 分钟采集' : '本地记录 30 分钟刷新 · 远端自动采集关闭';
     // Do not rebuild the search box while typing; its data refreshes on input or navigation.
     if(key!==renderKey && !$('#detail-dialog').open && !document.activeElement?.matches('input,select,textarea')){
       renderView();renderKey=key;

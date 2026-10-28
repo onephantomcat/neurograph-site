@@ -129,8 +129,6 @@ const ResearchBriefs = (() => {
 
   function present(root=document.querySelector('main')) {
     if (!root) return;
-    const footer=document.querySelector('#footer-time');
-    if(footer && footer.textContent!=='摘要整理 2026-10-24 · 实验日期见各条记录'){footer.dataset.briefEdition='20261024';footer.textContent='摘要整理 2026-10-24 · 实验日期见各条记录';}
     // Innermost study components are handled first, so a parent cannot swallow their summaries.
     const nodes=[...root.querySelectorAll('.panel, .reading-guide, .reading-guide article, .callout, .fmm-result, .fewshot-geometry, [aria-label^="预训练输入审查"], [aria-label^="疼痛模型复现"], .conclusion-card, .archive-featured')].reverse();
     for (const node of nodes) {

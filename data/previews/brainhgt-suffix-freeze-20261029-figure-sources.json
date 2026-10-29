@@ -1,0 +1,1 @@
+{"content": "{\n  \"progress\": \"curves.csv\",\n  \"joint_changes\": \"joint_differences.csv\",\n  \"scope\": \"原79人反复开发池；每模型20名训练支持人，原26/27人仅描述评价；三分区×三支持×两初始化相关，18模型不等于18个独立队列。固定200更新比较，无验证选轮；原临床终点、独立验证缺口和停止分支保留。\"\n}\n", "truncated": false}

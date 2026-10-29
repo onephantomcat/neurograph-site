@@ -1,0 +1,18 @@
+{
+  "state": "PASS_18_MODEL_SUFFIX_FREEZE_REVIEW",
+  "new_models": 18,
+  "updates": 3600,
+  "all_batch_orders_match_original": true,
+  "all_first50_loss_max_error": 0.0,
+  "all_first50_curve_metric_max_error": 0.0,
+  "independent_metric_max_error": 2.220446049250313e-16,
+  "bootstrap_sklearn_max_error": 4.440892098500626e-16,
+  "strict_saved_weight_replay_max_error": 0.0,
+  "all_frozen_parameters_unchanged": true,
+  "prefix_gradients_preserved_all_18": true,
+  "new_reference_fits": 0,
+  "new_validation_selections": 0,
+  "new_outer_scores": 0,
+  "new_QC_decisions": 0,
+  "new_MRI_reads": 0
+}

@@ -1,0 +1,33 @@
+疼痛脑网络研究结果工具 0.1.0
+
+本工具读取保存模型的聚合指标，按相同分区、支持编号和初始化进行比较，导出CSV、JSON、文本及HTML报告；也可重算二分类指标与群体脑区敏感性图的秩相关。它没有训练、网络请求、MRI处理、临床诊断或自动发布功能。
+
+环境：Python 3.10及以上，无第三方运行依赖。本次已在Windows新建虚拟环境中，以隔离模式安装wheel并从独立目录执行；不依赖项目原路径或全局Python包。另有Linux新环境的原模型回放，实际状态见复现报告，两者分别陈述。
+
+安装与示例
+
+1. python -m venv env
+2. Windows使用 env\Scripts\python.exe，Linux使用 env/bin/python。
+3. python -m pip install --no-index dist/pain_network_report-0.1.0-py3-none-any.whl
+4. python -m pain_network_report.cli report examples/model_metrics.csv --reference tangent_target --out results
+5. python -m pain_network_report.cli maps examples/roi_group_maps.csv --out map-results
+
+请在激活上述环境后执行第3至5项，或把python替换成该虚拟环境的完整路径。results/report.html可直接打开；下载链接指向同目录实际生成的CSV与JSON。源码可用标准pip wheel --no-build-isolation --no-deps构建。
+
+输入说明
+
+model_metrics.csv每行是一条保存模型的评价记录。必需列为variant、inner、repeat、seed、step、validation_n、auc、ap、ba、brier、logloss。若有support_n，必须使用同一支持预算。比较要求每个方法的inner/repeat/seed集合一致，配对模型验证人数相同，更新时点一致，记录不能重复。工具不会仅凭这些列证明人员身份、数据独立性、输入和调参历史相同；合并实验前仍需核对原始协议和人员依据。
+
+示例保留原版、固定目标和后缀冻结各18条固定200更新记录，共54行；其中只有前轮后缀干预新增18个拟合，不应把54行写为本工具执行的训练或新增患者。工具只汇总已有数字，不重算人员区间，也不从模型间离散度生成临床置信区间。
+
+roi_group_maps.csv必需列为variant、roi、mean_sensitivity，同方法的脑区键不能重复，比较方法必须有相同脑区集合。示例是79人等权的90区局部敏感性均值，群体图一致性不能代替同一个人的解释稳定性。
+
+metrics命令接受含y和p两个等长列表的JSON文件，仅供本地评价。默认概率裁剪epsilon为2^-23，以复现原float32协议；该裁剪值不是所有数据的通用选择。AUC和AP正确处理并列概率，分类阈值固定0.5。输入标签必须同时包含0和1。
+
+实际验证
+
+7项有针对性的测试覆盖并列概率、排序与概率误差分离、秩并列、非法概率、缺失配对、行顺序不变性及重复/混合更新时点。54条既有模型的汇总误差、逐人保存预测的指标复算误差、群体图Spearman的独立核对见software_reproduction.json。
+
+本软件及示例不含逐人身份、逐人预测、FC、MRI、权重或凭据。原模型推理复现需要获授权的私有输入与检查点；本包不伪装为包含这些资源的完整训练或影像预处理复现包。
+
+网站源码下载还原方式：在新目录建立pain_network_report/；software_core.py、software_cli.py、software_init.py分别保存为其中的core.py、cli.py、__init__.py，software_setup.py保存为根目录setup.py。使用已安装setuptools的构建环境执行python setup.py bdist_wheel，再按上述步骤离线安装。源文件只使用标准库，构建工具不是运行依赖。完整wheel和示例另见内部交付软件包。

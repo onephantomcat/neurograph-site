@@ -1,0 +1,30 @@
+import argparse,json,html
+from pathlib import Path
+from .core import load_models,aggregate,paired,compare_summary,write_csv,group_map_pairs,binary_metrics
+def main():
+ p=argparse.ArgumentParser(description='汇总已有模型结果，不执行训练或临床诊断')
+ sub=p.add_subparsers(dest='command',required=True)
+ a=sub.add_parser('report');a.add_argument('input',type=Path);a.add_argument('--reference',required=True);a.add_argument('--out',type=Path,required=True)
+ a=sub.add_parser('maps');a.add_argument('input',type=Path);a.add_argument('--out',type=Path,required=True)
+ a=sub.add_parser('metrics');a.add_argument('input',type=Path)
+ args=p.parse_args()
+ try:
+  if args.command=='metrics':
+   d=json.loads(args.input.read_text(encoding='utf-8-sig'));print(json.dumps(binary_metrics(d['y'],d['p']),indent=2));return
+  args.out.mkdir(parents=True,exist_ok=True)
+  if args.command=='maps':
+   rows=group_map_pairs(args.input);write_csv(args.out/'group_map_comparisons.csv',rows);print(json.dumps(dict(comparisons=len(rows))));return
+  rows=load_models(args.input);means=aggregate(rows);deltas=paired(rows,args.reference);comparisons=compare_summary(deltas)
+  write_csv(args.out/'method_metrics.csv',means);write_csv(args.out/'paired_differences.csv',deltas);write_csv(args.out/'comparisons.csv',comparisons)
+  info=dict(evaluation_rows=len(rows),reference=args.reference,step=rows[0]['step'],means=means,comparisons=comparisons,scope='保存模型的同协议固定时点比较；模型行数不等于独立患者数。未从模型间离散度推算临床区间。')
+  (args.out/'summary.json').write_text(json.dumps(info,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+  def table(data,columns):
+   return '<table><thead><tr>'+''.join('<th>'+html.escape(t)+'</th>' for k,t in columns)+'</tr></thead><tbody>'+''.join('<tr>'+''.join('<td>'+html.escape(f'{r[k]:.6f}' if isinstance(r[k],float) else str(r[k]))+'</td>' for k,t in columns)+'</tr>' for r in data)+'</tbody></table>'
+  cols=[('variant','方法'),('models','保存模型数'),('auc','AUC'),('ap','AP'),('ba','BA'),('brier','Brier 越低越好'),('logloss','logloss 越低越好')]
+  comp=[('variant','方法'),('reference','参照'),('delta_auc','AUC变化'),('delta_brier','Brier变化'),('delta_logloss','logloss变化')]
+  content='<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>保存模型结果比较</title><style>body{font:16px/1.65 system-ui,sans-serif;color:#243346;max-width:1120px;margin:32px auto;padding:0 20px}h1,h2{line-height:1.3}table{border-collapse:collapse;min-width:780px;width:100%;font-variant-numeric:tabular-nums}th,td{border:1px solid #d9e0e8;padding:10px;text-align:left}th{background:#eaf1f7}.scroll{overflow:auto}a{color:#245e95}</style><h1>保存模型结果比较</h1><p>'+html.escape(info['scope'])+'</p><p>固定更新次数 '+str(info['step'])+'。参照方法 '+html.escape(args.reference)+'。读取 '+str(len(rows))+' 条保存评价记录。</p><h2>方法指标</h2><div class="scroll">'+table(means,cols)+'</div><h2>配对变化</h2><div class="scroll">'+table(comparisons,comp)+'</div><p>概率误差下降与AUC提高分别解释；独立验证及原人员条件区间请结合原研究报告。</p><p><a href="method_metrics.csv">下载方法指标</a>　<a href="paired_differences.csv">下载全部配对变化</a>　<a href="summary.json">下载结果摘要</a></p></html>'
+  (args.out/'report.html').write_text(content,encoding='utf8')
+  (args.out/'report.txt').write_text('保存模型结果比较\n'+info['scope']+'\n\n'+json.dumps(info,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
+  print(json.dumps(dict(evaluation_rows=len(rows),methods=len(means),paired_records=len(deltas),out=str(args.out)),ensure_ascii=False))
+ except (ValueError,KeyError,OSError) as e:p.error(str(e))
+if __name__=='__main__':main()

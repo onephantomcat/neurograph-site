@@ -1,0 +1,5 @@
+{
+  "explanation_stability": "same_person_stability.csv",
+  "summary": "same_person_stability_by_fold.csv",
+  "interpretation": "fixed OMST input sensitivity; not a causal or clinical marker"
+}

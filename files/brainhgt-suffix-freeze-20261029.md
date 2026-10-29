@@ -82,3 +82,18 @@
 本目录保留summary.json、model_metrics.csv、method_metrics.csv、paired_differences.csv、joint_repeats.csv、joint_differences.csv、initialization_metrics.csv、support_metrics.csv、fold_metrics.csv、paired_intervals.csv、curves.csv、fixed_steps.csv、freeze_verification.csv、training_losses.csv、verification.json与执行前plan.md。所有逐人预测、权重、支持成员与私有运行信息仅保留研究区，不在公开包中。
 
 <Self-Audit>新增训练严格限于18个机制干预模型；重放前50更新是恢复原第50状态所需，原先未保存该权重，未重训对照。参考与原模型复用、原人员和标签保持、全部种子及阴性保留。结果属于反复开发与探索后机制检验，不作为独立临床验证或通用改进。</Self-Audit>
+
+
+<!-- explanation-reproduction-20261029 -->
+
+## 2026-10-30：脑网络解释稳定性与研究软件复现
+
+复用90个权重状态完成180次输入梯度批次，新增训练0。固定目标的同人ROI排序中位相关：换初始化0.478、换支持0.465；冻结后缀为0.521、0.387，两个方向并不一致。
+
+冻结后缀改善概率误差，没有同步形成全面稳定的脑区解释；群体平均图和局部敏感性均不能直接当作疼痛生物标志物。独立报告环境已重现54条保存模型记录。 原54模型的108次支持/验证推理也已在独立CPU环境回放。
+
+仅原79人开发池，固定OMST与既有FC输入；梯度不包含拓扑重建或因果效应。237/474条配对重复涉及同人，未作独立样本p值。计算复现不等于MRI预处理、重新训练或独立临床验证。
+
+解释稳定性、后缀机制与软件复现已收入内部论文；原固定配置停止结论保留。独立诊断、扫描同期疼痛和治疗反应仍需各自真实合格输入。
+
+[完整报告](https://onephantomcat.github.io/neurograph-site/files/explanation-reproduction-20261029.md)。

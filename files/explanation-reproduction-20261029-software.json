@@ -1,0 +1,12 @@
+{
+  "state": "PASS_CLEAN_REPORT_PACKAGE_REPRODUCTION",
+  "package_version": "0.1.0",
+  "dependencies": 0,
+  "clean_environment": true,
+  "isolated_mode": true,
+  "saved_evaluation_rows": 54,
+  "aggregate_max_error": 1.1102230246251565e-16,
+  "private_saved_prediction_metric_max_error": 4.440892098500626e-16,
+  "group_map_spearman_max_error": 1.1102230246251565e-16,
+  "tests": 7
+}

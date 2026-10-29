@@ -1,0 +1,15 @@
+{
+  "state": "PASS_LOCAL_SENSITIVITY_ANALYSIS",
+  "saved_states": 90,
+  "input_gradient_batches": 180,
+  "extra_forward_calls": 8,
+  "new_fits": 0,
+  "updates": 0,
+  "people": 79,
+  "unique_initializations": 2,
+  "max_saved_probability_or_margin_error": 1.430511474609375e-06,
+  "max_roi_sum_error": 2.220446049250313e-16,
+  "single_batch_gradient_max_error": 1.0244548320770264e-08,
+  "float64_finite_difference_max_error": 8.089532516075693e-12,
+  "float64_finite_difference_edges": 3
+}

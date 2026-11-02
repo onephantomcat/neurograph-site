@@ -211,7 +211,7 @@ const ResearchBriefs = (() => {
         const rows=shownDates.map((day,index)=>{
           const work=groups.get(day)||[];
           const advice=guidance.filter(entry=>entry.displayDate===day);
-          const workMarkup=work.map(item=>historyCard(item).replace(/^<article[^>]*><time>[\s\S]*?<\/time>/,'').replace(/<\/article>$/,'')).join('');
+          const workMarkup=work.map(item=>`<article class="history-work-card">${historyCard(item).replace(/^<article[^>]*><time>[\s\S]*?<\/time>/,'').replace(/<\/article>$/,'')}</article>`).join('');
           const absent=work.length?'':`<p class="history-no-work">${allWorkDates.includes(day)?'工作记录被当前筛选条件隐藏':advice.length?'当天没有登记工作记录':'暂无工作记录'}</p>`;
           const previousDay=dates[dates.indexOf(day)-1];
           const showPeriod=!previousDay||previousDay.slice(0,7)!==day.slice(0,7);

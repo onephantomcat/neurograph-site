@@ -184,6 +184,8 @@ function researchHistoryPage() {
   $('#history-work-toggle').setAttribute('aria-pressed',String(historyWorkCollapsed));
   $('#history-work-toggle').textContent=historyWorkCollapsed?'展开工作内容':'收起工作内容';
   $('#history-work-toggle').addEventListener('click',()=>{
+    const source=document.querySelector(historyWorkCollapsed?'#history-guidance-chain':'#history-records');
+    const guidancePositions=new Map([...source.querySelectorAll('.history-guidance-card[data-guidance-node]')].map(card=>[card.dataset.guidanceNode,card.getBoundingClientRect()]));
     historyWorkCollapsed=!historyWorkCollapsed;
     $('#history-work-toggle').setAttribute('aria-pressed',String(historyWorkCollapsed));
     $('#history-work-toggle').textContent=historyWorkCollapsed?'展开工作内容':'收起工作内容';
@@ -192,6 +194,7 @@ function researchHistoryPage() {
     $('#history-more').hidden=historyWorkCollapsed;
     $('#history-search').closest('details').hidden=historyWorkCollapsed;
     if(historyWorkCollapsed)renderGuidanceChain();
+    requestAnimationFrame(()=>animateGuidanceReflow(guidancePositions,historyWorkCollapsed?'#history-guidance-chain':'#history-records'));
   });
   $('#history-search').addEventListener('input',event=>{historyBrowse.query=event.target.value;historyBrowse.limit=24;updateHistoryRecords();});
   $('#history-month').addEventListener('change',event=>{historyBrowse.month=event.target.value;historyBrowse.limit=24;updateHistoryRecords();});
@@ -233,7 +236,21 @@ function renderGuidanceChain() {
   const host=$('#history-guidance-chain');
   if(!host)return;
   const records=[...historyGuidanceRecords].sort((a,b)=>a.date.localeCompare(b.date));
-  host.innerHTML=records.length?records.map((record,index)=>`${renderGuidanceCard(record,true)}${index<records.length-1?'<span class="history-chain-arrow" aria-hidden="true">→</span>':''}`).join(''):'<p>暂无已登记的导师建议。</p>';
+  host.innerHTML=records.length?records.map((record,index)=>`${renderGuidanceCard(record,true)}${index<records.length-1?'<span class="history-chain-arrow" aria-hidden="true"></span>':''}`).join(''):'<p>暂无已登记的导师建议。</p>';
+}
+
+function animateGuidanceReflow(previousPositions,targetSelector) {
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const target=document.querySelector(targetSelector);
+  if(!target)return;
+  for(const card of target.querySelectorAll('.history-guidance-card[data-guidance-node]')){
+    const previous=previousPositions.get(card.dataset.guidanceNode);
+    if(!previous)continue;
+    const current=card.getBoundingClientRect();
+    const dx=previous.left-current.left,dy=previous.top-current.top;
+    if(Math.abs(dx)+Math.abs(dy)<2)continue;
+    card.animate([{transform:`translate(${dx}px, ${dy}px)`},{transform:'translate(0, 0)'}],{duration:360,easing:'cubic-bezier(.2,.75,.25,1)'});
+  }
 }
 function publicPainSection(mode='summary') {
   const r=data.public_pain_update;

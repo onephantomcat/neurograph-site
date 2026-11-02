@@ -37,8 +37,8 @@ let refreshTimer;
 const escapeHTML = (value) => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const statusNames = {done:'已完成', active:'进行中', blocked:'受阻', planned:'计划中', deferred:'暂缓'};
 const stateNames = {PASS:'数值通过', FAILED:'技术失败', EXCLUDED:'质控排除', REPAIR_PENDING:'待复核', RUNNING:'运行中', COMPLETE:'批次结束', COMPLETE_WITH_FAILURES:'批次结束 · 有未通过', HALTED_GLOBAL_FAULT:'全局暂停', PENDING:'待处理'};
-const viewNames = {overview:'项目总览', calendar:'项目日历', history:'研究历程', guidance:'导师建议', workflow:'项目流程', goals:'计划与目标', datasets:'数据与结果', evidence:'报告与证据', conclusions:'研究结论索引', architectures:'模型架构'};
-const resolveView = value => { const name=value.split('?')[0]; return name === 'ds005713' ? 'history' : name === 'methods' ? 'datasets' : (viewNames[name] ? name : 'overview'); };
+const viewNames = {calendar:'项目日历', history:'研究历程', workflow:'项目流程', goals:'计划与目标', datasets:'数据与结果', evidence:'报告与证据', conclusions:'研究结论索引', architectures:'模型架构'};
+const resolveView = value => { const name=value.split('?')[0]; return ['ds005713','overview','guidance',''].includes(name) ? 'history' : name === 'methods' ? 'datasets' : (viewNames[name] ? name : 'history'); };
 let data = null;
 let loading = false;
 let view = resolveView(location.hash.slice(1));
@@ -147,6 +147,8 @@ function dsSpotlight() {
   return `${data.matched_analysis ? `<div class="matched-teaser panel"><div><strong>双向站点留出分析已完成</strong><p>大阪大学 ↔ CiNet · 150个拟合模型 · 预训练与训练均未见测试站点</p></div><a class="button primary" href="#datasets">查看本轮结果 ↗</a></div>` : ''}<article class="ds-spotlight" aria-labelledby="ds-spotlight-title"><div class="ds-intro"><div><span class="eyebrow">阶段汇报 · 已完成工作</span><h2 id="ds-spotlight-title">DS005713：从预处理到迁移实验</h2><p>已完成来源包与真实训练；OA 内部结果正向，SRPBS 外部主要检验未通过。</p></div><a class="button primary" href="#history">查看近期研究历程 ↗</a></div>${dsSampleFlow()}<div class="ds-foot"><span>历史记录截至 ${escapeHTML(data.ds005713_history.as_of)} · 扫描数与人数分开统计</span>${evidenceLink('ds-stage-report', '汇报摘要 ↗')}</div></article>`;
 }
 const historyBrowse={query:'',month:'all',order:'newest',limit:24};
+let historyGuidanceRecords=[];
+let historyWorkCollapsed=false;
 function historyDay(record) {
   const text=String(record.date || '');
   if(/^\d{4}-\d{2}-\d{2}/.test(text)) return text.slice(0,10);
@@ -168,32 +170,62 @@ function updateHistoryRecords() {
   $('#history-more').hidden=shown.length>=records.length;
 }
 function researchHistoryPage() {
-  const history = data.ds005713_history;
   const recent = data.research_history;
-  if (!history || !recent) { $('#view-history').innerHTML = '<div class="empty">暂无研究历程。</div>'; return; }
-  const sources = ids => ids.map((id, i) => evidenceLink(id, ids.length === 1 ? '查看依据 ↗' : `依据 ${i + 1} ↗`)).join(' ');
-  $('#view-history').innerHTML = `<div class="page-heading"><div><h1>近期研究历程</h1></div><a class="button primary" href="/api/source/research-history-report" download="RECENT_RESEARCH_HISTORY.md">下载近期历程</a></div>
-    <div class="history-meta">截至 ${escapeHTML(recent.as_of)} · 以下为历史记录，最近执行核查见总览。</div>
-    <details class="history-focus archived-focus"><summary>此前阶段摘要（历史记录）</summary><h2>${escapeHTML(recent.focus)}</h2><p>${escapeHTML(recent.summary)}</p><div class="ds-foot"><a class="text-link" href="/qc">QC 审核 ↗</a><a class="text-link" href="#overview">执行状态 ↗</a></div></details>
+  // Keep API consumers' legacy fields intact; do not render escapeHTML(recent.focus) or escapeHTML(recent.summary) here.
+  if (!recent) { $('#view-history').innerHTML = '<div class="empty">暂无研究历程。</div>'; return; }
+  $('#view-history').innerHTML = `<div class="page-heading history-page-heading"><div><h1>近期研究历程</h1></div><div class="history-heading-actions"><button id="history-work-toggle" class="button" type="button" aria-pressed="false">收起工作内容</button><a class="button primary" href="/api/source/research-history-report" download="RECENT_RESEARCH_HISTORY.md">下载近期历程</a></div></div>
+    <div class="history-meta">截至 ${escapeHTML(recent.as_of)} · 按记录日期查看研究工作与导师建议。</div>
     ${sectionTitle('模型与结果')}
     <details class="history-search-drawer"><summary>搜索与筛选 <span id="history-results-count" class="data-note" role="status"></span></summary><div class="history-toolbar"><label class="search">搜索历程<input id="history-search" type="search" placeholder="模型、数据集或结果" value="${escapeHTML(historyBrowse.query)}"></label><label>月份<select id="history-month"><option value="all">全部月份</option>${[...new Set(recent.milestones.map(m=>historyDay(m).slice(0,7)).filter(Boolean))].sort().reverse().map(month=>`<option value="${escapeHTML(month)}">${escapeHTML(month)}</option>`).join('')}</select></label><label>顺序<select id="history-order"><option value="newest">最近在前</option><option value="oldest">最早在前</option></select></label></div></details>
-    <div id="history-records" class="timeline research-timeline"></div><button id="history-more" class="button history-more">再显示24条记录</button>
-    <details class="panel research-disclosure"><summary><strong>DS005713 前期成果</strong><span>样本处置、早期指标与关键节点</span></summary><div class="research-disclosure-body"><div class="history-chapter"><h2>DS005713 前期成果</h2><a class="text-link" href="/api/source/ds-stage-report" download="DS005713_STAGE_REPORT.md">下载 DS005713 摘要</a></div>
-    <div class="history-meta">记录截至 ${escapeHTML(history.as_of)} · 扫描数与人数分别统计。</div>
-    <article class="ds-spotlight">${dsSampleFlow()}<details class="history-detail"><summary>样本处置与依据</summary><p class="ds-disposition">${escapeHTML(history.disposition)}</p><div class="ds-foot">${evidenceLink('record', '原始记录 ↗')}<button class="text-link" data-goal="G02">来源包目标 ↗</button></div></details></article>
-    ${sectionTitle('实验结果', '<span class="muted">AUC：DS005713 / Raw FC</span>')}
-    <div class="result-grid">${data.results.filter(r => ['oa-report','external-report'].includes(r.source)).map(r => `<article class="panel result-card ${r.source === 'external-report' && r.title.includes('外部') ? 'negative' : ''}"><h3>${escapeHTML(r.title)}</h3><div class="result-value">${escapeHTML(r.value)}</div><span class="muted">${escapeHTML(r.metric)}</span><p>${escapeHTML(r.interpretation)}</p>${evidenceLink(r.source, '打开实验报告 ↗')}</article>`).join('')}</div>
-    <div class="notice ds-conclusion"><strong>内部结果正向，外部检验未通过。</strong><p>尚不能确认外部泛化或临床有效性。</p></div>
-    ${sectionTitle('关键节点')}
-    <div class="timeline ds-timeline">${history.milestones.map(m => `<article><time>${escapeHTML(m.date)}</time><div><h3>${escapeHTML(m.title)}</h3><p>${escapeHTML(m.summary || m.detail)}</p><details class="history-detail"><summary>详情与依据</summary><p>${escapeHTML(m.detail)}</p><div class="history-sources">${sources(m.sources)}</div></details></div></article>`).join('')}</div>
-    <div class="ds-foot"><a class="text-link" href="#goals">研究计划 ↗</a>${evidenceLink('ds-stage-report', '汇报摘要 ↗')}<a class="text-link" href="#overview">返回总览 ↗</a></div></div></details>`;
+    <div id="history-guidance-chain" class="history-guidance-chain" hidden aria-label="导师建议时间链"></div>
+    <div id="history-records" class="timeline research-timeline"></div><button id="history-more" class="button history-more">再显示24条记录</button>`;
   $('#history-month').value=historyBrowse.month;
   $('#history-order').value=historyBrowse.order;
+  $('#history-work-toggle').setAttribute('aria-pressed',String(historyWorkCollapsed));
+  $('#history-work-toggle').textContent=historyWorkCollapsed?'展开工作内容':'收起工作内容';
+  $('#history-work-toggle').addEventListener('click',()=>{
+    historyWorkCollapsed=!historyWorkCollapsed;
+    $('#history-work-toggle').setAttribute('aria-pressed',String(historyWorkCollapsed));
+    $('#history-work-toggle').textContent=historyWorkCollapsed?'展开工作内容':'收起工作内容';
+    $('#history-guidance-chain').hidden=!historyWorkCollapsed;
+    $('#history-records').hidden=historyWorkCollapsed;
+    $('#history-more').hidden=historyWorkCollapsed;
+    $('#history-search').closest('details').hidden=historyWorkCollapsed;
+    if(historyWorkCollapsed)renderGuidanceChain();
+  });
   $('#history-search').addEventListener('input',event=>{historyBrowse.query=event.target.value;historyBrowse.limit=24;updateHistoryRecords();});
   $('#history-month').addEventListener('change',event=>{historyBrowse.month=event.target.value;historyBrowse.limit=24;updateHistoryRecords();});
   $('#history-order').addEventListener('change',event=>{historyBrowse.order=event.target.value;updateHistoryRecords();});
   $('#history-more').addEventListener('click',()=>{historyBrowse.limit+=24;updateHistoryRecords();});
+  $('#history-guidance-chain').hidden=!historyWorkCollapsed;
+  $('#history-records').hidden=historyWorkCollapsed;
+  $('#history-more').hidden=historyWorkCollapsed;
+  $('#history-search').closest('details').hidden=historyWorkCollapsed;
+  if(historyWorkCollapsed)renderGuidanceChain();
+  GuidanceTimeline.records().then(records=>{historyGuidanceRecords=records;if(view==='history'){updateHistoryRecords();if(historyWorkCollapsed)renderGuidanceChain();}}).catch(error=>{$('#history-guidance-chain').innerHTML=`<p role="status">${escapeHTML(error.message)}</p>`;});
   updateHistoryRecords();
+}
+
+function historyDateLabel(date) {
+  const match=String(date||'').match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if(!match)return `<span class="history-date-raw">${escapeHTML(date)}</span>`;
+  return `<span class="history-date-year">${match[1]}</span><span class="history-date-month">${Number(match[2])}月</span><span class="history-date-day">${Number(match[3])}日</span>`;
+}
+
+function renderGuidanceCard(record, chain=false) {
+  const sources=record.sources.map(source=>{
+    const found=data.sources.find(item=>item.repo_path===source.file);
+    return `<li>${found?evidenceLink(found.id,source.file.split('/').at(-1)+' ↗'):`<span>${escapeHTML(source.file.split('/').at(-1))}</span>`}<small>${escapeHTML(source.locator)}</small></li>`;
+  }).join('');
+  const preview=record.preview.map(text=>`<li>${escapeHTML(text)}</li>`).join('');
+  return `<aside class="history-guidance-card${chain?' is-chain-node':''}" data-guidance-node="${escapeHTML(record.id)}"><header><time>${escapeHTML(record.date)}</time><span>${record.kind==='classroom'?'课堂':'导师建议'}</span></header><h3>${escapeHTML(record.title)}</h3><ul>${preview}</ul><details><summary>详细建议</summary><p>${escapeHTML(record.detail)}</p><details class="history-guidance-source"><summary>整理依据</summary><ul>${sources}</ul></details></details></aside>`;
+}
+
+function renderGuidanceChain() {
+  const host=$('#history-guidance-chain');
+  if(!host)return;
+  const records=[...historyGuidanceRecords].sort((a,b)=>a.date.localeCompare(b.date));
+  host.innerHTML=records.length?records.map((record,index)=>`${renderGuidanceCard(record,true)}${index<records.length-1?'<span class="history-chain-arrow" aria-hidden="true">→</span>':''}`).join(''):'<p>暂无已登记的导师建议。</p>';
 }
 function publicPainSection(mode='summary') {
   const r=data.public_pain_update;
@@ -601,7 +633,7 @@ function datasetRegistryPanel() {
     <p class="table-note">表内“样本量”指当前已核对、可用于本项目说明的口径；它不等同于公开数据集的理论总人数。模型 AUC、准确率等表现仍放在“实验结果”分区，不在此表用颜色暗示优劣。</p>
   </section>`;
 }
-function datasetsPage() {
+function legacyDatasetsPage() {
   const section=researchSection();
   const sections={results:'实验结果',data:'数据概况',methods:'方法说明'};
   $('#view-datasets').innerHTML=`<div class="page-heading"><div><h1>数据与结果</h1><p class="data-note">从实验结论到数据来源，再到方法细节。</p></div></div>
@@ -646,11 +678,25 @@ function datasetsPage() {
   bindSiteTransfer();
 }
 
+function datasetsPage() {
+  const activities=ResearchWorkbench.index.activities
+    .filter(item=>item.origin==='project'&&Array.isArray(item.resultRows)&&item.resultRows.some(row=>Number.isFinite(row.auc)||Object.values(row.otherMetrics||{}).some(Number.isFinite)))
+    .sort((a,b)=>String(b.date||'').localeCompare(String(a.date||''))||String(a.title||'').localeCompare(String(b.title||'')));
+  const grouped=new Map();
+  for(const item of activities){const day=String(item.date||'日期待核对').slice(0,10);if(!grouped.has(day))grouped.set(day,[]);grouped.get(day).push(item);}
+  const modelName=id=>ResearchWorkbench.index.models.find(model=>model.id===id)?.name||id;
+  const datasetName=id=>{const row=ResearchWorkbench.index.datasets.find(item=>item.id===id);return row?`${id} · ${row.name}`:id;};
+  const number=value=>Number.isFinite(value)?value.toFixed(4):'—';
+  const table=item=>`<div class="table-panel training-result-table"><table><caption>${escapeHTML(item.title)} · ${escapeHTML(item.datasetIds.map(datasetName).join('、')||'数据集见原记录')}</caption><thead><tr><th>数据集 / 条件</th><th>AUC（±SD）</th><th>baseline</th><th>ΔAUC</th><th>其他指标</th></tr></thead><tbody>${item.resultRows.map(row=>`<tr><td><strong>${escapeHTML(datasetName(row.datasetId)||'数据集待核对')}</strong><small>${escapeHTML(row.condition)}</small></td><td>${number(row.auc)}${Number.isFinite(row.aucSd)?`<small>± ${number(row.aucSd)}</small>`:''}</td><td>${Number.isFinite(row.baselineAuc)?`${number(row.baselineAuc)}<small>${escapeHTML(row.baselineLabel||'同记录参照')}</small>`:'未登记可比参照'}</td><td>${Number.isFinite(row.deltaAuc)?`${row.deltaAuc>0?'+':''}${number(row.deltaAuc)}`:'—'}${row.deltaInterval?`<small>95%区间 [${row.deltaInterval.map(number).join(', ')}]</small>`:''}</td><td>${Object.entries(row.otherMetrics||{}).filter(([,value])=>Number.isFinite(value)).map(([key,value])=>`${escapeHTML(key)} ${number(value)}`).join('<br>')||'—'}</td></tr>`).join('')}</tbody></table></div>`;
+  $('#view-datasets').innerHTML=`<div class="page-heading"><div><h1>数据与结果</h1></div></div><p class="training-table-key">AUC：区分能力指标；baseline：同条件参照；ΔAUC：本次AUC减baseline。未登记的参照不作推算。</p><div class="training-result-timeline">${[...grouped].map(([day,rows])=>`<section class="training-result-day"><time class="history-date-stack" datetime="${escapeHTML(day)}">${historyDateLabel(day)}</time><div class="training-result-day-content">${rows.map(item=>`<article class="training-result-record"><h2>${escapeHTML(item.modelIds.map(modelName).join('、')||item.title)}</h2>${table(item)}</article>`).join('')}</div></section>`).join('')||'<p>暂无已登记的训练结果。</p>'}</div>`;
+}
+
 function evidencePage() {
   archiveEvidencePage();
 }
 function showView(next) {
   view = resolveView(next);
+  $('#record-banner').hidden=view==='datasets'||!data?.record_changed;
   document.querySelectorAll('.view').forEach(el=>el.hidden=el.id!=='view-'+view);
   document.querySelectorAll('[data-view]').forEach(el=>{el.classList.toggle('active',el.dataset.view===view);if(el.dataset.view===view)el.setAttribute('aria-current','page');else el.removeAttribute('aria-current');});
   $('#view-name').textContent = viewNames[view];
@@ -665,7 +711,7 @@ function renderView() {
     return;
   }
   if(view!=='architectures')ResearchWorkbench.close();
-  ({overview,calendar:calendarPage,history:researchHistoryPage,guidance:()=>GuidanceTimeline.show(data),workflow:workflowPage,goals:goalsPage,datasets:datasetsPage,evidence:evidencePage,conclusions:conclusionsPage,architectures:()=>ArchitectureLibrary.show()})[view]();
+  ({calendar:calendarPage,history:researchHistoryPage,workflow:workflowPage,goals:goalsPage,datasets:datasetsPage,evidence:evidencePage,conclusions:conclusionsPage,architectures:()=>ArchitectureLibrary.show()})[view]();
   archiveRoute();
   if(view==='datasets')ResearchWorkbench.routeDataset().catch(error=>{$('#research-content').insertAdjacentHTML('afterbegin',`<p role="alert">${escapeHTML(error.message)}</p>`);});
 }
@@ -747,7 +793,7 @@ async function refresh() {
     const key=JSON.stringify({...next,served_at:null,remote:{...next.remote,age_seconds:null,refreshing:null}});
     data=next;
     $('#error-banner').hidden=true;
-    $('#record-banner').hidden=!data.record_changed;
+    $('#record-banner').hidden=view==='datasets'||!data.record_changed;
     $('#goal-nav-count').textContent=data.goals.filter(g=>g.status==='done').length+'/'+data.goals.length;
     $('#sync-state').textContent=window.NEUROGRAPH_PUBLIC ? '公开快照 · '+data.reviewed_at : !data.remote.enabled ? '本地记录 · 按需核查' : (data.remote.stale ? (data.remote.refreshing?'连接中…':'数据待更新') : '● 已同步');
     $('#sync-state').className=data.remote.stale?'sync-stale':'sync-live';
@@ -760,7 +806,7 @@ async function refresh() {
     $('#error-banner').hidden=false;
     $('#sync-state').textContent='连接中断';
     $('#sync-state').className='sync-stale';
-    if(data){data.remote.stale=true;data.clinical.progress_stale=true;renderKey='';if(view==='overview')overview();}
+    if(data){data.remote.stale=true;data.clinical.progress_stale=true;renderKey='';if(view==='history')researchHistoryPage();}
   } finally {
     loading=false;$('#refresh-button').disabled=false;
     clearTimeout(refreshTimer);

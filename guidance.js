@@ -101,5 +101,5 @@
       host.querySelector('#guidance-retry').onclick=()=>show(project);
     }
   }
-  window.GuidanceTimeline={show};
+  window.GuidanceTimeline={show,records:()=>load().then(library=>library.records)};
 })();

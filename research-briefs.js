@@ -191,9 +191,25 @@ const ResearchBriefs = (() => {
         const records=all.map((item,index)=>({item,index})).filter(({item:m})=>(historyBrowse.month==='all'||historyDay(m).startsWith(historyBrowse.month)) && [...Object.values(copy.history[recordKey(m)]||{}),m.title,m.label,m.summary,m.result,m.method,m.boundary,m.next].join(' ').toLowerCase().includes(needle));
         records.sort((a,b)=>historyBrowse.order==='newest'?historyDay(b.item).localeCompare(historyDay(a.item))||b.index-a.index:historyDay(a.item).localeCompare(historyDay(b.item))||a.index-b.index);
         const shown=records.slice(0,historyBrowse.limit);
-        document.querySelector('#history-results-count').textContent=`已显示 ${shown.length} 条 · 符合 ${records.length} 条 · 共 ${all.length} 条`;
-        document.querySelector('#history-records').innerHTML=shown.length?shown.map(({item})=>historyCard(item)).join(''):'<div class="empty panel"><h3>没有匹配的研究记录</h3><p>换一个模型、数据集或修改板块。</p></div>';
-        document.querySelector('#history-more').hidden=shown.length>=records.length;
+        const host=document.querySelector('#history-records');
+        const count=document.querySelector('#history-results-count');
+        if(!host||!count)return;
+        count.textContent=`已显示 ${shown.length} 条 · 符合 ${records.length} 条 · 共 ${all.length} 条`;
+        const groups=new Map();
+        for(const {item} of shown){const day=historyDay(item);if(!groups.has(day))groups.set(day,[]);groups.get(day).push(item);}
+        const guideRecords=(typeof historyGuidanceRecords==='undefined'?[]:historyGuidanceRecords).filter(item=>historyBrowse.month==='all'||item.date.startsWith(historyBrowse.month));
+        for(const item of guideRecords)if(!groups.has(item.date))groups.set(item.date,[]);
+        const dates=[...groups.keys()].sort((a,b)=>historyBrowse.order==='newest'?b.localeCompare(a):a.localeCompare(b));
+        const dateLabel=day=>typeof historyDateLabel==='function'?historyDateLabel(day):`<span>${esc(day)}</span>`;
+        const rows=dates.map(day=>{
+          const work=groups.get(day)||[];
+          const advice=guideRecords.filter(item=>item.date===day);
+          const workMarkup=work.map(item=>historyCard(item).replace(/^<article[^>]*><time>[\s\S]*?<\/time>/,'').replace(/<\/article>$/,'')).join('');
+          const absent=work.length?'':`<p class="history-no-work">${all.some(item=>historyDay(item)===day)?'工作记录被当前筛选条件隐藏':'当天没有登记工作记录'}</p>`;
+          return `<section class="history-day-row" data-history-date="${esc(day)}"><time class="history-date-stack" datetime="${esc(day)}">${dateLabel(day)}</time><div class="history-day-work">${workMarkup||absent}</div>${advice.length?`<div class="history-day-advice">${advice.map(item=>renderGuidanceCard(item)).join('')}</div>`:''}</section>`;
+        }).join('');
+        host.innerHTML=rows||'<div class="empty panel"><h3>没有匹配的研究记录</h3><p>换一个模型、数据集或修改板块。</p></div>';
+        document.querySelector('#history-more').hidden=shown.length>=records.length||historyWorkCollapsed;
       };
     }
     if(typeof eventCard==='function') {

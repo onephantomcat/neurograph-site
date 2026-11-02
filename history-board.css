@@ -13,6 +13,9 @@
   --hb-card: #ffffff;
   --hb-guidance: linear-gradient(158deg, #fbfdff 0%, #eef6ff 100%);
   --hb-accent: #1b6db5;
+  /* 顶部栏吸顶高度（含底边线）与日期胶囊的上下对称留白（1:1） */
+  --hb-topbar: 64px;
+  --hb-sticky-gap: 16px;
   --hb-shadow: 0 1px 2px rgba(16, 40, 70, .04), 0 14px 34px -20px rgba(16, 40, 70, .22);
   --hb-shadow-hover: 0 2px 4px rgba(16, 40, 70, .05), 0 22px 46px -22px rgba(16, 40, 70, .26);
   --hb-shadow-drag: 0 4px 10px rgba(16, 40, 70, .06), 0 34px 64px -26px rgba(16, 40, 70, .3);
@@ -75,7 +78,7 @@
 }
 #view-history .history-day-row:first-child { border-top: 0; padding-top: 4px; }
 #view-history .history-day-row:has(.history-day-advice) { align-items: start; }
-#view-history .history-day-row { position: relative; }
+#view-history .history-day-row { position: relative; scroll-margin-top: calc(var(--hb-topbar) + var(--hb-sticky-gap)); }
 
 /* 日期胶囊：只有确实有工作卡的长行才跟随滚动，短行把日期钉住会让它悬空 */
 #view-history .history-date-stack {
@@ -95,7 +98,8 @@
 }
 #view-history .history-day-row:has(.history-work-card) .history-date-stack {
   position: sticky;
-  top: 16px;
+  top: calc(var(--hb-topbar) + var(--hb-sticky-gap));
+  z-index: 2;
 }
 #view-history .history-date-year { font-size: 10px; font-weight: 650; color: #7d94aa; letter-spacing: .06em; }
 #view-history .history-date-month { font-size: 17px; font-weight: 750; letter-spacing: -.02em; margin-top: 1px; }

@@ -1,0 +1,332 @@
+/* ==========================================================================
+   当日 Codex 对话 · 入口与只读查看器
+   - 入口：每个日期行右下角的小胶囊，仅在该日期有上传记录时出现
+   - 查看器：复刻对话界面（会话列表 + 消息流 + 工具调用块）
+   ========================================================================== */
+
+/* ---- 入口胶囊 --------------------------------------------------------- */
+#view-history .history-day-row.has-dialog { padding-bottom: 44px; }
+
+#view-history .dialog-entry {
+  position: absolute;
+  right: 10px;
+  bottom: 8px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 30px;
+  padding: 5px 12px 5px 10px;
+  border: 1px solid rgba(27, 109, 181, .22);
+  border-radius: 999px;
+  background: #fff;
+  color: #2a5d8f;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: .01em;
+  box-shadow: 0 10px 22px -18px rgba(16, 40, 70, .6);
+  cursor: pointer;
+  transition: border-color .2s, box-shadow .2s, transform .2s, background .2s;
+}
+#view-history .dialog-entry:hover {
+  border-color: rgba(27, 109, 181, .42);
+  background: #f7fbff;
+  box-shadow: 0 14px 26px -16px rgba(16, 40, 70, .55);
+  transform: translateY(-1px);
+}
+#view-history .dialog-entry:focus-visible {
+  outline: 3px solid rgba(27, 109, 181, .45);
+  outline-offset: 2px;
+}
+#view-history .dialog-entry svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+#view-history .dialog-entry b {
+  display: inline-grid;
+  place-items: center;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: #e7f1fb;
+  color: #1b5f9e;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+/* ---- 查看器浮层 ------------------------------------------------------- */
+.ng-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(14, 32, 50, .42);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .22s ease;
+}
+.ng-dialog-overlay.is-open { opacity: 1; pointer-events: auto; }
+
+.ng-dialog-panel {
+  display: flex;
+  flex-direction: column;
+  width: min(1120px, 100%);
+  height: min(86vh, 900px);
+  overflow: hidden;
+  border: 1px solid rgba(31, 74, 120, .16);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 40px 90px -40px rgba(10, 30, 55, .55);
+  transform: translateY(10px) scale(.99);
+  transition: transform .26s cubic-bezier(.2, .75, .25, 1);
+}
+.ng-dialog-overlay.is-open .ng-dialog-panel { transform: none; }
+
+.ng-dialog-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 18px;
+  border-bottom: 1px solid #e3ebf4;
+  background: #fbfdff;
+}
+.ng-dialog-head > div:first-child { min-width: 0; }
+.ng-dialog-head h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #173a5c;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.ng-dialog-head p { margin: 2px 0 0; font-size: 11px; color: #7b91a8; }
+.ng-dialog-tools { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.ng-dialog-search {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid #dbe5f0;
+  border-radius: 9px;
+  background: #fff;
+}
+.ng-dialog-search svg { width: 13px; height: 13px; stroke: #8aa0b6; fill: none; stroke-width: 1.8; }
+.ng-dialog-search input {
+  width: 150px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 12px;
+  color: #1c3a58;
+}
+.ng-dialog-close {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #dbe5f0;
+  border-radius: 9px;
+  background: #fff;
+  color: #54708c;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+.ng-dialog-close:hover { background: #f2f7fc; }
+
+.ng-dialog-body { display: flex; min-height: 0; flex: 1; }
+
+/* 左侧会话列表 */
+.ng-dialog-side {
+  width: 232px;
+  flex: none;
+  overflow-y: auto;
+  padding: 12px 10px;
+  border-right: 1px solid #e9f0f7;
+  background: #f8fbfe;
+}
+.ng-dialog-side h3 {
+  margin: 4px 8px 8px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  color: #8ba0b5;
+  text-transform: uppercase;
+}
+.ng-dialog-session {
+  display: block;
+  width: 100%;
+  margin-bottom: 6px;
+  padding: 9px 10px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+.ng-dialog-session:hover { background: #eef6ff; }
+.ng-dialog-session.is-active {
+  border-color: #cfe2f6;
+  background: #fff;
+  box-shadow: 0 8px 18px -16px rgba(16, 40, 70, .5);
+}
+.ng-dialog-session strong { display: block; font-size: 12px; color: #234668; }
+.ng-dialog-session small { display: block; margin-top: 3px; font-size: 10.5px; color: #7f95ab; }
+
+/* 右侧消息流 */
+.ng-dialog-thread {
+  flex: 1;
+  min-width: 0;
+  overflow-y: auto;
+  padding: 20px 22px 12px;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(36, 86, 145, .07) 1px, transparent 1.5px) 0 0 / 22px 22px,
+    #fdfefe;
+}
+.ng-dialog-empty {
+  margin: 60px auto;
+  max-width: 320px;
+  text-align: center;
+  color: #8096ac;
+  font-size: 12.5px;
+  line-height: 1.8;
+}
+
+.ng-msg { display: flex; gap: 10px; margin-bottom: 16px; }
+.ng-msg.is-user { flex-direction: row-reverse; }
+.ng-msg-avatar {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  flex: none;
+  border-radius: 9px;
+  background: #e7f0fa;
+  color: #2a5d8f;
+  font-size: 10px;
+  font-weight: 700;
+}
+.ng-msg.is-user .ng-msg-avatar { background: #dcebff; color: #1b5f9e; }
+.ng-msg-main { min-width: 0; max-width: min(78%, 720px); }
+.ng-msg.is-user .ng-msg-main { text-align: right; }
+.ng-msg-meta { margin-bottom: 4px; font-size: 10.5px; color: #8ba0b5; }
+.ng-msg-bubble {
+  padding: 11px 14px;
+  border: 1px solid #e2ebf4;
+  border-radius: 13px;
+  background: #fff;
+  color: #213f5d;
+  font-size: 13px;
+  line-height: 1.75;
+  text-align: left;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.ng-msg.is-user .ng-msg-bubble {
+  border-color: #cfe3fb;
+  background: #edf6ff;
+}
+.ng-msg-bubble code {
+  padding: 1px 4px;
+  border-radius: 4px;
+  background: #eef3f8;
+  font: 12px/1.5 'Cascadia Code', 'Consolas', monospace;
+}
+.ng-msg-bubble pre {
+  margin: 8px 0 0;
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: #0f1c2b;
+  color: #d6e6f5;
+  font: 12px/1.65 'Cascadia Code', 'Consolas', monospace;
+  overflow-x: auto;
+}
+
+/* 工具调用块 */
+.ng-tool {
+  margin-top: 8px;
+  border: 1px solid #dbe6f1;
+  border-radius: 10px;
+  background: #f7fbff;
+  overflow: hidden;
+}
+.ng-tool > summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #2f5d88;
+  cursor: pointer;
+  list-style: none;
+}
+.ng-tool > summary::-webkit-details-marker { display: none; }
+.ng-tool > summary::before {
+  content: "▸";
+  color: #7fa3c6;
+  font-size: 10px;
+}
+.ng-tool[open] > summary::before { content: "▾"; }
+.ng-tool-name {
+  padding: 1px 6px;
+  border-radius: 5px;
+  background: #e3effc;
+  color: #1b5f9e;
+  font: 10px/1.6 'Cascadia Code', 'Consolas', monospace;
+}
+.ng-tool-body {
+  margin: 0;
+  padding: 10px 12px;
+  border-top: 1px solid #e4edf6;
+  background: #0f1c2b;
+  color: #cfe0f0;
+  font: 11.5px/1.65 'Cascadia Code', 'Consolas', monospace;
+  white-space: pre-wrap;
+  overflow-x: auto;
+  max-height: 260px;
+}
+
+/* 底部提示 */
+.ng-dialog-foot {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-top: 1px solid #e9f0f7;
+  background: #fbfdff;
+  font-size: 10.5px;
+  color: #8198ad;
+}
+.ng-dialog-foot span { display: inline-flex; align-items: center; gap: 5px; }
+.ng-dialog-foot i {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #34a37d;
+}
+
+@media (max-width: 760px) {
+  .ng-dialog-overlay { padding: 10px; }
+  .ng-dialog-panel { height: 92vh; border-radius: 14px; }
+  .ng-dialog-side { display: none; }
+  .ng-dialog-thread { padding: 14px 12px 8px; }
+  .ng-msg-main { max-width: 88%; }
+  .ng-dialog-search input { width: 96px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ng-dialog-overlay, .ng-dialog-panel, #view-history .dialog-entry { transition: none !important; }
+}

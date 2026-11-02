@@ -35,24 +35,27 @@
 .history-page-heading{align-items:center;gap:1rem}.history-heading-actions{display:flex;flex-wrap:wrap;gap:.6rem}
 .history-day-row,.training-result-day{display:grid;grid-template-columns:96px minmax(0,1fr);gap:1rem 1.25rem;align-items:start;padding:1.25rem 0 1.5rem;border-bottom:1px solid #dce5ef}
 .history-day-row:has(.history-day-advice){grid-template-columns:96px minmax(0,1.2fr) minmax(250px,.8fr)}
+.history-day-row.is-period-start{border-top:2px solid #d5e2ee}
 .history-date-stack{display:flex;flex-direction:column;align-items:flex-start;gap:0;padding:.15rem .25rem;color:#24486c;font-variant-numeric:tabular-nums;line-height:1.15}
 .history-date-year{font-size:1.15rem;font-weight:750;letter-spacing:-.03em}
 .history-date-month{font-size:1.55rem;font-weight:750;letter-spacing:-.04em;margin-top:.14rem}
 .history-date-day{font-size:.75rem;font-weight:600;color:#778ba0;margin-top:.3rem}
 .history-date-raw{font-size:.85rem;font-weight:700;line-height:1.5}
-.history-day-work{display:grid;gap:.85rem;min-width:0}
+.history-day-work{display:grid;gap:.85rem;min-width:0}.history-day-work>div{min-width:0;max-width:100%}
 .history-work-card{min-width:0;border:1px solid #dce6ef;border-radius:12px;background:#fff;padding:1rem 1.1rem;box-shadow:0 3px 12px rgba(25,62,94,.035)}
 .history-work-card>div{min-width:0}.history-work-card .history-models{margin-top:0}
 .history-no-work{align-self:center;margin:0;padding:1rem;color:#8797a8;font-size:.85rem}
-.history-day-advice{position:relative;align-self:center;min-width:0}
-.history-day-advice::before{content:"";position:absolute;left:-16px;top:50%;width:14px;border-top:1.5px solid #6ea1d2}
-.history-day-advice::after{content:"";position:absolute;left:-18px;top:calc(50% - 4px);border:4px solid transparent;border-right-color:#6ea1d2}
+.history-day-advice{display:grid;gap:.7rem;align-self:center;min-width:0}
 .history-guidance-card{min-width:0;border:1px solid #bfd5ed;border-radius:12px;background:linear-gradient(155deg,#f9fcff,#eef6ff);padding:1rem 1.1rem;color:#2e4d6e}
+.history-guidance-card.is-linked{position:relative}
+.history-guidance-card.is-linked::before{content:"";position:absolute;left:-16px;top:50%;width:14px;border-top:1.5px solid #6ea1d2}
+.history-guidance-card.is-linked::after{content:"";position:absolute;left:-18px;top:calc(50% - 4px);border:4px solid transparent;border-right-color:#6ea1d2}
 .history-guidance-card>header{display:flex;align-items:center;justify-content:space-between;gap:.5rem;color:#6e8297;font-size:.75rem}
 .history-guidance-card>header time{font-variant-numeric:tabular-nums;font-weight:650}
 .history-guidance-card h3{margin:.6rem 0;font-size:1rem;line-height:1.5;color:#1d4369}
 .history-guidance-card>ul{margin:.4rem 0 .65rem;padding-left:1.15rem;font-size:.82rem;line-height:1.65}
 .history-guidance-card li+li{margin-top:.3rem}
+.history-guidance-link-note{margin:.45rem 0;color:#5f7892;font-size:.72rem;line-height:1.45}
 .history-guidance-card details{border-top:1px solid #d9e5f1;margin-top:.55rem;padding-top:.4rem}
 .history-guidance-card details>summary{cursor:pointer;color:#155b9e;font-size:.78rem;font-weight:650}
 .history-guidance-card details p{font-size:.82rem;line-height:1.75;margin:.55rem 0}
@@ -75,8 +78,9 @@
 @media(max-width:760px){
  .history-page-heading{align-items:flex-start;flex-direction:column}.history-day-row,.history-day-row:has(.history-day-advice),.training-result-day{grid-template-columns:64px minmax(0,1fr);gap:.65rem .8rem}
  .history-date-year{font-size:1rem}.history-date-month{font-size:1.3rem}.history-date-day{font-size:.7rem}
- .history-day-advice{grid-column:2; margin:.1rem 0 0 1rem}.history-day-advice::before{left:50%;top:-11px;width:0;height:9px;border-top:0;border-left:1.5px solid #6ea1d2}
- .history-day-advice::after{left:calc(50% - 4px);top:-13px;border-right-color:transparent;border-bottom-color:#6ea1d2}
+ .history-day-advice{grid-column:2; margin:.1rem 0 0 1rem}
+ .history-guidance-card.is-linked::before{left:50%;top:-11px;width:0;height:9px;border-top:0;border-left:1.5px solid #6ea1d2}
+ .history-guidance-card.is-linked::after{left:calc(50% - 4px);top:-13px;border-right-color:transparent;border-bottom-color:#6ea1d2}
  .history-work-card{padding:.85rem}.history-guidance-chain{flex-direction:column;align-items:center;overflow-x:visible}
  .history-guidance-chain .history-guidance-card{width:min(100%,420px);flex-basis:auto}.history-chain-arrow{transform:rotate(90deg);line-height:1}
 }

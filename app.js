@@ -178,7 +178,7 @@ function researchHistoryPage() {
     ${sectionTitle('模型与结果')}
     <details class="history-search-drawer"><summary>搜索与筛选 <span id="history-results-count" class="data-note" role="status"></span></summary><div class="history-toolbar"><label class="search">搜索历程<input id="history-search" type="search" placeholder="模型、数据集或结果" value="${escapeHTML(historyBrowse.query)}"></label><label>月份<select id="history-month"><option value="all">全部月份</option>${[...new Set(recent.milestones.map(m=>historyDay(m).slice(0,7)).filter(Boolean))].sort().reverse().map(month=>`<option value="${escapeHTML(month)}">${escapeHTML(month)}</option>`).join('')}</select></label><label>顺序<select id="history-order"><option value="newest">最近在前</option><option value="oldest">最早在前</option></select></label></div></details>
     <div id="history-guidance-chain" class="history-guidance-chain" hidden aria-label="导师建议时间链"></div>
-    <div id="history-records" class="timeline research-timeline"></div><button id="history-more" class="button history-more">再显示24条记录</button>`;
+    <div id="history-records" class="timeline research-timeline"></div><button id="history-more" class="button history-more">再显示24个日期</button>`;
   $('#history-month').value=historyBrowse.month;
   $('#history-order').value=historyBrowse.order;
   $('#history-work-toggle').setAttribute('aria-pressed',String(historyWorkCollapsed));
@@ -206,19 +206,27 @@ function researchHistoryPage() {
   updateHistoryRecords();
 }
 
-function historyDateLabel(date) {
+function historyDateLabel(date,showPeriod=true) {
   const match=String(date||'').match(/^(\d{4})-(\d{2})-(\d{2})/);
   if(!match)return `<span class="history-date-raw">${escapeHTML(date)}</span>`;
-  return `<span class="history-date-year">${match[1]}</span><span class="history-date-month">${Number(match[2])}月</span><span class="history-date-day">${Number(match[3])}日</span>`;
+  return `${showPeriod?`<span class="history-date-year">${match[1]}</span><span class="history-date-month">${Number(match[2])}月</span>`:''}<span class="history-date-day">${Number(match[3])}日</span>`;
 }
 
-function renderGuidanceCard(record, chain=false) {
+function renderGuidanceCard(record, chain=false, linkInfo=null) {
   const sources=record.sources.map(source=>{
     const found=data.sources.find(item=>item.repo_path===source.file);
     return `<li>${found?evidenceLink(found.id,source.file.split('/').at(-1)+' ↗'):`<span>${escapeHTML(source.file.split('/').at(-1))}</span>`}<small>${escapeHTML(source.locator)}</small></li>`;
   }).join('');
   const preview=record.preview.map(text=>`<li>${escapeHTML(text)}</li>`).join('');
-  return `<aside class="history-guidance-card${chain?' is-chain-node':''}" data-guidance-node="${escapeHTML(record.id)}"><header><time>${escapeHTML(record.date)}</time><span>${record.kind==='classroom'?'课堂':'导师建议'}</span></header><h3>${escapeHTML(record.title)}</h3><ul>${preview}</ul><details><summary>详细建议</summary><p>${escapeHTML(record.detail)}</p><details class="history-guidance-source"><summary>整理依据</summary><ul>${sources}</ul></details></details></aside>`;
+  let relation='';
+  let linked='';
+  if(!chain&&linkInfo){
+    if(linkInfo.targetDate){
+      linked=' is-linked';
+      relation=linkInfo.targetDate===linkInfo.sourceDate?'对应当天工作':`关联工作日期：${linkInfo.targetDate}`;
+    }else relation='暂无后续工作';
+  }
+  return `<aside class="history-guidance-card${chain?' is-chain-node':''}${linked}" data-guidance-node="${escapeHTML(record.id)}"${linkInfo?.targetDate?` data-guidance-target-date="${escapeHTML(linkInfo.targetDate)}"`:''}><header><time>${escapeHTML(record.date)}</time><span>${record.kind==='classroom'?'课堂':'导师建议'}</span></header><h3>${escapeHTML(record.title)}</h3><ul>${preview}</ul>${relation?`<p class="history-guidance-link-note">${escapeHTML(relation)}</p>`:''}<details><summary>详细建议</summary><p>${escapeHTML(record.detail)}</p><details class="history-guidance-source"><summary>整理依据</summary><ul>${sources}</ul></details></details></aside>`;
 }
 
 function renderGuidanceChain() {

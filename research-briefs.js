@@ -190,26 +190,38 @@ const ResearchBriefs = (() => {
         const all=data.research_history.milestones,needle=historyBrowse.query.trim().toLowerCase();
         const records=all.map((item,index)=>({item,index})).filter(({item:m})=>(historyBrowse.month==='all'||historyDay(m).startsWith(historyBrowse.month)) && [...Object.values(copy.history[recordKey(m)]||{}),m.title,m.label,m.summary,m.result,m.method,m.boundary,m.next].join(' ').toLowerCase().includes(needle));
         records.sort((a,b)=>historyBrowse.order==='newest'?historyDay(b.item).localeCompare(historyDay(a.item))||b.index-a.index:historyDay(a.item).localeCompare(historyDay(b.item))||a.index-b.index);
-        const shown=records.slice(0,historyBrowse.limit);
         const host=document.querySelector('#history-records');
         const count=document.querySelector('#history-results-count');
         if(!host||!count)return;
-        count.textContent=`已显示 ${shown.length} 条 · 符合 ${records.length} 条 · 共 ${all.length} 条`;
         const groups=new Map();
-        for(const {item} of shown){const day=historyDay(item);if(!groups.has(day))groups.set(day,[]);groups.get(day).push(item);}
-        const guideRecords=(typeof historyGuidanceRecords==='undefined'?[]:historyGuidanceRecords).filter(item=>historyBrowse.month==='all'||item.date.startsWith(historyBrowse.month));
-        for(const item of guideRecords)if(!groups.has(item.date))groups.set(item.date,[]);
+        for(const {item} of records){const day=historyDay(item);if(!day)continue;if(!groups.has(day))groups.set(day,[]);groups.get(day).push(item);}
+        const allWorkDates=[...new Set(all.map(historyDay).filter(Boolean))].sort();
+        const guidance=(typeof historyGuidanceRecords==='undefined'?[]:historyGuidanceRecords).map(item=>{
+          const sourceDate=String(item.date||'').slice(0,10);
+          const targetDate=allWorkDates.includes(sourceDate)?sourceDate:(allWorkDates.find(day=>day>sourceDate)||null);
+          return {item,sourceDate,targetDate,displayDate:targetDate||sourceDate};
+        }).filter(entry=>entry.displayDate && (historyBrowse.month==='all'||entry.sourceDate.startsWith(historyBrowse.month)||entry.displayDate.startsWith(historyBrowse.month)));
+        for(const entry of guidance)if(!groups.has(entry.displayDate))groups.set(entry.displayDate,[]);
         const dates=[...groups.keys()].sort((a,b)=>historyBrowse.order==='newest'?b.localeCompare(a):a.localeCompare(b));
-        const dateLabel=day=>typeof historyDateLabel==='function'?historyDateLabel(day):`<span>${esc(day)}</span>`;
-        const rows=dates.map(day=>{
+        const shownDates=dates.slice(0,historyBrowse.limit);
+        const shownCount=shownDates.reduce((sum,day)=>sum+(groups.get(day)||[]).length,0);
+        count.textContent=`已显示 ${shownDates.length} 个日期 · 含 ${shownCount} 条工作记录 · 符合 ${records.length} 条 · 共 ${all.length} 条`;
+        const dateLabel=(day,showPeriod)=>typeof historyDateLabel==='function'?historyDateLabel(day,showPeriod):`<span>${esc(day)}</span>`;
+        const accessibleDate=day=>{const match=String(day).match(/^(\d{4})-(\d{2})-(\d{2})$/);return match?`${match[1]}年${Number(match[2])}月${Number(match[3])}日`:day;};
+        const rows=shownDates.map((day,index)=>{
           const work=groups.get(day)||[];
-          const advice=guideRecords.filter(item=>item.date===day);
+          const advice=guidance.filter(entry=>entry.displayDate===day);
           const workMarkup=work.map(item=>historyCard(item).replace(/^<article[^>]*><time>[\s\S]*?<\/time>/,'').replace(/<\/article>$/,'')).join('');
-          const absent=work.length?'':`<p class="history-no-work">${all.some(item=>historyDay(item)===day)?'工作记录被当前筛选条件隐藏':'当天没有登记工作记录'}</p>`;
-          return `<section class="history-day-row" data-history-date="${esc(day)}"><time class="history-date-stack" datetime="${esc(day)}">${dateLabel(day)}</time><div class="history-day-work">${workMarkup||absent}</div>${advice.length?`<div class="history-day-advice">${advice.map(item=>renderGuidanceCard(item)).join('')}</div>`:''}</section>`;
+          const absent=work.length?'':`<p class="history-no-work">${allWorkDates.includes(day)?'工作记录被当前筛选条件隐藏':advice.length?'当天没有登记工作记录':'暂无工作记录'}</p>`;
+          const previousDay=dates[dates.indexOf(day)-1];
+          const showPeriod=!previousDay||previousDay.slice(0,7)!==day.slice(0,7);
+          const adviceMarkup=advice.length?`<div class="history-day-advice">${advice.map(entry=>renderGuidanceCard(entry.item,false,{sourceDate:entry.sourceDate,targetDate:entry.targetDate})).join('')}</div>`:'';
+          return `<section class="history-day-row${showPeriod?' is-period-start':''}" data-history-date="${esc(day)}"><time class="history-date-stack" datetime="${esc(day)}" aria-label="${esc(accessibleDate(day))}">${dateLabel(day,showPeriod)}</time><div class="history-day-work">${workMarkup||absent}</div>${adviceMarkup}</section>`;
         }).join('');
         host.innerHTML=rows||'<div class="empty panel"><h3>没有匹配的研究记录</h3><p>换一个模型、数据集或修改板块。</p></div>';
-        document.querySelector('#history-more').hidden=shown.length>=records.length||historyWorkCollapsed;
+        const more=document.querySelector('#history-more');
+        more.hidden=shownDates.length>=dates.length||historyWorkCollapsed;
+        more.textContent='再显示24个日期';
       };
     }
     if(typeof eventCard==='function') {

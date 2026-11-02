@@ -1,0 +1,333 @@
+/* ==========================================================================
+   研究历程 · 浮动卡片工作台
+   1) 工作与导师建议都成为独立模块化卡片，卡片与画布背景解离
+   2) 画布可拖拽平移，卡片可鼠标拖拽浮动（位置本地保存）
+   3) 收起工作后：连接箭头收回，建议卡片滑动汇聚为等距单列
+   ========================================================================== */
+
+#view-history {
+  --hb-ink: #12314f;
+  --hb-line: rgba(31, 74, 120, .14);
+  --hb-line-strong: rgba(31, 74, 120, .2);
+  --hb-canvas: #eef4fa;
+  --hb-card: #ffffff;
+  --hb-guidance: linear-gradient(158deg, #fbfdff 0%, #eef6ff 100%);
+  --hb-accent: #1b6db5;
+  --hb-shadow: 0 1px 2px rgba(16, 40, 70, .06), 0 22px 44px -30px rgba(16, 40, 70, .6);
+  --hb-shadow-hover: 0 2px 5px rgba(16, 40, 70, .07), 0 30px 58px -28px rgba(16, 40, 70, .62);
+  --hb-shadow-drag: 0 4px 8px rgba(16, 40, 70, .08), 0 44px 80px -30px rgba(16, 40, 70, .68);
+}
+
+/* ---- 画布 ------------------------------------------------------------- */
+#view-history .history-board-viewport {
+  position: relative;
+  margin: 6px 0 26px;
+  padding: 16px 18px 22px;
+  border-radius: 22px;
+  border: 1px solid #e0eaf4;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(36, 86, 145, .10) 1px, transparent 1.6px) 0 0 / 20px 20px,
+    linear-gradient(180deg, #f8fbfe 0%, #edf3fa 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9), 0 24px 60px -54px rgba(16, 40, 70, .55);
+  overflow: clip;
+  cursor: grab;
+  touch-action: pan-y;
+}
+#view-history .history-board-viewport::after {
+  content: "拖拽空白处平移画布 · 拖拽卡片可自由摆放 · 双击复位";
+  position: absolute;
+  right: 18px;
+  bottom: 8px;
+  font-size: 10.5px;
+  letter-spacing: .02em;
+  color: #8ba2b8;
+  pointer-events: none;
+  opacity: .9;
+}
+#view-history .history-board-viewport.is-panning { cursor: grabbing; }
+#view-history .history-board-stage {
+  position: relative;
+  transition: transform .32s cubic-bezier(.2, .75, .25, 1);
+  will-change: transform;
+}
+#view-history .history-board-stage.is-panning { transition: none; }
+
+/* 时间线本体让位给画布 */
+#view-history #history-records {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+}
+
+/* ---- 日期行 ----------------------------------------------------------- */
+#view-history .history-day-row,
+#view-history .history-day-row:has(.history-day-advice) {
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr) minmax(300px, .68fr);
+  gap: 14px 22px;
+  align-items: start;
+  padding: 16px 0;
+  border: 0;
+  border-top: 1px solid rgba(31, 74, 120, .07);
+}
+#view-history .history-day-row:first-child { border-top: 0; padding-top: 4px; }
+#view-history .history-day-row:has(.history-day-advice) { align-items: start; }
+#view-history .history-day-row { position: relative; }
+
+/* 日期胶囊 */
+#view-history .history-date-stack {
+  position: sticky;
+  top: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  margin-top: 2px;
+  padding: 11px 6px 12px;
+  border-radius: 14px;
+  border: 1px solid var(--hb-line);
+  background: #fff;
+  box-shadow: 0 12px 24px -22px rgba(16, 40, 70, .5);
+  color: #1e4468;
+  text-align: center;
+}
+#view-history .history-date-year { font-size: 10px; font-weight: 650; color: #7d94aa; letter-spacing: .06em; }
+#view-history .history-date-month { font-size: 17px; font-weight: 750; letter-spacing: -.02em; margin-top: 1px; }
+#view-history .history-date-day { font-size: 11px; font-weight: 600; color: #56728e; margin-top: 2px; }
+
+/* 工作列：卡片堆叠 */
+#view-history .history-day-work {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+  max-width: 1000px;
+  overflow: hidden;
+  transition: height .42s cubic-bezier(.2, .75, .25, 1), opacity .24s ease, gap .42s cubic-bezier(.2, .75, .25, 1);
+}
+#view-history .history-day-work > * {
+  min-height: 0;
+  min-width: 0;
+}
+
+/* 没有导师建议的日期：工作卡独占一行，避免右侧留空 */
+#view-history .history-day-row:not(:has(.history-day-advice)) {
+  grid-template-columns: 82px minmax(0, 1fr);
+}
+
+/* ---- 卡片通用 --------------------------------------------------------- */
+#view-history .research-timeline article.history-work-card,
+#view-history .history-guidance-card {
+  position: relative;
+  display: block;
+  min-width: 0;
+  padding: 17px 19px;
+  border: 1px solid var(--hb-line);
+  border-radius: 16px;
+  background: var(--hb-card);
+  box-shadow: var(--hb-shadow);
+  transition: box-shadow .26s ease, border-color .26s ease, transform .26s ease;
+}
+#view-history .research-timeline article.history-work-card {
+  gap: 0;
+  grid-template-columns: none;
+  padding: 17px 19px;
+  border-bottom: 1px solid var(--hb-line);
+}
+#view-history .research-timeline article.history-work-card:hover,
+#view-history .history-guidance-card:hover {
+  border-color: rgba(27, 109, 181, .26);
+  box-shadow: var(--hb-shadow-hover);
+}
+#view-history .history-work-card > div { display: block; min-width: 0; }
+#view-history .history-work-card .history-models { margin-top: 0; }
+
+/* 建议卡 */
+#view-history .history-guidance-card {
+  border-color: #cfe1f3;
+  background: var(--hb-guidance);
+  color: #2b4d6f;
+}
+#view-history .history-day-advice {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  align-self: start;
+  min-width: 0;
+  transition: width .34s cubic-bezier(.2, .75, .25, 1);
+}
+
+/* 连接箭头：从建议卡指向工作卡，收起时缩回 */
+#view-history .history-guidance-card.is-linked::before {
+  content: "";
+  position: absolute;
+  left: -22px;
+  top: 50%;
+  width: 22px;
+  border-top: 1.5px solid #7caad6;
+  transform-origin: right center;
+  transition: transform .34s cubic-bezier(.2, .75, .25, 1), opacity .22s ease;
+}
+#view-history .history-guidance-card.is-linked::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: -22px;
+  top: calc(50% - 7px);
+  border: 6px solid transparent;
+  border-right-color: #7caad6;
+  transform-origin: right center;
+  transition: transform .34s cubic-bezier(.2, .75, .25, 1), opacity .22s ease;
+}
+
+/* ---- 拖拽态 ----------------------------------------------------------- */
+#view-history .board-card { cursor: grab; }
+#view-history .board-card.is-pressed { cursor: grabbing; }
+#view-history .board-card.is-dragging {
+  cursor: grabbing;
+  z-index: 40;
+  border-color: rgba(27, 109, 181, .34);
+  box-shadow: var(--hb-shadow-drag);
+  transition: none;
+}
+#view-history .board-card.is-dragging,
+#view-history .board-card.is-dragging * { user-select: none; }
+#view-history .board-card.is-dragging .history-models a,
+#view-history .board-card.is-dragging details { pointer-events: none; }
+
+/* 画布上的竖向连接箭头 */
+#view-history .board-arrow {
+  display: grid;
+  justify-items: center;
+  height: 18px;
+  color: #86a6c7;
+  font-size: 13px;
+  line-height: 1;
+  user-select: none;
+}
+#view-history .board-arrow::before { content: "↑"; }
+#view-history .board-arrow.is-retracted { height: 0; opacity: 0; overflow: hidden; }
+
+/* 收起态行与行之间的连接箭头（首位不显示，即“首位箭头收回”） */
+#view-history .chain-arrow {
+  position: absolute;
+  left: 50%;
+  top: -13px;
+  transform: translateX(-50%);
+  color: #8ba9c7;
+  font-size: 13px;
+  line-height: 1;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  #view-history .chain-arrow { animation: history-chain-arrow-in .32s ease both; }
+  @keyframes history-chain-arrow-in {
+    from { opacity: 0; translate: 0 4px; }
+    to { opacity: 1; translate: 0 0; }
+  }
+}
+
+/* ---- 收起态：工作收回，建议滑动汇聚为等距单列 --------------------------- */
+/* 没有导师建议的日期在收起态没有内容可读，整行退出布局，卡片间距才能真正等距 */
+#view-history.is-work-collapsed .history-day-row:not(:has(.history-day-advice)) {
+  display: none;
+}
+#view-history.is-work-collapsed .history-day-row,
+#view-history.is-work-collapsed .history-day-row:has(.history-day-advice) {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 4px;
+  padding: 13px 0;
+  border-top-color: transparent;
+}
+#view-history.is-work-collapsed .history-day-work {
+  gap: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+#view-history.is-work-collapsed .history-date-stack {
+  position: static;
+  flex-direction: row;
+  align-items: baseline;
+  justify-self: center;
+  gap: 5px;
+  margin: 0 0 4px;
+  padding: 3px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .78);
+  box-shadow: none;
+}
+#view-history.is-work-collapsed .history-date-stack > * { display: none; }
+#view-history.is-work-collapsed .history-date-stack::after {
+  content: attr(data-full);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: .03em;
+  color: #5d7994;
+  font-variant-numeric: tabular-nums;
+}
+#view-history.is-work-collapsed .history-day-advice {
+  grid-column: 1;
+  width: min(100%, 680px);
+  justify-self: center;
+  margin: 0 auto;
+  gap: 10px;
+}
+#view-history.is-work-collapsed .history-guidance-card.is-linked::before,
+#view-history.is-work-collapsed .history-guidance-card.is-linked::after {
+  opacity: 0;
+  transform: scaleX(0);
+}
+/* 首位箭头收回后，剩余箭头保持等距 */
+#view-history.is-work-collapsed .board-arrow { height: 16px; }
+
+/* ---- 工具条 ----------------------------------------------------------- */
+#view-history .history-board-reset[hidden] { display: none; }
+#view-history .history-board-reset {
+  border: 1px solid var(--hb-line-strong);
+  background: #fff;
+}
+
+/* ---- 响应式 ----------------------------------------------------------- */
+@media (max-width: 1180px) {
+  #view-history .history-day-row,
+  #view-history .history-day-row:has(.history-day-advice),
+  #view-history .history-day-row:not(:has(.history-day-advice)) {
+    grid-template-columns: 74px minmax(0, 1fr);
+  }
+  #view-history .history-day-advice {
+    grid-column: 2;
+    width: 100%;
+    margin-top: 10px;
+  }
+  #view-history .history-guidance-card.is-linked::before,
+  #view-history .history-guidance-card.is-linked::after { display: none; }
+}
+@media (max-width: 760px) {
+  #view-history .history-board-viewport { padding: 12px 12px 20px; border-radius: 18px; }
+  #view-history .history-day-row,
+  #view-history .history-day-row:has(.history-day-advice),
+  #view-history .history-day-row:not(:has(.history-day-advice)) { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  #view-history .history-date-stack { position: static; flex-direction: row; gap: 6px; padding: 7px 11px; justify-self: start; }
+  #view-history .history-day-advice { grid-column: 1; margin-top: 8px; }
+  #view-history .history-date-month { font-size: 14px; }
+  #view-history .history-date-year { font-size: 10px; }
+  #view-history.is-work-collapsed .history-day-row,
+  #view-history.is-work-collapsed .history-day-row:has(.history-day-advice) { grid-template-columns: minmax(0, 1fr); }
+  #view-history.is-work-collapsed .history-day-advice { grid-column: 1; }
+  #view-history .history-board-viewport::after { display: none; }
+}
+
+/* ---- 动效 ------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  #view-history .history-guidance-card.is-linked { transition: box-shadow .2s ease; }
+  #view-history .history-board-viewport { transition: box-shadow .3s ease; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #view-history .history-board-stage,
+  #view-history .history-day-work,
+  #view-history .history-day-advice,
+  #view-history .history-guidance-card,
+  #view-history .research-timeline article.history-work-card { transition: none !important; }
+}

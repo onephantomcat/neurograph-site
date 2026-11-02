@@ -170,6 +170,9 @@ function updateHistoryRecords() {
   $('#history-more').hidden=shown.length>=records.length;
 }
 function researchHistoryPage() {
+  const collapseParam=new URLSearchParams((location.hash.split('?')[1]||'')).get('collapsed');
+  if(collapseParam==='1')historyWorkCollapsed=true;
+  if(collapseParam==='0')historyWorkCollapsed=false;
   const recent = data.research_history;
   // Keep API consumers' legacy fields intact; do not render escapeHTML(recent.focus) or escapeHTML(recent.summary) here.
   if (!recent) { $('#view-history').innerHTML = '<div class="empty">暂无研究历程。</div>'; return; }
@@ -184,11 +187,12 @@ function researchHistoryPage() {
   $('#history-work-toggle').setAttribute('aria-pressed',String(historyWorkCollapsed));
   $('#history-work-toggle').textContent=historyWorkCollapsed?'展开工作内容':'收起工作内容';
   $('#history-work-toggle').addEventListener('click',()=>{
-    const source=document.querySelector(historyWorkCollapsed?'#history-guidance-chain':'#history-records');
-    const guidancePositions=new Map([...source.querySelectorAll('.history-guidance-card[data-guidance-node]')].map(card=>[card.dataset.guidanceNode,card.getBoundingClientRect()]));
     historyWorkCollapsed=!historyWorkCollapsed;
     $('#history-work-toggle').setAttribute('aria-pressed',String(historyWorkCollapsed));
     $('#history-work-toggle').textContent=historyWorkCollapsed?'展开工作内容':'收起工作内容';
+    if(window.HistoryBoard){HistoryBoard.setCollapsed(historyWorkCollapsed);return;}
+    const source=document.querySelector(historyWorkCollapsed?'#history-guidance-chain':'#history-records');
+    const guidancePositions=new Map([...source.querySelectorAll('.history-guidance-card[data-guidance-node]')].map(card=>[card.dataset.guidanceNode,card.getBoundingClientRect()]));
     $('#history-guidance-chain').hidden=!historyWorkCollapsed;
     $('#history-records').hidden=historyWorkCollapsed;
     $('#history-more').hidden=historyWorkCollapsed;
@@ -200,11 +204,14 @@ function researchHistoryPage() {
   $('#history-month').addEventListener('change',event=>{historyBrowse.month=event.target.value;historyBrowse.limit=24;updateHistoryRecords();});
   $('#history-order').addEventListener('change',event=>{historyBrowse.order=event.target.value;updateHistoryRecords();});
   $('#history-more').addEventListener('click',()=>{historyBrowse.limit+=24;updateHistoryRecords();});
-  $('#history-guidance-chain').hidden=!historyWorkCollapsed;
-  $('#history-records').hidden=historyWorkCollapsed;
-  $('#history-more').hidden=historyWorkCollapsed;
-  $('#history-search').closest('details').hidden=historyWorkCollapsed;
-  if(historyWorkCollapsed)renderGuidanceChain();
+  if(window.HistoryBoard){HistoryBoard.setCollapsed(historyWorkCollapsed);}
+  else{
+    $('#history-guidance-chain').hidden=!historyWorkCollapsed;
+    $('#history-records').hidden=historyWorkCollapsed;
+    $('#history-more').hidden=historyWorkCollapsed;
+    $('#history-search').closest('details').hidden=historyWorkCollapsed;
+    if(historyWorkCollapsed)renderGuidanceChain();
+  }
   GuidanceTimeline.records().then(records=>{historyGuidanceRecords=records;if(view==='history'){updateHistoryRecords();if(historyWorkCollapsed)renderGuidanceChain();}}).catch(error=>{$('#history-guidance-chain').innerHTML=`<p role="status">${escapeHTML(error.message)}</p>`;});
   updateHistoryRecords();
 }

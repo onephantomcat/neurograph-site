@@ -215,6 +215,11 @@ function historyDateLabel(date,showPeriod=true) {
   return `${showPeriod?`<span class="history-date-year">${match[1]}</span><span class="history-date-month">${Number(match[2])}月</span>`:''}<span class="history-date-day">${Number(match[3])}日</span>`;
 }
 
+function historyDateOrdinal(value) {
+  const match=String(value||'').match(/(\d{4})[-/](\d{1,2})[-/](\d{1,2})/);
+  return match?Date.UTC(Number(match[1]),Number(match[2])-1,Number(match[3])):Date.parse(value)||0;
+}
+
 function renderGuidanceCard(record, chain=false, linkInfo=null) {
   const sources=record.sources.map(source=>{
     const found=data.sources.find(item=>item.repo_path===source.file);
@@ -235,7 +240,7 @@ function renderGuidanceCard(record, chain=false, linkInfo=null) {
 function renderGuidanceChain() {
   const host=$('#history-guidance-chain');
   if(!host)return;
-  const records=[...historyGuidanceRecords].sort((a,b)=>a.date.localeCompare(b.date));
+  const records=[...historyGuidanceRecords].sort((a,b)=>historyBrowse.order==='newest'?historyDateOrdinal(b.date)-historyDateOrdinal(a.date):historyDateOrdinal(a.date)-historyDateOrdinal(b.date));
   host.innerHTML=records.length?records.map((record,index)=>`${renderGuidanceCard(record,true)}${index<records.length-1?'<span class="history-chain-arrow" aria-hidden="true"></span>':''}`).join(''):'<p>暂无已登记的导师建议。</p>';
 }
 

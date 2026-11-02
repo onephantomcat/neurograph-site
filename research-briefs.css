@@ -48,8 +48,8 @@
 .history-day-advice{display:grid;gap:.7rem;align-self:center;min-width:0}
 .history-guidance-card{min-width:0;border:1px solid #bfd5ed;border-radius:12px;background:linear-gradient(155deg,#f9fcff,#eef6ff);padding:1rem 1.1rem;color:#2e4d6e}
 .history-guidance-card.is-linked{position:relative}
-.history-guidance-card.is-linked::before{content:"";position:absolute;left:-16px;top:50%;width:14px;border-top:1.5px solid #6ea1d2}
-.history-guidance-card.is-linked::after{content:"";position:absolute;z-index:1;left:-20px;top:calc(50% - 6px);border:6px solid transparent;border-right-color:#6ea1d2}
+.history-guidance-card.is-linked::before{content:"";position:absolute;left:-20px;top:50%;width:20px;border-top:2px solid #6ea1d2}
+.history-guidance-card.is-linked::after{content:"";position:absolute;z-index:1;left:-20px;top:calc(50% - 8px);border:8px solid transparent;border-right-color:#6ea1d2}
 .history-guidance-card>header{display:flex;align-items:center;justify-content:space-between;gap:.5rem;color:#6e8297;font-size:.75rem}
 .history-guidance-card>header time{font-variant-numeric:tabular-nums;font-weight:650}
 .history-guidance-card h3{margin:.6rem 0;font-size:1rem;line-height:1.5;color:#1d4369}
@@ -64,7 +64,7 @@
 .history-guidance-chain{display:grid;justify-items:center;gap:.75rem;overflow-x:clip;overflow-y:visible;padding:.35rem .2rem 1rem}
 .history-guidance-chain[hidden]{display:none}
 .history-guidance-chain .history-guidance-card{width:min(100%,620px)}
-.history-chain-arrow{height:1.1rem;color:#6798c8;font-size:1.2rem;line-height:1;font-weight:600}
+.history-chain-arrow{height:1.5rem;color:#4e89c3;font-size:1.8rem;line-height:.8;font-weight:700}
 .history-chain-arrow::before{content:"↑"}
 #history-records{overflow-x:clip}
 .training-table-key{margin:0 0 1rem;color:#637a91;font-size:.85rem;line-height:1.6}
@@ -81,8 +81,8 @@
  .history-page-heading{align-items:flex-start;flex-direction:column}.history-day-row,.history-day-row:has(.history-day-advice),.training-result-day{grid-template-columns:64px minmax(0,1fr);gap:.65rem .8rem}
  .history-date-year{font-size:1rem}.history-date-month{font-size:1.3rem}.history-date-day{font-size:.7rem}
  .history-day-advice{grid-column:2; margin:.1rem 0 0 1rem}
- .history-guidance-card.is-linked::before{left:50%;top:-11px;width:0;height:9px;border-top:0;border-left:1.5px solid #6ea1d2}
- .history-guidance-card.is-linked::after{left:calc(50% - 6px);top:-15px;border-right-color:transparent;border-bottom-color:#6ea1d2}
+ .history-guidance-card.is-linked::before{left:50%;top:-15px;width:0;height:15px;border-top:0;border-left:2px solid #6ea1d2}
+ .history-guidance-card.is-linked::after{left:calc(50% - 8px);top:-16px;border-right-color:transparent;border-bottom-color:#6ea1d2}
  .history-work-card{padding:.85rem}.history-guidance-chain{grid-template-columns:minmax(0,1fr)}
  .history-guidance-chain .history-guidance-card{width:min(100%,420px)}
 }

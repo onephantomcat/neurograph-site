@@ -7,6 +7,7 @@ const ResearchBriefs = (() => {
   const recordKey = record => record.id || `${record.date || ''}|${record.title || ''}`;
   const snapshot = () => typeof data === 'undefined' ? null : data;
   const normal = text => String(text || '').replace(/\s+/g, ' ').trim();
+  const dayValue = value => {const match=String(value||'').match(/(\d{4})[-/](\d{1,2})[-/](\d{1,2})/);return match?Date.UTC(Number(match[1]),Number(match[2])-1,Number(match[3])):Date.parse(value)||0;};
   const textIndex = new Map(Object.entries(copy.texts).map(([text, b]) => [normal(text), b]));
   const sourceKeys = Object.keys(copy.source_map).sort((a,b) => b.length-a.length);
 
@@ -189,28 +190,31 @@ const ResearchBriefs = (() => {
       updateHistoryRecords=function(){
         const all=data.research_history.milestones,needle=historyBrowse.query.trim().toLowerCase();
         const records=all.map((item,index)=>({item,index})).filter(({item:m})=>(historyBrowse.month==='all'||historyDay(m).startsWith(historyBrowse.month)) && [...Object.values(copy.history[recordKey(m)]||{}),m.title,m.label,m.summary,m.result,m.method,m.boundary,m.next].join(' ').toLowerCase().includes(needle));
-        records.sort((a,b)=>historyBrowse.order==='newest'?historyDay(b.item).localeCompare(historyDay(a.item))||b.index-a.index:historyDay(a.item).localeCompare(historyDay(b.item))||a.index-b.index);
+        records.sort((a,b)=>(historyBrowse.order==='newest'?dayValue(historyDay(b.item))-dayValue(historyDay(a.item)):dayValue(historyDay(a.item))-dayValue(historyDay(b.item)))||a.index-b.index);
         const host=document.querySelector('#history-records');
         const count=document.querySelector('#history-results-count');
         if(!host||!count)return;
         const groups=new Map();
         for(const {item} of records){const day=historyDay(item);if(!day)continue;if(!groups.has(day))groups.set(day,[]);groups.get(day).push(item);}
-        const allWorkDates=[...new Set(all.map(historyDay).filter(Boolean))].sort();
+        const allWorkDates=[...new Set(all.map(historyDay).filter(Boolean))].sort((a,b)=>dayValue(a)-dayValue(b));
         const guidance=(typeof historyGuidanceRecords==='undefined'?[]:historyGuidanceRecords).map(item=>{
           const sourceDate=String(item.date||'').slice(0,10);
-          const targetDate=allWorkDates.includes(sourceDate)?sourceDate:(allWorkDates.find(day=>day>sourceDate)||null);
+          const sourceOrdinal=dayValue(sourceDate);
+          const targetDate=allWorkDates.find(day=>dayValue(day)===sourceOrdinal)||(allWorkDates.find(day=>dayValue(day)>sourceOrdinal)||null);
           return {item,sourceDate,targetDate,displayDate:targetDate||sourceDate};
         }).filter(entry=>entry.displayDate && (historyBrowse.month==='all'||entry.sourceDate.startsWith(historyBrowse.month)||entry.displayDate.startsWith(historyBrowse.month)));
         for(const entry of guidance)if(!groups.has(entry.displayDate))groups.set(entry.displayDate,[]);
-        const dates=[...groups.keys()].sort((a,b)=>historyBrowse.order==='newest'?b.localeCompare(a):a.localeCompare(b));
-        const shownDates=dates.slice(0,historyBrowse.limit);
+        const dates=[...groups.keys()].sort((a,b)=>historyBrowse.order==='newest'?dayValue(b)-dayValue(a):dayValue(a)-dayValue(b));
+        const visibleDates=new Set(dates.slice(0,historyBrowse.limit));
+        for(const entry of guidance)if(entry.displayDate)visibleDates.add(entry.displayDate);
+        const shownDates=dates.filter(day=>visibleDates.has(day));
         const shownCount=shownDates.reduce((sum,day)=>sum+(groups.get(day)||[]).length,0);
         count.textContent=`已显示 ${shownDates.length} 个日期 · 含 ${shownCount} 条工作记录 · 符合 ${records.length} 条 · 共 ${all.length} 条`;
         const dateLabel=(day,showPeriod)=>typeof historyDateLabel==='function'?historyDateLabel(day,showPeriod):`<span>${esc(day)}</span>`;
         const accessibleDate=day=>{const match=String(day).match(/^(\d{4})-(\d{2})-(\d{2})$/);return match?`${match[1]}年${Number(match[2])}月${Number(match[3])}日`:day;};
         const rows=shownDates.map((day,index)=>{
           const work=groups.get(day)||[];
-          const advice=guidance.filter(entry=>entry.displayDate===day);
+          const advice=guidance.filter(entry=>entry.displayDate===day).sort((a,b)=>historyBrowse.order==='newest'?dayValue(b.sourceDate)-dayValue(a.sourceDate):dayValue(a.sourceDate)-dayValue(b.sourceDate));
           const workMarkup=work.map(item=>`<article class="history-work-card">${historyCard(item).replace(/^<article[^>]*><time>[\s\S]*?<\/time>/,'').replace(/<\/article>$/,'')}</article>`).join('');
           const absent=work.length?'':`<p class="history-no-work">${allWorkDates.includes(day)?'工作记录被当前筛选条件隐藏':advice.length?'当天没有登记工作记录':'暂无工作记录'}</p>`;
           const previousDay=dates[dates.indexOf(day)-1];

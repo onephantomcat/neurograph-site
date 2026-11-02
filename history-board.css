@@ -13,9 +13,9 @@
   --hb-card: #ffffff;
   --hb-guidance: linear-gradient(158deg, #fbfdff 0%, #eef6ff 100%);
   --hb-accent: #1b6db5;
-  --hb-shadow: 0 1px 2px rgba(16, 40, 70, .06), 0 22px 44px -30px rgba(16, 40, 70, .6);
-  --hb-shadow-hover: 0 2px 5px rgba(16, 40, 70, .07), 0 30px 58px -28px rgba(16, 40, 70, .62);
-  --hb-shadow-drag: 0 4px 8px rgba(16, 40, 70, .08), 0 44px 80px -30px rgba(16, 40, 70, .68);
+  --hb-shadow: 0 1px 2px rgba(16, 40, 70, .04), 0 14px 34px -20px rgba(16, 40, 70, .22);
+  --hb-shadow-hover: 0 2px 4px rgba(16, 40, 70, .05), 0 22px 46px -22px rgba(16, 40, 70, .26);
+  --hb-shadow-drag: 0 4px 10px rgba(16, 40, 70, .06), 0 34px 64px -26px rgba(16, 40, 70, .3);
 }
 
 /* ---- 画布 ------------------------------------------------------------- */
@@ -77,10 +77,9 @@
 #view-history .history-day-row:has(.history-day-advice) { align-items: start; }
 #view-history .history-day-row { position: relative; }
 
-/* 日期胶囊 */
+/* 日期胶囊：只有确实有工作卡的长行才跟随滚动，短行把日期钉住会让它悬空 */
 #view-history .history-date-stack {
-  position: sticky;
-  top: 14px;
+  position: static;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,6 +93,10 @@
   color: #1e4468;
   text-align: center;
 }
+#view-history .history-day-row:has(.history-work-card) .history-date-stack {
+  position: sticky;
+  top: 16px;
+}
 #view-history .history-date-year { font-size: 10px; font-weight: 650; color: #7d94aa; letter-spacing: .06em; }
 #view-history .history-date-month { font-size: 17px; font-weight: 750; letter-spacing: -.02em; margin-top: 1px; }
 #view-history .history-date-day { font-size: 11px; font-weight: 600; color: #56728e; margin-top: 2px; }
@@ -104,7 +107,7 @@
   gap: 12px;
   min-width: 0;
   max-width: 1000px;
-  overflow: hidden;
+  overflow: visible;
   transition: height .42s cubic-bezier(.2, .75, .25, 1), opacity .24s ease, gap .42s cubic-bezier(.2, .75, .25, 1);
 }
 #view-history .history-day-work > * {
@@ -115,6 +118,17 @@
 /* 没有导师建议的日期：工作卡独占一行，避免右侧留空 */
 #view-history .history-day-row:not(:has(.history-day-advice)) {
   grid-template-columns: 82px minmax(0, 1fr);
+}
+
+/* 只有导师建议、没有工作记录的日期：日期与建议两列，不再留出空白工作列 */
+#view-history .history-day-row:not(:has(.history-work-card)) {
+  grid-template-columns: 82px minmax(0, 1fr);
+}
+#view-history .history-day-row:not(:has(.history-work-card)) .history-day-work { display: none; }
+#view-history .history-day-row:not(:has(.history-work-card)) .history-day-advice {
+  grid-column: 2;
+  width: min(100%, 680px);
+  justify-self: center;
 }
 
 /* ---- 卡片通用 --------------------------------------------------------- */
@@ -235,7 +249,8 @@
   display: none;
 }
 #view-history.is-work-collapsed .history-day-row,
-#view-history.is-work-collapsed .history-day-row:has(.history-day-advice) {
+#view-history.is-work-collapsed .history-day-row:has(.history-day-advice),
+#view-history.is-work-collapsed .history-day-row:not(:has(.history-work-card)) {
   grid-template-columns: minmax(0, 1fr);
   gap: 4px;
   padding: 13px 0;
@@ -244,6 +259,7 @@
 #view-history.is-work-collapsed .history-day-work {
   gap: 0;
   opacity: 0;
+  overflow: hidden;
   pointer-events: none;
 }
 #view-history.is-work-collapsed .history-date-stack {
@@ -267,7 +283,8 @@
   color: #5d7994;
   font-variant-numeric: tabular-nums;
 }
-#view-history.is-work-collapsed .history-day-advice {
+#view-history.is-work-collapsed .history-day-advice,
+#view-history.is-work-collapsed .history-day-row:not(:has(.history-work-card)) .history-day-advice {
   grid-column: 1;
   width: min(100%, 680px);
   justify-self: center;
@@ -311,6 +328,8 @@
   #view-history .history-day-row:not(:has(.history-day-advice)) { grid-template-columns: minmax(0, 1fr); gap: 10px; }
   #view-history .history-date-stack { position: static; flex-direction: row; gap: 6px; padding: 7px 11px; justify-self: start; }
   #view-history .history-day-advice { grid-column: 1; margin-top: 8px; }
+  #view-history .history-day-row:not(:has(.history-work-card)) { grid-template-columns: minmax(0, 1fr); }
+  #view-history .history-day-row:not(:has(.history-work-card)) .history-day-advice { grid-column: 1; }
   #view-history .history-date-month { font-size: 14px; }
   #view-history .history-date-year { font-size: 10px; }
   #view-history.is-work-collapsed .history-day-row,

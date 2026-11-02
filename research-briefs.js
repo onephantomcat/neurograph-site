@@ -216,7 +216,7 @@ const ResearchBriefs = (() => {
           const work=groups.get(day)||[];
           const advice=guidance.filter(entry=>entry.displayDate===day).sort((a,b)=>historyBrowse.order==='newest'?dayValue(b.sourceDate)-dayValue(a.sourceDate):dayValue(a.sourceDate)-dayValue(b.sourceDate));
           const workMarkup=work.map(item=>`<article class="history-work-card">${historyCard(item).replace(/^<article[^>]*><time>[\s\S]*?<\/time>/,'').replace(/<\/article>$/,'')}</article>`).join('');
-          const absent=work.length?'':`<p class="history-no-work">${allWorkDates.includes(day)?'工作记录被当前筛选条件隐藏':advice.length?'当天没有登记工作记录':'暂无工作记录'}</p>`;
+          const absent=work.length?'':(allWorkDates.includes(day)?'<p class="history-no-work">工作记录被当前筛选条件隐藏</p>':'');
           const previousDay=dates[dates.indexOf(day)-1];
           const showPeriod=!previousDay||previousDay.slice(0,7)!==day.slice(0,7);
           const adviceMarkup=advice.length?`<div class="history-day-advice">${advice.map(entry=>renderGuidanceCard(entry.item,false,{sourceDate:entry.sourceDate,targetDate:entry.targetDate})).join('')}</div>`:'';

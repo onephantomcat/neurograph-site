@@ -11,7 +11,7 @@
   const DATA_URL = new URL('data/dashboard.json', scriptBase);
   const VIEW = '#view-workflow';
   const CANVAS_W = 1760;
-  const CANVAS_H = 1150;
+  const CANVAS_H = 1250;
 
   const NODES = [
     // 主线 01–06
@@ -48,18 +48,18 @@
     { id: 'fusion', no: 'P·1', title: '多模态对齐与融合', status: '规划', tone: 'plan', zone: 'plan',
       points: ['匿名 ID 与采集时点对齐 → 缺失模态处理 → 各模态编码 → 融合表示',
                '对比单模态、简单融合与复杂模型，只有可验证的增益才进入后续方案。'],
-      x: 80, y: 760, w: 1600, h: 120 },
+      x: 80, y: 760, w: 1600, h: 150 },
 
     // 规划区：Agent
     { id: 'agent', no: 'P·2', title: 'Agent 协作层', status: '建议架构 · 未实现', tone: 'plan', zone: 'plan',
       points: ['数据 Agent · 质控 Agent · 实验 Agent · 证据 Agent',
                '编排任务 → 调用工具 → 读取结果 → 记录证据；研究者负责审核与结论确认。'],
-      x: 80, y: 900, w: 1600, h: 120 },
+      x: 80, y: 930, w: 1600, h: 150 },
 
     // 规划区：输出
     { id: 'output', no: 'P·3', title: '研究输出', status: '完成独立验证后扩展', tone: 'plan', zone: 'plan',
       points: ['疼痛状态分类 / 连续严重度预测 / 脑连接解释 / 有依据的研究报告'],
-      x: 80, y: 1040, w: 1600, h: 90 },
+      x: 80, y: 1100, w: 1600, h: 110 },
   ];
 
   const state = { map: null, dashboard: null, zoom: 1, x: 0, y: 0, overlay: null, active: null, lastFocus: null };
@@ -167,7 +167,7 @@
         <span class="wf-node-top"><span class="wf-no">${esc(node.no)}</span><span class="wf-status">${esc(node.status)}</span></span>
         <h3>${esc(node.title)}</h3>
         <ul class="wf-points">${node.points.map((point) => `<li>${esc(point)}</li>`).join('')}</ul>
-        <span class="wf-node-foot">已登记 <b>0</b> 项工作</span>
+        
       </div>`).join('');
   }
 

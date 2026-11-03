@@ -64,7 +64,7 @@ main:has(> #view-workflow.is-board-view) { padding: 0; }
 #view-workflow .wf-zone-head h2 {
   margin: 6px 0 4px;
   font-family: var(--display);
-  font-size: 34px;
+  font-size: 28px;
   line-height: 1.2;
   letter-spacing: -.02em;
   color: #102a47;

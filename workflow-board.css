@@ -83,9 +83,11 @@ main:has(> #view-workflow.is-board-view) { padding: 0; }
   border-radius: 16px;
   background: var(--wf-card);
   box-shadow: var(--wf-shadow);
-  cursor: pointer;
+  cursor: grab;
   transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
 }
+#view-workflow .wf-node:active,
+#view-workflow .wf-node.is-dragging { cursor: grabbing; z-index: 6; }
 #view-workflow .wf-node:hover {
   border-color: rgba(7, 95, 187, .45);
   box-shadow: 0 2px 4px rgba(10, 34, 62, .07), 0 30px 56px -30px rgba(10, 34, 62, .6);

@@ -77,6 +77,9 @@
     lastFocus: null,
     suppressClick: false,
     size: { w: 0, h: 0 },
+    content: { w: 0, h: 0 },
+    baseRects: null,
+    offsets: {},
   };
 
   const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (ch) => ({
@@ -201,12 +204,15 @@
 
     const right = Math.max(...[...rects.values()].map((r) => r.x + r.w));
     const bottom = Math.max(...[...rects.values()].map((r) => r.y + r.h));
-    const size = { w: right + L.padX, h: bottom + L.padBottom };
+    const content = { w: right + L.padX, h: bottom + L.padBottom };
+    // 画布比内容大一圈，模块可以拖出原网格而不被裁掉
+    const size = { w: content.w + 260, h: content.h + 260 };
     state.size = size;
-    return { rects, size, y };
+    state.content = content;
+    return { rects, content, size, y };
   }
 
-  function linksSVG(rects) {
+  function pathsFor(rects) {
     const paths = [];
     const link = (from, to, cls = '', gap = 9) => {
       const [x1, y1] = from;
@@ -246,6 +252,10 @@
     paths.push(link(anchors(fusion).bc, anchors(agent).tc, 'is-future'));
     paths.push(link(anchors(agent).bc, anchors(output).tc, 'is-future'));
 
+    return paths.join('');
+  }
+
+  function linksSVG() {
     return `<svg class="wf-links" viewBox="0 0 ${state.size.w} ${state.size.h}" aria-hidden="true">
       <defs>
         <marker id="wf-arrow" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
@@ -254,7 +264,87 @@
         <marker id="wf-arrow-future" markerWidth="9" markerHeight="9" refX="7" refY="4" orient="auto">
           <path d="M0 0 8 4 0 8" fill="none" stroke="#d0a877" stroke-width="1.5"/>
         </marker>
-      </defs>${paths.join('')}</svg>`;
+      </defs>
+      <g class="wf-link-layer"></g>
+    </svg>`;
+  }
+
+  /* ---- 偏移：拖动后的模块位置，写入 localStorage ----------------------- */
+  const STORE_KEY = 'ng.workflow.board.v1';
+
+  function loadOffsets() {
+    try {
+      const raw = JSON.parse(localStorage.getItem(STORE_KEY) || '{}');
+      return raw && typeof raw === 'object' ? raw : {};
+    } catch (_) {
+      return {};
+    }
+  }
+
+  function saveOffsets() {
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(state.offsets)); } catch (_) {}
+  }
+
+  function currentRects() {
+    const rects = new Map();
+    for (const [id, rect] of state.baseRects || []) {
+      const offset = state.offsets[id] || { dx: 0, dy: 0 };
+      rects.set(id, { x: rect.x + offset.dx, y: rect.y + offset.dy, w: rect.w, h: rect.h });
+    }
+    return rects;
+  }
+
+  function applyNodePositions(canvas) {
+    const rects = currentRects();
+    for (const node of canvas.querySelectorAll('.wf-node')) {
+      const rect = rects.get(node.dataset.module);
+      if (!rect) continue;
+      node.style.left = `${rect.x}px`;
+      node.style.top = `${rect.y}px`;
+    }
+    const layer = canvas.querySelector('.wf-link-layer');
+    if (layer) layer.innerHTML = pathsFor(rects);
+  }
+
+  function bindNodeDrag(canvas) {
+    for (const node of canvas.querySelectorAll('.wf-node')) {
+      node.addEventListener('pointerdown', (event) => {
+        if (event.button !== 0) return;
+        const id = node.dataset.module;
+        const base = state.offsets[id] || { dx: 0, dy: 0 };
+        const startX = event.clientX;
+        const startY = event.clientY;
+        let moved = false;
+        let frame = null;
+        const move = (ev) => {
+          const dx = (ev.clientX - startX) / state.zoom;
+          const dy = (ev.clientY - startY) / state.zoom;
+          if (!moved && Math.hypot(dx, dy) < 3) return;
+          moved = true;
+          node.classList.add('is-dragging');
+          state.suppressClick = true;
+          state.offsets[id] = { dx: base.dx + dx, dy: base.dy + dy };
+          if (!frame) {
+            frame = requestAnimationFrame(() => {
+              frame = null;
+              applyNodePositions(canvas);
+            });
+          }
+          ev.preventDefault();
+        };
+        const up = () => {
+          window.removeEventListener('pointermove', move);
+          window.removeEventListener('pointerup', up);
+          node.classList.remove('is-dragging');
+          if (moved) {
+            saveOffsets();
+            setTimeout(() => { state.suppressClick = false; }, 260);
+          }
+        };
+        window.addEventListener('pointermove', move);
+        window.addEventListener('pointerup', up, { once: true });
+      });
+    }
   }
 
   function zoneHeads(rects) {
@@ -304,7 +394,7 @@
   function fit(board, canvas, animate = false) {
     const width = board.clientWidth;
     const height = board.clientHeight;
-    const { w, h } = state.size;
+    const { w, h } = state.content;
     const scale = Math.min(width / w, height / h) * 0.97;
     state.zoom = clamp(scale, 0.3, 1.2);
     state.x = (width - w * state.zoom) / 2;
@@ -339,7 +429,12 @@
       button.addEventListener('click', (event) => {
         event.stopPropagation();
         const action = button.dataset.zoom;
-        if (action === 'reset') return fit(board, canvas, true);
+        if (action === 'reset') {
+          state.offsets = {};
+          saveOffsets();
+          applyNodePositions(canvas);
+          return fit(board, canvas, true);
+        }
         const next = clamp(state.zoom * (action === 'in' ? 1.2 : 1 / 1.2), 0.3, 2.4);
         const rect = board.getBoundingClientRect();
         const mx = rect.width / 2;
@@ -375,7 +470,7 @@
     };
     board.addEventListener('pointerdown', (event) => {
       if (event.button !== 0) return;
-      if (event.target.closest('.wf-zoom, .wf-legend, a, button')) return;
+      if (event.target.closest('.wf-node, .wf-zoom, .wf-legend, a, button')) return;
       pan = { x: event.clientX, y: event.clientY, ox: state.x, oy: state.y, moved: false };
       state.suppressClick = false;
       board.classList.add('is-panning');
@@ -473,12 +568,17 @@
     const canvas = view.querySelector('.workflow-canvas');
 
     const { rects } = layout(canvas);
-    canvas.insertAdjacentHTML('afterbegin', zoneHeads(rects) + branch(rects) + linksSVG(rects));
+    state.baseRects = rects;
+    state.offsets = loadOffsets();
+    canvas.insertAdjacentHTML('afterbegin', zoneHeads(rects) + branch(rects));
+    canvas.insertAdjacentHTML('beforeend', linksSVG());
     canvas.style.width = `${state.size.w}px`;
     canvas.style.height = `${state.size.h}px`;
+    applyNodePositions(canvas);
 
     bindPan(board, canvas);
     bindZoom(board, canvas);
+    bindNodeDrag(canvas);
     canvas.querySelectorAll('.wf-node').forEach((node) => {
       node.addEventListener('click', (event) => {
         if (state.suppressClick) {

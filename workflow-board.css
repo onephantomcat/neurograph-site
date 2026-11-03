@@ -15,6 +15,7 @@
 }
 
 /* 视图本身不再滚动，画布占满 main 的剩余空间 */
+main:has(> #view-workflow.is-board-view) { padding: 0; }
 #view-workflow.is-board-view {
   height: calc(100dvh - 78px);
   min-height: 560px;

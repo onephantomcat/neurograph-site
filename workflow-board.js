@@ -112,6 +112,10 @@
     bindZoom(board, canvas);
     canvas.querySelectorAll('.wf-node').forEach((node) => {
       node.addEventListener('click', (event) => {
+        if (state.suppressClick) {
+          state.suppressClick = false;
+          return;
+        }
         event.stopPropagation();
         openModule(node.dataset.module);
       });
@@ -131,9 +135,17 @@
         if (foot) foot.innerHTML = count ? `已登记 <b>${count}</b> 项工作` : '尚无已登记工作';
       }
     });
+    const fill = () => {
+      const top = Math.max(view.getBoundingClientRect().top, 0);
+      view.style.height = `${Math.max(window.innerHeight - top, 420)}px`;
+    };
+    fill();
     fit(board, canvas);
-    // 窗口尺寸变化时保持可视
-    window.addEventListener('resize', () => fit(board, canvas, true));
+    // 窗口尺寸变化时保持铺满与可视
+    window.addEventListener('resize', () => {
+      fill();
+      fit(board, canvas, true);
+    });
   }
 
   function zoneHeads() {
@@ -180,23 +192,50 @@
     const output = plan.find((node) => node.id === 'output');
     const paths = [];
 
+    // 每个模块固定 8 个锚点：四角 + 四边中点。连线只在锚点之间发生，
+    // 先定形状与内容边界，再决定方向，箭头不会穿过模块或落在空处。
+    const anchor = (node, name) => {
+      const { x, y, w, h } = node;
+      return {
+        tl: [x, y], tc: [x + w / 2, y], tr: [x + w, y],
+        ml: [x, y + h / 2], mr: [x + w, y + h / 2],
+        bl: [x, y + h], bc: [x + w / 2, y + h], br: [x + w, y + h],
+      }[name];
+    };
+    const line = (from, to, cls = '', gap = 10) => {
+      const [x1, y1] = from;
+      const [x2, y2] = to;
+      const dx = x2 - x1;
+      const dy = y2 - y1;
+      const len = Math.hypot(dx, dy) || 1;
+      const ex = x2 - (dx / len) * gap;
+      const ey = y2 - (dy / len) * gap;
+      const marker = cls ? 'wf-arrow-future' : 'wf-arrow';
+      return `<path d="M ${x1} ${y1} L ${ex} ${ey}"${cls ? ` class="${cls}"` : ''} marker-end="url(#${marker})"/>`;
+    };
+
+    // 主线：右中点 → 左中点，水平直线
     for (let i = 0; i < main.length - 1; i += 1) {
       const a = main[i];
       const b = main[i + 1];
-      const y = a.y + a.h / 2;
-      paths.push(`<path d="M ${a.x + a.w + 6} ${y} L ${b.x - 10} ${y}" marker-end="url(#wf-arrow)"${i >= 4 ? ' class="is-future"' : ''}/>`);
+      paths.push(line(anchor(a, 'mr'), anchor(b, 'ml'), i === main.length - 2 ? 'is-future' : ''));
     }
-    // 医院并行支线：04 下方折向 06
+
+    // 医院并行支线：04 底部中点 → 下方折线 → 06 底部中点（箭头指回 06）
     const n04 = main.find((node) => node.id === '04');
     const n06 = main.find((node) => node.id === '06');
-    paths.push(`<path class="is-future" d="M ${n04.x + n04.w / 2} ${n04.y + n04.h} L ${n04.x + n04.w / 2} 545 L ${n06.x + n06.w / 2} 545 L ${n06.x + n06.w / 2} ${n06.y + n06.h - 4}" marker-end="url(#wf-arrow-future)"/>`);
+    const [x4, y4] = anchor(n04, 'bc');
+    const [x6, y6] = anchor(n06, 'bc');
+    const yMid = y4 + 66;
+    paths.push(`<path class="is-future" d="M ${x4} ${y4} L ${x4} ${yMid} L ${x6} ${yMid} L ${x6} ${y6 + 10}" marker-end="url(#wf-arrow-future)"/>`);
 
+    // 规划区：输入底部中点竖直向下接入融合顶部；融合 → Agent → 输出
     for (const node of input) {
-      const cx = node.x + node.w / 2;
-      paths.push(`<path d="M ${cx} ${node.y + node.h} L ${cx} ${fusion.y - 8}" marker-end="url(#wf-arrow)"/>`);
+      const [cx, cy] = anchor(node, 'bc');
+      paths.push(`<path d="M ${cx} ${cy} L ${cx} ${fusion.y - 10}" marker-end="url(#wf-arrow)"/>`);
     }
-    paths.push(`<path class="is-future" d="M ${fusion.x + fusion.w / 2} ${fusion.y + fusion.h} L ${fusion.x + fusion.w / 2} ${agent.y - 8}" marker-end="url(#wf-arrow-future)"/>`);
-    paths.push(`<path class="is-future" d="M ${agent.x + agent.w / 2} ${agent.y + agent.h} L ${agent.x + agent.w / 2} ${output.y - 8}" marker-end="url(#wf-arrow-future)"/>`);
+    paths.push(line(anchor(fusion, 'bc'), anchor(agent, 'tc'), 'is-future'));
+    paths.push(line(anchor(agent, 'bc'), anchor(output, 'tc'), 'is-future'));
 
     return `<svg class="wf-links" viewBox="0 0 ${CANVAS_W} ${CANVAS_H}" aria-hidden="true">
       <defs>
@@ -232,7 +271,7 @@
 
   function fit(board, canvas, animate = false) {
     const width = board.clientWidth;
-    const height = Math.max(board.clientHeight - 56, 320);
+    const height = Math.max(board.clientHeight, 320);
     const scale = Math.min(width / CANVAS_W, height / CANVAS_H) * 0.97;
     state.zoom = clamp(scale, 0.32, 1.2);
     state.x = (width - CANVAS_W * state.zoom) / 2;
@@ -282,26 +321,37 @@
 
   function bindPan(board, canvas) {
     let pan = null;
-    board.addEventListener('pointerdown', (event) => {
-      if (event.button !== 0) return;
-      if (event.target.closest('.wf-node, .wf-zoom, .wf-legend, a, button')) return;
-      pan = { x: event.clientX, y: event.clientY, ox: state.x, oy: state.y };
-      board.setPointerCapture(event.pointerId);
-      board.classList.add('is-panning');
-    });
-    board.addEventListener('pointermove', (event) => {
+    const move = (event) => {
       if (!pan) return;
-      state.x = pan.ox + event.clientX - pan.x;
-      state.y = pan.oy + event.clientY - pan.y;
+      const dx = event.clientX - pan.x;
+      const dy = event.clientY - pan.y;
+      if (!pan.moved && Math.hypot(dx, dy) < 4) return;
+      pan.moved = true;
+      state.suppressClick = true;
+      state.x = pan.ox + dx;
+      state.y = pan.oy + dy;
       applyTransform(canvas);
-    });
-    const stop = () => {
+    };
+    const up = () => {
       if (!pan) return;
+      const moved = pan.moved;
       pan = null;
       board.classList.remove('is-panning');
+      window.removeEventListener('pointermove', move);
+      if (moved) setTimeout(() => { state.suppressClick = false; }, 260);
     };
-    board.addEventListener('pointerup', stop);
-    board.addEventListener('pointercancel', stop);
+    // 不用 setPointerCapture：保留 pointerdown/up 在节点上的目标，
+    // 点击节点仍能触发 click；拖动由 window 跟踪，出界也不断。
+    board.addEventListener('pointerdown', (event) => {
+      if (event.button !== 0) return;
+      if (event.target.closest('.wf-zoom, .wf-legend, a, button')) return;
+      pan = { x: event.clientX, y: event.clientY, ox: state.x, oy: state.y, moved: false };
+      state.suppressClick = false;
+      board.classList.add('is-panning');
+      window.addEventListener('pointermove', move);
+      window.addEventListener('pointerup', up, { once: true });
+      window.addEventListener('pointercancel', up, { once: true });
+    });
   }
 
   /* ---- 节点浮层 --------------------------------------------------------- */
@@ -334,14 +384,14 @@
     const node = NODES.find((item) => item.id === id);
     if (!node) return;
     const map = await loadMap();
-    const items = map.modules?.[id] || [];
+    const items = (map.modules?.[id] || []).slice().reverse();
     const overlay = ensureOverlay();
     state.active = id;
     state.lastFocus = document.activeElement;
 
     overlay.querySelector('#wf-sheet-title').textContent = `${node.no} ${node.title}`;
     overlay.querySelector('#wf-sheet-sub').textContent = items.length
-      ? `按记录时间排列 · 共 ${items.length} 项`
+      ? `按记录时间从新到旧 · 共 ${items.length} 项`
       : '该模块尚无已登记的工作记录';
     const status = overlay.querySelector('#wf-sheet-status');
     status.textContent = node.status;

@@ -105,6 +105,18 @@
 #view-history .history-date-month { font-size: 17px; font-weight: 750; letter-spacing: -.02em; margin-top: 1px; }
 #view-history .history-date-day { font-size: 11px; font-weight: 600; color: #56728e; margin-top: 2px; }
 
+/* 吸顶时补全年月：上方“2026年10月”，下方保留“29日”，避免只剩日期 */
+#view-history .history-date-stack.is-pinned:not(:has(.history-date-year))::before {
+  content: attr(data-period);
+  display: block;
+  font-size: 9.5px;
+  font-weight: 650;
+  letter-spacing: .04em;
+  line-height: 1.25;
+  color: #7d94aa;
+  margin-bottom: 1px;
+}
+
 /* 工作列：卡片堆叠 */
 #view-history .history-day-work {
   display: grid;

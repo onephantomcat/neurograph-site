@@ -146,8 +146,43 @@
   /* ---- 日期与链箭头 ----------------------------------------------------- */
   function tagDates(root) {
     for (const el of root.querySelectorAll('.history-date-stack[datetime]')) {
-      if (!el.dataset.full) el.dataset.full = el.getAttribute('datetime');
+      const value = el.getAttribute('datetime');
+      const match = value && value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (match) {
+        // 吸顶或收起时补全年月，避免只剩“29日”这种缺年份的读数
+        el.dataset.full = `${match[1]}年${Number(match[2])}月${Number(match[3])}日`;
+        el.dataset.period = `${match[1]}年${Number(match[2])}月`;
+      } else if (!el.dataset.full) {
+        el.dataset.full = value;
+      }
     }
+  }
+
+  /* 吸顶状态：只有贴住顶部栏的日期胶囊才补全年月 */
+  let pinnedFrame = 0;
+  function updatePinned() {
+    const view = document.querySelector(VIEW_SELECTOR);
+    if (!view || view.hidden) return;
+    const stacks = view.querySelectorAll('.history-date-stack');
+    if (!stacks.length) return;
+    const styles = getComputedStyle(view);
+    const topbar = parseFloat(styles.getPropertyValue('--hb-topbar')) || 64;
+    const gap = parseFloat(styles.getPropertyValue('--hb-sticky-gap')) || 16;
+    const threshold = topbar + gap + 0.5;
+    for (const el of stacks) {
+      const rect = el.getBoundingClientRect();
+      // 只有真正贴住顶部栏的那一个才算吸顶；已被行推出视口的日期不补年月
+      const pinned = getComputedStyle(el).position === 'sticky'
+        && rect.top >= threshold - 1.5 && rect.top <= threshold + 0.5;
+      el.classList.toggle('is-pinned', pinned);
+    }
+  }
+  function schedulePinned() {
+    if (pinnedFrame) return;
+    pinnedFrame = requestAnimationFrame(() => {
+      pinnedFrame = 0;
+      updatePinned();
+    });
   }
 
   function syncChainArrows(view) {
@@ -338,6 +373,7 @@
       syncResetButton();
       const stage = view.querySelector('.history-board-stage');
       if (stage) stage.style.transform = `translate3d(${store.pan.x}px, ${store.pan.y}px, 0)`;
+      schedulePinned();
     } finally {
       requestAnimationFrame(() => { mutating = false; });
     }
@@ -358,6 +394,8 @@
     new MutationObserver(() => { if (!mutating) schedule(); })
       .observe(viewEl, { childList: true, subtree: true });
     schedule();
+    window.addEventListener('scroll', schedulePinned, { passive: true });
+    window.addEventListener('resize', schedulePinned);
     document.addEventListener('click', (event) => {
       if (event.target.closest('#history-work-toggle')) {
         // app.js 负责切换状态；这里只保证收起后箭头与间距同步刷新。

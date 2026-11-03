@@ -170,9 +170,12 @@ function updateHistoryRecords() {
   $('#history-more').hidden=shown.length>=records.length;
 }
 function researchHistoryPage() {
-  const collapseParam=new URLSearchParams((location.hash.split('?')[1]||'')).get('collapsed');
+  const params=new URLSearchParams((location.hash.split('?')[1]||''));
+  const collapseParam=params.get('collapsed');
   if(collapseParam==='1')historyWorkCollapsed=true;
   if(collapseParam==='0')historyWorkCollapsed=false;
+  const focusKey=params.get('focus');
+  if(focusKey)historyBrowse.limit=Math.max(historyBrowse.limit,999);
   const recent = data.research_history;
   // Keep API consumers' legacy fields intact; do not render escapeHTML(recent.focus) or escapeHTML(recent.summary) here.
   if (!recent) { $('#view-history').innerHTML = '<div class="empty">暂无研究历程。</div>'; return; }
@@ -214,6 +217,36 @@ function researchHistoryPage() {
   }
   GuidanceTimeline.records().then(records=>{historyGuidanceRecords=records;if(view==='history'){updateHistoryRecords();if(historyWorkCollapsed)renderGuidanceChain();}}).catch(error=>{$('#history-guidance-chain').innerHTML=`<p role="status">${escapeHTML(error.message)}</p>`;});
   updateHistoryRecords();
+  if(focusKey)locateHistoryRecord(focusKey);
+}
+
+function locateHistoryRecord(key) {
+  const host=document.querySelector('#history-records');
+  if(!host)return;
+  let timer=null;
+  let done=false;
+  const reveal=()=>{
+    if(done)return;
+    const target=[...document.querySelectorAll('#history-records [data-record-key]')]
+      .find(node=>node.dataset.recordKey===key);
+    if(!target)return;
+    done=true;
+    target.scrollIntoView({behavior:'auto',block:'start'});
+    target.classList.add('history-focus-target');
+    const details=target.querySelector('details');
+    if(details)details.open=true;
+    setTimeout(()=>{if(done)target.scrollIntoView({behavior:'auto',block:'start'});},420);
+    setTimeout(()=>target.classList.remove('history-focus-target'),6000);
+  };
+  // 记录是分批渲染的：等 #history-records 停止变化后再定位，位置才准。
+  const schedule=()=>{
+    clearTimeout(timer);
+    timer=setTimeout(()=>{reveal();if(done)observer.disconnect();},700);
+  };
+  const observer=new MutationObserver(schedule);
+  observer.observe(host,{childList:true,subtree:true});
+  schedule();
+  setTimeout(()=>{if(!done){reveal();if(done)observer.disconnect();}},9000);
 }
 
 function historyDateLabel(date,showPeriod=true) {
@@ -512,19 +545,12 @@ function overview() {
     ${researchDisclosure('前期成果','DS005713 来源包与早期迁移实验',dsSpotlight())}`;
 }
 
-function workflowFigure(name, title, description, transcript) {
-  return `<article class="workflow-figure" aria-labelledby="${name}-title"><div class="workflow-figure-heading"><div><h2 id="${name}-title">${title}</h2><p>${description}</p></div><div class="workflow-actions"><a class="button" href="./${name}.svg" target="_blank" rel="noopener" aria-label="放大查看${title}（新标签页）">放大查看 ↗</a><a class="button" href="./${name}.png" download>下载 PNG</a><a class="text-link" href="./${name}.svg" download>SVG</a></div></div><div class="workflow-image-scroll" tabindex="0" role="region" aria-label="${title}，窄屏可横向滚动"><img src="./${name}.svg" alt="${description}" width="1440" height="${name === 'workflow-execution' ? 1060 : 1200}" aria-describedby="${name}-text"></div><details class="workflow-transcript" id="${name}-text"><summary>阅读流程文字</summary>${transcript}</details></article>`;
-}
 function workflowPage() {
-  $('#view-workflow').innerHTML = `<div class="page-heading"><div><h1>项目流程</h1><p class="muted">从当前研究主线，到多模态与 Agent 扩展。</p></div><a class="button" href="#overview">← 返回总览</a></div>
-    ${brainhgtSuffixFreezeOverview()}
-    ${explanationReproductionOverview()}
-    ${publicPainSection()}
-    <section class="panel"><h2>当前公开数据路线</h2><p>Emo-Fibro：连续VAS预测与统一预处理复验 → 有量表依据的疼痛分级 → 独立患者验证。音乐镇痛与OA分别研究短期变化和给定治疗下的改善；用于医生诊断或用药之前，还需目标人群的前瞻评价。</p>${data.public_pain_processing?`<p>${escapeHTML(data.public_pain_processing.note)}</p>${evidenceLink(data.public_pain_processing.source,'查看当前处理记录 ↗')}`:''}<p class="data-note">下面两张图保留9月9日的历史流程；本次Power264公开特征是单独的探索分支，不并入旧AAL90训练人数。</p></section>
-    <div class="workflow-context"><span>历史流程图 · 2026-09-09</span><span>手机可左右滑动图片，也可放大或下载。</span></div>
-    ${workflowFigure('workflow-execution', '研究执行流程', '沿箭头 01 → 06 阅读。来源预训练与99/96开发性分类完成；置换完成，增益未确立，医院准备并行，新的独立验证待完成。', '<ol><li>影像与标签接入：无标签来源与临床目标分别管理，量表口径继续核对。</li><li>预处理与质量审核：本批处理及人工确认完成，科学排除与时点暂缓保留。</li><li>共同表示：AAL90 脑区时序与 90×90 功能连接。</li><li>迁移学习：源域预训练与目标训练折适配，五条来源训练与99/96开发性分类已完成，完整置换完成，增益未确立。</li><li>疼痛任务：研究侧首选PTN及七日日最严重NRS均值回归；公开分类已比较，再评估 masked-loss 双任务。</li><li>独立验证：医院病种、标签、协议与现场准备并行，不等待模型完成；需取得新的独立队列，历史 SRPBS 外部主要检验未通过。</li></ol>')}
-    ${workflowFigure('workflow-roadmap', '多模态与 Agent 规划', '多模态融合和 Agent 系统尚未实现；图中虚线表示后续扩展。Agent 分工为此前建议方案；瞳孔需先论证，三维场景重建列远期。', '<ol><li>多模态输入：既有 T1 / 静息态 fMRI 与临床量表基础，瞳孔信号和病历文本为扩展规划。</li><li>融合：核对匿名 ID、采集时点和缺失模态，再比较单模态、简单融合与复杂模型。</li><li>Agent 协作：数据 Agent 整理库存；质控 Agent 提交异常；实验 Agent 执行既定比较；证据 Agent 汇总有出处的结果。</li><li>工具：复用预处理脚本、QC 网页、训练程序和项目记录；既有脚本不等同于 Agent 系统。</li><li>人工决策：研究者负责视觉审核、标签定义、实验方案和结论确认。</li><li>输出与应用：分类、连续严重度、脑连接解释及研究报告；独立验证支持后再评估复杂 GNN、LLM 与 EMR/PACS。</li></ol>')}
-    <div class="workflow-sources"><span>图示依据</span>${evidenceLink('meeting-20260908', '会议核对与行动 ↗')}${evidenceLink('hospital-requirements', '医院需求草案 ↗')}${evidenceLink('original-plan', '实施路线 ↗')}${evidenceLink('record', '最新研究记录 ↗')}<button class="text-link" data-goal="G19">扩展目标 G19 ↗</button><a class="text-link" href="#goals">完整计划 ↗</a></div>`;
+  // 画布与节点由 workflow-board.js 挂载；这里只准备容器并触发一次渲染。
+  const view = $('#view-workflow');
+  view.innerHTML = '<div class="workflow-board-mount" hidden></div>';
+  view.classList.add('is-board-view');
+  if (window.WorkflowBoard) window.WorkflowBoard.mount();
 }
 
 function goalsListPage() {

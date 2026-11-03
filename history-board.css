@@ -366,3 +366,17 @@
   #view-history .history-guidance-card,
   #view-history .research-timeline article.history-work-card { transition: none !important; }
 }
+
+/* ---- 从项目流程跳转过来时的定位高亮 ------------------------------------ */
+#history-records [data-record-key] { scroll-margin-top: 104px; }
+#history-records .history-focus-target {
+  outline: 2px solid rgba(7, 95, 187, .55);
+  outline-offset: 4px;
+  border-radius: 14px;
+  animation: history-focus-pulse 1.5s ease 2;
+}
+@keyframes history-focus-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(7, 95, 187, .34); }
+  70% { box-shadow: 0 0 0 12px rgba(7, 95, 187, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(7, 95, 187, 0); }
+}

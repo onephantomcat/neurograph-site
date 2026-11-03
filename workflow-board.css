@@ -1,0 +1,397 @@
+/* ==========================================================================
+   项目流程 · 主题浏览画布
+   - 满屏画布，滚轮缩放、按住拖动、双击复位
+   - 点击节点：背景模糊的就地浮层，按时间轴列出该模块的工作
+   ========================================================================== */
+
+#view-workflow {
+  --wf-ink: #12314f;
+  --wf-line: rgba(15, 64, 120, .16);
+  --wf-blue: #075fbb;
+  --wf-soft: #eaf3ff;
+  --wf-amber: #a85e14;
+  --wf-card: #ffffff;
+  --wf-shadow: 0 1px 2px rgba(10, 34, 62, .06), 0 22px 44px -30px rgba(10, 34, 62, .55);
+}
+
+/* 视图本身不再滚动，画布占满 main 的剩余空间 */
+#view-workflow.is-board-view {
+  height: calc(100dvh - 78px);
+  min-height: 560px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#view-workflow .workflow-board {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(36, 86, 145, .10) 1px, transparent 1.6px) 0 0 / 22px 22px,
+    linear-gradient(180deg, #f8fbfe 0%, #eef4fb 100%);
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+#view-workflow .workflow-board.is-panning { cursor: grabbing; }
+
+#view-workflow .workflow-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2100px;
+  height: 1500px;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+#view-workflow .workflow-canvas.is-panning { transition: none; }
+#view-workflow .workflow-canvas.is-fitting { transition: transform .34s cubic-bezier(.2, .75, .25, 1); }
+
+/* ---- 分区标题 ---------------------------------------------------------- */
+#view-workflow .wf-zone-head { position: absolute; left: 60px; }
+#view-workflow .wf-zone-head.is-main { top: 26px; }
+#view-workflow .wf-zone-head.is-plan { top: 520px; }
+#view-workflow .wf-eyebrow {
+  display: inline-block;
+  color: var(--wf-blue);
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .06em;
+}
+#view-workflow .wf-zone-head h2 {
+  margin: 6px 0 4px;
+  font-family: var(--display);
+  font-size: 34px;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+  color: #102a47;
+}
+#view-workflow .wf-zone-head p { margin: 0; max-width: 760px; color: #5d7691; font-size: 14px; line-height: 1.6; }
+
+/* ---- 节点卡 ------------------------------------------------------------ */
+#view-workflow .wf-node {
+  position: absolute;
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  gap: 8px;
+  padding: 13px 16px 12px;
+  border: 1.5px solid var(--wf-line);
+  border-radius: 16px;
+  background: var(--wf-card);
+  box-shadow: var(--wf-shadow);
+  cursor: pointer;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+#view-workflow .wf-node:hover {
+  border-color: rgba(7, 95, 187, .45);
+  box-shadow: 0 2px 4px rgba(10, 34, 62, .07), 0 30px 56px -30px rgba(10, 34, 62, .6);
+  transform: translateY(-2px);
+}
+#view-workflow .wf-node.is-planned {
+  border-style: dashed;
+  border-color: rgba(168, 94, 20, .42);
+  background: #fffdf9;
+}
+#view-workflow .wf-node.is-planned:hover { border-color: rgba(168, 94, 20, .7); }
+#view-workflow .wf-node:focus-visible { outline: 3px solid rgba(7, 95, 187, .5); outline-offset: 3px; }
+#view-workflow .wf-node[data-count="0"] { opacity: .72; }
+
+#view-workflow .wf-node-top { display: flex; align-items: center; gap: 8px; }
+#view-workflow .wf-no {
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--wf-blue);
+  letter-spacing: .06em;
+}
+#view-workflow .wf-node.is-planned .wf-no { color: var(--wf-amber); }
+#view-workflow .wf-status {
+  margin-left: auto;
+  padding: 2px 8px;
+  border-radius: 7px;
+  background: var(--wf-soft);
+  color: #0b5aa8;
+  font-size: 10.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+#view-workflow .wf-node.is-planned .wf-status { background: #fdf2e2; color: var(--wf-amber); }
+#view-workflow .wf-node h3 { margin: 0; font-size: 18px; line-height: 1.45; color: #16395c; }
+#view-workflow .wf-points { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+#view-workflow .wf-points li {
+  position: relative;
+  padding-left: 12px;
+  color: #5f7892;
+  font-size: 13px;
+  line-height: 1.5;
+}
+#view-workflow .wf-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .62em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #a9c2da;
+}
+#view-workflow .wf-node-foot {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #6f8aa5;
+  font-size: 10.5px;
+}
+#view-workflow .wf-node-foot b { color: var(--wf-blue); font-weight: 700; }
+
+/* ---- 连线层 ------------------------------------------------------------ */
+#view-workflow .wf-links { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+#view-workflow .wf-links path { fill: none; stroke: #8fb4d8; stroke-width: 1.6; }
+#view-workflow .wf-links path.is-future { stroke: #d0a877; stroke-dasharray: 6 5; }
+
+/* ---- 医院并行支线 ------------------------------------------------------ */
+#view-workflow .wf-branch {
+  position: absolute;
+  left: 50px;
+  top: 430px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 14px;
+  border: 1px dashed rgba(168, 94, 20, .5);
+  border-radius: 10px;
+  background: #fffdf8;
+  color: #7c5a33;
+  font-size: 12px;
+  line-height: 1.5;
+}
+#view-workflow .wf-branch strong { color: var(--wf-amber); font-size: 12.5px; }
+
+/* ---- 规划区外框 -------------------------------------------------------- */
+#view-workflow .wf-plan-frame {
+  position: absolute;
+  left: 30px;
+  top: 500px;
+  width: 1700px;
+  height: 620px;
+  border: 1.5px dashed rgba(168, 94, 20, .34);
+  border-radius: 22px;
+  background: rgba(255, 252, 246, .55);
+}
+
+/* ---- 图例与缩放控件 ---------------------------------------------------- */
+#view-workflow .wf-legend {
+  position: absolute;
+  left: 26px;
+  bottom: 20px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 13px;
+  border: 1px solid rgba(15, 64, 120, .12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .88);
+  backdrop-filter: blur(6px);
+  color: #5b7channel;
+  color: #5b7390;
+  font-size: 11px;
+}
+#view-workflow .wf-legend span { display: inline-flex; align-items: center; gap: 6px; }
+#view-workflow .wf-legend i { display: inline-block; width: 16px; height: 0; border-top: 2px solid #8fb4d8; }
+#view-workflow .wf-legend i.is-future { border-top: 2px dashed #d0a877; }
+
+#view-workflow .wf-zoom {
+  position: absolute;
+  right: 24px;
+  bottom: 20px;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(15, 64, 120, .14);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 10px 24px -20px rgba(10, 34, 62, .6);
+}
+#view-workflow .wf-zoom button {
+  width: 34px;
+  height: 32px;
+  border: 0;
+  background: transparent;
+  color: #37628c;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+#view-workflow .wf-zoom button + button { border-top: 1px solid #e8eff7; }
+#view-workflow .wf-zoom button:hover { background: #f2f8ff; }
+#view-workflow .wf-zoom button.is-reset { font-size: 12px; }
+
+#view-workflow .wf-basis {
+  position: absolute;
+  left: 26px;
+  right: 90px;
+  bottom: 58px;
+  z-index: 3;
+  margin: 0;
+  color: #8ba1b8;
+  font-size: 10.5px;
+  line-height: 1.5;
+  pointer-events: none;
+}
+
+/* ---- 节点浮层 ---------------------------------------------------------- */
+.wf-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(12, 30, 50, .28);
+  backdrop-filter: blur(7px) saturate(.9);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .24s ease;
+}
+.wf-overlay.is-open { opacity: 1; pointer-events: auto; }
+
+.wf-sheet {
+  display: flex;
+  flex-direction: column;
+  width: min(760px, 94vw);
+  max-height: min(82vh, 820px);
+  overflow: hidden;
+  border: 1px solid rgba(15, 64, 120, .16);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 40px 90px -42px rgba(8, 26, 48, .6);
+  transform: translateY(14px) scale(.985);
+  transition: transform .28s cubic-bezier(.2, .75, .25, 1);
+}
+.wf-overlay.is-open .wf-sheet { transform: none; }
+
+.wf-sheet-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid #e6eef7;
+  background: #fbfdff;
+}
+.wf-sheet-head h2 { margin: 0; font-size: 19px; line-height: 1.35; color: #14385c; }
+.wf-sheet-head p { margin: 4px 0 0; color: #70879e; font-size: 12px; }
+.wf-sheet-head .wf-sheet-status {
+  margin-left: auto;
+  padding: 3px 9px;
+  border-radius: 8px;
+  background: var(--wf-soft, #eaf3ff);
+  color: #0b5aa8;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.wf-sheet-close {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  border: 1px solid #dbe5f0;
+  border-radius: 9px;
+  background: #fff;
+  color: #54708c;
+  font-size: 18px;
+  cursor: pointer;
+}
+.wf-sheet-close:hover { background: #f2f7fc; }
+
+.wf-timeline {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 20px 22px 26px 42px;
+  background: #fdfefe;
+}
+.wf-timeline::before {
+  content: "";
+  position: absolute;
+  left: 24px;
+  top: 26px;
+  bottom: 26px;
+  width: 1.5px;
+  background: linear-gradient(180deg, #cfe0f0, #e6eff7);
+}
+.wf-timeline-empty { margin: 40px auto; max-width: 340px; text-align: center; color: #8198ad; font-size: 13px; line-height: 1.8; }
+
+.wf-item { position: relative; margin-bottom: 14px; }
+.wf-item::before {
+  content: "";
+  position: absolute;
+  left: -22px;
+  top: 16px;
+  width: 9px;
+  height: 9px;
+  border: 2px solid #8fb4d8;
+  border-radius: 50%;
+  background: #fdfefe;
+}
+.wf-item:last-child { margin-bottom: 0; }
+.wf-item-card {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #e2ebf4;
+  border-radius: 12px;
+  background: #fff;
+  text-align: left;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+}
+.wf-item-card:hover {
+  border-color: rgba(7, 95, 187, .34);
+  box-shadow: 0 14px 28px -24px rgba(10, 34, 62, .6);
+  transform: translateY(-1px);
+}
+.wf-item-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; color: #7f95ab; font-size: 10.5px; }
+.wf-item-meta b { color: #0b5aa8; font-weight: 600; }
+.wf-item-card h3 { margin: 0 0 5px; font-size: 13.5px; line-height: 1.5; color: #21415f; }
+.wf-item-card p {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0;
+  color: #61798f;
+  font-size: 11.5px;
+  line-height: 1.6;
+}
+.wf-item-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
+.wf-item-links a {
+  color: #0b5aa8;
+  font-size: 11px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.wf-item-links a:hover { text-decoration: underline; }
+
+@media (max-width: 760px) {
+  #view-workflow.is-board-view { height: calc(100dvh - 62px); }
+  .wf-overlay { padding: 10px; }
+  .wf-sheet { width: 100%; max-height: 88vh; border-radius: 16px; }
+  .wf-timeline { padding: 16px 14px 20px 34px; }
+  .wf-timeline::before { left: 18px; }
+  .wf-item::before { left: -20px; }
+  #view-workflow .wf-legend { left: 12px; bottom: 12px; gap: 10px; padding: 6px 10px; }
+  #view-workflow .wf-zoom { right: 12px; bottom: 12px; }
+  #view-workflow .wf-basis { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wf-overlay, .wf-sheet, #view-workflow .workflow-canvas.is-fitting { transition: none !important; }
+}

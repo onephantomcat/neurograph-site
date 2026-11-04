@@ -4,43 +4,24 @@
 :root { --tm-w: 440px; --tm-gutter: 6px; }
 
 /* ---------- 侧栏入口 ---------- */
-/* 与导航项同构：19px 线性图标、12px 图文间距、12px 内距，左缘与 nav 图标对齐 */
-.tm-entry {
-  display: flex; align-items: center; gap: 12px;
-  width: 100%; min-height: 42px; margin-top: auto;
-  padding: 10px 12px; border: 0; border-radius: 9px;
-  background: transparent; color: #4d657e;
-  font: 500 13px/1.5 var(--body); text-align: left; cursor: pointer;
-  transition: background .16s, color .16s;
+/* mini TM 作为导航最后一项，完全复用 nav a 的图标、内距与字号，只加流彩和轻微分隔 */
+.sidebar nav a.tm-entry { margin-top: 2px; }
+.sidebar nav a.tm-entry > .tm-name.tm-flow-text {
+  display: inline; width: auto; height: auto; flex: 0 1 auto;
+  font-style: normal;
 }
-.tm-entry:hover { background: #f2f6fb; color: #12518f; }
-.tm-entry:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
-.tm-entry[aria-expanded="true"] {
+.sidebar nav a.tm-entry[aria-expanded="true"] {
   background: linear-gradient(90deg, #e8f2fe, #f4f9ff 92%);
-  color: #0a55ab;
+  box-shadow: inset 3px 0 0 var(--teal);
 }
-.tm-entry > span[aria-hidden] {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 19px; height: 19px; flex: 0 0 19px;
-}
-.tm-entry svg {
-  display: block; width: 19px; height: 19px; fill: none;
-  stroke: currentColor; stroke-width: 1.65;
-  stroke-linecap: round; stroke-linejoin: round;
-}
-.tm-entry .tm-name { font: 600 13px/1.5 var(--display); letter-spacing: .2px; }
 
 /* 导航项之间与分组之间补足呼吸感 */
 .sidebar nav { gap: 6px; }
 .sidebar nav .nav-group { padding: 19px 12px 6px; }
 
-/* 覆盖 side-bottom 的 auto 外边距，入口与状态行之间留出间距 */
+/* 入口与状态行之间留出间距 */
 .sidebar:has(.tm-entry) .side-bottom { margin-top: 12px; }
-@media (max-width: 980px) {
-  .tm-entry { padding: 11px 10px; gap: 8px; }
-  .tm-entry .tm-name { font-size: 12px; }
-}
-@media (max-width: 700px) { .tm-entry { display: none; } }
+@media (max-width: 700px) { .sidebar nav a.tm-entry { display: none; } }
 
 /* ---------- 流彩字 ---------- */
 .tm-flow-text {

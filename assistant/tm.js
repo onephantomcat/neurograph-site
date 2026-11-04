@@ -685,7 +685,10 @@
   /* ---------------- bind ---------------- */
   function bind() {
     var entry = $('#tm-entry');
-    if (entry) entry.addEventListener('click', function () { S.open ? closePanel() : openPanel(); });
+    if (entry) entry.addEventListener('click', function (e) {
+      e.preventDefault();
+      S.open ? closePanel() : openPanel();
+    });
 
     var close = $('#tm-close');
     if (close) close.addEventListener('click', closePanel);

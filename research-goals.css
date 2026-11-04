@@ -1,0 +1,22 @@
+.research-goal-boundary{color:#546579;line-height:1.8;font-size:14px;overflow-wrap:anywhere}
+.research-goal-toolbar{display:flex;flex-wrap:wrap;align-items:end;gap:14px;padding:18px;background:#fff;border:1px solid #d9e3ef;border-radius:14px;margin:20px 0}
+.research-goal-toolbar label{display:flex;flex-direction:column;gap:7px;font-size:13px;color:#354b65;min-width:0}
+.research-goal-toolbar input[type=search],.research-goal-toolbar select{min-height:40px;padding:8px;border:1px solid #c9d6e5;border-radius:7px;font:inherit;max-width:100%}
+.research-goal-toolbar input[type=search]{width:260px}
+.research-goal-toolbar .research-ready-filter{flex-direction:row;align-items:center;max-width:100%;padding:10px 0}
+.research-goal-group{border:1px solid #d9e3ef;border-radius:12px;background:#fff;margin-bottom:14px;overflow:hidden}
+.research-goal-group>summary{cursor:pointer;padding:20px;display:flex;justify-content:space-between;gap:12px;font-weight:600;line-height:1.7}
+.research-goal-group>summary small{color:#1264b5}
+.research-goal-meta{font-size:12px;color:#61748a;font-weight:400}
+.research-goal-body{padding:0 20px 20px;font-size:14px;line-height:1.8;overflow-wrap:anywhere}
+.research-goal-table{overflow-x:auto;border:1px solid #e1e8f1;border-radius:8px}
+.research-goal-table table{width:100%;min-width:680px;border-collapse:collapse}
+.research-goal-table th,.research-goal-table td{text-align:left;vertical-align:top;padding:12px;border-bottom:1px solid #e7edf4;font-size:13px;line-height:1.8}
+.research-goal-table thead{background:#f3f7fc}
+.research-goal-table tbody th{font-weight:500;width:34%}
+.research-task-state{display:inline-block;white-space:nowrap;font-size:12px;padding:2px 8px;border-radius:5px;background:#eef3fa;color:#35516f}
+.research-task-state.state-done{background:#e7f5ef;color:#216b4c}
+.research-task-state.state-blocked{background:#fff0df;color:#8b510e}
+.research-task-state.state-conditional{background:#f2eefa;color:#654995}
+.research-task-ready{display:block;color:#326248;font-size:11px}
+@media(max-width:600px){.research-goal-toolbar{padding:12px}.research-goal-toolbar label{width:100%}.research-goal-toolbar input[type=search]{width:100%;box-sizing:border-box}.research-goal-group>summary{flex-direction:column;padding:14px}.research-goal-body{padding:0 12px 12px}.research-goal-toolbar>span{font-size:12px}}

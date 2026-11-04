@@ -774,7 +774,7 @@ function renderView() {
     return;
   }
   if(view!=='architectures')ResearchWorkbench.close();
-  ({calendar:calendarPage,history:researchHistoryPage,workflow:workflowPage,goals:goalsPage,datasets:datasetsPage,evidence:evidencePage,conclusions:conclusionsPage,architectures:()=>ArchitectureLibrary.show()})[view]();
+  ({calendar:calendarPage,history:researchHistoryPage,workflow:workflowPage,goals:()=>ResearchGoals.show(data.goal_catalog,data.sources,openDialog),datasets:datasetsPage,evidence:evidencePage,conclusions:conclusionsPage,architectures:()=>ArchitectureLibrary.show()})[view]();
   archiveRoute();
   if(view==='datasets')ResearchWorkbench.routeDataset().catch(error=>{$('#research-content').insertAdjacentHTML('afterbegin',`<p role="alert">${escapeHTML(error.message)}</p>`);});
 }
@@ -785,6 +785,11 @@ function openDialog(eyebrow, content) {
   if (!$('#detail-dialog').open) $('#detail-dialog').showModal();
 }
 function openGoal(id) {
+  if (data.goal_catalog?.tasks.some(task=>task.id===id)) {
+    ResearchGoals.show(data.goal_catalog,data.sources,openDialog);
+    ResearchGoals.openTask(id);
+    return;
+  }
   const g = data.goals.find(item=>item.id===id);
   if (!g) return;
   const guide = g.student_guide;
@@ -857,7 +862,7 @@ async function refresh() {
     data=next;
     $('#error-banner').hidden=true;
     $('#record-banner').hidden=view==='datasets'||!data.record_changed;
-    $('#goal-nav-count').textContent=data.goals.filter(g=>g.status==='done').length+'/'+data.goals.length;
+    $('#goal-nav-count').textContent=data.goal_catalog ? data.goal_catalog.tasks.filter(g=>g.status==='done').length+'/'+data.goal_catalog.tasks.length : '';
     $('#sync-state').textContent=window.NEUROGRAPH_PUBLIC ? '公开快照 · '+data.reviewed_at : !data.remote.enabled ? '本地记录 · 按需核查' : (data.remote.stale ? (data.remote.refreshing?'连接中…':'数据待更新') : '● 已同步');
     $('#sync-state').className=data.remote.stale?'sync-stale':'sync-live';
     // Do not rebuild the search box while typing; its data refreshes on input or navigation.

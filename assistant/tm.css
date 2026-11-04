@@ -1,27 +1,46 @@
-/* 小TM · 项目私人答疑助手
+/* mini TM · 项目私人答疑助手
    与站点同系：teal → 钴蓝 → 紫 流彩，浅色卡片。 */
 
 :root { --tm-w: 440px; --tm-gutter: 6px; }
 
 /* ---------- 侧栏入口 ---------- */
+/* 与导航项同构：19px 线性图标、12px 图文间距、12px 内距，左缘与 nav 图标对齐 */
 .tm-entry {
-  display: flex; align-items: center; gap: 10px; width: 100%;
-  margin-top: auto; padding: 10px 13px; border: 1px solid transparent;
-  border-radius: 11px; background: transparent; cursor: pointer;
-  text-align: left; font: inherit; color: var(--ink);
-  transition: background .18s, border-color .18s;
+  display: flex; align-items: center; gap: 12px;
+  width: 100%; min-height: 42px; margin-top: auto;
+  padding: 10px 12px; border: 0; border-radius: 9px;
+  background: transparent; color: #4d657e;
+  font: 500 13px/1.5 var(--body); text-align: left; cursor: pointer;
+  transition: background .16s, color .16s;
 }
-.tm-entry:hover { background: var(--canvas); border-color: var(--line); }
+.tm-entry:hover { background: #f2f6fb; color: #12518f; }
 .tm-entry:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
-.tm-entry[aria-expanded="true"] { background: var(--teal-soft); border-color: rgba(23,107,104,.22); }
-.tm-entry .tm-entry-avatar { flex: none; width: 26px; height: 26px; }
-.tm-entry .tm-entry-text { display: flex; flex-direction: column; line-height: 1.25; min-width: 0; }
-.tm-entry .tm-name { font: 600 15px/1.3 var(--display); letter-spacing: .4px; }
-.tm-entry .tm-entry-sub { font-size: 10px; color: var(--muted); letter-spacing: .3px; }
+.tm-entry[aria-expanded="true"] {
+  background: linear-gradient(90deg, #e8f2fe, #f4f9ff 92%);
+  color: #0a55ab;
+}
+.tm-entry > span[aria-hidden] {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 19px; height: 19px; flex: 0 0 19px;
+}
+.tm-entry svg {
+  display: block; width: 19px; height: 19px; fill: none;
+  stroke: currentColor; stroke-width: 1.65;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+.tm-entry .tm-name { font: 600 13px/1.5 var(--display); letter-spacing: .2px; }
 
-/* 覆盖 side-bottom 的 auto 外边距，让入口与状态行一起贴底 */
-.sidebar:has(.tm-entry) .side-bottom { margin-top: 10px; }
-@media (max-width: 700px) { .tm-entry, .tm-entry .tm-entry-sub { display: none; } }
+/* 导航项之间与分组之间补足呼吸感 */
+.sidebar nav { gap: 6px; }
+.sidebar nav .nav-group { padding: 19px 12px 6px; }
+
+/* 覆盖 side-bottom 的 auto 外边距，入口与状态行之间留出间距 */
+.sidebar:has(.tm-entry) .side-bottom { margin-top: 12px; }
+@media (max-width: 980px) {
+  .tm-entry { padding: 11px 10px; gap: 8px; }
+  .tm-entry .tm-name { font-size: 12px; }
+}
+@media (max-width: 700px) { .tm-entry { display: none; } }
 
 /* ---------- 流彩字 ---------- */
 .tm-flow-text {
@@ -74,7 +93,11 @@ body.tm-resizing .shell, body.tm-resizing .tm-panel { transition: none !importan
   flex: none; display: flex; align-items: center; gap: 10px;
   padding: 13px 14px 12px 18px; border-bottom: 1px solid var(--line);
 }
-.tm-head .tm-avatar { width: 32px; height: 32px; flex: none; }
+.tm-head .tm-avatar {
+  width: 30px; height: 30px; flex: none;
+  color: var(--teal); fill: none; stroke: currentColor; stroke-width: 1.5;
+  stroke-linecap: round; stroke-linejoin: round;
+}
 .tm-head .tm-id { min-width: 0; flex: 1; }
 .tm-head .tm-id strong { display: block; font: 600 15px/1.4 var(--display); letter-spacing: .4px; }
 .tm-head .tm-id small { display: block; font-size: 10px; color: var(--muted); letter-spacing: .4px; }

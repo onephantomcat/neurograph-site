@@ -1,4 +1,4 @@
-/* 小TM · NL project assistant
+/* mini TM · NL project assistant
    纯前端：浏览器直连 DeepSeek，密钥只存本机 localStorage。 */
 (function () {
   'use strict';
@@ -167,7 +167,7 @@
   function buildMessages(question, chunks) {
     var snapshot = (S.kb && S.kb.generated_at) || nowMonth();
     var lines = [];
-    lines.push('你是「小TM」，NeuroGraph 项目的私人答疑助理，说话像一位熟悉项目内情的私人秘书：亲切、直接、不客套。');
+    lines.push('你是「mini TM」，NeuroGraph 项目的私人答疑助理，说话像一位熟悉项目内情的私人秘书：亲切、直接、不客套。');
     lines.push('你只依据下面提供的项目资料作答；资料没写的，直接说“站内资料没写到”，不要编造。');
     lines.push('');
     lines.push('当前使用者身份：' + S.member + '。称呼对方时用这个名字。');
@@ -306,7 +306,7 @@
     wrap.className = 'tm-welcome';
     wrap.innerHTML =
       '<h3>你好，' + esc(S.member) + '。</h3>' +
-      '<p>我是小TM，这个项目的私人助理。研究进度、方法取舍、数据口径、下一步安排，都可以直接问我；答不出来我会说清楚，不编。</p>' +
+      '<p>我是 mini TM，这个项目的私人助理。研究进度、方法取舍、数据口径、下一步安排，都可以直接问我；答不出来我会说清楚，不编。</p>' +
       '<div class="tm-chips">' +
       chip('最近一周有什么进展？') +
       chip('现在最大的风险是什么？') +
@@ -332,7 +332,7 @@
     body.className = 'tm-msg-body';
     var role = document.createElement('span');
     role.className = 'tm-msg-role';
-    role.textContent = m.role === 'user' ? S.member : '小TM';
+    role.textContent = m.role === 'user' ? S.member : 'mini TM';
     body.appendChild(role);
 
     if (m.think) {
@@ -558,7 +558,7 @@
     var out = ['# ' + (s.title || '对话') + '', '', '导出时间：' + nowMonth() + '　身份：' + S.member, ''];
     s.messages.forEach(function (m) {
       if (m.pending) return;
-      out.push('## ' + (m.role === 'user' ? S.member : '小TM'));
+      out.push('## ' + (m.role === 'user' ? S.member : 'mini TM'));
       out.push('');
       out.push(m.content || '');
       out.push('');
@@ -566,7 +566,7 @@
     var blob = new Blob([out.join('\n')], { type: 'text/markdown;charset=utf-8' });
     var a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = (s.title || '小TM对话').replace(/[\\/:*?"<>|]/g, '_') + '.md';
+    a.download = (s.title || 'mini TM 对话').replace(/[\\/:*?"<>|]/g, '_') + '.md';
     document.body.appendChild(a);
     a.click();
     setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 400);

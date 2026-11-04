@@ -273,7 +273,7 @@ body.tm-resizing .shell, body.tm-resizing .tm-panel { transition: none !importan
    上游 site-cleanup.css 若被浏览器缓存命中旧版本，这里仍保证侧栏与正文之间的间隙。
    只在宽屏生效，窄屏沿用站点原有节奏。 */
 @media (min-width: 1000px) {
-  .topbar { padding-left: 56px; padding-right: 56px; }
-  main { padding: 36px 56px 44px; }
+  .topbar { padding-left: 72px; padding-right: 72px; }
+  main { padding: 44px 72px 56px; }
 }
 

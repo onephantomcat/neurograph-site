@@ -8,7 +8,7 @@ window.WorkflowBoard = (() => {
     ['验证与交付', ['P15', 'P16', 'P17']],
   ];
   const width = 238;
-  const height = 108;
+  const height = 120;
   const columnGap = 64;
   const rowGap = 28;
   const margin = 26;

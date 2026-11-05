@@ -10,6 +10,12 @@
   font: 700 12px var(--display);
   letter-spacing: .08em;
 }
+#view-workflow .page-heading p {
+  display: block !important;
+  margin: 6px 0 0;
+  color: #5f7892;
+  font-size: 13px;
+}
 .wf-toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -45,7 +51,7 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 4px;
   padding: 10px 14px;
   border: 1.5px solid var(--wf-line);
   border-radius: 16px;
@@ -62,8 +68,9 @@
 .wf-status { padding: 2px 7px; border-radius: 7px; background: var(--wf-soft); color: #0b5aa8; font-size: 11px; font-weight: 600; }
 .wf-node.is-planned .wf-status { background: #fdf2e2; color: var(--wf-amber); }
 .wf-card-title { color: #16395c; font-size: 17px; line-height: 1.35; }
+.wf-node-top, .wf-card-title, .wf-card-note, .wf-node-foot { flex-shrink: 0; }
+.wf-card-title, .wf-card-note { max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .wf-card-note, .wf-node-foot { color: #5f7892; font-size: 12px; line-height: 1.4; }
-.wf-card-note { max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
 .wf-node-foot { margin-top: auto; }
 .wf-links { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .wf-links path { fill: none; stroke: #5991c6; stroke-width: 1.8; }

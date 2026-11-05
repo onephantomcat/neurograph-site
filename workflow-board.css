@@ -1,437 +1,121 @@
-/* ==========================================================================
-   项目流程 · 主题浏览画布
-   - 画布可滚轮缩放、按住拖动、双击复位
-   - 点击节点：背景模糊的就地浮层，按时间轴列出该模块的工作
-   ========================================================================== */
-
 #view-workflow {
-  --wf-ink: #12314f;
   --wf-line: rgba(15, 64, 120, .16);
   --wf-blue: #075fbb;
   --wf-soft: #eaf3ff;
   --wf-amber: #a85e14;
-  --wf-card: #ffffff;
   --wf-shadow: 0 1px 2px rgba(10, 34, 62, .06), 0 22px 44px -30px rgba(10, 34, 62, .55);
 }
-
-/* 画布使用正文的页面留白，缩放和拖动仍在画布内。 */
-#view-workflow.is-board-view {
-  height: calc(100dvh - 128px);
-  min-height: 560px;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+#view-workflow .wf-eyebrow {
+  color: var(--wf-blue);
+  font: 700 12px var(--display);
+  letter-spacing: .08em;
 }
-
-#view-workflow .workflow-board {
+.wf-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  align-items: center;
+  margin: 0 0 14px;
+}
+.wf-toolbar label { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; }
+.wf-toolbar select { max-width: 100%; }
+.workflow-board {
   position: relative;
-  height: 100%;
+  height: clamp(560px, 72dvh, 840px);
   overflow: hidden;
+  border: 1px solid var(--wf-line);
+  border-radius: 16px;
   background:
     radial-gradient(circle at 1px 1px, rgba(36, 86, 145, .10) 1px, transparent 1.6px) 0 0 / 22px 22px,
-    linear-gradient(180deg, #f8fbfe 0%, #eef4fb 100%);
+    linear-gradient(180deg, #f8fbfe, #eef4fb);
   cursor: grab;
   touch-action: none;
   user-select: none;
 }
-#view-workflow .workflow-board.is-panning { cursor: grabbing; }
-
-#view-workflow .workflow-canvas {
+.workflow-board.is-panning { cursor: grabbing; }
+.workflow-canvas { position: absolute; inset: 0 auto auto 0; transform-origin: 0 0; }
+.wf-lane {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 2100px;
-  height: 1500px;
-  transform-origin: 0 0;
-  will-change: transform;
+  top: 18px;
+  margin: 0;
+  color: #16395c;
+  font: 700 19px var(--display);
 }
-#view-workflow .workflow-canvas.is-panning { transition: none; }
-#view-workflow .workflow-canvas.is-fitting { transition: transform .34s cubic-bezier(.2, .75, .25, 1); }
-
-/* ---- 分区标题 ---------------------------------------------------------- */
-#view-workflow .wf-zone-head { position: absolute; left: 60px; }
-#view-workflow .wf-zone-head.is-main { top: 26px; }
-#view-workflow .wf-zone-head.is-plan { top: 520px; }
-#view-workflow .wf-eyebrow {
-  display: inline-block;
-  color: var(--wf-blue);
-  font-family: var(--display);
-  font-size: 15px;
-  font-weight: 700;
-  letter-spacing: .06em;
-}
-#view-workflow .wf-zone-head h2 {
-  margin: 6px 0 4px;
-  font-family: var(--display);
-  font-size: 28px;
-  line-height: 1.2;
-  letter-spacing: -.02em;
-  color: #102a47;
-}
-#view-workflow .wf-zone-head p { margin: 0; max-width: 760px; color: #5d7691; font-size: 14px; line-height: 1.6; }
-
-/* ---- 节点卡 ------------------------------------------------------------ */
-#view-workflow .wf-node {
+.wf-node {
   position: absolute;
   display: flex;
-  text-align: left;
   flex-direction: column;
-  gap: 8px;
-  padding: 13px 16px 12px;
+  gap: 5px;
+  padding: 10px 14px;
   border: 1.5px solid var(--wf-line);
   border-radius: 16px;
-  background: var(--wf-card);
-  box-shadow: var(--wf-shadow);
-  cursor: grab;
-  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
-}
-#view-workflow .wf-node:active,
-#view-workflow .wf-node.is-dragging { cursor: grabbing; z-index: 6; }
-#view-workflow .wf-node:hover {
-  border-color: rgba(7, 95, 187, .45);
-  box-shadow: 0 2px 4px rgba(10, 34, 62, .07), 0 30px 56px -30px rgba(10, 34, 62, .6);
-  transform: translateY(-2px);
-}
-#view-workflow .wf-node.is-planned {
-  border-style: dashed;
-  border-color: rgba(168, 94, 20, .42);
-  background: #fffdf9;
-}
-#view-workflow .wf-node.is-planned:hover { border-color: rgba(168, 94, 20, .7); }
-#view-workflow .wf-node:focus-visible { outline: 3px solid rgba(7, 95, 187, .5); outline-offset: 3px; }
-#view-workflow .wf-node[data-count="0"] { opacity: .72; }
-
-#view-workflow .wf-node-top { display: flex; align-items: center; gap: 8px; }
-#view-workflow .wf-no {
-  font-family: var(--display);
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--wf-blue);
-  letter-spacing: .06em;
-}
-#view-workflow .wf-node.is-planned .wf-no { color: var(--wf-amber); }
-#view-workflow .wf-status {
-  margin-left: auto;
-  padding: 2px 8px;
-  border-radius: 7px;
-  background: var(--wf-soft);
-  color: #0b5aa8;
-  font-size: 10.5px;
-  font-weight: 600;
-  white-space: nowrap;
-}
-#view-workflow .wf-node.is-planned .wf-status { background: #fdf2e2; color: var(--wf-amber); }
-#view-workflow .wf-node h3 { margin: 0; font-size: 18px; line-height: 1.45; color: #16395c; }
-#view-workflow .wf-points { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
-#view-workflow .wf-points li {
-  position: relative;
-  padding-left: 12px;
-  color: #5f7892;
-  font-size: 13px;
-  line-height: 1.5;
-}
-#view-workflow .wf-points li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: .62em;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #a9c2da;
-}
-#view-workflow .wf-node-foot {
-  margin-top: auto;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  color: #6f8aa5;
-  font-size: 10.5px;
-}
-#view-workflow .wf-node-foot b { color: var(--wf-blue); font-weight: 700; }
-
-/* ---- 连线层 ------------------------------------------------------------ */
-#view-workflow .wf-links { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
-#view-workflow .wf-links path { fill: none; stroke: #8fb4d8; stroke-width: 1.6; }
-#view-workflow .wf-links path.is-future { stroke: #d0a877; stroke-dasharray: 6 5; }
-
-/* ---- 医院并行支线 ------------------------------------------------------ */
-#view-workflow .wf-branch {
-  position: absolute;
-  left: 50px;
-  top: 430px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 9px 14px;
-  border: 1px dashed rgba(168, 94, 20, .5);
-  border-radius: 10px;
-  background: #fffdf8;
-  color: #7c5a33;
-  font-size: 12px;
-  line-height: 1.5;
-}
-#view-workflow .wf-branch strong { color: var(--wf-amber); font-size: 12.5px; }
-
-/* ---- 规划区外框 -------------------------------------------------------- */
-#view-workflow .wf-plan-frame {
-  position: absolute;
-  left: 30px;
-  top: 500px;
-  width: 1700px;
-  height: 620px;
-  border: 1.5px dashed rgba(168, 94, 20, .34);
-  border-radius: 22px;
-  background: rgba(255, 252, 246, .55);
-}
-
-/* ---- 图例与缩放控件 ---------------------------------------------------- */
-#view-workflow .wf-legend {
-  position: absolute;
-  left: 26px;
-  bottom: 20px;
-  z-index: 4;
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 8px 13px;
-  border: 1px solid rgba(15, 64, 120, .12);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, .88);
-  backdrop-filter: blur(6px);
-  color: #5b7channel;
-  color: #5b7390;
-  font-size: 11px;
-}
-#view-workflow .wf-legend span { display: inline-flex; align-items: center; gap: 6px; }
-#view-workflow .wf-legend i { display: inline-block; width: 16px; height: 0; border-top: 2px solid #8fb4d8; }
-#view-workflow .wf-legend i.is-future { border-top: 2px dashed #d0a877; }
-
-#view-workflow .wf-zoom {
-  position: absolute;
-  right: 24px;
-  bottom: 20px;
-  z-index: 4;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  border: 1px solid rgba(15, 64, 120, .14);
-  border-radius: 10px;
   background: #fff;
-  box-shadow: 0 10px 24px -20px rgba(10, 34, 62, .6);
-}
-#view-workflow .wf-zoom button {
-  width: 34px;
-  height: 32px;
-  border: 0;
-  background: transparent;
-  color: #37628c;
-  font-size: 16px;
-  line-height: 1;
+  box-shadow: var(--wf-shadow);
+  text-align: left;
   cursor: pointer;
 }
-#view-workflow .wf-zoom button + button { border-top: 1px solid #e8eff7; }
-#view-workflow .wf-zoom button:hover { background: #f2f8ff; }
-#view-workflow .wf-zoom button.is-reset { font-size: 12px; }
-
-#view-workflow .wf-basis {
+.wf-node.is-planned { border: 1.5px dashed rgba(168, 94, 20, .42); background: #fffdf9; }
+.wf-node.is-selected, .wf-node:hover { border-color: var(--wf-blue); }
+.wf-node:focus-visible { outline: 3px solid rgba(7, 95, 187, .5); outline-offset: 3px; }
+.wf-node-top { display: flex; align-items: center; justify-content: space-between; gap: 6px; width: 100%; }
+.wf-no { color: var(--wf-blue); font: 700 13px var(--display); }
+.wf-status { padding: 2px 7px; border-radius: 7px; background: var(--wf-soft); color: #0b5aa8; font-size: 11px; font-weight: 600; }
+.wf-node.is-planned .wf-status { background: #fdf2e2; color: var(--wf-amber); }
+.wf-card-title { color: #16395c; font-size: 17px; line-height: 1.35; }
+.wf-card-note, .wf-node-foot { color: #5f7892; font-size: 12px; line-height: 1.4; }
+.wf-card-note { max-width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.wf-node-foot { margin-top: auto; }
+.wf-links { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.wf-links path { fill: none; stroke: #5991c6; stroke-width: 1.8; }
+.wf-links path.is-future { stroke: #a85e14; stroke-dasharray: 6 5; }
+.wf-legend, .wf-zoom {
   position: absolute;
-  left: 26px;
-  right: 90px;
-  bottom: 58px;
-  z-index: 3;
-  margin: 0;
-  color: #8ba1b8;
-  font-size: 10.5px;
-  line-height: 1.5;
-  pointer-events: none;
-}
-
-/* ---- 节点浮层 ---------------------------------------------------------- */
-.wf-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 90;
-  display: grid;
-  place-items: center;
-  padding: 24px;
-  background: rgba(12, 30, 50, .28);
-  backdrop-filter: blur(7px) saturate(.9);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity .24s ease;
-}
-.wf-overlay.is-open { opacity: 1; pointer-events: auto; }
-
-.wf-sheet {
+  bottom: 14px;
   display: flex;
-  flex-direction: column;
-  width: min(760px, 94vw);
-  max-height: min(82vh, 820px);
-  overflow: hidden;
-  border: 1px solid rgba(15, 64, 120, .16);
+  align-items: center;
+  border: 1px solid var(--wf-line);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, .94);
+  color: #37628c;
+}
+.wf-legend { left: 12px; flex-wrap: wrap; gap: 8px 14px; padding: 7px 10px; font-size: 11px; max-width: calc(100% - 132px); }
+.wf-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.wf-legend i { width: 15px; border-top: 2px solid #5991c6; }
+.wf-legend i.is-future { border-top: 2px dashed #a85e14; }
+.wf-zoom { right: 12px; overflow: hidden; }
+.wf-zoom button { width: 32px; height: 34px; border: 0; background: transparent; color: inherit; cursor: pointer; }
+.wf-zoom button + button { border-left: 1px solid #e8eff7; }
+.wf-zoom button:hover { background: #eaf3ff; }
+.wf-zoom .is-reset { width: 42px; font-size: 12px; }
+.wf-caption, .wf-connection-list { color: #5b7390; font-size: 13px; line-height: 1.65; }
+.wf-caption { margin: 10px 0; }
+.wf-connection-list { padding: 10px 14px; border: 1px solid var(--wf-line); border-radius: 12px; background: #fff; }
+.wf-connection-list details { padding: 6px 0; }
+.wf-connection-list p { margin: 5px 0 5px 12px; }
+dialog.wf-taskbook-dialog {
+  width: min(880px, calc(100vw - 24px));
+  max-width: none;
+  max-height: 88dvh;
   border-radius: 20px;
-  background: #fff;
   box-shadow: 0 40px 90px -42px rgba(8, 26, 48, .6);
-  transform: translateY(14px) scale(.985);
-  transition: transform .28s cubic-bezier(.2, .75, .25, 1);
 }
-.wf-overlay.is-open .wf-sheet { transform: none; }
-
+.wf-taskbook-dialog::backdrop { background: rgba(12, 30, 50, .28); backdrop-filter: blur(7px) saturate(.9); }
 .wf-sheet-head {
+  position: sticky;
+  top: 0;
+  z-index: 1;
   display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 18px 20px 14px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
   border-bottom: 1px solid #e6eef7;
   background: #fbfdff;
 }
-.wf-sheet-head h2 { margin: 0; font-size: 19px; line-height: 1.35; color: #14385c; }
-.wf-sheet-head p { margin: 4px 0 0; color: #70879e; font-size: 12px; }
-.wf-sheet-head .wf-sheet-status {
-  margin-left: auto;
-  padding: 3px 9px;
-  border-radius: 8px;
-  background: var(--wf-soft, #eaf3ff);
-  color: #0b5aa8;
-  font-size: 11px;
-  font-weight: 600;
-  white-space: nowrap;
+.wf-sheet-head h2 { margin: 0; font-size: 19px; color: #14385c; }
+.wf-sheet-close { flex: none; width: 32px; height: 32px; border: 1px solid #dbe5f0; border-radius: 9px; background: #fff; color: #54708c; font-size: 18px; cursor: pointer; }
+.wf-book-content { padding: 16px 20px; }
+@media (max-width: 600px) {
+  .workflow-board { height: 480px; }
+  .wf-book-content { padding: 12px; }
 }
-.wf-sheet-close {
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  flex: none;
-  border: 1px solid #dbe5f0;
-  border-radius: 9px;
-  background: #fff;
-  color: #54708c;
-  font-size: 18px;
-  cursor: pointer;
-}
-.wf-sheet-close:hover { background: #f2f7fc; }
-
-.wf-timeline {
-  position: relative;
-  flex: 1;
-  min-height: 0;
-  overflow-y: auto;
-  padding: 20px 22px 26px 42px;
-  background: #fdfefe;
-}
-.wf-timeline::before {
-  content: "";
-  position: absolute;
-  left: 24px;
-  top: 26px;
-  bottom: 26px;
-  width: 1.5px;
-  background: linear-gradient(180deg, #cfe0f0, #e6eff7);
-}
-.wf-timeline-empty { margin: 40px auto; max-width: 340px; text-align: center; color: #8198ad; font-size: 13px; line-height: 1.8; }
-
-.wf-item { position: relative; margin-bottom: 14px; }
-.wf-item::before {
-  content: "";
-  position: absolute;
-  left: -22px;
-  top: 16px;
-  width: 9px;
-  height: 9px;
-  border: 2px solid #8fb4d8;
-  border-radius: 50%;
-  background: #fdfefe;
-}
-.wf-item:last-child { margin-bottom: 0; }
-.wf-item-card {
-  display: block;
-  width: 100%;
-  padding: 12px 14px;
-  border: 1px solid #e2ebf4;
-  border-radius: 12px;
-  background: #fff;
-  text-align: left;
-  transition: border-color .2s, box-shadow .2s, transform .2s;
-}
-.wf-item-card:hover {
-  border-color: rgba(7, 95, 187, .34);
-  box-shadow: 0 14px 28px -24px rgba(10, 34, 62, .6);
-  transform: translateY(-1px);
-}
-.wf-item-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; color: #7f95ab; font-size: 10.5px; }
-.wf-item-meta b { color: #0b5aa8; font-weight: 600; }
-.wf-item-card h3 { margin: 0 0 5px; font-size: 13.5px; line-height: 1.5; color: #21415f; }
-.wf-item-card p {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  margin: 0;
-  color: #61798f;
-  font-size: 11.5px;
-  line-height: 1.6;
-}
-.wf-item-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
-.wf-item-links a {
-  color: #0b5aa8;
-  font-size: 11px;
-  font-weight: 600;
-  text-decoration: none;
-}
-.wf-item-links a:hover { text-decoration: underline; }
-
-@media (max-width: 760px) {
-  #view-workflow.is-board-view { height: calc(100dvh - 102px); }
-  .wf-overlay { padding: 10px; }
-  .wf-sheet { width: 100%; max-height: 88vh; border-radius: 16px; }
-  .wf-timeline { padding: 16px 14px 20px 34px; }
-  .wf-timeline::before { left: 18px; }
-  .wf-item::before { left: -20px; }
-  #view-workflow .wf-legend { left: 12px; bottom: 12px; gap: 10px; padding: 6px 10px; }
-  #view-workflow .wf-zoom { right: 12px; bottom: 12px; }
-  #view-workflow .wf-basis { display: none; }
-}
-
-@media (min-width: 1000px) {
-  #view-workflow.is-board-view { height: calc(100dvh - 178px); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .wf-overlay, .wf-sheet, #view-workflow .workflow-canvas.is-fitting { transition: none !important; }
-}
-
-
-/* ---- 任务书（模块弹层） ------------------------------------------------ */
-.wf-taskbook .wf-sheet-head { padding: 16px 20px 13px; }
-.wf-taskbook .wf-sheet-close { margin-left: auto; }
-.wf-tb-body { display: flex; flex: 1; min-height: 0; }
-.wf-tb-side { width: 190px; flex: none; padding: 12px 10px; border-right: 1px solid #e9f0f7; background: #f8fbfe; overflow-y: auto; }
-.wf-tb-filter { display: flex; align-items: center; gap: 7px; width: 100%; padding: 9px 10px; margin-bottom: 5px; border: 1px solid transparent; border-radius: 9px; background: none; text-align: left; font-size: 12.5px; color: #2b4a68; cursor: pointer; transition: background .18s, border-color .18s; }
-.wf-tb-filter:hover { background: #eef6ff; }
-.wf-tb-filter.is-active { background: #fff; border-color: #cfe2f6; box-shadow: 0 10px 20px -18px rgba(16,40,70,.5); }
-.wf-tb-filter b { margin-left: auto; font: 600 10.5px 'Cascadia Code','Consolas',monospace; color: #7d94aa; }
-.wf-tb-list { flex: 1; min-width: 0; overflow-y: auto; padding: 16px 18px 22px; }
-.wf-tb-empty { margin: 60px auto; max-width: 280px; text-align: center; color: #8198ad; font-size: 12.5px; }
-.wf-tb-task { position: relative; padding: 13px 15px 11px; margin-bottom: 11px; border: 1px solid #e2ebf4; border-radius: 13px; background: #fff; animation: wf-tb-in .4s cubic-bezier(.2,.75,.25,1) both; transition: border-color .2s, box-shadow .2s, transform .2s; }
-.wf-tb-task:hover { border-color: rgba(7,95,187,.32); box-shadow: 0 16px 30px -26px rgba(10,34,62,.6); transform: translateY(-1px); }
-.wf-tb-task.is-pinned { border-color: #bfd8f3; background: linear-gradient(180deg,#fbfdff,#f5faff); }
-.wf-tb-task.is-done { background: #fcfefd; border-color: #e0eee8; }
-.wf-tb-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; font-size: 10.5px; color: #7f95ab; }
-.wf-tb-id { font: 600 10.5px 'Cascadia Code','Consolas',monospace; color: #5f7892; }
-.wf-tb-status { padding: 2px 8px; border-radius: 7px; font-size: 10px; font-weight: 600; }
-.wf-tb-status.is-planned { background: #eaf3ff; color: #0b5aa8; }
-.wf-tb-status.is-conditional { background: #fdf2e2; color: #a85e14; }
-.wf-tb-status.is-waiting { background: #eef2f6; color: #647a8b; }
-.wf-tb-status.is-done { background: #e6f2ef; color: #197b77; }
-.wf-tb-task h3 { margin: 0 0 4px; font-size: 14px; line-height: 1.5; color: #21415f; padding-right: 32px; }
-.wf-tb-task p { margin: 0; color: #61798f; font-size: 11.5px; line-height: 1.65; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.wf-tb-foot { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #e6eef7; font-size: 10.5px; color: #7b91a8; }
-.wf-tb-pin { position: absolute; right: 8px; top: 8px; width: 28px; height: 28px; display: grid; place-items: center; border: 0; border-radius: 8px; background: none; color: #9fb4c8; cursor: pointer; transition: background .18s, color .18s; }
-.wf-tb-pin:hover { background: #eef6ff; color: #2a5d8f; }
-.wf-tb-pin svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
-.wf-tb-task.is-pinned .wf-tb-pin { color: #075fbb; }
-@keyframes wf-tb-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-@media (max-width: 760px) { .wf-tb-side { width: 132px; } .wf-tb-filter { font-size: 11.5px; padding: 8px 7px; } .wf-tb-list { padding: 12px 10px 16px; } }
-@media (prefers-reduced-motion: reduce) { .wf-tb-task { animation: none; } }

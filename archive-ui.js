@@ -516,7 +516,6 @@ const ReportReader = (() => {
 ;
 'use strict';
 
-const taskBoardUI={query:'',phase:'all'};
 const conclusionUI={query:''};
 const conclusionTopics={
   diagnosis:{name:'辅助诊断',note:'患者／对照的开发比较与独立诊断验证分开阅读。不同队列和预算的AUC不放在同一排名中。'},
@@ -538,40 +537,6 @@ const conclusionEntries=[
   {key:'oa_readiness_audit',topic:'response',title:'OA治疗反应输入与QC核查',scope:'输入准备 · 未形成疗效预测验证'},
   {key:'public_pain_processing',topic:'response',title:'OA治疗标签与影像交集（历史记录）',scope:'2026年9月历史快照 · 非当前实时进度'}
 ];
-
-function goalViewTabs(board) {
-  return `<nav class="workspace-view-tabs" aria-label="目标浏览方式"><a href="#goals" ${board?'':'aria-current="page"'}>阶段清单</a><a href="#goals?mode=board" ${board?'aria-current="page"':''}>状态看板</a></nav>`;
-}
-
-function goalsPage() {
-  const board=routeParams().get('mode')==='board';
-  if(!board) {
-    goalsListPage();
-    document.querySelector('#view-goals .page-heading').insertAdjacentHTML('afterend',goalViewTabs(false));
-    return;
-  }
-  const phases=taskPhases();
-  $('#view-goals').innerHTML=`<div class="page-heading"><div><h1>计划与目标</h1><p class="muted">按现有任务状态查看正在推进的工作与阻碍。</p></div><span class="overview-date">记录整理于 ${escapeHTML(data.reviewed_at)}</span></div>${goalViewTabs(true)}<p class="workspace-boundary">看板只读，任务沿用原清单状态。完成项包含阴性实验；任务完成不代表三个临床终点或独立验证已完成。</p><div class="board-toolbar"><label>搜索任务<input id="board-search" type="search" placeholder="目标编号、任务、缺口或交付物" value="${escapeHTML(taskBoardUI.query)}"></label><label>研究阶段<select id="board-phase"><option value="all">全部阶段</option>${phases.map(phase=>`<option value="${escapeHTML(phase.id)}">${escapeHTML(phaseTitle(phase))}</option>`).join('')}</select></label><button class="button" id="board-reset">清除筛选</button><span id="board-count" role="status"></span></div><div class="task-board" tabindex="0" role="region" aria-label="任务状态看板，宽度不足时可左右滚动"></div>`;
-  $('#board-phase').value=taskBoardUI.phase;
-  $('#board-search').addEventListener('input',event=>{taskBoardUI.query=event.target.value;renderTaskBoard();});
-  $('#board-phase').addEventListener('change',event=>{taskBoardUI.phase=event.target.value;renderTaskBoard();});
-  $('#board-reset').addEventListener('click',()=>{taskBoardUI.query='';taskBoardUI.phase='all';$('#board-search').value='';$('#board-phase').value='all';renderTaskBoard();});
-  renderTaskBoard();
-}
-
-function boardGoals() {
-  const needle=taskBoardUI.query.trim().toLocaleLowerCase();
-  return orderedGoals(data.goals.filter(goal=>(taskBoardUI.phase==='all'||goal.phase===taskBoardUI.phase) && [goal.id,goal.title,goal.summary,goal.next,goal.criteria,goalTitle(goal),goalPurpose(goal),...(goal.student_guide?.steps||[]),goal.student_guide?.deliverable].join(' ').toLocaleLowerCase().includes(needle)));
-}
-
-function renderTaskBoard() {
-  const visible=boardGoals();
-  $('#board-count').textContent=`显示 ${visible.length} / ${data.goals.length} 项任务`;
-  $('.task-board').innerHTML=['active','blocked','planned','deferred','done'].map(status=>{
-    const items=visible.filter(goal=>goal.status===status);
-    return `<section class="board-column board-${status}" aria-label="${escapeHTML(statusNames[status])}"><header><h2><i aria-hidden="true"></i>${escapeHTML(statusNames[status])}</h2><span>${items.length}</span></header><div class="board-cards" tabindex="0" aria-label="${escapeHTML(statusNames[status])}任务列表">${items.length?items.map(goal=>`<button type="button" class="board-card" data-goal="${escapeHTML(goal.id)}"><span class="board-card-id">${escapeHTML(goal.id)}<small>${escapeHTML(phaseTitle(data.phases.find(phase=>phase.id===goal.phase)))}</small></span><h3>${escapeHTML(goalTitle(goal))}</h3><p>${escapeHTML(taskPreview(goalPurpose(goal),90))}</p><span class="board-card-foot">查看任务、步骤与依据 ↗</span></button>`).join(''):'<p class="board-empty">当前筛选下没有任务。</p>'}</div></section>`;
-  }).join('');
-}
 
 function conclusionRecords(snapshot=data) {
   return conclusionEntries.flatMap(entry=>{

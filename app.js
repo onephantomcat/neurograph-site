@@ -37,14 +37,11 @@ let refreshTimer;
 const escapeHTML = (value) => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const statusNames = {done:'已完成', active:'进行中', blocked:'受阻', planned:'计划中', deferred:'暂缓'};
 const stateNames = {PASS:'数值通过', FAILED:'技术失败', EXCLUDED:'质控排除', REPAIR_PENDING:'待复核', RUNNING:'运行中', COMPLETE:'批次结束', COMPLETE_WITH_FAILURES:'批次结束 · 有未通过', HALTED_GLOBAL_FAULT:'全局暂停', PENDING:'待处理'};
-const viewNames = {calendar:'项目日历', history:'研究历程', workflow:'项目流程', goals:'计划与目标', datasets:'数据与结果', evidence:'报告与证据', conclusions:'研究结论索引', architectures:'模型架构'};
-const resolveView = value => { const name=value.split('?')[0]; return ['ds005713','overview','guidance',''].includes(name) ? 'history' : name === 'methods' ? 'datasets' : (viewNames[name] ? name : 'history'); };
+const viewNames = {calendar:'项目日历', history:'研究历程', workflow:'项目流程', datasets:'数据与结果', evidence:'报告与证据', conclusions:'研究结论索引', architectures:'模型架构'};
+const resolveView = value => { const name=value.split('?')[0]; return ['ds005713','overview','guidance',''].includes(name) ? 'history' : name === 'methods' ? 'datasets' : name === 'goals' ? 'workflow' : (viewNames[name] ? name : 'history'); };
 let data = null;
 let loading = false;
 let view = resolveView(location.hash.slice(1));
-let filter = 'all';
-let query = '';
-let phaseFilter = 'all';
 let renderKey = '';
 let lastSuccess = 0;
 let sourceRequest = 0;
@@ -72,19 +69,6 @@ function goalCounts() { return Object.fromEntries(Object.keys(statusNames).map(s
 function goalTitle(goal) { return goal.student_guide?.title || goal.title; }
 function goalPurpose(goal) { return goal.student_guide?.purpose || goal.summary; }
 function phaseTitle(phase) { return data.student_workflow?.phase_names?.[phase.id] || phase.name; }
-function taskPhases() {
-  const order = data.student_workflow?.phase_order || data.phases.map(p => p.id);
-  return [...data.phases].sort((a,b) => order.indexOf(a.id)-order.indexOf(b.id));
-}
-function orderedGoals(goals) {
-  const order = data.student_workflow?.goal_order || data.goals.map(g => g.id);
-  return [...goals].sort((a,b) => order.indexOf(a.id)-order.indexOf(b.id));
-}
-function studentWorkflowPanel(showTerms = false) {
-  const guide = data.student_workflow;
-  if (!guide) return '';
-  return `<section class="panel student-workflow" aria-label="任务执行顺序"><h2>从这里开始</h2><p>${escapeHTML(guide.objective)}</p><div class="student-route-grid">${guide.routes.map((route,i) => `<article><span class="student-step-number">${i+1}</span><h3>${escapeHTML(route.title)}</h3><p>${escapeHTML(route.text)}</p><div class="student-task-links">${route.goals.map(id => { const goal=data.goals.find(g=>g.id===id); return `<button class="text-link" data-goal="${escapeHTML(id)}">${escapeHTML(id+' '+goalTitle(goal))} ↗</button>`; }).join('')}</div></article>`).join('')}</div><p class="data-note">${escapeHTML(guide.pause_note)}</p><p class="data-note">${escapeHTML(guide.note)}</p>${showTerms ? `<details class="student-terms"><summary>缩写看不懂时，查这里</summary><dl>${guide.glossary.map(([term,meaning])=>`<dt>${escapeHTML(term)}</dt><dd>${escapeHTML(meaning)}</dd>`).join('')}</dl></details>` : ''}</section>`;
-}
 // Cards preview the task; the existing dialog retains the full record.
 function taskPreview(text, limit=150) {
   const value=String(text || '').trim();
@@ -546,25 +530,8 @@ function overview() {
 }
 
 function workflowPage() {
-  // 画布与节点由 workflow-board.js 挂载；这里只准备容器并触发一次渲染。
-  const view = $('#view-workflow');
-  view.innerHTML = '<div class="workflow-board-mount" hidden></div>';
-  view.classList.add('is-board-view');
-  if (window.WorkflowBoard) window.WorkflowBoard.mount();
-}
-
-function goalsListPage() {
-  const counts = goalCounts();
-  $('#view-goals').innerHTML = `<div class="page-heading"><div><h1>计划与目标</h1></div><div class="muted">整理于 ${escapeHTML(data.reviewed_at)}</div></div>${studentWorkflowPanel(true)}<details class="objective student-technical"><summary>查看完整研究目标与拟议指标</summary><p>${escapeHTML(data.objective)}</p></details><div class="filter-toolbar"><div class="filter-chips" aria-label="按状态筛选"><button data-filter="all">全部 <b>${data.goals.length}</b></button>${Object.entries(statusNames).map(([s,label])=>`<button data-filter="${s}">${label} <b>${counts[s]}</b></button>`).join('')}</div><div class="search-row"><label class="search"><span aria-hidden="true">⌕</span><input id="goal-search" type="search" placeholder="搜索目标或关键词" value="${escapeHTML(query)}" aria-label="搜索目标"></label><select id="phase-filter" aria-label="按阶段筛选"><option value="all">全部阶段</option>${taskPhases().map(p=>`<option value="${p.id}">${escapeHTML(phaseTitle(p))}</option>`).join('')}</select></div></div><div id="goal-results"></div>`;
-  $('#goal-search').addEventListener('input', event => {query=event.target.value; goalResults();});
-  $('#phase-filter').value = phaseFilter;
-  $('#phase-filter').addEventListener('change', event => {phaseFilter=event.target.value; goalResults();});
-  goalResults();
-}
-function goalResults() {
-  document.querySelectorAll('[data-filter]').forEach(el => {el.classList.toggle('selected', el.dataset.filter===filter);el.setAttribute('aria-pressed',String(el.dataset.filter===filter));});
-  const filtered = data.goals.filter(g => (filter==='all'||g.status===filter) && (phaseFilter==='all'||g.phase===phaseFilter) && [g.id,g.title,g.summary,g.next,g.criteria,goalTitle(g),goalPurpose(g),...(g.student_guide?.steps || []),g.student_guide?.deliverable || ''].join(' ').toLowerCase().includes(query.toLowerCase()));
-  $('#goal-results').innerHTML = filtered.length ? taskPhases().map(p => {const goals=orderedGoals(filtered.filter(g=>g.phase===p.id));const phaseGoals=data.goals.filter(g=>g.phase===p.id);const phaseDone=phaseGoals.filter(g=>g.status==='done').length;return goals.length ? `<div class="goal-phase">${sectionTitle(escapeHTML(phaseTitle(p)), `<span class="muted">${goals.length} 项目标</span>`)}<div class="goal-phase-bar"><span class="goal-phase-count"><b>${phaseDone}/${phaseGoals.length}</b><small> 已完成</small></span>${progressTrack(phaseDone, phaseGoals.length, escapeHTML(p.name) + '完成度')}</div><div class="goal-grid">${goals.map(goalCard).join('')}</div></div>` : '';}).join('') : '<div class="empty panel"><h3>没有匹配的目标</h3><p>调整关键词或筛选条件，再试一次。</p><button class="button" data-action="reset">清除筛选</button></div>';
+  if (location.hash.split('?')[0] === '#goals') history.replaceState(null, '', '#workflow?list=1');
+  WorkflowBoard.mount($('#view-workflow'), data.goal_catalog, data.sources, openDialog, routeParams());
 }
 
 let matchedDesign = 'primary99';
@@ -758,6 +725,7 @@ function evidencePage() {
   archiveEvidencePage();
 }
 function showView(next) {
+  $('#workflow-taskbook')?.close();
   view = resolveView(next);
   $('#record-banner').hidden=view==='datasets'||!data?.record_changed;
   document.querySelectorAll('.view').forEach(el=>el.hidden=el.id!=='view-'+view);
@@ -774,7 +742,7 @@ function renderView() {
     return;
   }
   if(view!=='architectures')ResearchWorkbench.close();
-  ({calendar:calendarPage,history:researchHistoryPage,workflow:workflowPage,goals:()=>ResearchGoals.show(data.goal_catalog,data.sources,openDialog),datasets:datasetsPage,evidence:evidencePage,conclusions:conclusionsPage,architectures:()=>ArchitectureLibrary.show()})[view]();
+  ({calendar:calendarPage,history:researchHistoryPage,workflow:workflowPage,datasets:datasetsPage,evidence:evidencePage,conclusions:conclusionsPage,architectures:()=>ArchitectureLibrary.show()})[view]();
   archiveRoute();
   if(view==='datasets')ResearchWorkbench.routeDataset().catch(error=>{$('#research-content').insertAdjacentHTML('afterbegin',`<p role="alert">${escapeHTML(error.message)}</p>`);});
 }
@@ -789,8 +757,8 @@ function openDialog(eyebrow, content, evidence = false) {
 }
 function openGoal(id) {
   if (data.goal_catalog?.tasks.some(task=>task.id===id)) {
-    ResearchGoals.show(data.goal_catalog,data.sources,openDialog);
-    ResearchGoals.openTask(id);
+    WorkflowTasks.setContext(data.goal_catalog,data.sources,openDialog);
+    WorkflowTasks.openTask(id);
     return;
   }
   const g = data.goals.find(item=>item.id===id);
@@ -857,10 +825,7 @@ document.addEventListener('click', event=>{
   if(!target)return;
   if(target.dataset.goal)openGoal(target.dataset.goal);
   if(target.dataset.source)openSource(target.dataset.source);
-  if(target.dataset.filter){filter=target.dataset.filter;goalResults();}
-  if(target.dataset.phase){phaseFilter=target.dataset.phase;filter='all';query='';location.hash='goals';}
   if(target.dataset.action==='queue')openQueue();
-  if(target.dataset.action==='reset'){filter='all';phaseFilter='all';query='';goalsPage();}
 });
 $('#close-dialog').addEventListener('click',()=>$('#detail-dialog').close());
 $('#detail-dialog').addEventListener('click',event=>{if(event.target===$('#detail-dialog')){const rect=event.target.getBoundingClientRect();if(event.clientX<rect.left||event.clientX>rect.right||event.clientY<rect.top||event.clientY>rect.bottom)event.target.close();}});
@@ -879,11 +844,10 @@ async function refresh() {
     data=next;
     $('#error-banner').hidden=true;
     $('#record-banner').hidden=view==='datasets'||!data.record_changed;
-    $('#goal-nav-count').textContent=data.goal_catalog?.kind==='agent-plan' ? data.goal_catalog.tasks.filter(g=>g.ready).length+'可分派' : data.goal_catalog ? data.goal_catalog.tasks.filter(g=>g.status==='done').length+'/'+data.goal_catalog.tasks.length : '';
     $('#sync-state').textContent=window.NEUROGRAPH_PUBLIC ? '公开快照 · '+data.reviewed_at : !data.remote.enabled ? '本地记录 · 按需核查' : (data.remote.stale ? (data.remote.refreshing?'连接中…':'数据待更新') : '● 已同步');
     $('#sync-state').className=data.remote.stale?'sync-stale':'sync-live';
     // Do not rebuild the search box while typing; its data refreshes on input or navigation.
-    if(key!==renderKey && !$('#detail-dialog').open && !document.activeElement?.matches('input,select,textarea')){
+    if(key!==renderKey && !$('#detail-dialog').open && !$('#workflow-taskbook')?.open && !document.activeElement?.matches('input,select,textarea')){
       renderView();renderKey=key;
     }
   } catch {

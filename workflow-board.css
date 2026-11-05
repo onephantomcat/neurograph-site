@@ -398,3 +398,37 @@ main:has(> #view-workflow.is-board-view) { padding: 0; }
 @media (prefers-reduced-motion: reduce) {
   .wf-overlay, .wf-sheet, #view-workflow .workflow-canvas.is-fitting { transition: none !important; }
 }
+
+
+/* ---- 任务书（模块弹层） ------------------------------------------------ */
+.wf-taskbook .wf-sheet-head { padding: 16px 20px 13px; }
+.wf-taskbook .wf-sheet-close { margin-left: auto; }
+.wf-tb-body { display: flex; flex: 1; min-height: 0; }
+.wf-tb-side { width: 190px; flex: none; padding: 12px 10px; border-right: 1px solid #e9f0f7; background: #f8fbfe; overflow-y: auto; }
+.wf-tb-filter { display: flex; align-items: center; gap: 7px; width: 100%; padding: 9px 10px; margin-bottom: 5px; border: 1px solid transparent; border-radius: 9px; background: none; text-align: left; font-size: 12.5px; color: #2b4a68; cursor: pointer; transition: background .18s, border-color .18s; }
+.wf-tb-filter:hover { background: #eef6ff; }
+.wf-tb-filter.is-active { background: #fff; border-color: #cfe2f6; box-shadow: 0 10px 20px -18px rgba(16,40,70,.5); }
+.wf-tb-filter b { margin-left: auto; font: 600 10.5px 'Cascadia Code','Consolas',monospace; color: #7d94aa; }
+.wf-tb-list { flex: 1; min-width: 0; overflow-y: auto; padding: 16px 18px 22px; }
+.wf-tb-empty { margin: 60px auto; max-width: 280px; text-align: center; color: #8198ad; font-size: 12.5px; }
+.wf-tb-task { position: relative; padding: 13px 15px 11px; margin-bottom: 11px; border: 1px solid #e2ebf4; border-radius: 13px; background: #fff; animation: wf-tb-in .4s cubic-bezier(.2,.75,.25,1) both; transition: border-color .2s, box-shadow .2s, transform .2s; }
+.wf-tb-task:hover { border-color: rgba(7,95,187,.32); box-shadow: 0 16px 30px -26px rgba(10,34,62,.6); transform: translateY(-1px); }
+.wf-tb-task.is-pinned { border-color: #bfd8f3; background: linear-gradient(180deg,#fbfdff,#f5faff); }
+.wf-tb-task.is-done { background: #fcfefd; border-color: #e0eee8; }
+.wf-tb-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; font-size: 10.5px; color: #7f95ab; }
+.wf-tb-id { font: 600 10.5px 'Cascadia Code','Consolas',monospace; color: #5f7892; }
+.wf-tb-status { padding: 2px 8px; border-radius: 7px; font-size: 10px; font-weight: 600; }
+.wf-tb-status.is-planned { background: #eaf3ff; color: #0b5aa8; }
+.wf-tb-status.is-conditional { background: #fdf2e2; color: #a85e14; }
+.wf-tb-status.is-waiting { background: #eef2f6; color: #647a8b; }
+.wf-tb-status.is-done { background: #e6f2ef; color: #197b77; }
+.wf-tb-task h3 { margin: 0 0 4px; font-size: 14px; line-height: 1.5; color: #21415f; padding-right: 32px; }
+.wf-tb-task p { margin: 0; color: #61798f; font-size: 11.5px; line-height: 1.65; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.wf-tb-foot { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #e6eef7; font-size: 10.5px; color: #7b91a8; }
+.wf-tb-pin { position: absolute; right: 8px; top: 8px; width: 28px; height: 28px; display: grid; place-items: center; border: 0; border-radius: 8px; background: none; color: #9fb4c8; cursor: pointer; transition: background .18s, color .18s; }
+.wf-tb-pin:hover { background: #eef6ff; color: #2a5d8f; }
+.wf-tb-pin svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.wf-tb-task.is-pinned .wf-tb-pin { color: #075fbb; }
+@keyframes wf-tb-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (max-width: 760px) { .wf-tb-side { width: 132px; } .wf-tb-filter { font-size: 11.5px; padding: 8px 7px; } .wf-tb-list { padding: 12px 10px 16px; } }
+@media (prefers-reduced-motion: reduce) { .wf-tb-task { animation: none; } }

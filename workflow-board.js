@@ -480,73 +480,141 @@
     });
   }
 
-  /* ---- 8. 节点浮层 ------------------------------------------------------ */
+  /* ---- 8. 节点浮层：待办任务书 ---------------------------------------- */
+  const TASKS_URL = new URL('workflow-tasks.json', scriptBase);
+  const PIN_KEY = 'ng.workflow.tasks.pinned.v1';
+  let tasksData = null;
+  let taskbook = { filter: 'todo', bucket: { todo: [], done: [] }, pinned: new Set(), module: null };
+
+  function loadTasks() {
+    if (!tasksData) {
+      tasksData = fetch(TASKS_URL, { cache: 'no-cache' })
+        .then((response) => (response.ok ? response.json() : { modules: {} }))
+        .catch(() => ({ modules: {} }));
+    }
+    return tasksData;
+  }
+
+  function loadPinned() {
+    try {
+      const raw = JSON.parse(localStorage.getItem(PIN_KEY) || '[]');
+      return new Set(Array.isArray(raw) ? raw : []);
+    } catch (_) {
+      return new Set();
+    }
+  }
+
+  function savePinned() {
+    try { localStorage.setItem(PIN_KEY, JSON.stringify([...taskbook.pinned])); } catch (_) {}
+  }
+
   function ensureOverlay() {
     if (state.overlay) return state.overlay;
     const overlay = document.createElement('div');
     overlay.className = 'wf-overlay';
     overlay.innerHTML = `
-      <div class="wf-sheet" role="dialog" aria-modal="true" aria-labelledby="wf-sheet-title">
+      <div class="wf-sheet wf-taskbook" role="dialog" aria-modal="true" aria-labelledby="wf-sheet-title">
         <div class="wf-sheet-head">
           <div><h2 id="wf-sheet-title"></h2><p id="wf-sheet-sub"></p></div>
-          <span class="wf-sheet-status" id="wf-sheet-status" hidden></span>
           <button type="button" class="wf-sheet-close" aria-label="关闭">×</button>
         </div>
-        <div class="wf-timeline" id="wf-timeline"></div>
+        <div class="wf-tb-body">
+          <aside class="wf-tb-side" aria-label="任务分类">
+            <button type="button" class="wf-tb-filter" data-tb-filter="todo">待办任务<b></b></button>
+            <button type="button" class="wf-tb-filter" data-tb-filter="all">全部任务<b></b></button>
+            <button type="button" class="wf-tb-filter" data-tb-filter="done">已完成任务<b></b></button>
+          </aside>
+          <div class="wf-tb-list" id="wf-tb-list"></div>
+        </div>
       </div>`;
     document.body.append(overlay);
     overlay.addEventListener('click', (event) => {
       if (event.target === overlay || event.target.closest('.wf-sheet-close')) closeSheet();
     });
-    overlay.querySelector('#wf-timeline').addEventListener('click', (event) => {
-      if (event.target.closest('a[href^="#"]')) closeSheet();
+    overlay.querySelector('.wf-tb-side').addEventListener('click', (event) => {
+      const button = event.target.closest('[data-tb-filter]');
+      if (!button || button.dataset.tbFilter === taskbook.filter) return;
+      taskbook.filter = button.dataset.tbFilter;
+      renderTaskbook();
+    });
+    overlay.querySelector('#wf-tb-list').addEventListener('click', (event) => {
+      const pin = event.target.closest('[data-pin]');
+      if (!pin) return;
+      const id = pin.dataset.pin;
+      if (taskbook.pinned.has(id)) taskbook.pinned.delete(id);
+      else taskbook.pinned.add(id);
+      savePinned();
+      renderTaskbook();
     });
     state.overlay = overlay;
     return overlay;
   }
 
+  function statusClass(status) {
+    if (status === '拟开展') return 'is-planned';
+    if (status === '条件任务') return 'is-conditional';
+    if (status === '等待条件') return 'is-waiting';
+    return 'is-done';
+  }
+
+  function taskCard(task, index) {
+    const done = task.status === '已完成';
+    const pinned = taskbook.pinned.has(task.id);
+    const pin = done ? '' : `<button type="button" class="wf-tb-pin" data-pin="${esc(task.id)}" aria-label="${pinned ? '取消置顶' : '置顶任务'}" aria-pressed="${pinned}">
+      <svg viewBox="0 0 24 24"><path d="M9 4h6l-1 6 3 2v2H7v-2l3-2zM12 14v6"/></svg></button>`;
+    const foot = done
+      ? `完成于 ${esc(task.date || '')}`
+      : `交付物：${esc(task.deliverable || '待定')}`;
+    return `<article class="wf-tb-task${pinned ? ' is-pinned' : ''}${done ? ' is-done' : ''}" data-id="${esc(task.id)}" style="animation-delay:${index * 40}ms">
+      ${pin}
+      <div class="wf-tb-meta"><span class="wf-tb-id">${esc(task.id)}</span><span class="wf-tb-status ${statusClass(task.status)}">${esc(task.status)}</span></div>
+      <h3>${esc(task.title)}</h3>
+      <p>${esc((task.action || task.acceptance || '').slice(0, 140))}</p>
+      <div class="wf-tb-foot">${foot}</div>
+    </article>`;
+  }
+
+  function renderTaskbook() {
+    const overlay = state.overlay;
+    if (!overlay) return;
+    const { todo, done } = taskbook.bucket;
+    const count = (filter) => filter === 'todo' ? todo.length : filter === 'done' ? done.length : todo.length + done.length;
+    for (const button of overlay.querySelectorAll('[data-tb-filter]')) {
+      const filter = button.dataset.tbFilter;
+      button.classList.toggle('is-active', filter === taskbook.filter);
+      button.querySelector('b').textContent = count(filter);
+    }
+    let items;
+    if (taskbook.filter === 'done') items = done;
+    else if (taskbook.filter === 'all') items = [...todo, ...done];
+    else items = todo;
+    items = items.slice().sort((a, b) => (taskbook.pinned.has(b.id) ? 1 : 0) - (taskbook.pinned.has(a.id) ? 1 : 0));
+    const list = overlay.querySelector('#wf-tb-list');
+    list.innerHTML = items.length
+      ? items.map(taskCard).join('')
+      : '<p class="wf-tb-empty">这个分类下还没有任务。</p>';
+    list.scrollTop = 0;
+  }
+
   async function openModule(id) {
     const module = MODULES.find((item) => item.id === id);
     if (!module) return;
-    const map = await loadMap();
-    const items = (map.modules?.[id] || []).slice().reverse();
+    const data = await loadTasks();
+    taskbook.bucket = data.modules?.[id] || { todo: [], done: [] };
+    taskbook.pinned = loadPinned();
+    taskbook.filter = taskbook.bucket.todo.length ? 'todo' : 'done';
+    taskbook.module = id;
     const overlay = ensureOverlay();
     state.active = id;
     state.lastFocus = document.activeElement;
-
     overlay.querySelector('#wf-sheet-title').textContent = `${module.no || module.id} ${module.title}`;
-    overlay.querySelector('#wf-sheet-sub').textContent = items.length
-      ? `按记录时间从新到旧 · 共 ${items.length} 项`
-      : '该模块尚无已登记的工作记录';
-    const status = overlay.querySelector('#wf-sheet-status');
-    status.textContent = module.status;
-    status.hidden = false;
-
-    const timeline = overlay.querySelector('#wf-timeline');
-    if (!items.length) {
-      timeline.innerHTML = `<p class="wf-timeline-empty">这个模块还没有已登记的工作。后续实验与核查记录出现后，会自动在这里按时间排列。</p>`;
-    } else {
-      const index = await loadDashboard();
-      timeline.innerHTML = items.map((item) => {
-        const record = index.get(item.key);
-        const summary = esc((record?.summary || record?.result || record?.title || item.title).slice(0, 160));
-        const label = esc(record?.label || record?.status || '');
-        return `<article class="wf-item">
-          <div class="wf-item-card">
-            <div class="wf-item-meta"><b>${esc(item.date)}</b>${label ? `<span>${label}</span>` : ''}</div>
-            <h3>${esc(item.title)}</h3>
-            <p>${summary}</p>
-            <div class="wf-item-links">
-              <a href="#history?focus=${encodeURIComponent(item.key)}&amp;date=${encodeURIComponent(item.date)}">查看工作详情 ↗</a>
-              <a href="#datasets?tab=results">数据处理结果 ↗</a>
-            </div>
-          </div>
-        </article>`;
-      }).join('');
-    }
+    const total = taskbook.bucket.todo.length + taskbook.bucket.done.length;
+    overlay.querySelector('#wf-sheet-sub').textContent = total
+      ? `待办 ${taskbook.bucket.todo.length} · 已完成 ${taskbook.bucket.done.length}`
+      : '该模块尚无已登记任务';
+    renderTaskbook();
     overlay.classList.add('is-open');
     document.body.style.overflow = 'hidden';
-    timeline.scrollTop = 0;
     overlay.querySelector('.wf-sheet-close').focus({ preventScroll: true });
   }
 

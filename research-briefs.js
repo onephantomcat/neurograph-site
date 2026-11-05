@@ -171,7 +171,8 @@ const ResearchBriefs = (() => {
 
   function sourceDetails(id) {
     const body=document.querySelector('#dialog-body');
-    if(!body || !document.querySelector('#detail-dialog')?.open)return;
+    const dialog=document.querySelector('#detail-dialog');
+    if(!body || !dialog?.open || dialog.classList.contains('evidence-dialog'))return;
     const b=fromSource(id);
     if(body.querySelector('[data-research-brief="report"]'))return;
     if(b){
@@ -237,7 +238,7 @@ const ResearchBriefs = (() => {
       const original=goalCard;
       goalCard=function(goal){const b=copy.goals[goal.id];return b?original(goal).replace(/<p>[\s\S]*?<\/p>/,`<p>${esc(b.model)} · ${esc(b.dataset)}。${esc(b.action)}</p>`):original(goal);};
     }
-    if(typeof openSource==='function') {const original=openSource;openSource=async function(id){await original(id);sourceDetails(id);};}
+    if(typeof openSource==='function') {const original=openSource;openSource=async function(id, locator){await original(id, locator);sourceDetails(id);};}
     if(typeof renderView==='function') {const original=renderView;renderView=function(){original();present();};}
     for(const name of ['renderConclusions','renderTaskBoard','renderCalendarResults']) {
       if(typeof window[name]==='function'){const original=window[name];window[name]=function(...args){const result=original(...args);present();return result;};}

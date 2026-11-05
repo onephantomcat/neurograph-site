@@ -17,17 +17,17 @@
   <script src="./architecture-loader.js?v=20261028-reading" defer></script>
   <link rel="stylesheet" href="./research-goals.css?v=20261105-agent">
   <script src="./research-goals.js?v=20261105-agent" defer></script>
-  <script src="./app.js?v=20261105-agent-goals" defer></script>
+  <script src="./app.js?v=20261105-evidence-context" defer></script>
   <link rel="stylesheet" href="./research-briefs.css?v=20261102-guidance-layout-v5">
   <link rel="stylesheet" href="./history-board.css?v=20261105-history-fix">
   <link rel="stylesheet" href="./dialog-viewer.css?v=20261102-dialog">
   <link rel="stylesheet" href="./workflow-board.css?v=20261105-page-spacing">
   <script src="./research-briefs-data.js?v=20261028-reading" defer></script>
-  <script src="./research-briefs.js?v=20261105-history-fix" defer></script>
+  <script src="./research-briefs.js?v=20261105-evidence-context" defer></script>
   <script src="./history-board.js?v=20261105-history-fix" defer></script>
   <script src="./dialog-viewer.js?v=20261102-dialog" defer></script>
   <script src="./workflow-board.js?v=20261103-workflow" defer></script>
-  <link rel="stylesheet" href="./assistant/tm.css?v=20261104-gap3">
+  <link rel="stylesheet" href="./assistant/tm.css?v=20261105-evidence-context">
 </head>
 <body>
   <a class="skip" href="#main">跳到主要内容</a>
@@ -95,18 +95,20 @@
     </div>
     <div class="tm-messages" id="tm-messages" aria-live="polite"></div>
     <div class="tm-composer">
+      <div id="tm-context" class="tm-context" aria-label="待发送引用" hidden></div>
       <div class="tm-input-wrap">
         <textarea class="tm-input" id="tm-input" rows="1" placeholder="问点什么…（Enter 发送，Shift+Enter 换行）"></textarea>
         <button class="tm-send" id="tm-send" type="button" aria-label="发送"></button>
       </div>
       <div class="tm-composer-foot">
         <span>Esc 关闭面板</span><span class="tm-spacer"></span>
-        <span>密钥只存本机浏览器</span>
+        <span id="tm-service-label">项目资料问答</span>
       </div>
     </div>
     <div class="tm-sheet" id="tm-sheet"></div>
   </section>
   <script src="./assistant/tm-profile.js?v=20261104-gap3" defer></script>
-  <script src="./assistant/tm.js?v=20261104-gap3" defer></script>
+  <script src="./assistant/evidence.js?v=20261105-evidence-context" defer></script>
+  <script src="./assistant/tm.js?v=20261105-evidence-context" defer></script>
 </body>
 </html>

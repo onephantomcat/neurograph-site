@@ -21,7 +21,6 @@
 
 /* 入口与状态行之间留出间距 */
 .sidebar:has(.tm-entry) .side-bottom { margin-top: 12px; }
-@media (max-width: 700px) { .sidebar nav a.tm-entry { display: none; } }
 
 /* ---------- 流彩字 ---------- */
 .tm-flow-text {
@@ -277,3 +276,27 @@ body.tm-resizing .shell, body.tm-resizing .tm-panel { transition: none !importan
   main { padding: 44px 72px 56px; }
 }
 
+.tm-context { display: flex; flex-wrap: wrap; gap: 6px; max-height: 110px; overflow: auto; margin-bottom: 8px; }
+.tm-context[hidden], .evidence-selection[hidden], .tm-field[hidden] { display: none; }
+.tm-context-chip { display: inline-flex; min-width: 0; max-width: 100%; border: 1px solid var(--line); border-radius: 9px; background: var(--canvas); }
+.tm-context-chip button { padding: 4px 8px; font-size: 12px; color: var(--ink); }
+.tm-context-chip button:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tm-cites button { text-align: start; }
+
+#detail-dialog.evidence-dialog {
+  position: fixed; z-index: 55; inset: 4vh 0 auto; margin: 0 auto;
+  width: min(1180px, calc(100vw - 32px)); max-width: none; max-height: 92vh;
+}
+.evidence-dialog .report-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
+.evidence-dialog .source-content { white-space: normal; }
+.evidence-dialog .source-content pre { white-space: pre-wrap; }
+.evidence-dialog .report-table { margin-top: 8px; }
+.evidence-dialog .report-table button { white-space: nowrap; }
+.evidence-selection { position: fixed; z-index: 2; background: var(--ink); color: white; box-shadow: 0 4px 20px #142b4955; }
+.evidence-target { outline: 2px solid #1975c5; outline-offset: 2px; background-color: #e8f4ff; }
+.evidence-pdf { position: relative; margin: 12px auto 0; background: white; }
+.evidence-pdf canvas { display: block; max-width: none; }
+.evidence-pdf .textLayer { position: absolute; inset: 0; }
+@media (min-width: 901px) {
+  body.tm-open #detail-dialog.evidence-dialog { right: var(--tm-w); width: min(1180px, calc(100vw - var(--tm-w) - 32px)); }
+}

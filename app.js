@@ -778,11 +778,14 @@ function renderView() {
   archiveRoute();
   if(view==='datasets')ResearchWorkbench.routeDataset().catch(error=>{$('#research-content').insertAdjacentHTML('afterbegin',`<p role="alert">${escapeHTML(error.message)}</p>`);});
 }
-function openDialog(eyebrow, content) {
+function openDialog(eyebrow, content, evidence = false) {
+  const dialog = $('#detail-dialog');
+  if (dialog.open && dialog.matches(':modal') === evidence) dialog.close();
+  dialog.classList.toggle('evidence-dialog', evidence);
   $('#detail-dialog').classList.remove('report-dialog');
   $('#dialog-eyebrow').textContent=eyebrow;
   $('#dialog-body').innerHTML=content;
-  if (!$('#detail-dialog').open) $('#detail-dialog').showModal();
+  if (!dialog.open) evidence ? dialog.show() : dialog.showModal();
 }
 function openGoal(id) {
   if (data.goal_catalog?.tasks.some(task=>task.id===id)) {
@@ -797,7 +800,7 @@ function openGoal(id) {
   const original = `<h3>${escapeHTML(g.title)}</h3><p>${escapeHTML(g.summary)}</p><h4>原定下一步</h4><p>${escapeHTML(g.next)}</p><h4>原定完成标准</h4><p>${escapeHTML(g.criteria)}</p>`;
   openDialog(g.id+' / '+phaseTitle(data.phases.find(p=>p.id===g.phase)), `${badge(g.status)}<h2>${escapeHTML(goalTitle(g))}</h2><p class="dialog-summary">${escapeHTML(goalPurpose(g))}</p>${steps}<div class="detail-block"><h3>开始前先确认</h3>${g.depends_on.length ? g.depends_on.map(id=>`<button class="dependency" data-goal="${id}">${escapeHTML(id+' '+goalTitle(data.goals.find(x=>x.id===id)))} ↗</button>`).join(''):'<p>没有登记前置任务；按本项步骤和当前状态安排。</p>'}</div><div class="detail-block"><h3>从这些资料开始</h3>${g.sources.map(s=>evidenceLink(s,data.sources.find(x=>x.id===s).label+' ↗')).join('<br>')}</div>${guide ? `<details class="detail-block student-technical"><summary>方法细节与原定验收要求</summary>${original}</details>` : original}<div class="data-note">任务状态依据 ${escapeHTML(data.reviewed_at)} 的整理记录${guide ? '；通俗说明改写于 '+escapeHTML(data.student_workflow.edited_at) : ''}。</div>`);
 }
-async function openSource(id) {
+async function openSource(id, locator = '') {
   const source=data.sources.find(s=>s.id===id);
   if(!source)return;
   const requestId=++sourceRequest;
@@ -807,7 +810,13 @@ async function openSource(id) {
   }
   const url=window.NEUROGRAPH_PUBLIC ? source.public_url : '/api/source/'+encodeURIComponent(id);
   const controls=`<div class="report-actions"><a class="button" href="${url}?download=1" download>下载公开文件</a><a class="button" href="#evidence?source=${encodeURIComponent(id)}">报告固定链接</a></div>`;
-  if (['pdf','png','jpg','jpeg'].includes(source.format)) {
+  if (source.format === 'pdf') {
+    openDialog('项目证据', `<h2>${escapeHTML(source.label)}</h2>${controls}<a class="button" href="${url}" target="_blank" rel="noopener">打开 PDF 原件 ↗</a><div id="source-content" class="source-content">正在读取…</div>`, true);
+    const state = EvidenceContext.bind(source, $('#source-content'));
+    EvidenceContext.pdf(state, url, locator);
+    return;
+  }
+  if (['png','jpg','jpeg'].includes(source.format)) {
     openDialog('项目证据', `<h2>${escapeHTML(source.label)}</h2><p>${escapeHTML(source.description)}</p>${controls}<a class="button primary" href="${url}" target="_blank" rel="noopener">打开 ${escapeHTML(source.format.toUpperCase())} 原件 ↗</a>`);
     return;
   }
@@ -815,13 +824,21 @@ async function openSource(id) {
     openDialog('项目证据', `<h2>${escapeHTML(source.label)}</h2><p>这是 ${escapeHTML(source.format.toUpperCase())} 二进制文件，请下载后使用对应的数据工具打开。</p>${controls}`);
     return;
   }
-  openDialog('项目证据', `<h2>${escapeHTML(source.label)}</h2>${controls}<div id="source-content" class="source-content">正在读取…</div>`);
+  openDialog('项目证据', `<h2>${escapeHTML(source.label)}</h2>${controls}<div id="source-content" class="source-content">正在读取…</div>`, true);
+  const root = $('#source-content');
   try {
     const response=await fetch(window.NEUROGRAPH_PUBLIC ? source.preview_url : url+'?preview=1');
     if(!response.ok)throw new Error();
     const preview=await response.json();
-    if(requestId===sourceRequest && $('#source-content')) {
-      ReportReader.mount(source,preview);
+    if(requestId===sourceRequest && root.isConnected && $('#detail-dialog').open) {
+      EvidenceContext.bind(source, root);
+      if (['csv','tsv'].includes(source.format)) {
+        EvidenceContext.table(root, preview.content, source.format, preview.truncated, locator);
+      } else {
+        ReportReader.mount(source, preview);
+        EvidenceContext.decorate(root);
+      }
+      EvidenceContext.locate(locator);
     }
   } catch {if(requestId===sourceRequest && $('#source-content'))$('#source-content').textContent='无法读取该文件。';}
 }

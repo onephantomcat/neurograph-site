@@ -137,8 +137,23 @@ function historyDay(record) {
   const text=String(record.date || '');
   if(/^\d{4}-\d{2}-\d{2}/.test(text)) return text.slice(0,10);
   const short=text.match(/^\d{2}-\d{2}/);
-  // Earlier records omit the year; the enclosing archive supplies it.
+  // The archive date supplies the year for legacy records, not the page's latest date.
   return short?data.research_history.as_of.slice(0,4)+'-'+short[0]:'';
+}
+function updateHistoryLatestDate() {
+  const time=$('#history-latest-date');
+  if(!time)return;
+  let latest='';
+  for(const value of [...data.research_history.milestones.map(historyDay), ...historyGuidanceRecords.map(record=>String(record.date||''))]) {
+    const day=value.match(/^\d{4}-\d{2}-\d{2}(?=$|[T\s])/)?.[0];
+    if(!day || day<=latest)continue;
+    const parsed=new Date(`${day}T00:00:00Z`);
+    if(Number.isFinite(parsed.getTime()) && parsed.toISOString().startsWith(day))latest=day;
+  }
+  time.textContent=latest;
+  if(latest)time.dateTime=latest;
+  else time.removeAttribute('datetime');
+  time.parentElement.hidden=!latest;
 }
 function historyRecord(m) {
   const sources=(m.sources || []).map((id,i)=>evidenceLink(id,m.sources.length===1?'查看依据 ↗':`依据 ${i+1} ↗`)).join(' ');
@@ -164,7 +179,7 @@ function researchHistoryPage() {
   // Keep API consumers' legacy fields intact; do not render escapeHTML(recent.focus) or escapeHTML(recent.summary) here.
   if (!recent) { $('#view-history').innerHTML = '<div class="empty">暂无研究历程。</div>'; return; }
   $('#view-history').innerHTML = `<div class="page-heading history-page-heading"><div><h1>近期研究历程</h1></div><div class="history-heading-actions"><button id="history-work-toggle" class="button" type="button" aria-pressed="false">收起工作内容</button><a class="button primary" href="/api/source/research-history-report" download="RECENT_RESEARCH_HISTORY.md">下载近期历程</a></div></div>
-    <div class="history-meta">截至 ${escapeHTML(recent.as_of)} · 按记录日期查看研究工作与导师建议。</div>
+    <div class="history-meta"><span hidden>最新记录：<time id="history-latest-date"></time> · </span>按记录日期查看研究工作与导师建议。</div>
     ${sectionTitle('模型与结果')}
     <details class="history-search-drawer"><summary>搜索与筛选 <span id="history-results-count" class="data-note" role="status"></span></summary><div class="history-toolbar"><label class="search">搜索历程<input id="history-search" type="search" placeholder="模型、数据集或结果" value="${escapeHTML(historyBrowse.query)}"></label><label>月份<select id="history-month"><option value="all">全部月份</option>${[...new Set(recent.milestones.map(m=>historyDay(m).slice(0,7)).filter(Boolean))].sort().reverse().map(month=>`<option value="${escapeHTML(month)}">${escapeHTML(month)}</option>`).join('')}</select></label><label>顺序<select id="history-order"><option value="newest">最近在前</option><option value="oldest">最早在前</option></select></label></div></details>
     <div id="history-guidance-chain" class="history-guidance-chain" hidden aria-label="导师建议时间链"></div>
@@ -199,7 +214,14 @@ function researchHistoryPage() {
     $('#history-search').closest('details').hidden=historyWorkCollapsed;
     if(historyWorkCollapsed)renderGuidanceChain();
   }
-  GuidanceTimeline.records().then(records=>{historyGuidanceRecords=records;if(view==='history'){updateHistoryRecords();if(historyWorkCollapsed)renderGuidanceChain();}}).catch(error=>{$('#history-guidance-chain').innerHTML=`<p role="status">${escapeHTML(error.message)}</p>`;});
+  updateHistoryLatestDate();
+  GuidanceTimeline.records().then(records=>{
+    historyGuidanceRecords=records;
+    if(view!=='history')return;
+    updateHistoryLatestDate();
+    updateHistoryRecords();
+    if(historyWorkCollapsed)renderGuidanceChain();
+  }).catch(error=>{const chain=$('#history-guidance-chain');if(chain)chain.innerHTML=`<p role="status">${escapeHTML(error.message)}</p>`;});
   updateHistoryRecords();
   if(focusKey)locateHistoryRecord(focusKey);
 }

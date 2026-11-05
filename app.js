@@ -862,7 +862,7 @@ async function refresh() {
     data=next;
     $('#error-banner').hidden=true;
     $('#record-banner').hidden=view==='datasets'||!data.record_changed;
-    $('#goal-nav-count').textContent=data.goal_catalog ? data.goal_catalog.tasks.filter(g=>g.status==='done').length+'/'+data.goal_catalog.tasks.length : '';
+    $('#goal-nav-count').textContent=data.goal_catalog?.kind==='agent-plan' ? data.goal_catalog.tasks.filter(g=>g.ready).length+'可分派' : data.goal_catalog ? data.goal_catalog.tasks.filter(g=>g.status==='done').length+'/'+data.goal_catalog.tasks.length : '';
     $('#sync-state').textContent=window.NEUROGRAPH_PUBLIC ? '公开快照 · '+data.reviewed_at : !data.remote.enabled ? '本地记录 · 按需核查' : (data.remote.stale ? (data.remote.refreshing?'连接中…':'数据待更新') : '● 已同步');
     $('#sync-state').className=data.remote.stale?'sync-stale':'sync-live';
     // Do not rebuild the search box while typing; its data refreshes on input or navigation.

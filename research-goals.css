@@ -19,4 +19,6 @@
 .research-task-state.state-blocked{background:#fff0df;color:#8b510e}
 .research-task-state.state-conditional{background:#f2eefa;color:#654995}
 .research-task-ready{display:block;color:#326248;font-size:11px}
+.research-goal-downloads{display:flex;flex-wrap:wrap;gap:12px 20px;line-height:1.8}
+.research-task-prompt{display:block;box-sizing:border-box;width:100%;min-height:220px;padding:12px;border:1px solid #c9d6e5;border-radius:8px;font:inherit;line-height:1.8;color:#354b65;resize:vertical}
 @media(max-width:600px){.research-goal-toolbar{padding:12px}.research-goal-toolbar label{width:100%}.research-goal-toolbar input[type=search]{width:100%;box-sizing:border-box}.research-goal-group>summary{flex-direction:column;padding:14px}.research-goal-body{padding:0 12px 12px}.research-goal-toolbar>span{font-size:12px}}

@@ -45,16 +45,90 @@ function archiveRoute() {
   if(!id)routedSource='';
 }
 
+const archiveCategories = [
+  '论文与文献','研究方案与方法','数据与质控','实验结果','复现与技术记录','项目与会议记录',
+];
+const archiveMethod = /拟合前|运行前|方法实现|实现说明|处理协议|评价协议|评估设计|研究设计|临床增量设计|protocol|model_implementation_guide|analysis-plan|methodology|\bmethods\b|(?:^|[/_-])(?:plan|protocol)(?:[._/-]|$)/i;
+const archiveLiterature = /literature|manuscript|文献|论文阅读|论文工作稿|论文对照|chronic-pain-ipd/i;
+const archiveDataBatch = /^(alignment_repair|chinese_quality|dpabi_imaging|diagnostic-source-followup|ds005713-(person|remaining)-audit|deipp-|emo-intake|independent-readiness|input-inventory|migraine-(batch-inputs|clinical-registry|covariance-numeric|identity-visits|input-|readiness|temporal-information)|new-source-download|oa-readiness-audit|pain-label-inventory|pain-readiness|pooled-external-2026-09-24|prt-images|pretraining-input-audit|srpbs-(bal140|task-audit)|static-censor-input|structural-(cohort|pilot)|tn-provenance|unseen-clinical-sources|volume-(cohort|cross-site|nearest-crop|real-input)|music-nearscan|cospine-(bias|brain-repair|development-space|pain-readiness))/i;
+
+function archiveResultTopic(value) {
+  if(/疼痛评分|严重度|vas|grading|pain[-_](regional|targeted|range|prior-transfer|multimodel)|回归|疗效|response|镇痛/i.test(value))return '疼痛程度与反应预测';
+  if(/explanat|attribution|机制|归因|脑网络解释|稳定性|robustness|线性探针|linear-probe|sample-size|censor-error/i.test(value))return '解释稳定性与机制分析';
+  if(/few.?shot|迁移|跨站|站点留出|k10|k5|siteholdout|外推|transfer|jepa|cortexmae|预训练/i.test(value))return '小样本、迁移与跨站评估';
+  if(/分类|判别|classif|diagnos|baseline|pooled-pain|phase1/i.test(value))return '病例与对照分类';
+  return '特征表示与模型比较';
+}
+
+function archiveDataTopic(value) {
+  if(/independent|unseen|access|source-followup|new-source|remaining-audit|person-audit|候选|独立|获取|访问|开发使用史/i.test(value))return '数据来源、访问与独立性';
+  if(/label|clinical|标签|访视|时点|量表|评分|临床终点/i.test(value))return '标签、访视与队列口径';
+  return '预处理、输入与影像质控';
+}
+
+function archiveClassification(source) {
+  const [paper,method,data,results,tech,project]=archiveCategories;
+  const path=source.repo_path||source.id;
+  const parts=path.split('/');
+  const root=parts[0];
+  const folder=parts.length>=3?parts[1]:'';
+  const batch=['reports','operations'].includes(root)?folder:'';
+  const name=parts.at(-1);
+  const desc=name+' '+source.label;
+  const id=source.id;
+  const identity=id+' '+desc;
+  const group=(category,topic)=>({category,topic,batch});
+  const outcome=/分类结果|评分回归|诊断结果|完整结果|阴性结果|主要比较|对照结果|未超过|增益未确认|_(results|classification|finetuning|training|transfer|ablation|generalization)_\d/i.test(desc)||/^results\.md$/i.test(name);
+  if(source.section==='meetings'||path.startsWith('docs/meetings/')||id==='meeting-20260908')return group(project,'会议与导师意见');
+  if(/^(py|yaml|sql|log|jsonl)$/i.test(source.format||'')||root==='research-code')return group(tech,'脚本、配置与运行记录');
+  if(/manuscript/i.test(desc)||folder.startsWith('manuscript-reading'))return group(paper,'本项目论文工作稿');
+  if(['fmm-preparation-20260924','member-multimodal'].includes(id))return group(method,'输入、模型与实施方法');
+  if(archiveLiterature.test(identity+' '+folder)||/^SRPBS_PAPER_COMPARISON/.test(name)||id==='clinical-literature-comparison-20261004')return group(paper,'外部论文解读与文献比较');
+  if(['hospital-requirements','hospital-initial-review'].includes(id))return group(data,'院方采集与标签需求');
+  if(id==='dataset-roles')return group(data,'标签、访视与队列口径');
+  if(['record','original-plan','execution-status','active-research-goal-20260929','multidataset-goal-20261002','research-reassessment-20261002'].includes(id))return group(project,'计划、进展与交接');
+  if(['research-reading-guide-20261004','training-results-index','connectivity-results-index'].includes(id)||/^TRAINING_REPORT_CATALOG/.test(name))return group(results,'结果导读与批次索引');
+  if(archiveMethod.test(desc))return group(method,/实现|implementation|处理/i.test(desc)?'输入、模型与实施方法':'方案、对照与评价协议');
+  if(folder.startsWith('explanation-reproduction')||id==='explanation-reproduction-20261029') {
+    return /replay|reproduc|software|复现/i.test(name)&&id!=='explanation-reproduction-20261029'
+      ?group(tech,'复现、回放与数值核验'):group(results,'解释稳定性与机制分析');
+  }
+  if(root==='docs') {
+    if(/^(ABIDE_TRANSFER|AUTHOR_DEFAULT_HEAD|CLIP_FC_COMPARISON|EXISTING_SITE_PERFORMANCE|JEPA_SOURCE_STUDY|MATCHED_SOURCE_ANALYSIS|MIGRAINE_L1_TRAINING|NORMALIZATION_BLOCK_COMPARISON|PAIN_RANGE_DIAGNOSTICS|REPRESENTATION_CONTROLS|RESEARCH_EXPANSION|RPN_FEWSHOT_CALIBRATION|STATIC_GRAPH_DIAGNOSTIC|THREE_PERSON_NONLINEAR|TN_SUPERVISED_DEVELOPMENT|TOKEN_DYNAMICS|COSPINE_RAW_WINDOW)/.test(name))return group(results,archiveResultTopic(name));
+    if(/^(COVERAGE_COHORT_CANDIDATES|DS005713_REMAINING|INDEPENDENT_DIAGNOSTIC_READINESS|SRPBS_ACCESS_AND_CONTRACT|UNSEEN_CLINICAL_SOURCE_AUDIT)/.test(name))return group(data,'数据来源、访问与独立性');
+    if(/^(MIGRAINE_CLINICAL_ENDPOINT|MIGRAINE_IDENTITY_VISIT|PAIN_DATA_READINESS|MUSIC_NEARSCAN|TN_REVIEW_PROVENANCE|ZAN_FULL_COHORT)/.test(name))return group(data,'标签、访视与队列口径');
+    if(/^(COSPINE_(BIAS|BRAIN_REPAIR|NONLINEAR_TIMING|PAIN_ADAPTATION_PREPARATION|REAL_TOKENS)|DEIPP_|MIGRAINE_INPUT_|PRT_IMAGE_PROCESSING|SRPBS_CLINICAL24|SRPBS_QC_REVIEW|STRUCTURAL_(COHORT|MODEL_PILOT)|VOLUME_(COHORT|CROSS_SITE|NEAREST_CROP|REAL_INPUT))/.test(name))return group(data,'预处理、输入与影像质控');
+    if(/^(BRAINHGT_SMALL_SAMPLE_READINESS|POOLED_EXTERNAL_PREPARATION|NEXT_PROCESSING_AND_TARGETS)/.test(name))return group(method,'方案、对照与评价协议');
+    if(/^(CLIP_FC_FEASIBILITY|DEVELOPMENT_REAL_TOKENS|JEPA_MODEL_READINESS|JEPA_REAL_INPUT|NEUFOM_CODE_AUDIT|PAIN_TASK_MODEL_AUDIT|SRPBS_CLINICAL_SMOKE|TASK_ADAPTATION_SPACE_PILOT|VOLUME_REPRESENTATION_FEASIBILITY|WINDOWS_TMP_RESCUE)/.test(name))return group(tech,'复现、回放与数值核验');
+    if(/^(DAILY_RESEARCH_BRIEFS|DECISION_PHASE1|SRPBS_TRANSFER_LAUNCH|STAGE_REPORT|TRANSFER_NEXT_STEP)/.test(name))return group(project,'计划、进展与交接');
+  }
+  if(/fixed-k5-training|migraine-k5-training/i.test(identity))return group(results,'小样本、迁移与跨站评估');
+  if(root==='reports'&&(archiveDataBatch.test(folder)||/QUALITY_REPORT|source_audit|SUB23_DPABI|质量技术报告/i.test(desc)))return group(data,archiveDataTopic(folder+' '+desc));
+  if(!outcome&&/队列登记|数据集.*分工|数据需求|数据访问|数据准备|清单|库存|数据可复用|病例.*时点|人员.*访视|配准|掩膜|输入.*(?:审核|核查|审查|核验|复核|异常|覆盖|准备)|质控|人工确认|QC分组|数据质量|人员重叠|来源.*(?:补查|核查)|DATASET_ROLES|DATA_ACCESS|QUALITY_REPORT|QC_POLICY|INPUT_(?:AUDIT|READINESS)|UNSEEN_VALIDATION_DATA|HOSPITAL_(?:DATA|INITIAL)/i.test(desc))return group(data,archiveDataTopic(desc));
+  if(!outcome&&/会议|研究历程|研究目标|任务记录|阶段汇报|执行状态|交接|项目工作|路线图|task_record|workflow|roadmap|project_archive_guide|research_reassessment|active_research_goal|integrated_project_goal/i.test(desc))return group(project,'计划、进展与交接');
+  if(folder.startsWith('training-results-')||source.kind==='训练结果')return group(results,'历次训练批次');
+  if(root==='reports'||outcome||['结果与报告','聚合分析','聚合结果'].includes(source.kind))return group(results,archiveResultTopic(folder+' '+identity));
+  if(root==='operations'||/运行时|兼容性|代码核对|源码|checkpoint|脚本|技术复核|数值复核|独立回读|软件复现|(?:^|[_/-])(?:verification|readback|runtime|handoff|receipt|stdout|stderr|reproduction)(?:[._/-]|$)/i.test(desc))return group(tech,'复现、回放与数值核验');
+  return group(project,'一般记录');
+}
+
 function archiveEvidencePage() {
   const params=routeParams();
   const section=params.get('section')==='meetings'?'meetings':'sources';
   if(params.has('folder'))archiveUI.query=params.get('folder');
   const count=uniqueSources().filter(s=>s.section==='meetings').length;
-  $('#view-evidence').innerHTML=`<div class="page-heading"><div><span class="eyebrow">RESEARCH ARCHIVE</span><h1>记录与证据</h1><p class="archive-subtitle">从研究结论回到报告、数据与工作现场。</p></div><a class="button" href="#calendar">在日历中浏览 ↗</a></div>
-    <div class="archive-tabs" aria-label="证据分类"><a href="#evidence" ${section==='sources'?'aria-current="page"':''}>来源文件 <span>${uniqueSources().length-count}</span></a><a href="#evidence?section=meetings" ${section==='meetings'?'aria-current="page"':''}>会议记录 <span>${count}</span></a></div>
-    ${section==='meetings'?meetingArchive():`${researchDisclosure('研究摘要与报告目录','先读结论，再查看完整归档',`<div class="archive-featured"><div><span class="eyebrow">2026-09-13 · 连接表示改进</span><h2>切空间连接：内部改善，跨站点仍受限</h2><p>99/96 开发集 AUC 0.753 / 0.756；站点留出 0.608 / 0.612。156 个模型已独立回读，尚不代表 TN/PHN 临床达标。</p></div>${reportByPath('docs/CONNECTIVITY_IMPROVEMENT_RESULTS_2026-09-13.md','阅读连接表示改进成果 ↗')}</div><div class="archive-featured"><div><span class="eyebrow">2026-09-13 · 六阶段训练归档</span><h2>六阶段实验与完整指标已同步</h2><p>478 份结果与报告 · 174,389 行指标。含训练预算、分类头、正则化及三种子来源学习曲线。</p></div>${reportByPath('reports/training-results-2026-09-13/README.md','阅读最新训练结果 ↗')}</div><div class="archive-featured"><div><span class="eyebrow">历史结果整合</span><h2>先读总目录，再定位实验版本</h2><p>31 个运行目录 · 11 组辅助记录。流程测试、失败和被替代版本分别保留。</p></div>${reportByPath('docs/TRAINING_RESULTS_INDEX.md','阅读训练结果总目录 ↗')}</div>`)}<div class="archive-tools"><label for="archive-search">搜索报告、目录或说明<input id="archive-search" type="search" placeholder="例如：置换、matched、OA、成员调研" value="${escapeHTML(archiveUI.query)}"></label><button class="button" id="archive-expand">${archiveUI.expanded?'折叠全部':'展开全部'}</button><span id="archive-count" role="status"></span></div><div id="archive-tree" class="archive-tree"></div>`}`;
+  $('#view-evidence').innerHTML=`<div class="page-heading"><div><span class="eyebrow">RESEARCH ARCHIVE</span><h1>报告与证据</h1><p class="archive-subtitle">按研究用途查阅论文、方案、数据和结果，再查看对应附件。</p></div><a class="button" href="#calendar">在日历中浏览 ↗</a></div>
+    <div class="archive-tabs" aria-label="证据视图"><a href="#evidence" ${section==='sources'?'aria-current="page"':''}>研究档案 <span>${uniqueSources().length-count}</span></a><a href="#evidence?section=meetings" ${section==='meetings'?'aria-current="page"':''}>会议记录 <span>${count}</span></a></div>
+    ${section==='meetings'?meetingArchive():`
+      <div class="archive-topic-link"><div><strong>常用导读</strong><small>论文阅读稿、队列分工和完整实验索引</small></div><div>
+        ${reportByPath('docs/MANUSCRIPT_REVIEW_COPY_2026-10-07.md','论文阅读稿 ↗')}
+        ${reportByPath('docs/DATASET_ROLES_AND_DISEASES_2026-09-09.md','数据集分工 ↗')}
+        ${reportByPath('docs/TRAINING_RESULTS_INDEX.md','实验结果索引 ↗')}
+        <a href="./small-data.html">小样本文献 ↗</a>
+      </div></div>
+      <div class="archive-tools"><label for="archive-search">搜索分类、队列或报告<input id="archive-search" type="search" placeholder="例如：论文、独立验证、Emo27、BrainHGT" value="${escapeHTML(archiveUI.query)}"></label><button class="button" id="archive-expand">${archiveUI.expanded?'折叠全部':'展开全部'}</button><span id="archive-count" role="status"></span></div>
+      <div id="archive-tree" class="archive-tree"></div>`}`;
   if(section==='sources') {
-    $('#view-evidence .archive-tabs').insertAdjacentHTML('afterend','<div class="archive-topic-link"><div><strong>小样本方法文献</strong><small>方法比较、论文来源与本项目适用范围</small></div><a href="./small-data.html">查看专题 ↗</a></div>');
     renderSourceTree();
     $('#archive-search').addEventListener('input', e=>{archiveUI.query=e.target.value;renderSourceTree();});
     $('#archive-expand').addEventListener('click',()=>{archiveUI.expanded=!archiveUI.expanded;$('#archive-expand').textContent=archiveUI.expanded?'折叠全部':'展开全部';renderSourceTree();});
@@ -66,24 +140,58 @@ function reportByPath(path,label) {
   return source?evidenceLink(source.id,label):'';
 }
 
+function archiveEvidenceRows(sources) {
+  const entries=sources.filter(s=>s.section!=='meetings').map(source=>({source,...archiveClassification(source)}));
+  const reports=new Map(entries.filter(({source})=>source.format==='md'&&source.repo_path?.startsWith('docs/')&&
+    !archiveMethod.test(source.repo_path+' '+source.label)).map(entry=>[entry.source.id,entry]));
+  const batches=new Map();
+  for(const entry of entries) {
+    const {source,batch}=entry;
+    if(!batch)continue;
+    const parts=source.id.split('-');
+    let report=reports.get(batch);
+    for(let i=parts.length-1;!report&&i>1;i--)report=reports.get(parts.slice(0,i).join('-'));
+    const key=entry.category+'\0'+entry.topic+'\0'+batch;
+    const known=batches.get(key);
+    if(report&&(!known||report.source.id===batch))batches.set(key,report);
+  }
+  for(const entry of entries) {
+    if(entry.batch)entry.report=batches.get(entry.category+'\0'+entry.topic+'\0'+entry.batch)?.source;
+  }
+  for(const entry of entries) {
+    if(entry.report) {
+      const report=reports.get(entry.report.id);
+      if(!report.batch&&report.category===entry.category&&report.topic===entry.topic)report.batch=entry.batch;
+    }
+  }
+  return entries;
+}
+
 function renderSourceTree() {
   const needle=archiveUI.query.toLocaleLowerCase().trim();
-  const sources=uniqueSources().filter(s=>s.section!=='meetings' && (!needle || [s.label,s.description,s.repo_path,...(s.category||[])].join(' ').toLocaleLowerCase().includes(needle)));
-  $('#archive-count').textContent=`${sources.length} 份文件`;
-  const tree={children:new Map(),files:[],count:0};
-  for(const source of sources) {
+  const rows=archiveEvidenceRows(uniqueSources()).filter(({source,category,topic,batch,report})=>
+    !needle||[source.label,source.description,source.repo_path,...(source.category||[]),category,topic,batch,report?.label].join(' ').toLocaleLowerCase().includes(needle));
+  $('#archive-count').textContent=`${rows.length} 份文件`;
+  const makeNode=()=>({children:new Map(),files:[],count:0,report:null});
+  const tree=makeNode();
+  for(const {source,category,topic,batch,report} of rows) {
     let node=tree;node.count++;
-    for(const part of source.category||['项目文档']) {
-      if(!node.children.has(part))node.children.set(part,{children:new Map(),files:[],count:0});
+    for(const part of [category,topic,batch].filter(Boolean)) {
+      if(!node.children.has(part))node.children.set(part,makeNode());
       node=node.children.get(part);node.count++;
     }
+    if(report)node.report=report;
     node.files.push(source);
   }
+  const filePriority=s=>s.format==='md'||s.format==='html'?0:1;
   function render(node,depth=0) {
-    return [...node.children.entries()].sort(([a],[b])=>a.localeCompare(b,'zh-CN')).map(([name,child])=>`<details class="archive-folder" ${archiveUI.expanded||needle?'open':''}><summary><span class="folder-symbol" aria-hidden="true"></span><span>${escapeHTML(name)}</span><small>${child.count} 份</small></summary><div class="folder-body">${render(child,depth+1)}</div></details>`).join('')+
-      node.files.sort((a,b)=>a.label.localeCompare(b.label,'zh-CN')).map(s=>`<div class="archive-file"><span class="file-format">${escapeHTML(s.format||'FILE')}</span><div><button class="archive-file-title" data-source="${escapeHTML(s.id)}">${escapeHTML(s.label)}</button><small>${escapeHTML(s.description||s.repo_path)}</small></div>${window.NEUROGRAPH_PUBLIC && !s.public_url ? '<span class="muted">本机材料</span>' : `<a class="file-download" href="${window.NEUROGRAPH_PUBLIC ? s.public_url : '/api/source/'+encodeURIComponent(s.id)+'?download=1'}" download aria-label="下载 ${escapeHTML(s.label)}">下载</a>`}</div>`).join('');
+    const folders=[...node.children.entries()].sort(([a],[b])=>depth===0?archiveCategories.indexOf(a)-archiveCategories.indexOf(b):a.localeCompare(b,'zh-CN'));
+    const files=node.files.sort((a,b)=>filePriority(a)-filePriority(b)||a.label.localeCompare(b.label,'zh-CN'));
+    const lead=node.report&&!files.some(s=>s.id===node.report.id)?`<div class="archive-file">${evidenceLink(node.report.id,'主报告：'+node.report.label+' ↗')}</div>`:'';
+    return lead+files.map(s=>`<div class="archive-file"><span class="file-format">${escapeHTML(s.format||'FILE')}</span><div><button class="archive-file-title" data-source="${escapeHTML(s.id)}">${escapeHTML(s.label)}</button><small>${escapeHTML(s.description||s.repo_path)}</small></div>${window.NEUROGRAPH_PUBLIC && !s.public_url ? '<span class="muted">本机材料</span>' : `<a class="file-download" href="${escapeHTML(window.NEUROGRAPH_PUBLIC ? s.public_url : '/api/source/'+encodeURIComponent(s.id)+'?download=1')}" download aria-label="下载 ${escapeHTML(s.label)}">下载</a>`}</div>`).join('')+
+      folders.map(([name,child])=>`<details class="archive-folder" ${archiveUI.expanded||needle?'open':''}><summary><span class="folder-symbol" aria-hidden="true"></span><span>${escapeHTML(child.report?.label||name)}</span><small>${child.count} 份</small></summary><div class="folder-body">${render(child,depth+1)}</div></details>`).join('');
   }
-  $('#archive-tree').innerHTML=sources.length?render(tree):'<div class="empty"><h2>没有匹配文件</h2><p>尝试数据集名称、实验目录或报告关键词。</p></div>';
+  $('#archive-tree').innerHTML=rows.length?render(tree):'<div class="empty"><h2>没有匹配文件</h2><p>尝试分类、数据集名称或报告关键词。</p></div>';
 }
 
 function meetingArchive() {

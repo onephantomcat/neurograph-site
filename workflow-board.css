@@ -1,6 +1,6 @@
 /* ==========================================================================
    项目流程 · 主题浏览画布
-   - 满屏画布，滚轮缩放、按住拖动、双击复位
+   - 画布可滚轮缩放、按住拖动、双击复位
    - 点击节点：背景模糊的就地浮层，按时间轴列出该模块的工作
    ========================================================================== */
 
@@ -14,10 +14,9 @@
   --wf-shadow: 0 1px 2px rgba(10, 34, 62, .06), 0 22px 44px -30px rgba(10, 34, 62, .55);
 }
 
-/* 视图本身不再滚动，画布占满 main 的剩余空间 */
-main:has(> #view-workflow.is-board-view) { padding: 0; }
+/* 画布使用正文的页面留白，缩放和拖动仍在画布内。 */
 #view-workflow.is-board-view {
-  height: calc(100dvh - 78px);
+  height: calc(100dvh - 128px);
   min-height: 560px;
   margin: 0;
   padding: 0;
@@ -384,7 +383,7 @@ main:has(> #view-workflow.is-board-view) { padding: 0; }
 .wf-item-links a:hover { text-decoration: underline; }
 
 @media (max-width: 760px) {
-  #view-workflow.is-board-view { height: calc(100dvh - 62px); }
+  #view-workflow.is-board-view { height: calc(100dvh - 102px); }
   .wf-overlay { padding: 10px; }
   .wf-sheet { width: 100%; max-height: 88vh; border-radius: 16px; }
   .wf-timeline { padding: 16px 14px 20px 34px; }
@@ -393,6 +392,10 @@ main:has(> #view-workflow.is-board-view) { padding: 0; }
   #view-workflow .wf-legend { left: 12px; bottom: 12px; gap: 10px; padding: 6px 10px; }
   #view-workflow .wf-zoom { right: 12px; bottom: 12px; }
   #view-workflow .wf-basis { display: none; }
+}
+
+@media (min-width: 1000px) {
+  #view-workflow.is-board-view { height: calc(100dvh - 178px); }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -76,6 +76,8 @@
 .brand.project-brand{margin-bottom:18px}
 main{max-width:1510px}
 .view{min-width:0}
+#view-datasets .training-result-record{min-width:0}
+#view-datasets .training-result-table{max-width:100%;overflow-x:auto}
 .panel{box-shadow:none}
 .page-heading .muted{font-size:13px;margin-top:7px}
 .overview-lead{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(270px,1fr);gap:20px;align-items:start}

@@ -220,12 +220,12 @@ const ResearchBriefs = (() => {
           const absent=work.length?'':(allWorkDates.includes(day)?'<p class="history-no-work">工作记录被当前筛选条件隐藏</p>':'');
           const previousDay=dates[dates.indexOf(day)-1];
           const showPeriod=!previousDay||previousDay.slice(0,7)!==day.slice(0,7);
-          const adviceMarkup=advice.length?`<div class="history-day-advice">${advice.map(entry=>renderGuidanceCard(entry.item,false,{sourceDate:entry.sourceDate,targetDate:entry.targetDate})).join('')}</div>`:'';
+          const adviceMarkup=advice.length?`<div class="history-day-advice">${advice.map(entry=>renderGuidanceCard(entry.item,entry)).join('')}</div>`:'';
           return `<section class="history-day-row${showPeriod?' is-period-start':''}" data-history-date="${esc(day)}"><time class="history-date-stack" datetime="${esc(day)}" aria-label="${esc(accessibleDate(day))}">${dateLabel(day,showPeriod)}</time><div class="history-day-work">${workMarkup||absent}</div>${adviceMarkup}</section>`;
         }).join('');
         host.innerHTML=rows||'<div class="empty panel"><h3>没有匹配的研究记录</h3><p>换一个模型、数据集或修改板块。</p></div>';
         const more=document.querySelector('#history-more');
-        more.hidden=shownDates.length>=dates.length||historyWorkCollapsed;
+        more.hidden=shownDates.length>=dates.length;
         more.textContent='再显示24个日期';
       };
     }

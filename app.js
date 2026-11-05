@@ -182,7 +182,7 @@ function researchHistoryPage() {
     <div class="history-meta"><span hidden>最新记录：<time id="history-latest-date"></time> · </span>按记录日期查看研究工作与导师建议。</div>
     ${sectionTitle('模型与结果')}
     <details class="history-search-drawer"><summary>搜索与筛选 <span id="history-results-count" class="data-note" role="status"></span></summary><div class="history-toolbar"><label class="search">搜索历程<input id="history-search" type="search" placeholder="模型、数据集或结果" value="${escapeHTML(historyBrowse.query)}"></label><label>月份<select id="history-month"><option value="all">全部月份</option>${[...new Set(recent.milestones.map(m=>historyDay(m).slice(0,7)).filter(Boolean))].sort().reverse().map(month=>`<option value="${escapeHTML(month)}">${escapeHTML(month)}</option>`).join('')}</select></label><label>顺序<select id="history-order"><option value="newest">最近在前</option><option value="oldest">最早在前</option></select></label></div></details>
-    <div id="history-guidance-chain" class="history-guidance-chain" hidden aria-label="导师建议时间链"></div>
+    <p id="history-guidance-error" role="status" hidden></p>
     <div id="history-records" class="timeline research-timeline"></div><button id="history-more" class="button history-more">再显示24个日期</button>`;
   $('#history-month').value=historyBrowse.month;
   $('#history-order').value=historyBrowse.order;
@@ -192,36 +192,23 @@ function researchHistoryPage() {
     historyWorkCollapsed=!historyWorkCollapsed;
     $('#history-work-toggle').setAttribute('aria-pressed',String(historyWorkCollapsed));
     $('#history-work-toggle').textContent=historyWorkCollapsed?'展开工作内容':'收起工作内容';
-    if(window.HistoryBoard){HistoryBoard.setCollapsed(historyWorkCollapsed);return;}
-    const source=document.querySelector(historyWorkCollapsed?'#history-guidance-chain':'#history-records');
-    const guidancePositions=new Map([...source.querySelectorAll('.history-guidance-card[data-guidance-node]')].map(card=>[card.dataset.guidanceNode,card.getBoundingClientRect()]));
-    $('#history-guidance-chain').hidden=!historyWorkCollapsed;
-    $('#history-records').hidden=historyWorkCollapsed;
-    $('#history-more').hidden=historyWorkCollapsed;
-    $('#history-search').closest('details').hidden=historyWorkCollapsed;
-    if(historyWorkCollapsed)renderGuidanceChain();
-    requestAnimationFrame(()=>animateGuidanceReflow(guidancePositions,historyWorkCollapsed?'#history-guidance-chain':'#history-records'));
+    HistoryBoard.setCollapsed(historyWorkCollapsed);
   });
   $('#history-search').addEventListener('input',event=>{historyBrowse.query=event.target.value;historyBrowse.limit=24;updateHistoryRecords();});
   $('#history-month').addEventListener('change',event=>{historyBrowse.month=event.target.value;historyBrowse.limit=24;updateHistoryRecords();});
   $('#history-order').addEventListener('change',event=>{historyBrowse.order=event.target.value;updateHistoryRecords();});
   $('#history-more').addEventListener('click',()=>{historyBrowse.limit+=24;updateHistoryRecords();});
-  if(window.HistoryBoard){HistoryBoard.setCollapsed(historyWorkCollapsed);}
-  else{
-    $('#history-guidance-chain').hidden=!historyWorkCollapsed;
-    $('#history-records').hidden=historyWorkCollapsed;
-    $('#history-more').hidden=historyWorkCollapsed;
-    $('#history-search').closest('details').hidden=historyWorkCollapsed;
-    if(historyWorkCollapsed)renderGuidanceChain();
-  }
+  HistoryBoard.setCollapsed(historyWorkCollapsed);
   updateHistoryLatestDate();
   GuidanceTimeline.records().then(records=>{
     historyGuidanceRecords=records;
     if(view!=='history')return;
     updateHistoryLatestDate();
     updateHistoryRecords();
-    if(historyWorkCollapsed)renderGuidanceChain();
-  }).catch(error=>{const chain=$('#history-guidance-chain');if(chain)chain.innerHTML=`<p role="status">${escapeHTML(error.message)}</p>`;});
+  }).catch(error=>{
+    const status=$('#history-guidance-error');
+    if(status){status.textContent=error.message;status.hidden=false;}
+  });
   updateHistoryRecords();
   if(focusKey)locateHistoryRecord(focusKey);
 }
@@ -261,47 +248,15 @@ function historyDateLabel(date,showPeriod=true) {
   return `${showPeriod?`<span class="history-date-year">${match[1]}</span><span class="history-date-month">${Number(match[2])}月</span>`:''}<span class="history-date-day">${Number(match[3])}日</span>`;
 }
 
-function historyDateOrdinal(value) {
-  const match=String(value||'').match(/(\d{4})[-/](\d{1,2})[-/](\d{1,2})/);
-  return match?Date.UTC(Number(match[1]),Number(match[2])-1,Number(match[3])):Date.parse(value)||0;
-}
-
-function renderGuidanceCard(record, chain=false, linkInfo=null) {
+function renderGuidanceCard(record, linkInfo) {
   const sources=record.sources.map(source=>{
     const found=data.sources.find(item=>item.repo_path===source.file);
     return `<li>${found?evidenceLink(found.id,source.file.split('/').at(-1)+' ↗'):`<span>${escapeHTML(source.file.split('/').at(-1))}</span>`}<small>${escapeHTML(source.locator)}</small></li>`;
   }).join('');
   const preview=record.preview.map(text=>`<li>${escapeHTML(text)}</li>`).join('');
-  let relation='';
-  let linked='';
-  if(!chain&&linkInfo){
-    if(linkInfo.targetDate){
-      linked=' is-linked';
-      relation=linkInfo.targetDate===linkInfo.sourceDate?'对应当天工作':`关联工作日期：${linkInfo.targetDate}`;
-    }else relation='暂无后续工作';
-  }
-  return `<aside class="history-guidance-card${chain?' is-chain-node':''}${linked}" data-guidance-node="${escapeHTML(record.id)}"${linkInfo?.targetDate?` data-guidance-target-date="${escapeHTML(linkInfo.targetDate)}"`:''}><header><time>${escapeHTML(record.date)}</time><span>${record.kind==='classroom'?'课堂':'导师建议'}</span></header><h3>${escapeHTML(record.title)}</h3><ul>${preview}</ul>${relation?`<p class="history-guidance-link-note">${escapeHTML(relation)}</p>`:''}<details><summary>详细建议</summary><p>${escapeHTML(record.detail)}</p><details class="history-guidance-source"><summary>整理依据</summary><ul>${sources}</ul></details></details></aside>`;
-}
-
-function renderGuidanceChain() {
-  const host=$('#history-guidance-chain');
-  if(!host)return;
-  const records=[...historyGuidanceRecords].sort((a,b)=>historyBrowse.order==='newest'?historyDateOrdinal(b.date)-historyDateOrdinal(a.date):historyDateOrdinal(a.date)-historyDateOrdinal(b.date));
-  host.innerHTML=records.length?records.map((record,index)=>`${renderGuidanceCard(record,true)}${index<records.length-1?'<span class="history-chain-arrow" aria-hidden="true"></span>':''}`).join(''):'<p>暂无已登记的导师建议。</p>';
-}
-
-function animateGuidanceReflow(previousPositions,targetSelector) {
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  const target=document.querySelector(targetSelector);
-  if(!target)return;
-  for(const card of target.querySelectorAll('.history-guidance-card[data-guidance-node]')){
-    const previous=previousPositions.get(card.dataset.guidanceNode);
-    if(!previous)continue;
-    const current=card.getBoundingClientRect();
-    const dx=previous.left-current.left,dy=previous.top-current.top;
-    if(Math.abs(dx)+Math.abs(dy)<2)continue;
-    card.animate([{transform:`translate(${dx}px, ${dy}px)`},{transform:'translate(0, 0)'}],{duration:360,easing:'cubic-bezier(.2,.75,.25,1)'});
-  }
+  const {sourceDate,targetDate}=linkInfo;
+  const relation=targetDate===sourceDate?'对应当天工作':targetDate?`关联工作日期：${targetDate}`:'暂无后续工作';
+  return `<aside class="history-guidance-card" data-guidance-node="${escapeHTML(record.id)}"${targetDate?` data-guidance-target-date="${escapeHTML(targetDate)}"`:''}><header><time datetime="${escapeHTML(record.date)}">${escapeHTML(record.date)}</time><span>${record.kind==='classroom'?'课堂':'导师建议'}</span></header><h3>${escapeHTML(record.title)}</h3><ul>${preview}</ul><p class="history-guidance-link-note">${escapeHTML(relation)}</p><details><summary>详细建议</summary><p>${escapeHTML(record.detail)}</p><details class="history-guidance-source"><summary>整理依据</summary><ul>${sources}</ul></details></details></aside>`;
 }
 function publicPainSection(mode='summary') {
   const r=data.public_pain_update;

@@ -13,6 +13,8 @@ window.WorkflowBoard = (() => {
   const rowGap = 28;
   const margin = 26;
   const top = 58;
+  const storeKey = 'ng.workflow.board.v1';
+  const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
   const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
   }[char]));
@@ -73,25 +75,22 @@ window.WorkflowBoard = (() => {
     ];
   }
 
-  function edgePath(from, to) {
-    const fromRight = from.x + width;
-    const toRight = to.x + width;
-    const startY = from.y + height / 2;
-    const endY = to.y + height / 2;
-    if (from.x === to.x) {
-      const gutter = fromRight + 18;
-      return `M ${fromRight} ${startY} H ${gutter} V ${endY} H ${toRight}`;
+  function readOffsets() {
+    try {
+      return new Map(Object.entries(JSON.parse(localStorage.getItem(storeKey) || '{}') || {}));
+    } catch {
+      return new Map();
     }
-    const forward = from.x < to.x;
-    const endX = forward ? to.x : toRight;
-    const gutter = endX + (forward ? -18 : 18);
-    const startX = forward ? fromRight : from.x;
-    const startGutter = startX + (forward ? 18 : -18);
-    const gapY = from.y + height + rowGap / 2;
-    return `M ${startX} ${startY} H ${startGutter} V ${gapY} H ${gutter} V ${endY} H ${endX}`;
+  }
+
+  const offsets = readOffsets();
+
+  function saveOffsets() {
+    try { localStorage.setItem(storeKey, JSON.stringify(Object.fromEntries(offsets))); } catch {}
   }
 
   function draw(canvas, columns, edges, focus) {
+    const bases = new Map();
     const rects = new Map();
     const sceneWidth = margin * 2 + width * columns.length + columnGap * (columns.length - 1);
     const sceneHeight = top + Math.max(...columns.map(([, nodes]) => nodes.length)) * (height + rowGap) + 18;
@@ -100,29 +99,95 @@ window.WorkflowBoard = (() => {
       const heading = `<h2 class="wf-lane" style="left:${x}px">${esc(title)}</h2>`;
       return heading + nodes.map((node, row) => {
         const y = top + row * (height + rowGap);
-        rects.set(node.id, { x, y });
+        bases.set(node.id, { x, y });
         const attr = node.group ? 'data-wf-group' : node.external ? 'data-wf-condition' : node.selected ? 'data-research-task' : 'data-wf-task';
-        return `<button type="button" class="wf-node${node.waiting ? ' is-planned' : ''}${node.id === focus || node.selected ? ' is-selected' : ''}" ${attr}="${esc(node.id)}" style="left:${x}px;top:${y}px;width:${width}px;height:${height}px">
+        return `<button type="button" class="wf-node${node.waiting ? ' is-planned' : ''}${node.id === focus || node.selected ? ' is-selected' : ''}" ${attr}="${esc(node.id)}" data-wf-node="${esc(node.id)}" style="width:${width}px;height:${height}px">
           <span class="wf-node-top"><b class="wf-no">${esc(node.id)}</b><span class="wf-status">${esc(node.badge)}</span></span>
           <strong class="wf-card-title">${esc(node.title)}</strong><span class="wf-card-note">${esc(node.note)}</span>
           <span class="wf-node-foot">${esc(node.foot)}</span></button>`;
       }).join('');
     }).join('');
-    const arrows = edges.map(edge => {
-      const marker = edge.external ? 'wf-arrow-external' : 'wf-arrow';
-      return `<path data-from="${esc(edge.from)}" data-to="${esc(edge.to)}" class="${edge.external ? 'is-future' : ''}" d="${edgePath(rects.get(edge.from), rects.get(edge.to))}" marker-end="url(#${marker})"></path>`;
-    }).join('');
     canvas.style.width = sceneWidth + 'px';
     canvas.style.height = sceneHeight + 'px';
-    canvas.innerHTML = `<svg class="wf-links" aria-hidden="true" viewBox="0 0 ${sceneWidth} ${sceneHeight}"><defs>
-      <marker id="wf-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" style="stroke:#5991c6"></path></marker>
-      <marker id="wf-arrow-external" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" style="stroke:#a85e14"></path></marker></defs>${arrows}</svg>${cards}`;
-    return { width: sceneWidth, height: sceneHeight };
+    canvas.innerHTML = cards;
+    const drawLinks = CardConnections.layer(canvas, 'wf-links', 'wf-link-layer');
+    const connections = edges.map(edge => ({ ...edge, future: edge.external }));
+    const nodes = [...canvas.querySelectorAll('[data-wf-node]')];
+
+    function place(node, dx, dy) {
+      const id = node.dataset.wfNode;
+      const base = bases.get(id);
+      const x = clamp(base.x + dx, 12, sceneWidth - width - 12);
+      const y = clamp(base.y + dy, top, sceneHeight - height - 12);
+      node.style.left = x + 'px';
+      node.style.top = y + 'px';
+      rects.set(id, { x, y, w: width, h: height });
+    }
+
+    const redraw = () => drawLinks(connections, rects);
+    function restorePositions() {
+      for (const node of nodes) {
+        const saved = offsets.get(node.dataset.wfNode);
+        const valid = Number.isFinite(saved?.dx) && Number.isFinite(saved?.dy);
+        place(node, valid ? saved.dx : 0, valid ? saved.dy : 0);
+      }
+      redraw();
+    }
+
+    let dragging = false;
+    for (const node of nodes) {
+      let suppressClick = false;
+      node.addEventListener('pointerdown', event => {
+        if (!event.isPrimary || event.button !== 0 || dragging) return;
+        dragging = true;
+        suppressClick = false;
+        const id = node.dataset.wfNode;
+        const original = rects.get(id);
+        const base = bases.get(id);
+        const scale = canvas.getBoundingClientRect().width / sceneWidth;
+        let frame = 0;
+        CardConnections.drag(node, event, {
+          move(dx, dy) {
+            node.classList.add('is-dragging');
+            place(node, original.x - base.x + dx / scale, original.y - base.y + dy / scale);
+            if (!frame) frame = requestAnimationFrame(() => { frame = 0; redraw(); });
+          },
+          finish(moved, canceled) {
+            dragging = false;
+            cancelAnimationFrame(frame);
+            node.classList.remove('is-dragging');
+            suppressClick = moved;
+            if (!moved || !node.isConnected) return;
+            if (canceled) {
+              place(node, original.x - base.x, original.y - base.y);
+            } else {
+              const { x, y } = rects.get(id);
+              offsets.set(id, { dx: x - base.x, dy: y - base.y });
+              saveOffsets();
+            }
+            redraw();
+          },
+        });
+      });
+      node.addEventListener('click', event => {
+        if (!suppressClick || !event.detail) return;
+        event.stopPropagation();
+        suppressClick = false;
+      });
+    }
+    restorePositions();
+    return {
+      width: sceneWidth, height: sceneHeight,
+      reset() {
+        for (const id of bases.keys()) offsets.delete(id);
+        saveOffsets();
+        restorePositions();
+      },
+    };
   }
 
   function controls(board, canvas) {
-    let scale = 1, x = 0, y = 0, drag;
-    const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
+    let scale = 1, x = 0, y = 0;
     const apply = () => { canvas.style.transform = `translate(${x}px, ${y}px) scale(${scale})`; };
     function fit(scene, target) {
       scale = clamp(Math.min((board.clientWidth - 20) / scene.width, (board.clientHeight - 48) / scene.height), .57, 1);
@@ -150,20 +215,17 @@ window.WorkflowBoard = (() => {
       zoom(Math.exp(-event.deltaY * .002), event.clientX - rect.left, event.clientY - rect.top);
     }, { passive: false });
     board.addEventListener('pointerdown', event => {
-      if (event.button !== 0 || event.target.closest('button, a')) return;
-      drag = { px: event.clientX - x, py: event.clientY - y };
-      board.setPointerCapture(event.pointerId);
-      board.classList.add('is-panning');
-    });
-    board.addEventListener('pointermove', event => {
-      if (!drag) return;
-      x = event.clientX - drag.px;
-      y = event.clientY - drag.py;
-      apply();
-    });
-    board.addEventListener('lostpointercapture', () => {
-      drag = null;
-      board.classList.remove('is-panning');
+      if (!event.isPrimary || event.button !== 0 || event.target.closest('button, a')) return;
+      const startX = x, startY = y;
+      CardConnections.drag(board, event, {
+        move(dx, dy) {
+          board.classList.add('is-panning');
+          x = startX + dx;
+          y = startY + dy;
+          apply();
+        },
+        finish() { board.classList.remove('is-panning'); },
+      });
     });
     board.addEventListener('keydown', event => {
       if (event.target !== board) return;
@@ -193,7 +255,7 @@ window.WorkflowBoard = (() => {
       <div class="workflow-board" tabindex="0" aria-label="${task ? '任务依赖画布' : '研究目标画布'}"><div class="workflow-canvas"></div>
       <div class="wf-legend"><span><i></i>前置交付 → 后续任务</span>${task ? '<span><i class="is-future"></i>外部条件</span>' : ''}</div>
       <div class="wf-zoom"><button type="button" data-zoom="in" aria-label="放大">+</button><button type="button" data-zoom="out" aria-label="缩小">−</button><button type="button" data-zoom="reset" class="is-reset">复位</button></div></div>
-      <p class="wf-caption">${task ? '显示本任务的全部直接前置、外部条件及直接后续。点击相邻任务可继续追踪。' : '主题分栏用于浏览。箭头表示目标下具体任务的依赖，连接依据可展开核对。点击目标打开任务书。'} 画布可拖动，使用缩放按钮调整视野。</p>
+      <p class="wf-caption">${task ? '显示本任务的全部直接前置、外部条件及直接后续。点击相邻任务可继续追踪。' : '主题分栏用于浏览。箭头表示目标下具体任务的依赖，连接依据可展开核对。点击目标打开任务书。'} 拖动卡片调整位置，拖动空白处平移画布。</p>
       <details class="wf-connection-list"><summary>查看连线依据</summary><div></div></details>
       <dialog id="workflow-taskbook" class="wf-taskbook-dialog" aria-labelledby="wf-book-title"><div class="wf-sheet-head"><h2 id="wf-book-title">任务书</h2><button type="button" class="wf-sheet-close" aria-label="关闭任务书">×</button></div><div class="wf-book-content"></div></dialog>`;
     const board = root.querySelector('.workflow-board');
@@ -255,7 +317,10 @@ window.WorkflowBoard = (() => {
         const item = graph.conditions.get(button.dataset.wfCondition);
         present('外部条件', `<h2>${esc(item.id)} ${esc(item.title)}</h2><p>${esc(item.status)} · ${esc(item.provider)}</p><p>${esc(item.criteria)}</p>`);
       }
-      if (button.dataset.zoom === 'reset') fit();
+      if (button.dataset.zoom === 'reset') {
+        scene.reset();
+        fit();
+      }
       if (button.dataset.zoom === 'in') nav.zoom(1.2, board.clientWidth / 2, board.clientHeight / 2);
       if (button.dataset.zoom === 'out') nav.zoom(1 / 1.2, board.clientWidth / 2, board.clientHeight / 2);
     }, { signal: resetMountListener() });

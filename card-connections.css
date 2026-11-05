@@ -1,0 +1,19 @@
+.card-connections {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 0;
+}
+.card-connections path {
+  fill: none;
+  stroke: #6899c7;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.card-connections .is-future,
+.card-connections .connector-tip.future { stroke: #bc8749; }
+.card-connections .is-future { stroke-dasharray: 5 4; }

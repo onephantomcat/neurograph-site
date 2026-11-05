@@ -124,7 +124,6 @@
   min-width: 0;
   max-width: 1000px;
   overflow: visible;
-  transition: height .42s cubic-bezier(.2, .75, .25, 1), opacity .24s ease, gap .42s cubic-bezier(.2, .75, .25, 1);
 }
 #view-history .history-day-work > * {
   min-height: 0;
@@ -151,6 +150,7 @@
 #view-history .research-timeline article.history-work-card,
 #view-history .history-guidance-card {
   position: relative;
+  z-index: 1;
   display: block;
   min-width: 0;
   padding: 17px 19px;
@@ -158,7 +158,7 @@
   border-radius: 16px;
   background: var(--hb-card);
   box-shadow: var(--hb-shadow);
-  transition: box-shadow .26s ease, border-color .26s ease, transform .26s ease;
+  transition: box-shadow .26s ease, border-color .26s ease;
 }
 #view-history .research-timeline article.history-work-card {
   gap: 0;
@@ -189,29 +189,6 @@
   transition: width .34s cubic-bezier(.2, .75, .25, 1);
 }
 
-/* 连接箭头：从建议卡指向工作卡，收起时缩回 */
-#view-history .history-guidance-card.is-linked::before {
-  content: "";
-  position: absolute;
-  left: -22px;
-  top: 50%;
-  width: 22px;
-  border-top: 1.5px solid #7caad6;
-  transform-origin: right center;
-  transition: transform .34s cubic-bezier(.2, .75, .25, 1), opacity .22s ease;
-}
-#view-history .history-guidance-card.is-linked::after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  left: -22px;
-  top: calc(50% - 7px);
-  border: 6px solid transparent;
-  border-right-color: #7caad6;
-  transform-origin: right center;
-  transition: transform .34s cubic-bezier(.2, .75, .25, 1), opacity .22s ease;
-}
-
 /* ---- 拖拽态 ----------------------------------------------------------- */
 #view-history .board-card { cursor: grab; }
 #view-history .board-card.is-pressed { cursor: grabbing; }
@@ -227,38 +204,6 @@
 #view-history .board-card.is-dragging .history-models a,
 #view-history .board-card.is-dragging details { pointer-events: none; }
 
-/* 画布上的竖向连接箭头 */
-#view-history .board-arrow {
-  display: grid;
-  justify-items: center;
-  height: 18px;
-  color: #86a6c7;
-  font-size: 13px;
-  line-height: 1;
-  user-select: none;
-}
-#view-history .board-arrow::before { content: "↑"; }
-#view-history .board-arrow.is-retracted { height: 0; opacity: 0; overflow: hidden; }
-
-/* 收起态行与行之间的连接箭头（首位不显示，即“首位箭头收回”） */
-#view-history .chain-arrow {
-  position: absolute;
-  left: 50%;
-  top: -13px;
-  transform: translateX(-50%);
-  color: #8ba9c7;
-  font-size: 13px;
-  line-height: 1;
-  pointer-events: none;
-}
-@media (prefers-reduced-motion: no-preference) {
-  #view-history .chain-arrow { animation: history-chain-arrow-in .32s ease both; }
-  @keyframes history-chain-arrow-in {
-    from { opacity: 0; translate: 0 4px; }
-    to { opacity: 1; translate: 0 0; }
-  }
-}
-
 /* ---- 收起态：工作收回，建议滑动汇聚为等距单列 --------------------------- */
 /* 没有导师建议的日期在收起态没有内容可读，整行退出布局，卡片间距才能真正等距 */
 #view-history.is-work-collapsed .history-day-row:not(:has(.history-day-advice)) {
@@ -272,48 +217,18 @@
   padding: 13px 0;
   border-top-color: transparent;
 }
-#view-history.is-work-collapsed .history-day-work {
-  gap: 0;
-  opacity: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-#view-history.is-work-collapsed .history-date-stack {
-  position: static;
-  flex-direction: row;
-  align-items: baseline;
-  justify-self: center;
-  gap: 5px;
-  margin: 0 0 4px;
-  padding: 3px 12px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, .78);
-  box-shadow: none;
-}
-#view-history.is-work-collapsed .history-date-stack > * { display: none; }
-#view-history.is-work-collapsed .history-date-stack::after {
-  content: attr(data-full);
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: .03em;
-  color: #5d7994;
-  font-variant-numeric: tabular-nums;
-}
+#view-history.is-work-collapsed .history-day-work,
+#view-history.is-work-collapsed .history-date-stack,
+#view-history.is-work-collapsed #history-more { display: none; }
 #view-history.is-work-collapsed .history-day-advice,
 #view-history.is-work-collapsed .history-day-row:not(:has(.history-work-card)) .history-day-advice {
   grid-column: 1;
   width: min(100%, 680px);
   justify-self: center;
   margin: 0 auto;
-  gap: 10px;
+  gap: 26px;
 }
-#view-history.is-work-collapsed .history-guidance-card.is-linked::before,
-#view-history.is-work-collapsed .history-guidance-card.is-linked::after {
-  opacity: 0;
-  transform: scaleX(0);
-}
-/* 首位箭头收回后，剩余箭头保持等距 */
-#view-history.is-work-collapsed .board-arrow { height: 16px; }
+#view-history.is-work-collapsed .history-guidance-link-note { display: none; }
 
 /* ---- 工具条 ----------------------------------------------------------- */
 #view-history .history-board-reset[hidden] { display: none; }
@@ -332,10 +247,8 @@
   #view-history .history-day-advice {
     grid-column: 2;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 14px;
   }
-  #view-history .history-guidance-card.is-linked::before,
-  #view-history .history-guidance-card.is-linked::after { display: none; }
 }
 @media (max-width: 760px) {
   #view-history .history-board-viewport { padding: 12px 12px 20px; border-radius: 18px; }
@@ -343,7 +256,7 @@
   #view-history .history-day-row:has(.history-day-advice),
   #view-history .history-day-row:not(:has(.history-day-advice)) { grid-template-columns: minmax(0, 1fr); gap: 10px; }
   #view-history .history-date-stack { position: static; flex-direction: row; gap: 6px; padding: 7px 11px; justify-self: start; }
-  #view-history .history-day-advice { grid-column: 1; margin-top: 8px; }
+  #view-history .history-day-advice { grid-column: 1; margin: 14px 0 0; }
   #view-history .history-day-row:not(:has(.history-work-card)) { grid-template-columns: minmax(0, 1fr); }
   #view-history .history-day-row:not(:has(.history-work-card)) .history-day-advice { grid-column: 1; }
   #view-history .history-date-month { font-size: 14px; }
@@ -356,7 +269,6 @@
 
 /* ---- 动效 ------------------------------------------------------------- */
 @media (prefers-reduced-motion: no-preference) {
-  #view-history .history-guidance-card.is-linked { transition: box-shadow .2s ease; }
   #view-history .history-board-viewport { transition: box-shadow .3s ease; }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -29,7 +29,7 @@
   <script src="./history-board.js?v=20261105-connections" defer></script>
   <script src="./dialog-viewer.js?v=20261102-dialog" defer></script>
   <script src="./workflow-board.js?v=20261105-connections" defer></script>
-  <link rel="stylesheet" href="./assistant/tm.css?v=20261106-work">
+  <link rel="stylesheet" href="./assistant/tm.css?v=20261106-composer">
 </head>
 <body>
   <a class="skip" href="#main">跳到主要内容</a>
@@ -100,12 +100,8 @@
     <div class="tm-composer">
       <div id="tm-context" class="tm-context" aria-label="待发送引用" hidden></div>
       <div class="tm-input-wrap">
-        <textarea class="tm-input" id="tm-input" rows="1" placeholder="问点什么…（Enter 发送，Shift+Enter 换行）"></textarea>
+        <textarea class="tm-input" id="tm-input" rows="1" aria-label="输入消息"></textarea>
         <button class="tm-send" id="tm-send" type="button" aria-label="发送"></button>
-      </div>
-      <div class="tm-composer-foot">
-        <span>Esc 关闭面板</span><span class="tm-spacer"></span>
-        <span id="tm-service-label">项目资料问答</span>
       </div>
     </div>
     <section class="tm-work" id="tm-work" aria-label="项目任务" hidden>
@@ -132,7 +128,7 @@
   </section>
   <script src="./assistant/tm-profile.js?v=20261104-gap3" defer></script>
   <script src="./assistant/evidence.js?v=20261105-evidence-context" defer></script>
-  <script src="./assistant/tm.js?v=20261106-work" defer></script>
+  <script src="./assistant/tm.js?v=20261106-composer" defer></script>
   <script src="./assistant/work.js?v=20261106-work" defer></script>
 </body>
 </html>

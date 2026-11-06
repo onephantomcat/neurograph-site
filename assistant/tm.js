@@ -144,7 +144,6 @@
       .then(function (config) {
         if (typeof config.endpoint === 'string' && config.endpoint.startsWith('https://')) endpoint = config.endpoint;
         if (endpoint) {
-          $('#tm-service-label').textContent = '项目共用模型服务';
           var sheet = $('#tm-sheet');
           if (sheet?.classList.contains('is-open')) renderSheet();
         }

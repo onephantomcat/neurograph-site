@@ -225,12 +225,6 @@ body.tm-resizing .shell, body.tm-resizing .tm-panel { transition: none !importan
 .tm-send:disabled { background: #b7cbc9; cursor: default; }
 .tm-send svg { width: 15px; height: 15px; }
 .tm-send.is-stop { background: var(--red); }
-.tm-composer-foot {
-  display: flex; align-items: center; gap: 8px; margin-top: 6px;
-  color: var(--muted); font-size: 10px; letter-spacing: .2px;
-}
-.tm-composer-foot .tm-spacer { flex: 1; }
-.tm-kbd { padding: 1px 5px; border: 1px solid var(--line); border-radius: 4px; background: #f6f9fa; font-size: 9.5px; }
 
 /* 设置 / 身份面板 */
 .tm-sheet {

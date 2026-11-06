@@ -15,7 +15,7 @@
     running: '运行中', ready: '计算完成', failed: '执行失败', published: '结果已推送',
   };
 
-  const endpoint = fetch(new URL('./assistant/config.json', document.baseURI))
+  const endpoint = fetch(new URL('./assistant/config.json', document.baseURI), {cache: 'no-store'})
     .then(response => response.ok ? response.json() : {})
     .then(config => {
       const url = config.work_endpoint;

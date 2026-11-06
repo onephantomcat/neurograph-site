@@ -209,6 +209,7 @@
 
   function addReference(ref) {
     openPanel();
+    $('#tm-panel')?.dispatchEvent(new Event('tm:show-chat'));
     if (!draft().some(function (other) {
       return other.sourceId === ref.sourceId && other.kind === ref.kind && other.locator === ref.locator && other.excerpt === ref.excerpt;
     })) S.drafts.set(S.current, draft().concat(ref));

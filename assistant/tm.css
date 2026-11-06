@@ -278,6 +278,26 @@ body.tm-resizing .shell, body.tm-resizing .tm-panel { transition: none !importan
 
 .tm-context { display: flex; flex-wrap: wrap; gap: 6px; max-height: 110px; overflow: auto; margin-bottom: 8px; }
 .tm-context[hidden], .evidence-selection[hidden], .tm-field[hidden] { display: none; }
+
+.tm-modes, .tm-work-actions { display: flex; gap: 8px; }
+.tm-modes { padding: 8px 16px; border-bottom: 1px solid var(--line); }
+.tm-modes button, .tm-work button, .tm-work input, .tm-work textarea {
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 6px 9px;
+}
+.tm-modes button, .tm-work button { cursor: pointer; }
+.tm-modes button[aria-pressed="true"] { border-color: #368d95; background: #368d951c; }
+.tm-work { flex: 1; overflow: auto; min-height: 0; padding: 12px 16px; overflow-wrap: anywhere; }
+.tm-work-form { display: grid; gap: 6px; margin-bottom: 12px; }
+.tm-work-list { padding: 0; list-style: none; }
+.tm-work-list li { border-top: 1px solid var(--line); padding: 8px 0; }
+.tm-work-list pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+.tm-work[hidden], .tm-work [hidden],
+.tm-panel.tm-work-open :is(.tm-metabar, .tm-sessionbar, .tm-messages, .tm-composer, #tm-new, #tm-cfg) { display: none; }
 .tm-context-chip { display: inline-flex; min-width: 0; max-width: 100%; border: 1px solid var(--line); border-radius: 9px; background: var(--canvas); }
 .tm-context-chip button { padding: 4px 8px; font-size: 12px; color: var(--ink); }
 .tm-context-chip button:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

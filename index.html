@@ -29,7 +29,7 @@
   <script src="./history-board.js?v=20261105-connections" defer></script>
   <script src="./dialog-viewer.js?v=20261102-dialog" defer></script>
   <script src="./workflow-board.js?v=20261105-connections" defer></script>
-  <link rel="stylesheet" href="./assistant/tm.css?v=20261105-evidence-context">
+  <link rel="stylesheet" href="./assistant/tm.css?v=20261106-work">
 </head>
 <body>
   <a class="skip" href="#main">跳到主要内容</a>
@@ -78,6 +78,10 @@
         <button class="tm-icon-btn" id="tm-close" type="button" title="关闭" aria-label="关闭"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
       </div>
     </header>
+    <nav class="tm-modes" aria-label="mini TM 模式">
+      <button type="button" id="tm-mode-chat" aria-pressed="true" aria-controls="tm-messages">Chat · 问答</button>
+      <button type="button" id="tm-mode-work" aria-pressed="false" aria-controls="tm-work">Work · 任务</button>
+    </nav>
     <div class="tm-metabar">
       <select id="tm-member" aria-label="当前身份"></select>
       <span class="tm-spacer"></span>
@@ -104,10 +108,31 @@
         <span id="tm-service-label">项目资料问答</span>
       </div>
     </div>
+    <section class="tm-work" id="tm-work" aria-label="项目任务" hidden>
+      <form id="tm-work-login" class="tm-work-form">
+        <label for="tm-work-key">组员访问凭据</label>
+        <input id="tm-work-key" type="password" autocomplete="off" required>
+        <button type="submit">连接 Work</button>
+      </form>
+      <form id="tm-work-form" class="tm-work-form" hidden>
+        <label for="tm-work-title">公开任务标题</label>
+        <input id="tm-work-title" maxlength="120" required>
+        <label for="tm-work-request">组内任务说明</label>
+        <textarea id="tm-work-request" rows="4" maxlength="6000" required></textarea>
+        <button type="submit">提交任务</button>
+      </form>
+      <div class="tm-work-actions">
+        <button id="tm-work-refresh" type="button">刷新任务</button>
+        <button id="tm-work-logout" type="button" hidden>退出 Work</button>
+      </div>
+      <p id="tm-work-status" role="status"></p>
+      <ol id="tm-work-list" class="tm-work-list"></ol>
+    </section>
     <div class="tm-sheet" id="tm-sheet"></div>
   </section>
   <script src="./assistant/tm-profile.js?v=20261104-gap3" defer></script>
   <script src="./assistant/evidence.js?v=20261105-evidence-context" defer></script>
-  <script src="./assistant/tm.js?v=20261105-evidence-context" defer></script>
+  <script src="./assistant/tm.js?v=20261106-work" defer></script>
+  <script src="./assistant/work.js?v=20261106-work" defer></script>
 </body>
 </html>

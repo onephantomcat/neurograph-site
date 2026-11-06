@@ -1933,6 +1933,7 @@ Emo访谈VAS、音乐近扫描VRS、PTN七日NRS分别建模；当前音乐四�
 - [报告软件使用说明](./files/explanation-reproduction-20261029-software-readme.txt)
 - [报告软件针对性测试](./files/explanation-reproduction-20261029-software-test.py)
 - [公开示例模型汇总](./files/explanation-reproduction-20261029-example-models.csv)
+- [A16.01 研究原型请求与结果字段](./files/research-request-fields-a16-01-20261106.md)
 - [ABIDE_TRANSFER.md](./files/archive-9cf2663dec262b90.md)
 - [BRAIN_IMAGING_SERVER_MAC_HANDOFF.md](./files/archive-c6ba5607a696df3f.md)
 - [COVERAGE_COHORT_CANDIDATES_2026-07-27.md](./files/archive-54d45e085ca093d4.md)

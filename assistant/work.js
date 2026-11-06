@@ -18,10 +18,12 @@
   const endpoint = fetch(new URL('./assistant/config.json', document.baseURI))
     .then(response => response.ok ? response.json() : {})
     .then(config => {
-      const url = config.work_endpoint || (config.endpoint && new URL('/work/', config.endpoint).href);
+      const url = config.work_endpoint;
       if (!url) return null;
       const target = new URL(url);
       const local = ['localhost', '127.0.0.1'].includes(location.hostname) && target.hostname === location.hostname;
+      if (target.username || target.password || target.search || target.hash || !/^\/work\/?$/.test(target.pathname)) return null;
+      target.pathname = '/work/';
       return target.protocol === 'https:' || (local && target.protocol === 'http:') ? target : null;
     })
     .catch(() => null);
@@ -32,7 +34,7 @@
     const headers = credential ? {Authorization: 'Bearer ' + credential} : {};
     if (body) headers['Content-Type'] = 'application/json';
     const response = await fetch(new URL(route, base), {
-      method: body ? 'POST' : 'GET', headers, ...(body ? {body: JSON.stringify(body)} : {}),
+      method: body ? 'POST' : 'GET', headers, redirect: 'error', ...(body ? {body: JSON.stringify(body)} : {}),
     });
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || 'Work 请求未成功。');

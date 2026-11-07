@@ -33,12 +33,45 @@
     if (!base) throw new Error('当前站点尚未连接 Work 服务。');
     const headers = credential ? {Authorization: 'Bearer ' + credential} : {};
     if (body) headers['Content-Type'] = 'application/json';
-    const response = await fetch(new URL(route, base), {
-      method: body ? 'POST' : 'GET', headers, redirect: 'error', ...(body ? {body: JSON.stringify(body)} : {}),
-    });
+    let response;
+    try {
+      response = await fetch(new URL(route, base), {
+        method: body ? 'POST' : 'GET', headers, redirect: 'error', ...(body ? {body: JSON.stringify(body)} : {}),
+      });
+    } catch {
+      throw connectionError('Work 服务连接失败，请运行连接检测。');
+    }
+    if (!(response.headers.get('content-type') || '').includes('application/json')) {
+      const content = await response.text();
+      const code = /error code:\s*(\d{4})/i.exec(content)?.[1];
+      if (response.status === 403) {
+        const cloudflare = code || response.headers.get('cf-mitigated') === 'challenge' ||
+          /cloudflare|challenge-platform/i.test(content);
+        throw connectionError(cloudflare
+          ? 'Cloudflare' + (code ? ' ' + code : '') + ' 返回了访问拦截响应。'
+          : 'Work 服务拒绝了本次连接（HTTP 403）。');
+      }
+      throw connectionError('Work 服务返回了异常响应（HTTP ' + response.status + '）。');
+    }
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || 'Work 请求未成功。');
     return data;
+  }
+
+  function connectionError(message) {
+    return Object.assign(new Error(message), {workConnection: true});
+  }
+
+  function showFailure(error) {
+    status.textContent = error.message;
+    if (error.workConnection) {
+      const link = document.createElement('a');
+      link.href = new URL('./assistant/work-check.html', document.baseURI).href;
+      link.textContent = '运行连接检测';
+      link.target = '_blank';
+      link.rel = 'noopener';
+      status.append(' ', link);
+    }
   }
 
   function render(tasks) {
@@ -72,7 +105,7 @@
       render(data.tasks);
       status.textContent = data.member ? '已连接 · ' + data.member : '公开任务进展';
     } catch (error) {
-      if (id === refreshId) status.textContent = error.message;
+      if (id === refreshId) showFailure(error);
     }
   }
 
@@ -113,7 +146,7 @@
       await refresh();
     } catch (error) {
       credential = '';
-      status.textContent = error.message;
+      showFailure(error);
     } finally {
       button.disabled = false;
     }
@@ -134,7 +167,7 @@
       form.reset();
       await refresh();
     } catch (error) {
-      status.textContent = error.message;
+      showFailure(error);
     } finally {
       button.disabled = false;
     }

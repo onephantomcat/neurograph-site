@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>mini TM Work 连接检测</title>
+<style>
+body{margin:0;background:#f5f7fb;color:#18243b;font:16px/1.7 system-ui,sans-serif}
+main{max-width:800px;margin:40px auto;padding:24px;background:white;border-radius:16px}
+h1{font-size:24px;margin:0 0 12px}p{margin:12px 0}button{font:inherit;padding:8px 16px;margin:0 8px 8px 0;border:1px solid #b8c5da;border-radius:8px;background:#edf3ff;color:#16458c;cursor:pointer}
+button:disabled{opacity:.5;cursor:default}pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:16px;background:#f0f3f8;border-radius:8px;font-size:13px}
+a{color:#16458c}@media(max-width:600px){main{margin:12px;padding:18px}}
+</style>
+<main>
+  <h1>mini TM Work 连接检测</h1>
+  <p>请在出现问题的电脑和浏览器中运行。检测会读取浏览器基本特征，并检查公开接口和认证请求能否到达 Work 服务。</p>
+  <button id="run">运行检测</button><button id="copy" disabled>复制检测报告</button>
+  <p id="status" role="status" aria-live="polite">等待检测。</p>
+  <pre id="report" hidden></pre>
+  <p><a href="../">返回项目网站</a></p>
+</main>
+<script>
+(() => {
+  const run = document.getElementById('run');
+  const copy = document.getElementById('copy');
+  const status = document.getElementById('status');
+  const output = document.getElementById('report');
+  let reportText = '';
+
+  async function probe(url, authenticated) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 12000);
+    try {
+      const response = await fetch(url, {
+        credentials: 'omit', redirect: 'error', cache: 'no-store', signal: controller.signal,
+        ...(authenticated ? {headers: {Authorization: 'Bearer ' + 'x'.repeat(43)}} : {}),
+      });
+      const body = await response.text();
+      const code = /error code:\s*(\d{4})/i.exec(body)?.[1] || null;
+      return {
+        status: response.status, content_type: response.headers.get('content-type'),
+        cloudflare_code: code, ray_id: response.headers.get('cf-ray'),
+        challenge: response.headers.get('cf-mitigated') === 'challenge' || body.includes('challenge-platform'),
+      };
+    } catch (error) {
+      return {status: null, error: error.name === 'AbortError' ? '连接超时' : error.message};
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
+  run.addEventListener('click', async () => {
+    run.disabled = true;
+    copy.disabled = true;
+    status.textContent = '正在检测连接…';
+    const report = {
+      checked_at: new Date().toISOString(), page_origin: location.origin,
+      browser: {
+        user_agent: navigator.userAgent, platform: navigator.platform, language: navigator.language,
+        cookies_enabled: navigator.cookieEnabled, webdriver: navigator.webdriver,
+        secure_context: window.isSecureContext,
+      },
+    };
+    try {
+      const response = await fetch('./config.json', {cache: 'no-store'});
+      if (!response.ok) throw new Error('站点配置 HTTP ' + response.status);
+      const config = await response.json();
+      if (!config.work_endpoint) throw new Error('站点尚未发布 Work 地址');
+      const endpoint = new URL(config.work_endpoint);
+      if (endpoint.protocol !== 'https:' || endpoint.username || endpoint.password ||
+          endpoint.search || endpoint.hash || endpoint.pathname !== '/work/') {
+        throw new Error('站点的 Work 地址格式异常');
+      }
+      report.endpoint = endpoint.href;
+      report.public_request = await probe(new URL('public', endpoint), false);
+      report.authentication_preflight = await probe(new URL('tasks', endpoint), true);
+      if (report.public_request.status === 200 && report.authentication_preflight.status === 401) {
+        status.textContent = '公开接口可达，认证请求的跨域预检通过。测试凭据按预期被拒绝。';
+      } else {
+        status.textContent = '连接检测发现异常，请复制报告交给项目维护者。';
+      }
+    } catch (error) {
+      report.error = error.message;
+      status.textContent = error.message;
+    } finally {
+      reportText = JSON.stringify(report, null, 2);
+      output.textContent = reportText;
+      output.hidden = false;
+      copy.disabled = false;
+      run.disabled = false;
+    }
+  });
+
+  copy.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(reportText);
+      copy.textContent = '已复制';
+    } catch {
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range.selectNodeContents(output);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      status.textContent = '请复制已选中的检测报告。';
+    }
+  });
+})();
+</script>
+</html>

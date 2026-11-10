@@ -1,3 +1,13 @@
+# NeuroGraph 历史站点存档
+
+正式网站已迁至 [neurograph.skyseiun.com](https://neurograph.skyseiun.com/neurograph-site/)。
+
+网站、公开资料、Work 服务和部署代码统一维护于 [onephantomcat/Fmri](https://github.com/onephantomcat/Fmri)。本仓库保留历史文件与 Git 记录，旧首页会跳转至正式网站。
+
+以下为迁移前的仓库说明。
+
+---
+
 # NeuroGraph 研究展示
 
 疼痛 fMRI 项目的研究进度、聚合指标、方法说明与公开报告。
